@@ -6,9 +6,9 @@ Hay dos principales tipos de editores de código: IDEs y editores livianos. Much
 
 ## IDE
 
-El término [IDE](https://en.wikipedia.org/wiki/Integrated_development_environment) (siglas en inglés para Integrated Development Environment, Ambiente Integrado de Desarrollo) se refiere a un poderoso editor con varias características que operan usualmente sobre un "proyecto completo". Como el nombre sugiere, no sólo es un editor, sino un completo "ambiente de desarrollo".
+El término [IDE](https://es.wikipedia.org/wiki/Entorno_de_desarrollo_integrado) (siglas en inglés para Integrated Development Environment, Ambiente Integrado de Desarrollo) se refiere a un poderoso editor con varias características que operan usualmente sobre un "proyecto completo". Como el nombre sugiere, no sólo es un editor, sino un completo "ambiente de desarrollo".
 
-Un IDE carga el proyecto (el cual puede ser de varios archivos), permite navegar entre archivos, provee autompletado basado en el proyecto completo (no sólo el archivo abierto), e integra un sistema de control de versiones (como [git](https://git-scm.com/)), un ambiente de pruebas, entre otras cosas a "nivel de proyecto".
+Un IDE carga el proyecto (el cual puede ser de varios archivos), permite navegar entre archivos, provee autocompletado basado en el proyecto completo (no sólo el archivo abierto), e integra un sistema de control de versiones (como [git](https://git-scm.com/)), un ambiente de pruebas, entre otras cosas a "nivel de proyecto".
 
 Si aún no has seleccionado un IDE, considera las siguientes opciones:
 
@@ -17,7 +17,7 @@ Si aún no has seleccionado un IDE, considera las siguientes opciones:
 
 Todos estos IDEs son multiplataforma ( cross-platform).
 
-Para Windows, también esta "Visual Studio", no lo confundamos con "Visual Studio Code". "Visual Studio" es un poderoso editor pagado sólo para Windows, idoneo para la plataforma .NET. Una versión gratuita es de este editor se llama [Visual Studio Community](https://www.visualstudio.com/vs/community/).
+Para Windows, también está "Visual Studio", no lo confundamos con "Visual Studio Code". "Visual Studio" es un poderoso editor pagado sólo para Windows, idóneo para la plataforma .NET. Una versión gratuita es de este editor se llama [Visual Studio Community](https://www.visualstudio.com/vs/community/).
 
 Muchos IDEs son de paga pero tienen un periodo de prueba. Su costo usualmente es pequeño si lo comparamos al salario de un desarrollador calificado, así que sólo escoge el mejor para ti.
 
@@ -27,9 +27,9 @@ Muchos IDEs son de paga pero tienen un periodo de prueba. Su costo usualmente es
 
 Son usados principalmente para abrir y editar un archivo al instante.
 
-La diferencia principal entre un "editor liviano" y un "IDE" es que un IDE trabaja a nivel de proyecto, por lo que carga mucha más data desde el inicio, analiza la estructura del proyecto si así lo requiere y continua. Un editor liviano es mucho más rápido si solo necesitamos un archivo.
+La diferencia principal entre un "editor liviano" y un "IDE" es que un IDE trabaja a nivel de proyecto, por lo que carga mucha más información desde el inicio, analiza la estructura del proyecto si así lo requiere y continua. Un editor liviano es mucho más rápido si solo necesitamos un archivo.
 
-En la práctica, los editores livianos pueden tener montones de plugins incluyendo analizadores de sintaxis a nivel de directorio y autocompletadores, por lo que no hay un límite estricto entre un editor liviano y un IDE.
+En la práctica, los editores livianos pueden tener montones de plugins incluyendo analizadores de sintaxis a nivel de directorio y autocompletado, por lo que no hay un límite estricto entre un editor liviano y un IDE.
 
 Las siguientes opciones merecen tu atención:
 
@@ -45,7 +45,7 @@ La preferencia personal del autor es tener ambos, un IDE para proyectos y un edi
 
 Estoy usando:
 
-- Como IDE para JS -- [WebStorm](http://www.jetbrains.com/webstorm/) (Cambio a algún otros de los que ofrece JetBrains cuando uso otros lenguajes)
+- Como IDE para JS -- [WebStorm](http://www.jetbrains.com/webstorm/) (Uso alguno de los que ofrece JetBrains cuando uso otros lenguajes)
 - Como un editor liviano -- [Sublime Text](http://www.sublimetext.com) o [Atom](https://atom.io/).
 
 ## No discutamos
