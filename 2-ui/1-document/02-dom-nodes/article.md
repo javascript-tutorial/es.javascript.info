@@ -114,7 +114,7 @@ El siguiente documento "inválido":
 <li>Dad
 ```
 
-...se convertirá en un DOM normal, ya que el navegador lee las etiquetas y restaura las partes faltantes:
+...Se convertirá en un DOM normal, ya que el navegador lee las etiquetas y restaura las partes faltantes:
 
 <div class="domtree"></div>
 
