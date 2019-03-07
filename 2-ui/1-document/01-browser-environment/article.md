@@ -2,7 +2,7 @@
 
 El lenguaje JavaScript fue creado inicialmente para los navegadores web. Desde entonces, ha evolucionado y se ha convertido en un lenguaje con muchos usos y plataformas.
 
-Una plataforma puede ser un navegador, un servidor web, una lavadora u otro *host*. Cada uno de ellos proporciona una funcionalidad específica. La especificación de JavaScript lo llama *entorno host*.
+Una plataforma puede ser un navegador, un servidor web, una lavadora u otro *host (anfitrión)*. Cada uno de ellos proporciona una funcionalidad específica. La especificación de JavaScript lo llama *entorno host*.
 
 Un entorno host proporciona objetos específicos de la plataforma y funciones adicionales al núcleo del lenguaje. Los navegadores web proporcionan un medio para controlar las páginas web. Node.JS proporciona características del lado del servidor, y así sucesivamente.
 
@@ -56,7 +56,7 @@ Como es de esperar, los dos grupos no siempre están de acuerdo, así que es com
 
 Personalmente, encuentro <https://dom.spec.whatwg.org> más agradable de usar.
 
-En el pasado lejano, no existía ninguna norma en absoluto: cada navegador se implementaba como quería. Diferentes navegadores tenían diferentes métodos y propiedades para la misma cosa, y los desarrolladores tenían que escribir un código diferente para cada uno de ellos. Tiempos oscuros, desordenados.
+En el pasado lejano, no existía ninguna norma en absoluto: cada navegador lo implementaba como quería. Diferentes navegadores tenían diferentes métodos y propiedades para la misma cosa, y los desarrolladores tenían que escribir un código diferente para cada uno de ellos. Tiempos oscuros, desordenados.
 
 Incluso ahora, podemos encontrarnos con código antiguo que usa propiedades específicas del navegador y soluciona las incompatibilidades. Pero, en este tutorial usaremos cosas modernas: no hay necesidad de aprender cosas antiguas hasta que realmente lo necesites (es muy probable que no lo hagas).
 
@@ -81,8 +81,7 @@ El Modelo de Objetos del Navegador (BOM) son objetos adicionales proporcionados 
 Por ejemplo:
 
 - El objeto [navigator](mdn:api/Window/navigator), proporciona información sobre el navegador y el sistema operativo. Hay muchas propiedades, pero las dos más conocidas son: `navigator.userAgent` -- sobre el navegador actual, y `navigator.platform` -- sobre la plataforma (puede ayudar a diferenciar entre Windows/Linux/Mac, etc.).
-
-El objeto [location](mdn:api/Window/location), nos permite leer la URL actual y puede redirigir el navegador a uno nuevo.
+- El objeto [location](mdn:api/Window/location), nos permite leer la URL actual y puede redirigir el navegador a uno nuevo.
 
 Aquí vemos cómo podemos usar el objeto `location`:
 
@@ -96,7 +95,7 @@ if (confirm("Go to wikipedia?")) {
 Las funciones `alert/confirm/prompt` también forman parte de BOM: no están directamente relacionadas con el documento, sino que representan métodos de comunicación puros con el usuario.
 
 ```smart header="Especificación de HTML"
-BOM es la parte general de la especificación de HTML.
+BOM es la parte general de la especificación de HTML [HTML specification](https://html.spec.whatwg.org).
 
 Sí, oíste bien. La especificación HTML en <https://html.spec.whatwg.org> no solo trata sobre el "lenguaje HTML" (etiquetas, atributos), sino que también cubre un montón de objetos, métodos y extensiones DOM específicas del navegador. Eso es "HTML en términos generales".
 ```
