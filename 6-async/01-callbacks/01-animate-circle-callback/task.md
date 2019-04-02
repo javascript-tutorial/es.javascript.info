@@ -1,19 +1,18 @@
+# Círculo animado con callbacks
 
-# Animated circle with callback
+En esta tarea <info:task/animate-circle> se muestra un círculo animado creciendo.
 
-In the task <info:task/animate-circle> an animated growing circle is shown.
+Ahora, digamos que no necesitamos sólo un círculo, sino también mostrar un mensaje dentro de él. El mensaje debe aparecer _después_ que se ha completado la animación (el círculo ha crecido por completo), de otra manera se vería feo.
 
-Now let's say we need not just a circle, but to show a message inside it. The message should appear *after* the animation is complete (the circle is fully grown), otherwise it would look ugly.
+El la solución de esta tarea, la función `showCircle(cx, cy, radius)` dibuja el círulo, pero no hay manera de rastrea cuando está listo.
 
-In the solution of the task, the function `showCircle(cx, cy, radius)` draws the circle, but gives no way to track when it's ready.
+Agrega un argumento callback: `showCircle(cx, cy, radius, callback)` a ser llamado cuando la animación se halla completado. El `callback` debe recibir como un argumonto el `<div>` del círculo.
 
-Add a callback argument: `showCircle(cx, cy, radius, callback)` to be called when the animation is complete. The `callback` should receive the circle `<div>` as an argument.
-
-Here's the example:
+Aquí hay un ejemplo:
 
 ```js
 showCircle(150, 150, 100, div => {
-  div.classList.add('message-ball');
+  div.classList.add("message-ball");
   div.append("Hello, world!");
 });
 ```
@@ -22,4 +21,4 @@ Demo:
 
 [iframe src="solution" height=260]
 
-Take the solution of the task <info:task/animate-circle> as the base.
+Toma la solución de la tarea <info:task/animate-circle> como base.

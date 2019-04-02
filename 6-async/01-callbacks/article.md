@@ -1,53 +1,51 @@
+# Introducción: callbacks
 
+Muchas acciones en JavaScript son _asíncronas_.
 
-# Introduction: callbacks
-
-Many actions in JavaScript are *asynchronous*.
-
-For instance, take a look at the function `loadScript(src)`:
+Por ejemplo, vemos la función `loadScript(src)`:
 
 ```js
 function loadScript(src) {
-  let script = document.createElement('script');
+  let script = document.createElement("script");
   script.src = src;
   document.head.append(script);
 }
 ```
 
-The purpose of the function is to load a new script. When it adds the `<script src="…">` to the document, the browser loads and executes it.
+El propósito de la función es cargar un nuevo script. Cuando agrega el `<script src="…">` al documento, el navegador lo carga y ejecuta.
 
-We can use it like this:
+Podemos usarlo así:
 
 ```js
 // loads and executes the script
-loadScript('/my/script.js');
+loadScript("/my/script.js");
 ```
 
-The function is called "asynchronously," because the action (script loading) finishes not now, but later.
+La función es llamada "asíncronamente", porque la acción (cargar el script) no termina ahora, pero luego.
 
-The call initiates the script loading, then the execution continues. While the script is loading, the code below may finish executing, and if the loading takes time, other scripts may run meanwhile too.
+La llamada inicia la carga del script, luego la ejecución continua. Mientras el script está cargando, el código de abajo podría terminar su ejecución, y si la carga toma tiempo, otros scripts también pueden correr mientras tanto.
 
 ```js
-loadScript('/my/script.js');
-// the code below loadScript doesn't wait for the script loading to finish
+loadScript("/my/script.js");
+// el código debajo del script no espera a que termine la carga de script
 // ...
 ```
 
-Now let's say we want to use the new script when it loads. It probably declares new functions, so we'd like to run them.
+Ahora, digamos que queremos usar el nuevo script cuando cargue. Probablemente el script declara nuevas funciones, así que nos gustaría ejecutarlas.
 
-But if we do that immediately after the `loadScript(…)` call, that wouldn't work:
+Pero si hacemos eso inmediatamente después de la llamada a `loadScript(…)`, no funcionaría:
 
 ```js
-loadScript('/my/script.js'); // the script has "function newFunction() {…}"
+loadScript('/my/script.js'); // el script tiene una nueva función "function newFunction() {…}"
 
 *!*
-newFunction(); // no such function!
+newFunction(); // no hay tal función!
 */!*
 ```
 
-Naturally, the browser probably didn't have time to load the script. So the immediate call to the new function fails. As of now, the `loadScript` function doesn't provide a way to track the load completion. The script loads and eventually runs, that's all. But we'd like to know when it happens, to use new functions and variables from that script.
+Naturalmente, el navegador probablemente no tuvo el tiempo de cargar el script. Así que el llamado inmediato de la nueva función falla. Actualmente, la función `loadScript` no provee una manera de rastrear que la carga se ha completado. El script carga y eventualmente ejecuta, eso es todo. Pero nos gustaría saber cuando sucede, para usar las funciones y variables de ese script.
 
-Let's add a `callback` function as a second argument to `loadScript` that should execute when the script loads:
+Agreguemos un función `callback` como segundo argumento a `loadScript` que debe ejecutarse cuando el script carga:
 
 ```js
 function loadScript(src, *!*callback*/!*) {
@@ -62,19 +60,19 @@ function loadScript(src, *!*callback*/!*) {
 }
 ```
 
-Now if we want to call new functions from the script, we should write that in the callback:
+Ahora, si queremos cargar una nueva función del script, debemos escribirlo en la función callback:
 
 ```js
 loadScript('/my/script.js', function() {
-  // the callback runs after the script is loaded
-  newFunction(); // so now it works
+  // el callbck corre después que el script ha sido cargado
+  newFunction(); // ahora si funciona
   ...
 });
 ```
 
-That's the idea: the second argument is a function (usually anonymous) that runs when the action is completed.
+Esa es la idea: el segundo argumento es una función (usualmente anónima) que corre cuando la acción se ha completado.
 
-Here's a runnable example with a real script:
+Aquí hay un ejemplo ejecutable con un script real:
 
 ```js run
 function loadScript(src, callback) {
@@ -86,39 +84,39 @@ function loadScript(src, callback) {
 
 *!*
 loadScript('https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.js', script => {
-  alert(`Cool, the ${script.src} is loaded`);
-  alert( _ ); // function declared in the loaded script
+  alert(`Genial, el ${script.src} esta cargado`);
+  alert( _ ); // función declarada en el script cargado
 });
 */!*
 ```
 
-That's called a "callback-based" style of asynchronous programming. A function that does something asynchronously should provide a `callback` argument where we put the function to run after it's complete.
+Eso se llama un estilo "callback-based" o "basado en callbacks" de programación asíncrona. Una función que hace algo de manera asíncrona debe provee un argumento `callback` donde pongamos la función que correrá luego que sea completada.
 
-Here we did it in `loadScript`, but of course, it's a general approach.
+Aquí lo hicimos en `loadScript`, pero por supuesto, es un enfoque general.
 
-## Callback in callback
+## Callback en callback
 
-How to load two scripts sequentially: the first one, and then the second one after it?
+Como cargar dos script secuencialmente: el primero, ¿y luego el segundo después de ese?
 
-The natural solution would be to put the second `loadScript` call inside the callback, like this:
+La solución natural sería poner un segundo llamdo a `loadScript` dentro del callback, así:
 
 ```js
 loadScript('/my/script.js', function(script) {
 
-  alert(`Cool, the ${script.src} is loaded, let's load one more`);
+  alert(`Genial, el ${script.src} esta cargado, carguemos uno más`);
 
 *!*
   loadScript('/my/script2.js', function(script) {
-    alert(`Cool, the second script is loaded`);
+    alert(`Genial, el segundo script esta cargado`);
   });
 */!*
 
 });
 ```
 
-After the outer `loadScript` is complete, the callback initiates the inner one.
+Luego que el `loadScript` exterior se ha completado, el callback inicia el interior.
 
-What if we want one more script...?
+¿Qué pasa si queremos cargar un script más?
 
 ```js
 loadScript('/my/script.js', function(script) {
@@ -127,7 +125,7 @@ loadScript('/my/script.js', function(script) {
 
 *!*
     loadScript('/my/script3.js', function(script) {
-      // ...continue after all scripts are loaded
+      // ...continua luego que todos los cripts han cargado
     });
 */!*
 
@@ -136,13 +134,13 @@ loadScript('/my/script.js', function(script) {
 });
 ```
 
-So, every new action is inside a callback. That's fine for few actions, but not good for many, so we'll see other variants soon.
+De esta manera, cada nueva acción esta dentro de un callback. Esto esta bien para unas pocas acciones, pero no tan bien para varias, así que veremos otras variantes pronto.
 
-## Handling errors
+## Manejo de errors
 
-In examples above we didn't consider errors. What if the script loading fails? Our callback should be able to react on that.
+En el ejemplo de arriba, no consideramos errores. ¿Qué pasa su cargar el script falla? Nuestro callback debería poder reaccionar a eso.
 
-Here's an improved version of `loadScript` that tracks loading errors:
+Aquí hay una versión mejorada de `loadScript` que tracker la carga de :
 
 ```js run
 function loadScript(src, callback) {
@@ -158,11 +156,12 @@ function loadScript(src, callback) {
 }
 ```
 
-It calls `callback(null, script)` for successful load and `callback(error)` otherwise.
+Esta versión llama a `callback(null, script)` cuando la carga ha sido exitosa y a `callback(error)` en otro caso.
 
-The usage:
+En uso:
+
 ```js
-loadScript('/my/script.js', function(error, script) {
+loadScript("/my/script.js", function(error, script) {
   if (error) {
     // handle error
   } else {
@@ -171,19 +170,20 @@ loadScript('/my/script.js', function(error, script) {
 });
 ```
 
-Once again, the recipe that we used for `loadScript` is actually quite common. It's called the "error-first callback" style.
+Una vez más, la receta que usamos para `loadScript` es bastante usada. Es llamado estilo "error-first callback".
 
-The convention is:
-1. The first argument of the `callback` is reserved for an error if it occurs. Then `callback(err)` is called.
-2. The second argument (and the next ones if needed) are for the successful result. Then `callback(null, result1, result2…)` is called.
+La conveción es:
 
-So the single `callback` function is used both for reporting errors and passing back results.
+1. El primer argumento del callback `callback` es reservado para un error en caso que ocurra. Entonces se llama`callback(err)`.
+2. El segundo argumento (y los siguientes si se necesita) son para el resultado exitoso. Entonces se llama `callback(null, result1, result2…)`.
 
-## Pyramid of Doom
+De esta manera esta única función `callback` es usada para ambas cosas, reportar errores y pasar de vuelta los resultados.
 
-From the first look, it's a viable way of asynchronous coding. And indeed it is. For one or maybe two nested calls it looks fine.
+## Pirámide de la catástrofe
 
-But for multiple asynchronous actions that follow one after another we'll have code like this:
+Desde una primera mirada, es una menera viable de código asíncrono. Y en sí, lo es. Para uno o dos callbacks anidados luce bien.
+
+Pero para múltiples acciones asíncronas que siguen una después de otra tendremos código como este:
 
 ```js
 loadScript('1.js', function(error, script) {
@@ -202,7 +202,7 @@ loadScript('1.js', function(error, script) {
             handleError(error);
           } else {
   *!*
-            // ...continue after all scripts are loaded (*)
+            // ...continua luego que todos los scripts han cargado (*)
   */!*
           }
         });
@@ -213,32 +213,33 @@ loadScript('1.js', function(error, script) {
 });
 ```
 
-In the code above:
-1. We load `1.js`, then if there's no error.
-2. We load `2.js`, then if there's no error.
-3. We load `3.js`, then if there's no error -- do something else `(*)`.
+En el código de arriba:
 
-As calls become more nested, the code becomes deeper and increasingly more difficult to manage, especially if we have a real code instead of `...`, that may include more loops, conditional statements and so on.
+1. Cargamos `1.js`, entonces, si no hay error.
+2. Cargamos `2.js`, entonces, si no hay error.
+3. Cargamos `3.js`, entonces, si no hay error -- hacemos algo más `(*)`.
 
-That's sometimes called "callback hell" or "pyramid of doom."
+Mientras llamadas se hagan más anidades, el código se vuelve más profundo y incrementalmente más difícil de manejar, especialmente si tenemos código real en lugar de `...`, que puede incluír más bucles, declaraciones de condiciones y más.
+
+Esto es a lo que algunas veces llamamos "infierno de callback" o "pirámide de la catástrofe."
 
 ![](callback-hell.png)
 
-The "pyramid" of nested calls grows to the right with every asynchronous action. Soon it spirals out of control.
+La "pirámide" de llamadas anidadas crece hacia la derecha en cada acción asíncrona. Pronto será una espiral fuera de control.
 
-So this way of coding isn't very good.
+Así que esta manera de codear no es tan buena.
 
-We can try to alleviate the problem by making every action a standalone function, like this:
+Podemos intentar aliviar el problema haciendo cada acción una función We can try to alleviate the problem by making every action a independiente, así:
 
 ```js
-loadScript('1.js', step1);
+loadScript("1.js", step1);
 
 function step1(error, script) {
   if (error) {
     handleError(error);
   } else {
     // ...
-    loadScript('2.js', step2);
+    loadScript("2.js", step2);
   }
 }
 
@@ -247,7 +248,7 @@ function step2(error, script) {
     handleError(error);
   } else {
     // ...
-    loadScript('3.js', step3);
+    loadScript("3.js", step3);
   }
 }
 
@@ -257,15 +258,15 @@ function step3(error, script) {
   } else {
     // ...continue after all scripts are loaded (*)
   }
-};
+}
 ```
 
-See? It does the same, and there's no deep nesting now because we made every action a separate top-level function.
+¿Ves? Hace lo mismo, y no hay anidación profunda ahora porque cada acción es una función separa al nivel más alto.
 
-It works, but the code looks like a torn apart spreadsheet. It's difficult to read, and you probably noticed that. One needs to eye-jump between pieces while reading it. That's inconvenient, especially if the reader is not familiar with the code and doesn't know where to eye-jump.
+Funciona, peor el código luce como unaa hoja de cálculo partida. Es difícil de leer, probablemente ya lo notaste. Uno necesita saltar con la mirada entre las piezas mientras lo lee. Ese es el inconveniente, especiamente si el lector no esta familizarizado con el código y no sabe donde saltar con la mirada.
 
-Also, the functions named `step*` are all of single use, they are created only to avoid the "pyramid of doom." No one is going to reuse them outside of the action chain. So there's a bit of a namespace cluttering here.
+Además, las funcies llamadas `step*` son todas de un solo uso. Sólo son creadas para evitar la "pirámide de la catástrofe". Nadie va a reusarlas fuera de la cadena de acciones. Así que hay un poco de sobrecarga de nombres aquí.
 
-We'd like to have something better.
+Nos gustaría algo mejor.
 
-Luckily, there are other ways to avoid such pyramids. One of the best ways is to use "promises," described in the next chapter.
+Por suerte, hay otras manera de evitar dichas pirámides. Una de las mejores maneras es usar "promesas", que se describen en el siguiente capítulo.
