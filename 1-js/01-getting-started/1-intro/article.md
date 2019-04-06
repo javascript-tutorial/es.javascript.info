@@ -1,4 +1,4 @@
-# Una Intrucción a Javascript
+# Una Introducción a Javascript
 
 Veamos qué tiene de especial JavaScript, qué podemos conseguir con él y qué otras tecnologías funcionan bien con él.
 
