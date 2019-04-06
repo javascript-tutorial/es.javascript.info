@@ -21,7 +21,7 @@ Podemos usarlo así:
 loadScript("/my/script.js");
 ```
 
-La función es llamada "asíncronamente", porque la acción (cargar el script) no termina ahora, pero luego.
+La función es llamada "asíncronamente", porque la acción (cargar el script) no termina ahora, sino luego.
 
 La llamada inicia la carga del script, luego la ejecución continua. Mientras el script está cargando, el código de abajo podría terminar su ejecución, y si la carga toma tiempo, otros scripts también pueden correr mientras tanto.
 
