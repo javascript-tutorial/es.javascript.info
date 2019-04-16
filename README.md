@@ -12,7 +12,7 @@ Please help us to make the translation better.
 
 Thank you!
 
-P.S. The full list of languages can be found at <https://github.com/javascript-tutorial/translate>.
+P.S. The full list of languages and the general information can be found at <https://github.com/javascript-tutorial/translate>.
 
 ## Structure
 
