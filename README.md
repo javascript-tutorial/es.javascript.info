@@ -9,7 +9,7 @@ Please help us to make the translation better.
 - Create an issue to inform the maintainer that you're translating it.
 - Fork the repository, translate and send a PR when done.
 
-Thank you!
+🎉 Thank you!
 
 Your name and the contribution size will appear in the "About project" page when the translation gets published.
 
