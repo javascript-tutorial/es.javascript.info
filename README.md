@@ -12,6 +12,8 @@ Please help us to make the translation better.
 
 Thank you!
 
+P.S. The full list of languages can be found at <https://github.com/javascript-tutorial/translate>.
+
 ## Structure
 
 Every chapter, an article or a task resides in its own folder.
