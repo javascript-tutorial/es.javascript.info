@@ -175,7 +175,11 @@ drawHtmlTree(node6, 'div.domtree', 690, 500);
 
 Aquí vemos un nuevo tipo de nodo de árbol: el *nodo comentario*, etiquetado como `#comment`.
 
+<<<<<<< HEAD
 Podemos pensar: ¿por qué se agrega un comentario al DOM? No afecta a la representación visual de ninguna manera. Pero hay una regla: si algo está en el HTML, entonces también debe estar en el árbol DOM.
+=======
+We may think -- why is a comment added to the DOM? It doesn't affect the visual representation in any way. But there's a rule -- if something's in HTML, then it also must be in the DOM tree.
+>>>>>>> 30f1dc4e4ed9e93b891abd73f27da0a47c5bf613
 
 **Todo en el HTML, incluso los comentarios, se convierten en parte del DOM.**
 
