@@ -39,9 +39,10 @@ If you see that the English version can be improved -- great, please send a PR t
 
 ### Text in Code Blocks
 
-- Translate only comments.
-- Don't translate anything else -- strings, variables.
-
+- Translate comments.
+- Translate user-messages and example strings.
+- Don't translate variables, classes, identifiers.
+- Ensure that the code works after the translation :)
 
 Example:
 
@@ -55,11 +56,11 @@ document.querySelector('.hello').innerHTML = text;
 
 ```js
 // Ejemplo
-const text = 'Hello, world';
+const text = 'Hola mundo';
 document.querySelector('.hello').innerHTML = text;
 ```
 
-❌ DON'T (translate string or class):
+❌ DON'T (translate class):
 
 ```js
 // Ejemplo
