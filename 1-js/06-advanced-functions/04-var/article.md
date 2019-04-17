@@ -11,7 +11,7 @@ In the very first chapter about [variables](info:variables), we mentioned three 
 
 But `var` is a very different beast, that originates from very old times. It's generally not used in modern scripts, but still lurks in the old ones.
 
-If you don't plan meeting such scripts you may even skip this chapter or postpone it, but then there's a chance that it bites you later.
+If you don't plan on meeting such scripts you may even skip this chapter or postpone it, but then there's a chance that it bites you later.
 
 From the first sight, `var` behaves similar to `let`. That is, declares a variable:
 
@@ -74,7 +74,7 @@ sayHi();
 alert(phrase); // Error: phrase is not defined
 ```
 
-As we can see, `var` pierces through `if`, `for` or other code blocks. That's because a long time ago in JavaScript blocks had no Lexical Environments. And `var` is a reminiscence of that.
+As we can see, `var` pierces through `if`, `for` or other code blocks. That's because a long time ago in JavaScript blocks had no Lexical Environments. And `var` is a remnant of that.
 
 ## "var" are processed at the function start
 
@@ -182,4 +182,4 @@ There are two main differences of `var`:
 
 There's one more minor difference related to the global object, we'll cover that in the next chapter.
 
-These differences are actually a bad thing most of the time. First, we can't create block-local variables. And hoisting just creates more space for errors. So, for new scripts `var` is used exceptionally rarely.
+These differences are actually a bad thing most of the time. Block-level variables is such a great thing. That's why `let` was introduced in the standard long ago, and is now a major way (along with `const`) to declare a variable.
