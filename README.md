@@ -35,7 +35,7 @@ Additional resources and examples for the article or the task, are also in the s
 
 The translation doesn't have to be word-by-word precise. It should be technically correct and explain well.
 
-If you see that the English version can be improved -- great, please send a PR to it.
+If you see that the English version can be improved – great, please send a PR to it.
 
 ### Text in Code Blocks
 
