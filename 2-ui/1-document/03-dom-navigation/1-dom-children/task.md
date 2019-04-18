@@ -2,23 +2,23 @@ importance: 5
 
 ---
 
-# DOM children
+# Hijos DOM
 
-For the page:
+Para la página
 
 ```html
 <html>
 <body>
-  <div>Users:</div>
+  <div>Usuario:</div>
   <ul>
-    <li>John</li>
-    <li>Pete</li>
+    <li>Juan</li>
+    <li>Pedro</li>
   </ul>
 </body>
 </html>
 ```
 
-How to access:
-- The `<div>` DOM node?
-- The `<ul>` DOM node?
-- The second `<li>` (with Pete)?
+Cómo acceder:
+- ¿Al nodo DOM `<div>`?
+- ¿Al nodo DOM `<ul>`?
+- ¿Al segundo `<li>` (con Pedro)?
