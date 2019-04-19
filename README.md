@@ -4,9 +4,9 @@ This repository hosts the translation of <https://javascript.info> in Spanish.
 
 Please help us to make the translation better.
 
-- See the [issue](https://github.com/javascript-tutorial/es.javascript.info/issues) named "Translate Progress".
+- See the [Spanish Translate Progress](https://github.com/javascript-tutorial/es.javascript.info/issues/17) issue.
 - Choose an unchecked article you'd like to translate.
-- Create an issue to inform the maintainer that you're translating it.
+- Add a comment to that issue to inform the maintainer that you're translating it.
 - Fork the repository, translate and send a PR when done.
 
 🎉 Thank you!
