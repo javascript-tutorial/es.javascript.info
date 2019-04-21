@@ -108,7 +108,7 @@ Sometimes `event.stopPropagation()` creates hidden pitfalls that later may becom
 
 For instance:
 
-1. We create a nested menu. Each submenu handles clicks on its elements and calls `stopPropagation` so that outer menu don't trigger.
+1. We create a nested menu. Each submenu handles clicks on its elements and calls `stopPropagation` so that the outer menu won't trigger.
 2. Later we decide to catch clicks on the whole window, to track users' behavior (where people click). Some analytic systems do that. Usually the code uses `document.addEventListener('click'…)` to catch all clicks.
 3. Our analytic won't work over the area where clicks are stopped by `stopPropagation`. We've got a "dead zone".
 
@@ -136,9 +136,15 @@ That is: for a click on `<td>` the event first goes through the ancestors chain 
 
 Handlers added using `on<event>`-property or using HTML attributes or using `addEventListener(event, handler)` don't know anything about capturing, they only run on the 2nd and 3rd phases.
 
-To catch an event on the capturing phase, we need to set the 3rd argument of `addEventListener` to `true`.
+To catch an event on the capturing phase, we need to set the handler `capture` option to `true`:
 
-There are two possible values for that optional last argument:
+```js
+elem.addEventListener(..., {capture: true})
+// or, just "true" is an alias to {capture: true}
+elem.addEventListener(..., true)
+```
+
+There are two possible values of the `capture` option:
 
 - If it's `false` (default), then the handler is set on the bubbling phase.
 - If it's `true`, then the handler is set on the capturing phase.
@@ -182,12 +188,16 @@ Please note that `P` shows up two times: at the end of capturing and at the star
 
 There's a property `event.eventPhase` that tells us the number of the phase on which the event was caught. But it's rarely used, because we usually know it in the handler.
 
+```smart header="To remove the handler, `removeEventListener` needs the same phase"
+If we `addEventListener(..., true)`, then we should mention the same phase in `removeEventListener(..., true)` to correctly remove the handler.
+```
+
 ## Summary
 
 The event handling process:
 
 - When an event happens -- the most nested element where it happens gets labeled as the "target element" (`event.target`).
-- Then the event first moves from the document root down to the `event.target`, calling handlers assigned with `addEventListener(...., true)` on the way.
+- Then the event first moves from the document root down to the `event.target`, calling handlers assigned with `addEventListener(...., true)` on the way (`true` is a shorthand for `{capture: true}`).
 - Then the event moves from `event.target` up to the root, calling handlers assigned using  `on<event>` and `addEventListener` without the 3rd argument or with the 3rd argument `false`.
 
 Each handler can access `event` object properties:
