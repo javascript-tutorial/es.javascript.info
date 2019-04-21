@@ -28,6 +28,10 @@ function mul(a, b) {
 Let's use `bind` to create a function `double` on its base:
 
 ```js run
+function mul(a, b) {
+  return a * b;
+}
+
 *!*
 let double = mul.bind(null, 2);
 */!*
@@ -46,6 +50,10 @@ Please note that here we actually don't use `this` here. But `bind` requires it,
 The function `triple` in the code below triples the value:
 
 ```js run
+function mul(a, b) {
+  return a * b;
+}
+
 *!*
 let triple = mul.bind(null, 3);
 */!*
@@ -57,9 +65,9 @@ alert( triple(5) ); // = mul(3, 5) = 15
 
 Why do we usually make a partial function?
 
-Here our benefit is that we created an independent function with a readable name (`double`, `triple`). We can use it and don't write the first argument of every time, cause it's fixed with `bind`.
+The benefit is that we can create an independent function with a readable name (`double`, `triple`). We can use it and not provide first argument of every time as it's fixed with `bind`.
 
-In other cases, partial application is useful when we have a very generic function, and want a less universal variant of it for convenience.
+In other cases, partial application is useful when we have a very generic function and want a less universal variant of it for convenience.
 
 For instance, we have a function `send(from, to, text)`. Then, inside a `user` object we may want to use a partial variant of it: `sendTo(to, text)` that sends from the current user.
 
@@ -111,16 +119,18 @@ Also there's a ready [_.partial](https://lodash.com/docs#partial) implementation
 
 Sometimes people mix up partial function application mentioned above with another thing named "currying". That's another interesting technique of working with functions that we just have to mention here.
 
-[Currying](https://en.wikipedia.org/wiki/Currying) is translating a function from callable as `f(a, b, c)` into callable as `f(a)(b)(c)`.
+[Currying](https://en.wikipedia.org/wiki/Currying) is a transformation of functions that translates a function from callable as `f(a, b, c)` into callable as `f(a)(b)(c)`. In JavaScript, we usually make a wrapper to keep the original function.
 
-Let's make `curry` function that performs currying for binary functions. In other words, it translates `f(a, b)` into `f(a)(b)`:
+Currying doesn't call a function. It just transforms it.
+
+Let's create a helper `curry(f)` function that performs currying for a two-argument `f`. In other words, `curry(f)` for two-argument `f(a, b)` translates it into `f(a)(b)`
 
 ```js run
 *!*
-function curry(func) {
+function curry(f) { // curry(f) does the currying transform
   return function(a) {
     return function(b) {
-      return func(a, b);
+      return f(a, b);
     };
   };
 }
@@ -156,9 +166,11 @@ function curry(f) {
 
 ## Currying? What for?
 
-Advanced currying allows both to keep the function callable normally and to get partials easily. To understand the benefits we definitely need a worthy real-life example.
+To understand the benefits we definitely need a worthy real-life example.
 
-For instance, we have the logging function `log(date, importance, message)` that formats and outputs the information. In real projects such functions also have many other useful features like: sending it over the network or filtering:
+Advanced currying allows the function to be both callable normally and partially.
+
+For instance, we have the logging function `log(date, importance, message)` that formats and outputs the information. In real projects such functions also have many other useful features like sending logs over the network:
 
 ```js
 function log(date, importance, message) {
@@ -204,13 +216,15 @@ todayDebug("message"); // [HH:mm] DEBUG message
 
 So:
 1. We didn't lose anything after currying: `log` is still callable normally.
-2. We were able to generate partial functions that are convenient in many cases.
+2. We were able to generate partial functions such as for today's logs.
 
 ## Advanced curry implementation
 
-In case you're interested, here's the "advanced" curry implementation that we could use above.
+In case you'd like to get in details (not obligatory!), here's the "advanced" curry implementation that we could use above.
 
-```js run
+It's pretty short:
+
+```js
 function curry(func) {
 
   return function curried(...args) {
@@ -224,24 +238,23 @@ function curry(func) {
   };
 
 }
+```
 
+Usage examples:
+
+```js
 function sum(a, b, c) {
   return a + b + c;
 }
 
 let curriedSum = curry(sum);
 
-// still callable normally
-alert( curriedSum(1, 2, 3) ); // 6
-
-// get the partial with curried(1) and call it with 2 other arguments
-alert( curriedSum(1)(2,3) ); // 6
-
-// full curried form
-alert( curriedSum(1)(2)(3) ); // 6
+alert( curriedSum(1, 2, 3) ); // 6, still callable normally
+alert( curriedSum(1)(2,3) ); // 6, currying of 1st arg
+alert( curriedSum(1)(2)(3) ); // 6, full currying
 ```
 
-The new `curry` may look complicated, but it's actually pretty easy to understand.
+The new `curry` may look complicated, but it's actually easy to understand.
 
 The result of `curry(func)` is the wrapper `curried` that looks like this:
 

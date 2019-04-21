@@ -1,9 +1,16 @@
+<<<<<<< HEAD
 # The Modern JavaScript Tutorial in Spanish
 
 This repository hosts the translation of <https://javascript.info> in Spanish.
+=======
+# The Modern JavaScript Tutorial
+
+This repository hosts the English content of the Modern JavaScript Tutorial, published at [https://javascript.info](https://javascript.info).
+>>>>>>> 74e6955587c79199fea1d11af83805efc3e1b657
 
 Please help us to make the translation better.
 
+<<<<<<< HEAD
 - See the [Spanish Translate Progress](https://github.com/javascript-tutorial/es.javascript.info/issues/17) issue.
 - Choose an unchecked article you'd like to translate.
 - Add a comment to that issue to inform the maintainer that you're translating it.
@@ -26,6 +33,21 @@ The folder has one of files:
 - `index.md` for a section,
 - `article.md` for an article,
 - `task.md` for a task formulation (+`solution.md` with the solution text if any).
+=======
+We'd like to make the tutorial available in many languages. Please help us to translate.
+
+See <https://github.com/javascript-tutorial/translate> for the details.
+
+## Contributions
+
+We'd also like to collaborate on the tutorial with other people. 
+
+Something's wrong? A topic is missing? Explain it to people, add as PR 👏
+
+**You can edit the text in any editor.** The tutorial uses enhanced "markdown" format, easy to grasp. And if you want to see how it looks on-site, there's a server to run the tutorial locally at <https://github.com/iliakan/javascript-tutorial-server>.  
+
+The list of contributors is available at <https://javascript.info/about#contributors>.
+>>>>>>> 74e6955587c79199fea1d11af83805efc3e1b657
 
 A file starts with the `# Title Header`, and then the text in Markdown-like format, editable in a simple text editor. 
 
@@ -95,4 +117,14 @@ If a linked article has no translated version, leave the link "as is".
 
 You can run the tutorial locally, to immediately see the changes on-site.
 
+<<<<<<< HEAD
 The server is at <https://github.com/javascript-tutorial/server>. 
+=======
+Each of these files starts from the `# Main header`.
+
+It's very easy to add something new.
+
+---
+💓  
+Ilya Kantor
+>>>>>>> 74e6955587c79199fea1d11af83805efc3e1b657
