@@ -30,7 +30,7 @@ let animal = new Animal("My animal");
 ...And `Rabbit`:
 
 ```js
-class Rabbit extends Animal {
+class Rabbit {
   constructor(name) {
     this.name = name;
   }
@@ -69,14 +69,14 @@ class Animal {
   }
 }
 
+// Inherit from Animal by specifying "extends Animal"
 *!*
-// Inherit from Animal
 class Rabbit extends Animal {
+*/!*
   hide() {
     alert(`${this.name} hides!`);
   }
 }
-*/!*
 
 let rabbit = new Rabbit("White Rabbit");
 

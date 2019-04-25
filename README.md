@@ -13,11 +13,19 @@ Please help us to make the translation better.
 
 Your name and the contribution size will appear in the "About project" page when the translation gets published.
 
+<<<<<<< HEAD
 P.S. The full list of languages can be found at <https://github.com/javascript-tutorial/translate>.
+=======
+We'd also like to collaborate on the tutorial with other people.
+>>>>>>> 273e47b70a14ae7a8b882b8d2543e581b000eefb
 
 ## Structure
 
+<<<<<<< HEAD
 Every chapter, an article or a task resides in its own folder.
+=======
+**You can edit the text in any editor.** The tutorial uses enhanced "markdown" format, easy to grasp. And if you want to see how it looks on-site, there's a server to run the tutorial locally at <https://github.com/javascript-tutorial/server>.  
+>>>>>>> 273e47b70a14ae7a8b882b8d2543e581b000eefb
 
 The folder is named `N-url`, where `N` – is the number for sorting (articles are ordered), and `url` is the URL-slug on the site.
 
@@ -95,4 +103,10 @@ If a linked article has no translated version, leave the link "as is".
 
 You can run the tutorial locally, to immediately see the changes on-site.
 
+<<<<<<< HEAD
 The server is at <https://github.com/javascript-tutorial/server>. 
+=======
+---
+💓  
+Ilya Kantor @iliakan
+>>>>>>> 273e47b70a14ae7a8b882b8d2543e581b000eefb
