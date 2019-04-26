@@ -45,7 +45,11 @@ El motor aplica optimizaciones en cada paso del proceso. Incluso observa como el
 
 JavaScript moderno es un lenguaje de programación "seguro". No proporciona acceso de bajo nivel a la memoria o la CPU (UCP), ya que se creó inicialmente para los navegadores los cuales no lo requieren.
 
+<<<<<<< HEAD
 Las capacidades de JavaScript dependen en gran medida en el entorno en que se ejecuta. Por ejemplo, [Node.JS (https://es.wikipedia.org/wiki/Node.js) Soporta funciones que permiten a JavaScript leer y escribir archivos arbitrariamente, realizar solicitudes de red, etc.
+=======
+JavaScript's capabilities greatly depend on the environment it's running in. For instance, [Node.js](https://wikipedia.org/wiki/Node.js) supports functions that allow JavaScript to read/write arbitrary files, perform network requests, etc.
+>>>>>>> 19223ae762f03cdff4e83f6f963f4f427af93847
 
 En el navegador JavaScript puede realizar cualquier cosa relacionada con la manipulación de una página web, interacción con el usuario y el servidor web.
 
@@ -90,6 +94,10 @@ Existen al menos _tres_ geniales cosas acerca de JavaScript:
 + Las cosas simples se hacen simplemente.
 + Soportado por la mayoría de los navegadores y habilitado por defecto.
 ```
+<<<<<<< HEAD
+=======
+JavaScript is the only browser technology that combines these three things.
+>>>>>>> 19223ae762f03cdff4e83f6f963f4f427af93847
 
 JavaScript es la única tecnología de los navegadores que combina estas tres cosas.
 

@@ -68,7 +68,7 @@ So, what exactly is a `class`? That's not an entirely  new language-level entity
 
 Let's unveil any magic and see what a class really is. That'll help in understanding many complex aspects.
 
-In Javascript, a class is a kind of a function.
+In JavaScript, a class is a kind of a function.
 
 Here, take a look:
 
@@ -86,7 +86,7 @@ alert(typeof User); // function
 
 What `class User {...}` construct really does is:
 1. Creates a function named `User`, that becomes the result of the class declaration.
-    - The function code is taken from the `constructor` method (assumed empty is we don't write such method).
+    - The function code is taken from the `constructor` method (assumed empty if we don't write such method).
 3. Stores all methods, such as `sayHi`, in `User.prototype`.
 
 Afterwards, for new objects, when we call a method, it's taken from the prototype, just as  described in the chapter <info:function-prototype>. So `new User` object has access to class methods.
