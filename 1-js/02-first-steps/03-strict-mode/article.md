@@ -74,5 +74,5 @@ De momento, es suficiente saber lo general:
 
 1. La directiva `"use strict"` cambia el motor de ejecución al modo "moderno", modificando el comportamiento de algunas características incluídas en el lenguaje. Veremos los detalles más adelante.
 2. El modo estricto se habilita poniendo `"use strict"` al principio de una función o del script. Varias características del lenguaje, como las "clases" y los "módulos", activan el modo estricto automáticamente.
-3. El modo estricto funciona todos los navegadores modernos.
+3. El modo estricto funciona en todos los navegadores modernos.
 4. Recomendamos empezar todos los scripts siempre con `"use strict"`. Todos los ejemplos de este tutorial asumen que el modo estricto está activado excepto cuando (muy raramente) se especifica lo contrario.
