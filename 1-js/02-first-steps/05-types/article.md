@@ -74,8 +74,8 @@ let phrase = `puede incrustar ${str}`;
 
 En JavaScript, hay 3 tipos de comillas.
 
-1. Comillas dobles: `"Hello"`.
-2. Comillas simples: `'Hello'`.
+1. Comillas dobles: `"Hola"`.
+2. Comillas simples: `'Hola'`.
 3. Backticks (acento grave): <code>&#96;Hola&#96;</code>.
 
 Las comillas dobles y simples son comillas "simples". No hay diferencia entre ellas en JavaScript.
