@@ -25,7 +25,7 @@ Hay muchas operaciones para números, por ejemplo, multiplicación `*`, divisió
 Además de los números comunes, existen los llamados "valores numéricos especiales" que también pertenecen a este tipo de dato: `Infinity`, `-Infinity` and `NaN`.
 
 
-- `Infinity' representa el [Infinito](https://es.wikipedia.org/wiki/Infinito) matemático ∞. Es un valor especial que es mayor que cualquier número.
+- `Infinity` representa el [Infinito](https://es.wikipedia.org/wiki/Infinito) matemático ∞. Es un valor especial que es mayor que cualquier número.
 
     Podemos obtenerlo como resultado de la división por cero:
 
@@ -52,7 +52,7 @@ Además de los números comunes, existen los llamados "valores numéricos especi
 
     Por lo tanto, si hay un `NaN` en alguna parte de una expresión matemática, se propaga a todo el resultado.
 
-"smart header="Las operaciones matemáticas son seguras"
+```smart header="Las operaciones matemáticas son seguras"
 Hacer matemáticas es "seguro" en JavaScript. Podemos hacer cualquier cosa: dividir por cero, tratar las cadenas no numéricas como números, etc.
 
 El script nunca se detendrá con un error fatal ("morir"). En el peor de los casos, obtendremos `NaN` como resultado.
