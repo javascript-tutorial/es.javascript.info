@@ -25,7 +25,7 @@ Hay muchas operaciones para números, por ejemplo, multiplicación `*`, divisió
 Además de los números comunes, existen los llamados "valores numéricos especiales" que también pertenecen a este tipo de dato: `Infinity`, `-Infinity` and `NaN`.
 
 
-- `Infinity' representa el [Infinito] matemático (https://es.wikipedia.org/wiki/Infinito) ∞. Es un valor especial que es mayor que cualquier número.
+- `Infinity' representa el [Infinito](https://es.wikipedia.org/wiki/Infinito) matemático ∞. Es un valor especial que es mayor que cualquier número.
 
     Podemos obtenerlo como resultado de la división por cero:
 
