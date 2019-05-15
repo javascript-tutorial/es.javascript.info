@@ -113,7 +113,7 @@ La especificación del CSSOM
 La especificación del HTML
 : Describe el lenguaje HTML (por ejemplo, etiquetas) y también el BOM (modelo de objeto del navegador) -- varias funciones del navegador: `setTimeout`, `alert`, `location`, etc., consulte <https://html.spec.whatwg.org>. Toma la especificación DOM y la extiende con muchas propiedades y métodos adicionales.
 
-Ahora nos ocuparemos en aprender el DOM, porque juega un papel central en la interfaz de usuario.
+Ahora nos concentraremos en aprender el DOM, porque juega un papel central en la interfaz de usuario.
 
 Ten en cuenta los enlaces anteriores, ya que hay tantas cosas que aprender que es imposible cubrir y recordar todo.
 
