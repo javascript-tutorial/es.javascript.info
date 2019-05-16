@@ -2,11 +2,10 @@ importance: 5
 
 ---
 
-# What is the result of AND?
+# ¿Cuál es el resultado de AND?
 
-What is this code going to show?
+¿Qué va a imprimir el codigo debajo?
 
 ```js
-alert( 1 && null && 2 );
+alert(1 && null && 2);
 ```
-

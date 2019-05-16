@@ -1,25 +1,21 @@
-
-
 ```js run demo
-let userName = prompt("Who's there?", '');
+let userName = prompt("Quién esta alli?", "");
 
-if (userName == 'Admin') {
+if (userName == "Admin") {
+	let pass = prompt("Contraseña?", "");
 
-  let pass = prompt('Password?', '');
-
-  if (pass == 'TheMaster') {
-    alert( 'Welcome!' );
-  } else if (pass == '' || pass == null) {
-    alert( 'Canceled.' );
-  } else {
-    alert( 'Wrong password' );
-  }
-
-} else if (userName == '' || userName == null) {
-  alert( 'Canceled' );
+	if (pass == "TheMaster") {
+		alert("Bienvenido!");
+	} else if (pass == "" || pass == null) {
+		alert("Cancelado.");
+	} else {
+		alert("Contraseña incorrecta");
+	}
+} else if (userName == "" || userName == null) {
+	alert("Canceledo");
 } else {
-  alert( "I don't know you" );
+	alert("No te conozco");
 }
 ```
 
-Note the vertical indents inside the `if` blocks. They are technically not required, but make the code more readable.
+Nota las sangrías verticales dentro de los bloques `if`. Tecnicamente no son necesarias, pero facilitan la redacción del código.

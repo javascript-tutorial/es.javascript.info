@@ -1,47 +1,48 @@
-# Logical operators
+# Operadores Lógicos
 
-There are three logical operators in JavaScript: `||` (OR), `&&` (AND), `!` (NOT).
+Hay tres operadores lógicos en JavaScript: `||` (OR (O)), `&&` (AND (Y)), `!` (NOT (NO)).
 
-Although they are called "logical", they can be applied to values of any type, not only boolean. Their result can also be of any type.
+Aun que sean llamados lógicos, pueden ser aplicados a valores de cualquier tipo, no solo booleanos. El resultado también puede ser de cualquier tipo.
 
-Let's see the details.
+Veamos los detalles.
 
 ## || (OR)
 
-The "OR" operator is represented with two vertical line symbols:
+El operador `OR` es represtando con dos simbolos de linea verticales:
 
 ```js
 result = a || b;
 ```
 
-In classical programming, the logical OR is meant to manipulate boolean values only. If any of its arguments are `true`, it returns `true`, otherwise it returns `false`.
+En la programación clasica, el OR lógico esta pensado para manipular solo valore booleanos. Si cualquiera de sus argumentos son `true`, retornara `true`, de lo contrario retornara `false`.
 
-In JavaScript, the operator is a little bit trickier and more powerful. But first, let's see what happens with boolean values.
+En JavaScript, el operador es un poco más complicado y poderoso. Pero primero, veamos que pasa con los valores booleanos.
 
-There are four possible logical combinations:
+Hay cuatro posibles combinaciones lógicas:
 
 ```js run
-alert( true || true );   // true
-alert( false || true );  // true
-alert( true || false );  // true
-alert( false || false ); // false
+alert(true || true); // true (verdadero)
+alert(false || true); // true
+alert(true || false); // true
+alert(false || false); // false (falso)
 ```
 
-As we can see, the result is always `true` except for the case when both operands are `false`.
+Como podemos ver, los resultados son siempre `true` excepto en el caso de que ambos operandos sean `false`
 
-If an operand is not a boolean, it's converted to a boolean for the evaluation.
+Si un operando no es un booleano, entonces es convertido a un booleano para la evaluación.
 
-For instance, the number `1` is treated as `true`, the number `0` as `false`:
+Por ejemplo, el número `1` es tratado como `true`, el número `0` como `false`:
 
 ```js run
-if (1 || 0) { // works just like if( true || false )
-  alert( 'truthy!' );
+if (1 || 0) {
+	// Funciona como if( true || false )
+	alert("valor verdadero!");
 }
 ```
 
-Most of the time, OR `||` is used in an `if` statement to test if *any* of the given conditions is `true`.
+La mayoría del tiempo, OR `||` es usando como una declaración de `if` para probar si _cualqueria_ de las condiciones dadas son `true`
 
-For example:
+Por ejemplo:
 
 ```js run
 let hour = 9;
@@ -49,255 +50,257 @@ let hour = 9;
 *!*
 if (hour < 10 || hour > 18) {
 */!*
-  alert( 'The office is closed.' );
+  alert( 'La oficina esta cerrada.' );
 }
 ```
 
-We can pass more conditions:
+Podemos pasar mas condiciones:
 
 ```js run
 let hour = 12;
 let isWeekend = true;
 
 if (hour < 10 || hour > 18 || isWeekend) {
-  alert( 'The office is closed.' ); // it is the weekend
+	alert("La oficina esta cerrada."); // Esta los fines de semana
 }
 ```
 
-## OR finds the first truthy value
+## OR encuentra el primer valor verdadero
 
-The logic described above is somewhat classical. Now, let's bring in the "extra" features of JavaScript.
+La lógica descrita arriba es algo clásica. Ahora, vamos a traer las caracteristicas "extra" de JavaScript.
 
-The extended algorithm works as follows.
+El algoritmo extendido trabajo de la siguiente forma.
 
-Given multiple OR'ed values:
+Dado múltiples valores aplicados al operador OR:
 
 ```js
 result = value1 || value2 || value3;
 ```
 
-The OR `||` operator does the following:
+El operador OR `||` realiza lo siguiente:
 
-- Evaluates operands from left to right.
-- For each operand, converts it to boolean. If the result is `true`, stops and returns the original value of that operand.
-- If all operands have been evaluated (i.e. all were `false`), returns the last operand.
+-  Evalua los operandos de izquierda a derecha.
+-  Para cada operando, convierte el valor a booleano. Si el resultado es `true`, se detiene y retorna el valor orginal de ese operando.
+-  Si todos los operandos han sido evaluados (todos eran `false`), retorna el ultimo operando.
 
-A value is returned in its original form, without the conversion.
+Un valor es retornado en su forma original, sin la conversión.
 
-In other words, a chain of OR `"||"` returns the first truthy value or the last one if no such value is found.
+En otras palabras, una cadenade OR `"||"` retorna el primer valor verdadero o el último valor en caso de que dicho valor no sea encontrado.
 
-For instance:
+Por ejemplo:
 
 ```js run
-alert( 1 || 0 ); // 1 (1 is truthy)
-alert( true || 'no matter what' ); // (true is truthy)
+alert(1 || 0); // 1 (1 es un valor verdado)
+alert(true || "no matter what"); // (true es un valor verdadero)
 
-alert( null || 1 ); // 1 (1 is the first truthy value)
-alert( null || 0 || 1 ); // 1 (the first truthy value)
-alert( undefined || null || 0 ); // 0 (all falsy, returns the last value)
+alert(null || 1); // 1 (1 es el primer valor verdadero)
+alert(null || 0 || 1); // 1 (el primer valor verdadero)
+alert(undefined || null || 0); // 0 (todos son valores falsos, retorna el último valor)
 ```
 
-This leads to some interesting usage compared to a "pure, classical, boolean-only OR".
+Esto lleva a varios usos interesantes comparados a el "puro, clásico, solo booleanos OR".
 
-1. **Getting the first truthy value from a list of variables or expressions.**
+1. **Consiguiendo el primer valor verdadero de una lista de expresiones.**
 
-    Imagine we have several variables which can either contain data or be `null/undefined`. How can we find the first one with data?
+   Imagina que tenemos varias variables que pueden contener datos o ser `null/undefined`. ¿Comó podemos encontrar el primero valor con datos?
 
-    We can use OR `||`:
+   Podemos usar OR `||`:
 
-    ```js run
-    let currentUser = null;
-    let defaultUser = "John";
+   ```js run
+   let currentUser = null;
+   let defaultUser = "John";
 
-    *!*
-    let name = currentUser || defaultUser || "unnamed";
-    */!*
+   *!*
+   let name = currentUser || defaultUser || "sin nombre";
+   */!*
 
-    alert( name ); // selects "John" – the first truthy value
-    ```
+   alert( name ); // seleccioná "John" – el primer valor verdadero
+   ```
 
-    If both `currentUser` and `defaultUser` were falsy, `"unnamed"` would be the result.
-2. **Short-circuit evaluation.**
+   Si tanto `currentUser` como `defaultUser` eran valores falsos, `"sin nombre"` hubiera sido el resultado.
 
-    Operands can be not only values, but arbitrary expressions. OR evaluates and tests them from left to right. The evaluation stops when a truthy value is reached, and the value is returned. This process is called "a short-circuit evaluation" because it goes as short as possible from left to right.
+2. **Evaluación de cortocircuito.**
 
-    This is clearly seen when the expression given as the second argument has a side effect like a variable assignment.
+   Los operandos no solo pueden ser valors, si no que tambien expresiones arbitrarias. OR los evalua y comprueba de izquierda a derecha. La evaluación termina cuando un valor verdadero es alcanzado, y dicho valor es retornado. Este proceso es llamado "evaluación de cortocircuito" porque va lo más corto posible de izquierda a derecha.
 
-    In the example below, `x` does not get assigned:
+   Esto es claramente visto cuando una expresión dada como segundo argumento tiene un efecto secundario como una asignación de variable.
 
-    ```js run no-beautify
-    let x;
+   En el ejemplo debajo, `x` no es asignada:
 
-    *!*true*/!* || (x = 1);
+   ```js run no-beautify
+   let x;
 
-    alert(x); // undefined, because (x = 1) not evaluated
-    ```
+   *!*true*/!* || (x = 1);
 
-    If, instead, the first argument is `false`, `||` evaluates the second one, thus running the assignment:
+   alert(x); // undefined, porque (x = 1) no es evaluado.
+   ```
 
-    ```js run no-beautify
-    let x;
+   Si, en vez, el primer argumento fuera `false`, `||` evaluaria el segundo, por tanto corriendo el asignamiento.
 
-    *!*false*/!* || (x = 1);
+   ```js run no-beautify
+   let x;
 
-    alert(x); // 1
-    ```
+   *!*false*/!* || (x = 1);
 
-    An assignment is a simple case. Other side effects can also be involved.
+   alert(x); // 1
+   ```
 
-    As we can see, such a use case is a "shorter way of doing `if`". The first operand is converted to boolean. If it's false, the second one is evaluated.
+   Un asignamiento es un caso simple. Otros efectos secundarios tambien puede ser usados.
 
-    Most of time, it's better to use a "regular" `if` to keep the code easy to understand, but sometimes this can be handy.
+   Como podemos ver, tal caso de uso es una "manera más corta de usar `if`". El primer operando es convertido a booleano. Si y el primero es falso, el segundo sera evaluado.
+
+   La mayoría del tiempo, es mejor usar un `if` "normal" para mantener el código fácil de entender, pero a veces esto puede ser útil.
 
 ## && (AND)
 
-The AND operator is represented with two ampersands `&&`:
+El operador AND es representado con `&&`:
 
 ```js
 result = a && b;
 ```
 
-In classical programming, AND returns `true` if both operands are truthy and `false` otherwise:
+En la programación clasica, AND retorna `true` si ambos operandos son valores verdaderos o de otro caso valores falsos.
 
 ```js run
-alert( true && true );   // true
-alert( false && true );  // false
-alert( true && false );  // false
-alert( false && false ); // false
+alert(true && true); // true
+alert(false && true); // false
+alert(true && false); // false
+alert(false && false); // false
 ```
 
-An example with `if`:
+Un ejemplo con `if`:
 
 ```js run
 let hour = 12;
 let minute = 30;
 
 if (hour == 12 && minute == 30) {
-  alert( 'The time is 12:30' );
+	alert("La hora es 12:30");
 }
 ```
 
-Just as with OR, any value is allowed as an operand of AND:
+Tal y como con OR, cualquier valor es permitido como operando de AND: Just as with OR, any value is allowed as an operand of AND:
 
 ```js run
 if (1 && 0) { // evaluated as true && false
-  alert( "won't work, because the result is falsy" );
+  alert( "no funcionara, por que el resultado es un valor falso );
 }
 ```
 
+## AND encuentra el primer valor verdadero y lo retorna
 
-## AND finds the first falsy value
-
-Given multiple AND'ed values:
+Dado varios múltiples valores aplicados al operador AND:
 
 ```js
 result = value1 && value2 && value3;
 ```
 
-The AND `&&` operator does the following:
+El operador AND `&&` realiza lo siguiente:
 
-- Evaluates operands from left to right.
-- For each operand, converts it to a boolean. If the result is `false`, stops and returns the original value of that operand.
-- If all operands have been evaluated (i.e. all were truthy), returns the last operand.
+-  Evalua los operandos de izquierda a derecha.
+-  Para cada operando, los convierte a un booleano. Si el resultado es `false`, se detiene y retorna el valor original de dicho operando.
+-  Si todos los operandos han sido evaluados (todos fueron valores verdaderos), retorna el último operando.
 
-In other words, AND returns the first falsy value or the last value if none were found.
+En otras palabras, AND retorna el primer valor falso o el último valor si ninguno fue encontrado.
 
-The rules above are similar to OR. The difference is that AND returns the first *falsy* value while OR returns the first *truthy* one.
+Las reglas de arriba son similares a las de OR. La difierence es que AND retorna el primer valor _falso_ mientras que OR retorna el primer valor _verdadero_.
 
-Examples:
-
-```js run
-// if the first operand is truthy,
-// AND returns the second operand:
-alert( 1 && 0 ); // 0
-alert( 1 && 5 ); // 5
-
-// if the first operand is falsy,
-// AND returns it. The second operand is ignored
-alert( null && 5 ); // null
-alert( 0 && "no matter what" ); // 0
-```
-
-We can also pass several values in a row. See how the first falsy one is returned:
+Ejemplo:
 
 ```js run
-alert( 1 && 2 && null && 3 ); // null
+// si el primer operando es un valor verdadero,
+// AND retorna el segundo operando:
+alert(1 && 0); // 0
+alert(1 && 5); // 5
+
+// si el primer operando es un valor falso,
+// AND lo retorna. El segundo operando es ignorado
+alert(null && 5); // null
+alert(0 && "no matter what"); // 0
 ```
 
-When all values are truthy, the last value is returned:
+Tambien podemos pasar varios valores en una fila. Observa como el primer valor falso es retornado: We can also pass several values in a row. See how the first falsy one is returned:
 
 ```js run
-alert( 1 && 2 && 3 ); // 3, the last one
+alert(1 && 2 && null && 3); // null
 ```
 
-````smart header="Precedence of AND `&&` is higher than OR `||`"
-The precedence of AND `&&` operator is higher than OR `||`.
+Cuando todos los valores son verdaderos, el último valor es retornado:
 
-So the code `a && b || c && d` is essentially the same as if the `&&` expressions were in parentheses: `(a && b) || (c && d)`.
-````
+```js run
+alert(1 && 2 && 3); // 3, el último.
+```
 
-Just like OR, the AND `&&` operator can sometimes replace `if`.
+`` smart header="La precedencia de AND `&&` es mayor que la de OR `||`" La precedencia del operador AND `&&` es mayor que la de OR `|| ``.
 
-For instance:
+Asi que el código `a && b || c && d` es esensialmente el mismo que si la expresiones `&&` estuvieran en parentesis: `(a && b) || (c && d)`
+
+Just como en OR, el operador AND `&&` puede ser algunas vece remplazado por `if`.
+
+Por ejemplo:
 
 ```js run
 let x = 1;
 
-(x > 0) && alert( 'Greater than zero!' );
+x > 0 && alert("Mayor que cero!");
 ```
 
-The action in the right part of `&&` would execute only if the evaluation reaches it. That is, only if `(x > 0)` is true.
+La acción en la parte derecha de `&&` seria ejecutada solo si la evaluación la alcanza. Eso es, solo si `(x > 0)` que es verdadero.
 
-So we basically have an analogue for:
+Asi que basicamente tenemos un análogo para:
 
 ```js run
 let x = 1;
 
 if (x > 0) {
-  alert( 'Greater than zero!' );
+	alert("Mayor que cero!");
 }
 ```
 
-The variant with `&&` appears shorter. But `if` is more obvious and tends to be a little bit more readable.
+La variante con `&&` parece más corta. Pero `if` es más obvio y tiende a ser un poco más legible.
 
-So we recommend using every construct for its purpose: use `if` if we want if and use `&&` if we want AND.
+Asi que recomendamos usar cada construcción para su propósito: usa `if` si queremos if y usa `&&` si queremos AND. So we recommend using every construct for its purpose: use `if` if we want if and use `&&` if we want AND.
 
 ## ! (NOT)
 
-The boolean NOT operator is represented with an exclamation sign `!`.
+El operador booleano NOT es representado con un signo de exclamación `!`.
 
-The syntax is pretty simple:
+La sintaxis es bastante simple:
 
 ```js
 result = !value;
 ```
 
-The operator accepts a single argument and does the following:
+El operador acepta un solo argumento y realiza lo siguiente:
 
-1. Converts the operand to boolean type: `true/false`.
-2. Returns the inverse value.
+1. Convierte el operando al tipo booleano: `true/false`.
+2. Retorna el valor contrario.
 
-For instance:
-
-```js run
-alert( !true ); // false
-alert( !0 ); // true
-```
-
-A double NOT `!!` is sometimes used for converting a value to boolean type:
+Por ejemplo:
 
 ```js run
-alert( !!"non-empty string" ); // true
-alert( !!null ); // false
+alert(!true); // false
+alert(!0); // true
 ```
 
-That is, the first NOT converts the value to boolean and returns the inverse, and the second NOT inverses it again. In the end, we have a plain value-to-boolean conversion.
-
-There's a little more verbose way to do the same thing -- a built-in `Boolean` function:
+Un doble NOT `!!` es a veces usado para convertir un valor al tipo booleano:
 
 ```js run
-alert( Boolean("non-empty string") ); // true
-alert( Boolean(null) ); // false
+alert(!!"cadena de texto no vacía"); // true
+alert(!!null); // false
 ```
 
-The precedence of NOT `!` is the highest of all logical operators, so it always executes first, before `&&` or `||`.
+Eso es, el primer NOT convierte el valor a booleano y retorna el inverso, y el sgundo NOT lo invierte de nuevo. Al final, tenemos una simple conversión a booleano.
+
+Hay una manera un poco mas verbosa de realizar lo mismo -- una función integrada `Boolean`:
+
+```js run
+alert(Boolean("cadena de texto no vacía")); // true
+alert(Boolean(null)); // false
+```
+
+La precedencia de NOT `!` es la mayor de todos los operadores lógicos, asi que siempre se ejecuta primero, antes de `&&` o `||`.
+
+```
+
+```

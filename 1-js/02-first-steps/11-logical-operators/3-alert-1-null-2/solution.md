@@ -1,6 +1,5 @@
-The answer: `null`, because it's the first falsy value from the list.
+La respuesta: `null`, porque es el primer valor falso de la lista.
 
 ```js run
-alert( 1 && null && 2 );
+alert(1 && null && 2);
 ```
-

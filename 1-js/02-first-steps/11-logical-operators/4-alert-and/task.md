@@ -2,11 +2,10 @@ importance: 3
 
 ---
 
-# What is the result of AND'ed alerts?
+# ¿Cuál es el resultado de las alertas aplicadas al operador AND?
 
-What will this code show?
+¿Qué va a imprimir el codigo debajo?
 
 ```js
-alert( alert(1) && alert(2) );
+alert(alert(1) && alert(2));
 ```
-
