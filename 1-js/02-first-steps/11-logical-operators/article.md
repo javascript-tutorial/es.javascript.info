@@ -85,13 +85,13 @@ El operador OR `||` realiza lo siguiente:
 
 Un valor es retornado en su forma original, sin la conversión.
 
-En otras palabras, una cadenade OR `"||"` retorna el primer valor verdadero o el último valor en caso de que dicho valor no sea encontrado.
+En otras palabras, una cadena de OR `"||"` retorna el primer valor verdadero o el último valor en caso de que dicho valor no sea encontrado.
 
 Por ejemplo:
 
 ```js run
 alert(1 || 0); // 1 (1 es un valor verdado)
-alert(true || "no matter what"); // (true es un valor verdadero)
+alert(true || "sin importar que"); // (true es un valor verdadero)
 
 alert(null || 1); // 1 (1 es el primer valor verdadero)
 alert(null || 0 || 1); // 1 (el primer valor verdadero)
