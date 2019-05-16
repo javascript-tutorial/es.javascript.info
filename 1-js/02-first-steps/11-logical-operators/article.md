@@ -40,7 +40,7 @@ if (1 || 0) {
 }
 ```
 
-La mayoría del tiempo, OR `||` es usando como una declaración de `if` para probar si _cualqueria_ de las condiciones dadas son `true`
+La mayoría del tiempo, OR `||` es usando como una declaración de `if` para probar si *cualqueria* de las condiciones dadas son `true`
 
 Por ejemplo:
 
@@ -203,7 +203,7 @@ El operador AND `&&` realiza lo siguiente:
 
 En otras palabras, AND retorna el primer valor falso o el último valor si ninguno fue encontrado.
 
-Las reglas de arriba son similares a las de OR. La difierence es que AND retorna el primer valor _falso_ mientras que OR retorna el primer valor _verdadero_.
+Las reglas de arriba son similares a las de OR. La difierence es que AND retorna el primer valor *falso* mientras que OR retorna el primer valor *verdadero*.
 
 Ejemplo:
 
@@ -231,11 +231,14 @@ Cuando todos los valores son verdaderos, el último valor es retornado:
 alert(1 && 2 && 3); // 3, el último.
 ```
 
-`` smart header="La precedencia de AND `&&` es mayor que la de OR `||`" La precedencia del operador AND `&&` es mayor que la de OR `|| ``.
+```smart header="La precedencia de AND `&&` es mayor que la de OR `||`"
 
-Asi que el código `a && b || c && d` es esensialmente el mismo que si la expresiones `&&` estuvieran en parentesis: `(a && b) || (c && d)`
+La precedencia del operador AND `&&` es mayor que la de OR `|| ``.
 
-Just como en OR, el operador AND `&&` puede ser algunas vece remplazado por `if`.
+Así que el código `a && b || c && d` es esensialmente el mismo que si la expresiones `&&` estuvieran en parentesis: `(a && b) || (c && d)`
+```
+
+Justo como en OR, el operador AND `&&` puede ser algunas vece remplazado por `if`.
 
 Por ejemplo:
 
@@ -243,7 +246,7 @@ Por ejemplo:
 let x = 1;
 
 x > 0 && alert("Mayor que cero!");
-```
+````
 
 La acción en la parte derecha de `&&` seria ejecutada solo si la evaluación la alcanza. Eso es, solo si `(x > 0)` que es verdadero.
 
