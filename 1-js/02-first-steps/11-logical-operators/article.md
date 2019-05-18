@@ -2,23 +2,23 @@
 
 Hay tres operadores lógicos en JavaScript: `||` (OR (O)), `&&` (AND (Y)), `!` (NOT (NO)).
 
-Aun que sean llamados lógicos, pueden ser aplicados a valores de cualquier tipo, no solo booleanos. El resultado también puede ser de cualquier tipo.
+Aunque sean llamados lógicos, pueden ser aplicados a valores de cualquier tipo, no solo booleanos. El resultado también puede ser de cualquier tipo.
 
 Veamos los detalles.
 
 ## || (OR)
 
-El operador `OR` es represtando con dos simbolos de linea verticales:
+El operador `OR` se representa con dos simbolos de linea vertical:
 
 ```js
 result = a || b;
 ```
 
-En la programación clasica, el OR lógico esta pensado para manipular solo valore booleanos. Si cualquiera de sus argumentos son `true`, retornara `true`, de lo contrario retornara `false`.
+En la programación clasica, el OR lógico esta pensado para manipular solo valores booleanos. Si cualquiera de sus argumentos es `true`, retorna `true`, de lo contrario retorna `false`.
 
-En JavaScript, el operador es un poco más complicado y poderoso. Pero primero, veamos que pasa con los valores booleanos.
+En JavaScript, el operador es un poco más complicado y poderoso. Pero primero, veamos qué pasa con los valores booleanos.
 
-Hay cuatro posibles combinaciones lógicas:
+Hay cuatro combinaciones lógicas posibles:
 
 ```js run
 alert(true || true); // true (verdadero)
@@ -27,20 +27,19 @@ alert(true || false); // true
 alert(false || false); // false (falso)
 ```
 
-Como podemos ver, los resultados son siempre `true` excepto en el caso de que ambos operandos sean `false`
+Como podemos ver, los resultados son siempre `true` excepto cuando ambos operandos son `false`.
 
-Si un operando no es un booleano, entonces es convertido a un booleano para la evaluación.
+Si un operando no es un booleano, se lo convierte a booleano para la evaluación.
 
 Por ejemplo, el número `1` es tratado como `true`, el número `0` como `false`:
 
 ```js run
-if (1 || 0) {
-	// Funciona como if( true || false )
+if (1 || 0) { // Funciona como if( true || false )
 	alert("valor verdadero!");
 }
 ```
 
-La mayoría del tiempo, OR `||` es usando como una declaración de `if` para probar si *cualqueria* de las condiciones dadas son `true`
+La mayoría de las veces, OR `||` es usado en una declaración `if` para probar si *cualquiera* de las condiciones dadas es `true`.
 
 Por ejemplo:
 
@@ -61,15 +60,15 @@ let hour = 12;
 let isWeekend = true;
 
 if (hour < 10 || hour > 18 || isWeekend) {
-	alert("La oficina esta cerrada."); // Esta los fines de semana
+	alert("La oficina esta cerrada."); // Es fin de semana
 }
 ```
 
 ## OR encuentra el primer valor verdadero
 
-La lógica descrita arriba es algo clásica. Ahora, vamos a traer las caracteristicas "extra" de JavaScript.
+La lógica descrita arriba es algo clásica. Ahora, mostremos las características "extra" de JavaScript.
 
-El algoritmo extendido trabajo de la siguiente forma.
+El algoritmo extendido trabaja de la siguiente forma.
 
 Dado múltiples valores aplicados al operador OR:
 
@@ -91,18 +90,18 @@ Por ejemplo:
 
 ```js run
 alert(1 || 0); // 1 (1 es un valor verdado)
-alert(true || "sin importar que"); // (true es un valor verdadero)
+alert(true || "cualquier valor"); // (true es un valor verdadero)
 
 alert(null || 1); // 1 (1 es el primer valor verdadero)
 alert(null || 0 || 1); // 1 (el primer valor verdadero)
 alert(undefined || null || 0); // 0 (todos son valores falsos, retorna el último valor)
 ```
 
-Esto lleva a varios usos interesantes comparados a el "puro, clásico, solo booleanos OR".
+Esto brinda varios usos interesantes comparados al "OR puro, clásico, de solo booleanos".
 
-1. **Consiguiendo el primer valor verdadero de una lista de expresiones.**
+1. **Consiguiendo el primer valor verdadero de una lista de variables o expresiones.**
 
-   Imagina que tenemos varias variables que pueden contener datos o ser `null/undefined`. ¿Comó podemos encontrar el primero valor con datos?
+   Imagina que tenemos múltiples variables que pueden contener datos o ser `null/undefined`. ¿Cómo podemos encontrar el primer valor que contenga datos?
 
    Podemos usar OR `||`:
 
@@ -114,16 +113,16 @@ Esto lleva a varios usos interesantes comparados a el "puro, clásico, solo bool
    let name = currentUser || defaultUser || "sin nombre";
    */!*
 
-   alert( name ); // seleccioná "John" – el primer valor verdadero
+   alert( name ); // selecciona "John" – el primer valor verdadero
    ```
 
-   Si tanto `currentUser` como `defaultUser` eran valores falsos, `"sin nombre"` hubiera sido el resultado.
+   Si tanto `currentUser` como `defaultUser` hubieran sido valores falsos, `"sin nombre"` hubiera sido el resultado.
 
 2. **Evaluación de cortocircuito.**
 
-   Los operandos no solo pueden ser valors, si no que tambien expresiones arbitrarias. OR los evalua y comprueba de izquierda a derecha. La evaluación termina cuando un valor verdadero es alcanzado, y dicho valor es retornado. Este proceso es llamado "evaluación de cortocircuito" porque va lo más corto posible de izquierda a derecha.
+   Los operandos no solo pueden ser valores, sino que tambien expresiones arbitrarias. OR los evalua y comprueba de izquierda a derecha. La evaluación termina cuando un valor verdadero es alcanzado, y dicho valor es retornado. Este proceso es llamado "evaluación de cortocircuito" porque avanza lo menos posible de izquierda a derecha.
 
-   Esto es claramente visto cuando una expresión dada como segundo argumento tiene un efecto secundario como una asignación de variable.
+   Esto se ve claramente cuando la expresión dada como segundo argumento tiene un efecto secundario como una asignación de variable.
 
    En el ejemplo debajo, `x` no es asignada:
 
@@ -135,7 +134,7 @@ Esto lleva a varios usos interesantes comparados a el "puro, clásico, solo bool
    alert(x); // undefined, porque (x = 1) no es evaluado.
    ```
 
-   Si, en vez, el primer argumento fuera `false`, `||` evaluaria el segundo, por tanto corriendo el asignamiento.
+   Si, en cambio, el primer argumento fuera `false`, `||` evaluaría el segundo, realizando la asignación.
 
    ```js run no-beautify
    let x;
@@ -145,11 +144,11 @@ Esto lleva a varios usos interesantes comparados a el "puro, clásico, solo bool
    alert(x); // 1
    ```
 
-   Un asignamiento es un caso simple. Otros efectos secundarios tambien puede ser usados.
+   Una asignación es un caso simple. Puede haber efectos secundarios, los cuales no se notarán si la evaluación no los alcanza.
 
-   Como podemos ver, tal caso de uso es una "manera más corta de usar `if`". El primer operando es convertido a booleano. Si y el primero es falso, el segundo sera evaluado.
+   Como podemos ver, tal caso de uso es una "manera más corta de usar `if`". El primer operando es convertido a booleano. Si el primero es falso, el segundo sera evaluado.
 
-   La mayoría del tiempo, es mejor usar un `if` "normal" para mantener el código fácil de entender, pero a veces esto puede ser útil.
+   La mayor parte del tiempo, es mejor usar un `if` "normal" para mantener el código fácil de entender, pero a veces esto puede ser útil.
 
 ## && (AND)
 
@@ -159,7 +158,7 @@ El operador AND es representado con `&&`:
 result = a && b;
 ```
 
-En la programación clasica, AND retorna `true` si ambos operandos son valores verdaderos o de otro caso valores falsos.
+En la programación clasica, AND retorna `true` si ambos operandos son valores verdaderos y falso en cualquier otro caso.
 
 ```js run
 alert(true && true); // true
@@ -179,17 +178,17 @@ if (hour == 12 && minute == 30) {
 }
 ```
 
-Tal y como con OR, cualquier valor es permitido como operando de AND: Just as with OR, any value is allowed as an operand of AND:
+Al igual que con OR, cualquier valor es permitido como operando de AND: 
 
 ```js run
-if (1 && 0) { // evaluated as true && false
-  alert( "no funcionara, por que el resultado es un valor falso );
+if (1 && 0) { // evaluado como true && false
+  alert( "no funcionará porque el resultado es un valor falso" );
 }
 ```
 
-## AND encuentra el primer valor verdadero y lo retorna
+## AND encuentra el primer valor verdadero
 
-Dado varios múltiples valores aplicados al operador AND:
+Dado múltiples valores aplicados al operador AND:
 
 ```js
 result = value1 && value2 && value3;
@@ -203,7 +202,7 @@ El operador AND `&&` realiza lo siguiente:
 
 En otras palabras, AND retorna el primer valor falso o el último valor si ninguno fue encontrado.
 
-Las reglas de arriba son similares a las de OR. La difierence es que AND retorna el primer valor *falso* mientras que OR retorna el primer valor *verdadero*.
+Las reglas anteriores son similares a las de OR. La difierence es que AND retorna el primer valor *falso* mientras que OR retorna el primer valor *verdadero*.
 
 Ejemplo:
 
@@ -216,10 +215,10 @@ alert(1 && 5); // 5
 // si el primer operando es un valor falso,
 // AND lo retorna. El segundo operando es ignorado
 alert(null && 5); // null
-alert(0 && "no matter what"); // 0
+alert(0 && "cualquier valor"); // 0
 ```
 
-Tambien podemos pasar varios valores en una fila. Observa como el primer valor falso es retornado: We can also pass several values in a row. See how the first falsy one is returned:
+También podemos pasar varios valores de una vez. Observa como el primer valor falso es retornado: 
 
 ```js run
 alert(1 && 2 && null && 3); // null
@@ -233,12 +232,12 @@ alert(1 && 2 && 3); // 3, el último.
 
 ```smart header="La precedencia de AND `&&` es mayor que la de OR `||`"
 
-La precedencia del operador AND `&&` es mayor que la de OR `|| ``.
+La precedencia del operador AND `&&` es mayor que la de OR `||`.
 
-Así que el código `a && b || c && d` es esensialmente el mismo que si la expresiones `&&` estuvieran en parentesis: `(a && b) || (c && d)`
+Así que el código `a && b || c && d` es básicamente el mismo que si la expresiones `&&` estuvieran entre paréntesis: `(a && b) || (c && d)`
 ```
 
-Justo como en OR, el operador AND `&&` puede ser algunas vece remplazado por `if`.
+Justo como en OR, el operador AND `&&` puede reemplazar en ocasiones al `if`.
 
 Por ejemplo:
 
@@ -248,9 +247,9 @@ let x = 1;
 x > 0 && alert("Mayor que cero!");
 ````
 
-La acción en la parte derecha de `&&` seria ejecutada solo si la evaluación la alcanza. Eso es, solo si `(x > 0)` que es verdadero.
+La acción en la parte derecha de `&&` sería ejecutada sólo si la evaluación la alcanza. Eso es, solo si `(x > 0)` es verdadero.
 
-Asi que basicamente tenemos un análogo para:
+Así que básicamente tenemos un análogo para:
 
 ```js run
 let x = 1;
@@ -262,7 +261,7 @@ if (x > 0) {
 
 La variante con `&&` parece más corta. Pero `if` es más obvio y tiende a ser un poco más legible.
 
-Asi que recomendamos usar cada construcción para su propósito: usa `if` si queremos if y usa `&&` si queremos AND. So we recommend using every construct for its purpose: use `if` if we want if and use `&&` if we want AND.
+Así que recomendamos usar cada construcción para su propósito: usar `if` si queremos if y usar `&&` si queremos AND.
 
 ## ! (NOT)
 
