@@ -22,3 +22,4 @@ if (userName == "Admin") {
 ```
 
 Nota las sangrías verticales dentro de los bloques `if`. Técnicamente no son necesarias, pero facilitan la lectura del código.
+
