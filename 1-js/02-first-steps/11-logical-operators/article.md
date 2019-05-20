@@ -27,7 +27,7 @@ alert(true || false); // true
 alert(false || false); // false (falso)
 ```
 
-Como podemos ver, los resultados son siempre `true` excepto cuando ambos operandos son `false`.
+Como podemos ver, el resultado es siempre `true` excepto cuando ambos operandos son `false`.
 
 Si un operando no es un booleano, se lo convierte a booleano para la evaluación.
 
@@ -84,7 +84,7 @@ El operador OR `||` realiza lo siguiente:
 
 Un valor es retornado en su forma original, sin la conversión.
 
-En otras palabras, una cadena de OR `"||"` retorna el primer valor verdadero o el último valor en caso de que dicho valor no sea encontrado.
+En otras palabras, una cadena de OR `"||"` retorna el primer valor verdadero o el último valor en caso de que ningún verdadero sea encontrado.
 
 Por ejemplo:
 
@@ -101,7 +101,7 @@ Esto brinda varios usos interesantes comparados al "OR puro, clásico, de solo b
 
 1. **Consiguiendo el primer valor verdadero de una lista de variables o expresiones.**
 
-   Imagina que tenemos múltiples variables que pueden contener datos o ser `null/undefined`. ¿Cómo podemos encontrar el primer valor que contenga datos?
+   Imagina que tenemos múltiples variables que pueden contener datos o bien ser `null/undefined`. ¿Cómo podemos encontrar el primer valor que contenga datos?
 
    Podemos usar OR `||`:
 
@@ -244,7 +244,7 @@ Por ejemplo:
 ```js run
 let x = 1;
 
-x > 0 && alert("Mayor que cero!");
+(x > 0) && alert("Mayor que cero!");
 ````
 
 La acción en la parte derecha de `&&` sería ejecutada sólo si la evaluación la alcanza. Eso es, solo si `(x > 0)` es verdadero.
@@ -301,5 +301,5 @@ alert(Boolean("cadena de texto no vacía")); // true
 alert(Boolean(null)); // false
 ```
 
-La precedencia de NOT `!` es la mayor de todos los operadores lógicos, asi que siempre se ejecuta primero, antes de `&&` o `||`.
+La precedencia de NOT `!` es la mayor de todos los operadores lógicos, así que siempre se ejecuta primero, antes que `&&` o `||`.
 
