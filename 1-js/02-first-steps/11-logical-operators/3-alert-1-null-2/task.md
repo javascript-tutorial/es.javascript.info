@@ -4,8 +4,9 @@ importance: 5
 
 # ¿Cuál es el resultado de AND?
 
-¿Qué va a imprimir el codigo debajo?
+¿Cuál será la salida del siguiente código?
 
 ```js
-alert(1 && null && 2);
+alert( 1 && null && 2 );
 ```
+
