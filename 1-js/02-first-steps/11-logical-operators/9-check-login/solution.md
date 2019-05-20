@@ -4,21 +4,21 @@
 let userName = prompt("Quién está ahí?", "");
 
 if (userName == "Admin") {
+    
+    let pass = prompt("Contraseña?", "");
 
-	let pass = prompt("Contraseña?", "");
-
-	if (pass == "TheMaster") {
-		alert( "Bienvenido!" );
-	} else if (pass == "" || pass == null) {
-		alert( "Cancelado." );
-	} else {
-		alert( "Contraseña incorrecta" );
-	}
+    if (pass == "TheMaster") {
+	alert( "Bienvenido!" );
+    } else if (pass == "" || pass == null) {
+	alert( "Cancelado." );
+    } else {
+	alert( "Contraseña incorrecta" );
+    }
 	
 } else if (userName == "" || userName == null) {
-	alert( "Canceledo" );
+    alert( "Canceledo" );
 } else {
-	alert( "No te conozco" );
+    alert( "No te conozco" );
 }
 ```
 
