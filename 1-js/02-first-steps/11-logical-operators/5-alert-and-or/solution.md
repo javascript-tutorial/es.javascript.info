@@ -13,3 +13,4 @@ null || 3 || 4
 ```
 
 Ahora el resultado será el primer valor verdadero: `3`.
+
