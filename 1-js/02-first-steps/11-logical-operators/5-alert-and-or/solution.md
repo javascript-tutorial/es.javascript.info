@@ -4,7 +4,7 @@ La respuesta: `3`.
 alert( null || 2 && 3 || 4 );
 ```
 
-La precedencia de AND `&&` es mayor que la de `||`, asi que se ejecuta primero.
+La precedencia de AND `&&` es mayor que la de `||`, así que se ejecuta primero.
 
 El resultado de `2 && 3 = 3`, por lo que la expresión se convierte en:
 
