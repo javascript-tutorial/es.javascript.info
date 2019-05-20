@@ -265,7 +265,7 @@ Así que recomendamos usar cada construcción para su propósito: usar `if` si q
 
 ## ! (NOT)
 
-El operador booleano NOT es representado con un signo de exclamación `!`.
+El operador booleano NOT se representa con un signo de exclamación `!`.
 
 La sintaxis es bastante simple:
 
@@ -292,9 +292,9 @@ alert(!!"cadena de texto no vacía"); // true
 alert(!!null); // false
 ```
 
-Eso es, el primer NOT convierte el valor a booleano y retorna el inverso, y el sgundo NOT lo invierte de nuevo. Al final, tenemos una simple conversión a booleano.
+Eso es, el primer NOT convierte el valor a booleano y retorna el inverso, y el segundo NOT lo invierte de nuevo. Al final, tenemos una simple conversión a booleano.
 
-Hay una manera un poco mas verbosa de realizar lo mismo -- una función integrada `Boolean`:
+Hay una manera un poco mas prolija de realizar lo mismo -- una función integrada `Boolean`:
 
 ```js run
 alert(Boolean("cadena de texto no vacía")); // true
@@ -303,6 +303,3 @@ alert(Boolean(null)); // false
 
 La precedencia de NOT `!` es la mayor de todos los operadores lógicos, asi que siempre se ejecuta primero, antes de `&&` o `||`.
 
-```
-
-```
