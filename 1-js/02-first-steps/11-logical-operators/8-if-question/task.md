@@ -9,8 +9,8 @@ importance: 5
 ¿Cuáles serán los resultados de las expresiones dentro de `if(...)`?
 
 ```js
-if (-1 || 0) alert( "first" );
-if (-1 && 0) alert( "second" );
-if (null || -1 && 1) alert( "third" );
+if (-1 || 0) alert( "primero" );
+if (-1 && 0) alert( "segundo" );
+if (null || -1 && 1) alert( "tercero" );
 ```
 
