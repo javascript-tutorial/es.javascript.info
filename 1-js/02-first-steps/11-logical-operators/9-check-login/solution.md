@@ -1,21 +1,24 @@
+
+
 ```js run demo
-let userName = prompt("Quién esta alli?", "");
+let userName = prompt("Quién está ahí?", "");
 
 if (userName == "Admin") {
+
 	let pass = prompt("Contraseña?", "");
 
 	if (pass == "TheMaster") {
-		alert("Bienvenido!");
+		alert( "Bienvenido!" );
 	} else if (pass == "" || pass == null) {
-		alert("Cancelado.");
+		alert( "Cancelado." );
 	} else {
-		alert("Contraseña incorrecta");
+		alert( "Contraseña incorrecta" );
 	}
 } else if (userName == "" || userName == null) {
-	alert("Canceledo");
+	alert( "Canceledo" );
 } else {
-	alert("No te conozco");
+	alert( "No te conozco" );
 }
 ```
 
-Nota las sangrías verticales dentro de los bloques `if`. Tecnicamente no son necesarias, pero facilitan la redacción del código.
+Nota las sangrías verticales dentro de los bloques `if`. Técnicamente no son necesarias, pero facilitan la lectura del código.
