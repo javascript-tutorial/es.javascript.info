@@ -2,7 +2,7 @@ importance: 3
 
 ---
 
-# Comprueba el rango entre ellos
+# Comprueba el rango por dentro
 
 Escribe una condición "if" para comprobar que `age`(edad) está entre `14` y `90` inclusivamente.
 
