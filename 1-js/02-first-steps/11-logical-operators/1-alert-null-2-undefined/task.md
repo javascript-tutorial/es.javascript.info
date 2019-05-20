@@ -7,5 +7,6 @@ importance: 5
 ¿Cuál será la salida del siguiente código?
 
 ```js
-alert(null || 2 || undefined);
+alert( null || 2 || undefined );
 ```
+
