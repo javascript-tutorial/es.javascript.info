@@ -1,9 +1,9 @@
-La respuesta: `1` y entonces `undefined`.
+La respuesta: `1` y después `undefined`.
 
 ```js run
-alert(alert(1) && alert(2));
+alert( alert(1) && alert(2) );
 ```
 
-La llamada a `alert`retorna `undefined` (solo muestra un mensaje, asi que no hay un valor que retornar significante)
+La llamada a `alert` retorna `undefined` (solo muestra un mensaje, asi que no hay un valor que retornar relevante)
 
-Debido a ello, `&&` evaluá el operando a la izquierda (imprime `1`), e inmediatamente se detiene, porque `undefined` es un valor falso. Y `&&` busca un valor falso y lo retorna, asi que ya está hecho.
+Debido a ello, `&&` evalua el operando de la izquierda (imprime `1`) e inmediatamente se detiene porque `undefined` es un valor falso. Como `&&` busca un valor falso y lo retorna, ya está.
