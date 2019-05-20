@@ -17,3 +17,4 @@ if (-1 && 0) alert( "segundo" );
 // null || -1 && 1  ->  null || 1  ->  1
 if (null || -1 && 1) alert( "tercero" );
 ```
+
