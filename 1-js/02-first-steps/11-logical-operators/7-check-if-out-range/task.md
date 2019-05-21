@@ -2,8 +2,8 @@ importance: 3
 
 ---
 
-# Check the range outside
+# Comprueba el rango por fuera
 
-Write an `if` condition to check that `age` is NOT between 14 and 90 inclusively.
+Escribe una condición `if` para comprobar que `age` NO está entre 14 y 90 inclusivemente.
 
-Create two variants: the first one using NOT `!`, the second one -- without it.
+Crea dos variantes: la primera usando NOT `!`, y la segunda -- sin usarlo.
