@@ -1,30 +1,30 @@
-The task demonstrates how postfix/prefix forms can lead to different results when used in comparisons.
+La tarea demuestra como las formas de sufjio y prefijo pueden llevar a diferentes resultado cuando son usadas en comparaciones.
 
-1. **From 1 to 4**
+1. **Del 1 al 4**
 
     ```js run
     let i = 0;
     while (++i < 5) alert( i );
     ```
 
-    The first value is `i = 1`, because `++i` first increments `i` and then returns the new value. So the first comparison is `1 < 5` and the `alert` shows `1`.
+    El primer valor es `i = 1`, porque primero `++i` incrementa `i` y entonces retorna el valor nuevo. Asi que la primera comparación es `1 < 5` y el `alert` muestra `1`.
 
-    Then follow `2, 3, 4…` -- the values show up one after another. The comparison always uses the incremented value, because `++` is before the variable.
+    Entonces siguen `2, 3, 4…` -- los valores son mostrados uno tras de otro. La comparación siempre usa el valor incrementado, porque `++` esta antes de la variable.
 
-    Finally, `i = 4` is incremented to `5`, the comparison `while(5 < 5)` fails, and the loop stops. So `5` is not shown.
-2. **From 1 to 5**
+    Finalmente, `i = 4` es incrementada a `5`, la comparación `while(5 < 5)` falla, y el bucle se detiene. Asi que `5` no es mostrado.
+2. **Del 1 al 5**
 
     ```js run
     let i = 0;
     while (i++ < 5) alert( i );
     ```
 
-    The first value is again `i = 1`. The postfix form of `i++` increments `i` and then returns the *old* value, so the comparison `i++ < 5` will use `i = 0` (contrary to `++i < 5`).
+    El primer valor es de nuevo `i = 1`. La forma del sufijo de `i++` incrementa `i` y entonce retorna el valor *viejo*, asi que la comparación `i++ < 5` usara `i = 0` (contrario a `++i < 5`).
 
-    But the `alert` call is separate. It's another statement which executes after the increment and the comparison. So it gets the current `i = 1`.
+    Pero la llamada a `alert` esta separda. Es otra declaración la cual se ejecuta luego del increment y la comparación. Asi que obtiene el `i = 1` actual.
 
-    Then follow `2, 3, 4…`
+    Luego siguen `2, 3, 4…`
 
-    Let's stop on `i = 4`. The prefix form `++i` would increment it and use `5` in the comparison. But here we have the postfix form `i++`. So it increments `i` to `5`, but returns the old value. Hence the comparison is actually `while(4 < 5)` -- true, and the control goes on to `alert`.
+    Vamos a parar en `i = 4`. La forma del prefijo `++i` lo incrementaria y usaria `5` en la comparación. Pero aqui tenemos la forma del sufijo `i++`. Asi que incrementa `i` a `5`, pero retorna el valor viejo. Por lo tanto, la comparación es en realidad `while(4 < 5)` -- verdadero, y el control sigue a `alert`.
 
-    The value `i = 5` is the last one, because on the next step `while(5 < 5)` is false.
+    El valor `i = 5` es el último, porque el siguiente paso `while(5 < 5)` es falso.

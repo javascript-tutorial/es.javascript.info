@@ -1,4 +1,4 @@
-**The answer: from `0` to `4` in both cases.**
+**La respuesta: de `0 `a `4` en ambaos casos.**
 
 ```js run
 for (let i = 0; i < 5; ++i) alert( i );

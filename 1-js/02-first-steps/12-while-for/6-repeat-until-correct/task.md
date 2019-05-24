@@ -2,12 +2,12 @@ importance: 5
 
 ---
 
-# Repeat until the input is correct
+# Repite hasta que la entrada sea correcta
 
-Write a loop which prompts for a number greater than `100`. If the visitor enters another number -- ask them to input again.
+Escribe un bucle que solicita un número mayor que `100`. Si el visitante ingresa otro número -- pideles que ingresen un valor de nuevo.
 
-The loop must ask for a number until either the visitor enters a number greater than `100` or cancels the input/enters an empty line.
+El bucle debe pedir por un número hasta que o el visitante ingrese un número mayor que `100` o cancele la entrada/ingresa un la linea vacía.
 
-Here we can assume that the visitor only inputs numbers. There's no need to implement a special handling for a non-numeric input in this task.
+Aquí podemos asumir que el visitante solo ingresara números. No hay necesidad de implementar un manejo especial para entradas no numéricas en esta tarea.
 
 [demo]

@@ -2,8 +2,8 @@ importance: 5
 
 ---
 
-# Output even numbers in the loop
+# Produce números pares en el bucle
 
-Use the `for` loop to output even numbers from `2` to `10`.
+Usa el bucle `for` para producir números pares del `2` al `10`.
 
 [demo]
