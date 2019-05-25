@@ -2,7 +2,7 @@ importance: 4
 
 ---
 
-# ¿Cuál valor es mostrado por el bucle while?
+# ¿Qué valores seran mostrados por el bucle while?
 
 Para cada iteración del bucle, escribe cual valor sera impreso y entonces comparalo con la solución.
 

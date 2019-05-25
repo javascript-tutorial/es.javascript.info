@@ -4,7 +4,7 @@ importance: 3
 
 # Ultimo valor del bucle
 
-¿Qué es alertado por el último valor de este código? ¿Por qué?
+¿Cuál es el último valor alertado/mostrado por este código? ¿Por qué?
 
 ```js
 let i = 3;

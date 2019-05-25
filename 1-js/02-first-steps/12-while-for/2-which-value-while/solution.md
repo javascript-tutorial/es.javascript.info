@@ -7,7 +7,7 @@ La tarea demuestra como las formas de sufjio y prefijo pueden llevar a diferente
     while (++i < 5) alert( i );
     ```
 
-    El primer valor es `i = 1`, porque primero `++i` incrementa `i` y entonces retorna el valor nuevo. Asi que la primera comparación es `1 < 5` y el `alert` muestra `1`.
+    El primer valor es `i = 1`, porque primero `++i` incrementa `i` y entonces retorna el valor nuevo. Así que la primera comparación es `1 < 5` y el `alert` muestra `1`. 
 
     Entonces siguen `2, 3, 4…` -- los valores son mostrados uno tras de otro. La comparación siempre usa el valor incrementado, porque `++` esta antes de la variable.
 
