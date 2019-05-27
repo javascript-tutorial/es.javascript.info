@@ -2,7 +2,7 @@
 
 Esta parte del tutorial pretende cubrir JavaScript "como es", sin ajustes específicos del entorno.
 
-Pero como seguiremos utilizando el navegador como entorno de demostración, deberíamos conocer al menos algunas de sus funciones de interfaz de usuario. En este capítulo, nos familiarizaremos con las funciones del navegador `alert`, `prompt` y `confirm`.
+Pero como seguiremos utilizando el navegador como entorno de demostración, deberíamos conocer al menos algunas de sus funciones de la interfaz de usuario. En este capítulo, nos familiarizaremos con las funciones del navegador `alert`, `prompt` y `confirm`.
 
 ## alert
 
@@ -33,7 +33,7 @@ result = prompt(title, [default]);
 Muestra una ventana modal con un mensaje de texto, un campo de entrada para el visitante y los botones OK/CANCELAR.
 
 `title`
-: El texto a mostrar al visitante.
+: El texto a mostrar al usuario.
 
 `default`
 : Un segundo parámetro opcional, el valor inicial del campo de entrada.
@@ -106,4 +106,4 @@ Hay dos limitaciones comunes a todos los métodos anteriores:
 1. La ubicación exacta de la ventana modal está determinada por el navegador. Normalmente, está en el centro.
 2. El aspecto exacto de la ventana también depende del navegador. No podemos modificarlo.
 
-Ese es el precio de la simplicidad. Hay otras formas de mostrar ventanas más atractivas y de interactuar de una mejor manera con el usuario, pero si el "decorado" no te importa mucho, estos métodos funcionan bien.
+Ese es el precio de la simplicidad. Existen otras formas de mostrar ventanas más atractivas e interactivas para el usuario, pero si la "apariencia" no importa mucho, estos métodos funcionan bien.
