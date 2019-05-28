@@ -4,19 +4,19 @@ La mayoría de las veces, los operadores y funciones convierten automáticamente
 
 Por ejemplo, `alert` convierte automáticamente cualquier valor a string para mostrarlo. Las operaciones matemáticas convierten los valores a números.
 
-Tmabién hay casos donde necesitamos convertir de manera explícita un valor al tipo esperado.
+También hay casos donde necesitamos convertir de manera explícita un valor al tipo esperado.
 
 ```smart header="Aún no hablamos de objetos"
-En este capítulo no cubriremos los objetos. Estudiaremos los valores primitivos primero. Luego, después de haber hablado sobre objetos, veremos como funciona la conversión de objetos en este capítulo <info:object-toprimitive>.
+En este capítulo no cubriremos los objetos. Estudiaremos los valores primitivos primero. Luego, después de haber hablado sobre objetos, veremos cómo funciona la conversión de objetos en este capítulo <info:object-toprimitive>.
 ```
 
 ## ToString
 
 La conversión a string ocurre cuando necesitamos la representación en forma de texto de un valor.
 
-Por ejemplo, `alert(valor)` lo hace para mostrar el valor como texto.
+Por ejemplo, `alert(value)` lo hace para mostrar el valor como texto.
 
-También podemos llamar la función `String(valor)` para convertir un valor a string:
+También podemos llamar la función `String(value)` para convertir un valor a string:
 
 ```js run
 let value = true;
@@ -28,7 +28,7 @@ alert(typeof value); // string
 */!*
 ```
 
-La conversion a String es bastante obvia. El boolean `false` se convierte en `"false"`, `null` en `"null"`, etc.
+La conversion a string es bastante obvia. El boolean `false` se convierte en `"false"`, `null` en `"null"`, etc.
 
 ## ToNumber
 
@@ -54,7 +54,7 @@ La conversión explícita es requerida usualmente cuando leemos un valor desde u
 Si el string no es un número váldio, el resultado de la comversión será `NaN`. Por ejemplo:
 
 ```js run
-let age = Number("an arbitrary string instead of a number");
+let age = Number("un texto arbitrario en vez de un número");
 
 alert(age); // NaN, conversión fallida
 ```
@@ -65,14 +65,14 @@ Reglas de conversión numérica:
 |-------|-------------|
 |`undefined`|`NaN`|
 |`null`|`0`|
-|<code>true&nbsp;and&nbsp;false</code> | `1` and `0` |
+|<code>true&nbsp;and&nbsp;false</code> | `1` y `0` |
 | `string` | Se eliminan los espacios al inicio y final del texto. Si el string resultante es vacío, el resultado es `0`. Sino el número es "leído" del string. Un error devuelve `NaN`. |
 
 Examples:
 
 ```js run
 alert( Number("   123   ") ); // 123
-alert( Number("123z") );      // NaN (error reading a number at "z")
+alert( Number("123z") );      // NaN (error al leer un número en "z")
 alert( Number(true) );        // 1
 alert( Number(false) );       // 0
 ```
