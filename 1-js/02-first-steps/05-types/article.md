@@ -12,13 +12,13 @@ Los lenguajes de programación que permiten estas cosas se denominan "dinámicam
 
 Hay siete tipos de datos básicos en JavaScript. Aquí, los cubriremos en general y en los próximos capítulos hablaremos de cada uno de ellos detalladamente.
 
-## Un número
+## Un number
 ```js
 let n = 123;
 n = 12.345;
 ```
 
-El tipo *número* representa tanto números enteros como de punto flotante.
+El tipo *number* (número) representa tanto números enteros como de punto flotante.
 
 Hay muchas operaciones para números, por ejemplo, multiplicación `*`, división `/`, suma `+`, resta `-`, y demás.
 
@@ -44,7 +44,7 @@ Además de los números comunes, existen los llamados "valores numéricos especi
     alert( "no es un número" / 2 ); // NaN, tal división es errónea
     ```
 
-    `NaN` es pegajoso. Cualquier otra operación sobre `NaN` retorna `NaN`:
+    `NaN` es "pegajoso". Cualquier otra operación sobre `NaN` retorna `NaN`:
 
     ```js run
     alert( "no es un número" / 2 + 5); // NaN
@@ -62,9 +62,9 @@ Los valores numéricos especiales pertenecen formalmente al tipo "número". Por 
 
 Veremos más sobre el trabajo con números en el capítulo <info:number>.
 
-## Una cadena
+## Un string
 
-Una cadena en JavaScript debe estar encerrada entre comillas.
+Un string (cadena de caracteres) en JavaScript debe estar encerrado entre comillas.
 
 ```js
 let str = "Hola";
@@ -80,7 +80,7 @@ En JavaScript, hay 3 tipos de comillas.
 
 Las comillas dobles y simples son comillas "simples". No hay diferencia entre ellas en JavaScript.
 
-Los Backticks son comillas de "funcionalidad extendida". Nos permiten incrustar variables y expresiones en una cadena encerrándolas en `${...}`, por ejemplo:
+Los Backticks son comillas de "funcionalidad extendida". Nos permiten incrustar variables y expresiones en una cadena de caracteres encerrándolas en `${...}`, por ejemplo:
 
 ```js run
 let name = "Juan";
@@ -104,12 +104,12 @@ En el capítulo <info:string> trataremos más a fondo las cadenas.
 ```smart header="No existe el tipo *carácter*".
 En algunos idiomas, hay un tipo especial "carácter" para un solo carácter. Por ejemplo, en el lenguaje C y en Java es `char`.
 
-En JavaScript no existe tal tipo. Sólo hay un tipo: `string`(cadena). Una cadena puede estar formada por un solo carácter o por varios de ellos.
+En JavaScript no existe tal tipo. Sólo hay un tipo: `string`. Una cadena puede estar formada por un solo carácter o por varios de ellos.
 ```
 
-## Un booleano (tipo lógico)
+## Un boolean (tipo lógico)
 
-El tipo booleano tiene sólo dos valores: `verdadero` y `falso`.
+El tipo boolean (booleano) tiene sólo dos valores: `verdadero` y `falso`.
 
 Este tipo se utiliza comúnmente para almacenar valores de sí/no: `verdadero` significa "sí, correcto", y `falso` significa "no, incorrecto".
 
@@ -172,7 +172,7 @@ alert(x); // "undefined"
 
 ...Pero no recomendamos hacer eso. Normalmente, usamos `null` para asignar un valor "vacío" o "desconocido" a una variable, y usamos `undefined` para chequeos como ver si una variable ha sido asignada.
 
-## Objetos y símbolos
+## Objects y symbols
 
 El tipo `object` (objeto) es especial.
 
