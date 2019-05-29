@@ -2,11 +2,11 @@ importance: 4
 
 ---
 
-# ¿Qué valores seran mostrados por el bucle "for"?
+# ¿Qué valores serán mostrados por el bucle "for"?
 
-Para cada bucle anota que valores va a mostrar. Entonces compara con la respuesta.
+Para cada bucle anota qué valores mostrará y luego compara con la respuesta.
 
-¿Ambos bucles alertan los mismos valores o no?
+Ambos bucles ¿`alertan` los mismos valores?
 
 1. La forma del sufijo:
 

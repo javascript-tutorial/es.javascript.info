@@ -2,7 +2,7 @@ importance: 3
 
 ---
 
-# Ultimo valor del bucle
+# Último valor del bucle
 
 ¿Cuál es el último valor alertado/mostrado por este código? ¿Por qué?
 

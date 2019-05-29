@@ -2,11 +2,11 @@ importance: 4
 
 ---
 
-# ¿Qué valores seran mostrados por el bucle while?
+# ¿Qué valores serán mostrados por el bucle while?
 
-Para cada iteración del bucle, escribe cual valor sera impreso y entonces comparalo con la solución.
+Para cada iteración del bucle, escribe que valor sera impreso y luego comparalo con la solución.
 
-¿Para cada bucle se alertan los mismos valores o no?
+Ambos bucles ¿`alertan` los mismos valores?
 
 1. La forma de prefijo `++i`:
 
