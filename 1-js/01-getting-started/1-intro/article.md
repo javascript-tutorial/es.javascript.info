@@ -6,7 +6,11 @@ Veamos que tiene de especial JavaScript, que podemos lograr con este lenguaje y 
 
 _JavaScript_ Fue creado para _"dar vida a la páginas web"_.
 
+<<<<<<< HEAD
 Los programas en este lenguaje son llamados _scripts_. Se pueden escribir directamente en el HTML de una página web y ejecutarse automáticamente a medida que se carga la página.
+=======
+The programs in this language are called *scripts*. They can be written right in a web page's HTML and run automatically as the page loads.
+>>>>>>> 9cb33f4039e5751bfd0e2bca565a37aa463fb477
 
 Los scripts se proporcionan y ejecutan como texto plano. No necesitan preparación especial o compilación para correr.
 
@@ -45,7 +49,11 @@ El motor aplica optimizaciones en cada paso del proceso. Incluso observa como el
 
 JavaScript moderno es un lenguaje de programación "seguro". No proporciona acceso de bajo nivel a la memoria o la CPU (UCP), ya que se creó inicialmente para los navegadores los cuales no lo requieren.
 
+<<<<<<< HEAD
 Las capacidades de JavaScript dependen en gran medida en el entorno en que se ejecuta. Por ejemplo, [Node.JS (https://es.wikipedia.org/wiki/Node.js) Soporta funciones que permiten a JavaScript leer y escribir archivos arbitrariamente, realizar solicitudes de red, etc.
+=======
+JavaScript's capabilities greatly depend on the environment it's running in. For instance, [Node.js](https://wikipedia.org/wiki/Node.js) supports functions that allow JavaScript to read/write arbitrary files, perform network requests, etc.
+>>>>>>> 9cb33f4039e5751bfd0e2bca565a37aa463fb477
 
 En el navegador JavaScript puede realizar cualquier cosa relacionada con la manipulación de una página web, interacción con el usuario y el servidor web.
 
@@ -69,7 +77,11 @@ Ejemplos de tales restricciones incluyen:
 
   Existen maneras de interactuar con la cámara, micrófono y otros dispositivos, pero eso requiere el permiso explicito del usuario. Por lo tanto, una página habilitada para JavaScript no puede habilitar una cámara web para observar el entorno y enviar la información a la [NSA](https://es.wikipedia.org/wiki/Agencia_de_Seguridad_Nacional).
 
+<<<<<<< HEAD
 - Diferentes pestañas y ventanas generalmente no se conocen entre sí. A veces si lo hacen, por ejemplo, cuando una ventana usa JavaScript para abrir otra. Pero incluso en este caso, JavaScript no puede acceder a la otra si provienen de diferentes sitios. (De diferente dominio, protocolo o puerto).
+=======
+    This is called the "Same Origin Policy". To work around that, *both pages* must agree for data exchange and contain a special JavaScript code that handles it. We'll cover that in the tutorial.
+>>>>>>> 9cb33f4039e5751bfd0e2bca565a37aa463fb477
 
   Esto es conocido como "política del mismo origen" ("Same Origin Policy"). Para evitar eso, ambas páginas deben contener código especial de JavaScript que permita manejar el intercambio de datos.
 
@@ -90,6 +102,10 @@ Existen al menos _tres_ geniales cosas acerca de JavaScript:
 + Las cosas simples se hacen simplemente.
 + Soportado por la mayoría de los navegadores y habilitado por defecto.
 ```
+<<<<<<< HEAD
+=======
+JavaScript is the only browser technology that combines these three things.
+>>>>>>> 9cb33f4039e5751bfd0e2bca565a37aa463fb477
 
 JavaScript es la única tecnología de los navegadores que combina estas tres cosas.
 
