@@ -84,7 +84,11 @@ El operador OR `||` realiza lo siguiente:
 
 Un valor es retornado en su forma original, sin la conversión.
 
+<<<<<<< HEAD
 En otras palabras, una cadena de OR `"||"` retorna el primer valor verdadero o el último valor en caso de que ningún verdadero sea encontrado.
+=======
+In other words, a chain of OR `"||"` returns the first truthy value or the last one if no truthy value is found.
+>>>>>>> 027933531e121650120f7e8385f691de99af12d2
 
 Por ejemplo:
 
@@ -101,7 +105,11 @@ Esto brinda varios usos interesantes comparados al "OR puro, clásico, de solo b
 
 1. **Consiguiendo el primer valor verdadero de una lista de variables o expresiones.**
 
+<<<<<<< HEAD
    Imagina que tenemos múltiples variables que pueden contener datos o bien ser `null/undefined`. ¿Cómo podemos encontrar el primer valor que contenga datos?
+=======
+    Imagine we have a list of variables which can either contain data or be `null/undefined`. How can we find the first one with data?
+>>>>>>> 027933531e121650120f7e8385f691de99af12d2
 
    Podemos usar OR `||`:
 
@@ -141,8 +149,12 @@ Esto brinda varios usos interesantes comparados al "OR puro, clásico, de solo b
 
    *!*false*/!* || (x = 1);
 
+<<<<<<< HEAD
    alert(x); // 1
    ```
+=======
+    An assignment is a simple case. There may be side effects, that won't show up if the evaluation doesn't reach them.
+>>>>>>> 027933531e121650120f7e8385f691de99af12d2
 
    Una asignación es un caso simple. Puede haber efectos secundarios, los cuales no se notarán si la evaluación no los alcanza.
 

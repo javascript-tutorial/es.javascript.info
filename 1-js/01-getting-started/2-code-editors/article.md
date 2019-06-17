@@ -12,6 +12,7 @@ Un IDE carga el proyecto (el cual puede ser de varios archivos), permite navegar
 
 Si aún no has seleccionado un IDE, considera las siguientes opciones:
 
+<<<<<<< HEAD
 - [WebStorm](http://www.jetbrains.com/webstorm/) para desarrollo frontend. La misma compañía ofrece otros editores para otros lenguajes (de paga).
 - [Netbeans](http://netbeans.org/) (gratuito).
 
@@ -20,6 +21,14 @@ Todos estos IDEs son multiplataforma ( cross-platform).
 Para Windows, también está "Visual Studio", no lo confundamos con "Visual Studio Code". "Visual Studio" es un poderoso editor pagado sólo para Windows, idóneo para la plataforma .NET. Una versión gratuita es de este editor se llama [Visual Studio Community](https://www.visualstudio.com/vs/community/).
 
 Muchos IDEs son de paga pero tienen un periodo de prueba. Su costo usualmente es pequeño si lo comparamos al salario de un desarrollador calificado, así que sólo escoge el mejor para ti.
+=======
+- [Visual Studio Code](https://code.visualstudio.com/) (cross-platform, free).
+- [WebStorm](http://www.jetbrains.com/webstorm/) (cross-platform, paid).
+
+For Windows, there's also "Visual Studio", not to be confused with "Visual Studio Code". "Visual Studio" is a paid and mighty Windows-only editor, well-suited for the .NET platform. It's also good at JavaScript. There's also a free version [Visual Studio Community](https://www.visualstudio.com/vs/community/).
+
+Many IDEs are paid, but have a trial period. Their cost is usually negligible compared to a qualified developer's salary, so just choose the best one for you.
+>>>>>>> 027933531e121650120f7e8385f691de99af12d2
 
 ## Editores livianos
 
@@ -33,6 +42,7 @@ En la práctica, los editores livianos pueden tener montones de plugins incluyen
 
 Las siguientes opciones merecen tu atención:
 
+<<<<<<< HEAD
 - [Visual Studio Code](https://code.visualstudio.com/) (multiplataforma, gratuito) además tiene varias características similar a un IDE.
 - [Atom](https://atom.io/) (multiplataforma, gratuito).
 - [Sublime Text](http://www.sublimetext.com) (multiplataforma, shareware).
@@ -49,6 +59,14 @@ Estoy usando:
 - Como un editor liviano -- [Sublime Text](http://www.sublimetext.com) o [Atom](https://atom.io/).
 
 ## No discutamos
+=======
+- [Atom](https://atom.io/) (cross-platform, free).
+- [Sublime Text](http://www.sublimetext.com) (cross-platform, shareware).
+- [Notepad++](https://notepad-plus-plus.org/) (Windows, free).
+- [Vim](http://www.vim.org/) and [Emacs](https://www.gnu.org/software/emacs/) are also cool if you know how to use them.
+
+## Let's not argue
+>>>>>>> 027933531e121650120f7e8385f691de99af12d2
 
 Los editores en las listas anteriores son aquellos que yo o mis amigos a quienes considero buenos programadores hemos estado usando por un largo tiempo y con los que somos felices.
 
