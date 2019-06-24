@@ -105,7 +105,11 @@ drawHtmlTree(node3, 'div.domtree', 690, 150);
 
 Al generar el DOM, los navegadores procesan automáticamente los errores en el documento, cierran etiquetas, etc.
 
+<<<<<<< HEAD
 El siguiente documento "inválido":
+=======
+Such an document with unclosed tags:
+>>>>>>> 9b5c1c95ec8a466150e519b0e94748717c747b09
 
 ```html no-beautify
 <p>Hello
@@ -224,7 +228,11 @@ La mejor manera de estudiarlos es hacer clic en ellos. La mayoría de los valore
 
 ## Interacción con la consola.
 
+<<<<<<< HEAD
 A medida que exploramos el DOM, es posible que quieras aplicarle JavaScript. Como obtener un nodo y ejecutar algún código para modificarlo, para ver cómo se ve. Aquí hay algunos consejos para moverse entre la pestaña Elementos y la consola.
+=======
+As we explore the DOM, we also may want to apply JavaScript to it. Like: get a node and run some code to modify it, to see the result. Here are few tips to travel between the Elements tab and the console.
+>>>>>>> 9b5c1c95ec8a466150e519b0e94748717c747b09
 
 - Selecciona el primer `<li>` en la pestaña Elementos.
 - Presiona `key:Esc`: se abrirá la consola justo debajo de la pestaña Elementos.
