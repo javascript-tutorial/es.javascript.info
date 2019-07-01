@@ -122,6 +122,10 @@ user.name = "Pete"; // Error: Cannot assign to read only property 'name'...
 
 Now no one can change the name of our user, unless they apply their own `defineProperty` to override ours.
 
+```smart header="Errors appear only in use strict"
+In the non-strict mode, no errors occur when writing to read-only properties and such. But the operation still won't succeed. Flag-violating actions are just silently ignored in non-strict.
+```
+
 Here's the same operation, but for the case when a property doesn't exist:
 
 ```js run
@@ -239,10 +243,6 @@ Object.defineProperty(user, "name", {writable: true}); // Error
 */!*
 ```
 
-```smart header="Errors appear only in use strict"
-In the non-strict mode, no errors occur when writing to read-only properties and such. But the operation still won't succeed. Flag-violating actions are just silently ignored in non-strict.
-```
-
 ## Object.defineProperties
 
 There's a method [Object.defineProperties(obj, descriptors)](mdn:js/Object/defineProperties) that allows to define many properties at once.
@@ -298,14 +298,13 @@ Property descriptors work at the level of individual properties.
 There are also methods that limit access to the *whole* object:
 
 [Object.preventExtensions(obj)](mdn:js/Object/preventExtensions)
-: Forbids to add properties to the object.
+: Forbids the addition of new properties to the object.
 
 [Object.seal(obj)](mdn:js/Object/seal)
-: Forbids to add/remove properties, sets for all existing properties `configurable: false`.
+: Forbids adding/removing of properties. Sets `configurable: false` for all existing properties.
 
 [Object.freeze(obj)](mdn:js/Object/freeze)
-: Forbids to add/remove/change properties, sets for all existing properties `configurable: false, writable: false`.
-
+: Forbids adding/removing/changing of properties. Sets `configurable: false, writable: false` for all existing properties.
 And also there are tests for them:
 
 [Object.isExtensible(obj)](mdn:js/Object/isExtensible)

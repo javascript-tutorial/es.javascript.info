@@ -12,9 +12,9 @@ In modern web-development `XMLHttpRequest` may be used for three reasons:
 2. We need to support old browsers, and don't want polyfills (e.g. to keep scripts tiny).
 3. We need something that `fetch` can't do yet, e.g. to track upload progress.
 
-Does that sound familiar? If yes, then all right, go on with `XMLHttpRequest`. Otherwise, please head on to fetch (coming soon).
+Does that sound familiar? If yes, then all right, go on with `XMLHttpRequest`. Otherwise, please head on to <info:fetch-basics>.
 
-## Basic flow
+## The basics
 
 XMLHttpRequest has two modes of operation: synchronous and asynchronous.
 
@@ -22,17 +22,17 @@ Let's see the asynchronous first, as it's used in the majority of cases.
 
 To do the request, we need 3 steps:
 
-1. Create `XMLHttpRequest`.
+1. Create `XMLHttpRequest`:
     ```js
-    let xhr = new XMLHttpRequest(); // no arguments
+    let xhr = new XMLHttpRequest(); // the constructor has no arguments
     ```
 
-2. Initialize it.
+2. Initialize it:s
     ```js
     xhr.open(method, URL, [async, user, password])
     ```
 
-    This method is usually called first after `new XMLHttpRequest`. It specifies the main parameters of the request:
+    This method is usually called right after `new XMLHttpRequest`. It specifies the main parameters of the request:
 
     - `method` -- HTTP-method. Usually `"GET"` or `"POST"`.
     - `URL` -- the URL to request.
@@ -143,7 +143,7 @@ We can use `xhr.responseType` property to set the response format:
 
 - `""` (default) -- get as string,
 - `"text"` -- get as string,
-- `"arraybuffer"` -- get as `ArrayBuffer` (for binary data, see chapter <info:arraybuffer-and-views>),
+- `"arraybuffer"` -- get as `ArrayBuffer` (for binary data, see chapter <info:arraybuffer-binary-arrays>),
 - `"blob"` -- get as `Blob` (for binary data, see chapter <info:blob>),
 - `"document"` -- get as XML document (can use XPath and other XML methods),
 - `"json"` -- get as JSON (parsed automatically).
@@ -203,7 +203,7 @@ xhr.onreadystatechange = function() {
 };
 ```
 
-You can find `readystatechange` listeners in really old code, for historical reasons.
+You can find `readystatechange` listeners in really old code, it's there for historical reasons, as there was a time when there were no `load` and other events.
 
 Nowadays, `load/error/progress` handlers deprecate it.
 
@@ -211,7 +211,7 @@ Nowadays, `load/error/progress` handlers deprecate it.
 
 If in the `open` method the third parameter `async` is set to `false`, the request is made synchronously.
 
-In other words, Javascript execution pauses at `send()` and resumes when the response is received. Somewhat like `alert` or `prompt` commands.
+In other words, JavaScript execution pauses at `send()` and resumes when the response is received. Somewhat like `alert` or `prompt` commands.
 
 Here's the rewritten example, the 3rd parameter of `open` is `false`:
 
@@ -232,7 +232,7 @@ try {
 };
 ```
 
-It might look good, but synchronous calls are used rarely, because they block in-page Javascript till the loading is complete. In some browsers it becomes impossible to scroll. If a synchronous call takes too much time, the browser may suggest to close the "hanging" webpage.
+It might look good, but synchronous calls are used rarely, because they block in-page JavaScript till the loading is complete. In some browsers it becomes impossible to scroll. If a synchronous call takes too much time, the browser may suggest to close the "hanging" webpage.
 
 Many advanced capabilities of `XMLHttpRequest`, like requesting from another domain or specifying a timeout, are unavailable for synchronous requests. Also, as you can see, no progress indication.
 
@@ -257,11 +257,11 @@ There are 3 methods for HTTP-headers:
     Several headers are managed exclusively by the browser, e.g. `Referer` and `Host`.
     The full list is [in the specification](http://www.w3.org/TR/XMLHttpRequest/#the-setrequestheader-method).
 
-    XMLHttpRequest is not allowed to change them, for the sake of user safety and correctness of the request.
+    `XMLHttpRequest` is not allowed to change them, for the sake of user safety and correctness of the request.
     ```
 
     ````warn header="Can't remove a header"
-    Another peciliarity of `XMLHttpRequest` is that one can't undo `setRequestHeader`.
+    Another peculiarity of `XMLHttpRequest` is that one can't undo `setRequestHeader`.
 
     Once the header is set, it's set. Additional calls add information to the header, don't overwrite it.
 
@@ -325,7 +325,7 @@ let formData = new FormData([form]); // creates an object, optionally fill from 
 formData.append(name, value); // appends a field
 ```
 
-Create it, optionally from a form, `append` more fields if needed, and then:
+We create it, optionally from a form, `append` more fields if needed, and then:
 
 1. `xhr.open('POST', ...)` – use `POST` method.
 2. `xhr.send(formData)` to submit the form to the server.
@@ -373,19 +373,19 @@ xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
 xhr.send(json);
 ```
 
-The `.send(body)` method is pretty omnivore. It can send almost everything, including Blob and BufferSource objects.
+The `.send(body)` method is pretty omnivore. It can send almost everything, including `Blob` and `BufferSource` objects.
 
 ## Upload progress
 
 The `progress` event only works on the downloading stage.
 
-That is: if we `POST` something, `XMLHttpRequest` first uploads our data, then downloads the response.
+That is: if we `POST` something, `XMLHttpRequest` first uploads our data (the request body), then downloads the response.
 
-If we're uploading something big, then we're surely more interested in tracking the upload progress. But `progress` event doesn't help here.
+If we're uploading something big, then we're surely more interested in tracking the upload progress. But `xhr.onprogress` doesn't help here.
 
 There's another object `xhr.upload`, without methods, exclusively for upload events.
 
-Here's the list:
+The event list is similar to `xhr` events, but `xhr.upload` triggers them on uploading:
 
 - `loadstart` -- upload started.
 - `progress` -- triggers periodically during the upload.
@@ -458,6 +458,8 @@ xhr.open('POST', 'http://anywhere.com/request');
 ...
 ```
 
+See the chapter <info:fetch-crossorigin> for details about cross-origin headers.
+
 
 ## Summary
 
@@ -468,7 +470,7 @@ let xhr = new XMLHttpRequest();
 
 xhr.open('GET', '/my/url');
 
-xhr.send(); // for POST, can send a string or FormData
+xhr.send(); s
 
 xhr.onload = function() {
   if (xhr.status != 200) { // HTTP error?
@@ -495,7 +497,7 @@ There are actually more events, the [modern specification](http://www.w3.org/TR/
 - `loadstart` -- the request has started.
 - `progress` -- a data packet of the response has arrived, the whole response body at the moment is in `responseText`.
 - `abort` -- the request was canceled by the call `xhr.abort()`.
-- `error` -- connection error has occured, e.g. wrong domain name. Doesn't happen for HTTP-errors like 404.
+- `error` -- connection error has occurred, e.g. wrong domain name. Doesn't happen for HTTP-errors like 404.
 - `load` -- the request has finished successfully.
 - `timeout` -- the request was canceled due to timeout (only happens if it was set).
 - `loadend` -- the request has finished (succeffully or not).

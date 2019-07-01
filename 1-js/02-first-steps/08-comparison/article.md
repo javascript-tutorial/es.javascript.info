@@ -192,8 +192,13 @@ alert( undefined == 0 ); // false (3)
 
 Obtenemos estos resultados porque:
 
+<<<<<<< HEAD
 - Las comparaciones `(1)` y `(2)` retornan `falso` porque `no definido` se convierte en `NaN` y `NaN` es un valor numérico especial que retorna `falso` para todas las comparaciones.
 - La comparación de igualdad `(3)` retorna `falso` porque `undefined` sólo equivale a `null` y a ningún otro valor.
+=======
+- Comparisons `(1)` and `(2)` return `false` because `undefined` gets converted to `NaN` and `NaN` is a special numeric value which returns `false` for all comparisons.
+- The equality check `(3)` returns `false` because `undefined` only equals `null`, `undefined`, and no other value.
+>>>>>>> 6bbe0b4313a7845303be835d632ef8e5bc7715cd
 
 ### Evita los problemas
 
