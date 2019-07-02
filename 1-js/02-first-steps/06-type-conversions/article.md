@@ -16,7 +16,7 @@ La conversión a string ocurre cuando necesitamos la representación en forma de
 
 Por ejemplo, `alert(value)` lo hace para mostrar el valor como texto.
 
-También podemos llamar la función `String(value)` para convertir un valor a string:
+También podemos llamar a la función `String(value)` para convertir un valor a string:
 
 ```js run
 let value = true;
@@ -28,7 +28,7 @@ alert(typeof value); // string
 */!*
 ```
 
-La conversion a string es bastante obvia. El boolean `false` se convierte en `"false"`, `null` en `"null"`, etc.
+La conversión a string es bastante obvia. El boolean `false` se convierte en `"false"`, `null` en `"null"`, etc.
 
 ## ToNumber
 
@@ -51,7 +51,7 @@ alert(typeof num); // number
 ```
 La conversión explícita es requerida usualmente cuando leemos un valor desde una fuente basada en texto, como lo son los campos de texto en los formularios, pero que esperamos que contengan un valor numérico.
 
-Si el string no es un número váldio, el resultado de la comversión será `NaN`. Por ejemplo:
+Si el string no es un número válido, el resultado de la conversión será `NaN`. Por ejemplo:
 
 ```js run
 let age = Number("un texto arbitrario en vez de un número");
@@ -150,7 +150,7 @@ Sigue las reglas:
 |cualquier otro valor| `true` |
 
 
-La mayoría de estas reglas son fácil de entender y recordar. Las excepciones más notables donde la gente suele cometer errores son:
+La mayoría de estas reglas son fáciles de entender y recordar. Las excepciones más notables donde la gente suele cometer errores son:
 
 - `undefined` es `NaN` como número, no `0`.
 - `"0"` y textos que solo contienen espacios como `"   "` son `true` como boolean.
