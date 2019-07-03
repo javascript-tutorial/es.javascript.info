@@ -1,11 +1,11 @@
 
 # Dynamic imports
 
-Export and import statements that we covered in previous chaters are called "static".
+Export and import statements that we covered in previous chapters are called "static".
 
 That's because they are indeed static. The syntax is very strict.
 
-First, we can't dynamicaly generate any parameters of `import`.
+First, we can't dynamically generate any parameters of `import`.
 
 The module path must be a primitive string, can't be a function call. This won't work:
 
