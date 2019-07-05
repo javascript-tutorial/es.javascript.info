@@ -1,14 +1,14 @@
 # Variables
 
-Most of the time, a JavaScript application needs to work with information. Here are two examples:
-1. An online shop -- the information might include goods being sold and a shopping cart.
-2. A chat application -- the information might include users, messages, and much more.
+La mayor parte del tiempo, una aplicacion JavaScript nesecita trabajar con informacion. Aqui hay dos ejemplos:
+1. Una tienda online -- la informacion puede incluir bienes vendidos y un carrito de compras.
+2. Una aplicacion de chat -- la inormacion puede incluir usuarios, mensajes, y mucho mas.
 
-Variables are used to store this information.
+Las Variables se utilizan para almacenar esta informacion.
 
-## A variable
+## Una variable
 
-A [variable](https://en.wikipedia.org/wiki/Variable_(computer_science)) is a "named storage" for data. We can use variables to store goodies, visitors, and other data.
+Una [variable](https://en.wikipedia.org/wiki/Variable_(computer_science)) es un "nombre de almacenamiento" para datos. Podemos usar variables para almacenar objetos valiosos, visitantes, y otros datos.
 
 To create a variable in JavaScript, use the `let` keyword.
 
