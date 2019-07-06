@@ -16,9 +16,9 @@ null + 1 = 1 // (5)
 undefined + 1 = NaN // (6)
 ```
 
-1. The addition with a string `"" + 1` converts `1` to a string: `"" + 1 = "1"`, and then we have `"1" + 0`, the same rule is applied.
-2. The subtraction `-` (like most math operations) only works with numbers, it converts an empty string `""` to `0`.
-3. The addition with a string appends the number `5` to the string.
-4. The subtraction always converts to numbers, so it makes `"  -9  "` a number `-9` (ignoring spaces around it).
-5. `null` becomes `0` after the numeric conversion.
-6. `undefined` becomes `NaN` after the numeric conversion.
+1. La adicción con una cadena `"" + 1` convierte `1` a una cadena: `"" + 1 = "1"`, y entonces tenemos `"1" + 0`, se aplica la misma regla.
+2. La sustracción `-` (como la mayoría de las operaciones matemáticas) solo trabaja con números, esto convierte una cadena vaciá `""` a `0`.
+3. La adicción con una cadena añade el numero `5` a la cadena.
+4. La sustracción siempre convierte a números, asi que hace `"  -9  "` un numero `-9` (ignorando espacios a su alrededor).
+5. `null` se convierte en `0` después de la conversión numérica.
+6. `undefined` se convierte `NaN` después de la conversión numérica.
