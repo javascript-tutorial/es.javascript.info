@@ -48,16 +48,16 @@ So, all we need to use an object is to know its external interface. We may be co
 
 That was a general introduction.
 
-In JavaScript, there are three types of properties and members:
+In JavaScript, there are two types of object fields (properties and methods):
 
 - Public: accessible from anywhere. They comprise the external interface. Till now we were only using public properties and methods.
 - Private: accessible only from inside the class. These are for the internal interface.
 
-In many other languages there also exist "protected" fields: accessible only from inside the class and those extending it. They are also useful for the internal interface. They are in a sense more widespread than private ones, because we usually want inheriting classes to gain access to properly do the extension.
+In many other languages there also exist "protected" fields: accessible only from inside the class and those extending it. They are also useful for the internal interface. They are in a sense more widespread than private ones, because we usually want inheriting classes to gain access to them.
 
-Protected fields are not implemented in Javascript on the language level, but in practice they are very convenient, so they are emulated.
+Protected fields are not implemented in JavaScript on the language level, but in practice they are very convenient, so they are emulated.
 
-In the next step we'll make a coffee machine in Javascript with all these types of properties. A coffee machine has a lot of details, we won't model them to stay simple (though we could).
+Now we'll make a coffee machine in JavaScript with all these types of properties. A coffee machine has a lot of details, we won't model them to stay simple (though we could).
 
 ## Protecting "waterAmount"
 
@@ -87,7 +87,7 @@ Let's change `waterAmount` property to protected to have more control over it. F
 
 **Protected properties are usually prefixed with an underscore `_`.**
 
-That is not enforced on the language level, but there's a convention that such properties and methods should not be accessed from the outside. Most programmers follow it.
+That is not enforced on the language level, but there's a well-known convention between programmers that such properties and methods should not be accessed from the outside.
 
 So our property will be called `_waterAmount`:
 
@@ -164,16 +164,16 @@ class CoffeeMachine {
   }
 
   *!*getWaterAmount()*/!* {
-    return this.waterAmount;
+    return this._waterAmount;
   }
 }
 
 new CoffeeMachine().setWaterAmount(100);
 ```
 
-That looks a bit longer, but functions are more flexible. They can accept multiple arguments (even if we don't need them right now). So, for the future, just in case we need to refactor something, functions are a safer choise.
+That looks a bit longer, but functions are more flexible. They can accept multiple arguments (even if we don't need them right now).
 
-Surely, there's a tradeoff. On the other hand, get/set syntax is shorter, so ultimately there's no strict rule, it's up to you to decide.
+On the other hand, get/set syntax is shorter, so ultimately there's no strict rule, it's up to you to decide.
 ````
 
 ```smart header="Protected fields are inherited"
@@ -186,13 +186,13 @@ So protected fields are naturally inheritable. Unlike private ones that we'll se
 
 [recent browser=none]
 
-There's a finished Javascript proposal, almost in the standard, that provides language-level support for private properties and methods.
+There's a finished JavaScript proposal, almost in the standard, that provides language-level support for private properties and methods.
 
 Privates should start with `#`. They are only accessible from inside the class.
 
-For instance, here we add a private `#waterLimit` property and extract the water-checking logic into a separate method:
+For instance, here's a private `#waterLimit` property and the water-checking private method `#checkWater`:
 
-```js
+```js run
 class CoffeeMachine {
 *!*
   #waterLimit = 200;
@@ -205,29 +205,15 @@ class CoffeeMachine {
   }
 */!*
 
-  _waterAmount = 0;
-
-  set waterAmount(value) {
-*!*
-    this.#checkWater(value);
-*/!*
-    this._waterAmount = value;
-  }
-
-  get waterAmount() {
-    return this.waterAmount;
-  }
-
 }
 
 let coffeeMachine = new CoffeeMachine();
 
 *!*
+// can't access privates from outside of the class
 coffeeMachine.#checkWater(); // Error
 coffeeMachine.#waterLimit = 1000; // Error
 */!*
-
-coffeeMachine.waterAmount = 100; // Works
 ```
 
 On the language level, `#` is a special sign that the field is private. We can't access it from outside or from inheriting classes.
@@ -262,7 +248,7 @@ Unlike protected ones, private fields are enforced by the language itself. That'
 But if we inherit from `CoffeeMachine`, then we'll have no direct access to `#waterAmount`. We'll need to rely on `waterAmount` getter/setter:
 
 ```js
-class CoffeeMachine extends CoffeeMachine() {
+class MegaCoffeeMachine extends CoffeeMachine() {
   method() {
 *!*
     alert( this.#waterAmount ); // Error: can only access from CoffeeMachine
@@ -271,19 +257,19 @@ class CoffeeMachine extends CoffeeMachine() {
 }
 ```
 
-In many scenarios such limitation is too severe. If we extend a `CoffeeMachine`, we may have legitimate reason to access its internals. That's why protected fields are used most of the time, even though they are not supported by the language syntax.
+In many scenarios such limitation is too severe. If we extend a `CoffeeMachine`, we may have legitimate reason to access its internals. That's why protected fields are used more often, even though they are not supported by the language syntax.
 
-````warn
+````warn header="Private fields are not available as this[name]"
 Private fields are special.
 
-Remember, usually we can access fields by this[name]:
+As we know, usually we can access fields using `this[name]`:
 
 ```js
 class User {
   ...
   sayHi() {
     let fieldName = "name";
-    alert(`Hello, ${this[fieldName]}`);
+    alert(`Hello, ${*!*this[fieldName]*/!*}`);
   }
 }
 ```
@@ -309,11 +295,11 @@ Protection for users, so that they don't shoot themselves in the feet
 Supportable
 : The situation in programming is more complex than with a real-life coffee machine, because we don't just buy it once. The code constantly undergoes development and improvement.
 
-    **If we strictly delimit the internal interface, then the developer of the class can freely change its internal properties and methods, even without informing the users..**
+    **If we strictly delimit the internal interface, then the developer of the class can freely change its internal properties and methods, even without informing the users.**
 
-    It's much easier to develop, if you know that certain methods can be renamed, their parameters can be changed, and even removed, because no external code depends on them.
+    If you're a developer of such class, it's great to know that private methods can be safely renamed, their parameters can be changed, and even removed, because no external code depends on them. 
 
-    For users, when a new version comes out, it may be a total overhaul, but still simple to upgrade if the external interface is the same.
+    For users, when a new version comes out, it may be a total overhaul internally, but still simple to upgrade if the external interface is the same.
 
 Hiding complexity
 : People adore to use things that are simple. At least from outside. What's inside is a different thing.
@@ -322,9 +308,9 @@ Hiding complexity
 
     **It's always convenient when implementation details are hidden, and a simple, well-documented external interface is available.**
 
-To hide internal interface we use either protected or public properties:
+To hide internal interface we use either protected or private properties:
 
 - Protected fields start with `_`. That's a well-known convention, not enforced at the language level. Programmers should only access a field starting with `_` from its class and classes inheriting from it.
-- Private fields start with `#`. Javascript makes sure we only can access those from inside the class.
+- Private fields start with `#`. JavaScript makes sure we only can access those from inside the class.
 
 Right now, private fields are not well-supported among browsers, but can be polyfilled.
