@@ -1,4 +1,3 @@
-
 # Export and Import
 
 Export and import directives are very versatile.
@@ -29,7 +28,7 @@ For instance, here all exports are valid:
 ````smart header="No semicolons after export class/function"
 Please note that `export` before a class or a function does not make it a [function expression](info:function-expressions-arrows). It's still a function declaration, albeit exported.
 
-Most Javascript style guides recommend semicolons after statements, but not after function and class declarations.
+Most JavaScript style guides recommend semicolons after statements, but not after function and class declarations.
 
 That's why there should be no semicolons at the end of `export class` and `export function`.
 
@@ -104,7 +103,7 @@ Well, there are few reasons.
     export function becomeSilent() { ... }
     ```
 
-    Now if we in fact need only one of them in our project:
+    Now if we only use one of `lib.js` functions in our project:
     ```js
     // 📁 main.js
     import {sayHi} from './lib.js';
@@ -210,17 +209,20 @@ For instance, these are all perfectly valid default exports:
 export default class { // no class name
   constructor() { ... }
 }
+```
 
+```js
 export default function(user) { // no function name
   alert(`Hello, ${user}!`);
 }
+```
 
+```js
 // export a single value, without making a variable
 export default ['Jan', 'Feb', 'Mar','Apr', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 ```
 
-That's fine, because `export default` is only one per file, so `import` always knows what to import.
- Contrary to that, omitting a name for named imports would be an error:
+Not giving a name is fine, because `export default` is only one per file. Contrary to that, omitting a name for named imports would be an error:
 
 ```js
 export class { // Error! (non-default export needs a name)
@@ -230,9 +232,9 @@ export class { // Error! (non-default export needs a name)
 
 ### "Default" alias
 
-The "default" word is a kind of "alias" for the default export, for scenarios when we need to reference it somehow.
+The "default" keyword is used as an "alias" for the default export, for standalone exports and other scenarios when we need to reference it.
 
-For example, if we already have a function declared, that's how to `export default` it:
+For example, if we already have a function declared, that's how to `export default` it (separately from the definition):
 
 ```js
 function sayHi(user) {
@@ -279,7 +281,7 @@ new User('John');
 
 ### Should I use default exports?
 
-One should be careful about using default exports, because they are somewhat more different to maintain.
+One should be careful about using default exports, because they are more difficult to maintain.
 
 Named exports are explicit. They exactly name what they import, so we have that information from them, that's a good thing.
 
@@ -287,12 +289,15 @@ Also, named exports enforce us to use exactly the right name to import:
 
 ```js
 import {User} from './user.js';
+// import {MyUser} won't work, the name must be {User}
 ```
 
-For default exports, we need to create a name on our own:
+For default exports, we always choose the name when importing:
 
 ```js
-import MyUser from './user.js'; // could be import Anything..., and it'll work
+import User from './user.js'; // works
+import MyUser from './user.js'; // works too
+// could be import Anything..., and it'll be work
 ```
 
 So, there's a little bit more freedom that can be abused, so that team members may use different names for the same thing.
@@ -377,7 +382,7 @@ export {default as Github} from './providers/github.js';
 ````warn header="Re-exporting default is tricky"
 Please note: `export User from './user.js'` won't work. It's actually a syntax error. To re-export the default export, we must mention it explicitly `{default as ...}`, like in the example above.
 
-Also, there's another oddity: `export * from './user.js'` re-exports only named exports, exluding the default one. Once again, we need to mention it explicitly.
+Also, there's another oddity: `export * from './user.js'` re-exports only named exports, excluding the default one. Once again, we need to mention it explicitly.
 
 For instance, to re-export everything, two statements will be necessary:
 ```js
@@ -410,16 +415,18 @@ Import:
   - `import {default as x} from "mod"`
 - Everything:
   - `import * as obj from "mod"`
-- Only fetch/evalute the module, don't import:
+- Import the module (it runs), but do not assign it to a variable:
   - `import "mod"`
 
-We can put import/export statements below or after other code, that doesn't matter.
+We can put import/export statements at the top or at the bottom of a script, that doesn't matter.
 
 So this is technically fine:
 ```js
 sayHi();
 
-import {sayHi} from './say.js'; // import at the end of the file
+// ...
+
+import {sayHi} from './say.js'; // import at the end of the script
 ```
 
 In practice imports are usually at the start of the file, but that's only for better convenience.
