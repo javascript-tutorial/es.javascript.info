@@ -2,11 +2,11 @@
 
 Las curvas de Bézier se utilizan en gráficos por ordenador para dibujar formas, para animación CSS y en muchos otros lugares.
 
-En realidad, son algo muy sencillo, vale la pena estudiar una vez y luego sentirse cómodo en el mundo de los gráficos vectoriales y las animaciones avanzadas.
+En realidad, son algo muy sencillo, vale la pena estudiarlos una vez y luego sentirse cómodo en el mundo de los gráficos vectoriales y las animaciones avanzadas.
 
 ## Puntos de control
 
-Una [curva de Bèzier](https://es.wikipedia.org/wiki/Curva_de_B%C3%A9zier) está definida por puntos de control.
+Una [curva de Bézier](https://es.wikipedia.org/wiki/Curva_de_B%C3%A9zier) está definida por puntos de control.
 
 Puede haber 2, 3, 4 o más.
 
@@ -22,7 +22,7 @@ Curva de cuatro puntos:
 
 ![](bezier4.png)
 
-Si observa detenidamente estas curvas, puede notar inmediatamente que:
+Si observas detenidamente estas curvas, puedes notar inmediatamente que:
 
 1. **Los puntos no siempre están en la curva.** Eso es perfectamente normal, luego veremos cómo se construye la curva.
 2. **El orden de la curva es igual al número de puntos menos uno**.
@@ -35,11 +35,11 @@ Debido a esa última propiedad, en gráficos por ordenador es posible optimizar 
 
 **El valor principal de las curvas de Bézier para dibujar: al mover los puntos, la curva cambia *de manera intuitiva*.**
 
-Intente mover los puntos de control con el ratón en el siguiente ejemplo:
+Intenta mover los puntos de control con el ratón en el siguiente ejemplo:
 
 [iframe src="demo.svg?nocpath=1&p=0,0,0.5,0,0.5,1,1,1" height=370]
 
-**Como puede observar, la curva se extiende a lo largo de las lineas tangenciales 1 -> 2 y 3 -> 4.**
+**Como puedes observar, la curva se extiende a lo largo de las lineas tangenciales 1 -> 2 y 3 -> 4.**
 
 Después de algo de práctica, se vuelve obvio cómo colocar puntos para obtener la curva necesaria. Y al conectar varias curvas podemos obtener prácticamente cualquier cosa.
 
@@ -78,7 +78,7 @@ Los puntos de control (1,2 y 3) se pueden mover con el ratón. Presiona el botó
 | ------------------------ | ---------------------- |
 | ![](bezier3-draw1.png)   | ![](bezier3-draw2.png) |
 
-4. Ahora, en el segmento <span style="color:#167490">azul</span>, tome un punto en la distancia proporcional al mismo valor de `t`. Es decir, para `t=0.25` (la imagen de la izquierda) tenemos un punto al final del cuarto izquierdo del segmento, y para `t=0.5` (la imagen de la derecha) -- en la mitad del segmento. En las imágenes de arriba ese punto es <span style="color:red">rojo</span>.
+4. Ahora, en el segmento <span style="color:#167490">azul</span>, toma un punto en la distancia proporcional al mismo valor de `t`. Es decir, para `t=0.25` (la imagen de la izquierda) tenemos un punto al final del cuarto izquierdo del segmento, y para `t=0.5` (la imagen de la derecha) -- en la mitad del segmento. En las imágenes de arriba ese punto es <span style="color:red">rojo</span>.
 
 5. Como `t` va de `0` a `1`, cada valor de `t` añade un punto a la curva. El conjunto de tales puntos forma la curva de Bézier. Es rojo y parabólico en las imágenes de arriba.
 
@@ -108,7 +108,7 @@ Dados N de puntos de control:
 Estos puntos forman la curva.
 
 ```online
-**Ejecute y pause los ejemplos para ver claramente los segmentos y cómo se construye la curva.**
+**Ejecuta y pausa los ejemplos para ver claramente los segmentos y cómo se construye la curva.**
 ```
 
 
