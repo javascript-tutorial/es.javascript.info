@@ -77,7 +77,7 @@ alert( Number(true) );        // 1
 alert( Number(false) );       // 0
 ```
 
-Ten en cuenta que `null` y `undefined` se de distinta manera aquí: `null` se convierte en `0` mientras que `undefined` se convierte en `NaN`.
+Ten en cuenta que `null` y `undefined` se comportan de distinta manera aquí: `null` se convierte en `0` mientras que `undefined` se convierte en `NaN`.
 
 ````smart header="Adición '+' concatena strings"
 Casi todas las operaciones matemáticas convierten valores a números. Una excepción notable es la suma `+`. Si uno de los valores sumados es un string, el otro valor es convertido a string.
