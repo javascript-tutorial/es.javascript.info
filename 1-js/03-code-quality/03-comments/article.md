@@ -4,7 +4,7 @@ As we know from the chapter <info:structure>, comments can be single-line: start
 
 We normally use them to describe how and why the code works.
 
-From the first sight, commenting might be obvious, but novices in programming usually get it wrong.
+At first sight, commenting might be obvious, but novices in programming usually get it wrong.
 
 ## Bad comments
 
@@ -18,7 +18,7 @@ complex;
 code;
 ```
 
-But in good code the amount of such "explanatory" comments should be minimal. Seriously, code should be easy to understand without them.
+But in good code, the amount of such "explanatory" comments should be minimal. Seriously, the code should be easy to understand without them.
 
 There's a great rule about that: "if the code is so unclear that it requires a comment, then maybe it should be rewritten instead".
 
