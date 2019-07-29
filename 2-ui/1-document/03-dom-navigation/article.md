@@ -7,13 +7,13 @@ libs:
 
 # Walking the DOM
 
-The DOM allows us to do anything with elements and their contents, but first we need to reach the corresponding DOM object, get it into a variable, and then we are able to modify it.
+The DOM allows us to do anything with elements and their contents, but first we need to reach the corresponding DOM object.
 
 All operations on the DOM start with the `document` object. From it we can access any node.
 
 Here's a picture of links that allow for travel between DOM nodes:
 
-![](dom-links.png)
+![](dom-links.svg)
 
 Let's discuss them in more detail.
 
@@ -86,7 +86,7 @@ For instance, here `<body>` has children `<div>` and `<ul>` (and few blank text 
 </html>
 ```
 
-...And if we ask for all descendants of `<body>`, then we get direct children `<div>`, `<ul>` and also more nested elements like `<li>` (being a child of `<ul>`) and `<b>` (being a child of `<li>`) -- the entire subtree.
+...And all descendants of `<body>` are not only direct children `<div>`, `<ul>` but also more deeply nested elements, such as `<li>` (a child of `<ul>`) and `<b>` (a child of `<li>`) -- the entire subtree.
 
 **The `childNodes` collection provides access to all child nodes, including text nodes.**
 
@@ -216,7 +216,7 @@ But for many tasks we don't want text or comment nodes. We want to manipulate el
 
 So let's see more navigation links that only take *element nodes* into account:
 
-![](dom-links-elements.png)
+![](dom-links-elements.svg)
 
 The links are similar to those given above, just with `Element` word inside:
 

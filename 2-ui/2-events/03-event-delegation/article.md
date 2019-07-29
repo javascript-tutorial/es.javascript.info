@@ -81,7 +81,7 @@ In our case if we take a look inside the HTML, we can see nested tags inside `<t
 
 Naturally, if a click happens on that `<strong>` then it becomes the value of `event.target`.
 
-![](bagua-bubble.png)
+![](bagua-bubble.svg)
 
 In the handler `table.onclick` we should take such `event.target` and find out whether the click was inside `<td>` or not.
 
@@ -182,7 +182,7 @@ The pattern has two parts:
 
 ### Counter
 
-For instance, here the attribute `data-counter` adds a behavior: "increase on click" to buttons:
+For instance, here the attribute `data-counter` adds a behavior: "increase value on click" to buttons:
 
 ```html run autorun height=60
 Counter: <input type="button" value="1" data-counter>

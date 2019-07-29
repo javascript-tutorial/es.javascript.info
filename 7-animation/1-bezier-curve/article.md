@@ -2,7 +2,7 @@
 
 Bezier curves are used in computer graphics to draw shapes, for CSS animation and in many other places.
 
-They are actually a very simple thing, worth to study once and then feel comfortable in the world of vector graphics and advanced animations.
+They are a very simple thing, worth to study once and then feel comfortable in the world of vector graphics and advanced animations.
 
 ## Control points
 
@@ -12,15 +12,15 @@ There may be 2, 3, 4 or more.
 
 For instance, two points curve:
 
-![](bezier2.png)
+![](bezier2.svg)
 
 Three points curve:
 
-![](bezier3.png)
+![](bezier3.svg)
 
 Four points curve:
 
-![](bezier4.png)
+![](bezier4.svg)
 
 If you look closely at these curves, you can immediately notice:
 
@@ -29,7 +29,7 @@ If you look closely at these curves, you can immediately notice:
 For two points we have a linear curve (that's a straight line), for three points -- quadratic curve (parabolic), for four points -- cubic curve.
 3. **A curve is always inside the [convex hull](https://en.wikipedia.org/wiki/Convex_hull) of control points:**
 
-    ![](bezier4-e.png) ![](bezier3-e.png)
+    ![](bezier4-e.svg) ![](bezier3-e.svg)
 
 Because of that last property, in computer graphics it's possible to optimize intersection tests. If convex hulls do not intersect, then curves do not either. So checking for the convex hulls intersection first can give a very fast "no intersection" result. Checking the intersection or convex hulls is much easier, because they are rectangles, triangles and so on (see the picture above), much simpler figures than the curve.
 
@@ -45,7 +45,7 @@ After some practice it becomes obvious how to place points to get the needed cur
 
 Here are some examples:
 
-![](bezier-car.png) ![](bezier-letter.png) ![](bezier-vase.png)
+![](bezier-car.svg) ![](bezier-letter.svg) ![](bezier-vase.svg)
 
 ## De Casteljau's algorithm
 
@@ -77,7 +77,7 @@ Control points (1,2 and 3) can be moved by the mouse. Press the "play" button to
 
 | For `t=0.25`             | For `t=0.5`            |
 | ------------------------ | ---------------------- |
-| ![](bezier3-draw1.png)   | ![](bezier3-draw2.png) |
+| ![](bezier3-draw1.svg)   | ![](bezier3-draw2.svg) |
 
 4. Now in the <span style="color:#167490">blue</span> segment take a point on the distance proportional to the same value of `t`. That is, for `t=0.25` (the left picture) we have a point at the end of the left quarter of the segment, and for `t=0.5` (the right picture) -- in the middle of the segment. On pictures above that point is <span style="color:red">red</span>.
 
@@ -130,14 +130,14 @@ A non-smooth Bezier curve (yeah, that's possible too):
 [iframe src="demo.svg?p=0,0,1,1,0,1,1,0&animate=1" height=370]
 
 ```online
-If there's anything unclear in the algorithm description, then live examples above show how
+If there's something unclear in the algorithm description, please look at the live examples above to see how
 the curve is built.
 ```
 
 As the algorithm is recursive, we can build Bezier curves of any order, that is: using 5, 6 or more control points. But in practice many points are less useful. Usually we take 2-3 points, and for complex lines glue several curves together. That's simpler to develop and calculate.
 
 ```smart header="How to draw a curve *through* given points?"
-We use control points for a Bezier curve. As we can see, they are not on the curve, except the first and the last ones.
+To specify a Bezier curve, control points are used. As we can see, they are not on the curve, except the first and the last ones.
 
 Sometimes we have another task: to draw a curve *through several points*, so that all of them are on a single smooth curve. That task is called  [interpolation](https://en.wikipedia.org/wiki/Interpolation), and here we don't cover it.
 
@@ -186,12 +186,12 @@ Bezier curves are defined by their control points.
 
 We saw two definitions of Bezier curves:
 
-1. Using a mathematical formulas.
-2. Using a drawing process: De Casteljau's algorithm
+1. Using a drawing process: De Casteljau's algorithm.
+2. Using a mathematical formulas.
 
 Good properties of Bezier curves:
 
-- We can draw smooth lines with a mouse by moving around control points.
+- We can draw smooth lines with a mouse by moving control points.
 - Complex shapes can be made of several Bezier curves.
 
 Usage:

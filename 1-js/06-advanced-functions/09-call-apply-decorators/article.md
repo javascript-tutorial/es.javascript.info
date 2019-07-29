@@ -53,7 +53,7 @@ Now let's get into details of how it works.
 
 The result of `cachingDecorator(func)` is a "wrapper": `function(x)` that "wraps" the call of `func(x)` into caching logic:
 
-![](decorator-makecaching-wrapper.png)
+![](decorator-makecaching-wrapper.svg)
 
 As we can see, the wrapper returns the result of `func(x)` "as is". From an outside code, the wrapped `slow` function still does the same. It just got a caching aspect added to its behavior.
 
@@ -453,7 +453,7 @@ let wrapper = function() {
 }
 ```
 
-We also saw an example of *method borrowing* when we take a method from an object and `call` it in the context of another object. It is quite common to take array methods and apply them to arguments. The alternative is to use rest parameters object that is a real array.
+We also saw an example of *method borrowing* when we take a method from an object and `call` it in the context of another object. It is quite common to take array methods and apply them to `arguments`. The alternative is to use rest parameters object that is a real array.
 
 
 There are many decorators there in the wild. Check how well you got them by solving the tasks of this chapter.
