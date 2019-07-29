@@ -24,7 +24,7 @@ class Animal {
 let animal = new Animal("My animal");
 ```
 
-![](rabbit-animal-independent-animal.png)
+![](rabbit-animal-independent-animal.svg)
 
 
 ...And `Rabbit`:
@@ -42,7 +42,7 @@ class Rabbit extends Animal {
 let rabbit = new Rabbit("My rabbit");
 ```
 
-![](rabbit-animal-independent-rabbit.png)
+![](rabbit-animal-independent-rabbit.svg)
 
 
 Right now they are fully independent.
@@ -88,7 +88,7 @@ Now the `Rabbit` code became a bit shorter, as it uses `Animal` constructor by d
 
 Internally, `extends` keyword adds `[[Prototype]]` reference from `Rabbit.prototype` to `Animal.prototype`:
 
-![](animal-rabbit-extends.png)
+![](animal-rabbit-extends.svg)
 
 So, if a method is not found in `Rabbit.prototype`, JavaScript takes it from `Animal.prototype`.
 
@@ -384,7 +384,7 @@ So, in both lines `(*)` and `(**)` the value of `this.__proto__` is exactly the 
 
 Here's the picture of what happens:
 
-![](this-super-loop.png)
+![](this-super-loop.svg)
 
 1. Inside `longEar.eat()`, the line `(**)` calls `rabbit.eat` providing it with `this=longEar`.
     ```js

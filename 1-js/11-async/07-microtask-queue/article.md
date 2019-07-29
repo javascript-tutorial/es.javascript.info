@@ -34,7 +34,7 @@ Or, to say that simply, when a promise is ready, its `.then/catch/finally` handl
 
 That's why "code finished" in the example above shows first.
 
-![](promiseQueue.png)
+![](promiseQueue.svg)
 
 Promise handlers always go through that internal queue.
 
@@ -67,7 +67,7 @@ Examples of events:
 
 Things happen -- the engine handles them -- and waits for more to happen (while sleeping and consuming close to zero CPU).
 
-![](eventLoop.png)
+![](eventLoop.svg)
 
 As you can see, there's also a queue here. A so-called "macrotask queue" (v8 term).
 

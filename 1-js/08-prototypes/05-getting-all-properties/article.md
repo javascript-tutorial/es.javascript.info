@@ -70,7 +70,7 @@ for(let prop in rabbit) {
 
 Here we have the following inheritance chain: `rabbit`, then `animal`, then `Object.prototype` (because `animal` is a literal object `{...}`, so it's by default), and then `null` above it:
 
-![](rabbit-animal-object.png)
+![](rabbit-animal-object.svg)
 
 Note, there's one funny thing. Where is the method `rabbit.hasOwnProperty` coming from? Looking at the chain we can see that the method is provided by `Object.prototype.hasOwnProperty`. In other words, it's inherited.
 

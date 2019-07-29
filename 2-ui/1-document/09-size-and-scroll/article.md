@@ -28,7 +28,7 @@ It has the border, padding and scrolling. The full set of features. There are no
 
 The element looks like this:
 
-![](metric-css.png)
+![](metric-css.svg)
 
 You can [open the document in the sandbox](sandbox:metric).
 
@@ -48,7 +48,7 @@ Element properties that provide width, height and other geometry are always numb
 
 Here's the overall picture:
 
-![](metric-all.png)
+![](metric-all.svg)
 
 They are many properties, it's difficult to fit them all in the single picture, but their values are simple and easy to understand.
 
@@ -81,7 +81,7 @@ In the example below the inner `<div>` has `<main>` as `offsetParent` and `offse
 </script>
 ```
 
-![](metric-offset-parent.png)
+![](metric-offset-parent.svg)
 
 
 There are several occasions when `offsetParent` is `null`:
@@ -96,7 +96,7 @@ Now let's move on to the element itself.
 
 These two properties are the simplest ones. They provide the "outer" width/height of the element. Or, in other words, its full size including borders.
 
-![](metric-offset-width-height.png)
+![](metric-offset-width-height.svg)
 
 For our sample element:
 
@@ -132,7 +132,7 @@ In our example:
 - `clientLeft = 25` -- left border width
 - `clientTop = 25` -- top border width
 
-![](metric-client-left-top.png)
+![](metric-client-left-top.svg)
 
 ...But to be precise -- they are not borders, but relative coordinates of the inner side from the outer side.
 
@@ -142,7 +142,7 @@ It becomes visible when the document is right-to-left (the operating system is i
 
 In that case, `clientLeft` would be not `25`, but with the scrollbar width `25 + 16 = 41`:
 
-![](metric-client-left-top-rtl.png)
+![](metric-client-left-top-rtl.svg)
 
 ## clientWidth/Height
 
@@ -150,7 +150,7 @@ These properties provide the size of the area inside the element borders.
 
 They include the content width together with paddings, but without the scrollbar:
 
-![](metric-client-width-height.png)
+![](metric-client-width-height.svg)
 
 On the picture above let's first consider `clientHeight`: it's easier to evaluate. There's no horizontal scrollbar, so it's exactly the sum of what's inside the borders: CSS-height `200px` plus top and bottom paddings (`2 * 20px`) total `240px`.
 
@@ -158,7 +158,7 @@ Now `clientWidth` -- here the content width is not `300px`, but `284px`, because
 
 **If there are no paddings, then `clientWidth/Height` is exactly the content area, inside the borders and the scrollbar (if any).**
 
-![](metric-client-width-nopadding.png)
+![](metric-client-width-nopadding.svg)
 
 So when there's no padding we can use `clientWidth/clientHeight` to get the content area size.
 
@@ -167,7 +167,7 @@ So when there's no padding we can use `clientWidth/clientHeight` to get the cont
 - Properties `clientWidth/clientHeight` only account for the visible part of the element.
 - Properties `scrollWidth/scrollHeight` also include the scrolled out (hidden) parts:
 
-![](metric-scroll-width-height.png)
+![](metric-scroll-width-height.svg)
 
 On the picture above:
 
@@ -197,7 +197,7 @@ Properties `scrollLeft/scrollTop` are the width/height of the hidden, scrolled o
 
 On the picture below we can see `scrollHeight` and `scrollTop` for a block with a vertical scroll.
 
-![](metric-scroll-top.png)
+![](metric-scroll-top.svg)
 
 In other words, `scrollTop` is "how much is scrolled up".
 

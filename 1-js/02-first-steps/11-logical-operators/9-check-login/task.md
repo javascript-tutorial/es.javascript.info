@@ -16,7 +16,7 @@ La contraseña se comprueba de la siguiente manera:
 
 El esquema:
 
-![](ifelse_task.png)
+![](ifelse_task.svg)
 
 Por favor usa bloques anidados de `if`. Piensa en la legibilidad general del código.
 
