@@ -6,13 +6,23 @@ importance: 3
 
 Escribe un código que pregunte por el inicio de sesión con `propmt`.
 
+<<<<<<< HEAD
 Si el visitante ingresa `"Admin"`, entonces `prompt`(pregunta) por una contraseña, si la entrada es una linea vacía o `key:Esc` -- muestra "Cancelado.", si es otra cadena de texto -- entonces muestra "No te conozco".
+=======
+If the visitor enters `"Admin"`, then `prompt` for a password, if the input is an empty line or `key:Esc` -- show "Canceled", if it's another string -- then show "I don't know you".
+>>>>>>> f72405a263e1d1adbc8d17179ee46af70842bb55
 
 La contraseña se comprueba de la siguiente manera:
 
+<<<<<<< HEAD
 -  Si es igual a "TheMaster", entonces muestra "Bienvenido!",
 -  Si es otra cadena de texto -- muetra "Contraseña incorrecta",
 -  Para una cadena de texto vacía o una entrada cancelada, muestra "Cancelado."
+=======
+- If it equals "TheMaster", then show "Welcome!",
+- Another string -- show "Wrong password",
+- For an empty string or cancelled input, show "Canceled"
+>>>>>>> f72405a263e1d1adbc8d17179ee46af70842bb55
 
 El esquema:
 

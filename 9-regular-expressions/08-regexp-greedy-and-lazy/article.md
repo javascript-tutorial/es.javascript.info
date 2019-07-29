@@ -56,7 +56,7 @@ These common words do not make it obvious why the regexp fails, so let's elabora
 
 3. Then the dot repeats because of the quantifier `pattern:.+`. The regular expression engine builds the match by taking characters one by one while it is possible.
 
-    ...When it becomes impossible? All characters match the dot, so it only stops when it reaches the end of the string:
+    ...When does it become impossible? All characters match the dot, so it only stops when it reaches the end of the string:
 
     ![](witch_greedy3.svg)
 
@@ -264,7 +264,7 @@ That's what's going on:
 2. Then it looks for `pattern:.*?`: takes one character (lazily!), check if there's a match for `pattern:" class="doc">` (none).
 3. Then takes another character into `pattern:.*?`, and so on... until it finally reaches `match:" class="doc">`.
 
-But the problem is: that's already beyound the link, in another tag `<p>`. Not what we want.
+But the problem is: that's already beyond the link, in another tag `<p>`. Not what we want.
 
 Here's the picture of the match aligned with the text:
 
