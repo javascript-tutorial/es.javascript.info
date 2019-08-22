@@ -27,7 +27,7 @@ switch(x) {
 }
 ```
 
-- El valor de `x` es revisado para una igualdad estricta con el valor del primer `case` (el cual es, `valor1`) luego a el segundo (`valor2`) y así suscesivamente.
+- El valor de `x` es comparado contra el valor del primer `case` (en este caso, `valor1`), luego contra el segundo (`valor2`) y así sucesivamente, todo esto bajo una igualdad estricta.
 - Si la igualdad es encontrada, `switch` empieza a ejecutar el código iniciando por el primer `case` correspondiente, hasta el `break` más cercano (o hasta el final del `switch`).
 - Si no se cumple ningún caso entonces el código `default` es ejecutado (si existe).
 
