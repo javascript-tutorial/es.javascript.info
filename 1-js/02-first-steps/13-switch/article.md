@@ -59,7 +59,7 @@ Aquí el `switch` inicia comparando `a` con la primera variante `case` que es `3
 
 Luego `4`. La comparación es exitosa, por tanto la ejecución empieza desde `case 4` hasta el `break` más cercano.
 
-**Si no existe `break` entonces la ejecución continúa con el próximo `case` si ninguna revisión.**
+**Si no existe `break` entonces la ejecución continúa con el próximo `case` sin ninguna revisión.**
 
 Un ejemplo sin `break`:
 
@@ -144,7 +144,7 @@ La habilidad para "agrupar" cases es un efecto secundario de como trabaja `switc
 
 ## El tipo importa
 
-Vamos a enfatizar que la comparación de igualdad es siempre strict. Los valores deben ser del mismo tipo para coincidir.
+Vamos a enfatizar que la comparación de igualdad es siempre estricta. Los valores deben ser del mismo tipo para coincidir.
 
 Por ejemplo, consideremos el código:
 
