@@ -1,4 +1,4 @@
-The first two checks turn into two `case`. The third check is split into two cases:
+Las primeras dos validaciones se vuelven dos`case`. La tercera validación se separa en dos casos:
 
 ```js run
 let a = +prompt('a?', '');
@@ -21,6 +21,6 @@ switch (a) {
 }
 ```
 
-Please note: the `break` at the bottom is not required. But we put it to make the code future-proof.
+Nota: El `break` al final no es requerido. Pero lo agregamos para preparar el código para el futuro.
 
-In the future, there is a chance that we'd want to add one more `case`, for example `case 4`. And if we forget to add a break before it, at the end of `case 3`, there will be an error. So that's a kind of self-insurance.
+En el futuro existe una probabilidad de que querramos agregar un `case` adicional, por ejemplo `case 4`. Y si olvidamos agregar un break antes, al final de `case 3`, habrá un error. Por tanto, es una forma de auto-asegurarse.
