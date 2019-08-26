@@ -8,15 +8,37 @@ libs:
 
 La columna vertebral de un documento HTML son las etiquetas.
 
+<<<<<<< HEAD
 De acuerdo con el Modelo de Objetos del Documento (DOM), cada etiqueta HTML es un objeto. Las etiquetas anidadas se llaman "hijos" del que los contiene.
 
 El texto dentro de una etiqueta también es un objeto.
 
 Todos estos objetos son accesibles utilizando JavaScript.
+=======
+According to Document Object Model (DOM), every HTML-tag is an object. Nested tags are  "children" of the enclosing one. The text inside a tag it is an object as well.
+
+All these objects are accessible using JavaScript, we can use them to modify the page.
+
+For example, `document.body` is the object representing `<body>` tag.
+
+Running this code will make the `<body>` red for 3 seconds:
+
+```js run
+document.body.style.background = 'red'; // make the background red
+
+setTimeout(() => document.body.style.background = '', 3000); // return back
+```
+
+That was just a glimpse of DOM power. Soon we'll learn more ways to manipulate DOM, but first we need to know about its structure.
+>>>>>>> 8c30654f694fe8682f5631809980be931ee4ed72
 
 ## Un ejemplo del DOM
 
+<<<<<<< HEAD
 Por ejemplo, exploremos el DOM para este documento:
+=======
+Let's start with the following simple docment:
+>>>>>>> 8c30654f694fe8682f5631809980be931ee4ed72
 
 ```html run no-beautify
 <!DOCTYPE HTML>
@@ -43,7 +65,13 @@ drawHtmlTree(node1, 'div.domtree', 690, 320);
 En la imagen de arriba, puede hacer clic en los nodos de elementos y sus hijos se abrirán/contraerán.
 ```
 
+<<<<<<< HEAD
 Las etiquetas se denominan *nodos de elementos* (o simplemente elementos). Las etiquetas anidadas se convierten en hijos del que los contiene. Como resultado tenemos un árbol de elementos: `<html>` está en la raíz, entonces `<head>` y `<body>` son sus hijos, etc.
+=======
+Every tree node is an object.
+
+Tags are *element nodes* (or just elements), they form the tree structure: `<html>` is at the root, then `<head>` and `<body>` are its children, etc.
+>>>>>>> 8c30654f694fe8682f5631809980be931ee4ed72
 
 El texto dentro de los elementos forman *nodos de texto*, etiquetados como `#text`. Un nodo de texto contiene sólo una cadena. Puede que no tenga hijos y siempre es una hoja del árbol.
 
@@ -54,7 +82,11 @@ Ten en cuenta los caracteres especiales en los nodos de texto:
 - Una nueva linea: `↵` (en JavaScript se conoce como `\n`)
 - Un espacio: `␣`
 
+<<<<<<< HEAD
 Los espacios y las nuevas líneas son caracteres totalmente válidos, forman nodos de texto y se convierten en parte del DOM. Así, por ejemplo, en el ejemplo anterior, la etiqueta `<head>` contiene algunos espacios antes de `<title>`, y ese texto se convierte en un nodo `#text` (contiene una nueva línea y solo algunos espacios).
+=======
+Spaces and newlines -- are totally valid characters, like letters and digits. They form text nodes and become a part of the DOM. So, for instance, in the example above the `<head>` tag contains some spaces before `<title>`, and that text becomes a `#text` node (it contains a newline and some spaces only).
+>>>>>>> 8c30654f694fe8682f5631809980be931ee4ed72
 
 Solo hay dos exclusiones de nivel superior:
 1. Los espacios y las nuevas líneas antes de `<head>` se ignoran por razones históricas,
@@ -77,6 +109,7 @@ let node2 = {"name":"HTML","nodeType":1,"children":[{"name":"HEAD","nodeType":1,
 drawHtmlTree(node2, 'div.domtree', 690, 210);
 </script>
 
+<<<<<<< HEAD
 ```smart header="Los espacios de borde y el texto vacío intermedio suelen estar ocultos en las herramientas"
 Las herramientas del navegador (que se cubrirán pronto) que trabajan con el DOM generalmente no muestran espacios al inicio/final del texto y nodos de texto vacíos (saltos de línea) entre etiquetas.
 
@@ -87,6 +120,17 @@ En otras imágenes de DOM, a veces las omitimos donde son irrelevantes, para man
 
 
 ## Autocorrecctión
+=======
+```smart header="Spaces at string start/end and space-only text nodes are usually hidden in tools"
+Browser tools (to be covered soon) that work with DOM usually do not show spaces at the start/end of the text and empty text nodes (line-breaks) between tags.
+
+Developer tools save screen space this way.
+
+On further DOM pictures we'll sometimes omit them when they are irrelevant. Such spaces usually do not affect how the document is displayed.
+```
+
+## Autocorrection
+>>>>>>> 8c30654f694fe8682f5631809980be931ee4ed72
 
 Si el navegador encuentra HTML con formato incorrecto, lo corrige automáticamente al crear el DOM.
 
@@ -105,7 +149,11 @@ drawHtmlTree(node3, 'div.domtree', 690, 150);
 
 Al generar el DOM, los navegadores procesan automáticamente los errores en el documento, cierran etiquetas, etc.
 
+<<<<<<< HEAD
 El siguiente documento "inválido":
+=======
+Such document with unclosed tags:
+>>>>>>> 8c30654f694fe8682f5631809980be931ee4ed72
 
 ```html no-beautify
 <p>Hello
@@ -147,7 +195,13 @@ drawHtmlTree(node5,  'div.domtree', 600, 200);
 
 ## Otros tipos de nodos
 
+<<<<<<< HEAD
 Agreguemos más etiquetas y un comentario a la página:
+=======
+There are some other node types besides elements and text nodes.
+
+For example, comments:
+>>>>>>> 8c30654f694fe8682f5631809980be931ee4ed72
 
 ```html
 <!DOCTYPE HTML>
@@ -173,7 +227,11 @@ let node6 = {"name":"HTML","nodeType":1,"children":[{"name":"HEAD","nodeType":1,
 drawHtmlTree(node6, 'div.domtree', 690, 500);
 </script>
 
+<<<<<<< HEAD
 Aquí vemos un nuevo tipo de nodo de árbol: el *nodo comentario*, etiquetado como `#comment`.
+=======
+We can see here a new tree node type -- *comment node*, labeled as `#comment`, between two text nodes.
+>>>>>>> 8c30654f694fe8682f5631809980be931ee4ed72
 
 Podemos pensar: ¿por qué se agrega un comentario al DOM? No afecta a la representación visual de ninguna manera. Pero hay una regla: si algo está en el HTML, entonces también debe estar en el árbol DOM.
 
@@ -194,9 +252,13 @@ Hay [12 tipos](https://dom.spec.whatwg.org/#node) de nodos. En la práctica sole
 
 Para ver la estructura del DOM en tiempo real, prueba [Live DOM Viewer](http://software.hixie.ch/utilities/js/live-dom-viewer/). Simplemente escriba el documento y se mostrará el DOM en un instante.
 
+<<<<<<< HEAD
 ## El inspector del navegador.
 
 Otra forma de explorar el DOM es usar las herramientas de desarrollo del navegador. En realidad, eso es lo que usamos al desarrollar.
+=======
+Another way to explore the DOM is to use the browser developer tools. Actually, that's what we use when developing.
+>>>>>>> 8c30654f694fe8682f5631809980be931ee4ed72
 
 Para hacerlo, abre la página web [elks.html](elks.html), activa las herramientas de desarrollo del navegador y cambia a la pestaña Elementos.
 
@@ -224,10 +286,19 @@ La mejor manera de estudiarlos es hacer clic en ellos. La mayoría de los valore
 
 ## Interacción con la consola.
 
+<<<<<<< HEAD
 A medida que exploramos el DOM, es posible que quieras aplicarle JavaScript. Como obtener un nodo y ejecutar algún código para modificarlo, para ver cómo se ve. Aquí hay algunos consejos para moverse entre la pestaña Elementos y la consola.
 
 - Selecciona el primer `<li>` en la pestaña Elementos.
 - Presiona `key:Esc`: se abrirá la consola justo debajo de la pestaña Elementos.
+=======
+As we work the DOM, we also may want to apply JavaScript to it. Like: get a node and run some code to modify it, to see the result. Here are few tips to travel between the Elements tab and the console.
+
+For the start:
+
+1. Select the first `<li>` in the Elements tab.
+2. Press `key:Esc` -- it will open console right below the Elements tab.
+>>>>>>> 8c30654f694fe8682f5631809980be931ee4ed72
 
 Ahora el último elemento seleccionado está disponible como `$0`, el seleccionado previamente es `$1`, etc.
 
@@ -235,9 +306,17 @@ Podemos ejecutar comandos sobre ellos. Por ejemplo, `$0.style.background = 'red'
 
 ![](domconsole0.png)
 
+<<<<<<< HEAD
 Desde el otro lado, si estamos en la consola y tenemos una variable que hace referencia a un nodo DOM, entonces podemos usar el comando `inspect(node)` para verlo en el panel Elementos.
 
 O simplemente podemos mostrarlo en la consola y explorar "en el lugar", como `document.body` en la siguiente imagen:
+=======
+That's how to get a node from Elements in Console.
+
+There's also a road back. If there's a variable referencing a DOM node, then we can use the command `inspect(node)` in Console to see it in the Elements pane.
+
+Or we can just output DOM-node in the console and explore "at-place", like `document.body` below:
+>>>>>>> 8c30654f694fe8682f5631809980be931ee4ed72
 
 ![](domconsole1.png)
 
