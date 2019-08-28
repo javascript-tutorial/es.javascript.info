@@ -8,7 +8,7 @@ while (i) {
 }
 ```
 
-Cada iteración del bucle disminuye `i` por `1`. La comprobación `while(i)` detiene el bucle cuando `i = 0`.
+Cada iteración del bucle disminuye `i` en `1`. La comprobación `while(i)` detiene el bucle cuando `i = 0`.
 
 Por consiguiente, los pasos del bucle forman la siguiente secuencia ("bucle desenrollado").
 
