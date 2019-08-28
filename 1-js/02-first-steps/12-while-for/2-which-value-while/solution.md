@@ -1,4 +1,4 @@
-La tarea demuestra cómo las formas de sufijo y prefijo pueden llevar a diferentes resultado cuando son usadas en comparaciones.
+La tarea demuestra cómo las formas de sufijo y prefijo pueden llevar a diferentes resultados cuando son usadas en comparaciones.
 
 1. **Del 1 al 4**
 
@@ -21,7 +21,7 @@ La tarea demuestra cómo las formas de sufijo y prefijo pueden llevar a diferent
 
     El primer valor es de nuevo `i = 1`. La forma del sufijo de `i++` incrementa `i` y luego retorna el valor *viejo*, así que la comparación `i++ < 5` usará `i = 0` (contrario a `++i < 5`).
 
-    Pero la llamada a `alert` está separada. Es otra declaración la cual se ejecuta luego del incremento y la comparación. Asi que obtiene el `i = 1` actual.
+    Pero la llamada a `alert` está separada. Es otra declaración, la cual se ejecuta luego del incremento y la comparación. Así que obtiene el `i = 1` actual.
 
     Luego siguen `2, 3, 4…`
 
