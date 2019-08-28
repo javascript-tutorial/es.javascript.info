@@ -8,4 +8,4 @@ for (let i = 2; i <= 10; i++) {
 }
 ```
 
-Usamos el operador "modulo" `%` para conseguir el residuo y comprobar que la paridad.
+Usamos el operador "modulo" `%` para conseguir el resto y comprobar la paridad.
