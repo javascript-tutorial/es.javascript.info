@@ -4,7 +4,7 @@ importance: 3
 
 # Muestra números primos
 
-Un número entero mayor que `1` es llamado [primo](https://es.wikipedia.org/wiki/N%C3%BAmero_primo) si no puede ser dividido sin un residuo por ningún número excepto `1` y él mismo.
+Un número entero mayor que `1` es llamado [primo](https://es.wikipedia.org/wiki/N%C3%BAmero_primo) si no puede ser dividido sin un resto por ningún número excepto `1` y él mismo.
 
 En otras palabras, `n > 1` es un primo si no puede ser divido exactamente por ningún número excepto `1` y `n`.
 
