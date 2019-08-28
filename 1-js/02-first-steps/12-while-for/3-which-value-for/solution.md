@@ -6,7 +6,7 @@ for (let i = 0; i < 5; ++i) alert( i );
 for (let i = 0; i < 5; i++) alert( i );
 ```
 
-Eso puede ser fácilmente deducido de el algoritmo de `for`:
+Eso puede ser fácilmente deducido del algoritmo de `for`:
 
 1. Ejecutar `i = 0` una vez antes de todo (comienzo).
 2. Comprobar la condición `i <  5`.
