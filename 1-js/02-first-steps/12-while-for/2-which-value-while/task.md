@@ -4,7 +4,7 @@ importance: 4
 
 # ¿Qué valores serán mostrados por el bucle while?
 
-Para cada iteración del bucle, escribe que valor sera impreso y luego comparalo con la solución.
+Para cada iteración del bucle, escribe qué valor será impreso y luego compáralo con la solución.
 
 Ambos bucles ¿`alertan` los mismos valores?
 
