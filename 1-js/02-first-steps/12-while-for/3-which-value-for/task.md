@@ -4,7 +4,7 @@ importance: 4
 
 # ¿Qué valores serán mostrados por el bucle "for"?
 
-Para cada bucle anota qué valores mostrará y luego compara con la respuesta.
+Para cada bucle, anota qué valores mostrará y luego compara las respuestas.
 
 Ambos bucles ¿`alertan` los mismos valores?
 
