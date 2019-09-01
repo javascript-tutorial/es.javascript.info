@@ -1,13 +1,13 @@
 
-# Objects
+# Objetos
 
-As we know from the chapter <info:types>, there are seven data types in JavaScript. Six of them are called "primitive", because their values contain only a single thing (be it a string or a number or whatever).
+Como aprendimos en el capítulo <info:types>, existen siete tipos de datos en JavaScript. Seis de ellos son llamados "primitivos", porque sus valores contienen solo un elemento. (siendo esto una cadena de texto o un número o lo que sea).
 
-In contrast, objects are used to store keyed collections of various data and more complex entities. In JavaScript, objects penetrate almost every aspect of the language. So we must understand them first before going in-depth anywhere else.
+Contrario a esto, los objetos son usados para almacenar colecciones de llaves o diversos datos y entidades mas complejas. En JavaScript, los objetos se utilizan en casi todos los aspectos del lenguaje. Por eso, debemos entenderlos primero antes de sumergirnos a fondo en el lenjuague.
 
-An object can be created with figure brackets `{…}` with an optional list of *properties*. A property is a "key: value" pair, where `key` is a string (also called a "property name"), and `value` can be anything.
+Un objeto puede ser creado con la figura de los corchetes `{…}` y opcionalmente agregarle una lista de *propiedades*. Una propiedad es un conjunto de "llave: valor", donde `llave` es una cadena de texto (también llamada propiedad), y `valor` puede ser cualquier tipo de dato.
 
-We can imagine an object as a cabinet with signed files. Every piece of data is stored in its file by the key. It's easy to find a file by its name or add/remove a file.
+Podemos imaginar a un objeto como un gabinete con archivos firmados. Cada dato que se agrega se almacena en este archivo con su firma. Es fácil encontrar un dato por su nombre, agregar o removerlo.
 
 ![](object.svg)
 
