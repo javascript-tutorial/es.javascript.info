@@ -112,7 +112,7 @@ Esto no funcionará:
 </script>
 ```
 
-Debemos elegir un `<script src ="…">` externo o un `<script>` normal con código.
+Debemos elegir un `<script src="…">` externo o un `<script>` normal con código.
 
 El ejemplo anterior se puede dividir en dos scripts para que funcione:
 
