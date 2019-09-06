@@ -1,10 +1,10 @@
 # ¡Hola, mundo!
 
-El tutorial que estás leyendo trata sobre el nucleo JavaScript, que es independiente de la plataforma. Más adelante, aprenderá sobre Node.JS y otras plataformas que lo utilizan.
+El tutorial que estás leyendo trata sobre el núcleo JavaScript, que es independiente de la plataforma. Más adelante, aprenderás sobre Node.JS y otras plataformas que lo utilizan.
 
-Pero necesitamos un entorno de trabajo para ejecutar nuestros scripts y, dado que este libro está en línea, el navegador es una buena opción. Mantendremos la cantidad de comandos específicos del navegador (como `alert`) a un mínimo para que no dedique tiempo a ellos si planea concentrarse en otro entorno (como Node.JS). Nos centraremos en JavaScript en el navegador en la [siguiente parte](/ui) del tutorial.
+Pero necesitamos un entorno de trabajo para ejecutar nuestros scripts y, dado que este libro está en línea, el navegador es una buena opción. Mantendremos la cantidad de comandos específicos del navegador (como `alert`) a un mínimo para que no dediques tiempo a ellos si planeas concentrarte en otro entorno (como Node.JS). Nos centraremos en JavaScript en el navegador en la [siguiente parte](/ui) del tutorial.
 
-Entonces, primero, veamos cómo adjuntamos un script a una página web. Para entornos del lado del servidor (como Node.JS), puede ejecutar el script con un comando como `"node my.js"`.
+Entonces, primero, veamos cómo adjuntamos un script a una página web. Para entornos del lado del servidor (como Node.JS), puedes ejecutar el script con un comando como `"node my.js"`.
 
 
 ## La etiqueta "script"
@@ -35,7 +35,7 @@ Por ejemplo:
 ```
 
 ```online
-Puede ejecutar el ejemplo haciendo clic en el botón "Play" en la esquina superior derecha del cuadro de arriba.
+Puedes ejecutar el ejemplo haciendo clic en el botón "Play" en la esquina superior derecha del cuadro de arriba.
 ```
 
 La etiqueta `<script>` contiene código JavaScript que se ejecuta automáticamente cuando el navegador procesa la etiqueta.
@@ -46,7 +46,7 @@ La etiqueta `<script>` contiene código JavaScript que se ejecuta automáticamen
 La etiqueta `<script>` tiene algunos atributos que rara vez se usan en la actualidad, pero aún se pueden encontrar en código antiguo:
 
 El atributo `type`: <code>&lt;script <u>type</u>=...&gt;</code>
-: El antiguo estándar HTML, HTML4, requería que un script tuviera un `type`. Por lo general, era `type="text/javascript"`. Ya no es necesario. Además, el estándar HTML moderno, HTML5, cambió totalmente el significado de este atributo. Ahora, se puede utilizar para módulos de JavaScript. Pero eso es un tema avanzado; Hablaremos sobre módulos en otra parte del tutorial.
+: El antiguo estándar HTML, HTML4, requería que un script tuviera un `type`. Por lo general, era `type="text/javascript"`. Ya no es necesario. Además, el estándar HTML moderno, HTML5, cambió totalmente el significado de este atributo. Ahora, se puede utilizar para módulos de JavaScript. Pero eso es un tema avanzado, hablaremos sobre módulos en otra parte del tutorial.
 
 El atributo `language`: <code>&lt;script <u>language</u>=...&gt;</code>
 : Este atributo estaba destinado a mostrar el lenguaje del script. Este atributo ya no tiene sentido porque JavaScript es el lenguaje predeterminado. No hay necesidad de usarlo.
@@ -60,7 +60,7 @@ Comentarios antes y después de los scripts.
     //--></script>
     ```
 
-Este truco no se utiliza en JavaScript moderno. Estos comentarios ocultaron el código JavaScript de los navegadores antiguos que no sabían cómo procesar la etiqueta `<script>`. Dado que los navegadores lanzados en los últimos 15 años no tienen este problema, este tipo de comentario puede ayudarlo a identificar códigos realmente antiguos.
+Este truco no se utiliza en JavaScript moderno. Estos comentarios ocultaban el código JavaScript de los navegadores antiguos que no sabían cómo procesar la etiqueta `<script>`. Dado que los navegadores lanzados en los últimos 15 años no tienen este problema, este tipo de comentario puede ayudarte a identificar códigos realmente antiguos.
 
 
 ## Scripts externos
@@ -83,7 +83,7 @@ También podemos dar una URL completa. Por ejemplo:
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.js"></script>
 ```
 
-Para adjuntar varios scripts, use varias etiquetas:
+Para adjuntar varios scripts, usa varias etiquetas:
 
 ```html
 <script src="/js/script1.js"></script>
@@ -91,7 +91,7 @@ Para adjuntar varios scripts, use varias etiquetas:
 …
 ```
 
-```smart header="Tenga en cuenta:"
+```smart header="Ten en cuenta:"
 Como regla general, solo los scripts más simples se colocan en el HTML. Los más complejos residen en archivos separados.
 
 La ventaja de un archivo separado es que el navegador lo descargará y lo almacenará en [caché](https://es.wikipedia.org/wiki/Cach%C3%A9_(informática)).
