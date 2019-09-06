@@ -170,7 +170,7 @@ JSON.stringify(meetup); // Error: Converting circular structure to JSON
 
 Here, the conversion fails, because of circular reference: `room.occupiedBy` references `meetup`, and `meetup.place` references `room`:
 
-![](json-meetup.png)
+![](json-meetup.svg)
 
 
 ## Excluding and transforming: replacer
@@ -361,7 +361,7 @@ alert( JSON.stringify(meetup) );
 
 Here we can see that `date` `(1)` became a string. That's because all dates have a built-in `toJSON` method which returns such kind of string.
 
-Now let's add a custom `toJSON` for our object `room`:
+Now let's add a custom `toJSON` for our object `room` `(2)`:
 
 ```js run
 let room = {

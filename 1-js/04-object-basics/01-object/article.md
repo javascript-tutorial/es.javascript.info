@@ -9,7 +9,7 @@ An object can be created with figure brackets `{…}` with an optional list of *
 
 We can imagine an object as a cabinet with signed files. Every piece of data is stored in its file by the key. It's easy to find a file by its name or add/remove a file.
 
-![](object.png)
+![](object.svg)
 
 An empty object ("empty cabinet") can be created using one of two syntaxes:
 
@@ -18,7 +18,7 @@ let user = new Object(); // "object constructor" syntax
 let user = {};  // "object literal" syntax
 ```
 
-![](object-user-empty.png)
+![](object-user-empty.svg)
 
 Usually, the figure brackets `{...}` are used. That declaration is called an *object literal*.
 
@@ -42,7 +42,7 @@ In the `user` object, there are two properties:
 
 The resulting `user` object can be imagined as a cabinet with two signed files labeled "name" and "age".
 
-![user object](object-user.png)
+![user object](object-user.svg)
 
 We can add, remove and read files from it any time.
 
@@ -60,7 +60,7 @@ The value can be of any type. Let's add a boolean one:
 user.isAdmin = true;
 ```
 
-![user object 2](object-user-isadmin.png)
+![user object 2](object-user-isadmin.svg)
 
 To remove a property, we can use `delete` operator:
 
@@ -68,7 +68,7 @@ To remove a property, we can use `delete` operator:
 delete user.age;
 ```
 
-![user object 3](object-user-delete.png)
+![user object 3](object-user-delete.svg)
 
 We can also use multiword property names, but then they must be quoted:
 
@@ -80,7 +80,7 @@ let user = {
 };
 ```
 
-![](object-user-props.png)
+![](object-user-props.svg)
 
 
 The last property in the list may end with a comma:
@@ -339,7 +339,7 @@ To walk over all keys of an object, there exists a special form of the loop: `fo
 The syntax:
 
 ```js
-for(key in object) {
+for (key in object) {
   // executes the body for each key among object properties
 }
 ```
@@ -353,7 +353,7 @@ let user = {
   isAdmin: true
 };
 
-for(let key in user) {
+for (let key in user) {
   // keys
   alert( key );  // name, age, isAdmin
   // values for the keys
@@ -363,7 +363,7 @@ for(let key in user) {
 
 Note that all "for" constructs allow us to declare the looping variable inside the loop, like `let key` here.
 
-Also, we could use another variable name here instead of `key`. For instance, `"for(let prop in obj)"` is also widely used.
+Also, we could use another variable name here instead of `key`. For instance, `"for (let prop in obj)"` is also widely used.
 
 
 ### Ordered like an object
@@ -384,7 +384,7 @@ let codes = {
 };
 
 *!*
-for(let code in codes) {
+for (let code in codes) {
   alert(code); // 1, 41, 44, 49
 }
 */!*
@@ -442,7 +442,7 @@ let codes = {
   "+1": "USA"
 };
 
-for(let code in codes) {
+for (let code in codes) {
   alert( +code ); // 49, 41, 44, 1
 }
 ```
@@ -464,7 +464,7 @@ let phrase = message;
 
 As a result we have two independent variables, each one is storing the string `"Hello!"`.
 
-![](variable-copy-value.png)
+![](variable-copy-value.svg)
 
 Objects are not like that.
 
@@ -478,7 +478,7 @@ let user = {
 };
 ```
 
-![](variable-contains-reference.png)
+![](variable-contains-reference.svg)
 
 Here, the object is stored somewhere in memory. And the variable `user` has a "reference" to it.
 
@@ -496,7 +496,7 @@ let admin = user; // copy the reference
 
 Now we have two variables, each one with the reference to the same object:
 
-![](variable-copy-reference.png)
+![](variable-copy-reference.svg)
 
 We can use any variable to access the cabinet and modify its contents:
 
@@ -616,7 +616,7 @@ Also we can use the method [Object.assign](mdn:js/Object/assign) for that.
 The syntax is:
 
 ```js
-Object.assign(dest[, src1, src2, src3...])
+Object.assign(dest, [src1, src2, src3...])
 ```
 
 - Arguments `dest`, and `src1, ..., srcN` (can be as many as needed) are objects.
@@ -720,7 +720,7 @@ To access a property, we can use:
 Additional operators:
 - To delete a property: `delete obj.prop`.
 - To check if a property with the given key exists: `"key" in obj`.
-- To iterate over an object: `for(let key in obj)` loop.
+- To iterate over an object: `for (let key in obj)` loop.
 
 Objects are assigned and copied by reference. In other words, a variable stores not the "object value", but a "reference" (address in memory) for the value. So copying such a variable or passing it as a function argument copies that reference, not the object. All operations via copied references (like adding/removing properties) are performed on the same single object.
 

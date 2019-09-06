@@ -42,19 +42,19 @@ let surname = arr[1];
 ```
 ````
 
-````smart header="Ignore first elements"
+````smart header="Ignore elements using commas"
 Unwanted elements of the array can also be thrown away via an extra comma:
 
 ```js run
 *!*
-// first and second elements are not needed
-let [, , title] = ["Julius", "Caesar", "Consul", "of the Roman Republic"];
+// second element is not needed
+let [firstName, , title] = ["Julius", "Caesar", "Consul", "of the Roman Republic"];
 */!*
 
 alert( title ); // Consul
 ```
 
-In the code above, although the first and second elements of the array are skipped, the third one is assigned to `title`, and the rest are also skipped.
+In the code above, the second element of the array is skipped, the third one is assigned to `title`, and the rest of the array is also skipped.
 ````
 
 ````smart header="Works with any iterable on the right-side"
@@ -128,6 +128,7 @@ alert(name1); // Julius
 alert(name2); // Caesar
 
 *!*
+// Note that type of `rest` is Array.
 alert(rest[0]); // Consul
 alert(rest[1]); // of the Roman Republic
 alert(rest.length); // 2
@@ -146,6 +147,7 @@ let [firstName, surname] = [];
 */!*
 
 alert(firstName); // undefined
+alert(surname); // undefined
 ```
 
 If we want a "default" value to replace the missing one, we can provide it using `=`:
@@ -335,7 +337,7 @@ The problem is that JavaScript treats `{...}` in the main code flow (not inside 
 }
 ```
 
-To show JavaScript that it's not a code block, we can wrap the whole assignment in brackets `(...)`:
+To show JavaScript that it's not a code block, we can wrap the whole assignment in parentheses `(...)`:
 
 ```js run
 let title, width, height;
@@ -383,7 +385,9 @@ alert(item2);  // Donut
 
 The whole `options` object except `extra` that was not mentioned, is assigned to corresponding variables.
 
-![](destructuring-complex.png)
+Note that `size` and `items` itself is not destructured.
+
+![](destructuring-complex.svg)
 
 Finally, we have `width`, `height`, `item1`, `item2` and `title` from the default value.
 

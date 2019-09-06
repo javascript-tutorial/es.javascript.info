@@ -136,7 +136,7 @@ Here's a brief list of methods to insert a node into a parent element (`parentEl
     </script>
     ```
     To insert `newLi` as the first element, we can do it like this:
-    
+
     ```js
     list.insertBefore(newLi, list.firstChild);
     ```
@@ -187,7 +187,7 @@ Here's an example of using these methods to add more items to a list and the tex
 
 Here's a small picture what methods do:
 
-![](before-prepend-append-after.png)
+![](before-prepend-append-after.svg)
 
 So the final list will be:
 
@@ -267,7 +267,7 @@ That's how we can append an arbitrary HTML to our page.
 
 Here's the picture of insertion variants:
 
-![](insert-adjacent.png)
+![](insert-adjacent.svg)
 
 We can easily notice similarities between this and the previous picture. The insertion points are actually the same, but this method inserts HTML.
 
@@ -335,13 +335,81 @@ An example of copying the message:
 </script>
 ```
 
+
+## DocumentFragment [#document-fragment]
+
+`DocumentFragment` is a special DOM node that serves as a wrapper to pass around groups of nodes.
+
+We can append other nodes to it, but when we insert it somewhere, then it "disappears", leaving its content inserted instead.
+
+For example, `getListContent` below generates a fragment with `<li>` items, that are later inserted into `<ul>`:
+
+```html run
+<ul id="ul"></ul>
+
+<script>
+function getListContent() {
+  let fragment = new DocumentFragment();
+
+  for(let i=1; i<=3; i++) {
+    let li = document.createElement('li');
+    li.append(i);
+    fragment.append(li);
+  }
+
+  return fragment;
+}
+
+*!*
+ul.append(getListContent()); // (*)
+*/!*
+</script>
+```
+
+Please note, at the last line `(*)` we append `DocumentFragment`, but it "blends in", so the resulting structure will be:
+
+```html
+<ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+</ul>
+```
+
+`DocumentFragment` is rarely used explicitly. Why append to a special kind of node, if we can return an array of nodes instead? Rewritten example:
+
+```html run
+<ul id="ul"></ul>
+
+<script>
+function getListContent() {
+  let result = [];
+
+  for(let i=1; i<=3; i++) {
+    let li = document.createElement('li');
+    li.append(i);
+    result.push(li);
+  }
+
+  return result;
+}
+
+*!*
+ul.append(...getListContent()); // append + "..." operator = friends!
+*/!*
+</script>
+```
+
+We mention `DocumentFragment` mainly because there are some concepts on top of it, like [template](info:template-element) element, that we'll cover much later.
+
+
 ## Removal methods
 
 To remove nodes, there are the following methods:
 
 
 `parentElem.removeChild(node)`
-: Removes `elem` from  `parentElem` (assuming it's a child).
+: Removes `node` from  `parentElem` (assuming it's a child).
 
 `node.remove()`
 : Removes the `node` from its place.

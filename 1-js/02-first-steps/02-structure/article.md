@@ -6,7 +6,7 @@ Lo primero que estudiaremos son los bloques de construcción del código.
 
 Las declaraciones son construcciones de sintaxis y comandos que realizan acciones.
 
-Ya hemos visto una declaración, `alert('¡Hola, mundo!')`, Que muestra el mensaje "¡Hola mundo!".
+Ya hemos visto una sentencia, `alert('¡Hola, mundo!')`, que muestra el mensaje "¡Hola mundo!".
 
 Podemos tener tantas declaraciones en nuestro código como queramos. Las declaraciones se pueden separar con un punto y coma.
 
@@ -157,4 +157,5 @@ Por favor, no dudes en comentar tu código.
 
 Los comentarios aumentan el tamaño general del código, pero eso no es un problema en absoluto. Hay muchas herramientas que minimizan el código antes de publicar en un servidor de producción. Eliminan los comentarios, por lo que no aparecen en los scripts de trabajo. Por lo tanto, los comentarios no tienen ningún efecto negativo en la producción.
 
-Más adelante en el tutorial habrá un capítulo <info:coding-style> que también explica cómo escribir mejores comentarios.
+Más adelante, en el tutorial, habrá un capítulo <info:coding-style> que también explica cómo escribir mejores comentarios.
+

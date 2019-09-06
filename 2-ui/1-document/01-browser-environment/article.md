@@ -8,7 +8,7 @@ Un entorno host proporciona objetos específicos de la plataforma y funciones ad
 
 Aquí tienes una vista general de lo que tenemos cuando JavaScript se ejecuta en un navegador web:
 
-![](windowObjects.png)
+![](windowObjects.svg)
 
 Hay un objeto "raíz" llamado `window`.Tiene dos roles:
 
@@ -19,7 +19,7 @@ Por ejemplo, aquí lo usamos como un objeto global:
 
 ```js run
 function sayHi() {
-  alert("Hello");
+  alert("Hola");
 }
 
 // Las funciones globales son accesibles como propiedades de window
@@ -36,14 +36,14 @@ Hay más métodos y propiedades específicos de `window`, los cubriremos más ad
 
 ## Modelo de Objetos del Documento (DOM)
 
-El objeto de `document` da acceso al contenido de la página. Con él podemos cambiar o crear cualquier cosa en la página.
+El objeto `document` da acceso al contenido de la página. Con él podemos cambiar o crear cualquier cosa en la página.
 
 Por ejemplo:
 ```js run
-// cambia el color de fondo a rojo
+// cambiar el color de fondo a rojo
 document.body.style.background = "red";
 
-// deshace el cambio después de 1 segundo
+// deshacer el cambio después de 1 segundo
 setTimeout(() => document.body.style.background = "", 1000);
 ```
 
@@ -80,8 +80,8 @@ El Modelo de Objetos del Navegador (BOM) son objetos adicionales proporcionados 
 
 Por ejemplo:
 
-- El objeto [navigator](mdn:api/Window/navigator), proporciona información sobre el navegador y el sistema operativo. Hay muchas propiedades, pero las dos más conocidas son: `navigator.userAgent` -- sobre el navegador actual, y `navigator.platform` -- sobre la plataforma (puede ayudar a diferenciar entre Windows/Linux/Mac, etc.).
-- El objeto [location](mdn:api/Window/location), nos permite leer la URL actual y puede redirigir el navegador a uno nuevo.
+- El objeto [navigator](https://developer.mozilla.org/es/docs/Web/API/Window/navigator), proporciona información sobre el navegador y el sistema operativo. Hay muchas propiedades, pero las dos más conocidas son: `navigator.userAgent` -- sobre el navegador actual, y `navigator.platform` -- sobre la plataforma (puede ayudar a diferenciar entre Windows/Linux/Mac, etc.).
+- El objeto [location](https://developer.mozilla.org/es/docs/Web/API/Window/location), nos permite leer la URL actual y puede redirigir el navegador a uno nuevo.
 
 Aquí vemos cómo podemos usar el objeto `location`:
 
@@ -95,7 +95,7 @@ if (confirm("Go to wikipedia?")) {
 Las funciones `alert/confirm/prompt` también forman parte de BOM: no están directamente relacionadas con el documento, sino que representan métodos de comunicación puros con el usuario.
 
 ```smart header="Especificación de HTML"
-BOM es la parte general de la especificación de HTML [HTML specification](https://html.spec.whatwg.org).
+BOM es la parte general de la especificación de [HTML specification](https://html.spec.whatwg.org).
 
 Sí, oíste bien. La especificación HTML en <https://html.spec.whatwg.org> no solo trata sobre el "lenguaje HTML" (etiquetas, atributos), sino que también cubre un montón de objetos, métodos y extensiones DOM específicas del navegador. Eso es "HTML en términos generales".
 ```
@@ -113,8 +113,8 @@ La especificación del CSSOM
 La especificación del HTML
 : Describe el lenguaje HTML (por ejemplo, etiquetas) y también el BOM (modelo de objeto del navegador) -- varias funciones del navegador: `setTimeout`, `alert`, `location`, etc., consulte <https://html.spec.whatwg.org>. Toma la especificación DOM y la extiende con muchas propiedades y métodos adicionales.
 
-Ahora nos ocuparemos de aprender DOM, porque el documento juega el papel central en la interfaz de usuario.
+Ahora nos concentraremos en aprender el DOM, porque juega un papel central en la interfaz de usuario.
 
 Ten en cuenta los enlaces anteriores, ya que hay tantas cosas que aprender que es imposible cubrir y recordar todo.
 
-Cuando desees leer sobre una propiedad o un método, el manual de Mozilla en <https://developer.mozilla.org/es/search> es un buen recurso, pero leer las especificaciones correspondientes puede ser mejor: es más complejo y más para leer, pero hará que su conocimiento de los fundamentos sea sólido y completo.
+Cuando desees leer sobre una propiedad o un método, el manual de Mozilla en <https://developer.mozilla.org/es/search> es un buen recurso, pero leer las especificaciones correspondientes puede ser mejor: es más complejo y hay más para leer, pero hará que su conocimiento de los fundamentos sea sólido y completo.
