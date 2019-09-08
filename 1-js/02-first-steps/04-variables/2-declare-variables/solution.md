@@ -3,19 +3,19 @@ Primero, la variable para el nombre de nuestro planeta.
 Eso es simple:
 
 ```js
-let ourPlanetName = "Earth";
+let ourPlanetName = "Tierra";
 ```
 
-Nota, podriamos usar un nombre mas corto `planet`, pero podría no ser obvio a qué planeta se refiere. Es bueno ser más detallado. Al menos hasta la variable isNotTooLong.
+Nota, podríamos usar un nombre más corto `planeta`, pero podría no ser obvio a qué planeta se refiere. Es una buena idea ser más detallado, siempre y cuando la variable noSeaMuyLarga.
 
-Segundo, el nombre del visitante actual:
+Segundo, el nombre del usuario actual:
 
 ```js
-let currentUserName = "John";
+let currentUserName = "Juan";
 ```
 
-Una vez mas, podriamos acortar eso a `userName` si es que de seguro que ese es el usuario actual.
+Una vez más, podríamos acortar eso a `userName` si estamos seguros que es el usuario actual (current).
 
-Los editores modernos y autocompletados hacen que los nombres de variables largos sean fáciles de escribir. No ahorres en ellos. Un nombre 3 palabras esta bien.
+Los editores modernos y el autocompletado hacen que los nombres de variables largos sean fáciles de escribir. No ahorres caracteres. Un nombre de 3 palabras está bien.
 
-Y si tu editor no tiene un autocompletado apropiado, get [a new one](/code-editors).
+Y si tu editor no tiene un autocompletado apropiado, consigue [uno nuevo](/code-editors).
