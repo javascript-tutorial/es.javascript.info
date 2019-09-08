@@ -4,7 +4,7 @@ importance: 1
 
 # Función min(a, b)
 
-Escriba una función `min(a,b)` la cual devuelva el menor de dos números `a` y `b`.
+Escribe una función `min(a,b)` la cual devuelva el menor de dos números `a` y `b`.
 
 Por ejemplo:
 
