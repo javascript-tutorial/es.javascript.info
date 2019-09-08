@@ -12,11 +12,11 @@ Ya tenemos cookies. ¿Por qué tener objetos adicionales?
 
 Ámbos objetos de almacenaje proveen los mismos métodos y propiedades:
 
-- `setItem(clave, valor)` -- almacena un par clave/valor.
-- `getItem(clave)` -- coje el valor para una clave.
-- `removeItem(clave)` -- elimina la clave y su valor.
-- `clear()` -- bórralo todo.
-- `key(índice)` -- coje la clave en una posición determinada.
+- `setItem(clave, valor)` -- almacenar un par clave/valor.
+- `getItem(clave)` -- obtener el valor por medio de la clave.
+- `removeItem(clave)` -- eliminar la clave y su valor.
+- `clear()` -- borrar todo.
+- `key(índice)` -- obtener la clave de una posición dada.
 - `length` -- el número de ítems almacenados.
 
 Vamos a ver cómo funciona.
