@@ -323,7 +323,7 @@ alert( doNothing() === undefined ); // true
 ```
 ````
 
-````warn header="Nunca agregue una nueva línea entre `return` y el valor"
+````warn header="Nunca agregues una nueva línea entre `return` y el valor"
 Para una expresion larga de `return`, puede ser tentador ponerlo en una línea separada, como esta:
 
 ```js
