@@ -4,7 +4,7 @@ importance: 4
 
 # Function pow(x,n)
 
-Escriba la función `pow(x,n)` que devuelva `x` como potencia de `n`. O, en otras palabras, multiplique `x` por si mismo `n` veces y devuelva el resultado.
+Escribe la función `pow(x,n)` que devuelva `x` como potencia de `n`. O, en otras palabras, multiplique `x` por si mismo `n` veces y devuelva el resultado.
 
 ```js
 pow(3, 2) = 3 * 3 = 9
@@ -12,7 +12,7 @@ pow(3, 3) = 3 * 3 * 3 = 27
 pow(1, 100) = 1 * 1 * ...* 1 = 1
 ```
 
-Cree una página web que solicite `x` y `n`, y luego muestra el resultado de `pow(x,n)`.
+Crea una página web que solicite `x` y `n`, y luego muestra el resultado de `pow(x,n)`.
 
 [demo]
 
