@@ -6,7 +6,7 @@ Por ejemplo, debemos mostrar un mensaje atractivo cuando un visitante inicia ses
 
 Las funciones son los principales "bloques de construcción" del programa. Permiten que el código se llame muchas veces sin repetición.
 
-Ya hemos visto ejemplos de funciones integradas, como `alert(message)`, `prompt(message, default)` y `confirm(question)`. Pero también podemos crear funciones propias.
+Ya vimos ejemplos de funciones integradas, como `alert(message)`, `prompt(message, default)` y `confirm(question)`. Pero también podemos crear funciones propias.
 
 ## Declaración de funcicones
 
@@ -43,7 +43,7 @@ La llamada `showMessage()` ejecuta el código de la función. Aquí veremos el m
 
 Este ejemplo demuestra claramente uno de los propósitos principales de las funciones: evitar la duplicación de código..
 
-Si alguna vez necesitamos cambiar el mensaje o la forma en que se muestra, es suficiente modificar el código en un lugar: la función que lo genera.
+Si alguna vez necesitas cambiar el mensaje o la forma en que se muestra, es suficiente modificar el código en un lugar: la función que lo genera.
 
 ## Variables Locales
 
