@@ -2,16 +2,16 @@ importance: 3
 
 ---
 
-# Output prime numbers
+# Muestra números primos
 
-An integer number greater than `1` is called a [prime](https://en.wikipedia.org/wiki/Prime_number) if it cannot be divided without a remainder by anything except `1` and itself.
+Un número entero mayor que `1` es llamado [primo](https://es.wikipedia.org/wiki/N%C3%BAmero_primo) si no puede ser dividido sin un resto por ningún número excepto `1` y él mismo.
 
-In other words, `n > 1` is a prime if it can't be evenly divided by anything except `1` and `n`.
+En otras palabras, `n > 1` es un primo si no puede ser divido exactamente por ningún número excepto `1` y `n`.
 
-For example, `5` is a prime, because it cannot be divided without a remainder by `2`, `3` and `4`.
+Por ejemplo, `5` es un primo, porque no puede ser divido exactamente por `2`, `3` y `4`.
 
-**Write the code which outputs prime numbers in the interval from `2` to `n`.**
+**Escribe el código que muestre números primos en el intervalo de `2` a `n`.**
 
-For `n = 10` the result will be `2,3,5,7`.
+Para `n = 10` el resultado será `2, 3, 5, 7`.
 
-P.S. The code should work for any `n`, not be hard-tuned for any fixed value.
+PD. El código debería funcionar para cualquier `n`, no debe estar programado para valores fijos.
