@@ -2,21 +2,21 @@
 
 Lo primero que estudiaremos son los bloques de construcción del código.
 
-## Declaraciones
+## Sentencias
 
-Las declaraciones son construcciones de sintaxis y comandos que realizan acciones.
+Las sentencias son construcciones sintácticas y comandos que realizan acciones.
 
-Ya hemos visto una sentencia, `alert('¡Hola, mundo!')`, que muestra el mensaje "¡Hola mundo!".
+Ya hemos visto una sentencia, `alert('¡Hola mundo!')`, que muestra el mensaje "¡Hola mundo!".
 
-Podemos tener tantas declaraciones en nuestro código como queramos. Las declaraciones se pueden separar con un punto y coma.
+Podemos tener tantas sentencias en nuestro código como queramos, las cuales se pueden separar con un punto y coma.
 
-Por ejemplo, aquí dividimos "Hello World" en dos alertas:
+Por ejemplo, aquí separamos "Hello World" en dos alerts:
 
 ```js run no-beautify
 alert('Hola'); alert('Mundo');
 ```
 
-Generalmente, las declaraciones se escriben en líneas separadas para hacer que el código sea más legible:
+Generalmente, las sentencias se escriben en líneas separadas para hacer que el código sea más legible:
 
 ```js run no-beautify
 alert('Hola');
@@ -46,20 +46,20 @@ alert(3 +
 + 2);
 ```
 
-El código da como resultado `6` porque JavaScript no inserta punto y coma aquí. Es intuitivamente obvio que si la línea termina con un signo más `"+"`, entonces es una "expresión incompleta", por lo que no se requiere el punto y coma. Y en este caso eso funciona según lo previsto.
+El código da como resultado `6` porque JavaScript no inserta punto y coma aquí. Es intuitivamente obvio que si la línea termina con un signo más `"+"`, es una "expresión incompleta", por lo que no se requiere el punto y coma. Y en este caso eso funciona según lo previsto.
 
 **Pero hay situaciones en las que JavaScript "falla" al asumir un punto y coma donde realmente se necesita.**
 
 Los errores que ocurren en tales casos son bastante difíciles de encontrar y corregir.
 
-````smart header="Un ejemplo de un error."
-Si tiene curiosidad por ver un ejemplo concreto de tal error, consulte este código:
+````smart header="Un ejemplo de error"
+Si tienes curiosidad por ver un ejemplo concreto de tal error, mira este código:
 
 ```js run
 [1, 2].forEach(alert)
 ```
 
-No es necesario pensar en el significado de los corchetes `[]` y `forEach` todavía. Los estudiaremos más adelante. Por ahora, solo recuerda el resultado del código: muestra `1` luego `2`.
+No es necesario pensar en el significado de los corchetes `[]` y `forEach` todavía, los estudiaremos más adelante. Por ahora, solo recuerda el resultado del código: muestra `1` luego `2`.
 
 Ahora, agreguemos un 'alert' antes del código y *no* terminemos con un punto y coma:
 
@@ -69,9 +69,9 @@ alert("Habrá un error")
 [1, 2].forEach(alert)
 ```
 
-¡Ahora si ejecutamos el código, solo se muestra el primer `alert` y luego tenemos un error!
+Ahora, si ejecutamos el código, ¡solo se muestra el primer `alert` y luego tenemos un error!
 
-Pero todo está bien de nuevo si agregamos un punto y coma después de `alert`:
+Pero todo está bien nuevamente si agregamos un punto y coma después de `alert`:
 ```js run
 alert("Todo bien ahora");
 
@@ -83,16 +83,16 @@ Ahora tenemos el mensaje "Todo bien ahora" seguido de `1` y `2`.
 
 El error en la variante sin punto y coma se produce porque JavaScript no asume un punto y coma antes de los corchetes `[...]`.
 
-Entonces, como el punto y coma no se inserta automáticamente, el código del primer ejemplo se trata como una sola declaración. Así es como lo ve el motor:
+Entonces, como el punto y coma no se inserta automáticamente, el código del primer ejemplo se trata como una sola sentencia. Así es como lo ve el motor:
 
 ```js run no-beautify
 alert("Habrá un error")[1, 2].forEach(alert)
 ```
 
-Pero deberían ser dos declaraciones separadas, no una. Tal unión en este caso es simplemente incorrecto, de ahí el error. Esto puede suceder en otras situaciones.
+Pero deberían ser dos sentencias separadas, no una. Tal unión en este caso es simplemente incorrecta, de ahí el error. Esto puede suceder en otras situaciones también.
 ````
 
-Recomendamos colocar puntos y coma entre las declaraciones, incluso si están separadas por nuevas líneas. Esta regla es ampliamente adoptada por la comunidad. Notemos una vez más que es posible omitir los puntos y comas la mayoría del tiempo. Pero es más seguro, especialmente para un principiante, usarlos.
+Recomendamos colocar puntos y coma entre las sentencias, incluso si están separadas por saltos de línea. Esta regla está ampliamente adoptada por la comunidad. Notemos una vez más que es posible omitir los puntos y coma la mayoría del tiempo. Pero es más seguro, especialmente para un principiante, usarlos.
 
 ## Comentarios
 
@@ -101,16 +101,16 @@ A medida que pasa el tiempo, los programas se vuelven cada vez más complejos. S
 Los comentarios se pueden poner en cualquier lugar de un script. No afectan su ejecución porque el motor simplemente los ignora.
 
 
-**Los comentarios de una línea comienzan con dos caracteres de barra diagonal //.**
+**Los comentarios de una línea comienzan con dos caracteres de barra diagonal `//`.**
 
-El resto de la línea es un comentario. Puede ocupar una línea completa propia o seguir una declaración.
+El resto de la línea es un comentario. Puede ocupar una línea completa propia o seguir una sentencia.
 
 Como aqui:
 ```js run
 // Este comentario ocupa una línea propia.
 alert('Hello');
 
-alert('World'); // Este comentario sigue a la declaración.
+alert('World'); // Este comentario sigue a la sentencia.
 ```
 
 **Los comentarios de varias líneas comienzan con una barra inclinada y un asterisco <code>/&#42;</code> y terminan con un asterisco y una barra inclinada <code>&#42;/</code>.**
@@ -136,11 +136,11 @@ alert('Hola');
 alert('Mundo');
 ```
 
-```smart header="¡Use accesos rapidos del teclado!"
-En la mayoría de los editores, se puede comentar una línea de código presionando `key:Ctrl+/` para un comentario de una sola línea y algo como `key:Ctrl+Shift+/` - para comentarios de varias líneas (seleccione una parte del código y pulse la tecla de acceso rápido). Para Mac, intente `key: Cmd` en lugar de `key: Ctrl`.
+```smart header="¡Usa accesos rápidos del teclado!"
+En la mayoría de los editores, se puede comentar una línea de código presionando `key:Ctrl+/` para un comentario de una sola línea y algo como `key:Ctrl+Shift+/` - para comentarios de varias líneas (selecciona una parte del código y pulsa la tecla de acceso rápido). Para Mac, intenta `key: Cmd` en lugar de `key: Ctrl`.
 ```
 
-````warn header="Los comentarios anidados no son compatibles!"
+````warn header="¡Los comentarios anidados no son compatibles!"
 No puede haber `/*...*/` dentro de otro `/*...*/`.
 
 Dicho código terminará con un error:
@@ -155,7 +155,7 @@ alert( 'Mundo' );
 
 Por favor, no dudes en comentar tu código.
 
-Los comentarios aumentan el tamaño general del código, pero eso no es un problema en absoluto. Hay muchas herramientas que minimizan el código antes de publicar en un servidor de producción. Eliminan los comentarios, por lo que no aparecen en los scripts de trabajo. Por lo tanto, los comentarios no tienen ningún efecto negativo en la producción.
+Los comentarios aumentan el tamaño general del código, pero eso no es un problema en absoluto. Hay muchas herramientas que minimizan el código antes de publicarlo en un servidor de producción. Eliminan los comentarios, por lo que no aparecen en los scripts de trabajo. Por lo tanto, los comentarios no tienen ningún efecto negativo en la producción.
 
 Más adelante, en el tutorial, habrá un capítulo <info:coding-style> que también explica cómo escribir mejores comentarios.
 
