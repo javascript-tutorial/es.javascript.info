@@ -1,6 +1,6 @@
 # Operadores condicionales: if, '?'
 
-Algunas Veces, necesitamos ejecutar diferentes acciones basadas en diferentes condiciones.
+Algunas veces, necesitamos ejecutar diferentes acciones basadas en diferentes condiciones.
 
 Para hacer esto, nosotros utilizaremos la sentencia `if` y el operador condicional (ternario) al cual nos referiremos de aqui en adelante como operador de “signo de interrogación” `?` por simplicidad.
 
@@ -31,14 +31,14 @@ if (year == 2015) {
 
 Recomendamos siempre encerrar nuestro bloque de código entre llaves `{}` siempre que se utilice la sentencia `if`, inclusive si solo se va a ejecutar una sola sentencia en este caso. Hacer eso mejora la legibilidad.
 
-## Conversion Booleana
+## Conversión Booleana
 
-La sentencia `if (…)` evalua la exprecion dentro de sus parentesis y convierte el resultado en booleano.
+La sentencia `if (…)` evalua la exprecion dentro de sus paréntesis y convierte el resultado en booleano.
 
 Recordemos las reglas de conversión del capítulo.
 <info:type-conversions>:
 
-- El numero `0`, un string vació `""`, `null`, `undefined`, y `NaN` se convierte en `false`. Por esto son llamados valores "falso".
+- El número `0`, un string vació `""`, `null`, `undefined`, y `NaN` se convierte en `false`. Por esto son llamados valores "falso".
 - El resto de los valores se convierten en  `true`, entonces los llamaremos valores "verdadero".
 
 Entonces, el código que vemos a continuación nunca se ejecutaria:
@@ -69,7 +69,7 @@ if (cond) {
 
 ## La clausula "else"
 
-La sentencia `if` quizás contenga un bloque "de lo contrario" opcional. Este se ejecutará cuando la condición sea falsa.
+La sentencia `if` quizás contenga un bloque `else` opcional. Este se ejecutará cuando la condición sea falsa.
 
 Por ejemplo:
 ```js run
@@ -182,7 +182,7 @@ alert( message );
 Puede ser difícil al principio comprender lo que está sucediendo. Pero después de una mirada más cercana, podemos ver que es solo una secuencia ordinaria de condiciones:
 
 1. La Primera marca de pregunta revisa si `age < 3`.
-2. Si es cierto -- devuelve `'¡Hola, bebé!'`. De lo contrario, continua a la expresion que esta despues de los dos puntos '":"', revisando `age < 18`.
+2. Si es cierto -- devuelve `'¡Hola, bebé!'`. De lo contrario, continua a la expresión que esta despues de los dos puntos '":"', revisando `age < 18`.
 3. Si es cierto -- devuelve `'¡Hola!'`. De lo contrario, continua con la expresionque esta despues de los dos puntos siguientes '":"', checking `age < 100`.
 4. Si es cierto -- devuelve `'¡Felicidades!'`. De lo contrario, continua a la expresion que esta despues de los dos puntos '":"', returning `'¡Que edad tan inusual!'`.
 
@@ -219,7 +219,7 @@ Aquí no asignamos el resultado de una variable. En vez de esto, ejecutamos dife
 
 **Nosotros no recomendamos el uso del operador de signo de interrogación en estos casos.**
 
-La notacion es mas corta que la sentencia equivalente con `if`, lo cual seduce a algunos programadores. Pero es menos legible.
+La notación es mas corta que la sentencia equivalente con `if`, lo cual seduce a algunos programadores. Pero es menos legible.
 
 Aqui esta el mismo codigo utilizando la sentencia `if` para comparar:
 
