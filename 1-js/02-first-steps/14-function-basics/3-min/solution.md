@@ -18,4 +18,4 @@ function min(a, b) {
 }
 ```
 
-P.D: En el caso de una igualdad `a == b` No importa qué devuelva.
+P.D: En el caso de una igualdad `a == b` no importa qué devuelva.
