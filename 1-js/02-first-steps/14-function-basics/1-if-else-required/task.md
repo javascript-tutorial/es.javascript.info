@@ -15,7 +15,7 @@ function checkAge(age) {
 *!*
   } else {
     // ...
-    return confirm('¿Tus padres te permitieron?');
+    return confirm('¿Tus padres te dieron permiso?');
   }
 */!*
 }
