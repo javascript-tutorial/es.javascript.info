@@ -5,6 +5,7 @@ This repository hosts the translation of <https://javascript.info> in Spanish.
 
 **That's how you can contribute:**
 
+<<<<<<< HEAD
 - See the [Spanish Translate Progress](https://github.com/javascript-tutorial/es.javascript.info/issues/17) issue.
 - Choose an unchecked article you'd like to translate.
 - Add a comment with the article title to the issue, e.g. `An Introduction to JavaScript`.
@@ -12,6 +13,9 @@ This repository hosts the translation of <https://javascript.info> in Spanish.
     - Your comment should contain only the title.
 - Fork the repository, translate and send a PR when done.
     - PR title should match article title, the bot will write it's number into the issue.
+=======
+See <https://javascript.info/translate> for the details.
+>>>>>>> 646989dd470395510e1006c220e05e85a06eb78a
 
 Please kindly allow maintainers to review and merge or request changes in your translation.
    
@@ -19,11 +23,21 @@ If maintainers do not respond, or if you'd like to become a maintainer, write us
     
 **Let others know what you're translating, in message boards or chats in your language. Invite them to join!**
 
+<<<<<<< HEAD
 🎉 Thank you!
+=======
+We'd also like to collaborate on the tutorial with other people.
+>>>>>>> 646989dd470395510e1006c220e05e85a06eb78a
 
 Your name and the contribution size will appear in the "About project" page when the translation gets published.
 
+<<<<<<< HEAD
 P.S. The full list of languages can be found at <https://javascript.info/translate>.
+=======
+**You can edit the text in any editor.** The tutorial uses enhanced "markdown" format, easy to grasp. And if you want to see how it looks on-site, there's a server to run the tutorial locally at <https://github.com/javascript-tutorial/server>.  
+
+The list of contributors is available at <https://javascript.info/about#contributors>.
+>>>>>>> 646989dd470395510e1006c220e05e85a06eb78a
 
 ## Structure
 
@@ -114,6 +128,7 @@ Some files, usually tasks, have YAML metadata at the top, delimited by `---`:
 importance: 5
 
 ---
+<<<<<<< HEAD
 ...
 ```
 
@@ -134,3 +149,7 @@ Please don't translate or remove the `[#...]` part, it's for URL anchors.
 You can run the tutorial server locally to see how the translation looks.
 
 The server and install instructions are at <https://github.com/javascript-tutorial/server>. 
+=======
+♥  
+Ilya Kantor @iliakan
+>>>>>>> 646989dd470395510e1006c220e05e85a06eb78a
