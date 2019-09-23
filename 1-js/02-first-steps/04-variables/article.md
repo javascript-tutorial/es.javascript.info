@@ -54,7 +54,7 @@ También podemos declarar variables múltiples en una sola línea:
 let user = 'John', age = 25, message = 'Hola';
 ```
 
-Esto puede parecer más corto, pero no lo recomendamos. Por el bien de la legibilidad, por favor utilize una línea por variable.
+Esto puede parecer más corto, pero no lo recomendamos. Por el bien de la legibilidad, por favor utiliza una línea por variable.
 
 La versión de líneas múltiples es un poco más larga, pero se lee más fácil:
 
@@ -141,7 +141,7 @@ Es interesante notar el hecho que lenguajes de programación [funcional](https:/
 
 En tales lenguajes, una vez la variable ha sido almacenada "en la caja", permanece allí por siempre. Si necesitamos almacenar algo más, el lenguaje nos obliga a crear una nueva caja (generar una nueva variable). No podemos reusar la antigua.
 
-Aunque puede parecer un poco extraño a primera vista, estos lenguajes tienen seria capacidad de desarrollo. Más aún, existen áreas como computación en paralelo en las cuales esta limitación otorga ciertos beneficios. Estudiar tales lenguajes (incluso sin la intención de usarlo en el futuro cercano) es recomendable para ampliar la mente.
+Aunque puede parecer un poco extraño a primera vista, estos lenguajes tienen seria capacidad de desarrollar. Más aún, existen áreas como computación en paralelo en las cuales esta limitación otorga ciertos beneficios. Estudiar tales lenguajes (incluso sin la intención de usarlo en el futuro cercano) es recomendable para ampliar la mente.
 ```
 
 ## Nombramiento de variables [#variable-naming]
@@ -285,19 +285,19 @@ const pageLoadTime = /* el tiempo que tardó la página web para cargar */;
 
 El valor de `pageLoadTime` no se conoce antes de cargar la página, así que la nombramos normalmente. No obstante, es una constante porque no cambia después de su asignación inicial.
 
-En otras palabras, las constantes nombradas con mayúscula son utilizadas como aliases para valores que son "hard-coded".
+En otras palabras, las constantes nombradas con mayúscula son utilizadas como áliases para valores que son "hard-coded".
 
 ## Nombrar cosas correctamente
 
 Estando en el tema de las variables, existe una cosa de mucha importancia.
 
-Por favor ser sensato al nombrar sus variables. Pensémolo por un momento.
+Por favor se sensato al nombrar tus variables. Pensémolo por un momento.
 
 Nombrar variables es una de las habilidades más importantes y complejas en la programación. Un vistazo rápido a el nombre de las variables nos revela cuál código fue escrito por un principiante o por un desarrollador experimentado.
 
 En un proyecto real, la mayor parte de el tiempo se pasa modificando y extendiendo una base de código en vez de empezar a escribir algo desde cero. Cuando regresamos a algún código después de hacer algo distinto por un rato, es mucho más fácil encontrar información que está bien etiquetada. O, en otras palabras, cuando las variables tienen nombres adecuados.
 
-Por favor pasen tiempo pensando en el nombre adecuado para una variable antes de declararla. Hacer esto te da un retorno muy sustancial.
+Por favor pasa tiempo pensando en el nombre adecuado para una variable antes de declararla. Hacer esto te da un retorno muy sustancial.
 
 Algunas reglas buenas para seguir:
 
