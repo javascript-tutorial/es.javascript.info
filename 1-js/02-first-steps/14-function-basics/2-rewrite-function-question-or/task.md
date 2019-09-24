@@ -23,4 +23,4 @@ Reescríbelo, para realizar lo mismo, pero sin `if`, en una sola linea.
 Haz dos variantes de `checkAge`:
 
 1. Usando un operador de signo de interrogación `?`
-2. Usando Ó `||`
+2. Usando OR `||`
