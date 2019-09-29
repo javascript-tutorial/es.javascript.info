@@ -1,5 +1,5 @@
 
-Try running it:
+Prueba a ejecutar:
 
 ```js run
 let str = "Hello";
@@ -9,23 +9,23 @@ str.test = 5; // (*)
 alert(str.test); 
 ```
 
-There may be two kinds of result:
+Puede haber dos clases de resultado:
 1. `undefined`
-2. An error.
+2. Un error.
 
-Why? Let's replay what's happening at line `(*)`:
+¿Por qué? Repasemos qué ocurre en la línea `(*)`:
 
-1. When a property of `str` is accessed, a "wrapper object" is created.
-2. The operation with the property is carried out on it. So, the object gets the `test` property.
-3. The operation finishes and the "wrapper object" disappears.
+1. Cuando una propiedad de `str` es accedida, un "wrapper object" es creado.
+2. La operación con la propiedad es llevada a cabo con él. Entonces, el objeto obtiene la propiedad `test`.
+3. La operación termina y el "wrapper object" desaparece.
 
-So, on the last line, `str` has no trace of the property. A new wrapper object for every object operation on a string.
+Entonces, en la última línea, `str` no tiene rastros de la propiedad. Por cada operación de objeto en un string, un nuevo wrapper object es usado.
 
-Some browsers though may decide to further limit the programmer and disallow to assign properties to primitives at all. That's why in practice we can also see errors at line `(*)`. It's a little bit farther from the specification though.
+Aunque algunos navegadores pueden decidir ir más allá y limitar al programador e impedir la asignación de propiedades a primitivas del todo.  Por eso en la práctica podemos ver errores en la línea `(*)`. Aunque con ello van un poco más lejos que la especificación.
 
-**This example clearly shows that primitives are not objects.**
+**Este ejemlplo claramente muestra que las primitivas no son objetos.**
 
-They just can not store data. 
+Ellas simplemente no pueden almacenar datos. 
 
-All property/method operations are performed with the help of temporary objects.
+Todas las operaciones de propiedades y métodos son hechas con la ayuda de objetos temporales.
 

@@ -1,8 +1,8 @@
-# Métodos de primitivos 
+# Métodos en datos primitivos 
 
 JavaScript nos permite trabajar con datos primitivos (strings, numbers, etc.) como si fueran objetos.
 
-También proveen, como aquellos, métodos para ser llamados.  Los estudiaremos pronto, pero primero veamos cómo trabajan porque, por supuesto, los primitivos no son objetos (y aquí lo haremos más evidente).
+También proveen, como estos, métodos para ser llamados.  Los estudiaremos pronto, pero primero veamos cómo trabajan porque, por supuesto, los primitivos no son objetos (y aquí lo haremos más evidente).
 
 Veamos las diferencias clave entre primitivos y objetos.
 
@@ -44,7 +44,7 @@ Aquí la paradoja que enfrentó el creador de JavaScript:
 - Hay muchas cosas que uno quisiera hacer con primitivos como string o number. Sería grandioso acceder a métodos.
 - Los Primitivos deben ser tan rápidos y livianos como sea posible.
 
-La solución se ve algo enrevesada, pero aquí está:
+La solución es algo enrevesada, pero aquí está:
 
 1. Los primitivos son aún primitivos. Con un valor único, como es deseable.
 2. El lenguaje permite acceder a métodos y propiedades de strings, numbers, booleans y symbols.
@@ -115,8 +115,8 @@ let num = Number("123"); // convierte string a number
 ````
 
 
-````warn header="null/undefined have no methods"
-Las primitivas especiales `null` y `undefined` son excepciones. No tienen "wrapper objects" correspondientes y no proveen métodos. En ese sentido son "lo más primitivo".
+````warn header="null/undefined no tienen métodos"
+Las primitivas especiales `null` y `undefined` son excepciones. No tienen los "wrapper objects" correspondientes y no proveen métodos. En ese sentido son "lo más primitivo".
 
 El intento de acceder a una propiedad de tal valor daría error:
 
