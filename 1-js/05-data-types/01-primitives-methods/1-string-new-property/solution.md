@@ -21,4 +21,4 @@ Dependiendo del uso o no del modo estricto "use strict", el resultado puede ser:
 
 **Este ejemlplo claramente muestra que los tipos primitivos no son objetos.**
 
-Ellos no pueden almacenar datos adicionales. 
+Ellos no pueden almacenar datos adicionales.

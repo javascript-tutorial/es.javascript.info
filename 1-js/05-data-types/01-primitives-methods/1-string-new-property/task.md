@@ -15,4 +15,4 @@ str.test = 5;
 alert(str.test);
 ```
 
-Qué piensas, ¿funcionará? ¿Qué mostrará?
+Qué piensas, ¿funcionará? ¿Qué mostrará? 

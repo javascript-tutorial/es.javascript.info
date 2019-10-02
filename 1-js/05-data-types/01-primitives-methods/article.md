@@ -125,4 +125,4 @@ alert(null.test); // error
 ## Resumen
 
 - Los tipos primitivos excepto `null` y `undefined` proporcionan muchos métodos útiles.  Los estudiaremos en los próximos capítulos.
-- Oficialmente, estos métodos trabajan a través de objetos temporales, pero los motores de JavaScript están bien afinados para optimizar esto internamente así que llamarlos no es costoso.
+- Oficialmente, estos métodos trabajan a través de objetos temporales, pero los motores de JavaScript están bien afinados para optimizar esto internamente así que llamarlos no es costoso. 
