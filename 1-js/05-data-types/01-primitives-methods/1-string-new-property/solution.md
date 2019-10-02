@@ -9,23 +9,16 @@ str.test = 5; // (*)
 alert(str.test); 
 ```
 
-Puede haber dos clases de resultado:
-1. `undefined`
-2. Un error.
+Dependiendo del uso o no del modo estricto "use strict", el resultado puede ser:
+1. `undefined` (sin strict mode)
+2. Un error  (strict mode)
 
 ¿Por qué? Repasemos qué ocurre en la línea `(*)`:
 
-1. Cuando una propiedad de `str` es accedida, un "wrapper object" es creado.
-2. La operación con la propiedad es llevada a cabo con él. Entonces, el objeto obtiene la propiedad `test`.
-3. La operación termina y el "wrapper object" desaparece.
+1. Cuando se accede a una propiedad de `str`, un "wrapper object" es creado.
+2. Con modo estricto, alterarlo produce error. 
+3. De otra manera, la operación es llevada a cabo y el objeto obtiene la propiedad `test`, pero después de ello el "wrapper object" desaparece, entonces en la última linea `str` queda sin rastros de la propiedad.
 
-Entonces, en la última línea, `str` no tiene rastros de la propiedad. Por cada operación de objeto en un string, un nuevo wrapper object es usado.
+**Este ejemlplo claramente muestra que los tipos primitivos no son objetos.**
 
-Aunque algunos navegadores pueden decidir ir más allá y limitar al programador e impedir la asignación de propiedades a primitivas del todo.  Por eso en la práctica podemos ver errores en la línea `(*)`. Aunque con ello van un poco más lejos que la especificación.
-
-**Este ejemlplo claramente muestra que las primitivas no son objetos.**
-
-Ellas simplemente no pueden almacenar datos. 
-
-Todas las operaciones de propiedades y métodos son hechas con la ayuda de objetos temporales.
-
+Ellos no pueden almacenar datos adicionales. 
