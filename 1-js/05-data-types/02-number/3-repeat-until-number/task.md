@@ -2,13 +2,13 @@ importance: 5
 
 ---
 
-# Repeat until the input is a number
+# Repetir hasta que lo ingresado sea un número
 
-Create a function `readNumber` which prompts for a number until the visitor enters a valid numeric value.
+Crea una función `readNumber` que pida un número hasta que el visitante ingrese un valor numérico válido.
 
-The resulting value must be returned as a number.
+El valor resultante debe ser devuelto como número.
 
-The visitor can also stop the process by entering an empty line or pressing "CANCEL". In that case, the function should return `null`.
+El visitante puede también detener el proceso ingresando una linea vacía o presionando "CANCEL". En tal caso la funcion debe devolver `null`.
 
 [demo]
 

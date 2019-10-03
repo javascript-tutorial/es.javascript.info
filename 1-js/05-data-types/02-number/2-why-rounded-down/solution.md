@@ -1,33 +1,33 @@
-Internally the decimal fraction `6.35` is an endless binary. As always in such cases, it is stored with a precision loss.
+Internamente la fracción decimal de `6.35` es binario sin fin. Como siempre en estos casos, es almacenado con pérdida de precisión.
 
-Let's see:
+Veamos:
 
 ```js run
 alert( 6.35.toFixed(20) ); // 6.34999999999999964473
 ```
 
-The precision loss can cause both increase and decrease of a number. In this particular case the number becomes a tiny bit less, that's why it rounded down.
+La pérdida de precisión puede causar que el número incremente o decremente. En este caso particular el número se vuelve ligeramente menor, por ello es redondeado hacia abajo.
 
-And what's for `1.35`?
+¿Y qué pasa con `1.35`?
 
 ```js run
 alert( 1.35.toFixed(20) ); // 1.35000000000000008882
 ```
 
-Here the precision loss made the number a little bit greater, so it rounded up.
+Aquí la pérdida de precisión hace el número algo mayor, por ello redondea hacia arriba.
 
-**How can we fix the problem with `6.35` if we want it to be rounded the right way?**
+**¿Cómo podemos arreglar el problema con `6.35` si queremos redondearlo de manera correcta?**
 
-We should bring it closer to an integer prior to rounding:
+Debemos llevarlo más cerca de un entero antes del redondeo:
 
 ```js run
 alert( (6.35 * 10).toFixed(20) ); // 63.50000000000000000000
 ```
 
-Note that `63.5` has no precision loss at all. That's because the decimal part `0.5` is actually `1/2`. Fractions divided by powers of `2` are exactly represented in the binary system, now we can round it:
+observa que `63.5` no tiene pérdida de precisión en absoluto. Esto es porque la parte decimal `0.5` es realmente `1/2`. Fracciones divididas por potencias de `2` son representadas exactamente en el sistema binario, ahora podemos redondearlo:
 
 
 ```js run
-alert( Math.round(6.35 * 10) / 10); // 6.35 -> 63.5 -> 64(rounded) -> 6.4
+alert( Math.round(6.35 * 10) / 10); // 6.35 -> 63.5 -> 64(redondeado) -> 6.4
 ```
 
