@@ -93,7 +93,7 @@ Afterwards, for new objects, when we call a method, it's taken from the prototyp
 
 We can illustrate the result of `class User` as:
 
-![](class-user.png)
+![](class-user.svg)
 
 Here's the code to introspect it:
 

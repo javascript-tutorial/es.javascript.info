@@ -77,7 +77,7 @@ Ejemplos de tales restricciones incluyen:
 
 - JavaScript puede fácilmente comunicarse a través de la red con el servidor de donde esta página proviene. Pero su capacidad para recibir información de otros sitios y dominios esta bloqueada. Aunque sea posible, esto requiere un acuerdo explícito (expresado en los encabezados HTTP) desde el sitio remoto. Una vez más, esto es una limitación de seguridad.
 
-![](limitations.png)
+![](limitations.svg)
 
 Tales limitaciones no existen si JavaScript es usado fuera del navegador, por ejemplo, en un servidor. Los navegadores modernos también permiten complementos y extensiones que pueden preguntar por permisos extendidos.
 

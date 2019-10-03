@@ -1,4 +1,4 @@
-The answer: `1`.
+La respuesta: `1`.
 
 ```js run
 let i = 3;
@@ -8,18 +8,18 @@ while (i) {
 }
 ```
 
-Every loop iteration decreases `i` by `1`. The check `while(i)` stops the loop when `i = 0`.
+Cada iteración del bucle disminuye `i` en `1`. La comprobación `while(i)` detiene el bucle cuando `i = 0`.
 
-Hence, the steps of the loop form the following sequence ("loop unrolled"):
+Por consiguiente, los pasos del bucle forman la siguiente secuencia ("bucle desenrollado").
 
 ```js
 let i = 3;
 
-alert(i--); // shows 3, decreases i to 2
+alert(i--); // muestra 3, disminuye i a 2
 
-alert(i--) // shows 2, decreases i to 1
+alert(i--) // muestra 2, disminuye i a 1
 
-alert(i--) // shows 1, decreases i to 0
+alert(i--) // muestra 1, disminuye i a 0
 
-// done, while(i) check stops the loop
+// listo, while(i) comprueba y detiene el bucle
 ```

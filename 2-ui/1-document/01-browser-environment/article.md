@@ -8,7 +8,7 @@ Un entorno host proporciona objetos específicos de la plataforma y funciones ad
 
 Aquí tienes una vista general de lo que tenemos cuando JavaScript se ejecuta en un navegador web:
 
-![](windowObjects.png)
+![](windowObjects.svg)
 
 Hay un objeto "raíz" llamado `window`.Tiene dos roles:
 

@@ -97,7 +97,7 @@ new User("Dude").sayHi(); // Hello Dude!
 
 Please note that the call to the parent method `super.say()` from `sayHiMixin` looks for the method in the prototype of that mixin, not the class.
 
-![](mixin-inheritance.png)
+![](mixin-inheritance.svg)
 
 That's because methods from `sayHiMixin` have `[[HomeObject]]` set to it. So `super` actually means `sayHiMixin.__proto__`, not `User.__proto__`.
 
