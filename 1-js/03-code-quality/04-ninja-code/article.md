@@ -1,124 +1,124 @@
 # Ninja code
 
 
-```quote author="Confucius"
-Learning without thought is labor lost; thought without learning is perilous.
+```quote author="Confucio"
+Aprender sin pensar es inútil. Pensar sin aprender peligroso.
 ```
 
-Programmer ninjas of the past used these tricks to sharpen the mind of code maintainers.
+Los programadores ninjas del pasado usaron estos trucos para afilar la mente de los mantenedores de código.
 
-Code review gurus look for them in test tasks.
+Los gurus de revisión de código los buscan en tareas de prueba.
 
-Novice developers sometimes use them even better than programmer ninjas.
+Los desarrolladores novatos algunas veces los usan incluso mejor que los programadores ninjas.
 
-Read them carefully and find out who you are -- a ninja, a novice, or maybe a code reviewer?
+Leelos detenidamente y encuentra quien eres -- ¿un ninja?, ¿un novato?, o tal vez ¿un revisor de código?
 
-
-```warn header="Irony detected"
-Many try to follow ninja paths. Few succeed.
+```warn header="Ironía detectada"
+Muchos intentan seguir los caminos de los ninjas. Pocos tiene éxito.
 ```
 
 
-## Brevity is the soul of wit
+## La brevedad es el alma del ingenio
 
-Make the code as short as possible. Show how smart you are.
+Has el código lo más corto posible. Demuestra cuan inteligente eres.
 
-Let subtle language features guide you.
+Deja que las características sutiles del lenguaje te guíen.
 
-For instance, take a look at this ternary operator `'?'`:
+Por ejemplo, echa un vistazo a este operador ternario ``? '':
 
 ```js
-// taken from a well-known javascript library
+// tomado de una librería de javascript muy conocida
 i = i ? i < 0 ? Math.max(0, len + i) : i : 0;
 ```
 
-Cool, right? If you write like that, a developer who comes across this line and tries to understand what is the value of `i` is going to have a merry time. Then come to you, seeking for an answer.
+Fascinante, ¿cierto?. Si escribes de esa forma, un desarollador que se encuentre esta linea e intente entender cual es el valor de `i` la va a pasar muy mal. Por lo que tendra que venir a ti, buscando una respuesta.
 
-Tell them that shorter is always better. Initiate them into the paths of ninja.
+Diles que mientras mas corto mucho mejor. Guialos a los caminos del ninja.
 
-## One-letter variables
+## Variables de una sola letra
 
 ```quote author="Laozi (Tao Te Ching)"
-The Dao hides in wordlessness. Only the Dao is well begun and well
-completed.
+El Dao se esconde sin palabras. Solo el Dao está bien comenzado y bien
+terminado.
 ```
 
-Another way to code faster is to use single-letter variable names everywhere. Like `a`, `b` or `c`.
+Otra forma de programar más rápido es usando variables de una sola letra en todas partes. Como `a`, `b` o `c`.
 
-A short variable disappears in the code like a real ninja in the forest. No one will be able to find it using "search" of the editor. And even if someone does, they won't be able to "decipher" what the name `a` or `b` means.
+Una variable corta desaparece en el código como lo hace un ninja en un bosque. Nadie será capaz de encontrarla usando "buscar" en el editor. E incluso si alguien lo hace, no será capaz de "descifrar" el significado de `a` o `b`.
 
-...But there's an exception. A real ninja will never use `i` as the counter in a `"for"` loop. Anywhere, but not here. Look around, there are many more exotic letters. For instance, `x` or `y`.
+...Pero hay una excepción. Un verdadero ninja nunca usaría `i` como el contador en un bucle `"for"`. En cualquier otro lugar, pero no aquí. Mira alrededor, hay muchas mas letras exóticas. Por ejemplo, `x` o `y`.
 
-An exotic variable as a loop counter is especially cool if the loop body takes 1-2 pages (make it longer if you can). Then if someone looks deep inside the loop, they won't be able to quickly figure out that the variable named `x` is the loop counter.
+Una variable exótica como el contador de un bucle es especialmente genial si el cuerpo del bucle toma 1-2 páginas (hazlo más grande si puedes). Entonces si alguien mira en las profundidades del bucle, no será capaz de figurar rápidamente que la variable llamada `x` es el contador del bucle.
 
-## Use abbreviations
+## Usa abreviaciones
 
-If the team rules forbid the use of one-letter and vague names -- shorten them, make abbreviations.
+Si las reglas del equipo prohíbe el uso de nombres de una sola letra o nombres vagos -- acórtalos, has abreviaciones.
 
-Like this:
+Como esto:
 
 - `list` -> `lst`.
 - `userAgent` -> `ua`.
 - `browser` -> `brsr`.
 - ...etc
 
-Only the one with truly good intuition will be able to understand such names. Try to shorten everything. Only a worthy person should be able to uphold the development of your code.
+Solo aquel con buena intuición será capaz de entender dichos nombres. Intenta acortar todo. Solo una persona digna debería ser capaz de sostener el desarrollo de tu código.
 
-## Soar high. Be abstract.
+## Vuela alto. Se abstracto
 
 ```quote author="Laozi (Tao Te Ching)"
-The great square is cornerless<br>
-The great vessel is last complete,<br>
-The great note is rarified sound,<br>
-The great image has no form.
+El gran cuadrado no tiene esquina<br>
+La gran vasija se completa por última vez,<br>
+La gran nota es un sonido enrarecido,<br>
+La gran imagen no tiene forma.
 ```
 
-While choosing a name try to use the most abstract word. Like `obj`, `data`, `value`, `item`, `elem` and so on.
+Cuando estés escogiendo un nombre intenta usar la palabra más abstracta. Como `obj`, `data`, `value`, `item`, `elem`, etc.
 
-- **The ideal name for a variable is `data`.** Use it everywhere you can. Indeed, every variable holds *data*, right?
+- **El nombre ideal para una variable es `data`.** Usalo lo más que puedas. En efecto, toda variable sostiene *data*, ¿no?
 
-    ...But what to do if `data` is already taken? Try `value`, it's also universal. After all, a variable eventually gets a *value*.
+    ...¿Pero que hacer si `data` ya esta siendo usado? Intenta con `value`, también es universal. Después de todo, una variable eventualmente obtiene un *value*(valor).
 
-- **Name a variable by its type: `str`, `num`...**
+- **Nombra una variable por su tipo: `str`, `num`...**
 
-    Give them a try. A young initiate may wonder -- are such names really useful for a ninja? Indeed, they are!
+    Dales un intento. Un recién iniciado puede preguntarse -- ¿Son dichos nombres realmente útiles para un ninja? En efecto, ¡lo son!
 
-    Sure, the variable name still means something. It says what's inside the variable: a string, a number or something else. But when an outsider tries to understand the code, they'll be surprised to see that there's actually no information at all! And will ultimately fail to alter your well-thought code.
+    Claro, el nombre de la variable sigue significando algo. Dice que hay en el interior de la variable: una cadena de texto, un número o cualquier otra cosa. Pero cuando un forastero intenta entender el código, se verá sorprendido al ver que en realidad no hay información. Y finalmente fracasara en el intento de alterar tu código bien pensado.
 
-    The value type is easy to find out by debugging. But what's the meaning of the variable? Which string/number does it store?
+    El valor del tipo es fácil de encontrar con una depuración. Pero, ¿cuál es el significado de la variable? ¿Qué cadena de texto o número guarda?
 
-    There's just no way to figure out without a good meditation!
+    ¡No hay forma de saberlo sin una buena meditación!
 
-- **...But what if there are no more such names?** Just add a number: `data1, item2, elem5`...
+- **...Pero, ¿Y si ya no hay dichos nombres?** Simplemente añade un número: `data1, item2, elem5`...
 
-## Attention test
+## Prueba de atención
 
-Only a truly attentive programmer should be able to understand your code. But how to check that?
+Solo un realmente atento programador deberia ser capaz de entender tu código. Pero, ¿cómo comprobarlo?
 
-**One of the ways -- use similar variable names, like `date` and `data`.**
+**Una de las maneras -- usa nombre de variables similares, como `date` y `data`.**
 
-Mix them where you can.
+Combinalos donde puedas.
 
-A quick read of such code becomes impossible. And when there's a typo... Ummm... We're stuck for long, time to drink tea.
+Una lectura rapida de dicho código se hace imposible. Y cuando hay un error de tipografía.... Ummm... 
+A quick read of such code becomes impossible. And when there's a typo... Ummm... Estamos atrapados por mucho tiempo, tiempo para tomar té.
 
 
-## Smart synonyms
+## Sinonimos inteligentes
 
 ```quote author="Confucius"
-The hardest thing of all is to find a black cat in a dark room, especially if there is no cat.
+Es difícil encontrar un gato negro en una habitación oscura, sobre todo cuando no está.
 ```
 
-Using *similar* names for *same* things makes life more interesting and shows your creativity to the public.
+Usando nombres *similar* para las mismas cosas hace tu vida mas interesante y le muestra al público tu creatividad.
 
-For instance, consider function prefixes. If a function shows a message on the screen -- start it with `display…`, like `displayMessage`. And then if another function shows on the screen something else, like a user name, start it with `show…` (like `showName`).
+Por ejemplo, considera prefijos de funciones. Si una función muestra un mensaje en la pantalla -- comienzalo con `display...`(mostrar), como `displayMessage`(mostrarMensaje). Y entonces si otra función muestra en la pantalla otra cosa, como un nombre de usuario, comienzalo con `show...`(presentar) (como `showName`(presentarNombre)).
 
-Insinuate that there's a subtle difference between such functions, while there is none.
+Insinua que hay una diferencia sútil entre dichas funciones, cuando no lo hay.
 
-Make a pact with fellow ninjas of the team: if John starts "showing" functions with `display...` in his code, then Peter could use `render..`, and Ann -- `paint...`. Note how much more interesting and diverse the code became.
+Has un pacto con tus compañeros ninjas del equipo: si John comienza funciones de "mostrar" con `presentar...` en su código, entonces Peter podría usar `exhibir..`, y Ann -- `pintar...`. Nota como el código es mucho más interesante y diverso ahora.
 
-...And now the hat trick!
+...¡Y ahora el truco del sombrero!
 
-For two functions with important differences -- use the same prefix!
+Para dos funciones con diferencias importantes -- ¡usa el mismo prefijo!
 
 For instance, the function `printPage(page)` will use a printer. And the function `printText(text)` will put the text on-screen. Let an unfamiliar reader think well over similarly named function `printMessage`: "Where does it put the message? To a printer or on the screen?". To make it really shine, `printMessage(message)` should output it in the new window!
 
