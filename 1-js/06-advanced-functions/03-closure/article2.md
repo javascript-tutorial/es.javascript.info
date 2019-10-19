@@ -1,10 +1,11 @@
+
 # Closure
 
-JavaScript es un lenguaje principalmente orientado a funciones. Esto nos da bastante libertad. Una función puede ser creada en un momento concreto, después copiada a una variable o podríamos pasarla como argumento de otra función y llamarla desde un lugar diferente más tarde.
+JavaScript es un lenguaje orientado a funciones principalmente. Esto nos da bastante libertad. Una función puede ser creada en un momento concreto, después copiada a una variable o pasada como argumento de otra función y llamarla desde un lugar diferente más tarde.
 
-Como ya sabemos, una función puede acceder a variables que están fuera de ella; Por lo que esta característica es usada de manera bastante habitual.
+Como ya sabemos, una función puede acceder a variables que están fuera de ella; Esta característica es bastante habitual.
 
-¿Pero que pasa cuando una variable externa cambia? ¿La función usará el valor más reciente o el valor que existía cuando la función fue creada?
+¿Pero qué pasa cuando una variable externa cambia? ¿La función usará el valor más reciente o el valor que existía cuando la función fue creada?
 
 Además de esto, ¿qué pasa cuando una función viaja a otro punto en el código y es llamada desde ahí? ¿tiene acceso a las variables externas del nuevo sitio en donde se encuentra?
 
@@ -16,75 +17,76 @@ Tengamos en cuenta dos situaciones para empezar con ello y después estudiaremos
 
 1. La función `sayHi` usa una variable externa `name`. En el momento en que la función se ejecute, ¿qué variable usará?
 
-   ```js
-   let name = "John";
+    ```js
+    let name = "John";
 
-   function sayHi() {
-     alert("Hi, " + name);
-   }
+    function sayHi() {
+      alert("Hi, " + name);
+    }
 
-   name = "Pete";
+    name = "Pete";
 
-   *!*
-   sayHi(); // ¿qué resultado mostrará? "John" o "Pete"?
-   */!*
-   ```
+    *!*
+    sayHi(); // qué resultado mostrará: ¿"John" o "Pete"?
+    */!*
+    ```
 
-   Este tipo de situaciones son comunes tanto para el desarrollo en navegadores, como para el desarrollo  en servidores. La función puede estar configurada para ejecutarse después de ser creada, por ejemplo, después de que un usuario realice una acción o haya una petición.
+    Este tipo de situaciones son comunes tanto para el desarrollo en navegadores, como para el desarrollo  en servidores. La función puede estar configurada para ejecutarse después de ser creada, por ejemplo, después de que un usuario realice una acción o haya una petición.
 
-   Entonces, la pregunta es: ¿cogerá los últimos cambios?
+    Entonces, la pregunta es: ¿cogerá los últimos cambios?
+
 
 2. La función `makeWorker` creará otra función y la devolverá. Esta nueva función puede ser llamada desde cualquier otro sitio. ¿Tendrá acceso a las variables externas desde donde fue creada, o desde donde se hace la llamada, o ambos?
 
-   ```js
-   function makeWorker() {
-     let name = "Pete";
+    ```js
+    function makeWorker() {
+      let name = "Pete";
 
-     return function() {
-       alert(name);
-     };
-   }
+      return function() {
+        alert(name);
+      };
+    }
 
-   let name = "John";
+    let name = "John";
 
-   // crea la función
-   let work = makeWorker();
+    // crea la función
+    let work = makeWorker();
 
-   // llama a la función
-   *!*
-   work(); // ¿qué resultado mostrará? ¿"Pete" (name dónde fue creada) o "John" (name dónde fue llamada)?
-   */!*
-   ```
+    // llama a la función
+    *!*
+    work(); // ¿qué resultado mostrará? ¿"Pete" (name dónde fue creada) o "John" (name dónde fue llamada)?
+    */!*
+    ```
 
 
-## Entorno Léxico (Lexical Environment)
+## Lexical Environment
 
 Para entender qué está pasando, veamos primero qué es una "variable".
 
-En JavaScript, las funciones en ejecución, los bloques de código y el script en su conjunto tiene un objeto asociado conocido como *Entorno Léxico*.
+En JavaScript, las funciones en ejecución, los bloques de código y el script en su conjunto tiene un objeto asociado conocido como *Lexical Environment*.
 
-El objeto Entorno Léxico consta de dos partes:
+El objeto Lexical Environment consta de dos partes:
 
-1. *Entorno de Registro (Environment Record)* -- Un objeto que tiene todas las variables locales como sus propiedades (y otro tipo de información como el valor de `this`).
-2. Una referencia al *entorno léxico externo (outer lexical environment)*, que normalmente esta relacionado con el código léxicamente a la derecha de el mismo (externo a las llaves actuales).
+1. *Environment Record* -- Un objeto que tiene todas las variables locales como sus propiedades (y otro tipo de información como el valor de `this`).
+2. Una referencia al *outer lexical environment*, que normalmente esta relacionado con el código léxicamente a la derecha de el mismo (externo a las llaves actuales).
 
-**Así que, una "variable" es sólo una propiedad de un objeto especial interno del Entorno de Registro. "Para obtener o cambiar una variable", es decir, "para cambiar una propiedad de ese objeto".**
+**Así que, una "variable" es sólo una propiedad de un objeto especial interno del Environment Record. "Para obtener o cambiar una variable", es decir, "para cambiar una propiedad de ese objeto".**
 
-Por ejemplo, en este código sencillo, solo hay un Entorno Léxico:
+Por ejemplo, en este código sencillo, solo hay un Lexical Environment:
 
 ![lexical environment](lexical-environment-global.svg)
 
-Esto es comúnmente llamado Entorno Léxico global, asociado a todo el script. En los navegadores, todas las etiquetas `<script>` comparten el mismo entorno global.
+Esto es comúnmente llamado Lexical Environment global, asociado a todo el script. En los navegadores, todas las etiquetas `<script>` comparten el mismo entorno global.
 
-En la imagen anterior, el rectángulo significa Entorno de Registro (que almacena la variable) y la flecha significa la referencia externa. El Entorno Léxico global no tiene referencia externa, por lo que apunta a `null`.
+En la imagen anterior, el rectángulo significa Environment Record (que almacena la variable) y la flecha significa la referencia externa. El Lexical Environment global no tiene referencia externa, por lo que apunta a `null`.
 
 Veamos una imagen más completa de como las variables `let` funcionan:
 
 ![lexical environment](lexical-environment-global-2.svg)
 
-Los rectángulos del lado derecho demuestran cómo el Entorno Léxico global cambia durante la ejecución:
+Los rectángulos del lado derecho demuestran cómo el Lexical Environment global cambia durante la ejecución:
 
-1. Cuando el script se ejecuta, el Entorno Léxico está vacío.
+1. Cuando el script se ejecuta, el Lexical Environment está vacío.
 2. La definición `let phrase` aparece. Ha sido asignada sin valor, por lo que su valor es `undefined`.
 3. Se asigna un valor a `phrase`.
 4. Se asigna un nuevo valor a `phrase`.
@@ -96,50 +98,60 @@ En resumen:
 - Una variable es una propiedad de un objeto especial interno, asociada al bloque/función/script actual de la ejecución.
 - Trabajar con variables es trabajar con las propiedades de ese objeto.
 
-### Declaraciones de Funciones (Function Declaration)
+### Function Declaration
 
-Hasta ahora, solo nos hemos fijado en las variables. Veamos las Declaraciones de Funciones.
+Hasta ahora, solo nos hemos fijado en las variables. Veamos las Function Declaration.
 
-**A diferencia de las variables `let`, estas han sido inicializadas por completo no cuando el código las llama, sino antes, cuando el Entorno Léxico es creado.**
+**A diferencia de las variables `let`, estas han sido inicializadas por completo no cuando el código las llama, sino antes, cuando el Lexical Environment es creado.**
 
 Para las funciones más externas, esto sucede en el momento de ejecución inicial del script.
 
 Es por esto por lo que podemos llamar a una función antes de que haya sido definida.
 
-El siguiente código ilustra que el Entorno léxico no está vacío en su inicio. Tiene `say`, porque es una Declaración de Función. Después tendrá `phrase`, declarado con `let`.
+El siguiente código ilustra que el Lexical Environment no está vacío en su inicio. Tiene `say`, porque es una Function Declaration. Después tendrá `phrase`, declarado con `let`.
 
 ![lexical environment](lexical-environment-global-3.svg)
 
-### Entorno Léxico interno y externo
+### Lexical Environment interno y externo
 
 Sigamos con el tema y exploremos que sucede cuando una función accede a una variable externa.
 
 Durante la llamada, `say()` usa la variable externa `phrase`, veamos en detalle qué está pasando.
 
-Para empezar, cuando se ejecuta una función, esta función crea automáticamente un nuevo Entorno Léxico. Esta es una norma general para todas las funciones. Este Entorno Léxico es usado para almacenar las variables locales y los parámetros de la llamada.
+Para empezar, cuando se ejecuta una función, esta función crea automáticamente un nuevo Lexical Environment. Esta es una norma general para todas las funciones. Este Lexical Environment es usado para almacenar las variables locales y los parámetros de la llamada.
 
 Por ejemplo, en `say("John")`, lo podríamos ver (la ejecución está la línea marcada con una flecha):
 
+<!--
+    ```js
+    let phrase = "Hello";
+
+    function say(name) {
+     alert( `${phrase}, ${name}` );
+    }
+
+    say("John"); // Hello, John
+    ```-->
+
 ![lexical environment](lexical-environment-simple.svg)
 
-Por tanto, durante la llamada a la función, tenemos dos Entornos Léxicos: el interno (para la llamada de la función) y el externo (el global).
+Por tanto, durante la llamada a la función, tenemos dos Lexical Environments: el interno (para la llamada de la función) y el externo (el global).
 
-- El Entorno Léxico interno corresponde con la ejecución actual de `say`.
+- El Lexical Environment interno corresponde con la ejecución actual de `say`.
 
-  Tiene solo una variable: `name`, como argumento de la función. Llamamos `say("John")`, por lo que el valor de la variable `name` es `"John"`.
+    Tiene solo una variable: `name`, como argumento de la función. Llamamos `say("John")`, por lo que el valor de la variable `name` es `"John"`.
+- El Lexical Environment externo es el Lexical Environment global.
 
-- El Entorno Léxico externo es el Entorno Léxico global.
+    Tiene `phrase` y la función.
 
-  Tiene `phrase` y la función.
+El Lexical Environment interno tiene la referencia del externo también.
 
-El Entorno Léxico interno tiene la referencia del externo también.
-
-**Cuando el código quiere acceder a la variable -- el Entorno Léxico interno buscará primero en el mismo, después en el externo, después en los más externos y así hasta que acaba la cadena.**
+**Cuando el código quiere acceder a la variable -- el Lexical Environment interno buscará primero en el mismo, después en el externo, después en los más externos y así hasta que acaba la cadena.**
 
 Veamos cómo es el proceso de búsqueda en nuestro ejemplo:
 
-- Cuando `alert` dentro de `say` quiere acceder a `name`, lo busca inmediatamente en el Entorno Léxico de la función.
-- Cuando este quiere acceder a `phrase`, no encontrará `phrase` localmente, así que buscará la referencia en el Entorno Léxico que lo envuelve y lo encontrará.
+- Cuando `alert` dentro de `say` quiere acceder a `name`, lo busca inmediatamente en el Lexical Environment de la función.
+- Cuando este quiere acceder a `phrase`, no encontrará `phrase` localmente, así que buscará la referencia en el Lexical Environment que lo envuelve y lo encontrará.
 
 ![lexical environment lookup](lexical-environment-simple-lookup.svg)
 
@@ -147,7 +159,7 @@ Ahora podemos dar una respuesta a la primera pregunta del principio del capítul
 
 **Una función obtiene las variables externas como son en ese momento; usa los valores más recientes.**
 
-Esto sucede debido al mecanismo que hemos descrito. Los valores antiguos de las variables no se guardarán en ningún lugar. Cuando una función los quiera obtener, cogerá los valores actuales desde el mismo o desde un Entorno Léxico externo.
+Esto sucede debido al mecanismo que hemos descrito. Los valores antiguos de las variables no se guardarán en ningún lugar. Cuando una función los quiera obtener, cogerá los valores actuales desde el mismo o desde un Lexical Environment externo.
 
 Por tanto, la respuesta a la primera pregunta es `Pete`:
 
@@ -165,25 +177,26 @@ sayHi(); // Pete
 */!*
 ```
 
+
 El flujo de ejecución del código será el siguiente:
 
-1. El Entorno Léxico global tiene `name: "John"`.
+1. El Lexical Environment global tiene `name: "John"`.
 2. En la línea `(*)` la variable global ha cambiado, ahora tendrá `name: "Pete"`.
-3. Cuando la función `sayHi()`, es ejecutada y obtendrá `name` desde fuera. Aquí es desde dónde el Entorno Léxico global tiene definido `"Pete"`.
+3. Cuando la función `sayHi()`, es ejecutada y obtendrá `name` desde fuera. Aquí es desde dónde el Lexical Environment global tiene definido `"Pete"`.
 
-Please note that a new function Lexical Environment is created each time a function runs.
 
 ```smart header="One call -- one Lexical Environment"
-Porfavor, ten en cuenta que el nuevo Entorno Léxico de la función es creado al momento en que la función se ejecuta.
+Porfavor, ten en cuenta que el nuevo Lexical Environment de la función es creado al momento en que la función se ejecuta.
 
-Si la función es llamada varias veces, entonces en cada ejecución tendrá su propio Entorno Léxico, con variables locales y parámetros específicos para cada ejecución.
+Si la función es llamada varias veces, entonces en cada ejecución tendrá su propio Lexical Environment, con variables locales y parámetros específicos para cada ejecución.
 ```
 
 ```smart header="Lexical Environment is a specification object"
-El "Entorno Léxico" es un objeto de la especificación. No podemos obtener este objeto en nuestro código y manipularlo directamente. El motor de JavaScript además, puede optimizarlo, desechando variables que no están en uso para liberar memoria e internamente poder hacer trucos de rendimiento, pero el comportamiento visible debería de ser el descrito.
+El "Lexical Environment" es un objeto de la especificación. No podemos obtener este objeto en nuestro código y manipularlo directamente. El motor de JavaScript además, puede optimizarlo, desechando variables que no están en uso para liberar memoria e internamente poder hacer trucos de rendimiento, pero el comportamiento visible debería de ser el descrito.
 ```
 
-## Funciones anidadas (Nested functions)
+
+## Funciones anidadas
 
 Llamamos a una función "anidada" cuando es creada dentro de otra función.
 
@@ -255,7 +268,7 @@ Cuando la función interna es ejecutada, la variable en `count++` será buscada 
 2. Las variables de la función externa...
 3. Y así hasta que alcance las variables globales.
 
-En este ejemplo `count` se encontra en el paso `2`. Cuando la variable externa es modificada, será cambiada donde haya sido encontrada. Por lo que `count++` busca la variable externa y la incrementa en el Entorno Léxico en el que se encuentre. Como si tuviésemos `let count = 1`.
+En este ejemplo `count` se encontra en el paso `2`. Cuando la variable externa es modificada, será cambiada donde haya sido encontrada. Por lo que `count++` busca la variable externa y la incrementa en el Lexical Environment en el que se encuentre. Como si tuviésemos `let count = 1`.
 
 Aquí tenemos dos preguntas para este caso:
 
@@ -271,7 +284,7 @@ Intenta responder a las preguntas antes de continuar leyendo.
 Vale, vamos a ver las respuestas.
 
 1. No hay manera: `count` es una variable de la función local, no tenemos acceso a ella desde fuera.
-2. Para cada llamada a `makeCounter()` se crea un nuevo Entorno Léxico de la función con su propio `count`. Lo que hace que las funciones  `counter` sean independientes.
+2. Para cada llamada a `makeCounter()` se crea un nuevo Lexical Environment de la función con su propio `count`. Lo que hace que las funciones  `counter` sean independientes.
 
 Veamos un caso:
 
@@ -292,9 +305,10 @@ alert( counter1() ); // 1
 alert( counter2() ); // 0 (independiente)
 ```
 
+
 Por suerte, la situación de las variables externas es bastante clara por ahora. Pero en situaciones más complejas es necesario entender profundamente el funcionamiento interno. Así que profundicemos más.
 
-## Entornos en detalle
+## Environments en detalle
 
 Ahora que entiendes cómo funcionan las closures de forma general, es un muy buen punto de partida.
 
@@ -302,64 +316,63 @@ Veamos que pasa en el ejemplo `makeCounter` paso por paso, siguiéndolo y asegur
 
 Porfavor, fíjate que la propiedad `[[Environment]]` está mencionada aquí. Anteriormente no la hemos mencionado por simplicidad.
 
-1. Cuando el script acaba de ser ejecutado, solo existe un Entorno Léxico global:
+1. Cuando el script acaba de ser ejecutado, solo existe un Lexical Environment global:
 
-   ![](lexenv-nested-makecounter-1.svg)
+    ![](lexenv-nested-makecounter-1.svg)
 
-   Al inicio, solo hay una función `makeCounter`, porque esta es una Declaración de Función. Esta no será ejecutada por ahora.
+    Al inicio, solo hay una función `makeCounter`, porque esta es una Declaración de Función. Esta no será ejecutada por ahora.
 
-   **Todas las funciones "en su nacimiento" tendrán una propiedad `[[Environment]]` con una referencia al Entorno Léxico cuando son creadas.** No hemos hablado sobre esto aún, pero es así como la función sabe que ha sido creada.
+    **Todas las funciones "en su nacimiento" tendrán una propiedad `[[Environment]]` con una referencia al Lexical Environment cuando son creadas.** No hemos hablado sobre esto aún, pero es así como la función sabe que ha sido creada.
 
-   En este punto, `makeCounter` es creado en el Entorno Léxico global, así que `[[Environment]]` guarda la referencia.
+    En este punto, `makeCounter` es creado en el Lexical Environment global, así que `[[Environment]]` guarda la referencia.
 
-   En otras palabras, una función se "imprime" con la referencia del Entorno Léxico en donde ha nacido. Y `[[Environment]]` es la propiedad oculta de la función que tiene esa referencia.
+    En otras palabras, una función se "imprime" con la referencia del Lexical Environment en donde ha nacido. Y `[[Environment]]` es la propiedad oculta de la función que tiene esa referencia.
 
 2. El código continúa ejecutándose, la nueva variable global `counter` está declarada y su valor es una llamada a `makeCounter()`. Podemos ver el momento en el que la ejecución está en la primera dentro de `makeCounter()`.
 
-   ![](lexenv-nested-makecounter-2.svg)
+    ![](lexenv-nested-makecounter-2.svg)
 
-   En el momento de hacer la llamada a `makeCounter()`, el Entorno Léxico se crea para guardar las variables y los argumentos.
+    En el momento de hacer la llamada a `makeCounter()`, el Lexical Environment se crea para guardar las variables y los argumentos.
 
-   Como cualquier Lexical Environment, guardará dos cosas:
+    Como cualquier Lexical Environment, guardará dos cosas:
+    1. Un Environment Record con variables locales. En nuestro caso `count` es la única variable local (que aparece cuando la línea `let count` es ejecutada).
+    2. La referencia léxica externa, que está definida en el `[[Environment]]` de la función. Aquí el `[[Environment]]` de `makeCounter` hace referencia al Lexical Environment global.
 
-   1. Un Entorno de Registro con variables locales. En nuestro caso `count` es la única variable local (que aparece cuando la línea `let count` es ejecutada).
-   2. La referencia léxica externa, que está definida en el `[[Environment]]` de la función. Aquí el `[[Environment]]` de `makeCounter` hace referencia al Entorno Léxico global.
-
-   Así que, ahora tenemos dos Entornos Léxicos: el primero es global y el segundo es de la llamada actual `makeCounter`, con la referencia externa global.
+    Así que, ahora tenemos dos Lexical Environments: el primero es global y el segundo es de la llamada actual `makeCounter`, con la referencia externa global.
 
 3. Durante la ejecución de `makeCounter()`, una pequeña función anidada es creada.
 
-   No importa si la función se ha creado usando Function Declaration o Function Expression. Todas las funciones tienen la propiedad `[[Environment]]` que hace referencia al Lexical Environment en el cuál se han creado. Así que nuestra nueva pequeña función anidada lo tendrá también.
+    No importa si la función se ha creado usando Function Declaration o Function Expression. Todas las funciones tienen la propiedad `[[Environment]]` que hace referencia al Lexical Environment en el cuál se han creado. Así que nuestra nueva pequeña función anidada lo tendrá también.
 
-   Para nuestra nueva función anidada el valor de `[[Environment]]` es el actual Lexical Environment de `makeCounter()` (en donde ha nacido):
+    Para nuestra nueva función anidada el valor de `[[Environment]]` es el actual Lexical Environment de `makeCounter()` (en donde ha nacido):
 
-   ![](lexenv-nested-makecounter-3.svg)
+    ![](lexenv-nested-makecounter-3.svg)
 
-   Porfavor, fijate que en este paso la función interna fue creada, pero no ha sido llamada. El código dentro de `function() { return count++; }` no está ejecutándose; volveremos a ello dentro de poco.
+    Porfavor, fijate que en este paso la función interna fue creada, pero no ha sido llamada. El código dentro de `function() { return count++; }` no está ejecutándose; volveremos a ello dentro de poco.
 
 4. La ejecución continúa, la llamada a `makeCounter()` termina y el resultado (la pequeña función anidada) es asignada a la variable global `counter`:
 
-   ![](lexenv-nested-makecounter-4.svg)
+    ![](lexenv-nested-makecounter-4.svg)
 
-   La función solo tiene una línea: `return count++`, que será ejecutado cuando estemos dentro.
+    La función solo tiene una línea: `return count++`, que será ejecutado cuando estemos dentro.
 
 5. Cuando `counter()` es llamado, se crea un Lexical Environment "vacío". Este no tiene variables locales propias. Pero el `[[Environment]]` de `counter` es usado como referencia externa para él, así que tiene acceso a las primeras variables en donde `makeCounter()` ha sido creado:
 
-   ![](lexenv-nested-makecounter-5.svg)
+    ![](lexenv-nested-makecounter-5.svg)
 
-   Ahora si accede a la variable, buscará en su propio Lexical Environment (vacío), después en el Lexical Environment creado en la llamada a `makeCounter()` y después en el global.
+    Ahora si accede a la variable, buscará en su propio Lexical Environment (vacío), después en el Lexical Environment creado en la llamada a `makeCounter()` y después en el global.
 
-   Cuando este busque `count`, mirará en todas las variables de `makeCounter`, en el Lexical Environment exterior más cercano.
+    Cuando este busque `count`, mirará en todas las variables de `makeCounter`, en el Lexical Environment exterior más cercano.
 
-   Ten en cuenta cómo está funcionando la gestión de la memoria. A pesar de que la llamada a  `makeCounter()`  ha terminado hace algo de tiempo, su Lexical Environment lo ha guardado en memoria porque hay una función anidada con un `[[Environment]]` que lo referencia.
+    Ten en cuenta cómo está funcionando la gestión de la memoria. A pesar de que la llamada a  `makeCounter()`  ha terminado hace algo de tiempo, su Lexical Environment lo ha guardado en memoria porque hay una función anidada con un `[[Environment]]` que lo referencia.
 
-   Normalmente, el objeto del Lexical Environment persiste mientras haya una función que pueda usarlo. Y solo cuando no haya ninguna más, se limpiará.
+    Normalmente, el objeto del Lexical Environment persiste mientras haya una función que pueda usarlo. Y solo cuando no haya ninguna más, se limpiará.
 
 6. La llamada a `counter()` no solo devuelve el valor de `count`, sino que también lo incrementa. Fíjate que la modificación se realiza en el mismo sitio. El valor de `count` es modificado exactamente en el entorno donde fué encontrado.
 
-   ![](lexenv-nested-makecounter-6.svg)
+    ![](lexenv-nested-makecounter-6.svg)
 
-   Así que, si volvemos al paso anterior con un solo cambio -- el nuevo valor de `count`. Todas las siguientes llamadas harán lo mismo.
+    Así que, si volvemos al paso anterior con un solo cambio -- el nuevo valor de `count`. Todas las siguientes llamadas harán lo mismo.
 
 7. Las siguientes llamadas a `counter()` harán lo mismo.
 
@@ -376,7 +389,7 @@ Pero si no hubiese un `let name` en `makeWorker()`, la búsqueda iría hacia afu
 ```smart header="Closures"
 Existe un término común en programación llamado "closure", que los desarrolladores normalmente deberían conocer.
 
-Una [closure](https://en.wikipedia.org/wiki/Closure_(computer_programming)) es una función que recuerda las variables externas y puede acceder a ellas. En algunos lenguajes, esto no es posible, o la función debe ser escrita de una forma especial para que suceda. Pero como hemos explicado, en JavaScript, todas las funciones son naturalmente closures (solo hay una excepción, explicada en <info:new-function>).
+Una [closure](https://es.wikipedia.org/wiki/Clausura_(inform%C3%A1tica)) es una función que recuerda las variables externas y puede acceder a ellas. En algunos lenguajes, esto no es posible, o la función debe ser escrita de una forma especial para que suceda. Pero como hemos explicado, en JavaScript, todas las funciones son naturalmente closures (solo hay una excepción, explicada en <info:new-function>).
 
 Esto es: recuerdan automáticamente dónde fueron creadas usando la propiedad oculta `[[Environment]]` y todos ellos tienen acceso a las variables externas.
 
@@ -590,7 +603,7 @@ let g = f(); // while g is alive
 g = null; // ...and now the memory is cleaned up
 ```
 
-### Real-life optimizations
+### Optimizaciones en la vida real
 
 Como hemos visto, en teoría mientras una función siga viva, todas las variables externas pueden ser usadas.
 
