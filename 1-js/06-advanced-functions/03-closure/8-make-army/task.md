@@ -2,11 +2,11 @@ importance: 5
 
 ---
 
-# Army of functions
+# Ejército de funciones
 
-The following code creates an array of `shooters`.
+El siguiente código crea un array de `shooters`.
 
-Every function is meant to output its number. But something is wrong...
+Cada función está destinado a dar como resultado un número. Pero algo está mal...
 
 ```js run
 function makeArmy() {
@@ -14,8 +14,8 @@ function makeArmy() {
 
   let i = 0;
   while (i < 10) {
-    let shooter = function() { // shooter function
-      alert( i ); // should show its number
+    let shooter = function() { // función shooter
+      alert( i ); // debería enseñar su número
     };
     shooters.push(shooter);
     i++;
@@ -26,10 +26,9 @@ function makeArmy() {
 
 let army = makeArmy();
 
-army[0](); // the shooter number 0 shows 10
-army[5](); // and number 5 also outputs 10...
-// ... all shooters show 10 instead of their 0, 1, 2, 3...
+army[0](); // el shooter para 0 muestra  10
+army[5](); // y el número 5 también muestra 10...
+// ... todos los shooter muestran 10 en vez de los suyos 0, 1, 2, 3...
 ```
 
-Why all shooters show the same? Fix the code so that they work as intended.
-
+¿Por qué todos los shooters muestrán lo mismo? Arregla el código para que funcione como debería.

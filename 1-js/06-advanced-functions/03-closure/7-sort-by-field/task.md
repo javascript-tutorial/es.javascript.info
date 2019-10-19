@@ -2,9 +2,9 @@ importance: 5
 
 ---
 
-# Sort by field
+# Ordenar por propiedad
 
-We've got an array of objects to sort:
+Tenemos un array de objetos para ordenar:
 
 ```js
 let users = [
@@ -14,23 +14,23 @@ let users = [
 ];
 ```
 
-The usual way to do that would be:
+La forma habitual de hacerlo sería:
 
 ```js
-// by name (Ann, John, Pete)
+// por nombre (Ann, John, Pete)
 users.sort((a, b) => a.name > b.name ? 1 : -1);
 
-// by age (Pete, Ann, John)
+// por edad (Pete, Ann, John)
 users.sort((a, b) => a.age > b.age ? 1 : -1);
 ```
 
-Can we make it even less verbose, like this?
+¿Podemos hacerlo incluso menos verboso, así?
 
 ```js
 users.sort(byField('name'));
 users.sort(byField('age'));
 ```
 
-So, instead of writing a function, just put `byField(fieldName)`.
+Entonces, en vez de escribir la función, ponemos `byField(fieldName)`.
 
-Write the function `byField` that can be used for that.
+Escribe la función `byField` que puede ser usada para esto.

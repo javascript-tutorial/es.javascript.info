@@ -1,3 +1,3 @@
-The result is **an error**.
+El resultado es **un error**.
 
-The function `sayHi` is declared inside the `if`, so it only lives inside it. There is no `sayHi` outside.
+La función `sayHi` es declarada dentro del `if`, asi que solo vive dentro de ella. No hay ningún `sayHi` por fuera.

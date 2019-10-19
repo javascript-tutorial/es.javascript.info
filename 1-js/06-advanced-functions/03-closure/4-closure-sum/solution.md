@@ -1,12 +1,12 @@
-For the second parentheses to work, the first ones must return a function.
+Para hacer funcionar el segundo paréntesis, el primero tiene que devolver una función.
 
-Like this:
+De esta forma:
 
 ```js run
 function sum(a) {
 
   return function(b) {
-    return a + b; // takes "a" from the outer lexical environment
+    return a + b; // coge "a" desde el Lexical Environment externo
   };
 
 }
@@ -14,4 +14,3 @@ function sum(a) {
 alert( sum(1)(2) ); // 3
 alert( sum(5)(-1) ); // 4
 ```
-
