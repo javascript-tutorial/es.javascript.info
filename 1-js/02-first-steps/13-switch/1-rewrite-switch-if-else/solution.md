@@ -1,20 +1,20 @@
-To precisely match the functionality of `switch`, the `if` must use a strict comparison `'==='`.
+Para que la funcionalidad de `switch` coincida precisamente, el `if` debe utilizar una comparación estricta `'==='`.
 
-For given strings though, a simple `'=='` works too.
+Para strings, un simple `'=='` también funciona.
 
 ```js no-beautify
-if(browser == 'Edge') {
-  alert("You've got the Edge!");
-} else if (browser == 'Chrome'
- || browser == 'Firefox'
- || browser == 'Safari'
- || browser == 'Opera') {
-  alert( 'Okay we support these browsers too' );
+if(navegador == 'Edge') {
+  alert("¡Tienes Edge!");
+} else if (navegador == 'Chrome')
+ || navegador == 'Firefox'
+ || navegador == 'Safari'
+ || navegador == 'Opera') {
+  alert( 'Está bien, soportamos estos navegadores también' );
 } else {
-  alert( 'We hope that this page looks ok!' );
+  alert( '¡Esperamos que la página se vea bien!' );
 }
 ```
 
-Please note: the construct `browser == 'Chrome' || browser == 'Firefox' …` is split into multiple lines for better readability.
+Nota: El constructor `navegador == 'Chrome' || navegador == 'Firefox' …` es separado en múltiples líneas para mejor lectura.
 
-But the `switch` construct is still cleaner and more descriptive.
+Pero el constructor de `switch` sigue siendo más fácil de leer y más descriptivo.
