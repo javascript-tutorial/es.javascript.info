@@ -1,12 +1,15 @@
-# Coding Style
+# Estilo de codificacion
 
 Our code must be as clean and easy to read as possible.
+Nuestro codigo debe ser lo mas limpio y facil de leer como sea posible
 
 That is actually the art of programming -- to take a complex task and code it in a way that is both correct and human-readable.
+Eso es actualmente el arte de programar -- tomar una tarea compleja y codificarla de una manera que sea correcta y legible por otros.
 
-## Syntax
+## Sintaxis
 
 Here is a cheatsheet with some suggested rules (see below for more details):
+Aqui hay un cheatsheet con algunas reglas sugeridas(ver abajo para mas detalles)
 
 ![](code-style.svg)
 <!--
