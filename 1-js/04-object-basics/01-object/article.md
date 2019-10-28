@@ -49,7 +49,7 @@ We can add, remove and read files from it any time.
 Property values are accessible using the dot notation:
 
 ```js
-// get fields of the object:
+// get property values of the object:
 alert( user.name ); // John
 alert( user.age ); // 30
 ```
@@ -105,7 +105,6 @@ That's because the dot requires the key to be a valid variable identifier. That 
 
 There's an alternative "square bracket notation" that works with any string:
 
-
 ```js run
 let user = {};
 
@@ -130,7 +129,7 @@ let key = "likes birds";
 user[key] = true;
 ```
 
-Here, the variable `key` may be calculated at run-time or depend on the user input. And then we use it to access the property. That gives us a great deal of flexibility. The dot notation cannot be used in a similar way.
+Here, the variable `key` may be calculated at run-time or depend on the user input. And then we use it to access the property. That gives us a great deal of flexibility.
 
 For instance:
 
@@ -146,6 +145,17 @@ let key = prompt("What do you want to know about the user?", "name");
 alert( user[key] ); // John (if enter "name")
 ```
 
+The dot notation cannot be used in a similar way:
+
+```js run
+let user = {
+  name: "John",
+  age: 30
+};
+
+let key = "name";
+alert( user.key ) // undefined
+```
 
 ### Computed properties
 
@@ -222,10 +232,11 @@ As we see from the code, the assignment to a primitive `5` is ignored.
 
 That can become a source of bugs and even vulnerabilities if we intend to store arbitrary key-value pairs in an object, and allow a visitor to specify the keys.
 
-In that case the visitor may choose "__proto__" as the key, and the assignment logic will be ruined (as shown above).
+In that case the visitor may choose `__proto__` as the key, and the assignment logic will be ruined (as shown above).
 
 There is a way to make objects treat `__proto__` as a regular property, which we'll cover later, but first we need to know more about objects.
-There's also another data structure [Map](info:map-set-weakmap-weakset), that we'll learn in the chapter <info:map-set-weakmap-weakset>, which supports arbitrary keys.
+
+There's also another data structure [Map](info:map-set), that we'll learn in the chapter <info:map-set>, which supports arbitrary keys.
 ````
 
 
@@ -311,7 +322,7 @@ alert( *!*key*/!* in user ); // true, takes the name from key and checks for suc
 ```
 
 ````smart header="Using \"in\" for properties that store `undefined`"
-Usually, the strict comparison `"=== undefined"` check works fine. But there's a special case when it fails, but `"in"` works correctly.
+Usually, the strict comparison `"=== undefined"` check the property existance just fine. But there's a special case when it fails, but `"in"` works correctly.
 
 It's when an object property exists, but stores `undefined`:
 
@@ -330,7 +341,6 @@ In the code above, the property `obj.test` technically exists. So the `in` opera
 
 Situations like this happen very rarely, because `undefined` is usually not assigned. We mostly use `null` for "unknown" or "empty" values. So the `in` operator is an exotic guest in the code.
 ````
-
 
 ## The "for..in" loop
 
@@ -520,7 +530,7 @@ The equality `==` and strict equality `===` operators for objects work exactly t
 
 **Two objects are equal only if they are the same object.**
 
-For instance, two variables reference the same object, they are equal:
+For instance, if two variables reference the same object, they are equal:
 
 ```js run
 let a = {};
@@ -559,7 +569,7 @@ user.age = 25; // (*)
 alert(user.age); // 25
 ```
 
-It might seem that the line `(*)` would cause an error, but no, there's totally no problem. That's because `const` fixes the value of `user` itself. And here `user` stores the reference to the same object all the time. The line `(*)` goes *inside* the object, it doesn't reassign `user`.
+It might seem that the line `(*)` would cause an error, but no, there's totally no problem. That's because `const` fixes only value of `user` itself. And here `user` stores the reference to the same object all the time. The line `(*)` goes *inside* the object, it doesn't reassign `user`.
 
 The `const` would give an error if we try to set `user` to something else, for instance:
 
@@ -701,7 +711,7 @@ alert(clone.sizes.width); // 51, see the result from the other one
 
 To fix that, we should use the cloning loop that examines each value of `user[key]` and, if it's an object, then replicate its structure as well. That is called a "deep cloning".
 
-There's a standard algorithm for deep cloning that handles the case above and more complex cases, called the [Structured cloning algorithm](http://w3c.github.io/html/infrastructure.html#safe-passing-of-structured-data). In order not to reinvent the wheel, we can use a working implementation of it from the JavaScript library [lodash](https://lodash.com), the method is called [_.cloneDeep(obj)](https://lodash.com/docs#cloneDeep).
+There's a standard algorithm for deep cloning that handles the case above and more complex cases, called the [Structured cloning algorithm](https://html.spec.whatwg.org/multipage/structured-data.html#safe-passing-of-structured-data). In order not to reinvent the wheel, we can use a working implementation of it from the JavaScript library [lodash](https://lodash.com), the method is called [_.cloneDeep(obj)](https://lodash.com/docs#cloneDeep).
 
 
 

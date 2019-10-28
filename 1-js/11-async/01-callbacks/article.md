@@ -2,9 +2,19 @@
 
 # Introduction: callbacks
 
-Many actions in JavaScript are *asynchronous*.
+```warn header="We use browser methods here"
+To demonstrate the use of callbacks, promises and other abstract concepts, we'll be using some browser methods; specifically, loading scripts and performing simple document manipulations.
 
-For instance, take a look at the function `loadScript(src)`:
+If you're not familiar with these methods, and their usage in the examples is confusing, or if you would just like to understand them better, you may want to read a few chapters from the [next part](/document) of the tutorial.
+```
+
+Many actions in JavaScript are *asynchronous*. In other words, we initiate them now, but they finish later.
+
+For instance, we can schedule such actions using `setTimeout`.
+
+There are other real-world examples of asynchronous actions, e.g. loading scripts and modules (we'll cover them in later chapters).
+
+Take a look at the function `loadScript(src)`, that loads a script with the given `src`:
 
 ```js
 function loadScript(src) {
@@ -14,26 +24,27 @@ function loadScript(src) {
 }
 ```
 
-The purpose of the function is to load a new script. When it adds the `<script src="…">` to the document, the browser loads and executes it.
+It appends to the document the new, dynamically created, tag `<script src="…">`, the browser loads and executes it.
 
-We can use it like this:
+We can use this function like this:
 
 ```js
-// loads and executes the script
+// load and execute the script at the given path
 loadScript('/my/script.js');
 ```
 
-The function is called "asynchronously," because the action (script loading) finishes not now, but later.
+The script is executed "asynchronously", as it starts loading starts now, but runs later, when the function has already finished.
 
-The call initiates the script loading, then the execution continues. While the script is loading, the code below may finish executing, and if the loading takes time, other scripts may run meanwhile too.
+If there's a code below `loadScript(…)`, it doesn't wait until the script loading finishes.
 
 ```js
 loadScript('/my/script.js');
-// the code below loadScript doesn't wait for the script loading to finish
+// the code below loadScript
+// doesn't wait for the script loading to finish
 // ...
 ```
 
-Now let's say we want to use the new script when it loads. It probably declares new functions, so we'd like to run them.
+Let's say we need to use the new script as soon as it loads. It declares new functions, and we want to run them.
 
 But if we do that immediately after the `loadScript(…)` call, that wouldn't work:
 
@@ -45,7 +56,7 @@ newFunction(); // no such function!
 */!*
 ```
 
-Naturally, the browser probably didn't have time to load the script. So the immediate call to the new function fails. As of now, the `loadScript` function doesn't provide a way to track the load completion. The script loads and eventually runs, that's all. But we'd like to know when it happens, to use new functions and variables from that script.
+Naturally, the browser probably didn't have time to load the script. As of now, the `loadScript` function doesn't provide a way to track the load completion. The script loads and eventually runs, that's all. But we'd like to know when it happens, to use new functions and variables from that script.
 
 Let's add a `callback` function as a second argument to `loadScript` that should execute when the script loads:
 
@@ -222,6 +233,33 @@ As calls become more nested, the code becomes deeper and increasingly more diffi
 
 That's sometimes called "callback hell" or "pyramid of doom."
 
+<<<<<<< HEAD
+=======
+<!--
+loadScript('1.js', function(error, script) {
+  if (error) {
+    handleError(error);
+  } else {
+    // ...
+    loadScript('2.js', function(error, script) {
+      if (error) {
+        handleError(error);
+      } else {
+        // ...
+        loadScript('3.js', function(error, script) {
+          if (error) {
+            handleError(error);
+          } else {
+            // ...
+          }
+        });
+      }
+    })
+  }
+});
+-->
+
+>>>>>>> 70ca842bef2390bc26d13dea2b856838aa890fe0
 ![](callback-hell.svg)
 
 The "pyramid" of nested calls grows to the right with every asynchronous action. Soon it spirals out of control.

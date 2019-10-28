@@ -17,7 +17,11 @@ while (condition) {
 }
 ```
 
+<<<<<<< HEAD
 Mientras que la `condition` (condición) sea `true`, el `código` del cuerpo del bucle será ejecutado.
+=======
+While the `condition` is truthy, the `code` from the loop body is executed.
+>>>>>>> 70ca842bef2390bc26d13dea2b856838aa890fe0
 
 Por ejemplo, el bucle debajo imprime `i` mientras que `i < 3`:
 
@@ -47,8 +51,13 @@ while (i) { // cuando i sea 0, la condición será un valor falso, y el bucle se
 }
 ```
 
+<<<<<<< HEAD
 ````smart header="Las llaves no son requeridas para un cuerpo de una sola línea"
 Si el cuerpo del bucle tiene una sola sentencia, podemos omitir las llaves `{…}`:
+=======
+````smart header="Curly braces are not required for a single-line body"
+If the loop body has a single statement, we can omit the curly braces `{…}`:
+>>>>>>> 70ca842bef2390bc26d13dea2b856838aa890fe0
 
 ```js run
 let i = 3;
@@ -84,7 +93,11 @@ Esta sintaxis solo debería ser usada cuando quieres que el cuerpo del bucle sea
 
 ## El bucle "for"
 
+<<<<<<< HEAD
 El bucle `for` es el bucle más comúnmente usado.
+=======
+The `for` loop is more complex, but it's also the most commonly used loop.
+>>>>>>> 70ca842bef2390bc26d13dea2b856838aa890fe0
 
 Se ve así:
 
@@ -106,12 +119,22 @@ Vamos a examinar la declaración `for` parte por parte:
 
 | parte  |          |                                                                            |
 |-------|----------|----------------------------------------------------------------------------|
+<<<<<<< HEAD
 | comienzo | `i = 0`    | Se ejecuta una vez al comienzo del bucle.                         |
 | condición | `i < 3`| Comprobada antes de cada iteración del bucle. Si es falsa, el bucle se detiene.             |
 | paso | `i++`      | Se ejecuta después del cuerpo en cada iteración pero antes de la comprobación de la condición. |
 | cuerpo | `alert(i)`| Se ejecuta una y otra vez mientras que la condición sea verdadera.                         |
 
 El algoritmo general del bucle funciona de esta forma:
+=======
+| begin | `i = 0`    | Executes once upon entering the loop.                                      |
+| condition | `i < 3`| Checked before every loop iteration. If false, the loop stops.              |
+| body | `alert(i)`| Runs again and again while the condition is truthy.                         |
+| step| `i++`      | Executes after the body on each iteration. |
+
+The general loop algorithm works like this:
+
+>>>>>>> 70ca842bef2390bc26d13dea2b856838aa890fe0
 ```
 Se ejecuta comenzar
 → (si condición → ejecutar cuerpo y ejecutar paso)
@@ -120,7 +143,13 @@ Se ejecuta comenzar
 → ...
 ```
 
+<<<<<<< HEAD
 Si eres nuevo en bucles, te podría ayudar regresar al ejemplo y reproducir cómo se ejecuta paso por paso en una pedazo de papel.
+=======
+That is, `begin` executes once, and then it iterates: after each `condition` test, `body` and `step` are executed.
+
+If you are new to loops, it could help to go back to the example and reproduce how it runs step-by-step on a piece of paper.
+>>>>>>> 70ca842bef2390bc26d13dea2b856838aa890fe0
 
 Esto es lo que sucede exactamente en nuestro caso:
 
@@ -288,8 +317,12 @@ if (i > 5) {
 (i > 5) ? alert(i) : *!*continue*/!*; // continue no está permitida aquí
 ```
 
+<<<<<<< HEAD
 ...deja de funcionar. Código como este generarán un error de sintaxis: 
 
+=======
+...it stops working: there's a syntax error.
+>>>>>>> 70ca842bef2390bc26d13dea2b856838aa890fe0
 
 Esta es otra razón por la cual se recomienda no usar el operador de signo de interrogación `?` en lugar de `if`.
 ````
@@ -298,7 +331,11 @@ Esta es otra razón por la cual se recomienda no usar el operador de signo de in
 
 A veces necesitamos salirnos de múltiples bucles anidados al mismo tiempo.
 
+<<<<<<< HEAD
 Por ejemplo, en el código debajo nosotros usamos un bucle sobre `i` y `j`, solicitando las coordenadas `(i,j)` de `(0,0)` a `(3,3)`:
+=======
+For example, in the code below we loop over `i` and `j`, prompting for the coordinates `(i, j)` from `(0,0)` to `(2,2)`:
+>>>>>>> 70ca842bef2390bc26d13dea2b856838aa890fe0
 
 ```js run no-beautify
 for (let i = 0; i < 3; i++) {
@@ -307,8 +344,12 @@ for (let i = 0; i < 3; i++) {
 
     let input = prompt(`Valor en las coordenadas (${i},${j})`, '');
 
+<<<<<<< HEAD
     // ¿Y si quiero salir de aquí hacia Listo (debajo)?
 
+=======
+    // what if we want to exit from here to Done (below)?
+>>>>>>> 70ca842bef2390bc26d13dea2b856838aa890fe0
   }
 }
 
@@ -357,12 +398,21 @@ for (let i = 0; i < 3; i++) { ... }
 
 La directiva `continue` también puede usar usada con una etiqueta. En este caso, la ejecución del código salta a la siguiente iteración del bucle etiquetado.
 
+<<<<<<< HEAD
 ````warn header="Las etiquetas no son \"goto\""
 Las etiquetas no nos permiten saltar a un lugar arbitrario en el código.
+=======
+````warn header="Labels do not allow to \"jump\" anywhere"
+Labels do not allow us to jump into an arbitrary place in the code.
+>>>>>>> 70ca842bef2390bc26d13dea2b856838aa890fe0
 
 Por ejemplo, es imposible hacer esto:
 ```js
+<<<<<<< HEAD
 break label;  // saltar a label? No.
+=======
+break label; // doesn't jumps to the label below
+>>>>>>> 70ca842bef2390bc26d13dea2b856838aa890fe0
 
 label: for (...)
 ```
