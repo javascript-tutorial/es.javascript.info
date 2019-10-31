@@ -1,15 +1,12 @@
 # Estilo de codificacion
 
-Our code must be as clean and easy to read as possible.
 Nuestro codigo debe ser lo mas limpio y facil de leer como sea posible
 
-That is actually the art of programming -- to take a complex task and code it in a way that is both correct and human-readable.
 Eso es actualmente el arte de programar -- tomar una tarea compleja y codificarla de una manera que sea correcta y legible por otros.
 
 ## Sintaxis
 
-Here is a cheatsheet with some suggested rules (see below for more details):
-Aqui hay un cheatsheet con algunas reglas sugeridas(ver abajo para mas detalles)
+Aqui hay un cheatsheet con algunas reglas sugeridas(ver abajo para mas detalles):
 
 ![](code-style.svg)
 <!--
@@ -37,21 +34,19 @@ if (n < 0) {
 
 -->
 
-Now let's discuss the rules and reasons for them in detail.
-
+Ahora vamos a discutir las reglas y razones de ellos en detalle.
 ```warn header="Irony Detected"
-Nothing is set in stone here. These are style preferences, not religious dogmas.
+Nada está escrito en piedra aqui. Estos son preferencias de estilos, no dogmas religiosos.
 ```
 
-### Curly Braces
+### Llaves
 
-In most JavaScript projects curly braces are written in "Egyptian" style with the opening brace on the same line as the corresponding keyword -- not on a new line. There should also be a space before the opening bracket, like this:
-
+En la mayoria de proyectos de Javascript las llaves estan escritas en estilo "Egipcio" con la llave de apertura en la misma linea como la correspondiente palabra clave -- no en una nueva linea. Debe haber tambien un espacio despues de la llave de apertura, como esto: 
 ```js
 if (condition) {
-  // do this
-  // ...and that
-  // ...and that
+  // hacer esto
+  // ...y eso
+  // ...y eso
 }
 ```
 
