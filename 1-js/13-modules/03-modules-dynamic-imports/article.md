@@ -1,7 +1,7 @@
 
 # *Imports* dinámicos
 
-Las declaraciones *export* e *import* que hemos visto en capítulos anteriores se dice que son "estáticas".
+Las declaraciones `export` e `import` que hemos visto en capítulos anteriores se dice que son "estáticas".
 
 El motivo es que realmente son estáticas. La sintaxis es muy estricta.
 
@@ -25,7 +25,7 @@ if(...) {
 }
 ```
 
-El motivo de esto es que el objetivo de *import*/*export* es proporcionar una columna vertebral a la estructura del código. Es algo bueno, porque la estructura de código puede ser analizada, los módulos se pueden unir y juntar, los *exports* que no se usan se pueden eliminar (sacudir el árbol). Todo eso es posible porque todo ha quedado fijado.
+El motivo de esto es que el objetivo de *import*/*export* es proporcionar una columna vertebral a la estructura del código. Es algo bueno, porque la estructura de código puede ser analizada, los módulos se pueden unir y juntar, los `exports` que no se usan se pueden eliminar (sacudir el árbol). Todo eso es posible porque todo ha quedado fijado.
 
 Pero, ¿cómo podemos importar un módulo de manera dinámica, en caso de ser necesario?
 
