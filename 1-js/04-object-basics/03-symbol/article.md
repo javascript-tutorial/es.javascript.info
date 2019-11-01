@@ -13,14 +13,14 @@ Un valor de este tipo puede ser creado usando `Symbol()`:
 
 ```js
 // id es un nuevo symbol
-let  id = Symbol();
+let id = Symbol();
 ```
 
 También le podemos agregar una descripción (también llamada symbol name), que será útil en la depuración de código:
 
 ```js run
 // id es un symbol con la descripción "id"
-let  id = Symbol("id");
+let id = Symbol("id");
 ```
 
 Los Symbols están garantizados a ser únicos. Aunque declaremos varios Symbols con la misma descripción éstos tendrán valores distintos. La descripción es solamente una etiqueta que no afecta nada más.
@@ -28,8 +28,8 @@ Los Symbols están garantizados a ser únicos. Aunque declaremos varios Symbols 
 Por ejemplo, aquí hay dos Symbols con la misma descripción -- pero no son iguales:
 
 ```js run
-let  id1 = Symbol("id");
-let  id2 = Symbol("id");
+let id1 = Symbol("id");
+let id2 = Symbol("id");
 
 *!*
 alert(id1 == id2); // false
@@ -77,8 +77,8 @@ Los Symbols nos permiten crear propiedades "ocultas" en un objeto, las cuales ni
 Por ejemplo, si queremos guardar un "identificador" para el objeto `usuario`, podemos asignar un symbol como propiedad del objeto:
 
 ```js run
-let  usuario = { nombre:  "Juan" };
-let  id = Symbol("id");
+let usuario = { nombre:  "Juan" };
+let id = Symbol("id");
 
 usuario[id] = "ID Value";
 alert( usuario[id] ); // podemos accesar a la información utilizando symbol como propiedad
@@ -94,7 +94,7 @@ Y entonces ese script puede crear su propio `Symbol("id")`, como este:
 
 ```js
 // ...
-let  id = Symbol("id");
+let id = Symbol("id");
 
 usuario[id] = "Valor de id";
 ```
@@ -104,7 +104,7 @@ No habrá conflicto porque los Symbols siempre son diferentes, incluso si tienen
 Ahora ten en cuenta que si utilizamos un string `"id"` en lugar de un Symbol, para el mismo propósito, entonces SI *habría* un conflicto:
 
 ```js run
-let  usuario = { nombre:  "Juan" };
+let usuario = { nombre:  "Juan" };
 
 // nuestro script usa la propiedad "id"
 usuario.id = "ID Value";
@@ -122,12 +122,12 @@ Si queremos usar un Symbol en un objeto literal, debemos usar llaves.
 Como se muestra a continuación:
 
 ```js
-let  id = Symbol("id");
+let id = Symbol("id");
 
-let  user = {
+let user = {
 	nombre:  "Juan",
 *!*
-[id]:  123  // no solo "id: 123"
+[id]: 123 // no solo "id: 123"
 */!*
 };
 ```
@@ -140,8 +140,8 @@ Las propiedades de Symbol no participan dentro de los ciclos `for..in`.
 Por ejemplo:
 
 ```js run
-let  id = Symbol("id");
-let  usuario = {
+let id = Symbol("id");
+let usuario = {
 	nombre:  "Juan",
 	edad:  30,
 	[id]:  123
@@ -160,12 +160,12 @@ Esto forma parte del concepto general de "ocultamiento". Si otro script o si otr
 En contraste, [Object.assign](mdn:js/Object/assign) copia las propiedades tanto del string como las del symbol:
 
 ```js run
-let  id = Symbol("id");
-let  usuario = {
-[id]:  123
+let id = Symbol("id");
+let usuario = {
+[id]: 123
 };
 
-let  clone = Object.assign({}, usuario);
+let clone = Object.assign({}, usuario);
 
 alert( clone[id] ); // 123
 ```
@@ -204,10 +204,10 @@ Por ejemplo:
 
 ```js run
 // accesar al registro global
-let  id = Symbol.for("id"); // si symbol no existe, será creado
+let id = Symbol.for("id"); // si symbol no existe, será creado
 
 // accesar una vez más
-let  idOtraVez = Symbol.for("id");
+let idOtraVez = Symbol.for("id");
 
 // el mismo symbol
 alert(id === idOtraVez); // true
@@ -228,8 +228,8 @@ Para los global symbols, no solo `Symbol.for(key)` retorna un symbol por su nomb
 Por ejemplo:
 
 ```js run
-let  sym = Symbol.for("nombre");
-let  sym2 = Symbol.for("id");
+let sym = Symbol.for("nombre");
+let sym2 = Symbol.for("id");
 
 // obtener nombre de un symbol
 alert( Symbol.keyFor(sym) ); // nombre
