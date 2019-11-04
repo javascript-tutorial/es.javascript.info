@@ -3,13 +3,13 @@
 The lifecycle of an HTML page has three important events:
 
 - `DOMContentLoaded` -- the browser fully loaded HTML, and the DOM tree is built, but external resources like pictures `<img>` and stylesheets may be not yet loaded.  
-- `load` -- the browser loaded all resources (images, styles etc).
-- `beforeunload/unload` -- when the user is leaving the page.
+- `load` -- not only HTML is loaded, but also all the external resources: images, styles etc.
+- `beforeunload/unload` -- the user is leaving the page.
 
 Each event may be useful:
 
 - `DOMContentLoaded` event -- DOM is ready, so the handler can lookup DOM nodes, initialize the interface.
-- `load` event -- additional resources are loaded, we can get image sizes (if not specified in HTML/CSS) etc.
+- `load` event -- external resources are loaded, so styles are applied, image sizes are known etc.
 - `beforeunload` event -- the user is leaving: we can check if the user saved the changes and ask them whether they really want to leave.
 - `unload` -- the user almost left, but we still can initiate some operations, such as sending out statistics.
 
@@ -49,7 +49,7 @@ In the example the `DOMContentLoaded` handler runs when the document is loaded, 
 
 But it doesn't wait for the image to load. So `alert` shows zero sizes.
 
-At the first sight `DOMContentLoaded` event is very simple. The DOM tree is ready -- here's the event. There are few peculiarities though.
+At first sight, the `DOMContentLoaded` event is very simple. The DOM tree is ready -- here's the event. There are few peculiarities though.
 
 ### DOMContentLoaded and scripts
 
@@ -60,7 +60,7 @@ So DOMContentLoaded definitely happens after such scripts:
 ```html run
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    console.log("DOM ready!");
+    alert("DOM ready!");
   });
 </script>
 
@@ -73,11 +73,10 @@ So DOMContentLoaded definitely happens after such scripts:
 
 In the example above, we first see "Library loaded...", and then "DOM ready!" (all scripts are executed).
 
-```warn header="Scripts with `async`, `defer` or `type=\"module\"` don't block DOMContentLoaded"
-
-Script attributes `async` and `defer`, that we'll cover [a bit later](info:script-async-defer), don't block DOMContentLoaded. [Javascript modules](info:modules) behave like `defer`,  they don't block it too.
-
-So here we're talking about "regular" scripts, like `<script>...</script>`, or `<script src="..."></script>`.
+```warn header="Scripts that don't block DOMContentLoaded"
+There are two exceptions from this rule:
+1. Scripts with the `async` attribute, that we'll cover [a bit later](info:script-async-defer), don't block `DOMContentLoaded`.
+2. Scripts that are generated dynamically with `document.createElement('script')` and then added to the webpage also don't block this event.
 ```
 
 ### DOMContentLoaded and styles
@@ -94,7 +93,7 @@ But there's a pitfall. If we have a script after the style, then that script mus
 </script>
 ```
 
-The reason is that the script may want to get coordinates and other style-dependent properties of elements, like in the example above. Naturally, it has to wait for styles to load.
+The reason for this is that the script may want to get coordinates and other style-dependent properties of elements, like in the example above. Naturally, it has to wait for styles to load.
 
 As `DOMContentLoaded` waits for scripts, it now waits for styles before them as well.
 
@@ -150,12 +149,12 @@ window.addEventListener("unload", function() {
 ```
 
 - The request is sent as POST.
-- We can send not only a string, but also forms and other formats, as described in the chapter <info:fetch-basics>, but usually it's a stringified object.
+- We can send not only a string, but also forms and other formats, as described in the chapter <info:fetch>, but usually it's a stringified object.
 - The data is limited by 64kb.
 
 When the `sendBeacon` request is finished, the browser probably has already left the document, so there's no way to get server response (which is usually empty for analytics).
 
-There's also a `keepalive` flag for doing such "after-page-left" requests in  [fetch](info:fetch-basics) method for generic network requests. You can find more information in the chapter <info:fetch-api>.
+There's also a `keepalive` flag for doing such "after-page-left" requests in  [fetch](info:fetch) method for generic network requests. You can find more information in the chapter <info:fetch-api>.
 
 
 If we want to cancel the transition to another page, we can't do it here. But we can use  another event -- `onbeforeunload`.
@@ -218,7 +217,7 @@ if (document.readyState == 'loading') {
 }
 ```
 
-There's also `readystatechange` event that triggers when the state changes, so we can print all these states like this:
+There's also the `readystatechange` event that triggers when the state changes, so we can print all these states like this:
 
 ```js run
 // current state
@@ -273,12 +272,12 @@ The numbers in square brackets denote the approximate time of when it happens. E
 
 Page load events:
 
-- `DOMContentLoaded` event triggers on `document` when DOM is ready. We can apply JavaScript to elements at this stage.
+- The `DOMContentLoaded` event triggers on `document` when the DOM is ready. We can apply JavaScript to elements at this stage.
   - Script such as `<script>...</script>` or `<script src="..."></script>` block DOMContentLoaded, the browser waits for them to execute.
   - Images and other resources may also still continue loading.
-- `load` event on `window` triggers when the page and all resources are loaded. We rarely use it, because there's usually no need to wait for so long.
-- `beforeunload` event on `window` triggers when the user wants to leave the page. If we cancel the event, browser asks whether the user really wants to leave (e.g we have unsaved changes).
-- `unload` event on `window` triggers when the user is finally leaving, in the handler we can only do simple things that do not involve delays or asking a user. Because of that limitation, it's rarely used. We can send out a network request with `navigator.sendBeacon`.
+- The `load` event on `window` triggers when the page and all resources are loaded. We rarely use it, because there's usually no need to wait for so long.
+- The `beforeunload` event on `window` triggers when the user wants to leave the page. If we cancel the event, browser asks whether the user really wants to leave (e.g we have unsaved changes).
+- `The unload` event on `window` triggers when the user is finally leaving, in the handler we can only do simple things that do not involve delays or asking a user. Because of that limitation, it's rarely used. We can send out a network request with `navigator.sendBeacon`.
 - `document.readyState` is the current state of the document, changes can be tracked in the `readystatechange` event:
   - `loading` -- the document is loading.
   - `interactive` -- the document is parsed, happens at about the same time as `DOMContentLoaded`, but before it.
