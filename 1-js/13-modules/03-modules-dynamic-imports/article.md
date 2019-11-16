@@ -7,7 +7,7 @@ El motivo es que realmente son estáticas. La sintaxis es muy estricta.
 
 En primer lugar, no podemos generar de manera dinámica ningún parámetro para `import`.
 
-En la ruta del módulo no puede haber una llamada a una función, sólo una cadena de texto. Esto no va a funcionar:
+La ruta del módulo debe ser un texto primitivo, no puede ser una llamada de función. Esto no va a funcionar:
 
 ```js
 import ... from *!*getModuleName()*/!*; // Error, sólo se permiten cadenas de texto
@@ -21,7 +21,7 @@ if(...) {
 }
 
 {
-  import ...; // Error, no podemos poner un import dentro de un bloque
+  import ...; // Error, no podemos poner un import en ningún bloque
 }
 ```
 
@@ -31,7 +31,7 @@ Pero, ¿cómo podemos importar un módulo de manera dinámica, en caso de ser ne
 
 ## La función import()
 
-La función `import(módulo)` se puede llamar desde cualquier lado. Devuelve una promesa que se resuelve como un objeto módulo.
+La función `import(módulo)` se puede llamar desde cualquier lado. Retorna una promesa que se resuelve como un objeto módulo.
 
 La manera de usarla tiene este aspecto:
 
