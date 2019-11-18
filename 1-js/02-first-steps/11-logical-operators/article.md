@@ -64,7 +64,11 @@ if (hour < 10 || hour > 18 || isWeekend) {
 }
 ```
 
+<<<<<<< HEAD
 ## OR encuentra el primer valor verdadero
+=======
+## OR "||" finds the first truthy value
+>>>>>>> e515f80a9f076115a6e3fef8a30cd73e6db20054
 
 La lógica descrita arriba es algo clásica. Ahora, mostremos las características "extra" de JavaScript.
 
@@ -84,7 +88,11 @@ El operador OR `||` realiza lo siguiente:
 
 Un valor es retornado en su forma original, sin la conversión.
 
+<<<<<<< HEAD
 En otras palabras, una cadena de OR `"||"` retorna el primer valor verdadero o el último valor en caso de que ningún verdadero sea encontrado.
+=======
+In other words, a chain of OR `"||"` returns the first truthy value or the last one if no truthy value is found.
+>>>>>>> e515f80a9f076115a6e3fef8a30cd73e6db20054
 
 Por ejemplo:
 
@@ -101,7 +109,11 @@ Esto brinda varios usos interesantes comparados al "OR puro, clásico, de solo b
 
 1. **Consiguiendo el primer valor verdadero de una lista de variables o expresiones.**
 
+<<<<<<< HEAD
    Imagina que tenemos múltiples variables que pueden contener datos o bien ser `null/undefined`. ¿Cómo podemos encontrar el primer valor que contenga datos?
+=======
+    Imagine we have a list of variables which can either contain data or be `null/undefined`. How can we find the first one with data?
+>>>>>>> e515f80a9f076115a6e3fef8a30cd73e6db20054
 
    Podemos usar OR `||`:
 
@@ -141,8 +153,12 @@ Esto brinda varios usos interesantes comparados al "OR puro, clásico, de solo b
 
    *!*false*/!* || (x = 1);
 
+<<<<<<< HEAD
    alert(x); // 1
    ```
+=======
+    An assignment is a simple case. There may be side effects, that won't show up if the evaluation doesn't reach them.
+>>>>>>> e515f80a9f076115a6e3fef8a30cd73e6db20054
 
    Una asignación es un caso simple. Puede haber efectos secundarios, los cuales no se notarán si la evaluación no los alcanza.
 
@@ -188,7 +204,13 @@ if (1 && 0) { // evaluado como true && false
 
 ## AND encuentra el primer valor verdadero
 
+<<<<<<< HEAD
 Dado múltiples valores aplicados al operador AND:
+=======
+## AND "&&" finds the first falsy value
+
+Given multiple AND'ed values:
+>>>>>>> e515f80a9f076115a6e3fef8a30cd73e6db20054
 
 ```js
 result = value1 && value2 && value3;

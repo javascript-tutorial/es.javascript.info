@@ -74,7 +74,11 @@ alert( '2' > 1 ); // true, la cadena '2' se convierte en el número 2
 alert( '01' == 1 ); // true, la cadena '01' se convierte en el número 1
 ```
 
+<<<<<<< HEAD
 Para valores booleanos, `true` se convierte en `1` y `false` en `0`.
+=======
+For boolean values, `true` becomes `1` and `false` becomes `0`.
+>>>>>>> e515f80a9f076115a6e3fef8a30cd73e6db20054
 
 Por ejemplo:
 
@@ -138,6 +142,7 @@ El operador de igualdad estricta es un poco más largo de escribir, pero hace ob
 
 ## Comparación con nulos e indefinidos
 
+<<<<<<< HEAD
 Veamos más casos extremos.
 
 Hay un comportamiento no intuitivo cuando se compara `null` o `undefined` con otros valores.
@@ -145,6 +150,12 @@ Hay un comportamiento no intuitivo cuando se compara `null` o `undefined` con ot
 
 Para un control de igualdad estricto `===`
 : Estos valores son diferentes, porque cada uno de ellos es de un tipo diferente.
+=======
+There's a non-intuitive behavior when `null` or `undefined` are compared to other values.
+
+For a strict equality check `===`
+: These values are different, because each of them is a different type.
+>>>>>>> e515f80a9f076115a6e3fef8a30cd73e6db20054
 
     ```js run
     alert( null === undefined ); // false
@@ -192,8 +203,13 @@ alert( undefined == 0 ); // false (3)
 
 Obtenemos estos resultados porque:
 
+<<<<<<< HEAD
 - Las comparaciones `(1)` y `(2)` retornan `falso` porque `no definido` se convierte en `NaN` y `NaN` es un valor numérico especial que retorna `falso` para todas las comparaciones.
 - La comparación de igualdad `(3)` retorna `falso` porque `undefined` sólo equivale a `null` y a ningún otro valor.
+=======
+- Comparisons `(1)` and `(2)` return `false` because `undefined` gets converted to `NaN` and `NaN` is a special numeric value which returns `false` for all comparisons.
+- The equality check `(3)` returns `false` because `undefined` only equals `null`, `undefined`, and no other value.
+>>>>>>> e515f80a9f076115a6e3fef8a30cd73e6db20054
 
 ### Evita los problemas
 

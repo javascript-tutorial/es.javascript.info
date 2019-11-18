@@ -2,7 +2,11 @@
 
 Las curvas de Bézier se utilizan en gráficos por ordenador para dibujar formas, para animación CSS y en muchos otros lugares.
 
+<<<<<<< HEAD
 En realidad, son algo muy sencillo, vale la pena estudiarlos una vez y luego sentirse cómodo en el mundo de los gráficos vectoriales y las animaciones avanzadas.
+=======
+They are a very simple thing, worth to study once and then feel comfortable in the world of vector graphics and advanced animations.
+>>>>>>> e515f80a9f076115a6e3fef8a30cd73e6db20054
 
 ## Puntos de control
 
@@ -129,13 +133,23 @@ Una curva de Bézier no suave (sí, eso también es posible):
 [iframe src="demo.svg?p=0,0,1,1,0,1,1,0&animate=1" height=370]
 
 ```online
+<<<<<<< HEAD
 Si hay algo que no está claro en la descripción del algoritmo, los ejemplos en vivo de arriba muestran cómo se construye la curva.
+=======
+If there's something unclear in the algorithm description, please look at the live examples above to see how
+the curve is built.
+>>>>>>> e515f80a9f076115a6e3fef8a30cd73e6db20054
 ```
 
 Como el algoritmo es recursivo, podemos construir curvas de Bézier de cualquier orden, es decir, usando 5, 6 o más puntos de control. Pero en la práctica muchos puntos son menos útiles. Por lo general, tomamos 2-3 puntos, y para líneas complejas pegamos varias curvas juntas. Eso es más simple de desarrollar y calcular.
 
+<<<<<<< HEAD
 ```smart header="¿Cómo dibujar una curva *a través de* puntos dados?"
 Para especificar una curva de Bézier se utilizan puntos de control. Como podemos ver, no están en la curva, excepto el primero y el último.
+=======
+```smart header="How to draw a curve *through* given points?"
+To specify a Bezier curve, control points are used. As we can see, they are not on the curve, except the first and the last ones.
+>>>>>>> e515f80a9f076115a6e3fef8a30cd73e6db20054
 
 A veces tenemos otra tarea: dibujar una curva *a traves de varios puntos*, de modo que todos ellos estén en una sola curva suave. Esta tarea se llama   [interpolación](https://es.wikipedia.org/wiki/Interpolaci%C3%B3n), y aquí no la cubrimos.
 
@@ -184,13 +198,23 @@ Las curvas de Bézier se definen por sus puntos de control.
 
 Vimos dos definiciones de curvas de Bézier:
 
+<<<<<<< HEAD
 1. Utilizando una fórmula matemática.
 2. Utilizando un proceso de dibujo: el algoritmo de De Casteljau.
+=======
+1. Using a drawing process: De Casteljau's algorithm.
+2. Using a mathematical formulas.
+>>>>>>> e515f80a9f076115a6e3fef8a30cd73e6db20054
 
 Buenas propiedades de las curvas de Bezier:
 
+<<<<<<< HEAD
 - Podemos dibujar líneas suaves con un ratón moviendo los puntos de control.
 - Las formas complejas se pueden construir con varias curvas Bezier.
+=======
+- We can draw smooth lines with a mouse by moving control points.
+- Complex shapes can be made of several Bezier curves.
+>>>>>>> e515f80a9f076115a6e3fef8a30cd73e6db20054
 
 Uso:
 
