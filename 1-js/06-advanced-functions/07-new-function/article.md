@@ -10,7 +10,7 @@ La sintáxis para crear una función:
 let func = new Function ([arg1[, arg2[, ...argN]],] functionBody)
 ```
 
-En otras palabras, los parámetros de la función (o, para ser más precisos, los nomnres de los parámetros) van primero, y luego el cuerpo de la función. Todos los argumentos son de tipo strings
+En otras palabras, los parámetros de la función (o, para ser más precisos, los nombres de los parámetros) van primero, y luego el cuerpo de la función. Todos los argumentos son de tipo strings
 
 Es más fácil entender viendo un ejemplo: Aquí tenemos una función con dos argumentos:
 
@@ -35,19 +35,19 @@ Las declaraciones anteriores nos obliga a nosotros, los programadores, a escribi
 Pero `new Function` nos permite convertir cualquier string en una función. Por ejemplo, podemos recibir una nueva función desde el servidor y ejecutarlo.
 
 ```js
-let str = ... código proveniente del servidor de manera dinámica ...
+let str = ... recibir el código de un servidor dinámicamente ...
 
 let func = new Function(str);
 func();
 ```
 
-Se utilizan en situaciones muy específicas, por ejemplo cuando recibimos código desde un servidor, o compilar una función de manera dinámica partiendo de una plantilla. El uso surge en etapas avanzadas de desarrollo.
+Se utilizan en casos muy específicos, como cuando recibimos código de un servidor, o compilar dinámicamente una función a partir de una plantilla. La necesidad surge en etapas avanzadas de desarrollo.
 
 ## Closure
 
 Normalmente, una función recuerda dónde nació en una propiedad especial llamada `[[Environment]]`. Hace referencia al entorno léxico desde dónde se creó.
 
-Pero cuando función es creada usando `new Function`, su `[[Environment]]` no hace referencia al actual entorno léxico sino al global
+Pero cuando una función es creada usando `new Function`, su `[[Environment]]` no hace referencia al entorno léxico actual, sino al global.
 
 ```js run
 
@@ -131,4 +131,4 @@ new Function('a,b', 'return a + b'); // separados por coma
 new Function('a , b', 'return a + b'); // separados por coma y espacios
 ```
 
-Las funciones creadas con `new Function`, tienen un `[[Environment]]` que hace referencia al entorno léxico global, no al exterior. Por lo tanto, no pueden usar las variables externas. Pero en realidad eso es bueno, porque nos salva de errores. Pasándolo parámetros de manera explícita es un método arquitectónico mejor y no provoca problemas con los minificadores.
+Las funciones creadas con `new Function`, tienen un `[[Environment]]` que hace referencia al entorno léxico global, no al exterior. Por lo tanto, no pueden usar las variables externas. Pero en realidad eso es bueno, porque nos salva de errores. Pasar parámetros explícitamente es un método mucho mejor arquitectónicamente y no provoca problemas con los minificadores.
