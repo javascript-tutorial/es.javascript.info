@@ -2,7 +2,7 @@
 
 The `"prototype"` property is widely used by the core of JavaScript itself. All built-in constructor functions use it.
 
-We'll see how it is for plain objects first, and then for more complex ones.
+First we'll see at the details, and then how to use it for adding new capabilities to built-in objects.
 
 ## Object.prototype
 
@@ -36,7 +36,7 @@ alert(obj.__proto__ === Object.prototype); // true
 // obj.toString === obj.__proto__.toString == Object.prototype.toString
 ```
 
-Please note that there is no additional `[[Prototype]]` in the chain above `Object.prototype`:
+Please note that there is no more `[[Prototype]]` in the chain above `Object.prototype`:
 
 ```js run
 alert(Object.prototype.__proto__); // null
@@ -46,9 +46,9 @@ alert(Object.prototype.__proto__); // null
 
 Other built-in objects such as `Array`, `Date`, `Function` and others also keep methods in prototypes.
 
-For instance, when we create an array `[1, 2, 3]`, the default `new Array()` constructor is  used internally. So the array data is written into the new object, and `Array.prototype` becomes its prototype and provides methods. That's very memory-efficient.
+For instance, when we create an array `[1, 2, 3]`, the default `new Array()` constructor is used internally. So `Array.prototype` becomes its prototype and provides methods. That's very memory-efficient.
 
-By specification, all of the built-in prototypes have `Object.prototype` on the top. Sometimes people say that "everything inherits from objects".
+By specification, all of the built-in prototypes have `Object.prototype` on the top. That's why some people say that "everything inherits from objects".
 
 Here's the overall picture (for 3 built-ins to fit):
 
@@ -99,12 +99,12 @@ alert(f.__proto__.__proto__ == Object.prototype); // true, inherit from objects
 
 The most intricate thing happens with strings, numbers and booleans.
 
-As we remember, they are not objects. But if we try to access their properties, then temporary wrapper objects are created using built-in constructors `String`, `Number`, `Boolean`, they provide the methods and disappear.
+As we remember, they are not objects. But if we try to access their properties, temporary wrapper objects are created using built-in constructors `String`, `Number` and `Boolean`. They provide the methods and disappear.
 
 These objects are created invisibly to us and most engines optimize them out, but the specification describes it exactly this way. Methods of these objects also reside in prototypes, available as `String.prototype`, `Number.prototype` and `Boolean.prototype`.
 
 ```warn header="Values `null` and `undefined` have no object wrappers"
-Special values `null` and `undefined` stand apart. They have no object wrappers, so methods and properties are not available for them. And there are no corresponding prototypes too.
+Special values `null` and `undefined` stand apart. They have no object wrappers, so methods and properties are not available for them. And there are no corresponding prototypes either.
 ```
 
 ## Changing native prototypes [#native-prototype-change]
@@ -122,16 +122,16 @@ String.prototype.show = function() {
 During the process of development, we may have ideas for new built-in methods we'd like to have, and we may be tempted to add them to native prototypes. But that is generally a bad idea.
 
 ```warn
-Prototypes are global, so it's easy to get a conflict. If two libraries add a method `String.prototype.show`, then one of them will be overwriting the other.
+Prototypes are global, so it's easy to get a conflict. If two libraries add a method `String.prototype.show`, then one of them will be overwriting the method of the other.
 
 So, generally, modifying a native prototype is considered a bad idea.
 ```
 
 **In modern programming, there is only one case where modifying native prototypes is approved. That's polyfilling.**
 
-Polyfilling is a term for making a substitute for a method that exists in JavaScript specification, but not yet supported by current JavaScript engine.
+Polyfilling is a term for making a substitute for a method that exists in the JavaScript specification, but is not yet supported by a particular JavaScript engine.
 
-Then we may implement it manually and populate the built-in prototype with it.
+We may then implement it manually and populate the built-in prototype with it.
 
 For instance:
 
@@ -161,7 +161,7 @@ That's when we take a method from one object and copy it into another.
 
 Some methods of native prototypes are often borrowed.
 
-For instance, if we're making an array-like object, we may want to copy some array methods to it.
+For instance, if we're making an array-like object, we may want to copy some `Array` methods to it.
 
 E.g.
 
@@ -179,18 +179,18 @@ obj.join = Array.prototype.join;
 alert( obj.join(',') ); // Hello,world!
 ```
 
-It works, because the internal algorithm of the built-in `join` method only cares about the correct indexes and the `length` property, it doesn't check that the object is indeed the array. And many built-in methods are like that.
+It works because the internal algorithm of the built-in `join` method only cares about the correct indexes and the `length` property. It doesn't check if the object is indeed an array. Many built-in methods are like that.
 
 Another possibility is to inherit by setting `obj.__proto__` to `Array.prototype`, so all `Array` methods are automatically available in `obj`.
 
 But that's impossible if `obj` already inherits from another object. Remember, we only can inherit from one object at a time.
 
-Borrowing methods is flexible, it allows to mix functionality from different objects if needed.
+Borrowing methods is flexible, it allows to mix functionalities from different objects if needed.
 
 ## Summary
 
 - All built-in objects follow the same pattern:
-    - The methods are stored in the prototype (`Array.prototype`, `Object.prototype`, `Date.prototype` etc).
-    - The object itself stores only the data (array items, object properties, the date).
-- Primitives also store methods in prototypes of wrapper objects: `Number.prototype`, `String.prototype`, `Boolean.prototype`. Only `undefined` and `null` do not have wrapper objects.
-- Built-in prototypes can be modified or populated with new methods. But it's not recommended to change them. Probably the only allowable cause is when we add-in a new standard, but not yet supported by the engine JavaScript method.
+    - The methods are stored in the prototype (`Array.prototype`, `Object.prototype`, `Date.prototype`, etc.)
+    - The object itself stores only the data (array items, object properties, the date)
+- Primitives also store methods in prototypes of wrapper objects: `Number.prototype`, `String.prototype` and `Boolean.prototype`. Only `undefined` and `null` do not have wrapper objects
+- Built-in prototypes can be modified or populated with new methods. But it's not recommended to change them. The only allowable case is probably when we add-in a new standard, but it's not yet supported by the JavaScript engine
