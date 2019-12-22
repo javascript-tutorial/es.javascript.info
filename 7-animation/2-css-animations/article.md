@@ -244,7 +244,7 @@ Pero si haces clic en el tren, verás que:
 
 [codetabs src="train-over"]
 
-¿Por qué sucede? es bastante obvio si miramos el gráfico de la curva de Bézier dada:
+¿Por qué sucede? es bastante obvio si miramos la gráfica de la curva de Bézier dada:
 
 ![](bezier-train-over.svg)
 
@@ -295,7 +295,7 @@ El proceso está progresando así:
 - `1s` -- `-20%`
 - ...
 - `8s` -- `-80%`
-- (el último segundo muestra el valor final)
+- (el último segundo muestra el valor final).
 
 El valor alternativo 'end' significaría que el cambio debe aplicarse no al principio, sino al final de cada segundo.
 
@@ -320,9 +320,9 @@ Estos valores rara vez se usan, porque eso no es realmente animación, sino un c
 
 ## Evento transitionend
 
-Cuando finaliza la animación CSS, se activa el evento `transitionend`.
+Cuando finaliza la animación CSS, se dispara el evento `transitionend`.
 
-Es ampliamente utilizado para hacer una acción después de que se realiza la animación. También podemos unir animaciones.
+Es ampliamente utilizado para hacer una acción después que se realiza la animación. También podemos unir animaciones.
 
 Por ejemplo, el barco en el ejemplo a continuación comienza a navegar ida y vuelta al hacer clic, cada vez más y más a la derecha:
 
