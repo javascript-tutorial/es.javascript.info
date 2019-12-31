@@ -6,19 +6,19 @@ Veamos que tiene de especial JavaScript, que podemos lograr con este lenguaje y 
 
 _JavaScript_ Fue creado para _"dar vida a la páginas web"_.
 
-Los programas en este lenguaje son llamados _scripts_. Se pueden escribir directamente en el HTML de una página web y ejecutarse automáticamente a medida que se carga la página.
+Los programas escritos en este lenguaje se llaman _scripts_. Se pueden escribir directamente en el HTML de una página web y ejecutarse automáticamente a medida que se carga la página.
 
-Los scripts se proporcionan y ejecutan como texto plano. No necesitan preparación especial o compilación para correr.
+Los scripts se proporcionan y ejecutan como texto plano. No necesitan preparación especial o compilación para ejecutarse.
 
 En este aspecto, JavaScript es muy diferente de otro lenguaje llamado [Java](<https://es.wikipedia.org/wiki/Java_(lenguaje_de_programaci%C3%B3n)>).
 
 ```smart header="¿Por qué <u>Java</u>Script?"
-Cuando JavaScript fue creado, inicialmente tenía otro nombre: "LiveScript". Pero Java era muy popular en ese momento, así que se decidió que el posicionamiento de un nuevo lenguaje como un "Hermano menor" de Java ayudaría.
+Cuando JavaScript fue creado, inicialmente tuvo otro nombre: "LiveScript". En esa época Java era muy popular, así que se decidió cambiar el nombre a Javascript para así aprovechar el posicionamiento de Java.
 
-Pero a medida que evolucionaba, JavaScript se convirtió en un lenguaje completamente independiente con su propia especificación llamada [ECMAScript] (https://es.wikipedia.org/wiki/ECMAScript), y ahora no tiene para nada relación con Java.
+Pero a medida que evolucionaba, JavaScript se convirtió en un lenguaje completamente independiente, con su propia especificación llamada [ECMAScript] (https://es.wikipedia.org/wiki/ECMAScript), y ahora no tiene para ninguna relación con Java.
 ```
 
-Hoy, JavaScript puede ejecutarse no solo en los navegadores, sino también en servidores o incluso en cualquier dispositivo que cuente con un programa especial llamado [El motor o intérprete de JavaScript](https://es.wikipedia.org/wiki/Int%C3%A9rprete_de_JavaScript).
+Hoy, JavaScript puede ejecutarse no solo en navegadores, sino también en servidores o incluso en cualquier dispositivo que cuente con un programa especial llamado [Motor o intérprete de JavaScript](https://es.wikipedia.org/wiki/Int%C3%A9rprete_de_JavaScript).
 
 El navegador tiene un motor embebido a veces llamado una "Máquina virtual de JavaScript".
 
@@ -28,7 +28,7 @@ Diferentes motores tienen diferentes "nombres en clave". Por ejemplo:
 - [SpiderMonkey](https://es.wikipedia.org/wiki/SpiderMonkey) -- en Firefox.
 - ...Existen otros nombres en clave como "Trident" and "Chakra" para diferentes versiones de IE (Internet Explorer), "ChakraCore" para Microsoft Edge, "Nitro" y "SquirrelFish" para Safari, etc.
 
-Los términos anteriores es bueno recordarlos porque son usados en artículos para desarrolladores en internet. También los usaremos. Por ejemplo, si "la característica X es soportada por V8", entonces probablemente funciona en Chrome y Opera.
+Es bueno recordar los términos anteriores porqué son usados en artículos para desarrolladores en Internet. También los usaremos. Por ejemplo, si "la característica X es soportada por V8", entonces probablemente funciona en Chrome y Opera.
 
 ```smart header="¿Como trabajan los motores?"
 
@@ -36,7 +36,7 @@ Los motores son complicados, pero los fundamentos son fáciles.
 
 1.- El motor (embebido si es un navegador) lee ("analiza") el script.
 2.- Entonces convierte ("compila") el script a lenguaje máquina.
-3.- y por último el código maquina se ejecuta muy rápido.
+3.- y por último el código máquina se ejecuta muy rápido.
 
 El motor aplica optimizaciones en cada paso del proceso. Incluso observa como el script compilado se ejecuta, analiza los datos que fluyen a través de él y aplica optimizaciones al código maquina basadas en ese conocimiento. Cuando está terminado, los scripts se ejecutan bastante rápido.
 ```
@@ -45,9 +45,9 @@ El motor aplica optimizaciones en cada paso del proceso. Incluso observa como el
 
 JavaScript moderno es un lenguaje de programación "seguro". No proporciona acceso de bajo nivel a la memoria o la CPU (UCP), ya que se creó inicialmente para los navegadores los cuales no lo requieren.
 
-Las capacidades de JavaScript dependen en gran medida en el entorno en que se ejecuta. Por ejemplo, [Node.JS (https://es.wikipedia.org/wiki/Node.js) Soporta funciones que permiten a JavaScript leer y escribir archivos arbitrariamente, realizar solicitudes de red, etc.
+Las capacidades de JavaScript dependen en gran medida en el entorno en que se ejecuta. Por ejemplo, Node.JS (https://es.wikipedia.org/wiki/Node.js) soporta funciones que permiten a JavaScript: leer y escribir archivos arbitrariamente, realizar solicitudes de red, etc.
 
-En el navegador JavaScript puede realizar cualquier cosa relacionada con la manipulación de una página web, interacción con el usuario y el servidor web.
+En el navegador, JavaScript puede realizar cualquier cosa relacionada con la manipulación de una página web, interacción con el usuario y el servidor web.
 
 Por ejemplo, en el navegador JavaScript es capaz de:
 
@@ -59,13 +59,13 @@ Por ejemplo, en el navegador JavaScript es capaz de:
 
 ## ¿Qué no puede hacer JavaScript en el navegador?
 
-Las habilidades de JavaScript en el navegador están limitadas por el bien de la seguridad de usuario. El objetivo es prevenir el acceso de información privada o dañar los datos de usuario por parte de una página maliciosa.
+Las habilidades de JavaScript en el navegador están limitadas por el bien de la seguridad de usuario. El objetivo es prevenir el acceso a información privada o dañar los datos de usuario por parte de una página maliciosa.
 
-Ejemplos de tales restricciones incluyen:
+Algunos ejemplos de restricciones son:
 
 - JavaScript en el navegador no puede leer y escribir arbitrariamente archivos en el disco duro, copiarlos o ejecutar programas. No tiene acceso directo a funciones del Sistema operativo (OS).
 
-  Los navegadores mas modernos le permiten trabajar con archivos, pero el acceso es limitado y solo permitido si el usuario realiza ciertas acciones, como "arrastrar" un archivo a la ventana del navegador o seleccionarlo por medio de una etiqueta `<input`>.
+  Los navegadores más modernos le permiten trabajar con archivos, pero el acceso es limitado y solo permitido si el usuario realiza ciertas acciones, como "arrastrar" un archivo a la ventana del navegador o seleccionarlo por medio de una etiqueta `<input`>.
 
   Existen maneras de interactuar con la cámara, micrófono y otros dispositivos, pero eso requiere el permiso explicito del usuario. Por lo tanto, una página habilitada para JavaScript no puede habilitar una cámara web para observar el entorno y enviar la información a la [NSA](https://es.wikipedia.org/wiki/Agencia_de_Seguridad_Nacional).
 
@@ -79,44 +79,44 @@ Ejemplos de tales restricciones incluyen:
 
 ![](limitations.svg)
 
-Tales limitaciones no existen si JavaScript es usado fuera del navegador, por ejemplo, en un servidor. Los navegadores modernos también permiten complementos y extensiones que pueden preguntar por permisos extendidos.
+Estas limitaciones no existen si JavaScript es usado fuera del navegador, por ejemplo, en un servidor. Los navegadores modernos también permiten complementos y extensiones que pueden preguntar por permisos extendidos.
 
 ## ¿Qué hace a JavaScript único?
 
 Existen al menos _tres_ geniales cosas acerca de JavaScript:
 
 ```compare
-+ Completa integración con HTML y CSS..
-+ Las cosas simples se hacen simplemente.
-+ Soportado por la mayoría de los navegadores y habilitado por defecto.
++ Integración completa con HTML y CSS.
++ Las cosas simples se hacen de manera sencilla.
++ Es soportado por la mayoría de los navegadores y está habilitado por defecto.
 ```
 
 JavaScript es la única tecnología de los navegadores que combina estas tres cosas.
 
-Eso es lo que hace a JavaScript único. Eso es el porqué es la herramienta mas extendida para crear interfaces de navegador.
+Eso es lo que hace a JavaScript único. Eso es el porqué es la herramienta más extendida para crear interfaces de navegador.
 
 Al planificar aprender una nueva tecnología, es beneficioso revisar sus perspectivas. Así que vamos a movernos a las tendencias modernas que lo afectan, incluyendo nuevos lenguajes y capacidades del navegador.
 
-## Lenguajes "por arriba de" JavaScript
+## Lenguajes "sobre" JavaScript
 
-La sintaxis de JavaScript no se ajusta para las necesidades de todos. Personas diferentes quieren diferentes características.
+La sintaxis de JavaScript no se ajusta para las necesidades de todos. Personas diferentes requieren características diferentes.
 
-Eso es de esperarse, porque los proyectos y requerimientos son diferentes para cada persona.
+Eso es de esperarse, debido a que los proyectos y requerimientos son diferentes para cada persona.
 
-Así que recientemente a aparecido una abundancia de nuevos lenguajes, los cuales son _Convertidos_ / _Transpilados_ (transpiled) a JavaScript antes de ser ejecutados en el navegador.
+Así, que recientemente han aparecido una plétora de nuevos lenguajes, los cuales son _Convertidos_ / _Transpilados_ (transpiled) a JavaScript antes de ser ejecutados en el navegador.
 
-Las herramientas modernas hacen la conversión (Transpilation) muy rápido y transparente, permitiendo a los desarrolladores codificar en otros lenguajes y convertirlo automáticamente detrás de escena.
+Las herramientas modernas hacen la conversión (Transpilation) muy rápido y de modo transparente, permitiendo a los desarrolladores codificar en otros lenguajes y convertir esos programas automáticamente a Javascript "tras bambalinas".
 
-Ejemplos de tales lenguajes:
+Ejemplos de lenguajes que se convierten a JS:
 
-- [CoffeeScript](http://coffeescript.org/) Es una "sintaxis azucarada" [syntactic sugar](https://es.wikipedia.org/wiki/Az%C3%BAcar_sint%C3%A1ctico) para JavaScript. Introduce una sintaxis corta, permitiéndonos escribir un código mas claro y preciso. Usualmente desarrolladores de Ruby prefieren este lenguaje.
+- [CoffeeScript](http://coffeescript.org/) Es una "sintaxis azucarada" [syntactic sugar](https://es.wikipedia.org/wiki/Az%C3%BAcar_sint%C3%A1ctico) para JavaScript. Introduce una sintaxis corta, permite escribir un código más claro y preciso. Usualmente los desarrolladores de Ruby prefieren este lenguaje.
 - [TypeScript](http://www.typescriptlang.org/) se concentra en agregar "tipado estricto" ("strict data typing") para simplificar el desarrollo y soporte de sistemas complejos. Es desarrollado por Microsoft.
-- [Dart](https://www.dartlang.org/) es un lenguaje independiente que tiene su propio motor que corre en entornos que no son los navegadores (como aplicaciones móviles). Fue inicialmente ofrecido por Google como un remplazo para JavaScript, pero a partir de ahora, los navegadores requieren que este sea convertido (transpiled) a JavaScript igual que los anteriores.
+- [Dart](https://www.dartlang.org/) es un lenguaje independiente, que tiene su propio motor que corre en entornos que no son los navegadores (como aplicaciones móviles). Fue inicialmente ofrecido por Google como un remplazo para JavaScript, pero a partir de ahora, los navegadores requieren que este sea convertido (transpiled) a JavaScript igual que los anteriores.
 
-Hay mas. Por supuesto, incluso si nosotros usamos alguno de estos lenguajes, deberíamos conocer también JavaScript para realmente entender que está pasando.
+Hay más opciones disponibles. Desde luego, incluso si usamos alguno de estos lenguajes transpilados, debemos conocer también JavaScript para realmente entender que estamos haciendo.
 
 ## Resumen
 
 - JavaScript fue inicialmente creado como un lenguaje solo para el navegador, pero ahora es usado también en muchos otros entornos.
 - Hoy en día, JavaScript tiene una posición única como el lenguaje más extendido y adoptado de navegador, con una integración completa con HTML y CSS.
-- Existen muchos lenguajes que se convierten "transpiled" a JavaScript y aportan ciertas características. Es recomendable echarles un vistazo, al menos brevemente, después de dominar JavaScript.
+- Existen muchos lenguajes que se convierten "transpilan" a JavaScript y aportan ciertas características. Es recomendable echarles un vistazo, al menos brevemente, después de dominar JavaScript.
