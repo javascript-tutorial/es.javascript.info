@@ -1,27 +1,27 @@
 
 # Manuales y especificaciones
 
-Este libro es un *tutorial*. Su objetivo es ayudarte a aprender el lenguaje gradualmente. Pero una vez que te familiarices con lo básico, necesitarás otras fuentes.
+Este libro es un *tutorial*, su objetivo es ayudarte a aprender gradualmente Javascript. Pero una vez que te familiarices con lo básico, vas a necesitar otras fuentes.
 
 ## Especificación
 
 [La especificación ECMA-262](https://www.ecma-international.org/publications/standards/Ecma-262.htm) contiene la información más exhaustiva, detallada, y formal sobre JavaScript. En ella se define el lenguaje.
 
-Pero por su estilo formal, es difícil de entender a primeras. Así que si necesitas la fuente de información más fiable sobre los detalles del lenguaje, esta especificación es el lugar correcto a consultar. Es de entender entonces que no es para el uso diario.
+Pero por su estilo formal, esta especificación es difícil de comprender de inicio. Así que cuando sea necesario acceder a una fuente de información más fiable sobre detalles del lenguaje, esta especificación es el lugar correcto a consultar.  Se debe considerar entonces que no es para el uso diario.
 
-Una nueva versión de la especificación del lenguaje es publicada anualmente. Entre publicaciones, el último borrador de la especificación se puede consultar en <https://tc39.es/ecma262/>.
+Cad año se publica una nueva versión de la especificación del lenguaje. Entre estas publicaciones, se puede revisar el último borrador de la especificación en <https://tc39.es/ecma262/>.
 
-Para leer acerca de las nuevas prestaciones de vanguardia del lenguaje, incluyendo aquellas que son "cuasi-estándar" (apodado "stage 3"), encuentra las propuestas en <https://github.com/tc39/proposals>.
+Para leer acerca de las nuevas prestaciones de vanguardia del lenguaje, incluyendo aquellas que son "cuasi-estándar" (denominadas "stage 3"), se las encuentra en <https://github.com/tc39/proposals>.
 
-Si estás desarrollando para navegadores web, se mencionan otras especificaciones en la [segunda parte](info:browser-environment) del tutorial.
+Si se está haciendo desarrolla para navegadores web, se mencionan otras especificaciones en la [segunda parte](info:browser-environment) del tutorial.
 
 ## Manuales
 
-- **MDN (Mozilla) JavaScript Reference** es un manual con ejemplos y otras informaciones. Es fantástico para obtener información exhaustiva sobre funciones individuales del lenguaje, métodos, etc.
+- **MDN (Mozilla) JavaScript Reference** es un manual con ejemplos e información adicional. Es fantástico para obtener información exhaustiva sobre funciones individuales del lenguaje, métodos, etc.
 
     Se puede acceder en <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference>.
 
-    Aunque a menudo es mejor hace una búsqueda en internet, adicionando "MDN [término]" como parte de la *query* en el motor de búsqueda, e.g. <https://google.com/search?q=MDN+parseInt> para buscar la función `parseInt`.
+    Aunque a menudo es mejor hace una búsqueda en internet, adicionando "MDN [término]" como parte de la *consulta* en el motor de búsqueda, e.g. <https://google.com/search?q=MDN+parseInt> para buscar la función `parseInt`.
 
 
 - **MSDN** – Manual de Microsoft con mucha información, incluyendo JavaScript (a menudo denominado JScript). Si se necesita información específica de Internet Explorer, es el mejor lugar a consultar: <http://msdn.microsoft.com/>.
@@ -30,9 +30,9 @@ Si estás desarrollando para navegadores web, se mencionan otras especificacione
 
 ## Tablas de compatibilidad
 
-JavaScript es un lenguaje en evolución, nuevas características son adicionadas regularmente.
+JavaScript es un lenguaje en constante evolución, regularmente se agregan nuevas características.
 
-Para ver la compatibilidad por navegador y otros motores, consultar:
+Para ver la compatibilidad por navegador y otros motores, consultar en:
 
 - <http://caniuse.com> - tablas de compatibilidad por característica, e.g. para comprobar qué motores soportan funciones modernas de criptografía: <http://caniuse.com/#feat=cryptography>.
 - <https://kangax.github.io/compat-table> - tabla que muestra la compatibilidad o no de las prestaciones del lenguaje por motor.
