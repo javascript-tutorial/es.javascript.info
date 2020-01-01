@@ -1,10 +1,10 @@
-# ¡Hola, mundo!
+# ¡Hola mundo!
 
 El tutorial que estás leyendo trata sobre el núcleo JavaScript, que es independiente de la plataforma. Más adelante, aprenderás sobre Node.JS y otras plataformas que lo utilizan.
 
-Pero necesitamos un entorno de trabajo para ejecutar nuestros scripts y, dado que este libro está en línea, el navegador es una buena opción. Mantendremos la cantidad de comandos específicos del navegador (como `alert`) a un mínimo para que no dediques tiempo a ellos si planeas concentrarte en otro entorno (como Node.JS). Nos centraremos en JavaScript en el navegador en la [siguiente parte](/ui) del tutorial.
+Necesitamos un entorno de trabajo para ejecutar nuestros scripts y, dado que este libro está en línea, el navegador es una buena opción. Vamos a usar la menor cantidad de comandos específicos del navegador (como `alert`), para que no dediques tiempo a ellos si lo que planeas es concentrarte en otro entorno (como Node.JS). Esta [parte](/ui) del tutorial se va a centrar en la creación de scritps de JavaScript que se ejecutan en el navegador.
 
-Entonces, primero, veamos cómo adjuntamos un script a una página web. Para entornos del lado del servidor (como Node.JS), puedes ejecutar el script con un comando como `"node my.js"`.
+Entonces, primero, veamos como adjuntar un script a una página web. Para entornos del lado del servidor (como Node.JS), puedes ejecutar el script con un comando como `"node my.js"`.
 
 
 ## La etiqueta "script"
@@ -23,7 +23,7 @@ Por ejemplo:
 
 *!*
   <script>
-    alert( '¡Hola, mundo!' );
+    alert( '¡Hola mundo!' );
   </script>
 */!*
 
@@ -52,7 +52,7 @@ El atributo `language`: <code>&lt;script <u>language</u>=...&gt;</code>
 : Este atributo estaba destinado a mostrar el lenguaje del script. Este atributo ya no tiene sentido porque JavaScript es el lenguaje predeterminado. No hay necesidad de usarlo.
 
 Comentarios antes y después de los scripts.
-: En libros y guías realmente antiguos, puede encontrar comentarios dentro de las etiquetas `<script>`, como el siguiente:
+: En libros y guías realmente antiguos, se puede encontrar comentarios dentro de las etiquetas `<script>`, como el siguiente:
 
     ```html no-beautify
     <script type="text/javascript"><!--
@@ -60,7 +60,7 @@ Comentarios antes y después de los scripts.
     //--></script>
     ```
 
-Este truco no se utiliza en JavaScript moderno. Estos comentarios ocultaban el código JavaScript de los navegadores antiguos que no sabían cómo procesar la etiqueta `<script>`. Dado que los navegadores lanzados en los últimos 15 años no tienen este problema, este tipo de comentario puede ayudarte a identificar códigos realmente antiguos.
+Este truco ya no se utiliza en JavaScript moderno. Estos comentarios ocultaban el código JavaScript de los navegadores antiguos que no sabían cómo procesar la etiqueta `<script>`. Dado que los navegadores lanzados en los últimos 15 años no tienen este problema, este tipo de comentario puede ayudarte a identificar códigos realmente antiguos.
 
 
 ## Scripts externos
