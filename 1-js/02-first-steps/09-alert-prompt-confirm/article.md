@@ -1,6 +1,10 @@
 # Interacción: alert, prompt, confirm
 
+<<<<<<< HEAD
 Esta parte del tutorial pretende cubrir JavaScript "como es", sin ajustes específicos del entorno.
+=======
+In this part of the tutorial we cover JavaScript language "as is", without environment-specific tweaks.
+>>>>>>> db3b3f8e7a08c153ad8fa0ae50633cdf95fa8912
 
 Pero como seguiremos utilizando el navegador como entorno de demostración, deberíamos conocer al menos algunas de sus funciones de la interfaz de usuario. En este capítulo, nos familiarizaremos con las funciones del navegador `alert`, `prompt` y `confirm`.
 
@@ -30,7 +34,11 @@ La función `prompt` acepta dos argumentos:
 result = prompt(title, [default]);
 ```
 
+<<<<<<< HEAD
 Muestra una ventana modal con un mensaje de texto, un campo de entrada para el visitante y los botones OK/CANCELAR.
+=======
+It shows a modal window with a text message, an input field for the visitor, and the buttons OK/Cancel.
+>>>>>>> db3b3f8e7a08c153ad8fa0ae50633cdf95fa8912
 
 `title`
 : El texto a mostrar al usuario.
@@ -38,7 +46,11 @@ Muestra una ventana modal con un mensaje de texto, un campo de entrada para el v
 `default`
 : Un segundo parámetro opcional, el valor inicial del campo de entrada.
 
+<<<<<<< HEAD
 El usuario puede escribir algo en el campo de entrada y pulsar OK. O puede cancelar la entrada pulsando CANCELAR o presionando la tecla `key:Esc`.
+=======
+The visitor may type something in the prompt input field and press OK. Or they can cancel the input by pressing Cancel or hitting the `key:Esc` key.
+>>>>>>> db3b3f8e7a08c153ad8fa0ae50633cdf95fa8912
 
 La llamada a `prompt` retorna el texto del campo de entrada o `null` si la entrada fue cancelada.
 
@@ -74,7 +86,11 @@ La sintaxis:
 result = confirm(pregunta);
 ```
 
+<<<<<<< HEAD
 La función `confirm` muestra una ventana modal con una `pregunta` y dos botones: OK y CANCELAR.
+=======
+The function `confirm` shows a modal window with a `question` and two buttons: OK and Cancel.
+>>>>>>> db3b3f8e7a08c153ad8fa0ae50633cdf95fa8912
 
 El resultado es `true` si se pulsa OK y `false` en caso contrario.
 
@@ -94,10 +110,17 @@ Cubrimos 3 funciones específicas del navegador para interactuar con los usuario
 : muestra un mensaje.
 
 `prompt`
+<<<<<<< HEAD
 : muestra un mensaje pidiendo al usuario que introduzca un texto. Retorna el texto o, si se hace clic en CANCELAR o `key:Esc`, retorna `null`.
 
 `confirm`
 : muestra un mensaje y espera a que el usuario pulse "OK" o "CANCELAR". Retorna `true` si se presiona OK y `false` si se presiona CANCEL/`key:Esc`.
+=======
+: shows a message asking the user to input text. It returns the text or, if Cancel button or `key:Esc` is clicked, `null`.
+
+`confirm`
+: shows a message and waits for the user to press "OK" or "Cancel". It returns `true` for OK and `false` for Cancel/`key:Esc`.
+>>>>>>> db3b3f8e7a08c153ad8fa0ae50633cdf95fa8912
 
 Todos estos métodos son modales: detienen la ejecución del script y no permiten que el usuario interactúe con el resto de la página hasta que la ventana se haya cerrado.
 
