@@ -1,10 +1,18 @@
 # ¡Hola, mundo!
 
+<<<<<<< HEAD
 El tutorial que estás leyendo trata sobre el núcleo JavaScript, que es independiente de la plataforma. Más adelante, aprenderás sobre Node.JS y otras plataformas que lo utilizan.
 
 Pero necesitamos un entorno de trabajo para ejecutar nuestros scripts y, dado que este libro está en línea, el navegador es una buena opción. Mantendremos la cantidad de comandos específicos del navegador (como `alert`) a un mínimo para que no dediques tiempo a ellos si planeas concentrarte en otro entorno (como Node.JS). Nos centraremos en JavaScript en el navegador en la [siguiente parte](/ui) del tutorial.
 
 Entonces, primero, veamos cómo adjuntamos un script a una página web. Para entornos del lado del servidor (como Node.JS), puedes ejecutar el script con un comando como `"node my.js"`.
+=======
+This part of the tutorial is about core JavaScript, the language itself.
+
+But we need a working environment to run our scripts and, since this book is online, the browser is a good choice. We'll keep the amount of browser-specific commands (like `alert`) to a minimum so that you don't spend time on them if you plan to concentrate on another environment (like Node.js). We'll focus on JavaScript in the browser in the [next part](/ui) of the tutorial.
+
+So first, let's see how we attach a script to a webpage. For server-side environments (like Node.js), you can execute the script with a command like `"node my.js"`.
+>>>>>>> 10c7807f49122f475f7cda5d07a324247091c080
 
 
 ## La etiqueta "script"
@@ -45,8 +53,13 @@ La etiqueta `<script>` contiene código JavaScript que se ejecuta automáticamen
 
 La etiqueta `<script>` tiene algunos atributos que rara vez se usan en la actualidad, pero aún se pueden encontrar en código antiguo:
 
+<<<<<<< HEAD
 El atributo `type`: <code>&lt;script <u>type</u>=...&gt;</code>
 : El antiguo estándar HTML, HTML4, requería que un script tuviera un `type`. Por lo general, era `type="text/javascript"`. Ya no es necesario. Además, el estándar HTML moderno, HTML5, cambió totalmente el significado de este atributo. Ahora, se puede utilizar para módulos de JavaScript. Pero eso es un tema avanzado, hablaremos sobre módulos en otra parte del tutorial.
+=======
+The `type` attribute: <code>&lt;script <u>type</u>=...&gt;</code>
+: The old HTML standard, HTML4, required a script to have a `type`. Usually it was `type="text/javascript"`. It's not required anymore. Also, the modern HTML standard totally changed the meaning of this attribute. Now, it can be used for JavaScript modules. But that's an advanced topic; we'll talk about modules in another part of the tutorial.
+>>>>>>> 10c7807f49122f475f7cda5d07a324247091c080
 
 El atributo `language`: <code>&lt;script <u>language</u>=...&gt;</code>
 : Este atributo estaba destinado a mostrar el lenguaje del script. Este atributo ya no tiene sentido porque JavaScript es el lenguaje predeterminado. No hay necesidad de usarlo.
@@ -60,7 +73,11 @@ Comentarios antes y después de los scripts.
     //--></script>
     ```
 
+<<<<<<< HEAD
 Este truco no se utiliza en JavaScript moderno. Estos comentarios ocultaban el código JavaScript de los navegadores antiguos que no sabían cómo procesar la etiqueta `<script>`. Dado que los navegadores lanzados en los últimos 15 años no tienen este problema, este tipo de comentario puede ayudarte a identificar códigos realmente antiguos.
+=======
+    This trick isn't used in modern JavaScript. These comments hide JavaScript code from old browsers that didn't know how to process the `<script>` tag. Since browsers released in the last 15 years don't have this issue, this kind of comment can help you identify really old code.
+>>>>>>> 10c7807f49122f475f7cda5d07a324247091c080
 
 
 ## Scripts externos
@@ -73,9 +90,13 @@ Los archivos de script se adjuntan a HTML con el atributo `src`:
 <script src="/path/to/script.js"></script>
 ```
 
+<<<<<<< HEAD
 Aquí, `/path/to/script.js` es una ruta absoluta al archivo de script (desde la raíz del sitio).
 
 También puede proporcionar una ruta relativa desde la página actual. Por ejemplo, `src="script.js"` significaría un archivo `"script.js"` en la carpeta actual.
+=======
+Here, `/path/to/script.js` is an absolute path to the script from the site root. One can also provide a relative path from the current page. For instance, `src="script.js"` would mean a file `"script.js"` in the current folder.
+>>>>>>> 10c7807f49122f475f7cda5d07a324247091c080
 
 También podemos dar una URL completa. Por ejemplo:
 

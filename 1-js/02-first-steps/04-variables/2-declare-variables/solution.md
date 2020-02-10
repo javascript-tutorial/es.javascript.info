@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 Primero, la variable para el nombre de nuestro planeta.
+=======
+## The variable for our planet
+>>>>>>> 10c7807f49122f475f7cda5d07a324247091c080
 
 Eso es simple:
 
@@ -8,7 +12,11 @@ let ourPlanetName = "Tierra";
 
 Nota, podríamos usar un nombre más corto `planeta`, pero podría no ser obvio a qué planeta se refiere. Es una buena idea ser más detallado, siempre y cuando la variable noSeaMuyLarga.
 
+<<<<<<< HEAD
 Segundo, el nombre del usuario actual:
+=======
+## The name of the current visitor
+>>>>>>> 10c7807f49122f475f7cda5d07a324247091c080
 
 ```js
 let currentUserName = "Juan";

@@ -96,7 +96,11 @@ Recomendamos colocar puntos y coma entre las sentencias, incluso si están separ
 
 ## Comentarios
 
+<<<<<<< HEAD
 A medida que pasa el tiempo, los programas se vuelven cada vez más complejos. Se hace necesario agregar *comentarios* que describan lo que hace el código y por qué.
+=======
+## Comments [#code-comments]
+>>>>>>> 10c7807f49122f475f7cda5d07a324247091c080
 
 Los comentarios se pueden poner en cualquier lugar de un script. No afectan su ejecución porque el motor simplemente los ignora.
 
