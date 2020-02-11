@@ -1,10 +1,10 @@
 # Una introducción a JavaScript
 
-Veamos que tiene de especial JavaScript, que podemos lograr con este lenguaje y que otras tecnologías se integran bien con él.
+Veamos qué tiene de especial JavaScript, qué podemos lograr con este lenguaje y qué otras tecnologías se integran bien con él.
 
 ## ¿Qué es JavaScript?
 
-_JavaScript_ Fue creado para _"dar vida a la páginas web"_.
+_JavaScript_ Fue creado para _"dar vida a las páginas web"_.
 
 Los programas en este lenguaje son llamados _scripts_. Se pueden escribir directamente en el HTML de una página web y ejecutarse automáticamente a medida que se carga la página.
 
