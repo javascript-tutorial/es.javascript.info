@@ -25,4 +25,8 @@ for (let i = 2; i <= n; i++) { // por cada i...
 }
 ```
 
+<<<<<<< HEAD
 Hay mucho lugar para la mejora. Por ejemplo, podríamos buscar por divisores desde `2` hasta la raíz cuadrada de `i`. Pero de todas formas, si queremos ser realmente eficientes para intervalos grandes, necesitamos cambiar el enfoque y confiar en matemáticas avanzadas y algoritmos complejos como [Criba cuadrática](https://es.wikipedia.org/wiki/Criba_cuadr%C3%A1tica), [Criba general del cuerpo de números](https://es.wikipedia.org/wiki/Criba_general_del_cuerpo_de_n%C3%BAmeros) etc.
+=======
+There's a lot of space to optimize it. For instance, we could look for the divisors from `2` to square root of `i`. But anyway, if we want to be really efficient for large intervals, we need to change the approach and rely on advanced maths and complex algorithms like [Quadratic sieve](https://en.wikipedia.org/wiki/Quadratic_sieve), [General number field sieve](https://en.wikipedia.org/wiki/General_number_field_sieve) etc.
+>>>>>>> 9acc1302a14a3bbabbc9bf95d04581094bd0f1a8
