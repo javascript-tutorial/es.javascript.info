@@ -2,7 +2,11 @@
 
 Las curvas de Bézier se utilizan en gráficos por ordenador para dibujar formas, para animación CSS y en muchos otros lugares.
 
+<<<<<<< HEAD
 En realidad, son algo muy sencillo, vale la pena estudiarlos una vez y luego sentirse cómodo en el mundo de los gráficos vectoriales y las animaciones avanzadas.
+=======
+They are a very simple thing, worth to study once and then feel comfortable in the world of vector graphics and advanced animations.
+>>>>>>> 62299ed853674c4fd1427cd310516d5535bce648
 
 ## Puntos de control
 
@@ -51,7 +55,12 @@ Aquí tenemos algunos ejemplos:
 Hay una fórmula matemática para las curvas de Bézier, pero la veremos un poco más tarde, porque el
 [algoritmo de De Casteljau](https://es.wikipedia.org/wiki/Algoritmo_de_De_Casteljau) es idéntico a la definición matemática y muestra visualmente cómo se construye.
 
+<<<<<<< HEAD
 Primero veamos el ejemplo de los 3 puntos.
+=======
+There's a mathematical formula for Bezier curves, but let's cover it a bit later, because
+[De Casteljau's algorithm](https://en.wikipedia.org/wiki/De_Casteljau%27s_algorithm) is identical to the mathematical definition and visually shows how it is constructed.
+>>>>>>> 62299ed853674c4fd1427cd310516d5535bce648
 
 Aquí está la demostración, y la explicación a continuación.
 
@@ -129,13 +138,23 @@ Una curva de Bézier no suave (sí, eso también es posible):
 [iframe src="demo.svg?p=0,0,1,1,0,1,1,0&animate=1" height=370]
 
 ```online
+<<<<<<< HEAD
 Si hay algo que no está claro en la descripción del algoritmo, los ejemplos en vivo de arriba muestran cómo se construye la curva.
+=======
+If there's something unclear in the algorithm description, please look at the live examples above to see how
+the curve is built.
+>>>>>>> 62299ed853674c4fd1427cd310516d5535bce648
 ```
 
 Como el algoritmo es recursivo, podemos construir curvas de Bézier de cualquier orden, es decir, usando 5, 6 o más puntos de control. Pero en la práctica muchos puntos son menos útiles. Por lo general, tomamos 2-3 puntos, y para líneas complejas pegamos varias curvas juntas. Eso es más simple de desarrollar y calcular.
 
+<<<<<<< HEAD
 ```smart header="¿Cómo dibujar una curva *a través de* puntos dados?"
 Para especificar una curva de Bézier se utilizan puntos de control. Como podemos ver, no están en la curva, excepto el primero y el último.
+=======
+```smart header="How to draw a curve *through* given points?"
+To specify a Bezier curve, control points are used. As we can see, they are not on the curve, except the first and the last ones.
+>>>>>>> 62299ed853674c4fd1427cd310516d5535bce648
 
 A veces tenemos otra tarea: dibujar una curva *a traves de varios puntos*, de modo que todos ellos estén en una sola curva suave. Esta tarea se llama   [interpolación](https://es.wikipedia.org/wiki/Interpolaci%C3%B3n), y aquí no la cubrimos.
 
@@ -174,7 +193,7 @@ En lugar de <code>x<sub>1</sub>, y<sub>1</sub>, x<sub>2</sub>, y<sub>2</sub>, x<
 Por ejemplo, si los puntos de control son  `(0,0)`, `(0.5, 1)` y `(1, 0)`, las ecuaciones se convierten en:
 
 - <code>x = (1−t)<sup>2</sup> * 0 + 2(1−t)t * 0.5 + t<sup>2</sup> * 1 = (1-t)t + t<sup>2</sup> = t</code>
-- <code>y = (1−t)<sup>2</sup> * 0 + 2(1−t)t * 1 + t<sup>2</sup> * 0 = 2(1-t)t = –t<sup>2</sup> + 2t</code>
+- <code>y = (1−t)<sup>2</sup> * 0 + 2(1−t)t * 1 + t<sup>2</sup> * 0 = 2(1-t)t = –2t<sup>2</sup> + 2t</code>
 
 Ahora como `t` se ejecuta desde `0` a `1`, el conjunto de valores `(x,y)` para cada `t` forman la curva para dichos puntos de control.
 
@@ -184,13 +203,23 @@ Las curvas de Bézier se definen por sus puntos de control.
 
 Vimos dos definiciones de curvas de Bézier:
 
+<<<<<<< HEAD
 1. Utilizando una fórmula matemática.
 2. Utilizando un proceso de dibujo: el algoritmo de De Casteljau.
+=======
+1. Using a drawing process: De Casteljau's algorithm.
+2. Using a mathematical formulas.
+>>>>>>> 62299ed853674c4fd1427cd310516d5535bce648
 
 Buenas propiedades de las curvas de Bezier:
 
+<<<<<<< HEAD
 - Podemos dibujar líneas suaves con un ratón moviendo los puntos de control.
 - Las formas complejas se pueden construir con varias curvas Bezier.
+=======
+- We can draw smooth lines with a mouse by moving control points.
+- Complex shapes can be made of several Bezier curves.
+>>>>>>> 62299ed853674c4fd1427cd310516d5535bce648
 
 Uso:
 

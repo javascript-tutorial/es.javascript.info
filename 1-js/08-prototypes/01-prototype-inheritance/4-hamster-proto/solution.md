@@ -10,7 +10,7 @@ Let's look carefully at what's going on in the call `speedy.eat("apple")`.
 
 So all hamsters share a single stomach!
 
-Every time the `stomach` is taken from the prototype, then `stomach.push` modifies it "at place".
+Both for `lazy.stomach.push(...)` and `speedy.stomach.push()`, the property `stomach` is found in the prototype (as it's not in the object itself), then the new data is pushed into it.
 
 Please note that such thing doesn't happen in case of a simple assignment `this.stomach=`:
 
@@ -44,7 +44,7 @@ alert( lazy.stomach ); // <nothing>
 
 Now all works fine, because `this.stomach=` does not perform a lookup of `stomach`. The value is written directly into `this` object.
 
-Also we can totally evade the problem by making sure that each hamster has their own stomach:
+Also we can totally avoid the problem by making sure that each hamster has their own stomach:
 
 ```js run
 let hamster = {
@@ -77,4 +77,4 @@ alert( speedy.stomach ); // apple
 alert( lazy.stomach ); // <nothing>
 ```
 
-As a common solution, all properties that describe the state of a particular object, like `stomach` above, are usually written into that object. That prevents such problems.
+As a common solution, all properties that describe the state of a particular object, like `stomach` above, should be written into that object. That prevents such problems.
