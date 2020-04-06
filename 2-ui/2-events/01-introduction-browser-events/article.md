@@ -148,7 +148,7 @@ In the code below `button` shows its contents using `this.innerHTML`:
 
 ## Possible mistakes
 
-If you're starting to work with event -- please note some subtleties.
+If you're starting to work with events -- please note some subtleties.
 
 **The function should be assigned as `sayThanks`, not `sayThanks()`.**
 
@@ -160,17 +160,17 @@ button.onclick = sayThanks;
 button.onclick = sayThanks();
 ```
 
-If we add brackets, then `sayThanks()` --  will be the *result* of the function execution, so `onclick` in the last code becomes `undefined` (the function returns nothing). That won't work.
+If we add parentheses, `sayThanks()` --  is a function call. So the last line actually takes the *result* of the function execution, that is `undefined` (as the function returns nothing), and assigns it to `onclick`. That doesn't work.
 
-...But in the markup we do need the brackets:
+...On the other hand, in the markup we do need the parentheses:
 
 ```html
 <input type="button" id="button" onclick="sayThanks()">
 ```
 
-The difference is easy to explain. When the browser reads the attribute, it creates a handler function with the body from its content.
+The difference is easy to explain. When the browser reads the attribute, it creates a handler function with *body from its content*: `sayThanks()`.
 
-So the last example is the same as:
+So the markup generates this property:
 ```js
 button.onclick = function() {
 *!*
@@ -181,7 +181,7 @@ button.onclick = function() {
 
 **Use functions, not strings.**
 
-The assignment `elem.onclick = "alert(1)"` would work too. It works for compatibility reasons, but strongly not recommended.
+The assignment `elem.onclick = "alert(1)"` would work too. It works for compatibility reasons, but is strongly not recommended.
 
 **Don't use `setAttribute` for handlers.**
 
@@ -216,7 +216,7 @@ Web-standard developers understood that long ago and suggested an alternative wa
 The syntax to add a handler:
 
 ```js
-element.addEventListener(event, handler[, options]);
+element.addEventListener(event, handler, [options]);
 ```
 
 `event`
@@ -228,14 +228,14 @@ element.addEventListener(event, handler[, options]);
 `options`
 : An additional optional object with properties:
     - `once`: if `true`, then the listener is automatically removed after it triggers.
-    - `capture`: the phrase where to handle the event, to be covered later in the chapter <info:bubbling-and-capturing>. For historical reasons, `options` can also be `false/true`, that's the same as `{capture: false/true}`.
+    - `capture`: the phase where to handle the event, to be covered later in the chapter <info:bubbling-and-capturing>. For historical reasons, `options` can also be `false/true`, that's the same as `{capture: false/true}`.
     - `passive`: if `true`, then the handler will not `preventDefault()`, we'll cover that later in <info:default-browser-action>.
 
 
 To remove the handler, use `removeEventListener`:
 
 ```js
-element.removeEventListener(event, handler[, options]);
+element.removeEventListener(event, handler, [options]);
 ```
 
 ````warn header="Removal requires the same function"
@@ -293,36 +293,20 @@ As we can see in the example above, we can set handlers *both* using a DOM-prope
 ````warn header="For some events, handlers only work with `addEventListener`"
 There exist events that can't be assigned via a DOM-property. Must use `addEventListener`.
 
-For instance, the event `transitionend` (CSS animation finished) is like that.
+For instance, the event `DOMContentLoaded`, that triggers when the document is loaded and DOM is built.
 
-Try the code below. In most browsers only the second handler works, not the first one.
-
-```html run
-<style>
-  input {
-    transition: width 1s;
-    width: 100px;
-  }
-
-  .wide {
-    width: 300px;
-  }
-</style>
-
-<input type="button" id="elem" onclick="this.classList.toggle('wide')" value="Click me">
-
-<script>
-  elem.ontransitionend = function() {
-    alert("DOM property"); // doesn't work
-  };
-
-*!*
-  elem.addEventListener("transitionend", function() {
-    alert("addEventListener"); // shows up when the animation finishes
-  });
-*/!*
-</script>
+```js
+document.onDOMContentLoaded = function() {
+  alert("DOM built"); // will never run
+};
 ```
+
+```js
+document.addEventListener("DOMContentLoaded", function() {
+  alert("DOM built"); // this way it works
+});
+```
+So `addEventListener` is more universal. Although, such events are an exception rather than the rule.
 ````
 
 ## Event object
@@ -351,7 +335,7 @@ Some properties of `event` object:
 : Event type, here it's `"click"`.
 
 `event.currentTarget`
-: Element that handled the event. That's exactly the same as `this`, unless you bind `this` to something else, and then `event.currentTarget` becomes useful.
+: Element that handled the event. That's exactly the same as `this`, unless the handler is an arrow function, or its `this` is bound to something else, then we can get the element from  `event.currentTarget`.
 
 `event.clientX / event.clientY`
 : Window-relative coordinates of the cursor, for mouse events.
@@ -371,7 +355,7 @@ That's possible because when the browser reads the attribute, it creates a handl
 
 ## Object handlers: handleEvent
 
-We can assign an object as an event handler using `addEventListener`. When an event occurs, its `handleEvent` method is called with it.
+We can assign not just a function, but an object as an event handler using `addEventListener`. When an event occurs, its `handleEvent` method is called.
 
 For instance:
 
@@ -388,7 +372,7 @@ For instance:
 </script>
 ```
 
-In other words, when `addEventListener` receives an object as the handler, it calls `object.handleEvent(event)` in case of an event.
+As we can see, when `addEventListener` receives an object as the handler, it calls `object.handleEvent(event)` in case of an event.
 
 We could also use a class for that:
 
@@ -462,7 +446,7 @@ HTML attributes are used sparingly, because JavaScript in the middle of an HTML 
 
 DOM properties are ok to use, but we can't assign more than one handler of the particular event. In many cases that limitation is not pressing.
 
-The last way is the most flexible, but it is also the longest to write. There are few events that only work with it, for instance `transtionend` and `DOMContentLoaded` (to be covered). Also `addEventListener` supports objects as event handlers. In that case the method `handleEvent` is called in case of the event.
+The last way is the most flexible, but it is also the longest to write. There are few events that only work with it, for instance `transitionend` and `DOMContentLoaded` (to be covered). Also `addEventListener` supports objects as event handlers. In that case the method `handleEvent` is called in case of the event.
 
 No matter how you assign the handler -- it gets an event object as the first argument. That object contains the details about what's happened.
 
