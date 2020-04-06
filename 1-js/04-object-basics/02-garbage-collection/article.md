@@ -1,38 +1,37 @@
-# Garbage collection
+# Garbage Collection
 
-Memory management in JavaScript is performed automatically and invisibly to us. We create primitives, objects, functions... All that takes memory.
+La gestión de la memoria en JavaScript se realiza de forma automática e invisible para nosotros. Creamos datos primitivos, objetos, funciones... Todo lo que requiere memoria.
 
-What happens when something is not needed any more? How does the JavaScript engine discover it and clean it up?
+¿Qué sucede cuando algo no se necesita más? ¿Cómo hace el motor de JavaScript para encontrarlo y limpiarlo?
 
-## Reachability
+## Alcance
 
-The main concept of memory management in JavaScript is *reachability*.
+El concepto principal del manejo de memoria en JavaScript es *alcance*.
 
-Simply put, "reachable" values are those that are accessible or usable somehow. They are guaranteed to be stored in memory.
+Simple, los valores "alcanzables" son aquellos que son accesibles o se pueden utilizar de alguna manera. Se garantiza que se guardarán en la memoria.
 
-1. There's a base set of inherently reachable values, that cannot be deleted for obvious reasons.
+1. Hay un conjunto base de valores inherentemente accesibles, que no se pueden eliminar por razones obvias.
+ 
+    Por ejemplo:
+    - Variables locales y parámetros de la función actual.
+    - Variables y parámetros para otras funciones en la cadena actual de llamadas anidadas.
+    - Variables Globales
+    - (Hay algunos otros internos también)
 
-    For instance:
+    Estos valores se llaman *roots*.
 
-    - Local variables and parameters of the current function.
-    - Variables and parameters for other functions on the current chain of nested calls.
-    - Global variables.
-    - (there are some other, internal ones as well)
+2. Cualquier otro valor se considera accesible si es accesible desde una raíz(root) por una referencia o por una cadena de referencias.
 
-    These values are called *roots*.
+por ejemplo, si hay un objeto en una variable local, y ese objeto tiene una propiedad que hace referencia a otro objeto, ese objeto se considera accesible. Y aquellos a los que hace referencia también son accesibles. Ejemplos detallados a seguir.
 
-2. Any other value is considered reachable if it's reachable from a root by a reference or by a chain of references.
+Hay un proceso en segundo plano en el motor de JavaScript que se llama [recolector de basura] (https://es.wikipedia.org/wiki/Recolector_de_basura). Monitorea todos los objetos y elimina aquellos que se han vuelto inalcanzables.
 
-    For instance, if there's an object in a local variable, and that object has a property referencing another object, that object is considered reachable. And those that it references are also reachable. Detailed examples to follow.
+## Un ejemplo sencillo
 
-There's a background process in the JavaScript engine that is called [garbage collector](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)). It monitors all objects and removes those that have become unreachable.
-
-## A simple example
-
-Here's the simplest example:
+Aquí va el ejemplo más simple:
 
 ```js
-// user has a reference to the object
+// El usuario tiene una referencia al objeto
 let user = {
   name: "John"
 };
@@ -40,9 +39,9 @@ let user = {
 
 ![](memory-user-john.svg)
 
-Here the arrow depicts an object reference. The global variable `"user"` references the object `{name: "John"}` (we'll call it John for brevity). The `"name"` property of John stores a primitive, so it's painted inside the object.
+Aquí la flecha representa una referencia de objeto. La variable global `"user"` hace referencia al objeto `{name: "John"}` (le llamaremos John por brevedad). La propiedad `"name"`' de John almacena un dato primitivo, por lo que está pintada dentro del objeto.
 
-If the value of `user` is overwritten, the reference is lost:
+Si se sobrescribe el valor de `user`, se pierde la referencia:
 
 ```js
 user = null;
@@ -50,14 +49,14 @@ user = null;
 
 ![](memory-user-john-lost.svg)
 
-Now John becomes unreachable. There's no way to access it, no references to it. Garbage collector will junk the data and free the memory.
+Ahora John se vuelve inalcanzable. No hay forma de acceder a él, no hay referencias a él. El recolector de basura desechará los datos y liberará la memoria.
 
-## Two references
+## Dos referencias
 
-Now let's imagine we copied the reference from `user` to `admin`:
+Ahora imaginemos que copiamos la referencia de `user` a `admin`:
 
 ```js
-// user has a reference to the object
+// El usuario tiene una referencia al objeto
 let user = {
   name: "John"
 };
@@ -69,16 +68,16 @@ let admin = user;
 
 ![](memory-user-john-admin.svg)
 
-Now if we do the same:
+Ahora si hacemos lo mismo
 ```js
 user = null;
 ```
 
-...Then the object is still reachable via `admin` global variable, so it's in memory. If we overwrite `admin` too, then it can be removed.
+...Entonces el objeto todavía es accesible a través de la variable global `admin`, por lo que está en la memoria. Si también sobrescribimos `admin`, entonces se puede eliminar.
 
-## Interlinked objects
+## Objetos entrelazados
 
-Now a more complex example. The family:
+Ahora un ejemplo más complejo. La familia:
 
 ```js
 function marry(man, woman) {
@@ -97,16 +96,14 @@ let family = marry({
   name: "Ann"
 });
 ```
-
-Function `marry` "marries" two objects by giving them references to each other and returns a new object that contains them both.
-
-The resulting memory structure:
+La función `marry` "casa" dos objetos dándoles referencias entre sí y devuelve un nuevo objeto que los contiene a ambos.
+La estructura de memoria resultante:
 
 ![](family.svg)
 
-As of now, all objects are reachable.
+A partir de ahora, todos los objetos son accesibles.
 
-Now let's remove two references:
+Ahora borremos estas dos referencias:
 
 ```js
 delete family.father;
@@ -115,98 +112,98 @@ delete family.mother.husband;
 
 ![](family-delete-refs.svg)
 
-It's not enough to delete only one of these two references, because all objects would still be reachable.
+No es suficiente eliminar solo una de estas dos referencias, porque todos los objetos aún serían accesibles.
 
-But if we delete both, then we can see that John has no incoming reference any more:
+Pero si eliminamos a ambos, entonces podemos ver que John ya no tiene referencias entrantes:
 
 ![](family-no-father.svg)
 
-Outgoing references do not matter. Only incoming ones can make an object reachable. So, John is now unreachable and will be removed from the memory with all its data that also became unaccessible.
+Las referencias salientes no importan. Solo los entrantes pueden hacer que un objeto sea accesible. Entonces, John ahora es inalcanzable y será eliminado de la memoria con todos sus datos que también se volvieron inaccesibles.
 
-After garbage collection:
+Después de la recolección de basura:
 
 ![](family-no-father-2.svg)
 
-## Unreachable island
+## Isla inalcanzable
 
-It is possible that the whole island of interlinked objects becomes unreachable and is removed from the memory.
+Es posible que toda la isla de objetos interconectados se vuelva inalcanzable y se elimine de la memoria.
 
-The source object is the same as above. Then:
+El objeto fuente es el mismo que el anterior. Entonces:
 
 ```js
 family = null;
 ```
 
-The in-memory picture becomes:
+La imagen en memoria se convierte en:
 
 ![](family-no-family.svg)
 
-This example demonstrates how important the concept of reachability is.
+Este ejemplo demuestra cuán importante es el concepto de alcance.
 
-It's obvious that John and Ann are still linked, both have incoming references. But that's not enough.
+Es obvio que John y Ann todavía están vinculados, ambos tienen referencias entrantes. Pero eso no es suficiente.
 
-The former `"family"` object has been unlinked from the root, there's no reference to it any more, so the whole island becomes unreachable and will be removed.
+El antiguo objeto `"family"` se ha desvinculado de la raíz(root), ya no se hace referencia a él, por lo que toda la isla se vuelve inalcanzable y se eliminará.
 
-## Internal algorithms
+## Algoritmos internos
 
-The basic garbage collection algorithm is called "mark-and-sweep".
+El algoritmo básico de recolección de basura se llama "marcar y barrer"(mark-and-sweep).
 
-The following "garbage collection" steps are regularly performed:
+Los siguientes pasos de "recolección de basura" se realizan regularmente:
 
-- The garbage collector takes roots and "marks" (remembers) them.
-- Then it visits and "marks" all references from them.
-- Then it visits marked objects and marks *their* references. All visited objects are remembered, so as not to visit the same object twice in the future.
-- ...And so on until there are unvisited references (reachable from the roots).
-- All objects except marked ones are removed.
+- El recolector de basura toma raíces y las "marca" (recuerda).
+- Luego visita y "marca" todas las referencias de ellos.
+- Luego visita los objetos marcados y marca *sus* referencias. Todos los objetos visitados son recordados, para no visitar el mismo objeto dos veces en el futuro.
+- ... Y así sucesivamente hasta que haya referencias no visitadas (accesibles desde las raíces).
+- Todos los objetos, excepto los marcados, se eliminan.
 
-For instance, let our object structure look like this:
+Por ejemplo, deja que nuestra estructura de objeto se vea así:
 
 ![](garbage-collection-1.svg)
 
-We can clearly see an "unreachable island" to the right side. Now let's see how "mark-and-sweep" garbage collector deals with it.
+Podemos ver claramente una "isla inalcanzable" al lado derecho. Ahora veamos cómo maneja el recolector de basura "marcar y barrer"(mark-and-sweep).
 
-The first step marks the roots:
+El primer paso marca las raíces:
 
 ![](garbage-collection-2.svg)
 
-Then their references are marked:
+Luego se marcan sus referencias:
 
 ![](garbage-collection-3.svg)
 
-...And their references, while possible:
+... Y sus referencias, mientras sea posible:
 
 ![](garbage-collection-4.svg)
 
-Now the objects that could not be visited in the process are considered unreachable and will be removed:
+Ahora los objetos que no se pudieron visitar en el proceso se consideran inalcanzables y se eliminarán:
 
 ![](garbage-collection-5.svg)
 
-That's the concept of how garbage collection works.
+Ese es el concepto de cómo funciona la recolección de basura.
 
-JavaScript engines apply many optimizations to make it run faster and not affect the execution.
+Los motores de JavaScript aplican muchas optimizaciones para que se ejecute más rápido y no afecte la ejecución.
 
-Some of the optimizations:
+Algunas de las optimizaciones
 
-- **Generational collection** -- objects are split into two sets: "new ones" and "old ones". Many  objects appear, do their job and die fast, they can be cleaned up aggressively. Those that survive for long enough, become "old" and are examined less often.
-- **Incremental collection** -- if there are many objects, and we try to walk and mark the whole object set at once, it may take some time and introduce visible delays in the execution. So the engine tries to split the garbage collection into pieces. Then the pieces are executed one by one, separately. That requires some extra bookkeeping between them to track changes, but we have many tiny delays instead of a big one.
-- **Idle-time collection** -- the garbage collector tries to run only while the CPU is idle, to reduce the possible effect on the execution.
+- **Colección generacional** -- 
+los objetos se dividen en dos conjuntos: "nuevos" y "antiguos". Aparecen muchos objetos, hacen su trabajo y mueren rápido, se pueden limpiar agresivamente. Aquellos que sobreviven el tiempo suficiente, se vuelven "viejos" y son examinados con menos frecuencia.
+- **Colección incremental** -- Si hay muchos objetos y tratamos de caminar y marcar todo el conjunto de objetos a la vez, puede llevar algún tiempo e introducir retrasos visibles en la ejecución. Entonces el motor intenta dividir la recolección de basura en pedazos. Luego las piezas se ejecutan una por una, por separado. Eso requiere una contabilidad adicional entre ellos para rastrear los cambios, pero tenemos muchos pequeños retrasos en lugar de uno grande.
+- **Recolección de tiempo inactivo** -- el recolector de basura trata de ejecutarse solo mientras la CPU está inactiva, para reducir el posible efecto en la ejecución.
 
-There are other optimizations and flavours of garbage collection algorithms. As much as I'd like to describe them here, I have to hold off, because different engines implement different tweaks and techniques. And, what's even more important, things change as engines develop, so going deeper "in advance", without a real need is probably not worth that. Unless, of course, it is a matter of pure interest, then there will be some links for you below.
+Hay otras optimizaciones y tipos de algoritmos de recolección de basura. Por mucho que me gustaría describirlos aquí, tengo que esperar, porque diferentes motores implementan diferentes ajustes y técnicas. Y, lo que es aún más importante, las cosas cambian a medida que se desarrollan los motores, por lo que probablemente no vale la pena profundizar "por adelantado", sin una necesidad real. A menos que, por supuesto, sea una cuestión de puro interés, a continuación habrá algunos enlaces para tí.
 
-## Summary
+## Resumen
 
-The main things to know:
+Los principales puntos a saber:
 
-- Garbage collection is performed automatically. We cannot force or prevent it.
-- Objects are retained in memory while they are reachable.
-- Being referenced is not the same as being reachable (from a root): a pack of interlinked objects can become unreachable as a whole.
+- El Recolector de Basura es ejecutado automáticamente. No lo podemos forzar o prevenir.
+- Los objetos se retienen en la memoria mientras son accesibles.
+- Ser referenciado no es lo mismo que ser accesible (desde una raíz): un conjunto de objetos interconectados pueden volverse inalcanzables como un todo.
 
-Modern engines implement advanced algorithms of garbage collection.
+Los motores modernos implementan algoritmos avanzados de recolección de basura.
 
-A general book "The Garbage Collection Handbook: The Art of Automatic Memory Management" (R. Jones et al) covers some of them.
+Un libro general "The Garbage Collection Handbook: The Art of Automatic Memory Management" (R. Jones et al) cubre algunos de ellos.
 
-If you are familiar with low-level programming, the more detailed information about V8 garbage collector is in the article [A tour of V8: Garbage Collection](http://jayconrod.com/posts/55/a-tour-of-v8-garbage-collection).
+Si estás familiarizado con la programación de bajo nivel, la información más detallada sobre el recolector de basura V8 se encuentra en el artículo [A tour of V8: Garbage Collection](http://jayconrod.com/posts/55/a-tour-of-v8-garbage-collection).
 
-[V8 blog](http://v8project.blogspot.com/) also publishes articles about changes in memory management from time to time. Naturally, to learn the garbage collection, you'd better prepare by learning about V8 internals in general and read the blog of [Vyacheslav Egorov](http://mrale.ph) who worked as one of V8 engineers. I'm saying: "V8", because it is best covered with articles in the internet. For other engines, many approaches are similar, but garbage collection differs in many aspects.
-
-In-depth knowledge of engines is good when you need low-level optimizations. It would be wise to plan that as the next step after you're familiar with the language.  
+[V8 blog](http://v8project.blogspot.com/) también publica artículos sobre cambios en la administración de memoria de vez en cuando. Naturalmente, para aprender la recolección de basura, es mejor que se prepare aprendiendo sobre los componentes internos de V8 en general y lea el blog de [Vyacheslav Egorov](http://mrale.ph) que trabajó como uno de los ingenieros de V8. Estoy diciendo: "V8", porque se cubre mejor con artículos en Internet. Para otros motores, muchos enfoques son similares, pero la recolección de basura difiere en muchos aspectos.
+El conocimiento profundo de los motores es bueno cuando necesita optimizaciones de bajo nivel. Sería prudente planificar eso como el siguiente paso después de que esté familiarizado con el idioma.
