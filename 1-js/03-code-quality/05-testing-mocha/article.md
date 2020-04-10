@@ -1,147 +1,146 @@
-# Automated testing with mocha
+# Test automatizados con mocha
 
-Automated testing will be used in further tasks.
+Los tests automáticos deben ser considerados como una tarea más.
 
-It's actually a part of the "educational minimum" of a developer.
+Debe ser parte del "conocimiento mínimo" de un/a desarrollador/a.
 
-## Why we need tests?
+## ¿Por qué necesitamos tests?
 
-When we write a function, we can usually imagine what it should do: which parameters give which results.
+Cuando escribimos una función, normalmente imaginamos qué debe hacer: Para ciertos parámetros, que resultado.
 
-During development, we can check the function by running it and comparing the outcome with the expected one. For instance, we can do it in the console.
+Durante el desarrollo, podemos comprobar la función ejecutándola y comparando el resultado con la salida esperada. Por ejemplo, podemos hacer eso en la consola.
 
-If something is wrong -- then we fix the code, run again, check the result -- and so on till it works.
+Si algo esta incorrecto -- entonces corregimos el código, ejecutamos de nuevo, comprobamos resultado -- y así sucesivamente hasta que funcione.
 
-But such manual "re-runs" are imperfect.
+Pero esa "re-ejecuciones" manuales son imperfectas.
 
-**When testing a code by manual re-runs, it's easy to miss something.**
+**Cuando testeamos un código re-ejecutándolo manualmente es fácil obviar algo.**
 
-For instance, we're creating a function `f`. Wrote some code, testing: `f(1)` works, but `f(2)` doesn't work. We fix the code and now `f(2)` works. Looks complete? But we forgot to re-test `f(1)`. That may lead to an error.
+Por ejemplo, si estamos creando una función `f`. Escribimos algo de código, testeamos: `f(1)` funciona, pero `f(2)` no funciona. Corregimos el código y ahora funciona `f(2)`. ¿Está completo? Hemos olvidado re-testear `f(1)`. Esto puede resultar error.
 
-That's very typical. When we develop something, we keep a lot of possible use cases in mind. But it's hard to expect a programmer to check all of them manually after every change. So it becomes easy to fix one thing and break another one.
+Todo esto es muy típico. Cuando desarrollamos algo, mantenemos muchos casos de uso posibles en la cabeza. Pero es complicado esperar que un/a programador/a compruebe todos después de cada cambio. Por lo que deviene fácil arreglar una cosa y romper otra.
 
-**Automated testing means that tests are written separately, in addition to the code. They can be executed easily and check all the main use cases.**
+**Los tests automatizados implican escribir los tests por separado, además del código. Pueden ser ejecutados fácilmente y comprueban todos los casos de uso principales.**
 
-## Behavior Driven Development (BDD)
+## Behavior Driven Development (BDD) 
 
-Let's use a technique named [Behavior Driven Development](http://en.wikipedia.org/wiki/Behavior-driven_development) or, in short, BDD. That approach is used among many projects. BDD is not just about testing. That's more.
+Vamos a usar una técnica llamada [Desarrollo guiado por comportamiento](http://en.wikipedia.org/wiki/Behavior-driven_development) o por sus siglas en inglés, BDD. Es una aproximación utilizada en muchos proyectos. BDD no es solo hacer test. Es más.
 
-**BDD is three things in one: tests AND documentation AND examples.**
+**BDD son tres cosas en uno: tests, documentación y ejemplos.**
 
-Enough words. Let's see the example.
+Basta de palabras, veamos un ejemplo:
 
-## Development of "pow": the spec
+## Desarrollo de "potencia de un número (pow)": la especificación
 
-Let's say we want to make a function `pow(x, n)` that raises `x` to an integer power `n`. We assume that `n≥0`.
+Digamos que queremos hacer una función `pow(x, n)` que eleve `x` a la potencia de un entero `n`. Asumimos que `n≥0`.
 
-That task is just an example: there's the `**` operator in JavaScript that can do that, but here we concentrate on the development flow that can be applied to more complex tasks as well.
+Esta tarea es sólo un ejemplo: Hay un operador `**` en JavaScript que hace eso, pero queremos concentrarnos en el flujo de desarrollo que puede ser aplicado a tareas más complejas.
 
-Before creating the code of `pow`, we can imagine what the function should do and describe it.
+Antes de crear el código de `pow`, podemos imaginar lo que hace la función y describirlo.
 
-Such description is called a *specification* or, in short, a spec, and looks like this:
-
+Esa descripción es llamada *especificación* o una spec y se asemeja a:
 ```js
 describe("pow", function() {
 
-  it("raises to n-th power", function() {
+  it("eleva a la n-ésima potencia", function() {
     assert.equal(pow(2, 3), 8);
   });
 
 });
 ```
 
-A spec has three main building blocks that you can see above:
+Una spec tiene los tres bloques principales mostrados abajo:
 
-`describe("title", function() { ... })`
-: What functionality we're describing. Uses to group "workers" -- the `it` blocks. In our case we're describing the function `pow`.
+`describe("titulo", function() { ... })`
+: Qué funcionalidad estamos describiendo. Utilizado para agrupar los "trabajadores" -- los bloques `it`. En nuestro caso estamos describiendo la función `pow`.
 
-`it("title", function() { ... })`
-: In the title of `it` we *in a human-readable way* describe the particular use case, and the second argument is a function that tests it.
+`it("titulo", function() { ... })`
+: En el título de `it` introducimos una descripción entendible en forma humana del caso de uso. El segundo argumento es la función que testea eso.
 
 `assert.equal(value1, value2)`
-: The code inside `it` block, if the implementation is correct, should execute without errors.
+: El código dentro del bloque `it`, si la implementación es correcta, debe ejecutar sin errores.
 
-    Functions `assert.*` are used to check whether `pow` works as expected. Right here we're using one of them -- `assert.equal`, it compares arguments and yields an error if they are not equal. Here it checks that the result of `pow(2, 3)` equals `8`.
+    Las funciones `assert.*` son usadas para comprobar cuando `pow` funciona como esperamos. Justo aquí utilizamos una de ellas -- `assert.equal`, que compara argumentos y produce un error si los mismos no son iguales. Arriba se está comprobando que el resultado de `pow(2, 3)` es igual a `8`.
 
-    There are other types of comparisons and checks that we'll see further.
+    Hay otros tipos de comparaciones y comprobaciones que veremos más adelante.
 
-## The development flow
+## El flujo de desarrollo
 
-The flow of development usually looks like this:
+El flujo de desarrollo podría asemejarse a:
 
-1. An initial spec is written, with tests for the most basic functionality.
-2. An initial implementation is created.
-3. To check whether it works, we run the testing framework [Mocha](http://mochajs.org/) (more details soon) that runs the spec. Errors are displayed. We make corrections until everything works.
-4. Now we have a working initial implementation with tests.
-5. We add more use cases to the spec, probably not yet supported by the implementations. Tests start to fail.
-6. Go to 3, update the implementation till tests give no errors.
-7. Repeat steps 3-6 till the functionality is ready.
+1. Un spec inicial es escrito, con tests para la funcionalidad más básica.
+2. Una implementación inicial es creada.
+3. Para comprobar que funciona, ejecutamos el framework de test [Mocha](http://mochajs.org/) (detallado más adelante) que ejecuta el spec. Los errores son mostrados. Hacemos correcciones hasta que todo funciona.
+4. Ahora tenemos una implementación inicial con tests.
+5. Añadimos más casos de uso al spec, seguramente no soportados aún por la implementación. Los tests empiezan a fallar.
+6. Ir a 3, actualizar la implementación hasta que los tests no den errores.
+7. Repetir pasos 3-6 hasta que la funcionalidad este lista.
 
-So, the development is *iterative*. We write the spec, implement it, make sure tests pass, then write more tests, make sure they work etc. At the end we have both a working implementation and tests for it.
+De tal forma que el desarrollo es iterativo. Escribimos la especificación, la implementamos, aseguramos que los tests pasen y entonces escribimos más tests y volvemos a asegurar que pasen, etc. Al final tenemos una implementación funcionando con tests para ella.
 
-In our case, the first step is complete: we have an initial spec for `pow`. So let's make an implementation. But before that let's make a "zero" run of the spec, just to see that tests are working (they will all fail).
+En nuestro caso, el primer paso esta completo: tenemos una spec inicial para `pow`. Vamos a realizar la implementación. Pero antes de comenzar hemos de asegurarnos que los test se ejecutan (no hay errores de sintáxis ni de compilación pero van a fallar todos).
 
-## The spec in action
+## La spec en acción
 
-Here in the tutorial we'll be using the following JavaScript libraries for tests:
+En éste tutorial estamos usando las siguientes librerías JavaScript para los tests:
 
-- [Mocha](http://mochajs.org/) -- the core framework: it provides common testing functions including `describe` and `it` and the main function that runs tests.
-- [Chai](http://chaijs.com) -- the library with many assertions. It allows to use a lot of different assertions, for now we need only `assert.equal`.
-- [Sinon](http://sinonjs.org/) -- a library to spy over functions, emulate built-in functions and more, we'll need it much later.
+- [Mocha](http://mochajs.org/) -- el framework central: provee de funciones para test comunes como `describe` e `it` y la función principal que ejecuta los tests.
+- [Chai](http://chaijs.com) -- una librería con muchas funciones de comprobación (assertions). Permite el uso de diferentes comprobaciones. De momento usaremos `assert.equal`.
+- [Sinon](http://sinonjs.org/) -- una libraería para espiar funciones. Simula funciones incorparadas al lenguaje y mucho más. La necesitaremos a menudo más adelante.
 
-These libraries are suitable for both in-browser and server-side testing. Here we'll consider the browser variant.
+Estas librerías son adecuadas tanto para tests en el navegador como en el lado del servidor. Aquí nos enfocaremos en el lado del navegador.
 
-The full HTML page with these frameworks and `pow` spec:
+La página HTML con estos frameworks y la spec de `pow`:
 
 ```html src="index.html"
 ```
 
-The page can be divided into five parts:
+La página puede ser dividida en cinco partes:
 
-1. The `<head>` -- add third-party libraries and styles for tests.
-2. The `<script>` with the function to test, in our case -- with the code for `pow`.
-3. The tests -- in our case an external script `test.js` that has `describe("pow", ...)` from above.
-4. The HTML element `<div id="mocha">` will be used by Mocha to output results.
-5. The tests are started by the command `mocha.run()`.
+1. El `<head>` -- importa librerías de terceros y estilos para los tests.
+2. El `<script>` con la función a comprobar, en nuesro caso -- cont el código de `pow`.
+3. Los tests -- en nuestro caso un fichero externo `test.js` que contiene un sentencia `describe("pow", ...)`al inicio.
+4. El elemento HTML `<div id="mocha">` utilizado para la salida de los resultados.
+5. Los test se inician con el comando `mocha.run()`.
 
-The result:
+El resultado:
 
 [iframe height=250 src="pow-1" border=1 edit]
 
-As of now, the test fails, there's an error. That's logical: we have an empty function code in `pow`, so `pow(2,3)` returns `undefined` instead of `8`.
+De momento, el test falla. Es lógico: tenemos el código vacío en la función `pow`, así que `pow(2,3)` devuelve `undefined` en lugar de `8`.
 
-For the future, let's note that there are advanced test-runners, like [karma](https://karma-runner.github.io/) and others. So it's generally not a problem to setup many different tests.
+Para más adelante, ten en cuenta que hay avanzados test-runners (Herramientas para ejecutar los test en diferentes entornos de forma automática), como [karma](https://karma-runner.github.io/) y otros. Por lo que generalmente no es un problema configurar muchos tests diferentes.
 
-## Initial implementation
+## Implementación inicial
 
-Let's make a simple implementation of `pow`, for tests to pass:
+Vamos a realizar una implementación simple de `pow`, suficiente para pasar el test:
 
 ```js
 function pow(x, n) {
-  return 8; // :) we cheat!
+  return 8; // :) ¡hacemos trampas!
 }
 ```
 
-Wow, now it works!
+¡Ahora funciona!
 
 [iframe height=250 src="pow-min" border=1 edit]
 
-## Improving the spec
+## Mejoramos el spec
 
-What we've done is definitely a cheat. The function does not work: an attempt to calculate `pow(3,4)` would give an incorrect result, but tests pass.
+Lo que hemos hecho es una trampa. La función no funciona bien: ejecutar un cálculo diferente como   `pow(3,4)` nos devuelve un resultado incorrecto pero el test pasa.
 
-...But the situation is quite typical, it happens in practice. Tests pass, but the function works wrong. Our spec is imperfect. We need to add more use cases to it.
+... pero la situación es habitual, ocurre en la práctica. Los tests pasan, pero la función no funciona bien. Nuestra especificación está incompleta. Necesitamos añadir más casos de uso a la especificación.
 
-Let's add one more test to see if `pow(3, 4) = 81`.
+Vamos a incluir un test para ver si `pow(3,4) = 81`.
 
-We can select one of two ways to organize the test here:
+Podemos escoger entre dos formas de organizar el test:
 
-1. The first variant -- add one more `assert` into the same `it`:
+1. La primera manera -- añadir un `assert` más en el mismo `it`:
 
     ```js
     describe("pow", function() {
 
-      it("raises to n-th power", function() {
+      it("eleva a la n-ésima potencia", function() {
         assert.equal(pow(2, 3), 8);
     *!*
         assert.equal(pow(3, 4), 81);
@@ -150,43 +149,43 @@ We can select one of two ways to organize the test here:
 
     });
     ```
-2. The second -- make two tests:
+2. La segunda -- hacer dos tests:
 
     ```js
     describe("pow", function() {
 
-      it("2 raised to power 3 is 8", function() {
+      it("2 elevado a la potencia de 3 es 8", function() {
         assert.equal(pow(2, 3), 8);
       });
 
-      it("3 raised to power 3 is 27", function() {
+      it("3 elevado a la potencia de 3 es 27", function() {
         assert.equal(pow(3, 3), 27);
       });
 
     });
     ```
 
-The principal difference is that when `assert` triggers an error, the `it` block immediately terminates. So, in the first variant if the first `assert` fails, then we'll never see the result of the second `assert`.
+La diferencia principal se da cuando `assert` lanza un error, el bloque `it` termina inmediatamente. De forma que si en la primera manera el primer `assert` falla, no veremos nunca el resultado del segundo `assert`.
 
-Making tests separate is useful to get more information about what's going on, so the second variant is better.
+Hacer los tests separados es útil para recoger información sobre qué está pasando, de forma que la segunda manera es mejor.
 
-And besides that, there's one more rule that's good to follow.
+A parte de eso, hay otra regla que es bueno seguir.
 
-**One test checks one thing.**
+**Un test comprueba una sola cosa**
 
-If we look at the test and see two independent checks in it, it's better to split it into two simpler ones.
+Si vemos que un test contiene dos comprobaciones independientes, es mejor separar el test en dos tests más simples.
 
-So let's continue with the second variant.
+Así que continuamos con la segunda manera.
 
-The result:
+El resultado:
 
 [iframe height=250 src="pow-2" edit border="1"]
 
-As we could expect, the second test failed. Sure, our function always returns `8`, while the `assert` expects `27`.
+Como podemos esperar, el segundo falla. Nuestra función siempre devuelve `8` mientras el `assert` espera `27`.
 
-## Improving the implementation
+## Mejoramos la implementación
 
-Let's write something more real for tests to pass:
+Vamos a escribir algo más real para que pasen los tests:
 
 ```js
 function pow(x, n) {
@@ -200,14 +199,14 @@ function pow(x, n) {
 }
 ```
 
-To be sure that the function works well, let's test it for more values. Instead of writing `it` blocks manually, we can generate them in `for`:
+Para estar seguros que la función trabaja bien, vamos a hacer comprobaciones para más valores. En lugar de escribir bloques `it`s manualmente, vamos a generarlos con un `for`:
 
 ```js
 describe("pow", function() {
 
   function makeTest(x) {
     let expected = x * x * x;
-    it(`${x} in the power 3 is ${expected}`, function() {
+    it(`${x} elevado a 3 es ${expected}`, function() {
       assert.equal(pow(x, 3), expected);
     });
   }
@@ -219,26 +218,26 @@ describe("pow", function() {
 });
 ```
 
-The result:
+El resultado:
 
 [iframe height=250 src="pow-3" edit border="1"]
 
-## Nested describe
+## `Describe` anidados
 
-We're going to add even more tests. But before that let's note that the helper function `makeTest` and `for` should be grouped together. We won't need `makeTest` in other tests, it's needed only in `for`: their common task is to check how `pow` raises into the given power.
+Vamos a añadir más tests. Pero antes, hay que apuntar que la función `makeTest` y la instrución `for` deben ser agrupados juntos. No queremos `makeTest` en otros tests, solo se necesita en el `for`: su tarea común es comprobar cómo `pow` eleva dad una potencia concreta.
 
-Grouping is done with a nested `describe`:
+Agrupar tests se realiza con `describe`:
 
 ```js
 describe("pow", function() {
 
 *!*
-  describe("raises x to power 3", function() {
+  describe("eleva x a la potencia de 3", function() {
 */!*
 
     function makeTest(x) {
       let expected = x * x * x;
-      it(`${x} in the power 3 is ${expected}`, function() {
+      it(`${x} elevado a 3 es ${expected}`, function() {
         assert.equal(pow(x, 3), expected);
       });
     }
@@ -251,29 +250,29 @@ describe("pow", function() {
   });
 */!*
 
-  // ... more tests to follow here, both describe and it can be added
+  // ... otros test irían aquí, se puede escribir describe como it
 });
 ```
 
-The nested `describe` defines a new "subgroup" of tests. In the output we can see the titled indentation:
+El `describe` anidado define un nuevo subgrupo de tests. En la salida podemos ver la identación en los títulos:
 
 [iframe height=250 src="pow-4" edit border="1"]
 
-In the future we can add more `it` and `describe` on the top level with helper functions of their own, they won't see `makeTest`.
+En el futuro podemos añadir más `it` y `describe` en el primer nivel con funciones de ayuda para ellos mismos, no se solaparán con `makeTest`.
 
-````smart header="`before/after` and `beforeEach/afterEach`"
-We can setup `before/after` functions that execute before/after running tests, and also `beforeEach/afterEach` functions that execute before/after *every* `it`.
+````smart header="`before/after` y `beforeEach/afterEach`"
+Podemos configurar funciones `before/after` que se ejecuten antes/después de la ejecución de los tests, y también funciones `beforeEach/afterEach` que ejecuten antes/después de cada `it`.
 
-For instance:
+Por ejemplo:
 
 ```js no-beautify
 describe("test", function() {
 
-  before(() => alert("Testing started – before all tests"));
-  after(() => alert("Testing finished – after all tests"));
+  before(() => alert("Inicio testing – antes de todos los tests"));
+  after(() => alert("Final testing – después de todos los tests"));
 
-  beforeEach(() => alert("Before a test – enter a test"));
-  afterEach(() => alert("After a test – exit a test"));
+  beforeEach(() => alert("Antes de un test – entramos al test"));
+  afterEach(() => alert("Después de un test – salimos del test"));
 
   it('test 1', () => alert(1));
   it('test 2', () => alert(2));
@@ -281,46 +280,46 @@ describe("test", function() {
 });
 ```
 
-The running sequence will be:
+La secuencia que se ejecuta es la siguiente:
 
 ```
-Testing started – before all tests (before)
-Before a test – enter a test (beforeEach)
+Inicio testing – antes de todos los tests (before)
+Antes de un test – entramos al test (beforeEach)
 1
-After a test – exit a test   (afterEach)
-Before a test – enter a test (beforeEach)
+Después de un test – salimos del test   (afterEach)
+Antes de un test – entramos al test (beforeEach)
 2
-After a test – exit a test   (afterEach)
-Testing finished – after all tests (after)
+Después de un test – salimos del test   (afterEach)
+Final testing – después de todos los tests (after)
 ```
 
-[edit src="beforeafter" title="Open the example in the sandbox."]
+[edit src="beforeafter" title="Abre el ejemplo en un sandbox."]
 
-Usually, `beforeEach/afterEach` (`before/after`) are used to perform initialization, zero out counters or do something else between the tests (or test groups).
+Normalmente, `beforeEach/afterEach` (`before/after`) son usados para realizar la inicialización, poner contadores a cero o hacer algo entre cada test o cada grupo de tests.
 ````
 
-## Extending the spec
+## Extender los spec
 
-The basic functionality of `pow` is complete. The first iteration of the development is done. When we're done celebrating and drinking champagne -- let's go on and improve it.
+La funcionalidad básica de `pow` está completa. La primera iteracción del desarrollo está hecha. Cuando acabemos de celebrar y beber champán -- sigamos adelante y mejorémosla.
 
-As it was said, the function `pow(x, n)` is meant to work with positive integer values `n`.
+Como se dijo, la función `pow(x, n)` está dedicada a trabajar con valores enteros positivos `n`.
 
-To indicate a mathematical error, JavaScript functions usually return `NaN`. Let's do the same for invalid values of `n`.
+Para indicar un error matemático, JavaScript normalmente devuelve `NaN` como resultado de una función. Hagamos lo mismo para valores incorrectos de `n`.
 
-Let's first add the behavior to the spec(!):
+Primero incluyamos el comportamiento en el spec(!):
 
 ```js
 describe("pow", function() {
 
   // ...
 
-  it("for negative n the result is NaN", function() {
+  it("para n negativos el resultado es NaN", function() {
 *!*
     assert.isNaN(pow(2, -1));
 */!*
   });
 
-  it("for non-integer n the result is NaN", function() {
+  it("para no enteros el resultado is NaN", function() {
 *!*
     assert.isNaN(pow(2, 1.5));    
 */!*
@@ -329,27 +328,27 @@ describe("pow", function() {
 });
 ```
 
-The result with new tests:
+El resultado con los nuevos tests:
 
 [iframe height=530 src="pow-nan" edit border="1"]
 
-The newly added tests fail, because our implementation does not support them. That's how BDD is done: first we write failing tests, and then make an implementation for them.
+El test recién creado falla, porque nuestra implementación no lo soporta. Así es como funciona la metodología BDD: primero escribimos un test que falle y luego realizamos la implementación para que pase.
 
-```smart header="Other assertions"
+```smart header="Otras comprobaciones"
 
-Please note the assertion `assert.isNaN`: it checks for `NaN`.
+Por favor, ten en cuenta la comprobación `assert.isNaN`: ella comprueba que el valor es `NaN`.
 
-There are other assertions in Chai as well, for instance:
+Hay otras comprobaciones en Chai también, por ejemplo:
 
-- `assert.equal(value1, value2)` -- checks the equality  `value1 == value2`.
-- `assert.strictEqual(value1, value2)` -- checks the strict equality `value1 === value2`.
-- `assert.notEqual`, `assert.notStrictEqual` -- inverse checks to the ones above.
-- `assert.isTrue(value)` -- checks that `value === true`
-- `assert.isFalse(value)` -- checks that `value === false`
-- ...the full list is in the [docs](http://chaijs.com/api/assert/)
+- `assert.equal(value1, value2)` -- prueba la igualdad  `value1 == value2`.
+- `assert.strictEqual(value1, value2)` -- prueba la igualdad estricta `value1 === value2`.
+- `assert.notEqual`, `assert.notStrictEqual` -- el contrario que arriba.
+- `assert.isTrue(value)` -- prueba que `value === true`
+- `assert.isFalse(value)` -- prueba que `value === false`
+- ... la lista entera se puede encontrar en [docs](http://chaijs.com/api/assert/)
 ```
 
-So we should add a couple of lines to `pow`:
+Así que podemos añadir un par de líneas a `pow`:
 
 ```js
 function pow(x, n) {
@@ -368,45 +367,45 @@ function pow(x, n) {
 }
 ```
 
-Now it works, all tests pass:
+Ahora funciona y todos los tests pasan:
 
 [iframe height=300 src="pow-full" edit border="1"]
 
-[edit src="pow-full" title="Open the full final example in the sandbox."]
+[edit src="pow-full" title="Abre el ejemplo final en un sandbox."]
 
-## Summary
+## Resumen
 
-In BDD, the spec goes first, followed by implementation. At the end we have both the spec and the code.
+En BDD, la especificación va primero, seguida de la implementación. Al final tenemos tanto la especificación como la implementación.
 
-The spec can be used in three ways:
+El spec puede ser usado de tres formas:
 
-1. **Tests** guarantee that the code works correctly.
-2. **Docs** -- the titles of `describe` and `it` tell what the function does.
-3. **Examples** -- the tests are actually working examples showing how a function can be used.
+1. **Tests** garantizan que el código funciona correctamente.
+2. **Docs** -- los títulos de los `describe` e `it` nos dicen que hacen la función.
+3. **Ejemplos** -- los tests son también ejemplos funcionales que muestran como una función puede ser usada.
 
-With the spec, we can safely improve, change, even rewrite the function from scratch and make sure it still works right.
+Con la especificación, podemos mejorar de forma segura, cambiar, incluso reescribir la función desde cero y estar seguros que seguirá funcionando.
 
-That's especially important in large projects when a function is used in many places. When we change such a function, there's just no way to manually check if every place that uses it still works right.
+Esto es especialmente importante en proyectos largos cuando una función es usada en muchos sitios. Cuando cambiamos una función, no hay forma manual de comprobar si cada sitio dónde se usaba sigue funcionando correctamente.
 
-Without tests, people have two ways:
+Sin tests, la gente tiene dos maneras:
 
-1. To perform the change, no matter what. And then our users meet bugs and report them. If we can afford that.
-2. Or people become afraid to modify such functions, if the punishment for errors is harsh. Then it becomes old, overgrown with cobwebs, no one wants to get into it, and that's not good.
+1. Realizar el cambio, no importa nada más. Luegos los usuarios encontrán errores y deberán notificarlos. Si podemos abordarlo.
+2. La gente tiene miedo de cambiar funciones si el castigo por error es duro. Entonces el código envejecerá de forma descuidada con telarañas, nadie querrá meterse en él y eso no es bueno.
 
-**Automatically tested code is contrary to that!**
+**¡Las pruebas automáticas son lo contrario a eso!**
 
-If the project is covered with tests, there's just no such problem. We can run tests and see a lot of checks made in a matter of seconds.
+Si el proyecto esta cubierto de pruebas, no tendremos ese problema. Podemos correr los tests y hacer multitud de comprabaciones en cuestión de segundos.
 
-**Besides, a well-tested code has better architecture.**
+**Además, un código bien probado tendrá una mejor arquitectura.**
 
-Naturally, that's because it's easier to change and improve it. But not only that.
+Naturalmente, porque el código será más fácil de cambiar y mejorar. Pero no sólo eso.
 
-To write tests, the code should be organized in such a way that every function has a clearly described task, well-defined input and output. That means a good architecture from the beginning.
+Al escribir tests, el código debe estar organizado de tal manera que cada función tenga un propósito claro y explícito, una entrada y una salida bien definida. Eso implica una buena arquitectura desde el principio.
 
-In real life that's sometimes not that easy. Sometimes it's difficult to write a spec before the actual code, because it's not yet clear how it should behave. But in general writing tests makes development faster and more stable.
+En la vida real a veces las cosas no son tan fáciles. A veces, es difícil escribir una especificación antes que el código, porque no esta claro aún cómo dee comportarse dicho código. Pero en general, escribir los tests hace el desarrollo más rápido y más estable.
 
-## What now?
+## ¿Qué viene ahora?
 
-Later in the tutorial you will meet many tasks with tests baked-in. So you'll see more practical examples.
+Al final en el tutorial encontrarás muchas tareas respaldadas con pruebas. Ahí tenemos más ejemplos prácticos de tests.
 
-Writing tests requires good JavaScript knowledge. But we're just starting to learn it. So, to settle down everything, as of now you're not required to write tests, but you should already be able to read them even if they are a little bit more complex than in this chapter.
+Escribir tests requiere un buen conocimiento de JavaScript. Pero nosotros justo acabamos de empezar a aprenderlo. Así que para comenzar no es necesario que escribas tests, pero sí que seas capaz de leerlos y entenderlos, incluso ejemplos más complejos que aparecerán más adelante en este capítulo.

@@ -1,49 +1,47 @@
-The test demonstrates one of the temptations a developer meets when writing tests.
+El test demuestra una tentación habitual del/a desarrollador/a al escribir tests.
 
-What we have here is actually 3 tests, but layed out as a single function with 3 asserts.
+Lo que tenemos aquí son en realidad 3 pruebas, pero presentadas como una sola función con 3 afirmaciones.
 
-Sometimes it's easier to write this way, but if an error occurs, it's much less obvious what went wrong.
+A veces es más fácil escribir de esta manera, pero si ocurre un error, es mucho menos obvio saber qué salió mal.
 
-If an error happens inside a complex execution flow, then we'll have to figure out the data at that point. We'll actually have to *debug the test*.
+Sería mucho mejor dividir la prueba en múltiples bloques 'it' con entradas y salidas claramente escritas.
 
-It would be much better to break the test into multiple `it` blocks with clearly written inputs and outputs.
-
-Like this:
+Como ésto:
 ```js
-describe("Raises x to power n", function() {
-  it("5 in the power of 1 equals 5", function() {
+describe("Eleva x a la potencia n", function() {
+  it("5 elevado a 1 es igual a 5", function() {
     assert.equal(pow(5, 1), 5);
   });
 
-  it("5 in the power of 2 equals 25", function() {
+  it("5 elevado a 2 es igual a 25", function() {
     assert.equal(pow(5, 2), 25);
   });
 
-  it("5 in the power of 3 equals 125", function() {
+  it("5 elevado a 3 es igual a 125", function() {
     assert.equal(pow(5, 3), 125);
   });
 });
 ```
 
-We replaced the single `it` with `describe` and a group of `it` blocks. Now if something fails we would see clearly what the data was.
+Reemplazamos el único `it` por un `describe` y agrupamos los bloques `it` dentro. Ahora si algo sale mal, podemos ver claramente que dato fue.
 
-Also we can isolate a single test and run it in standalone mode by writing `it.only` instead of `it`:
+Además podemos aislar un único test y ejecutarlo individualmente escribiendo `it.only` en lugar de `it`:
 
 
 ```js
 describe("Raises x to power n", function() {
-  it("5 in the power of 1 equals 5", function() {
+  it("5 elevado a 1 es igual a 5", function() {
     assert.equal(pow(5, 1), 5);
   });
 
 *!*
-  // Mocha will run only this block
-  it.only("5 in the power of 2 equals 25", function() {
+  // Mocha sólo ejecutará este bloque
+  it.only("5 elevado a 2 es igual a 25", function() {
     assert.equal(pow(5, 2), 25);
   });
 */!*
 
-  it("5 in the power of 3 equals 125", function() {
+  it("5 elevado a 3 es igual a 125", function() {
     assert.equal(pow(5, 3), 125);
   });
 });
