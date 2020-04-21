@@ -56,7 +56,7 @@ Ahora John se vuelve inalcanzable. No hay forma de acceder a él, no hay referen
 Ahora imaginemos que copiamos la referencia de `user` a `admin`:
 
 ```js
-// El usuario tiene una referencia al objeto
+// `user` tiene una referencia al objeto
 let user = {
   name: "John"
 };
