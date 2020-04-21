@@ -182,8 +182,8 @@ Ese es el concepto de cómo funciona la recolección de basura. El motor de Java
 
 Algunas de las optimizaciones
 
-- **Colección generacional** -- 
-los objetos se dividen en dos conjuntos: "nuevos" y "antiguos". Aparecen muchos objetos, hacen su trabajo y mueren rápido, se pueden limpiar agresivamente. Aquellos que sobreviven el tiempo suficiente, se vuelven "viejos" y son examinados con menos frecuencia.
+- **Colección generacional** -- los objetos se dividen en dos conjuntos: 
+"nuevos" y "antiguos". Aparecen muchos objetos, hacen su trabajo y mueren rápido, se pueden limpiar agresivamente. Aquellos que sobreviven el tiempo suficiente, se vuelven "viejos" y son examinados con menos frecuencia.
 - **Colección incremental** -- Si hay muchos objetos y tratamos de caminar y marcar todo el conjunto de objetos a la vez, puede llevar algún tiempo e introducir retrasos visibles en la ejecución. Entonces el motor intenta dividir la recolección de basura en pedazos. Luego las piezas se ejecutan una por una, por separado. Eso requiere una contabilidad adicional entre ellos para rastrear los cambios, pero tenemos muchos pequeños retrasos en lugar de uno grande.
 - **Recolección de tiempo inactivo** -- el recolector de basura trata de ejecutarse solo mientras la CPU está inactiva, para reducir el posible efecto en la ejecución.
 
