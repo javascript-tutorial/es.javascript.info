@@ -153,7 +153,7 @@ Los siguientes pasos de "recolección de basura" se realizan regularmente:
 - El recolector de basura toma raíces y las "marca" (recuerda).
 - Luego visita y "marca" todas las referencias de ellos.
 - Luego visita los objetos marcados y marca *sus* referencias. Todos los objetos visitados son recordados, para no visitar el mismo objeto dos veces en el futuro.
-- ... Y así sucesivamente hasta que haya referencias no visitadas (accesibles desde las raíces).
+- ...Y así sucesivamente hasta que cada referencia alcanzable (desde las raíces) sean visitadas. 
 - Todos los objetos, excepto los marcados, se eliminan.
 
 Por ejemplo, deja que nuestra estructura de objeto se vea así:
