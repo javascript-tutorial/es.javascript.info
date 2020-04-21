@@ -1,18 +1,18 @@
-# Recursion and stack
+# Recursión y pila
 
-Let's return to functions and study them more in-depth.
+Volvamos a las funciones y estudiémoslas más en profundidad.
 
-Our first topic will be *recursion*.
+Nuestro primer tema será la *recursividad*.
 
-If you are not new to programming, then it is probably familiar and you could skip this chapter.
+Si no eres nuevo en la programación, probablemente te resulte familiar y podrías saltarte este capítulo.
 
-Recursion is a programming pattern that is useful in situations when a task can be naturally split into several tasks of the same kind, but simpler. Or when a task can be simplified into an easy action plus a simpler variant of the same task. Or, as we'll see soon, to deal with certain data structures.
+La recursión es un patrón de programación que es útil en situaciones en las que una tarea puede dividirse naturalmente en varias tareas del mismo tipo, pero más simples. O cuando una tarea se puede simplificar en una acción fácil más una variante más simple de la misma tarea. O, como veremos pronto, tratar con ciertas estructuras de datos.
 
-When a function solves a task, in the process it can call many other functions. A partial case of this is when a function calls *itself*. That's called *recursion*.
+Cuando una función resuelve una tarea, en el proceso puede llamar a muchas otras funciones. Un caso parcial de esto es cuando una función se llama *a sí misma*. Eso se llama *recursividad*.
 
-## Two ways of thinking
+## Dos formas de pensar
 
-For something simple to start with -- let's write a function `pow(x, n)` that raises `x` to a natural power of `n`. In other words, multiplies `x` by itself `n` times.
+Para comenzar con algo simple, escribamos una función `pow(x, n)` que eleve `x` a una potencia natural de`n`. En otras palabras, multiplica `x` por sí mismo `n` veces.
 
 ```js
 pow(2, 2) = 4
@@ -20,15 +20,15 @@ pow(2, 3) = 8
 pow(2, 4) = 16
 ```
 
-There are two ways to implement it.
+Hay dos formas de implementarlo.
 
-1. Iterative thinking: the `for` loop:
+1. Pensamiento iterativo: el bucle `for`:
 
     ```js run
     function pow(x, n) {
       let result = 1;
 
-      // multiply result by x n times in the loop
+      // multiplicar el resultado por x n veces en el ciclo
       for (let i = 0; i < n; i++) {
         result *= x;
       }
@@ -39,7 +39,7 @@ There are two ways to implement it.
     alert( pow(2, 3) ); // 8
     ```
 
-2. Recursive thinking: simplify the task and call self:
+2. Pensamiento recursivo: simplifica la tarea y se llama a sí mismo:
 
     ```js run
     function pow(x, n) {
@@ -53,9 +53,9 @@ There are two ways to implement it.
     alert( pow(2, 3) ); // 8
     ```
 
-Please note how the recursive variant is fundamentally different.
+Note cómo la variante recursiva es fundamentalmente diferente.
 
-When `pow(x, n)` is called, the execution splits into two branches:
+Cuando se llama a `pow(x, n)`, la ejecución se divide en dos ramas:
 
 ```js
               if n==1  = x
@@ -65,65 +65,65 @@ pow(x, n) =
               else     = x * pow(x, n - 1)
 ```
 
-1. If `n == 1`, then everything is trivial. It is called *the base* of recursion, because it immediately produces the obvious result: `pow(x, 1)` equals `x`.
-2. Otherwise, we can represent `pow(x, n)` as `x * pow(x, n - 1)`. In maths, one would write <code>x<sup>n</sup> = x * x<sup>n-1</sup></code>. This is called *a recursive step*: we transform the task into a simpler action (multiplication by `x`) and a simpler call of the same task (`pow` with lower `n`). Next steps simplify it further and further until `n` reaches `1`.
+1. Si `n == 1`, entonces todo es trivial. Se llama *la base* de la recursividad, porque produce inmediatamente el resultado obvio: `pow (x, 1)` es igual a `x`.
+2. De lo contrario, podemos representar `pow (x, n)` como `x * pow (x, n - 1)`. En matemáticas, uno escribiría <code>x<sup>n</sup> = x * x <sup>n-1</sup></code>. Esto se llama *un paso recursivo*: transformamos la tarea en una acción más simple (multiplicación por `x`) y una llamada más simple de la misma tarea (`pow` con menor `n`). Los siguientes pasos lo simplifican más y más hasta que `n` llegue a` 1`.
 
-We can also say that `pow` *recursively calls itself* till `n == 1`.
+También podemos decir que `pow` * recursivamente se llama a sí mismo * hasta que` n == 1`.
 
-![recursive diagram of pow](recursion-pow.svg)
+![diagrama recursivo de pow](recursion-pow.svg)
 
 
-For example, to calculate `pow(2, 4)` the recursive variant does these steps:
+Por ejemplo, para calcular `pow (2, 4)` la variante recursiva realiza estos pasos:
 
 1. `pow(2, 4) = 2 * pow(2, 3)`
 2. `pow(2, 3) = 2 * pow(2, 2)`
 3. `pow(2, 2) = 2 * pow(2, 1)`
 4. `pow(2, 1) = 2`
 
-So, the recursion reduces a function call to a simpler one, and then -- to even more simpler, and so on, until the result becomes obvious.
+Por lo tanto, la recursión reduce una llamada de función a una más simple y luego -- a una más simple, y así sucesivamente, hasta que el resultado se vuelve obvio.
 
-````smart header="Recursion is usually shorter"
-A recursive solution is usually shorter than an iterative one.
+````smart header="La recursión suele ser más corta"
+Una solución recursiva suele ser más corta que una iterativa.
 
-Here we can rewrite the same using the ternary `?` operator instead of `if` to make `pow(x, n)` more terse and still very readable:
+Aquí podemos reescribir lo mismo usando el operador condicional `?` En lugar de `if` para hacer que `pow (x, n)`sea más conciso y aún bastante legible:
 
 ```js run
-function pow(x, n) {
-  return (n == 1) ? x : (x * pow(x, n - 1));
+función pow (x, n) {
+   volver (n == 1)? x: (x * pow (x, n - 1));
 }
 ```
 ````
 
-The maximal number of nested calls (including the first one) is called *recursion depth*. In our case, it will be exactly `n`.
+El número máximo de llamadas anidadas (incluida la primera) se llama *profundidad de recursión*. En nuestro caso, será exactamente `n`.
 
-The maximal recursion depth is limited by JavaScript engine. We can make sure about 10000, some engines allow more, but 100000 is probably out of limit for the majority of them. There are automatic optimizations that help alleviate this ("tail calls optimizations"), but they are not yet supported everywhere and work only in simple cases.
+La profundidad máxima de recursión está limitada por el motor de JavaScript. Podemos confiar en que sea 10000, algunos motores permiten más, pero 100000 probablemente esté fuera del límite para la mayoría de ellos. Hay optimizaciones automáticas que ayudan a aliviar esto ("optimizaciones de llamadas de cola"), pero aún no son compatibles en todas partes y funcionan solo en casos simples.
 
-That limits the application of recursion, but it still remains very wide. There are many tasks where recursive way of thinking gives simpler code, easier to maintain.
+Eso limita la aplicación de la recursividad, pero sigue siendo muy amplia. Hay muchas tareas donde la forma recursiva de pensar proporciona un código más simple, más fácil de mantener.
 
-## The execution stack
+## El contexto de ejecución y pila
 
-Now let's examine how recursive calls work. For that we'll look under the hood of functions.
+Ahora examinemos cómo funcionan las llamadas recursivas. Para eso observaremos lo que sucede debajo del sombrero en las funciones.
 
-The information about a function run is stored in its *execution context*.
+La información sobre el proceso de ejecución de una función en ejecución se almacena en su *contexto de ejecución*.
 
-The [execution context](https://tc39.github.io/ecma262/#sec-execution-contexts) is an internal data structure that contains details about the execution of a function: where the control flow is now, the current variables, the value of `this` (we don't use it here) and few other internal details.
+El [contexto de ejecución](https://tc39.github.io/ecma262/#sec-execution-contexts) es una estructura de datos interna que contiene detalles sobre la ejecución de una función: dónde está el flujo de control ahora, las variables actuales, el valor de `this` (no lo usamos aquí) y algunos otros detalles internos.
 
-One function call has exactly one execution context associated with it.
+Una llamada de función tiene exactamente un contexto de ejecución asociado.
 
-When a function makes a nested call, the following happens:
+Cuando una función realiza una llamada anidada, sucede lo siguiente:
 
-- The current function is paused.
-- The execution context associated with it is remembered in a special data structure called *execution context stack*.
-- The nested call executes.
-- After it ends, the old execution context is retrieved from the stack, and the outer function is resumed from where it stopped.
+- La función actual está en pausa.
+- El contexto de ejecución asociado con él se recuerda en una estructura de datos especial llamada *pila de contexto de ejecución*.
+- La llamada anidada se ejecuta.
+- Una vez que finaliza, el antiguo contexto de ejecución se recupera de la pila y la función externa se reanuda desde donde se detuvo.
 
-Let's see what happens during the `pow(2, 3)` call.
+Veamos qué sucede durante la llamada de `pow (2, 3)`.
 
-### pow(2, 3)
+### pow (2, 3)
 
-In the beginning of the call `pow(2, 3)` the execution context will store variables: `x = 2, n = 3`, the execution flow is at line `1` of the function.
+Al comienzo de la llamada `pow (2, 3)` el contexto de ejecución almacenará variables: `x = 2, n = 3`, el flujo de ejecución está en la línea `1` de la función.
 
-We can sketch it as:
+Podemos esbozarlo como:
 
 <ul class="function-execution-context-list">
   <li>
@@ -132,7 +132,7 @@ We can sketch it as:
   </li>
 </ul>
 
-That's when the function starts to execute. The condition `n == 1` is false, so the flow continues into the second branch of `if`:
+Ahí es cuando la función comienza a ejecutarse. La condición `n == 1` es falsa, por lo que el flujo continúa en la segunda rama de` if`:
 
 ```js run
 function pow(x, n) {
@@ -149,7 +149,7 @@ alert( pow(2, 3) );
 ```
 
 
-The variables are same, but the line changes, so the context is now:
+Las variables son las mismas, pero la línea cambia, por lo que el contexto es ahora:
 
 <ul class="function-execution-context-list">
   <li>
@@ -158,19 +158,19 @@ The variables are same, but the line changes, so the context is now:
   </li>
 </ul>
 
-To calculate `x * pow(x, n - 1)`, we need to make a subcall of `pow` with new arguments `pow(2, 2)`.
+Para calcular `x * pow (x, n - 1)`, necesitamos hacer una sub-llamada de `pow` con nuevos argumentos` pow (2, 2) `.
 
-### pow(2, 2)
+### pow (2, 2)
 
-To do a nested call, JavaScript remembers the current execution context in the *execution context stack*.
+Para hacer una llamada anidada, JavaScript recuerda el contexto de ejecución actual en la *pila de contexto de ejecución*.
 
-Here we call the same function `pow`, but it absolutely doesn't matter. The process is the same for all functions:
+Aquí llamamos a la misma función `pow`, pero no importa en absoluto. El proceso es el mismo para todas las funciones:
 
-1. The current context is "remembered" on top of the stack.
-2. The new context is created for the subcall.
-3. When the subcall is finished -- the previous context is popped from the stack, and its execution continues.
+1. El contexto actual se "recuerda" en la parte superior de la pila.
+2. El nuevo contexto se crea para la subllamada.
+3. Cuando finaliza la subllamada -- el contexto anterior se extrae de la pila y su ejecución continúa.
 
-Here's the context stack when we entered the subcall `pow(2, 2)`:
+Aquí está la pila de contexto cuando ingresamos la subllamada `pow (2, 2)`:
 
 <ul class="function-execution-context-list">
   <li>
@@ -183,15 +183,15 @@ Here's the context stack when we entered the subcall `pow(2, 2)`:
   </li>
 </ul>
 
-The new current execution context is on top (and bold), and previous remembered contexts are below.
+El nuevo contexto de ejecución actual está en la parte superior (y en negrita), y los contextos recordados anteriores están debajo.
 
-When we finish the subcall -- it is easy to resume the previous context, because it keeps both variables and the exact place of the code where it stopped. Here in the picture we use the word "line", but of course it's more precise.
+Cuando terminamos la subllamada -- es fácil reanudar el contexto anterior, ya que mantiene ambas variables y el lugar exacto del código donde se detuvo. Aquí en la imagen usamos la palabra "línea", pero por supuesto es más precisa.
 
 ### pow(2, 1)
 
-The process repeats: a new subcall is made at line `5`, now with arguments `x=2`, `n=1`.
+El proceso se repite: se realiza una nueva subllamada en la línea `5`, ahora con argumentos` x = 2`, `n = 1`.
 
-A new execution context is created, the previous one is pushed on top of the stack:
+Se crea un nuevo contexto de ejecución, el anterior se coloca en la parte superior de la pila:
 
 <ul class="function-execution-context-list">
   <li>
@@ -208,11 +208,11 @@ A new execution context is created, the previous one is pushed on top of the sta
   </li>
 </ul>
 
-There are 2 old contexts now and 1 currently running for `pow(2, 1)`.
+Hay 2 contextos antiguos ahora y 1 actualmente en ejecución para `pow (2, 1)`.
 
-### The exit
+### La salida
 
-During the execution of `pow(2, 1)`, unlike before, the condition `n == 1` is truthy, so the first branch of `if` works:
+Durante la ejecución de `pow (2, 1)`, a diferencia de antes, la condición `n == 1` es verdadera, por lo que la primera rama de `if` funciona:
 
 ```js
 function pow(x, n) {
@@ -226,9 +226,9 @@ function pow(x, n) {
 }
 ```
 
-There are no more nested calls, so the function finishes, returning `2`.
+No hay más llamadas anidadas, por lo que la función finaliza y devuelve `2`.
 
-As the function finishes, its execution context is not needed anymore, so it's removed from the memory. The previous one is restored off the top of the stack:
+Cuando finaliza la función, su contexto de ejecución ya no es necesario, por lo que se elimina de la memoria. El anterior se restaura desde la parte superior de la pila:
 
 
 <ul class="function-execution-context-list">
@@ -242,9 +242,9 @@ As the function finishes, its execution context is not needed anymore, so it's r
   </li>
 </ul>
 
-The execution of `pow(2, 2)` is resumed. It has the result of the subcall `pow(2, 1)`, so it also can finish the evaluation of `x * pow(x, n - 1)`, returning `4`.
+Se reanuda la ejecución de `pow (2, 2)`. Tiene el resultado de la subllamada `pow (2, 1)`, por lo que también puede finalizar la evaluación de `x * pow (x, n - 1)`, devolviendo `4`.
 
-Then the previous context is restored:
+Luego se restaura el contexto anterior:
 
 <ul class="function-execution-context-list">
   <li>
@@ -253,15 +253,15 @@ Then the previous context is restored:
   </li>
 </ul>
 
-When it finishes, we have a result of `pow(2, 3) = 8`.
+Cuando termina, tenemos un resultado de `pow (2, 3) = 8`.
 
-The recursion depth in this case was: **3**.
+La profundidad de recursión en este caso fue: **3**.
 
-As we can see from the illustrations above, recursion depth equals the maximal number of context in the stack.
+Como podemos ver en las ilustraciones anteriores, la profundidad de recursión es igual al número máximo de contexto en la pila.
 
-Note the memory requirements. Contexts take memory. In our case, raising to the power of `n` actually requires the memory for `n` contexts, for all lower values of `n`.
+Tenga en cuenta los requisitos de memoria. Los contextos toman memoria. En nuestro caso, elevar a la potencia de `n` realmente requiere la memoria para `n` contextos, para todos los valores más bajos de `n`.
 
-A loop-based algorithm is more memory-saving:
+Un algoritmo basado en bucles ahorra más memoria:
 
 ```js
 function pow(x, n) {
@@ -275,19 +275,19 @@ function pow(x, n) {
 }
 ```
 
-The iterative `pow` uses a single context changing `i` and `result` in the process. Its memory requirements are small, fixed and do not depend on `n`.
+El iterativo `pow` utiliza un contexto único que cambia `i` y `result` en el proceso. Sus requisitos de memoria son pequeños, fijos y no dependen de `n`.
 
-**Any recursion can be rewritten as a loop. The loop variant usually can be made more effective.**
+**Cualquier recursión puede reescribirse como un bucle. La variante de bucle generalmente se puede hacer más efectiva.**
 
-...But sometimes the rewrite is non-trivial, especially when function uses different recursive subcalls depending on conditions and merges their results or when the branching is more intricate. And the optimization may be unneeded and totally not worth the efforts.
+... Pero a veces la reescritura no es trivial, especialmente cuando la función utiliza sub-llamadas recursivas diferentes según las condiciones y combina sus resultados o cuando la ramificación es más compleja. Y la optimización puede ser innecesaria y no merece la pena el esfuerzo.
 
-Recursion can give a shorter code, easier to understand and support. Optimizations are not required in every place, mostly we need a good code, that's why it's used.
+La recursión puede dar un código más corto, más fácil de entender y apoyar. No se requieren optimizaciones en todos los lugares, principalmente necesitamos un buen código, por eso se usa.
 
-## Recursive traversals
+## Recorridos recursivos
 
-Another great application of the recursion is a recursive traversal.
+Otra gran aplicación de la recursión es un recorrido recursivo.
 
-Imagine, we have a company. The staff structure can be presented as an object:
+Imagina que tenemos una empresa. La estructura del personal se puede presentar como un objeto:
 
 ```js
 let company = {
@@ -316,34 +316,34 @@ let company = {
 };
 ```
 
-In other words, a company has departments.
+En otras palabras, una empresa tiene departamentos.
 
-- A department may have an array of staff. For instance, `sales` department has 2 employees: John and Alice.
-- Or a department may split into subdepartments, like `development` has two branches: `sites` and `internals`. Each of them has the own staff.
-- It is also possible that when a subdepartment grows, it divides into subsubdepartments (or teams).
+- Un departamento puede tener una gran variedad de personal. Por ejemplo, el departamento de ventas `sales` tiene 2 empleados: John y Alice.
+- O un departamento puede dividirse en subdepartamentos, como `development` tiene dos ramas: `sites` e `internals`. Cada uno de ellos tiene su propio personal.
+- También es posible que cuando un subdepartamento crece, se divida en subdepartamentos (o equipos).
 
-    For instance, the `sites` department in the future may be split into teams for `siteA` and `siteB`. And they, potentially, can split even more. That's not on the picture, just something to have in mind.
+    Por ejemplo, el departamento `sites` en el futuro puede dividirse en equipos para `siteA` y `siteB`. Y ellos, potencialmente, pueden dividirse aún más. Eso no está en la imagen, solo algo a tener en cuenta.
 
-Now let's say we want a function to get the sum of all salaries. How can we do that?
+Ahora digamos que queremos una función para obtener la suma de todos los salarios. ¿Cómo podemos hacer eso?
 
-An iterative approach is not easy, because the structure is not simple. The first idea may be to make a `for` loop over `company` with nested subloop over 1st level departments. But then we need more nested subloops to iterate over the staff in 2nd level departments like `sites`. ...And then another subloop inside those for 3rd level departments that might appear in the future? Should we stop on level 3 or make 4 levels of loops? If we put 3-4 nested subloops in the code to traverse a single object, it becomes rather ugly.
+Un enfoque iterativo no es fácil, porque la estructura no es simple. La primera idea puede ser hacer un bucle `for` sobre `company` con un sub-bucle anidado sobre departamentos de primer nivel. Pero luego necesitamos más sub-bucles anidados para iterar sobre el personal en los departamentos de segundo nivel como `sites`. ...¿Y luego otro sub-bucle dentro de los de los departamentos de tercer nivel que podrían aparecer en el futuro? ¿Deberíamos parar en el nivel 3 o hacer 4 niveles de bucles? Si ponemos 3-4 bucles anidados en el código para atravesar un solo objeto, se vuelve bastante feo.
 
-Let's try recursion.
+Probemos la recursividad.
 
-As we can see, when our function gets a department to sum, there are two possible cases:
+Como podemos ver, cuando nuestra función hace que un departamento sume, hay dos casos posibles:
 
-1. Either it's a "simple" department with an *array of people* -- then we can sum the salaries in a simple loop.
-2. Or it's *an object with `N` subdepartments* -- then we can make `N` recursive calls to get the sum for each of the subdeps and combine the results.
+1. O bien es un departamento "simple" con una *array de personas* -- entonces podemos sumar los salarios en un bucle simple.
+2. O es *un objeto con subdepartamentos `N`*, entonces podemos hacer llamadas recursivas `N` para obtener la suma de cada uno de los subdepartamentos y combinar los resultados.
 
-The (1) is the base of recursion, the trivial case.
+El (1) es la base de la recursividad, el caso trivial.
 
-The (2) is the recursive step. A complex task is split into subtasks for smaller departments. They may in turn split again, but sooner or later the split will finish at (1).
+El (2) es el paso recursivo. Una tarea compleja se divide en subtareas para departamentos más pequeños. A su vez, pueden dividirse nuevamente, pero tarde o temprano la división terminará en (1).
 
-The algorithm is probably even easier to read from the code:
+El algoritmo es probablemente aún más fácil de leer desde el código:
 
 
 ```js run
-let company = { // the same object, compressed for brevity
+let company = { // el mismo objeto, comprimido por brevedad
   sales: [{name: 'John', salary: 1000}, {name: 'Alice', salary: 600 }],
   development: {
     sites: [{name: 'Peter', salary: 2000}, {name: 'Alex', salary: 1800 }],
@@ -351,15 +351,15 @@ let company = { // the same object, compressed for brevity
   }
 };
 
-// The function to do the job
+// La función para hacer el trabajo
 *!*
 function sumSalaries(department) {
-  if (Array.isArray(department)) { // case (1)
-    return department.reduce((prev, current) => prev + current.salary, 0); // sum the array
-  } else { // case (2)
+  if (Array.isArray(department)) { // caso (1)
+    return department.reduce((prev, current) => prev + current.salary, 0); // suma del Array
+  } else { // caso (2)
     let sum = 0;
     for (let subdep of Object.values(department)) {
-      sum += sumSalaries(subdep); // recursively call for subdepartments, sum the results
+      sum += sumSalaries(subdep); // llama recursivamente a subdepartamentos, suma los resultados
     }
     return sum;
   }
@@ -369,62 +369,62 @@ function sumSalaries(department) {
 alert(sumSalaries(company)); // 6700
 ```
 
-The code is short and easy to understand (hopefully?). That's the power of recursion. It also works for any level of subdepartment nesting.
+El código es corto y fácil de entender (¿Quizás?). Ese es el poder de la recursividad. También funciona para cualquier nivel de anidamiento de subdepartamentos.
 
-Here's the diagram of calls:
+Aquí está el diagrama de llamadas:
 
-![recursive salaries](recursive-salaries.svg)
+![salarios recursivos](recursive-salaries.svg)
 
-We can easily see the principle: for an object `{...}` subcalls are made, while arrays `[...]` are the "leaves" of the recursion tree, they give immediate result.
+Podemos ver fácilmente el principio: para un objeto `{...}` se realizan subllamadas, mientras que los Arrays `[...]` son las "hojas" del árbol recursivo, dan un resultado inmediato.
 
-Note that the code uses smart features that we've covered before:
+Tenga en cuenta que el código utiliza funciones inteligentes que hemos cubierto antes:
 
-- Method `arr.reduce` explained in the chapter <info:array-methods> to get the sum of the array.
-- Loop `for(val of Object.values(obj))` to iterate over object values: `Object.values` returns an array of them.
+- Método `arr.reduce` explicado en el capítulo <info:array-methods> para obtener la suma del Array.
+- Bucle `for (val of Object.values (obj))` para iterar sobre los valores del objeto: `Object.values` devuelve una matriz de ellos.
 
 
-## Recursive structures
+## Estructuras recursivas
 
-A recursive (recursively-defined) data structure is a structure that replicates itself in parts.
+Una estructura de datos recursiva (definida recursivamente) es una estructura que se replica en partes.
 
-We've just seen it in the example of a company structure above.
+Lo acabamos de ver en el ejemplo de la estructura de la empresa anterior.
 
-A company *department* is:
-- Either an array of people.
-- Or an object with *departments*.
+Una empresa *departamento* es:
+- O una gran variedad de personas.
+- O un objeto con *departamentos*.
 
-For web-developers there are much better-known examples: HTML and XML documents.
+Para los desarrolladores web hay ejemplos mucho más conocidos: documentos HTML y XML.
 
-In the HTML document, an *HTML-tag* may contain a list of:
-- Text pieces.
-- HTML-comments.
-- Other *HTML-tags* (that in turn may contain text pieces/comments or other tags etc).
+En el documento HTML, una *etiqueta HTML* puede contener una lista de:
+- Piezas de texto.
+- Comentarios HTML.
+- Otras *etiquetas HTML* (que a su vez pueden contener textos/comentarios, otras etiquetas, etc...).
 
-That's once again a recursive definition.
+Esa es una vez más una definición recursiva.
 
-For better understanding, we'll cover one more recursive structure named "Linked list" that might be a better alternative for arrays in some cases.
+Para una mejor comprensión, cubriremos una estructura recursiva más llamada "Lista enlazada" que podría ser una mejor alternativa para las matrices en algunos casos.
 
-### Linked list
+### Lista enlazada
 
-Imagine, we want to store an ordered list of objects.
+Imagínese, queremos almacenar una lista ordenada de objetos.
 
-The natural choice would be an array:
+La elección natural sería una matriz:
 
 ```js
 let arr = [obj1, obj2, obj3];
 ```
 
-...But there's a problem with arrays. The "delete element" and "insert element" operations are expensive. For instance, `arr.unshift(obj)` operation has to renumber all elements to make room for a new `obj`, and if the array is big, it takes time. Same with `arr.shift()`.
+...Pero hay un problema con los Arrays. Las operaciones "eliminar elemento" e "insertar elemento" son costosas. Por ejemplo, la operación `arr.unshift(obj)` debe renumerar todos los elementos para dejar espacio para un nuevo `obj`, y si la matriz es grande, lleva tiempo. Lo mismo con `arr.shift ()`.
 
-The only structural modifications that do not require mass-renumbering are those that operate with the end of array: `arr.push/pop`. So an array can be quite slow for big queues.
+Las únicas modificaciones estructurales que no requieren renumeración masiva son aquellas que operan con el final del Array: `arr.push/pop`. Por lo tanto, una matriz puede ser bastante lenta para grandes colas.
 
-Alternatively, if we really need fast insertion/deletion, we can choose another data structure called a [linked list](https://en.wikipedia.org/wiki/Linked_list).
+Alternativamente, si realmente necesitamos una inserción/eliminación rápida, podemos elegir otra estructura de datos llamada [lista enlazada](https://es.wikipedia.org/wiki/Lista_enlazada).
 
-The *linked list element* is recursively defined as an object with:
+El *elemento de lista enlazada* se define de forma recursiva como un objeto con:
 - `value`.
-- `next` property referencing the next *linked list element* or `null` if that's the end.
+- propiedad `next` que hace referencia al siguiente *elemento de lista enlazado* o `null` si ese es el final.
 
-For instance:
+Por ejemplo:
 
 ```js
 let list = {
@@ -442,11 +442,11 @@ let list = {
 };
 ```
 
-Graphical representation of the list:
+Representación gráfica de la lista:
 
-![linked list](linked-list.svg)
+![lista enlazada](linked-list.svg)
 
-An alternative code for creation:
+Un código alternativo para la creación:
 
 ```js no-beautify
 let list = { value: 1 };
@@ -455,9 +455,9 @@ list.next.next = { value: 3 };
 list.next.next.next = { value: 4 };
 ```
 
-Here we can even more clearer see that there are multiple objects, each one has the `value` and `next` pointing to the neighbour. The `list` variable is the first object in the chain, so following `next` pointers from it we can reach any element.
+Aquí podemos ver aún más claramente que hay varios objetos, cada uno tiene el `value` y el `next` apuntando al vecino. La variable `list` es el primer objeto en la cadena, por lo que siguiendo los punteros` next` de ella podemos alcanzar cualquier elemento.
 
-The list can be easily split into multiple parts and later joined back:
+La lista se puede dividir fácilmente en varias partes y luego volver a unir:
 
 ```js
 let secondList = list.next.next;
@@ -466,15 +466,15 @@ list.next.next = null;
 
 ![linked list split](linked-list-split.svg)
 
-To join:
+Para unir:
 
 ```js
 list.next.next = secondList;
 ```
 
-And surely we can insert or remove items in any place.
+Y seguramente podemos insertar o eliminar elementos en cualquier lugar.
 
-For instance, to prepend a new value, we need to update the head of the list:
+Por ejemplo, para anteponer un nuevo valor, necesitamos actualizar el encabezado de la lista:
 
 ```js
 let list = { value: 1 };
@@ -483,14 +483,14 @@ list.next.next = { value: 3 };
 list.next.next.next = { value: 4 };
 
 *!*
-// prepend the new value to the list
+// anteponer el nuevo valor a la lista
 list = { value: "new item", next: list };
 */!*
 ```
 
 ![linked list](linked-list-0.svg)
 
-To remove a value from the middle, change `next` of the previous one:
+Para eliminar un valor del medio, cambie el `next` del anterior:
 
 ```js
 list.next = list.next.next;
@@ -498,35 +498,35 @@ list.next = list.next.next;
 
 ![linked list](linked-list-remove-1.svg)
 
-We made `list.next` jump over `1` to value `2`. The value `1` is now excluded from the chain. If it's not stored anywhere else, it will be automatically removed from the memory.
+Hicimos que `list.next` salte sobre `1` al valor `2`. El valor `1` ahora está excluido de la cadena. Si no se almacena en ningún otro lugar, se eliminará automáticamente de la memoria.
 
-Unlike arrays, there's no mass-renumbering, we can easily rearrange elements.
+A diferencia de los Arrays, no hay renumeración en masa, podemos reorganizar fácilmente los elementos.
 
-Naturally, lists are not always better than arrays. Otherwise everyone would use only lists.
+Naturalmente, las listas no siempre son mejores que los Arrays. De lo contrario, todos usarían solo listas.
 
-The main drawback is that we can't easily access an element by its number. In an array that's easy: `arr[n]` is a direct reference. But in the list we need to start from the first item and go `next` `N` times to get the Nth element.
+El principal inconveniente es que no podemos acceder fácilmente a un elemento por su número. En un Array eso es fácil: `arr[n]` es una referencia directa. Pero en la lista tenemos que comenzar desde el primer elemento e ir `siguiente` `N` veces para obtener el enésimo elemento.
 
-...But we don't always need such operations. For instance, when we need a queue or even a [deque](https://en.wikipedia.org/wiki/Double-ended_queue) -- the ordered structure that must allow very fast adding/removing elements from both ends.
+... Pero no siempre necesitamos tales operaciones. Por ejemplo, cuando necesitamos una cola o incluso un [deque](https://es.wikipedia.org/wiki/Cola_doblemente_terminada) -- la estructura ordenada que debe permitir agregar/eliminar elementos muy rápidamente desde ambos extremos.
 
-Sometimes it's worth to add another variable named `tail` to track the last element of the list (and update it when adding/removing elements from the end). For large sets of elements the speed difference versus arrays is huge.
+A veces vale la pena agregar otra variable llamada `tail` (cola) para rastrear el último elemento de la lista (y actualizarlo al agregar/eliminar elementos del final). Para grandes conjuntos de elementos, la diferencia de velocidad frente a las matrices es enorme.
 
-## Summary
+## Resumen
 
-Terms:
-- *Recursion*  is a programming term that means a "self-calling" function. Such functions can be used to solve certain tasks in elegant ways.
+Glosario:
+- *Recursion* es concepto de programación que significa una función "auto-llamada". Dichas funciones se pueden utilizar para resolver ciertas tareas de manera elegante.
 
-    When a function calls itself, that's called a *recursion step*. The *basis* of recursion is function arguments that make the task so simple that the function does not make further calls.
+    Cuando una función se llama a sí misma, eso se llama *paso de recursión*. La *base* de la recursividad son los argumentos de la función que hacen que la tarea sea tan simple que la función no realiza más llamadas.
 
-- A [recursively-defined](https://en.wikipedia.org/wiki/Recursive_data_type) data structure is a data structure that can be defined using itself.
+- Una estructura de datos [definida recursivamente](https://en.wikipedia.org/wiki/Recursive_data_type) es una estructura de datos que se puede definir utilizandose a sí misma.
 
-    For instance, the linked list can be defined as a data structure consisting of an object referencing a list (or null).
+    Por ejemplo, la lista enlazada se puede definir como una estructura de datos que consiste en un objeto que hace referencia a una lista (o nulo).
 
     ```js
     list = { value, next -> list }
     ```
 
-    Trees like HTML elements tree or the department tree from this chapter are also naturally recursive: they branch and every branch can have other branches.
+    Los árboles como el árbol de elementos HTML o el árbol de departamento de este capítulo también son naturalmente recursivos: se ramifican y cada rama puede tener otras ramas.
 
-    Recursive functions can be used to walk them as we've seen in the `sumSalary` example.
+    Las funciones recursivas se pueden usar para recorrerlas como hemos visto en el ejemplo `sumSalary`.
 
-Any recursive function can be rewritten into an iterative one. And that's sometimes required to optimize stuff. But for many tasks a recursive solution is fast enough and easier to write and support.
+Cualquier función recursiva puede reescribirse en una iterativa. Y eso a veces es necesario para optimizar las cosas. Pero para muchas tareas, una solución recursiva es lo suficientemente rápida y fácil de escribir y soportar.
