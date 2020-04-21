@@ -178,9 +178,7 @@ Ahora los objetos que no se pudieron visitar en el proceso se consideran inalcan
 
 ![](garbage-collection-5.svg)
 
-Ese es el concepto de cómo funciona la recolección de basura.
-
-Los motores de JavaScript aplican muchas optimizaciones para que se ejecute más rápido y no afecte la ejecución.
+Ese es el concepto de cómo funciona la recolección de basura. El motor de JavaScript aplica muchas optimizaciones para que se ejecute más rápido y no afecte la ejecución.
 
 Algunas de las optimizaciones
 
