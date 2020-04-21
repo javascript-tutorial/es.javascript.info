@@ -22,7 +22,7 @@ Simple, los valores "alcanzables" son aquellos que son accesibles o se pueden ut
 
 2. Cualquier otro valor se considera accesible si es accesible desde una raíz(root) por una referencia o por una cadena de referencias.
 
-por ejemplo, si hay un objeto en una variable local, y ese objeto tiene una propiedad que hace referencia a otro objeto, ese objeto se considera accesible. Y aquellos a los que hace referencia también son accesibles. Ejemplos detallados a seguir.
+Por ejemplo, si hay un objeto en una variable local, y ese objeto tiene una propiedad que hace referencia a otro objeto, ese objeto se considera accesible. Y aquellos a los que hace referencia también son accesibles. Ejemplos detallados a seguir.
 
 Hay un proceso en segundo plano en el motor de JavaScript que se llama [recolector de basura] (https://es.wikipedia.org/wiki/Recolector_de_basura). Monitorea todos los objetos y elimina aquellos que se han vuelto inalcanzables.
 
