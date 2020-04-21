@@ -31,7 +31,7 @@ Hay un proceso en segundo plano en el motor de JavaScript que se llama [recolect
 Aquí va el ejemplo más simple:
 
 ```js
-// El usuario tiene una referencia al objeto
+// `user` tiene una referencia al objeto
 let user = {
   name: "John"
 };
