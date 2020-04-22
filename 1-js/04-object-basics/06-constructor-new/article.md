@@ -4,9 +4,9 @@ El sintaxis habitual `{...}` permite crear un objeto. Pero a menudo necesitamos 
 
 Esto se puede realizar utilizando el constructor de Funciones y el operador `"new"`.
 
-## Constructor de Función
+## Función constructora
 
-El Constructor de funciones es técnicamente una función normal. Aunque hay dos convenciones:
+La función constructora es técnicamente una función normal. Aunque hay dos convenciones:
 
 1. Son nombradas con la primera letra mayúscula.
 2. Sólo deben ejecutarse con el operador `"new"`.
@@ -217,12 +217,12 @@ Para crear objetos complejos, existe un sintaxis más complejo, [classes](info:c
 
 ## Resumen
 
-- Las funciones Constructor or, más corto, constructores, son funciones normales, pero existe un acuerdo común para nombrarlas con la primera letra en mayúscula.
-- Las funciones Constructor sólo deben ser llamadas utilizando `new`. Tal llamado implica la creación de un `this` vacío al comienzo y devolver el `this` rellenado al final.
+- Las funciones Constructoras o, más corto, constructores, son funciones normales, pero existe un acuerdo común para nombrarlas con la primera letra en mayúscula.
+- Las funciones Constructoras sólo deben ser llamadas utilizando `new`. Tal llamado implica la creación de un `this` vacío al comienzo y devolver el `this` rellenado al final.
 
-Podemos utilizar funciones constructor para crear múltiples objetos similares.
+Podemos utilizar funciones constructoras para crear múltiples objetos similares.
 
-JavaScript proporciona funciones constructor para varios objetos de lenguaje incorporados: como `Date` para fechas, `Set` para sets (conjuntos) y otros que planeamos estudiar.
+JavaScript proporciona funciones constructoras para varios objetos de lenguaje incorporados: como `Date` para fechas, `Set` para sets (conjuntos) y otros que planeamos estudiar.
 
 ```smart header="Objetos, volveremos!"
 En este capítulo solo cubrimos los conceptos básicos sobre objetos y constructores. Son esenciales para aprender más sobre tipos de datos y funciones en los próximos capítulos.
