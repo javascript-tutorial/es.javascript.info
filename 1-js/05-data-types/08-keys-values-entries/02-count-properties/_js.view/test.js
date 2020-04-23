@@ -1,13 +1,13 @@
 describe("count", function() {
-  it("counts the number of properties", function() {
+  it("cuenta el número de propiedades", function() {
     assert.equal( count({a: 1, b: 2}), 2 );
   });
 
-  it("returns 0 for an empty object", function() {
+  it("devuelve 0 para un objeto vacío", function() {
     assert.equal( count({}), 0 );
   });
 
-  it("ignores symbolic properties", function() {
+  it("ignora propiedades simbólicas", function() {
     assert.equal( count({ [Symbol('id')]: 1 }), 0 );
   });
 });

@@ -1,5 +1,5 @@
 describe("sumSalaries", function() {
-  it("returns sum of salaries", function() {
+  it("devuelve suma de salarios", function() {
     let salaries = {
       "John": 100,
       "Pete": 300,
@@ -9,7 +9,7 @@ describe("sumSalaries", function() {
     assert.equal( sumSalaries(salaries), 650 );
   });
 
-  it("returns 0 for the empty object", function() {
+  it("devuelve 0 para el objeto vacío", function() {
     assert.strictEqual( sumSalaries({}), 0);
   });
 });
