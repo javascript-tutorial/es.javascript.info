@@ -2,32 +2,32 @@ importance: 5
 
 ---
 
-# Destructuring assignment
+# Asignación de desestructuración
 
-We have an object:
+Tenemos un objeto:
 
 ```js
-let user = {
-  name: "John",
-  years: 30
+let usuario = {
+  nombre: "John",
+  años: 30
 };
 ```
 
-Write the destructuring assignment that reads:
+Escriba la asignación desestructurante que lea:
 
-- `name` property into the variable `name`.
-- `years` property into the variable `age`.
-- `isAdmin` property into the variable `isAdmin` (false if absent)
+- la propiedad `nombre` en la variable `nombre`.
+- la propiedad `años` en la variable `edad`.
+- la propiedad `esAdmin` en la variable `esAdmin` (falso, si no existe tal propiedad)
 
-The values after the assignment should be:
+Aquí un ejemplo de los valores después de tu asignación:
 
 ```js
-let user = { name: "John", years: 30 };
+let usuario = { nombre: "John", años: 30 };
 
-// your code to the left side:
-// ... = user
+// tu código al lado izquierdo:
+// ... = usuario
 
-alert( name ); // John
-alert( age ); // 30
-alert( isAdmin ); // false
+alert( nombre ); // John
+alert( edad ); // 30
+alert( esAdmin ); // false
 ```
