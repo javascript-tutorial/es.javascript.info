@@ -2,11 +2,11 @@ importance: 5
 
 ---
 
-# Error creating an instance
+# Error al crear una instancia
 
-Here's the code with `Rabbit` extending `Animal`.
+Aquí está el código de la clase `Rabbit` que extiende a`Animal`.
 
-Unfortunately, `Rabbit` objects can't be created. What's wrong? Fix it.
+Desafortunadamente, los objetos `Rabbit` no se pueden crear. ¿Que pasa? Arréglalo.
 ```js run
 class Animal {
 
@@ -24,7 +24,7 @@ class Rabbit extends Animal {
 }
 
 *!*
-let rabbit = new Rabbit("White Rabbit"); // Error: this is not defined
+let rabbit = new Rabbit("Conejo Blanco"); // Error: esto no está definido
 */!*
 alert(rabbit.name);
 ```
