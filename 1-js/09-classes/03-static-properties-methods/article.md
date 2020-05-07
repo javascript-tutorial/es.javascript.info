@@ -182,7 +182,7 @@ Ahora, cuando llamemos a `Rabbit.compare`, se llamará a `Animal.compare` hereda
 
 Entonces, `Rabbit extends Animal` crea dos referencias `[[Prototype]]`:
 
-1. La función `Rabbit` se hereda prototípicamente de la función `Animal`.
+1. La función de `Rabbit` se hereda prototípicamente de la función de `Animal`.
 2. `Rabbit.prototype` prototípicamente hereda de `Animal.prototype`.
 
 Como resultado, la herencia funciona tanto para métodos regulares como estáticos.
