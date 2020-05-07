@@ -48,16 +48,16 @@ So, all we need to use an object is to know its external interface. We may be co
 
 That was a general introduction.
 
-In JavaScript, there are three types of properties and members:
+In JavaScript, there are two types of object fields (properties and methods):
 
-- Public: accessible from anywhere. They comprise the external interface. Till now we were only using public properties and methods.
+- Public: accessible from anywhere. They comprise the external interface. Until now we were only using public properties and methods.
 - Private: accessible only from inside the class. These are for the internal interface.
 
-In many other languages there also exist "protected" fields: accessible only from inside the class and those extending it. They are also useful for the internal interface. They are in a sense more widespread than private ones, because we usually want inheriting classes to gain access to properly do the extension.
+In many other languages there also exist "protected" fields: accessible only from inside the class and those extending it (like private, but plus access from inheriting classes). They are also useful for the internal interface. They are in a sense more widespread than private ones, because we usually want inheriting classes to gain access to them.
 
-Protected fields are not implemented in Javascript on the language level, but in practice they are very convenient, so they are emulated.
+Protected fields are not implemented in JavaScript on the language level, but in practice they are very convenient, so they are emulated.
 
-In the next step we'll make a coffee machine in Javascript with all these types of properties. A coffee machine has a lot of details, we won't model them to stay simple (though we could).
+Now we'll make a coffee machine in JavaScript with all these types of properties. A coffee machine has a lot of details, we won't model them to stay simple (though we could).
 
 ## Protecting "waterAmount"
 
