@@ -1,7 +1,7 @@
 
 # Propiedades y métodos estáticos.
 
-También podemos asignar un método a la función de clase en sí, no a su `"prototype"`. Dichos métodos se llaman *static*.
+También podemos asignar métodos a la funcionalidad de una clase en sí, no a su `"prototype"`. Dichos métodos se llaman *static*.
 
 En una clase, están precedidos por la palabra clave `static`, como esta:
 
