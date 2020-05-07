@@ -65,10 +65,10 @@ alert( articles[0].title ); // CSS
 
 Aquí `Article.compare` se encuentra "encima" de los artículos, como un medio para compararlos. No es el método de un artículo, sino de toda la clase.
 
-Otro ejemplo sería un método llamado "factory". Imagina, necesitamos pocas formas de crear un artículo:
+Otro ejemplo sería un método llamado "factory". Imagina, necesitamos pocas formas para crear un artículo:
 
-1. Crear por parámetros dados (`title`,`date` etc.).
-2. Crea un artículo vacío con la fecha de hoy.
+1. Crearlo por parámetros dados (`title`,`date` etc.).
+2. Crear un artículo vacío con la fecha de hoy.
 3. ... o cualquier otra manera.
 
 La primera forma puede ser implementada por el constructor. Y para el segundo podemos hacer un método estático de la clase.
@@ -95,7 +95,7 @@ let article = Article.createTodays();
 alert( article.title ); // Resumen de hoy
 ```
 
-Ahora, cada vez que necesitamos crear un resumen de hoy, podemos llamar a `Article.createTodays()`. Una vez más, ese no es el método de un artículo, sino el método de toda la clase.
+Ahora, cada vez que necesitamos crear un resumen de hoy, podemos llamar a `Article.createTodays()`. Una vez más, ese no es el método de un objeto artículo, sino el método de toda la clase.
 
 Los métodos estáticos también se utilizan en clases relacionadas con base de datos para buscar/guardar/eliminar entradas de la misma, como esta:
 
@@ -202,7 +202,7 @@ alert(Rabbit.prototype.__proto__ === Animal.prototype); // verdadero
 
 ## Resumen
 
-Los métodos estáticos se utilizan para la funcionalidad que pertenece a la clase "en su conjunto". No se relaciona con una instancia de clase concreta.
+Los métodos estáticos se utilizan en la funcionalidad propia de la clase "en su conjunto". No se relaciona con una instancia de clase concreta.
 
 Por ejemplo, un método para comparar `Article.compare (article1, article2)` o un método de fábrica `Article.createTodays()`.
 
