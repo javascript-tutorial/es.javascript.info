@@ -1,102 +1,102 @@
 
-# Private and protected properties and methods
+# Propiedades y métodos privados y protegidos.
 
-One of the most important principles of object oriented programming -- delimiting internal interface from the external one.
+Uno de los principios más importantes de la programación orientada a objetos: delimitar la interfaz interna de la externa.
 
-That is "a must" practice in developing anything more complex than a "hello world" app.
+Esa es una práctica "imprescindible" en el desarrollo de algo más complejo que una aplicación "hola mundo".
 
-To understand this, let's break away from development and turn our eyes into the real world.
+Para entender esto, alejémonos del desarrollo y volvamos nuestros ojos al mundo real..
 
-Usually, devices that we're using are quite complex. But delimiting the internal interface from the external one allows to use them without problems.
+Por lo general, los dispositivos que estamos usando son bastante complejos. Pero delimitar la interfaz interna de la externa permite usarlas sin problemas.
 
-## A real-life example
+## Un ejemplo de la vida real
 
-For instance, a coffee machine. Simple from outside: a button, a display, a few holes...And, surely, the result -- great coffee! :)
+Por ejemplo, una máquina de café. Simple desde el exterior: un botón, una pantalla, algunos agujeros ... Y, seguramente, el resultado: ¡excelente café! :)
 
 ![](coffee.jpg)
 
-But inside... (a picture from the repair manual)
+Pero adentro ... (una imagen del manual de reparación)
 
 ![](coffee-inside.jpg)
 
-A lot of details. But we can use it without knowing anything.
+Muchos detalles. Pero podemos usarlo sin saber nada.
 
-Coffee machines are quite reliable, aren't they? We can use one for years, and only if something goes wrong -- bring it for repairs.
+Las cafeteras son bastante confiables, ¿no es así? Podemos usarlos por años, y solo si algo sale mal, tráigalo para repararlo.
 
-The secret of reliability and simplicity of a coffee machine -- all details are well-tuned and *hidden* inside.
+El secreto de la fiabilidad y la simplicidad de una máquina de café: todos los detalles están bien ajustados y *ocultos* en su interior.
 
-If we remove the protective cover from the coffee machine, then using it will be much more complex (where to press?), and dangerous (it can electrocute).
+Si retiramos la cubierta protectora de la cafetera, su uso será mucho más complejo (¿dónde presionar?) Y peligroso (puedes electrocutarte).
 
-As we'll see, in programming objects are like coffee machines.
+Como veremos, en la programación los objetos son como máquinas de café.
 
-But in order to hide inner details, we'll use not a protective cover, but rather special syntax of the language and conventions.
+Pero para ocultar detalles internos, no utilizaremos una cubierta protectora, sino una sintaxis especial del lenguaje y las convenciones.
 
-## Internal and external interface
+## Interfaz interna y externa
 
-In object-oriented programming, properties and methods are split into two groups:
+En la programación orientada a objetos, las propiedades y los métodos se dividen en dos grupos:
 
-- *Internal interface* -- methods and properties, accessible from other methods of the class, but not from the outside.
-- *External interface* -- methods and properties, accessible also from outside the class.
+- *Interfaz interna* -- métodos y propiedades, accesibles desde otros métodos de la clase, pero no desde el exterior.
+- *Interfaz externa* - métodos y propiedades, accesibles también desde fuera de la clase.
 
-If we continue the analogy with the coffee machine -- what's hidden inside: a boiler tube, heating element, and so on -- is its internal interface.
+Si continuamos la analogía con la máquina de café, lo que está oculto en su interior: un tubo de caldera, un elemento calefactor, etc., es su interfaz interna.
 
-An internal interface is used for the object to work, its details use each other. For instance, a boiler tube is attached to the heating element.
+Se utiliza una interfaz interna para que el objeto funcione, sus detalles se utilizan entre sí. Por ejemplo, un tubo de caldera está unido al elemento calefactor.
 
-But from the outside a coffee machine is closed by the protective cover, so that no one can reach those. Details are hidden and inaccessible. We can use its features via the external interface.
+Pero desde afuera, una máquina de café está cerrada por la cubierta protectora, para que nadie pueda alcanzarlos. Los detalles están ocultos e inaccesibles. Podemos usar sus funciones a través de la interfaz externa.
 
-So, all we need to use an object is to know its external interface. We may be completely unaware how it works inside, and that's great.
+Entonces, todo lo que necesitamos para usar un objeto es conocer su interfaz externa. Es posible que no seamos completamente conscientes de cómo funciona dentro, y eso es genial.
 
-That was a general introduction.
+Esa fue una introducción general.
 
-In JavaScript, there are two types of object fields (properties and methods):
+En JavaScript, hay dos tipos de campos de objeto (propiedades y métodos):
 
-- Public: accessible from anywhere. They comprise the external interface. Until now we were only using public properties and methods.
-- Private: accessible only from inside the class. These are for the internal interface.
+- Público: accesible desde cualquier lugar. Comprenden la interfaz externa. Hasta ahora solo estábamos usando propiedades y métodos públicos.
+- Privado: accesible solo desde dentro de la clase. Estos son para la interfaz interna.
 
-In many other languages there also exist "protected" fields: accessible only from inside the class and those extending it (like private, but plus access from inheriting classes). They are also useful for the internal interface. They are in a sense more widespread than private ones, because we usually want inheriting classes to gain access to them.
+En muchos otros lenguajes también existen campos "protegidos": accesibles solo desde dentro de la clase y aquellos que lo extienden (como privado, pero más acceso desde clases heredadas). También son útiles para la interfaz interna. En cierto sentido, están más extendidos que los privados, porque generalmente queremos que las clases heredadas tengan acceso a ellas.
 
-Protected fields are not implemented in JavaScript on the language level, but in practice they are very convenient, so they are emulated.
+Los campos protegidos no se implementan en JavaScript a nivel de lenguaje, pero en la práctica son muy convenientes, por lo que se emulan.
 
-Now we'll make a coffee machine in JavaScript with all these types of properties. A coffee machine has a lot of details, we won't model them to stay simple (though we could).
+Ahora haremos una máquina de café en JavaScript con todos estos tipos de propiedades. Una máquina de café tiene muchos detalles, no los modelaremos todos, seremos simples (aunque podríamos).
 
-## Protecting "waterAmount"
+## Proteger "waterAmount"
 
-Let's make a simple coffee machine class first:
+Hagamos primero una clase de cafetera simple:
 
 ```js run
 class CoffeeMachine {
-  waterAmount = 0; // the amount of water inside
+  waterAmount = 0; // la cantidad de agua adentro
 
   constructor(power) {
     this.power = power;
-    alert( `Created a coffee-machine, power: ${power}` );
+    alert( `Se creó una máquina de café, poder: ${power}` );
   }
 
 }
 
-// create the coffee machine
+// se crea la máquina de café
 let coffeeMachine = new CoffeeMachine(100);
 
-// add water
+// agregar agua
 coffeeMachine.waterAmount = 200;
 ```
 
-Right now the properties `waterAmount` and `power` are public. We can easily get/set them from the outside to any value.
+En este momento las propiedades `waterAmount` y` power` son públicas. Podemos obtenerlos/configurarlos fácilmente desde el exterior a cualquier valor.
 
-Let's change `waterAmount` property to protected to have more control over it. For instance, we don't want anyone to set it below zero.
+Cambiemos la propiedad `waterAmount` a protegida para tener más control sobre ella. Por ejemplo, no queremos que nadie lo ponga por debajo de cero.
 
-**Protected properties are usually prefixed with an underscore `_`.**
+**Las propiedades protegidas generalmente tienen el prefijo de subrayado `_`.**
 
-That is not enforced on the language level, but there's a convention that such properties and methods should not be accessed from the outside. Most programmers follow it.
+Eso no se aplica a nivel de lenguaje, pero existe una convención bien conocida entre los programadores de que no se debe acceder a tales propiedades y métodos desde el exterior.
 
-So our property will be called `_waterAmount`:
+Entonces nuestra propiedad se llamará `_waterAmount`:
 
 ```js run
 class CoffeeMachine {
   _waterAmount = 0;
 
   set waterAmount(value) {
-    if (value < 0) throw new Error("Negative water");
+    if (value < 0) throw new Error("Agua en negativo");
     this._waterAmount = value;
   }
 
@@ -110,22 +110,22 @@ class CoffeeMachine {
 
 }
 
-// create the coffee machine
+// se crea la máquina de café
 let coffeeMachine = new CoffeeMachine(100);
 
-// add water
-coffeeMachine.waterAmount = -10; // Error: Negative water
+// agregar agua
+coffeeMachine.waterAmount = -10; // Error: Agua en negativo
 ```
 
-Now the access is under control, so setting the water below zero fails.
+Ahora el acceso está bajo control, por lo que falla el ajuste del agua por debajo de cero.
 
-## Read-only "power"
+## "Power" de solo lectura
 
-For `power` property, let's make it read-only. It sometimes happens that a property must be set at creation time only, and then never modified.
+Para la propiedad `power`, hagámoslo de solo lectura. A veces sucede que una propiedad debe establecerse solo en el momento de la creación y nunca modificarse.
 
-That's exactly the case for a coffee machine: power never changes.
+Ese es exactamente el caso de una máquina de café: la potencia nunca cambia.
 
-To do so, we only need to make getter, but not the setter:
+Para hacerlo, solo necesitamos hacer `getter`, pero no `setter`:
 
 ```js run
 class CoffeeMachine {
@@ -141,58 +141,58 @@ class CoffeeMachine {
 
 }
 
-// create the coffee machine
+// se crea la máquina de café
 let coffeeMachine = new CoffeeMachine(100);
 
-alert(`Power is: ${coffeeMachine.power}W`); // Power is: 100W
+alert(`La potencia es: ${coffeeMachine.power}W`); // Potencia es: 100W
 
-coffeeMachine.power = 25; // Error (no setter)
+coffeeMachine.power = 25; // Error (sin setter)
 ```
 
-````smart header="Getter/setter functions"
-Here we used getter/setter syntax.
+````smart header="Funciones getter/setter"
+Aquí usamos la sintaxis getter/setter.
 
-But most of the time `get.../set...` functions are preferred, like this:
+Pero la mayoría de las veces las funciones `get.../set...` son preferidas, como esta:
 
 ```js
 class CoffeeMachine {
   _waterAmount = 0;
 
   *!*setWaterAmount(value)*/!* {
-    if (value < 0) throw new Error("Negative water");
+    if (value < 0) throw new Error("Agua en negativo");
     this._waterAmount = value;
   }
 
   *!*getWaterAmount()*/!* {
-    return this.waterAmount;
+    return this._waterAmount;
   }
 }
 
 new CoffeeMachine().setWaterAmount(100);
 ```
 
-That looks a bit longer, but functions are more flexible. They can accept multiple arguments (even if we don't need them right now). So, for the future, just in case we need to refactor something, functions are a safer choise.
+Eso parece un poco más largo, pero las funciones son más flexibles. Pueden aceptar múltiples argumentos (incluso si no los necesitamos en este momento).
 
-Surely, there's a tradeoff. On the other hand, get/set syntax is shorter, so ultimately there's no strict rule, it's up to you to decide.
+Por otro lado, la sintaxis get/set es más corta, por lo que, en última instancia, no existe una regla estricta, depende de usted decidir.
 ````
 
-```smart header="Protected fields are inherited"
-If we inherit `class MegaMachine extends CoffeeMachine`, then nothing prevents us from accessing `this._waterAmount` or `this._power` from the methods of the new class.
+```smart header="Los campos protegidos son heredados."
+Si heredamos `class MegaMachine extends CoffeeMachine`, entonces nada nos impide acceder a `this._waterAmount` o `this._power` desde los métodos de la nueva clase.
 
-So protected fields are naturally inheritable. Unlike private ones that we'll see below.
+Por lo tanto, los campos protegidos son naturalmente heredables. A diferencia de los privados que veremos a continuación.
 ```
 
-## Private "#waterLimit"
+## "#waterLimit" Privada
 
 [recent browser=none]
 
-There's a finished Javascript proposal, almost in the standard, that provides language-level support for private properties and methods.
+Hay una propuesta de JavaScript terminada, casi en el estándar, que proporciona soporte a nivel de idioma para propiedades y métodos privados.
 
-Privates should start with `#`. They are only accessible from inside the class.
+Los privados deberían comenzar con `#`. Solo son accesibles desde dentro de la clase.
 
-For instance, here we add a private `#waterLimit` property and extract the water-checking logic into a separate method:
+Por ejemplo, aquí hay una propiedad privada `#waterLimit` y el método privado de control de agua `#checkWater`:
 
-```js
+```js run
 class CoffeeMachine {
 *!*
   #waterLimit = 200;
@@ -200,41 +200,27 @@ class CoffeeMachine {
 
 *!*
   #checkWater(value) {
-    if (value < 0) throw new Error("Negative water");
-    if (value > this.#waterLimit) throw new Error("Too much water");
+    if (value < 0) throw new Error("Agua en negativo");
+    if (value > this.#waterLimit) throw new Error("Demasiada agua");
   }
 */!*
-
-  _waterAmount = 0;
-
-  set waterAmount(value) {
-*!*
-    this.#checkWater(value);
-*/!*
-    this._waterAmount = value;
-  }
-
-  get waterAmount() {
-    return this.waterAmount;
-  }
 
 }
 
 let coffeeMachine = new CoffeeMachine();
 
 *!*
+// no puede acceder a privados desde fuera de la clase
 coffeeMachine.#checkWater(); // Error
 coffeeMachine.#waterLimit = 1000; // Error
 */!*
-
-coffeeMachine.waterAmount = 100; // Works
 ```
 
-On the language level, `#` is a special sign that the field is private. We can't access it from outside or from inheriting classes.
+En el nivel de idioma, `#` es una señal especial de que el campo es privado. No podemos acceder desde fuera o desde clases heredadas.
 
-Private fields do not conflict with public ones. We can have both private `#waterAmount` and public `waterAmount` fields at the same time.
+Los campos privados no entran en conflicto con los públicos. Podemos tener campos privados `#waterAmount` y públicos ` waterAmount` al mismo tiempo.
 
-For instance, let's make `waterAmount` an accessor for `#waterAmount`:
+Por ejemplo, hagamos que `waterAmount` sea un accesorio para `#waterAmount`:
 
 ```js run
 class CoffeeMachine {
@@ -246,7 +232,7 @@ class CoffeeMachine {
   }
 
   set waterAmount(value) {
-    if (value < 0) throw new Error("Negative water");
+    if (value < 0) throw new Error("Agua en negativo");
     this.#waterAmount = value;
   }
 }
@@ -257,74 +243,73 @@ machine.waterAmount = 100;
 alert(machine.#waterAmount); // Error
 ```
 
-Unlike protected ones, private fields are enforced by the language itself. That's a good thing.
+A diferencia de los protegidos, los campos privados son aplicados por el propio lenguaje. Eso es bueno.
 
-But if we inherit from `CoffeeMachine`, then we'll have no direct access to `#waterAmount`. We'll need to rely on `waterAmount` getter/setter:
+Pero si heredamos de `CoffeeMachine`, entonces no tendremos acceso directo a `#waterAmount`. Tendremos que confiar en el getter/setter de `waterAmount`:
 
 ```js
-class CoffeeMachine extends CoffeeMachine() {
+class MegaCoffeeMachine extends CoffeeMachine {
   method() {
 *!*
-    alert( this.#waterAmount ); // Error: can only access from CoffeeMachine
+    alert( this.#waterAmount ); // Error: solo se puede acceder desde CoffeeMachine
 */!*
   }
 }
 ```
 
-In many scenarios such limitation is too severe. If we extend a `CoffeeMachine`, we may have legitimate reason to access its internals. That's why protected fields are used most of the time, even though they are not supported by the language syntax.
+En muchos escenarios, esta limitación es demasiado severa. Si ampliamos una `CoffeeMachine`, es posible que tengamos razones legítimas para acceder a sus componentes internos. Es por eso que los campos protegidos se usan con más frecuencia, aunque no sean compatibles con la sintaxis del idioma.
 
-````warn
-Private fields are special.
+````warn header="Los campos privados no están disponibles como this[name]"
+Los campos privados son especiales.
 
-Remember, usually we can access fields by this[name]:
+Como sabemos, generalmente podemos acceder a los campos usando `this[name]`:
 
 ```js
 class User {
   ...
   sayHi() {
-    let fieldName = "name";
-    alert(`Hello, ${this[fieldName]}`);
+    let fieldName = "nombre";
+    alert(`Hello, ${*!*this[fieldName]*/!*}`);
   }
 }
 ```
 
-With private fields that's impossible: `this['#name']` doesn't work. That's a syntax limitation to ensure privacy.
+Con campos privados eso es imposible: `this['#name']` no funciona. Esa es una limitación de sintaxis para garantizar la privacidad.
 ````
 
-## Summary
+## Resumen
 
-In terms of OOP, delimiting of the internal interface from the external one is called [encapsulation]("https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)").
+En términos de POO, la delimitación de la interfaz interna de la externa se llama [encapsulamiento] (https://en.wikipedia.org/wiki/Encapsulation_ (computer_programming)).
 
-It gives the following benefits:
+Ofrece los siguientes beneficios:
 
-Protection for users, so that they don't shoot themselves in the feet
-: Imagine, there's a team of developers using a coffee machine. It was made by the "Best CoffeeMachine" company, and works fine, but a protective cover was removed. So the internal interface is exposed.
+Protección para los usuarios, para que no se disparen en el pie: Imagínese, hay un equipo de desarrolladores que usan una máquina de café. Fue hecho por la compañía "Best CoffeeMachine" y funciona bien, pero se quitó una cubierta protectora. Entonces la interfaz interna está expuesta.
 
-    All developers are civilized -- they use the coffee machine as intended. But one of them, John, decided that he's the smartest one, and made some tweaks in the coffee machine internals. So the coffee machine failed two days later.
+    Todos los desarrolladores son civilizados: usan la máquina de café según lo previsto. Pero uno de ellos, John, decidió que él era el más inteligente e hizo algunos ajustes en el interior de la máquina de café. Entonces la máquina de café falló dos días después.
 
-    That's surely not John's fault, but rather the person who removed the protective cover and let John do his manipulations.
+    Seguramente no es culpa de John, sino de la persona que quitó la cubierta protectora y dejó que John hiciera sus manipulaciones.
 
-    The same in programming. If a user of a class will change things not intended to be changed from the outside -- the consequences are unpredictable.
+    Lo mismo en programación. Si un usuario de una clase cambiará cosas que no están destinadas a ser cambiadas desde el exterior, las consecuencias son impredecibles.
 
-Supportable
-: The situation in programming is more complex than with a real-life coffee machine, because we don't just buy it once. The code constantly undergoes development and improvement.
+Soportable
+: La situación en la programación es más compleja que con una máquina de café de la vida real, porque no solo la compramos una vez. El código se somete constantemente a desarrollo y mejora.
 
-    **If we strictly delimit the internal interface, then the developer of the class can freely change its internal properties and methods, even without informing the users..**
+    **Si delimitamos estrictamente la interfaz interna, el desarrollador de la clase puede cambiar libremente sus propiedades y métodos internos, incluso sin informar a los usuarios.**
 
-    It's much easier to develop, if you know that certain methods can be renamed, their parameters can be changed, and even removed, because no external code depends on them.
+    Si usted es un desarrollador de tal clase, es bueno saber que los métodos privados se pueden renombrar de forma segura, sus parámetros se pueden cambiar e incluso eliminar, porque ningún código externo depende de ellos.
 
-    For users, when a new version comes out, it may be a total overhaul, but still simple to upgrade if the external interface is the same.
+    Para los usuarios, cuando sale una nueva versión, puede ser una revisión total internamente, pero aún así es simple de actualizar si la interfaz externa es la misma.
 
-Hiding complexity
-: People adore to use things that are simple. At least from outside. What's inside is a different thing.
+Ocultando complejidad
+: La gente adora usar cosas que son simples. Al menos desde afuera. Lo que hay dentro es algo diferente.
 
-    Programmers are not an exception.
+    Los programadores no son una excepción.
 
-    **It's always convenient when implementation details are hidden, and a simple, well-documented external interface is available.**
+    **Siempre es conveniente cuando los detalles de implementación están ocultos, y hay disponible una interfaz externa simple y bien documentada.**
 
-To hide internal interface we use either protected or public properties:
+Para ocultar una interfaz interna utilizamos propiedades protegidas o privadas:
 
-- Protected fields start with `_`. That's a well-known convention, not enforced at the language level. Programmers should only access a field starting with `_` from its class and classes inheriting from it.
-- Private fields start with `#`. Javascript makes sure we only can access those from inside the class.
+- Los campos protegidos comienzan con `_`. Esa es una convención bien conocida, no aplicada a nivel de lenguaje. Los programadores solo deben acceder a un campo que comience con `_` de su clase y las clases que hereden de él.
+- Los campos privados comienzan con `#`. JavaScript se asegura de que solo podamos acceder a los que están dentro de la clase.
 
-Right now, private fields are not well-supported among browsers, but can be polyfilled.
+En este momento, los campos privados no son compatibles entre los navegadores, pero se pueden rellenar.
