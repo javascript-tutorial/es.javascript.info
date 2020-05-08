@@ -186,7 +186,7 @@ Por lo tanto, los campos protegidos son naturalmente heredables. A diferencia de
 
 [recent browser=none]
 
-Hay una propuesta de JavaScript terminada, casi en el estándar, que proporciona soporte a nivel de idioma para propiedades y métodos privados.
+Hay una propuesta de JavaScript terminada, casi en el estándar, que proporciona soporte a nivel de lenguaje para propiedades y métodos privados.
 
 Los privados deberían comenzar con `#`. Solo son accesibles desde dentro de la clase.
 
@@ -216,7 +216,7 @@ coffeeMachine.#waterLimit = 1000; // Error
 */!*
 ```
 
-En el nivel de idioma, `#` es una señal especial de que el campo es privado. No podemos acceder desde fuera o desde clases heredadas.
+A nivel de lenguaje, `#` es una señal especial de que el campo es privado. No podemos acceder desde fuera o desde clases heredadas.
 
 Los campos privados no entran en conflicto con los públicos. Podemos tener campos privados `#waterAmount` y públicos ` waterAmount` al mismo tiempo.
 
@@ -257,7 +257,7 @@ class MegaCoffeeMachine extends CoffeeMachine {
 }
 ```
 
-En muchos escenarios, esta limitación es demasiado severa. Si ampliamos una `CoffeeMachine`, es posible que tengamos razones legítimas para acceder a sus componentes internos. Es por eso que los campos protegidos se usan con más frecuencia, aunque no sean compatibles con la sintaxis del idioma.
+En muchos escenarios, esta limitación es demasiado severa. Si ampliamos una `CoffeeMachine`, es posible que tengamos razones legítimas para acceder a sus componentes internos. Es por eso que los campos protegidos se usan con más frecuencia, aunque no sean compatibles con la sintaxis del lenguaje.
 
 ````warn header="Los campos privados no están disponibles como this[name]"
 Los campos privados son especiales.
