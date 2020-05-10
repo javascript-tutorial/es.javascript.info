@@ -65,7 +65,7 @@ El algoritmo de `obj instanceof Class` funciona más o menos de la siguiente man
 
     let obj = { canEat: true };
 
-    alert(obj instanceof Animal); // verdadero: Animal[Symbol.hasInstance](obj) es llamadoda
+    alert(obj instanceof Animal); // verdadero: Animal[Symbol.hasInstance](obj) es llamada
     ```
 
 2. La mayoría de las clases no tienen `Symbol.hasInstance`. En ese caso, se utiliza la lógica estándar: `obj instanceOf Class` comprueba si `Class.prototype` es igual a uno de los prototipos en la cadena de prototipos `obj`.
@@ -139,7 +139,7 @@ Esa es su implementación de `toString`. Pero hay una característica oculta que
 
 ¿Suena extraño? En efecto. Vamos a desmitificar.
 
-Mediante [especificación](https://tc39.github.io/ecma262/#sec-object.prototype.tostring), el `toString` incorporado puede extraerse del objeto y ejecutarse en el contexto de cualquier otro valor. Y su resultado depende de ese valor.
+Por esta [especificación](https://tc39.github.io/ecma262/#sec-object.prototype.tostring), el `toString` incorporado puede extraerse del objeto y ejecutarse en el contexto de cualquier otro valor. Y su resultado depende de ese valor.
 
 - Para un número, será `[object Number]`
 - Para un booleano, será `[objetc Boolean]`
@@ -189,7 +189,7 @@ alert( {}.toString.call(user) ); // [object User]
 Para la mayoría de los objetos específicos del entorno, existe dicha propiedad. Aquí hay algunos ejemplos específicos del navegador:
 
 ```js run
-// ttoStringTag para el objeto y clase específicos del entorno:
+// toStringTag para el objeto y clase específicos del entorno:
 alert( window[Symbol.toStringTag]); // ventana
 alert( XMLHttpRequest.prototype[Symbol.toStringTag] ); // XMLHttpRequest
 
