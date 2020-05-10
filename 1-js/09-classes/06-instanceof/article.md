@@ -197,7 +197,7 @@ alert( {}.toString.call(window) ); // [object Window]
 alert( {}.toString.call(new XMLHttpRequest()) ); // [object XMLHttpRequest]
 ```
 
-Como puedes ver, el resultado es exactamente `Symbol.toStringTag` (si existe), envuelto en `[objetc ...]`.
+Como puedes ver, el resultado es exactamente `Symbol.toStringTag` (si existe), envuelto en `[object ...]`.
 
 Al final tenemos "typeof con esteroides" que no solo funciona para tipos de datos primitivos, sino también para objetos incorporados e incluso puede personalizarse.
 
