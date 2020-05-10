@@ -193,7 +193,7 @@ menu.on("select", value => alert(`Valor seleccionado: ${value}`));
 menu.choose("123");
 ```
 
-Ahora, si queremos que algún código reaccione a una selección de menú, podemos escucharlo con `menu.on (...)`.
+Ahora, si queremos que algún código reaccione a una selección de menú, podemos escucharlo con `menu.on(...)`.
 
 Y el mixin de `eventMixin`  hace que sea fácil agregar ese comportamiento a tantas clases como queramos, sin interferir con la cadena de herencia.
 
