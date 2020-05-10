@@ -113,7 +113,7 @@ Una característica importante de muchos objetos del navegador (por ejemplo) es 
 
 - El mixin proporcionará un método `.trigger(name, [... data])` para "generar un evento" cuando le ocurra algo importante. El argumento `name` es un nombre del evento, opcionalmente seguido de argumentos adicionales con datos del evento.
 - También el método `.on(name, handler)` que agrega la función `handler` como oyente a eventos con el nombre dado. Se llamará cuando se desencadene un evento con el nombre `name` dado, y obtenga los argumentos de la llamada `.trigger`.
-- ...Y el método `.off (name, handler)` que elimina el oyente `handler`.
+- ...Y el método `.off(name, handler)` que elimina el oyente `handler`.
 
 Después de agregar el mixin, un objeto `user` podrá generar un evento `"login"` cuando el visitante inicie sesión. Y otro objeto, por ejemplo, `calendar` puede querer escuchar dichos eventos para cargar el calendario para el persona registrada.
 
