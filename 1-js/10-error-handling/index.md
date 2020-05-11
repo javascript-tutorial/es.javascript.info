@@ -1,1 +1,1 @@
-# Error handling
+# Manejo de errores

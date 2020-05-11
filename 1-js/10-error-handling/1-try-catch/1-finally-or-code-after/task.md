@@ -2,37 +2,37 @@ importance: 5
 
 ---
 
-# Finally or just the code?
+# Finally o solo el código?
 
-Compare the two code fragments.
+Compara los dos fragmentos de código.
 
-1. The first one uses `finally` to execute the code after `try..catch`:
+1. El primero usa `finally` para ejecutar el código después de `try..catch`:
 
     ```js
     try {
-      work work
+      trabajo trabajo
     } catch (e) {
-      handle errors
+      captura errores
     } finally {
     *!*
-      cleanup the working space
+      limpiar el espacio de trabajo
     */!*
     }
     ```
-2. The second fragment puts the cleaning right after `try..catch`:
+2. El segundo fragmento coloca la limpieza justo después de `try..catch`:
 
     ```js
     try {
-      work work
+      trabajo trabajo
     } catch (e) {
-      handle errors
+      captura de errores
     }
 
     *!*
-    cleanup the working space
+    limpiar el espacio de trabajo
     */!*
     ```
 
-We definitely need the cleanup after the work has started, doesn't matter if there was an error or not.
+Definitivamente necesitamos la limpieza después del trabajo, no importa si hubo un error o no.
 
-Is there an advantage here in using `finally` or both code fragments are equal? If there is such an advantage, then give an example when it matters.
+¿Hay alguna ventaja aquí en usar `finally` o ambos fragmentos de código son iguales? Si existe tal ventaja, entonces da un ejemplo cuando sea importante.
