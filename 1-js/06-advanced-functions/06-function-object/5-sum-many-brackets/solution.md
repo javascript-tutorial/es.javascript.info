@@ -1,9 +1,9 @@
 
-1. For the whole thing to work *anyhow*, the result of `sum` must be function.
-2. That function must keep in memory the current value between calls.
-3. According to the task, the function must become the number when used in `==`. Functions are objects, so the conversion happens as described in the chapter <info:object-toprimitive>, and we can provide our own method that returns the number.
+1. Para que todo funcione *de cualquier forma*, el resultado de `sum` debe ser una función.
+2. Esa función debe mantener en la memoria el valor actual entre llamadas.
+3. Según la tarea, la función debe convertirse en el número cuando se usa en `==`. Las funciones son objetos, por lo que la conversión se realiza como se describe en el capítulo <info:object-toprimitive>, y podemos proporcionar nuestro propio método para devolver el número.
 
-Now the code:
+Ahora el código:
 
 ```js run
 function sum(a) {
@@ -28,28 +28,28 @@ alert( sum(6)(-1)(-2)(-3) ); // 0
 alert( sum(0)(1)(2)(3)(4)(5) ); // 15
 ```
 
-Please note that the `sum` function actually works only once. It returns function `f`.
+Tenga en cuenta que la función `sum` en realidad solo funciona una vez. Devuelve la función `f`.
 
-Then, on each subsequent call, `f` adds its parameter to the sum `currentSum`, and returns itself.
+Luego, en cada llamada posterior, `f` agrega su parámetro a la suma` currentSum`, y se devuelve.
 
-**There is no recursion in the last line of `f`.**
+**No hay recursividad en la última línea de `f`.**
 
-Here is what recursion looks like:
-
-```js
-function f(b) {
-  currentSum += b;
-  return f(); // <-- recursive call
-}
-```
-
-And in our case, we just return the function, without calling it:
+Así es como se ve la recursividad:
 
 ```js
 function f(b) {
   currentSum += b;
-  return f; // <-- does not call itself, returns itself
+  return f(); // <-- llamada recursiva
 }
 ```
 
-This `f` will be used in the next call, again return itself, so many times as needed. Then, when used as a number or a string -- the `toString` returns the `currentSum`. We could also use `Symbol.toPrimitive` or `valueOf` here for the conversion.
+Y en nuestro caso, solo devolvemos la función, sin llamarla:
+
+```js
+function f(b) {
+  currentSum += b;
+  return f; // <-- no se llama a sí mismo, se devuelve
+}
+```
+
+Esta `f` se usará en la próxima llamada, nuevamente se devolverá, tantas veces como sea necesario. Luego, cuando se usa como un número o una cadena, el `toString` devuelve el `currentSum`. También podríamos usar `Symbol.toPrimitive`  o `valueOf` para la conversión.
