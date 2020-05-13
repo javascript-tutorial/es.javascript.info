@@ -1,5 +1,5 @@
 
-The answer is:
+La respuesta es:
 
 - `a = 2`
 - `b = 2`
@@ -9,10 +9,9 @@ The answer is:
 ```js run no-beautify
 let a = 1, b = 1;
 
-alert( ++a ); // 2, prefix form returns the new value
-alert( b++ ); // 1, postfix form returns the old value
+alert( ++a ); // 2, forma prefijo devuelve el nuevo valor
+alert( b++ ); // 1, forma sufijo devuelve el antiguo valor
 
-alert( a ); // 2, incremented once
-alert( b ); // 2, incremented once
+alert( a ); // 2, incrementado una vez
+alert( b ); // 2, incrementado una vez
 ```
-
