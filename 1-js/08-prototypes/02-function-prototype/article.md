@@ -1,18 +1,18 @@
 # F.prototype
 
-Remember, new objects can be created with a constructor function, like `new F()`.
+Recuerde, se pueden crear nuevos objetos con una función constructora, como `new F()`.
 
-If `F.prototype` is an object, then `new` operator uses it to set `[[Prototype]]` for the new object.
+Si `F.prototype` es un objeto, entonces el operador `new` lo usa para establecer `[[Prototype]]` para el nuevo objeto.
 
 ```smart
-JavaScript had prototypal inheritance from the beginning. It was one of the core features of the language.
+JavaScript tenía herencia prototípica desde el principio. Era una de las características principales del lenguaje.
 
-But in the old times, there was no direct access to it. The only thing that worked reliably was a `"prototype"` property of the constructor function, described in this chapter. So there are many scripts that still use it.
+Pero en los viejos tiempos, no había acceso directo a él. Lo único que funcionó de manera confiable fue una propiedad `"prototype"` de la función constructora, descrita en este capítulo. Así que hay muchos scripts que todavía lo usan.
 ```
 
-Please note that `F.prototype` here means a regular property named `"prototype"` on `F`. It sounds something similar to the term "prototype", but here we really mean a regular property with this name.
+Tenga en cuenta que `F.prototype` aquí significa una propiedad regular llamada `"prototype"` en `F`. Suena algo similar al término "prototype", pero aquí realmente queremos decir una propiedad regular con este nombre.
 
-Here's the example:
+Aquí está el ejemplo:
 
 ```js run
 let animal = {
@@ -27,70 +27,70 @@ function Rabbit(name) {
 Rabbit.prototype = animal;
 */!*
 
-let rabbit = new Rabbit("White Rabbit"); //  rabbit.__proto__ == animal
+let rabbit = new Rabbit("Conejo Blanco"); //  rabbit.__proto__ == animal
 
-alert( rabbit.eats ); // true
+alert( rabbit.eats ); // verdadero
 ```
 
-Setting `Rabbit.prototype = animal` literally states the following: "When a `new Rabbit` is created, assign its `[[Prototype]]` to `animal`".
+La configuración de `Rabbit.prototype = animal` literalmente establece lo siguiente: "Cuando se crea un `new Rabbit`, asigne su `[[Prototype]]` a `animal`".
 
-That's the resulting picture:
+Esta es la imagen resultante:
 
 ![](proto-constructor-animal-rabbit.svg)
 
-On the picture, `"prototype"` is a horizontal arrow, meaning a regular property, and `[[Prototype]]` is vertical, meaning the inheritance of `rabbit` from `animal`.
+En la imagen, `"prototype"` es una flecha horizontal, que significa una propiedad regular, y `[[Prototype]]` es vertical, que significa la herencia de `rabbit` desde `animal`.
 
-```smart header="`F.prototype` only used at `new F` time"
-`F.prototype` property is only used when `new F` is called, it assigns `[[Prototype]]` of the new object. After that, there's no connection between `F.prototype` and the new object. Think of it as a "one-time gift".
+```smart header="`F.prototype` solo se usa en el momento `new F`"
+La propiedad `F.prototype` solo se usa cuando se llama a `new F`, asigna `[[Prototype]]` del nuevo objeto.
 
-If, after the creation, `F.prototype` property changes (`F.property = <another object>`), then new objects created by `new F` will have another object as `[[Prototype]]`, but already existing objects keep the old one.
+Si, después de la creación, la propiedad `F.prototype` cambia (`F.prototype = <otro objeto>`), los nuevos objetos creados por `new F` tendrán otro objeto como `[[Prototype]]`, pero ya los objetos existentes conservan el antiguo.
 ```
 
-## Default F.prototype, constructor property
+## F.prototype predeterminado, propiedad del constructor
 
-Every function has the `"prototype"` property even if we don't supply it.
+Cada función tiene la propiedad `"prototype"` incluso si no la suministramos.
 
-The default `"prototype"` is an object with the only property `constructor` that points back to the function itself.
+El `"prototype"` predeterminado es un objeto con la única propiedad `constructor` que apunta de nuevo a la función misma.
 
-Like this:
+Como esto:
 
 ```js
 function Rabbit() {}
 
-/* default prototype
+/* prototipo predeterminado
 Rabbit.prototype = { constructor: Rabbit };
 */
 ```
 
 ![](function-prototype-constructor.svg)
 
-We can check it:
+Lo podemos comprobar:
 
 ```js run
 function Rabbit() {}
-// by default:
+// por defecto:
 // Rabbit.prototype = { constructor: Rabbit }
 
-alert( Rabbit.prototype.constructor == Rabbit ); // true
+alert( Rabbit.prototype.constructor == Rabbit ); // verdadero
 ```
 
-Naturally, if we do nothing, the `constructor` property is available to all rabbits through  `[[Prototype]]`:
+Naturalmente, si no hacemos nada, la propiedad `constructor` está disponible para todos los rabbits a través de `[[Prototype]]`:
 
 ```js run
 function Rabbit() {}
-// by default:
+// por defecto:
 // Rabbit.prototype = { constructor: Rabbit }
 
-let rabbit = new Rabbit(); // inherits from {constructor: Rabbit}
+let rabbit = new Rabbit(); // hereda de {constructor: Rabbit}
 
-alert(rabbit.constructor == Rabbit); // true (from prototype)
+alert(rabbit.constructor == Rabbit); // verdadero (desde prototype)
 ```
 
 ![](rabbit-prototype-constructor.svg)
 
-We can use `constructor` property to create a new object using the same constructor as the existing one.
+Podemos usar la propiedad `constructor` para crear un nuevo objeto usando el constructor ya existente.
 
-Like here:
+Como aqui:
 
 ```js run
 function Rabbit(name) {
@@ -98,24 +98,24 @@ function Rabbit(name) {
   alert(name);
 }
 
-let rabbit = new Rabbit("White Rabbit");
+let rabbit = new Rabbit("Conejo Blanco");
 
 *!*
-let rabbit2 = new rabbit.constructor("Black Rabbit");
+let rabbit2 = new rabbit.constructor("Conejo Negro");
 */!*
 ```
 
-That's handy when we have an object, don't know which constructor was used for it (e.g. it comes from a 3rd party library), and we need to create another one of the same kind.
+Eso es útil cuando tenemos un objeto, no sabemos qué constructor se usó para él (por ejemplo, proviene de una biblioteca de terceros), y necesitamos crear otro del mismo tipo.
 
-But probably the most important thing about `"constructor"` is that...
+Pero probablemente lo más importante sobre `"constructor"` es que ...
 
-**...JavaScript itself does not ensure the right `"constructor"` value.**
+**...JavaScript en sí mismo no garantiza el valor correcto de `"constructor"`.**
 
-Yes, it exists in the default `"prototype"` for functions, but that's all. What happens with it later -- is totally on us.
+Sí, existe en el `"prototipo"` predeterminado para las funciones, pero eso es todo. Lo que sucede con eso más tarde, depende totalmente de nosotros.
 
-In particular, if we replace the default prototype as a whole, then there will be no `"constructor"` in it.
+En particular, si reemplazamos el prototipo predeterminado como un todo, entonces no habrá `"constructor"` en él.
 
-For instance:
+Por ejemplo:
 
 ```js run
 function Rabbit() {}
@@ -125,22 +125,22 @@ Rabbit.prototype = {
 
 let rabbit = new Rabbit();
 *!*
-alert(rabbit.constructor === Rabbit); // false
+alert(rabbit.constructor === Rabbit); // falso
 */!*
 ```
 
-So, to keep the right `"constructor"` we can choose to add/remove properties to the default `"prototype"` instead of overwriting it as a whole:
+Entonces, para mantener el `"constructor"` correcto, podemos elegir agregar/eliminar propiedades al `"prototipo"` predeterminado en lugar de sobrescribirlo como un todo:
 
 ```js
 function Rabbit() {}
 
-// Not overwrite Rabbit.prototype totally
-// just add to it
+// No sobrescribir totalmente Rabbit.prototype
+// solo agrégale
 Rabbit.prototype.jumps = true
-// the default Rabbit.prototype.constructor is preserved
+// se conserva el Rabbit.prototype.constructor predeterminado
 ```
 
-Or, alternatively, recreate the `constructor` property manually:
+O, alternativamente, vuelva a crear la propiedad `constructor` manualmente:
 
 ```js
 Rabbit.prototype = {
@@ -150,26 +150,26 @@ Rabbit.prototype = {
 */!*
 };
 
-// now constructor is also correct, because we added it
+// ahora el constructor también es correcto, porque lo agregamos
 ```
 
 
-## Summary
+## Resumen
 
-In this chapter we briefly described the way of setting a `[[Prototype]]` for objects created via a constructor function. Later we'll see more advanced programming patterns that rely on it.
+En este capítulo describimos brevemente la forma de establecer un `[[Prototype]]` para los objetos creados a través de una función de constructor. Más adelante veremos patrones de programación más avanzados que dependen de él.
 
-Everything is quite simple, just few notes to make things clear:
+Todo es bastante simple, solo algunas notas para aclarar las cosas:
 
-- The `F.prototype` property is not the same as `[[Prototype]]`. The only thing `F.prototype` does: it sets `[[Prototype]]` of new objects when `new F()` is called.
-- The value of `F.prototype` should be either an object or null: other values won't work.
--  The `"prototype"` property only has such a special effect when is set to a constructor function, and invoked with `new`.
+- La propiedad `F.prototype` (no la confunda con `[[Prototype]]`) establece `[[Prototype]]` de objetos nuevos cuando se llama a `new F()`.
+- El valor de `F.prototype` debe ser un objeto o `null`: otros valores no funcionarán.
+-  La propiedad `"prototype"` solo tiene un efecto tan especial cuando se establece en una función de constructor, y se invoca con `new`.
 
-On regular objects the `prototype` is nothing special:
+En los objetos normales, el `prototype` no es nada especial:
 ```js
 let user = {
   name: "John",
-  prototype: "Bla-bla" // no magic at all
+  prototype: "Bla-bla" // sin magia en absoluto
 };
 ```
 
-By default all functions have `F.prototype = { constructor: F }`, so we can get the constructor of an object by accessing its `"constructor"` property.
+Por defecto, todas las funciones tienen `F.prototype = {constructor: F}`, por lo que podemos obtener el constructor de un objeto accediendo a su propiedad `"constructor"`.
