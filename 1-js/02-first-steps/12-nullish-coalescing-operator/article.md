@@ -62,7 +62,7 @@ En el caso de `height ?? 100` este retorna `100` solo si `height` es exactamente
 
 ## Precedencia
 
-La precedencia del operador `??` es bastante baja: `7` en la[Tabla MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Operator_Precedence#Table).
+La precedencia del operador `??` es bastante baja: `7` en la [Tabla MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Operator_Precedence#Table).
 
 Es más baja que en la mayoría de los operadores y un poco más alta que `=` y `?`.
 
