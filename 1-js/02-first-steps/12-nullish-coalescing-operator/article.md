@@ -87,7 +87,7 @@ let area = height ?? (100 * width) ?? 50;
 
 Existe también una limitación a nivel del lenguaje. Por razones de seguridad, está prohibido usar `??` junto con los operadores `&&` y `||`.
 
-El código siguiente desencadena un error de sintáxis:
+El siguiente código desencadena un error de sintáxis:
 
 ```js run
 let x = 1 && 2 ?? 3; // Syntax error
