@@ -1,5 +1,5 @@
 
-Try running it:
+Prueba ejecutándolo:
 
 ```js run
 let str = "Hello";
@@ -9,23 +9,17 @@ str.test = 5; // (*)
 alert(str.test); 
 ```
 
-There may be two kinds of result:
-1. `undefined`
-2. An error.
+Depende de si usas el modo estricto "use strict" o no, el resultado será:
+1. `undefined` (sin strict mode)
+2. Un error.   (strict mode)
 
-Why? Let's replay what's happening at line `(*)`:
+¿Por qué? Repasemos lo que ocurre en la línea `(*)`:
 
-1. When a property of `str` is accessed, a "wrapper object" is created.
-2. The operation with the property is carried out on it. So, the object gets the `test` property.
-3. The operation finishes and the "wrapper object" disappears.
+1. Cuando se accede a una propiedad de `str`, un "wrapper object" es creado.
+2. Con modo estricto, tratar de alterarlo produce error.
+3. Sin modo estricto, la operación es llevada a cabo y el objeto obtiene la propiedad `test`, pero después de ello el "wrapper object" desaparece, entonces en la última linea `str` queda sin rastros de la propiedad.
 
-So, on the last line, `str` has no trace of the property. A new wrapper object for every object operation on a string.
+**Este ejemlplo claramente muestra que los tipos primitivos no son objetos.**
 
-Some browsers though may decide to further limit the programmer and disallow to assign properties to primitives at all. That's why in practice we can also see errors at line `(*)`. It's a little bit farther from the specification though.
-
-**This example clearly shows that primitives are not objects.**
-
-They just can not store data. 
-
-All property/method operations are performed with the help of temporary objects.
+Ellos no pueden almacenar datos adicionales.
 

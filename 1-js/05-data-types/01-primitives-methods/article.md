@@ -1,22 +1,22 @@
-# Methods of primitives
+# Métodos en tipos primitivos
 
-JavaScript allows us to work with primitives (strings, numbers, etc.) as if they were objects.
+JavaScript nos permite trabajar con tipos primitivos (string, number, etc) como si fueran objetos.
 
-They also provide methods to call as such. We will study those soon, but first we'll see how it works because, of course, primitives are not objects (and here we will make it even clearer).
+Como los objetos, los tipos primitivos también brindan métodos para ser llamados. Los estudiaremos pronto, pero primero veamos cómo trabajan porque, por supuesto, los primitivos no son objetos. (y aquí lo haremos aún más evidente).
 
-Let's look at the key distinctions between primitives and objects.
+Veamos las diferencias clave entre primitivos y objetos.
 
-A primitive
+Un primitivo
 
-- Is a value of a primitive type.
-- There are 6 primitive types: `string`, `number`, `boolean`, `symbol`, `null` and `undefined`.
+- Es un valor de tipo primitivo.
+- Hay 7 tipos primitivos: `string`, `number`, `bigint`, `boolean`, `symbol`, `null` y `undefined`.
 
-An object
+Un objeto
 
-- Is capable of storing multiple values as properties.
-- Can be created with `{}`, for instance: `{name: "John", age: 30}`. There are other kinds of objects in JavaScript; functions, for example, are objects.
+- Es capaz de almacenar múltiples valores como propiedades.
+- Puede ser creado con `{}`.  Ejemplo: `{name: "John", age: 30}`. Hay otras clases de objetos en JavaScript; las funciones, por ejemplo, son objetos.
 
-One of the best things about objects is that we can store a function as one of its properties.
+Una de las mejores cosas de los objetos es que podemos almacenar una función como una de sus propiedades.
 
 ```js run
 let john = {
@@ -29,32 +29,32 @@ let john = {
 john.sayHi(); // Hi buddy!
 ```
 
-So here we've made an object `john` with the method `sayHi`.
+Aquí hemos creado una función `john` con el método `sayHi` (saludar).
 
-Many built-in objects already exist, such as those that work with dates, errors, HTML elements, etc. They have different properties and methods.
+Ya existen muchos objetos integrados al lenguaje, como los que trabajan con fechas, errores, elementos HTML, etc.  Ellos tienen diferentes propiedades y métodos.
 
-But, these features come with a cost!
+¡Pero estas características tienen un precio!
 
-Objects are "heavier" than primitives. They require additional resources to support the internal machinery. But as properties and methods are very useful in programming, JavaScript engines try to optimize them to reduce the additional burden.
+Los objetos son más "pesados" que los primitivos. Ellos requieren recursos adicionales para soportar su maquinaria interna. Pero como las propiedades y los métodos son tan útiles en la programación, los motores JavaScript tratan de optimizarlos para reducir su carga adiional.
 
-## A primitive as an object
+## Un primitivo como objeto
 
-Here's the paradox faced by the creator of JavaScript:
+Aquí el dilema que enfrentó el creador de JavaScript:
 
-- There are many things one would want to do with a primitive like a string or a number. It would be great to access them as methods.
-- Primitives must be as fast and lightweight as possible.
+- Hay muchas cosas que uno querría hacer con los primitivos como string o number. Sería grandioso accederlas como métodos.
+- Los Primitivos deben ser tan rápidos y livianos como sea posible
 
-The solution looks a little bit awkward, but here it is:
+La solución es algo enrevesada, pero aquí está:
 
-1. Primitives are still primitive. A single value, as desired.
-2. The language allows access to methods and properties of strings, numbers, booleans and symbols.
-3. When this happens, a special "object wrapper" that provides the extra functionality is created, and then is destroyed.
+1. Los primitivos son aún primitivos. Con un valor único, como es deseable.
+2. El lenguaje permite el acceso a métodos y propiedades de strings, numbers, booleans y symbols.
+3. Cuando esto ocurre, se crea una envoltura especial, un "object wrapper" que provee la funcionalidad extra y luego es destruido.
 
-The "object wrappers" are different for each primitive type and are called: `String`, `Number`, `Boolean` and `Symbol`. Thus, they provide different sets of methods.
+Los "object wrappers" son diferentes para cada primitivo y son llamados: `String`, `Number`, `Boolean` y `Symbol`.  Así, proveen diferentes sets de métodos.
 
-For instance, there exists a method [str.toUpperCase()](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase) that returns a capitalized string.
+Por ejemplo, existe un método [str.toUpperCase()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/toUpperCase) que devuelve un string en mayúsculas.
 
-Here's how it works:
+Aquí el funcionamiento:
 
 ```js run
 let str = "Hello";
@@ -62,17 +62,17 @@ let str = "Hello";
 alert( str.toUpperCase() ); // HELLO
 ```
 
-Simple, right? Here's what actually happens in `str.toUpperCase()`:
+Simple, ¿no es así?  Lo que realmente ocurre en `str.toUpperCase()`:
 
-1. The string `str` is a primitive. So in the moment of accessing its property, a special object is created that knows the value of the string, and has useful methods, like `toUpperCase()`.
-2. That method runs and returns a new string (shown by `alert`).
-3. The special object is destroyed, leaving the primitive `str` alone.
+1. El string `str` es primitivo.  Al momento de acceder a su propiedad, un objeto especial es creado, uno que conoce el valor del string y tiene métodos útiles como `toUpperCase()`.
+2. Ese método se ejecuta y devuelve un nuevo string (mostrado con `alert`).
+3. El objeto especial es destruido, dejando solo el primitivo `str`.
 
-So primitives can provide methods, but they still remain lightweight.
+Así los primitivos pueden proveer métodos y aún permanecer livianos.
 
-The JavaScript engine highly optimizes this process. It may even skip the creation of the extra object at all. But it must still adhere to the specification and behave as if it creates one.
+El motor JavaScript optimiza este proceso enormemente.  Incluso puede saltear la creación del objeto extra por completo.  Pero aún se debe adherir a la especificación y comportarse como si creara uno.
 
-A number has methods of its own, for instance, [toFixed(n)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed) rounds the number to the given precision:
+Un number tiene sus propios métodos, por ejemplo [toFixed(n)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Number/toFixed) redondea el número a la precisión dada:
 
 ```js run
 let n = 1.23456;
@@ -80,15 +80,15 @@ let n = 1.23456;
 alert( n.toFixed(2) ); // 1.23
 ```
 
-We'll see more specific methods in chapters <info:number> and <info:string>.
+Veremos más métodos específicos en los capítulos <info:number> and <info:string>.
 
 
-````warn header="Constructors `String/Number/Boolean` are for internal use only"
-Some languages like Java allow us to create "wrapper objects" for primitives explicitly using a syntax like `new Number(1)` or `new Boolean(false)`.
+````warn header="Constructors `String/Number/Boolean` son de uso interno solamente"
+Algunos lenguajes como Java permiten crear "wrapper objects" para primitivos explícitamente usando una sintaxis como `new Number(1)` o `new Boolean(false)`.
 
-In JavaScript, that's also possible for historical reasons, but highly **unrecommended**. Things will go crazy in several places.
+En JavaScript, eso también es posible por razones históricas, pero firmemente  **no recomendado**. Las cosas enloquecerían en varios lugares.
 
-For instance:
+Por ejemplo:
 
 ```js run
 alert( typeof 1 ); // "number"
@@ -96,35 +96,35 @@ alert( typeof 1 ); // "number"
 alert( typeof new Number(1) ); // "object"!
 ```
 
-And because what follows, `zero`, is an object, the alert will show up:
+Y porque en lo que sigue, 'zero' es un objeto, el alert mostrará:
 
 ```js run
 let zero = new Number(0);
 
-if (zero) { // zero is true, because it's an object
-  alert( "zero is truthy?!?" );
+if (zero) { // zero es true, porque es un objeto
+  alert( "zero es verdadero?!?" );
 }
 ```
 
-On the other hand, using the same functions `String/Number/Boolean` without `new` is a totally sane and useful thing. They convert a value to the corresponding type: to a string, a number, or a boolean (primitive).
+Por otro lado, usar las mismas funciones `String/Number/Boolean` sin `new` es totalmente sano y útil. Ellas convierten un valor al tipo correspondiente: a un string, number, o boolean (primitivo).
 
-For example, this is entirely valid:
+Por ejemplo, esto es perfectamente válido::
 ```js
-let num = Number("123"); // convert a string to number
+let num = Number("123"); // convierte string a number
 ```
 ````
 
 
-````warn header="null/undefined have no methods"
-The special primitives `null` and `undefined` are exceptions. They have no corresponding "wrapper objects" and provide no methods. In a sense, they are "the most primitive".
+````warn header="null/undefined no poseen métodos"
+Los primitivos especiales `null` y `undefined` son excepciones. No tienen "wrapper objects" correspondientes y no proveen métodos. En ese sentido son "lo más primitivo".
 
-An attempt to access a property of such value would give the error:
+El intento de acceder a una propiedad de tal valor daría error:
 
 ```js run
 alert(null.test); // error
 ````
 
-## Summary
+## Resumen
 
-- Primitives except `null` and `undefined` provide many helpful methods. We will study those in the upcoming chapters.
-- Formally, these methods work via temporary objects, but JavaScript engines are well tuned to optimize that internally, so they are not expensive to call.
+- Los primitivos excepto `null` y `undefined` proveen muchos métodos útiles.  Los estudiaremos en los próximos capítulos.
+- Formalmente, estos métodos trabajan a través de objetos temporales, pero los motores de JavaScript están bien afinados para optimizarlos internamente así que llamarlos no es costoso.
