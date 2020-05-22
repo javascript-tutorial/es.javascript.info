@@ -2,9 +2,9 @@ importance: 4
 
 ---
 
-# An occasional infinite loop
+# Un bucle infinito ocasional
 
-This loop is infinite. It never ends. Why?
+Este bucle es infinito. Nunca termina, ¿por qué?
 
 ```js
 let i = 0;

@@ -2,10 +2,10 @@ importance: 5
 
 ---
 
-# Sum numbers from the visitor
+# Suma números para el visitante
 
-Create a script that prompts the visitor to enter two numbers and then shows their sum.
+Crea un script que pida al visitante que ingrese dos números y muestre su suma.
 
 [demo]
 
-P.S. There is a gotcha with types.
+P.D. Hay una triquiñuela con los tipos.

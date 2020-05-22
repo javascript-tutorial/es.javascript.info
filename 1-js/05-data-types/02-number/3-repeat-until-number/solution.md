@@ -4,7 +4,7 @@ function readNumber() {
   let num;
 
   do {
-    num = prompt("Enter a number please?", 0);
+    num = prompt("Ingrese un número por favor:", 0);
   } while ( !isFinite(num) );
 
   if (num === null || num === '') return null;
@@ -15,9 +15,9 @@ function readNumber() {
 alert(`Read: ${readNumber()}`);
 ```
 
-The solution is a little bit more intricate that it could be because we need to handle `null`/empty lines.
+La solución es un poco más intrincada de lo que podría porque necesitamos manejar `null` y líneas vacías.
 
-So we actually accept the input until it is a "regular number". Both `null` (cancel) and empty line also fit that condition, because in numeric form they are `0`.
+Entonces pedimos ingresos hasta que sea un "número regular".  También `null` (cancel) y las líneas vacías encajan en esa condición porque un su forma numérica estos son `0`.
 
-After we stopped, we need to treat `null` and empty line specially (return `null`), because converting them to a number would return `0`.
+Una vez detenido el ingreso, necesitamos tratar especialmente los casos `null` y línea vacía (return `null`), porque al convertirlos devolverían `0`.
 
