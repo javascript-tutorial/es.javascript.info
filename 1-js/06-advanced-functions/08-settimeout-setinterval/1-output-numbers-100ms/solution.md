@@ -1,5 +1,5 @@
 
-Using `setInterval`:
+Usando `setInterval`:
 
 ```js run
 function printNumbers(from, to) {
@@ -14,11 +14,11 @@ function printNumbers(from, to) {
   }, 1000);
 }
 
-// usage:
+// uso:
 printNumbers(5, 10);
 ```
 
-Using recursive `setTimeout`:
+Usando `setTimeout` anidado:
 
 
 ```js run
@@ -34,9 +34,31 @@ function printNumbers(from, to) {
   }, 1000);
 }
 
-// usage:
+// uso:
 printNumbers(5, 10);
 ```
 
-Note that in both solutions, there is an initial delay before the first output. Sometimes we need to add a line to make the first output immediately, that's easy to do.
+Tenga en cuenta que en ambas soluciones, hay un retraso inicial antes de la primera salida. La función se llama después de `1000ms` la primera vez.
 
+Si también queremos que la función se ejecute inmediatamente, entonces podemos agregar una llamada adicional en una línea separada, como esta:
+
+```js run
+function printNumbers(from, to) {
+  let current = from;
+
+  function go() {
+    alert(current);
+    if (current == to) {
+      clearInterval(timerId);
+    }
+    current++;
+  }
+
+*!*
+  go();
+*/!*
+  let timerId = setInterval(go, 1000);
+}
+
+printNumbers(5, 10);
+```
