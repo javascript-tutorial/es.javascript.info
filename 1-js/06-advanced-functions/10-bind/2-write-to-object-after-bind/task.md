@@ -2,9 +2,9 @@ importance: 5
 
 ---
 
-# Bound function as a method
+# Función enlazada como método
 
-What will be the output?
+¿Cuál será el resultado?
 
 ```js
 function f() {
