@@ -1,4 +1,4 @@
-# The Modern JavaScript Tutorial in Spanish
+# El Tutorial Moderno de JavaScript en Español
 
 This repository hosts the translation of <https://javascript.info> in Spanish.
 
