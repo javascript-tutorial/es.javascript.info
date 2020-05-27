@@ -5,7 +5,7 @@ A medida que nuestra aplicación crece, queremos dividirla en múltiples archivo
 
 Durante mucho tiempo, JavaScript existió sin una sintaxis de módulo a nivel de lenguaje. Eso no fue un problema, porque inicialmente los scripts eran pequeños y simples, por lo que no era necesario.
 
-Pero eventualmente los scripts se volvieron cada vez más complejos, por lo que la comunidad inventó una variedad de formas de organizar el código en módulos, bibliotecas especiales para cargar módulos a pedido.
+Pero con el tiempo los scripts se volvieron cada vez más complejos, por lo que la comunidad inventó una variedad de formas de organizar el código en módulos, bibliotecas especiales para cargar módulos a pedido.
 
 Por ejemplo:
 
@@ -312,18 +312,18 @@ Los scripts externos que tengan `type="module"` son diferentes en dos aspectos:
 
     Esto asegura mejor seguridad de forma predeterminada.
 
-### No se permiten módulos "simples"
+### No se permiten módulos sueltos
 
-En el navegador, `import` debe obtener una URL relativa o absoluta. Los módulos sin ninguna ruta se denominan módulos "simples". Dichos módulos no están permitidos en `import`.
+En el navegador, `import` debe obtener una URL relativa o absoluta. Los módulos sin ninguna ruta se denominan módulos sueltos. Dichos módulos no están permitidos en `import`.
 
 Por ejemplo, este `import` no es válido:
 
 ```js
-import {sayHi} from 'sayHi'; // Error, módulo "simple"
+import {sayHi} from 'sayHi'; // Error, módulo suelto
 // el módulo debe tener una ruta, por ejemplo './sayHi.js' o dondequiera que el módulo esté
 ```
 
-Ciertos entornos, como Node.js o herramientas de paquete permiten módulos simples sin ninguna ruta, ya que tienen sus propias formas de encontrar módulos y hooks para ajustarlos. Pero los navegadores aún no admiten módulos simples.
+Ciertos entornos, como Node.js o herramientas de paquete permiten módulos simples sin ninguna ruta, ya que tienen sus propias formas de encontrar módulos y hooks para ajustarlos. Pero los navegadores aún no admiten módulos sueltos.
 
 ### Compatibilidad, "nomodule"
 
