@@ -6,40 +6,7 @@ There are additional searching methods for that.
 
 ## document.getElementById or just id
 
-If an element has the `id` attribute, then there's a global variable by the name from that `id`.
-
-We can use it to immediately access the element no matter where it is:
-
-```html run
-<div id="*!*elem*/!*">
-  <div id="*!*elem-content*/!*">Element</div>
-</div>
-
-<script>
-  alert(elem); // DOM-element with id="elem"
-  alert(window.elem); // accessing global variable like this also works
-
-  // for elem-content things are a bit more complex
-  // that has a dash inside, so it can't be a variable name
-  alert(window['elem-content']); // ...but accessible using square brackets [...]
-</script>
-```
-
-The behavior is described [in the specification](http://www.whatwg.org/specs/web-apps/current-work/#dom-window-nameditem), but it is supported mainly for compatibility. The browser tries to help us by mixing namespaces of JS and DOM. Good for very simple scripts, but there may be name conflicts. Also, when we look in JS and don't have HTML in view, it's not obvious where the variable comes from.
-
-If we declare a variable with the same name, it takes precedence:
-
-```html run untrusted height=0
-<div id="elem"></div>
-
-<script>
-  let elem = 5;
-
-  alert(elem); // the variable overrides the element
-</script>
-```
-
-The better alternative is to use a special method `document.getElementById(id)`.
+If an element has the `id` attribute, we can get the element using the method `document.getElementById(id)`, no matter where it is.
 
 For instance:
 
@@ -49,23 +16,61 @@ For instance:
 </div>
 
 <script>
+  // get the element
 *!*
   let elem = document.getElementById('elem');
 */!*
 
+  // make its background red
   elem.style.background = 'red';
 </script>
 ```
 
-Here in the tutorial we'll often use `id` to directly reference an element, but that's only to keep things short. In real life `document.getElementById` is the preferred method.
+Also, there's a global variable named by `id` that references the element:
 
-```smart header="There can be only one"
-The `id` must be unique. There can be only one element in the document with the given `id`.
+```html run
+<div id="*!*elem*/!*">
+  <div id="*!*elem-content*/!*">Element</div>
+</div>
 
-If there are multiple elements with the same `id`, then the behavior of corresponding methods is unpredictable. The browser may return any of them at random. So please stick to the rule and keep `id` unique.
+<script>
+  // elem is a reference to DOM-element with id="elem"
+  elem.style.background = 'red';
+
+  // id="elem-content" has a hyphen inside, so it can't be a variable name
+  // ...but we can access it using square brackets: window['elem-content']
+</script>
 ```
 
-```warn header="Only `document.getElementById`, not `anyNode.getElementById`"
+...That's unless we declare a JavaScript variable with the same name, then it takes precedence:
+
+```html run untrusted height=0
+<div id="elem"></div>
+
+<script>
+  let elem = 5; // now elem is 5, not a reference to <div id="elem">
+
+  alert(elem); // 5
+</script>
+```
+
+```warn header="Please don't use id-named global variables to access elements"
+This behavior is described [in the specification](http://www.whatwg.org/specs/web-apps/current-work/#dom-window-nameditem), so it's kind of standard. But it is supported mainly for compatibility.
+
+The browser tries to help us by mixing namespaces of JS and DOM. That's fine for simple scripts, inlined into HTML, but generally isn't a good thing. There may be naming conflicts. Also, when one reads JS code and doesn't have HTML in view, it's not obvious where the variable comes from.
+
+Here in the tutorial we use `id` to directly reference an element for brevity, when it's obvious where the element comes from.
+
+In real life `document.getElementById` is the preferred method.
+```
+
+```smart header="The `id` must be unique"
+The `id` must be unique. There can be only one element in the document with the given `id`.
+
+If there are multiple elements with the same `id`, then the behavior of methods that use it is unpredictable, e.g. `document.getElementById` may return any of such elements at random. So please stick to the rule and keep `id` unique.
+```
+
+```warn header="Only `document.getElementById`, not `anyElem.getElementById`"
 The method `getElementById` that can be called only on `document` object. It looks for the given `id` in the whole document.
 ```
 
@@ -98,14 +103,14 @@ Here we look for all `<li>` elements that are last children:
 This method is indeed powerful, because any CSS selector can be used.
 
 ```smart header="Can use pseudo-classes as well"
-Pseudo-classes in the CSS selector like `:hover` and `:active` are also supported. For instance, `document.querySelectorAll(':hover')` will return the collection with elements that the pointer is  over now (in nesting order: from the outermost `<html>` to the most nested one).
+Pseudo-classes in the CSS selector like `:hover` and `:active` are also supported. For instance, `document.querySelectorAll(':hover')` will return the collection with elements that the pointer is over now (in nesting order: from the outermost `<html>` to the most nested one).
 ```
 
 ## querySelector [#querySelector]
 
 The call to `elem.querySelector(css)` returns the first element for the given CSS selector.
 
-In other words, the result is the same as `elem.querySelectorAll(css)[0]`, but the latter is looking for *all* elements and picking one, while `elem.querySelector` just looks for one. So it's faster and shorter to write.
+In other words, the result is the same as `elem.querySelectorAll(css)[0]`, but the latter is looking for *all* elements and picking one, while `elem.querySelector` just looks for one. So it's faster and also shorter to write.
 
 ## matches
 
@@ -113,7 +118,7 @@ Previous methods were searching the DOM.
 
 The [elem.matches(css)](http://dom.spec.whatwg.org/#dom-element-matches) does not look for anything, it merely checks if `elem` matches the given CSS-selector. It returns `true` or `false`.
 
-The method comes handy when we are iterating over elements (like in array or something) and trying to filter those that interest us.
+The method comes in handy when we are iterating over elements (like in an array or something) and trying to filter out those that interest us.
 
 For instance:
 
@@ -172,8 +177,8 @@ Today, they are mostly history, as `querySelector` is more powerful and shorter 
 So here we cover them mainly for completeness, while you can still find them in the old scripts.
 
 - `elem.getElementsByTagName(tag)` looks for elements with the given tag and returns the collection of them. The `tag` parameter can also be a star `"*"` for "any tags".
-- `elem.getElementsByClassName(className)` returns elements that have the given CSS class. Elements may have other classes too.
-- `document.getElementsByName(name)` returns elements with the given `name` attribute, document-wide. very rarely used.
+- `elem.getElementsByClassName(className)` returns elements that have the given CSS class.
+- `document.getElementsByName(name)` returns elements with the given `name` attribute, document-wide. Very rarely used.
 
 For instance:
 ```js
@@ -305,8 +310,6 @@ If we use it instead, then both scripts output `1`:
 
 Now we can easily see the difference. The static collection did not increase after the appearance of a new `div` in the document.
 
-Here we used separate scripts to illustrate how the element addition affects the collection, but any DOM manipulations affect them. Soon we'll see more of them.
-
 ## Summary
 
 There are 6 main methods to search for nodes in DOM:
@@ -367,5 +370,5 @@ Besides that:
 - There is `elem.matches(css)` to check if `elem` matches the given CSS selector.
 - There is `elem.closest(css)` to look for the nearest ancestor that matches the given CSS-selector. The `elem` itself is also checked.
 
-And let's mention one more method here to check for the child-parent relationship:
+And let's mention one more method here to check for the child-parent relationship, as it's sometimes useful:
 -  `elemA.contains(elemB)` returns true if `elemB` is inside `elemA` (a descendant of `elemA`) or when `elemA==elemB`.
