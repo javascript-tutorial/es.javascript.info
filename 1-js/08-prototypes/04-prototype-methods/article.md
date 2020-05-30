@@ -57,7 +57,7 @@ Los descriptores están en el mismo formato que se describe en el capítulo <inf
 Podemos usar `Object.create` para realizar una clonación de objetos más poderosa que copiar propiedades en el ciclo `for..in`:
 
 ```js
-// // clon totalmente idéntico de obj
+// // clon superficial de obj totalmente idéntico
 let clone = Object.create(Object.getPrototypeOf(obj), Object.getOwnPropertyDescriptors(obj));
 ```
 
