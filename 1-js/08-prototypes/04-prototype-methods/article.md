@@ -3,7 +3,7 @@
 
 En el primer capítulo de esta sección, mencionamos que existen métodos modernos para configurar un prototipo.
 
-`__proto__` se considera desactualizado y algo obsoleto (en la parte estándar de JavaScript del navegador).
+`__proto__` se considera desactualizado y algo obsoleto (en la parte propia del navegador dentro del estándar JavaScript).
 
 Los métodos modernos son:
 
@@ -25,10 +25,10 @@ let animal = {
 let rabbit = Object.create(animal);
 */!*
 
-alert(rabbit.eats); // verdadero
+alert(rabbit.eats); // true
 
 *!*
-alert(Object.getPrototypeOf(rabbit) === animal); // verdadero
+alert(Object.getPrototypeOf(rabbit) === animal); // true
 */!*
 
 *!*
@@ -49,7 +49,7 @@ let rabbit = Object.create(animal, {
   }
 });
 
-alert(rabbit.jumps); // verdadero
+alert(rabbit.jumps); // true
 ```
 
 Los descriptores están en el mismo formato que se describe en el capítulo <info:property-descriptors>.
@@ -57,11 +57,11 @@ Los descriptores están en el mismo formato que se describe en el capítulo <inf
 Podemos usar `Object.create` para realizar una clonación de objetos más poderosa que copiar propiedades en el ciclo `for..in`:
 
 ```js
-// clon superficial totalmente idéntico de obj
+// // clon totalmente idéntico de obj
 let clone = Object.create(Object.getPrototypeOf(obj), Object.getOwnPropertyDescriptors(obj));
 ```
 
-Esta llamada hace una copia verdaderamente exacta de `obj`, que incluye todas las propiedades: enumerables y no enumerables, propiedades de datos y setters/getters, todo, y con el derecho `[[Prototype]] `.
+Esta llamada hace una copia verdaderamente exacta de `obj`, que incluye todas las propiedades: enumerables y no enumerables, propiedades de datos y setters/getters, todo, y con el `[[Prototype]]` correcto.
 
 ## Breve historia
 
@@ -180,11 +180,11 @@ Los métodos modernos para configurar y acceder directamente al prototipo son:
 - [Object.getPrototypeOf(obj)](mdn:js/Object.getPrototypeOf) - devuelve el `[[Prototype]]` de `obj` (igual que el getter de `__proto__`).
 - [Object.setPrototypeOf(obj, proto)](mdn:js/Object.setPrototypeOf) - establece el `[[Prototype]]` de `obj` en `proto` (igual que el setter de `__proto__`).
 
-El getter/setter incorporado de `__proto__` no es seguro si queremos poner claves generadas por el usuario en un objeto. Aunque un usuario puede ingresar `"__proto __"` como clave, y habrá un error, con consecuencias levemente esperanzadoras, pero generalmente impredecibles.
+El getter/setter incorporado de `__proto__` no es seguro si queremos poner claves generadas por el usuario en un objeto. Aunque un usuario puede ingresar `"__proto __"` como clave, y habrá un error, con consecuencias, con esperanza tranquilas pero generalmente impredecibles.
 
 Entonces podemos usar `Object.create(null)` para crear un objeto "muy simple" sin `__proto__`, o apegarnos a los objetos `Map` para eso.
 
-Además, `Object.create` proporciona una manera fácil de copiar superficialmente un objeto con todos los descriptores:
+Además, `Object.create` proporciona una manera fácil de copiar llanamente un objeto con todos los descriptores:
 
 ```js
 let clone = Object.create(Object.getPrototypeOf(obj), Object.getOwnPropertyDescriptors(obj));

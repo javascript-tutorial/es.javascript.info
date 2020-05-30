@@ -14,12 +14,12 @@ Así es como debería funcionar:
 let dictionary = Object.create(null);
 
 *!*
-// tu código para agregar el método diccionario.toString 
+// tu código para agregar el método dictionary.toString 
 */!*
 
 // agregar algunos datos
 dictionary.apple = "Manzana";
-dictionary.__proto__ = "prueba"; // __proto__ es una clave de propiedad regular aquí
+dictionary.__proto__ = "prueba"; // // aquí proto es una propiedad clave común
 
 // solo manzana y __proto__ están en el ciclo
 for(let key in dictionary) {
