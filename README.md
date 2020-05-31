@@ -1,4 +1,60 @@
-# The Modern JavaScript Tutorial in Spanish
+# El Tutorial Moderno de JavaScript en Español
+
+# Como contribuir
+
+## 1. Ingresar a la siguiente página: [es.javascript.info](https://github.com/javascript-tutorial/es.javascript.info/issues/17)
+
+Buscar un artículo de la lista que no esté asignado a un usuario.
+
+Por ejemplo: 
+
+Type Conversions (@tikoflano) #57
+
+Este artículo ya fue solicitado por el usuario @tikoflano y está en proceso de traducción o revisión. 
+
+## 2. Solicitar un artículo
+
+Antes de comenzar con la traducción del artículo deben realizar un comentario con el nombre exacto del artículo que deseas traducir. 
+
+Recomendamos copiar y pegar el nombre del artículo para ayudar a nuestro bot reconocerlo y asignartelo a tu usuario.
+
+## 3. Hacer el fork
+
+Una vez que nuestro bot te haya asignado el artículo (lo verás con tu nombre de usuario) te pedimos que realices el fork del repositorio javascript-tutorial/es.javascript.info 
+
+![alt text](https://i.imgur.com/HFMpAaw.png "fork")
+
+Estamos trabajando en actualizar el repositorio y no todos los artículos están al día con la versión más reciente, por eso te pedimos que tomes como guía al artículo en el repositorio original (https://github.com/javascript-tutorial/en.javascript.info). 
+
+En conclusión, el repositorio en Español debe quedar igual que el del Inglés, si faltan carpetas o archivos, debes crearlos.
+
+## 4. Traducir el artículo
+
+En este momento ya deberías haber realizado el fork y estar trabajando en tu propio repositorio:
+
+tuUsuario/es.javascript.info
+
+forked from javascript-tutorial/es.javascript.info
+
+Comienza a editar el artículo haciendo click en el botón "Edit": 
+
+![alt text](https://i.imgur.com/6HyzSeV.png "edit")
+
+Si tienes dudas con respecto a la terminología, te recomendamos consultar MDN (https://developer.mozilla.org/es/docs/Web/JavaScript). MDN es un recurso muy valioso para nosotros ya que nos permite coordinar los términos que vamos a utilizar en nuestras traducciones. 
+
+Esto lo hacemos más que nada para "ponernos de acuerdo" acerca de la terminología que vamos a usar en todos los artículos.
+
+Otro recurso para consultar es la sección Translator Tips (https://github.com/javascript-tutorial/es.javascript.info#translation-tips) aquí se establecen algunos lineamientos y convenciones básicas para realizar la traducción.
+
+También tenemos un canal en Discord donde nos puedes consultar cualquier duda que tengas. (https://discord.gg/Qf3bFnn) 
+
+Te esperamos en Discord! Bienvenido a la comunidad!
+
+
+
+___
+
+###
 
 This repository hosts the translation of <https://javascript.info> in Spanish.
 
