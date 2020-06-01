@@ -6,15 +6,27 @@
 
 Buscar un artículo de la lista que no esté asignado a un usuario.
 
+<<<<<<< HEAD
 Por ejemplo: 
+=======
+See <https://javascript.info/translate> for the details.
+>>>>>>> 69e44506c3e9dac74c282be37b55ba7ff122ae74
 
 Type Conversions (@tikoflano) #57
 
+<<<<<<< HEAD
 Este artículo ya fue solicitado por el usuario @tikoflano y está en proceso de traducción o revisión. 
+=======
+We'd also like to collaborate on the tutorial with other people.
+>>>>>>> 69e44506c3e9dac74c282be37b55ba7ff122ae74
 
 ## 2. Solicitar un artículo
 
+<<<<<<< HEAD
 Antes de comenzar con la traducción del artículo deben realizar un comentario con el nombre exacto del artículo que deseas traducir. 
+=======
+**You can edit the text in any editor.** The tutorial uses enhanced "markdown" format, easy to grasp. And if you want to see how it looks on-site, there's a server to run the tutorial locally at <https://github.com/javascript-tutorial/server>.  
+>>>>>>> 69e44506c3e9dac74c282be37b55ba7ff122ae74
 
 Recomendamos copiar y pegar el nombre del artículo para ayudar a nuestro bot reconocerlo y asignartelo a tu usuario.
 
@@ -170,6 +182,7 @@ Some files, usually tasks, have YAML metadata at the top, delimited by `---`:
 importance: 5
 
 ---
+<<<<<<< HEAD
 ...
 ```
 
@@ -190,3 +203,7 @@ Please don't translate or remove the `[#...]` part, it's for URL anchors.
 You can run the tutorial server locally to see how the translation looks.
 
 The server and install instructions are at <https://github.com/javascript-tutorial/server>. 
+=======
+♥  
+Ilya Kantor @iliakan
+>>>>>>> 69e44506c3e9dac74c282be37b55ba7ff122ae74

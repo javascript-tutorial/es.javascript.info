@@ -64,7 +64,11 @@ if (hour < 10 || hour > 18 || isWeekend) {
 }
 ```
 
+<<<<<<< HEAD
 ## OR encuentra el primer valor verdadero
+=======
+## OR "||" finds the first truthy value
+>>>>>>> 69e44506c3e9dac74c282be37b55ba7ff122ae74
 
 La lógica descrita arriba es algo clásica. Ahora, mostremos las características "extra" de JavaScript.
 
@@ -84,23 +88,37 @@ El operador OR `||` realiza lo siguiente:
 
 Un valor es retornado en su forma original, sin la conversión.
 
+<<<<<<< HEAD
 En otras palabras, una cadena de OR `"||"` retorna el primer valor verdadero o el último valor en caso de que ningún verdadero sea encontrado.
+=======
+In other words, a chain of OR `"||"` returns the first truthy value or the last one if no truthy value is found.
+>>>>>>> 69e44506c3e9dac74c282be37b55ba7ff122ae74
 
 Por ejemplo:
 
 ```js run
+<<<<<<< HEAD
 alert(1 || 0); // 1 (1 es un valor verdado)
 alert(true || "cualquier valor"); // (true es un valor verdadero)
 
 alert(null || 1); // 1 (1 es el primer valor verdadero)
 alert(null || 0 || 1); // 1 (el primer valor verdadero)
 alert(undefined || null || 0); // 0 (todos son valores falsos, retorna el último valor)
+=======
+alert( 1 || 0 ); // 1 (1 is truthy)
+
+alert( null || 1 ); // 1 (1 is the first truthy value)
+alert( null || 0 || 1 ); // 1 (the first truthy value)
+
+alert( undefined || null || 0 ); // 0 (all falsy, returns the last value)
+>>>>>>> 69e44506c3e9dac74c282be37b55ba7ff122ae74
 ```
 
 Esto brinda varios usos interesantes comparados al "OR puro, clásico, de solo booleanos".
 
 1. **Consiguiendo el primer valor verdadero de una lista de variables o expresiones.**
 
+<<<<<<< HEAD
    Imagina que tenemos múltiples variables que pueden contener datos o bien ser `null/undefined`. ¿Cómo podemos encontrar el primer valor que contenga datos?
 
    Podemos usar OR `||`:
@@ -149,6 +167,42 @@ Esto brinda varios usos interesantes comparados al "OR puro, clásico, de solo b
    Como podemos ver, tal caso de uso es una "manera más corta de usar `if`". El primer operando es convertido a booleano. Si el primero es falso, el segundo sera evaluado.
 
    La mayor parte del tiempo, es mejor usar un `if` "normal" para mantener el código fácil de entender, pero a veces esto puede ser útil.
+=======
+    For instance, we have `firstName`, `lastName` and `nickName` variables, all optional.
+
+    Let's use OR `||` to choose the one that has the data and show it (or `anonymous` if nothing set):
+
+    ```js run
+    let firstName = "";
+    let lastName = "";
+    let nickName = "SuperCoder";
+
+    *!*
+    alert( firstName || lastName || nickName || "Anonymous"); // SuperCoder
+    */!*
+    ```
+
+    If all variables were falsy, `Anonymous` would show up.
+
+2. **Short-circuit evaluation.**
+
+    Another feature of OR `||` operator is the so-called "short-circuit" evaluation.
+
+    It means that `||` processes its arguments until the first truthy value is reached, and then the value is returned immediately, without even touching the other argument.
+
+    That importance of this feature becomes obvious if an operand isn't just a value, but an expression with a side effect, such as a variable assignment or a function call.
+
+    In the example below, only the second message is printed:
+
+    ```js run no-beautify
+    *!*true*/!* || alert("not printed");
+    *!*false*/!* || alert("printed");
+    ```
+
+    In the first line, the OR `||` operator stops the evaluation immediately upon seeing `true`, so the `alert` isn't run.
+
+    Sometimes, people use this feature to execute commands only if the condition on the left part is falsy.
+>>>>>>> 69e44506c3e9dac74c282be37b55ba7ff122ae74
 
 ## && (AND)
 
@@ -188,7 +242,13 @@ if (1 && 0) { // evaluado como true && false
 
 ## AND encuentra el primer valor verdadero
 
+<<<<<<< HEAD
 Dado múltiples valores aplicados al operador AND:
+=======
+## AND "&&" finds the first falsy value
+
+Given multiple AND'ed values:
+>>>>>>> 69e44506c3e9dac74c282be37b55ba7ff122ae74
 
 ```js
 result = value1 && value2 && value3;
@@ -237,7 +297,12 @@ La precedencia del operador AND `&&` es mayor que la de OR `||`.
 Así que el código `a && b || c && d` es básicamente el mismo que si la expresiones `&&` estuvieran entre paréntesis: `(a && b) || (c && d)`
 ```
 
+<<<<<<< HEAD
 Justo como en OR, el operador AND `&&` puede reemplazar en ocasiones al `if`.
+=======
+````warn header="Don't replace `if` with || or &&"
+Sometimes, people use the AND `&&` operator as a "shorter to write `if`".
+>>>>>>> 69e44506c3e9dac74c282be37b55ba7ff122ae74
 
 Por ejemplo:
 
@@ -254,6 +319,7 @@ Así que básicamente tenemos un análogo para:
 ```js run
 let x = 1;
 
+<<<<<<< HEAD
 if (x > 0) {
 	alert("Mayor que cero!");
 }
@@ -262,6 +328,14 @@ if (x > 0) {
 La variante con `&&` parece más corta. Pero `if` es más obvio y tiende a ser un poco más legible.
 
 Así que recomendamos usar cada construcción para su propósito: usar `if` si queremos if y usar `&&` si queremos AND.
+=======
+if (x > 0) alert( 'Greater than zero!' );
+```
+
+Although, the variant with `&&` appears shorter, `if` is more obvious and tends to be a little bit more readable. So we recommend using every construct for its purpose: use `if` if we want if and use `&&` if we want AND.
+````
+
+>>>>>>> 69e44506c3e9dac74c282be37b55ba7ff122ae74
 
 ## ! (NOT)
 

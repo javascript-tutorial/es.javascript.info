@@ -96,7 +96,11 @@ Recomendamos colocar puntos y coma entre las sentencias, incluso si están separ
 
 ## Comentarios
 
+<<<<<<< HEAD
 A medida que pasa el tiempo, los programas se vuelven cada vez más complejos. Se hace necesario agregar *comentarios* que describan lo que hace el código y por qué.
+=======
+## Comments [#code-comments]
+>>>>>>> 69e44506c3e9dac74c282be37b55ba7ff122ae74
 
 Los comentarios se pueden poner en cualquier lugar de un script. No afectan su ejecución porque el motor simplemente los ignora.
 
@@ -136,8 +140,13 @@ alert('Hola');
 alert('Mundo');
 ```
 
+<<<<<<< HEAD
 ```smart header="¡Usa accesos rápidos del teclado!"
 En la mayoría de los editores, se puede comentar una línea de código presionando `key:Ctrl+/` para un comentario de una sola línea y algo como `key:Ctrl+Shift+/` - para comentarios de varias líneas (selecciona una parte del código y pulsa la tecla de acceso rápido). Para Mac, intenta `key: Cmd` en lugar de `key: Ctrl`.
+=======
+```smart header="Use hotkeys!"
+In most editors, a line of code can be commented out by pressing the `key:Ctrl+/` hotkey for a single-line comment and something like `key:Ctrl+Shift+/` -- for multiline comments (select a piece of code and press the hotkey). For Mac, try `key:Cmd` instead of `key:Ctrl` and `key:Option` instead of `key:Shift`.
+>>>>>>> 69e44506c3e9dac74c282be37b55ba7ff122ae74
 ```
 
 ````warn header="¡Los comentarios anidados no son compatibles!"

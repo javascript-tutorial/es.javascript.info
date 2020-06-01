@@ -1,11 +1,11 @@
 
 # Property getters and setters
 
-There are two kinds of properties.
+There are two kinds of object properties.
 
-The first kind is *data properties*. We already know how to work with them. Actually, all properties that we've been using till now were data properties.
+The first kind is *data properties*. We already know how to work with them. All properties that we've been using until now were data properties.
 
-The second type of properties is something new. It's *accessor properties*. They are essentially functions that work on getting and setting a value, but look like regular properties to an external code.
+The second type of properties is something new. It's *accessor properties*. They are essentially functions that execute on getting and setting a value, but look like regular properties to an external code.
 
 ## Getters and setters
 
@@ -27,14 +27,14 @@ The getter works when `obj.propName` is read, the setter -- when it is assigned.
 
 For instance, we have a `user` object with `name` and `surname`:
 
-```js run
+```js
 let user = {
   name: "John",
   surname: "Smith"
 };
 ```
 
-Now we want to add a "fullName" property, that should be "John Smith". Of course, we don't want to copy-paste existing information, so we can implement it as an accessor:
+Now we want to add a `fullName` property, that should be `"John Smith"`. Of course, we don't want to copy-paste existing information, so we can implement it as an accessor:
 
 ```js run
 let user = {
@@ -53,9 +53,21 @@ alert(user.fullName); // John Smith
 */!*
 ```
 
-From outside, an accessor property looks like a regular one. That's the idea of accessor properties. We don't *call* `user.fullName` as a function, we *read* it normally: the getter runs behind the scenes.
+From the outside, an accessor property looks like a regular one. That's the idea of accessor properties. We don't *call* `user.fullName` as a function, we *read* it normally: the getter runs behind the scenes.
 
-As of now, `fullName` has only a getter. If we attempt to assign `user.fullName=`, there will be an error.
+As of now, `fullName` has only a getter. If we attempt to assign `user.fullName=`, there will be an error:
+
+```js run
+let user = {
+  get fullName() {
+    return `...`;
+  }
+};
+
+*!*
+user.fullName = "Test"; // Error (property has only a getter)
+*/!*
+```
 
 Let's fix it by adding a setter for `user.fullName`:
 
@@ -82,25 +94,15 @@ alert(user.name); // Alice
 alert(user.surname); // Cooper
 ```
 
-Now we have a "virtual" property. It is readable and writable, but in fact does not exist.
-
-```smart header="Accessor properties are only accessible with get/set"
-Once a property is defined with `get prop()` or `set prop()`, it's an accessor property, not a data properety any more.
-
-- If there's a getter -- we can read `object.prop`, othrewise we can't.
-- If there's a setter -- we can set `object.prop=...`, othrewise we can't.
-
-And in either case we can't `delete` an accessor property.
-```
-
+As the result, we have a "virtual" property `fullName`. It is readable and writable.
 
 ## Accessor descriptors
 
-Descriptors for accessor properties are different -- as compared with data properties.
+Descriptors for accessor properties are different from those for data properties.
 
-For accessor properties, there is no `value` and `writable`, but instead there are `get` and `set` functions.
+For accessor properties, there is no `value` or `writable`, but instead there are `get` and `set` functions.
 
-So an accessor descriptor may have:
+That is, an accessor descriptor may have:
 
 - **`get`** -- a function without arguments, that works when a property is read,
 - **`set`** -- a function with one argument, that is called when the property is set,
@@ -132,7 +134,7 @@ alert(user.fullName); // John Smith
 for(let key in user) alert(key); // name, surname
 ```
 
-Please note once again that a property can be either an accessor or a data property, not both.
+Please note that a property can be either an accessor (has `get/set` methods) or a data property (has a `value`), not both.
 
 If we try to supply both `get` and `value` in the same descriptor, there will be an error:
 
@@ -151,9 +153,9 @@ Object.defineProperty({}, 'prop', {
 
 ## Smarter getters/setters
 
-Getters/setters can be used as wrappers over "real" property values to gain more control over them.
+Getters/setters can be used as wrappers over "real" property values to gain more control over operations with them.
 
-For instance, if we want to forbid too short names for `user`, we can store `name` in a special property `_name`. And filter assignments in the setter:
+For instance, if we want to forbid too short names for `user`, we can have a setter `name` and keep the value in a separate property `_name`:
 
 ```js run
 let user = {
@@ -176,14 +178,16 @@ alert(user.name); // Pete
 user.name = ""; // Name is too short...
 ```
 
-Technically, the external code may still access the name directly by using `user._name`. But there is a widely known agreement that properties starting with an underscore `"_"` are internal and should not be touched from outside the object.
+So, the name is stored in `_name` property, and the access is done via getter and setter.
+
+Technically, external code is able to access the name directly by using `user._name`. But there is a widely known convention that properties starting with an underscore `"_"` are internal and should not be touched from outside the object.
 
 
 ## Using for compatibility
 
-One of the great ideas behind getters and setters -- they allow to take control over a "normal" data property and tweak it at any moment.
+One of the great uses of accessors is that they allow to take control over a "regular" data property at any moment by replacing it with a getter and a setter and tweak its behavior.
 
-For instance, we started implementing user objects using data properties `name` and `age`:
+Imagine we started implementing user objects using data properties `name` and `age`:
 
 ```js
 function User(name, age) {
@@ -209,9 +213,11 @@ let john = new User("John", new Date(1992, 6, 1));
 
 Now what to do with the old code that still uses `age` property?
 
-We can try to find all such places and fix them, but that takes time and can be hard to do if that code is written by other people. And besides, `age` is a nice thing to have in `user`, right? In some places it's just what we want.
+We can try to find all such places and fix them, but that takes time and can be hard to do if that code is used by many other people. And besides, `age` is a nice thing to have in `user`, right?
 
-Adding a getter for `age` mitigates the problem:
+Let's keep it.
+
+Adding a getter for `age` solves the problem:
 
 ```js run no-beautify
 function User(name, birthday) {

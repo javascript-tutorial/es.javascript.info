@@ -4,7 +4,11 @@ Durante mucho tiempo, JavaScript evolucionó sin problemas de compatibilidad. Se
 
 Esto tenía el beneficio de nunca romper código existente, pero lo malo era que cualquier error o decisión incorrecta tomada por los creadores de JavaScript se quedaba para siempre en el lenguage.
 
+<<<<<<< HEAD
 Esto fue así hasta 2009, cuando ECMAScript 5 (ES5) apareció. Esta versión añadío nuevas características al lenguaje y modificó algunas de las ya existentes. Para mantener el código antiguo funcionando, la mayor parte de las modificaciones están desactivadas por defecto. Tienes que activarlas explícitamente usando una directiva especial: `"use strict"`.
+=======
+This was the case until 2009 when ECMAScript 5 (ES5) appeared. It added new features to the language and modified some of the existing ones. To keep the old code working, most such modifications are off by default. You need to explicitly enable them with a special directive: `"use strict"`.
+>>>>>>> 69e44506c3e9dac74c282be37b55ba7ff122ae74
 
 ## "use strict"
 
@@ -19,12 +23,16 @@ Por ejemplo:
 ...
 ```
 
+<<<<<<< HEAD
 Aprenderemos funciones (una manera de agrupar comandos) en breve.
 
 De cara al futuro, tengamos en cuenta que `"use strict"` se puede poner al inicio de la mayoría de los tipos de funciones en lugar del script entero. De esta manera, se activa el modo estricto únicamente en esa función. Pero, normalmente, la gente lo utiliza para el script entero.
 
 ````warn header="Asegúrate de que \"use strict\" está al inicio"
 Por favor, asegúrate de que `"use strict"` está al principio de tus scripts. Si no, el modo estricto podría no estar activado.
+=======
+Quite soon we're going to learn functions (a way to group commands), so let's note in advance that `"use strict"` can be put at the beginning of a function. Doing that enables strict mode in that function only. But usually people use it for the whole script.
+>>>>>>> 69e44506c3e9dac74c282be37b55ba7ff122ae74
 
 El modo estricto no está activado aquí:
 
@@ -43,23 +51,49 @@ alert("algo de código");
 ````warn header="No hay manera de cancelar `use strict`"
 No hay ninguna directiva del tipo `"no use strict"` que haga al motor volver al comportamiento anterior.
 
+<<<<<<< HEAD
 Una vez entramos en modo estricto, no hay vuelta atrás.
 ````
+=======
+Once we enter strict mode, there's no going back.
+```
+>>>>>>> 69e44506c3e9dac74c282be37b55ba7ff122ae74
 
 ## Consola del navegador
 
+<<<<<<< HEAD
 A partir de ahora, cuando utilices la consola del navegador para probar características, ten en cuenta que no utiliza `use strict` por defecto.
+=======
+When you use a [developer console](info:devtools) to run code, please note that it doesn't `use strict` by default.
+>>>>>>> 69e44506c3e9dac74c282be37b55ba7ff122ae74
 
 En ocasiones, cuando `use strict` causa una diferencia, obtendrás resultados incorrectos.
 
+<<<<<<< HEAD
 Incluso si pulsamos `key:Shift+Enter` para ingresar múltiples líneas y ponemos `use strict` al principio, no funciona. Esto es por cómo la consola ejecuta el código internamente.
 
 La única manera confiable de asegurar que `use strict` funcionará sería escribir el código en la consola de la siguiente forma:
+=======
+So, how to actually `use strict` in the console?
+
+First, you can try to press `key:Shift+Enter` to input multiple lines, and put `use strict` on top, like this:
+
+```js
+'use strict'; <Shift+Enter for a newline>
+//  ...your code
+<Enter to run>
+```
+
+It works in most browsers, namely Firefox and Chrome.
+
+If it doesn't, e.g. in an old browser, there's an ugly, but reliable way to ensure `use strict`. Put it inside this kind of wrapper:
+>>>>>>> 69e44506c3e9dac74c282be37b55ba7ff122ae74
 
 ```js
 (function() {
   'use strict';
 
+<<<<<<< HEAD
   // ...tu código...
 })()
 ```
@@ -76,3 +110,24 @@ De momento, es suficiente saber lo general:
 2. El modo estricto se habilita poniendo `"use strict"` al principio de una función o del script. Varias características del lenguaje, como las "clases" y los "módulos", activan el modo estricto automáticamente.
 3. El modo estricto funciona en todos los navegadores modernos.
 4. Recomendamos empezar todos los scripts siempre con `"use strict"`. Todos los ejemplos de este tutorial asumen que el modo estricto está activado excepto cuando (muy raramente) se especifica lo contrario.
+=======
+  // ...your code here...
+})()
+```
+
+## Should we "use strict"?
+
+The question may sound obvious, but it's not so.
+
+One could recommend to start scripts with `"use strict"`... But you know what's cool?
+
+Modern JavaScript supports "classes" and "modules" - advanced language structures (we'll surely get to them), that enable `use strict` automatically. So we don't need to add the `"use strict"` directive, if we use them.
+
+**So, for now `"use strict";` is a welcome guest at the top of your scripts. Later, when your code is all in classes and modules, you may omit it.**
+
+As of now, we've got to know about `use strict` in general.
+
+In the next chapters, as we learn language features, we'll see the differences between the strict and old modes. Luckily, there aren't many and they actually make our lives better.
+
+All examples in this tutorial assume strict mode unless (very rarely) specified otherwise.
+>>>>>>> 69e44506c3e9dac74c282be37b55ba7ff122ae74
