@@ -1,8 +1,6 @@
 # Métodos en tipos primitivos
 
-JavaScript nos permite trabajar con tipos primitivos (string, number, etc) como si fueran objetos.
-
-Como los objetos, los tipos primitivos también brindan métodos para ser llamados. Los estudiaremos pronto, pero primero veamos cómo trabajan porque, por supuesto, los primitivos no son objetos. (y aquí lo haremos aún más evidente).
+JavaScript nos permite trabajar con tipos primitivos (string, number, etc) como si fueran objetos. Los tipos primitivos también brindan métodos para ser llamados. Los estudiaremos pronto, pero primero veamos cómo trabajan porque, por supuesto, los primitivos no son objetos. (y aquí lo haremos aún más evidente).
 
 Veamos las diferencias clave entre primitivos y objetos.
 
@@ -35,7 +33,7 @@ Ya existen muchos objetos integrados al lenguaje, como los que trabajan con fech
 
 ¡Pero estas características tienen un precio!
 
-Los objetos son más "pesados" que los primitivos. Ellos requieren recursos adicionales para soportar su maquinaria interna. Pero como las propiedades y los métodos son tan útiles en la programación, los motores JavaScript tratan de optimizarlos para reducir su carga adiional.
+Los objetos son más "pesados" que los primitivos. Ellos requieren recursos adicionales para soportar su maquinaria interna.
 
 ## Un primitivo como objeto
 
@@ -48,7 +46,7 @@ La solución es algo enrevesada, pero aquí está:
 
 1. Los primitivos son aún primitivos. Con un valor único, como es deseable.
 2. El lenguaje permite el acceso a métodos y propiedades de strings, numbers, booleans y symbols.
-3. Cuando esto ocurre, se crea una envoltura especial, un "object wrapper" que provee la funcionalidad extra y luego es destruido.
+3. Para que esto funciones, se crea una envoltura especial, un "object wrapper" que provee la funcionalidad extra y luego es destruido.
 
 Los "object wrappers" son diferentes para cada primitivo y son llamados: `String`, `Number`, `Boolean` y `Symbol`.  Así, proveen diferentes sets de métodos.
 
@@ -86,17 +84,17 @@ Veremos más métodos específicos en los capítulos <info:number> and <info:str
 ````warn header="Constructors `String/Number/Boolean` son de uso interno solamente"
 Algunos lenguajes como Java permiten crear "wrapper objects" para primitivos explícitamente usando una sintaxis como `new Number(1)` o `new Boolean(false)`.
 
-En JavaScript, eso también es posible por razones históricas, pero firmemente  **no recomendado**. Las cosas enloquecerían en varios lugares.
+En JavaScript, eso también es posible por razones históricas, pero firmemente **desaconsejado**. Las cosas enloquecerían en varios lugares.
 
 Por ejemplo:
 
 ```js run
-alert( typeof 1 ); // "number"
+alert( typeof 0 ); // "number"
 
-alert( typeof new Number(1) ); // "object"!
+alert( typeof new Number(0) ); // "object"!
 ```
 
-Y porque en lo que sigue, 'zero' es un objeto, el alert mostrará:
+Los objetos siempre son true en un `if`, entonces el alert mostrará:
 
 ```js run
 let zero = new Number(0);

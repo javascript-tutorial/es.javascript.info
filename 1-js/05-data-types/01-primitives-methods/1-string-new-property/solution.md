@@ -6,7 +6,7 @@ let str = "Hello";
 
 str.test = 5; // (*)
 
-alert(str.test); 
+alert(str.test);
 ```
 
 Depende de si usas el modo estricto "use strict" o no, el resultado será:
