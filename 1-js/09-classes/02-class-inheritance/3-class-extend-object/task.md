@@ -1,4 +1,4 @@
-importance: 5
+importance: 3
 
 ---
 
@@ -19,7 +19,6 @@ let rabbit = new Rabbit("Rab");
 
 *!*
 // hasOwnProperty method is from Object.prototype
-// rabbit.__proto__ === Object.prototype
 alert( rabbit.hasOwnProperty('name') ); // true
 */!*
 ```
@@ -39,5 +38,5 @@ class Rabbit extends Object {
 
 let rabbit = new Rabbit("Rab");
 
-alert( rabbit.hasOwnProperty('name') ); // true
+alert( rabbit.hasOwnProperty('name') ); // Error
 ```
