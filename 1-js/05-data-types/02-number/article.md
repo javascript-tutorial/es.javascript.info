@@ -285,6 +285,7 @@ En la mayoría de los casos la distinción es imperceptible, porque los operador
 
 - `Infinity` (y `-Infinity`) es un valor numérico especial que es mayor (menor) que cualquier otra cosa.
 - `NaN` ("No un Número") representa un error.
+=======
 
 Ambos pertenecen al tipo `number`, pero no son números "normales", así que hay funciones especiales para chequearlos:
 

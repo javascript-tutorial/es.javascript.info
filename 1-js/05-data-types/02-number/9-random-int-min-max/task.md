@@ -12,9 +12,9 @@ Todo número del intervalo `min..max` debe aparecer con la misma probabilidad.
 Ejemplos de funcionamiento:
 
 ```js
-alert( random(1, 5) ); // 1
-alert( random(1, 5) ); // 3
-alert( random(1, 5) ); // 5
+alert( randomInteger(1, 5) ); // 1
+alert( randomInteger(1, 5) ); // 3
+alert( randomInteger(1, 5) ); // 5
 ```
 
 Puedes usar la solución de la [tarea previa](info:task/random-min-max) como base.
