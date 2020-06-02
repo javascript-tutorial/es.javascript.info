@@ -2,11 +2,11 @@
 
 En esta tarea <info:task/animate-circle> se muestra un círculo animado creciendo.
 
-Ahora, digamos que no necesitamos sólo un círculo, sino también mostrar un mensaje dentro de él. El mensaje debe aparecer _después_ que se ha completado la animación (el círculo ha crecido por completo), de otra manera se vería feo.
+Ahora, digamos que no necesitamos sólo un círculo, sino también mostrar un mensaje dentro de él. El mensaje debe aparecer _después_ de que se ha completado la animación (el círculo ha crecido por completo), de otra manera se vería feo.
 
-El la solución de esta tarea, la función `showCircle(cx, cy, radius)` dibuja el círulo, pero no hay manera de rastrea cuando está listo.
+El la solución de esta tarea, la función `showCircle(cx, cy, radius)` dibuja el círulo, pero no hay manera de rastrear cuándo está listo.
 
-Agrega un argumento callback: `showCircle(cx, cy, radius, callback)` a ser llamado cuando la animación se halla completado. El `callback` debe recibir como un argumonto el `<div>` del círculo.
+Agrega un argumento callback: `showCircle(cx, cy, radius, callback)` para ser llamado cuando la animación se haya completado. El `callback` debe recibir como un argumonto el `<div>` del círculo.
 
 Aquí hay un ejemplo:
 
