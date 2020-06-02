@@ -11,7 +11,7 @@ alert(str.test);
 
 Depende de si usas el modo estricto "use strict" o no, el resultado será:
 1. `undefined` (sin strict mode)
-2. Un error.   (strict mode)
+2. Un error.  (strict mode)
 
 ¿Por qué? Repasemos lo que ocurre en la línea `(*)`:
 
@@ -22,4 +22,3 @@ Depende de si usas el modo estricto "use strict" o no, el resultado será:
 **Este ejemlplo claramente muestra que los tipos primitivos no son objetos.**
 
 Ellos no pueden almacenar datos adicionales.
-
