@@ -23,7 +23,7 @@ loadScript("/my/script.js");
 
 La función es llamada "asíncronamente", porque la acción (cargar el script) no termina ahora, sino luego.
 
-La llamada inicia la carga del script, luego la ejecución continua. Mientras el script está cargando, el código de abajo podría terminar su ejecución, y si la carga toma tiempo, otros scripts también pueden correr mientras tanto.
+La llamada inicia la carga del script, luego la ejecución continúa. Mientras el script está cargando, el código de abajo podría terminar su ejecución, y si la carga toma tiempo, otros scripts también pueden correr mientras tanto.
 
 ```js
 loadScript("/my/script.js");
@@ -43,7 +43,7 @@ newFunction(); // no hay tal función!
 */!*
 ```
 
-Naturalmente, el navegador probablemente no tuvo el tiempo de cargar el script. Así que el llamado inmediato de la nueva función falla. Actualmente, la función `loadScript` no provee una manera de rastrear que la carga se ha completado. El script carga y eventualmente ejecuta, eso es todo. Pero nos gustaría saber cuando sucede, para usar las funciones y variables de ese script.
+Naturalmente, el navegador probablemente no tuvo el tiempo de cargar el script. Así que el llamado inmediato de la nueva función falla. Por ahora, la función `loadScript` no provee una manera de rastrear que la carga se ha completado. El script carga y a la larga ejecuta, eso es todo. Pero nos gustaría saber cuándo sucede, para usar las funciones y variables de ese script.
 
 Agreguemos un función `callback` como segundo argumento a `loadScript` que debe ejecutarse cuando el script carga:
 
@@ -64,8 +64,8 @@ Ahora, si queremos cargar una nueva función del script, debemos escribirlo en l
 
 ```js
 loadScript('/my/script.js', function() {
-  // el callbck corre después que el script ha sido cargado
-  newFunction(); // ahora si funciona
+  // el callbck corre después de que el script ha sido cargado
+  newFunction(); // ahora sí funciona
   ...
 });
 ```
@@ -90,7 +90,7 @@ loadScript('https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.js', s
 */!*
 ```
 
-Eso se llama un estilo "callback-based" o "basado en callbacks" de programación asíncrona. Una función que hace algo de manera asíncrona debe provee un argumento `callback` donde pongamos la función que correrá luego que sea completada.
+Eso se llama un estilo "callback-based" o "basado en callbacks" de programación asíncrona. Una función que hace algo de manera asíncrona debe proveer un argumento `callback` donde pongamos la función que correrá después de que sea completada.
 
 Aquí lo hicimos en `loadScript`, pero por supuesto, es un enfoque general.
 
@@ -114,7 +114,7 @@ loadScript('/my/script.js', function(script) {
 });
 ```
 
-Luego que el `loadScript` exterior se ha completado, el callback inicia el interior.
+Después de que el `loadScript` exterior se ha completado, el callback inicia el interior.
 
 ¿Qué pasa si queremos cargar un script más?
 
@@ -125,7 +125,7 @@ loadScript('/my/script.js', function(script) {
 
 *!*
     loadScript('/my/script3.js', function(script) {
-      // ...continua luego que todos los cripts han cargado
+      // ...continua después de que todos los scripts han cargado
     });
 */!*
 
@@ -134,13 +134,13 @@ loadScript('/my/script.js', function(script) {
 });
 ```
 
-De esta manera, cada nueva acción esta dentro de un callback. Esto esta bien para unas pocas acciones, pero no tan bien para varias, así que veremos otras variantes pronto.
+De esta manera, cada nueva acción está dentro de un callback. Esto está bien para unas pocas acciones, pero no tan bien para varias, así que veremos otras variantes pronto.
 
 ## Manejo de errors
 
-En el ejemplo de arriba, no consideramos errores. ¿Qué pasa su cargar el script falla? Nuestro callback debería poder reaccionar a eso.
+En el ejemplo de arriba, no consideramos errores. ¿Qué pasa si al cargar el script falla? Nuestro callback debería poder reaccionar a eso.
 
-Aquí hay una versión mejorada de `loadScript` que tracker la carga de :
+Aquí hay una versión mejorada de `loadScript` que monitorea los errores de carga:
 
 ```js run
 function loadScript(src, callback) {
@@ -172,16 +172,16 @@ loadScript("/my/script.js", function(error, script) {
 
 Una vez más, la receta que usamos para `loadScript` es bastante usada. Es llamado estilo "error-first callback".
 
-La conveción es:
+La convención es:
 
 1. El primer argumento del callback `callback` es reservado para un error en caso que ocurra. Entonces se llama`callback(err)`.
 2. El segundo argumento (y los siguientes si se necesita) son para el resultado exitoso. Entonces se llama `callback(null, result1, result2…)`.
 
 De esta manera esta única función `callback` es usada para ambas cosas, reportar errores y pasar de vuelta los resultados.
 
-## Pirámide de la catástrofe
+## Pirámide de la catástrofe (Pyramid of Doom)
 
-Desde una primera mirada, es una menera viable de código asíncrono. Y en sí, lo es. Para uno o dos callbacks anidados luce bien.
+A primera vista, es una menera viable de código asíncrono. Y en sí, lo es. Para uno o dos callbacks anidados luce bien.
 
 Pero para múltiples acciones asíncronas que siguen una después de otra tendremos código como este:
 
@@ -219,7 +219,7 @@ En el código de arriba:
 2. Cargamos `2.js`, entonces, si no hay error.
 3. Cargamos `3.js`, entonces, si no hay error -- hacemos algo más `(*)`.
 
-Mientras llamadas se hagan más anidades, el código se vuelve más profundo y incrementalmente más difícil de manejar, especialmente si tenemos código real en lugar de `...`, que puede incluír más bucles, declaraciones de condiciones y más.
+Mientras las llamadas se hagan más anidadas, el código se vuelve más profundo e incrementalmente más difícil de manejar, especialmente si tenemos código real en lugar de `...`, que puede incluir más bucles, declaraciones de condiciones y más.
 
 Esto es a lo que algunas veces llamamos "infierno de callback" o "pirámide de la catástrofe."
 
@@ -227,9 +227,9 @@ Esto es a lo que algunas veces llamamos "infierno de callback" o "pirámide de l
 
 La "pirámide" de llamadas anidadas crece hacia la derecha en cada acción asíncrona. Pronto será una espiral fuera de control.
 
-Así que esta manera de codear no es tan buena.
+Así que esta manera de programar no es tan buena.
 
-Podemos intentar aliviar el problema haciendo cada acción una función We can try to alleviate the problem by making every action a independiente, así:
+Podemos intentar aliviar el problema haciendo cada acción una función independiente, así:
 
 ```js
 loadScript("1.js", step1);
@@ -261,11 +261,11 @@ function step3(error, script) {
 }
 ```
 
-¿Ves? Hace lo mismo, y no hay anidación profunda ahora porque cada acción es una función separa al nivel más alto.
+¿Ves? Hace lo mismo, y no hay anidación profunda ahora porque hicimos cada acción en una función separada al nivel más alto.
 
-Funciona, peor el código luce como unaa hoja de cálculo partida. Es difícil de leer, probablemente ya lo notaste. Uno necesita saltar con la mirada entre las piezas mientras lo lee. Ese es el inconveniente, especiamente si el lector no esta familizarizado con el código y no sabe donde saltar con la mirada.
+Funciona, pero el código luse ve como unaa hoja de cálculo partida. Es difícil de leer, probablemente ya lo notaste. Uno necesita saltar con la mirada entre las piezas mientras lo lee. Ese es el inconveniente, especiamente si el lector no esta familizarizado con el código y no sabe dónde saltar con la mirada.
 
-Además, las funcies llamadas `step*` son todas de un solo uso. Sólo son creadas para evitar la "pirámide de la catástrofe". Nadie va a reusarlas fuera de la cadena de acciones. Así que hay un poco de sobrecarga de nombres aquí.
+Además, las funciones llamadas `step*` son todas de un solo uso. Sólo son creadas para evitar la "pirámide de la catástrofe". Nadie va a reusarlas fuera de la cadena de acciones. Así que hay un poco de sobrecarga de nombres aquí.
 
 Nos gustaría algo mejor.
 
