@@ -4,7 +4,7 @@ importance: 5
 
 # Decorador debounce
 
-El resultado del decorador `debounce(f, ms)` es un contenedor que suspende las llamadas a `f` hasta que haya `ms` milisegundos de inactividad (sin llamadas, "período de enfriamiento"), luego invoca `f` una vez con los últimos argumentos .
+El resultado del decorador `debounce(f, ms)` es un contenedor que suspende las llamadas a `f` hasta que haya `ms` milisegundos de inactividad (sin llamadas, "período de enfriamiento"), luego invoca `f` una vez con los últimos argumentos.
 
 Por ejemplo, teníamos una función `f` y la reemplazamos con `f = debounce(f, 1000)`.
 

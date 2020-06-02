@@ -225,7 +225,7 @@ let worker = {
 worker.slow = cachingDecorator(worker.slow);
 ```
 
-Anteriormente, para un solo argumento `x` podríamos simplemente usar `cache.set(x, result)` para guardar el resultado y `cache.get(x)` para recuperarlo. Pero ahora necesitamos recordar el resultado para una *combinación de argumentos* `(min, max)`. El `Map` nativo toma solo un valor como propiedad.
+Anteriormente, para un solo argumento `x` podríamos simplemente usar `cache.set(x, result)` para guardar el resultado y `cache.get(x)` para recuperarlo. Pero ahora necesitamos recordar el resultado para una *combinación de argumentos* `(min, max)`. El `Map` nativo toma solo un valor como clave.
 
 Hay muchas posibles soluciones:
 
@@ -235,7 +235,7 @@ Hay muchas posibles soluciones:
 
 Para muchas aplicaciones prácticas, la tercera variante es lo suficientemente buena, por lo que nos mantendremos en esa opción.
 
-También necesitamos pasar no solo `x`, sino todos los argumentos en `func.call`. Recordemos que en una `función()` podemos obtener un pseudo-array (*array-like*) de sus argumentos como `arguments`, por lo que `func.call(this, x)` debería reemplazarse por `func.call(this, ... arguments) `.
+También necesitamos pasar no solo `x`, sino todos los argumentos en `func.call`. Recordemos que en una `función()` podemos obtener un pseudo-array (*array-like*) de sus argumentos como `arguments`, por lo que `func.call(this, x)` debería reemplazarse por `func.call(this, ...arguments) `.
 
 Aquí un mejorado y poderosísimo `cachingDecorator`:
 
@@ -394,6 +394,7 @@ Entones, tecnicamente `this` une `this[0]`, `this[1]` ...etc. Está escrito inte
 ## Decoradores y propiedades de funciones
 
 Por lo general, es seguro reemplazar una función o un método con un decorador, excepto por una pequeña cosa. Si la función original tenía propiedades, como `func.calledCount` o cualquier otra, entonces la función decoradora no las proporcionará. Porque eso es una envoltura. Por lo tanto, se debe tener cuidado al usarlo.
+
 
 E.j. en el ejemplo anterior, si la función `slow` tenía propiedades, entonces `cachingDecorator(slow)` sería un contendor, pero sin contener dichas propiedades.
 
