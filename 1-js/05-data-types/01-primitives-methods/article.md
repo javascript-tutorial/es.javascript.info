@@ -27,7 +27,7 @@ let john = {
 john.sayHi(); // Hi buddy!
 ```
 
-Aquí hemos creado una función `john` con el método `sayHi` (saludar).
+Aquí hemos creado un objeto `john` con el método `sayHi`.
 
 Ya existen muchos objetos integrados al lenguaje, como los que trabajan con fechas, errores, elementos HTML, etc.  Ellos tienen diferentes propiedades y métodos.
 
@@ -46,7 +46,7 @@ La solución es algo enrevesada, pero aquí está:
 
 1. Los primitivos son aún primitivos. Con un valor único, como es deseable.
 2. El lenguaje permite el acceso a métodos y propiedades de strings, numbers, booleans y symbols.
-3. Para que esto funciones, se crea una envoltura especial, un "object wrapper" que provee la funcionalidad extra y luego es destruido.
+3. Para que esto funcione, se crea una envoltura especial, un "object wrapper" (objeto envoltorio) que provee la funcionalidad extra y luego es destruido.
 
 Los "object wrappers" son diferentes para cada primitivo y son llamados: `String`, `Number`, `Boolean` y `Symbol`.  Así, proveen diferentes sets de métodos.
 
@@ -78,10 +78,10 @@ let n = 1.23456;
 alert( n.toFixed(2) ); // 1.23
 ```
 
-Veremos más métodos específicos en los capítulos <info:number> and <info:string>.
+Veremos más métodos específicos en los capítulos <info:number> y <info:string>.
 
 
-````warn header="Constructors `String/Number/Boolean` son de uso interno solamente"
+````warn header="Los constructores `String/Number/Boolean` son de uso interno solamente"
 Algunos lenguajes como Java permiten crear "wrapper objects" para primitivos explícitamente usando una sintaxis como `new Number(1)` o `new Boolean(false)`.
 
 En JavaScript, eso también es posible por razones históricas, pero firmemente **desaconsejado**. Las cosas enloquecerían en varios lugares.
@@ -97,10 +97,10 @@ alert( typeof new Number(0) ); // "object"!
 Los objetos siempre son true en un `if`, entonces el alert mostrará:
 
 ```js run
-let zero = new Number(0);
+let cero = new Number(0);
 
-if (zero) { // zero es true, porque es un objeto
-  alert( "zero es verdadero?!?" );
+if (cero) { // cero es true, porque es un objeto
+  alert( "cero es verdadero?!?" );
 }
 ```
 
