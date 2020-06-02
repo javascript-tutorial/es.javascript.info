@@ -78,7 +78,7 @@ Hay una sutil diferencia entre una función de flecha `=>` y una función regula
 
 ## Las flechas no tienen "argumentos"
 
-Las funciones de flecha tampoco tienen variable `argumentos`.
+Las funciones de flecha tampoco tienen variable `arguments`.
 
 Eso es genial para los decoradores, cuando necesitamos reenviar una llamada con el actual `this` y `argumentos`.
 
