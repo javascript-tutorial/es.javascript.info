@@ -3,9 +3,9 @@ libs:
 
 ---
 
-# Función vinculadora
+# Función binding (vinculadora)
 
-Al pasar métodos de objeto como devoluciones de llamada, por ejemplo a `setTimeout`, genera un problema conocido: "pérdida de `this`".
+Al pasar métodos de objeto como devoluciones de llamada, por ejemplo a `setTimeout`, se genera un problema conocido: "pérdida de `this`".
 
 En este capítulo veremos las formas de solucionarlo.
 
@@ -41,9 +41,9 @@ El método `setTimeout` en el navegador es un poco especial: establece `this = w
 
 La tarea es bastante típica --queremos pasar un método de objeto a otro lugar (aquí --al planificador) donde se llamará. ¿Cómo asegurarse de que se llamará en el contexto correcto?
 
-## Solución 1: un contenedor o envoltura
+## Solución 1: un wrapper  (envoltura)
 
-La solución más simple es usar una función de envoltura:
+La solución más simple es usar una función wrapper (envoltura):
 
 ```js run
 let user = {
@@ -104,7 +104,7 @@ La sintaxis básica es:
 let boundFunc = func.bind(context);
 ```
 
-El resultado de `func.bind(context)` es una función especial "objeto exótico" similar a una función regular, que se puede llamar como función y pasa la llamada de forma transparente a `func` estableciendo `this = context`.
+El resultado de `func.bind(context)` es un "objeto exótico", una función similar a una función regular, que se puede llamar como función y pasa la llamada de forma transparente a `func` estableciendo `this = context`.
 
 En otras palabras, llamar a `boundFunc` es como `func` con un `this` fijo.
 
@@ -173,7 +173,7 @@ user = {
 };
 ```
 
-En la línea `(*)` tomamos el método `user.sayHi` y lo vinculamos a `user`. `sayHi` es una función "enlazada", que se puede llamar sola o pasarse en `setTimeout` -- no importa, el contexto será el correcto.
+En la línea `(*)` tomamos el método `user.sayHi` y lo vinculamos a `user`. `sayHi` es una función "bound" (enlazada). Si se llama sola o se pasa en `setTimeout` no importa, el contexto será el correcto.
 
 Aquí podemos ver que los argumentos se pasan "tal cual", solo que `this` se fija mediante` bind`:
 
@@ -275,13 +275,13 @@ Por ejemplo, tenemos una función `send(from, to, text)`. Luego, dentro de un ob
 
 ## Parcial sin contexto
 
-¿Qué pasa si nos gustaría arreglar algunos argumentos, pero no el contexto `this`? Por ejemplo, para un método de objeto.
+¿Qué pasa si nos gustaría fijar algunos argumentos, pero no el contexto `this`? Por ejemplo, para un método de objeto.
 
 El método `bind` nativo no permite eso. No podemos simplemente omitir el contexto y saltar a los argumentos.
 
 Afortunadamente, se puede implementar fácilmente una función `parcial` para vincular solo argumentos.
 
-Cómo esto:
+Como esto:
 
 ```js run
 *!*

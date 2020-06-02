@@ -1,6 +1,6 @@
 
 
-1. Utilice una función de contenedor, una flecha para ser conciso:
+1. Utilice una función wrapper (envoltura), de tipo arrow (flecha) para ser conciso:
 
     ```js 
     askPassword(() => user.login(true), () => user.login(false)); 
