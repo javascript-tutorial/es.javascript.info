@@ -2,10 +2,10 @@ importance: 5
 
 ---
 
-# Suma números para el visitante
+# Suma números del visitante
 
 Crea un script que pida al visitante que ingrese dos números y muestre su suma.
 
 [demo]
 
-P.D. Hay una triquiñuela con los tipos.
+P.D. Hay una trampa con los tipos de valores.

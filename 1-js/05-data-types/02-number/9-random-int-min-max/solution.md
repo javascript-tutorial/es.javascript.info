@@ -11,7 +11,7 @@ function randomInteger(min, max) {
 alert( randomInteger(1, 3) );
 ```
 
-La función trabaja, pero es incorrecta. La probabilidad de obtener los valores extremos `min` y `max` es la mitad de la de los demás.
+La función funciona, pero es incorrecta. La probabilidad de obtener los valores extremos `min` y `max` es la mitad de la de los demás.
 
 Si ejecutas el ejemplo que sigue muchas veces, fácilmente verás que `2` aparece más a menudo.
 

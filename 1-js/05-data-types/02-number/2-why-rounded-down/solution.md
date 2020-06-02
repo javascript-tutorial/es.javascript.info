@@ -24,10 +24,9 @@ Debemos llevarlo más cerca de un entero antes del redondeo:
 alert( (6.35 * 10).toFixed(20) ); // 63.50000000000000000000
 ```
 
-observa que `63.5` no tiene pérdida de precisión en absoluto. Esto es porque la parte decimal `0.5` es realmente `1/2`. Fracciones divididas por potencias de `2` son representadas exactamente en el sistema binario, ahora podemos redondearlo:
+Observa que `63.5` no tiene pérdida de precisión en absoluto. Esto es porque la parte decimal `0.5` es realmente `1/2`. Fracciones divididas por potencias de `2` son representadas exactamente en el sistema binario, ahora podemos redondearlo:
 
 
 ```js run
 alert( Math.round(6.35 * 10) / 10); // 6.35 -> 63.5 -> 64(redondeado) -> 6.4
 ```
-
