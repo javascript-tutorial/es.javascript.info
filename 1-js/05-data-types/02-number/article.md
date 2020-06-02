@@ -2,11 +2,11 @@
 
 En JavaScript moderno, hay dos tipos de números:
 
-1. Los números regulares en JavaScript son almacenados con el formato de 64-bit [IEEE-754](https://es.wikipedia.org/wiki/IEEE_coma_flotante), conocido como "números de double precisión de coma flotante". Estos números son los que estaremos usando la mayor parte del tiempo y hablaremos de ellos en este capítulo.
+1. Los números regulares en JavaScript son almacenados con el formato de 64-bit [IEEE-754](https://es.wikipedia.org/wiki/IEEE_coma_flotante), conocido como "números de doble precisión de coma flotante". Estos números son los que estaremos usando la mayor parte del tiempo y hablaremos de ellos en este capítulo.
 
-2. BigInt number, que representa enteros de largo arbitrario. A veces son necesarios porque un número regular no puede exceder <code>2<sup>53</sup></code> ni ser menor a <code>-2<sup>53</sup></code>. Como los bigints son usados un unas pocas áreas especiales, les dedicamos un capítulo especial <info:bigint>.
+2. Número BigInt , que representa enteros de longitud arbitraria. A veces son necesarios porque un número regular no puede exceder <code>2<sup>53</sup></code> ni ser menor a <code>-2<sup>53</sup></code>. Como los bigints son usados en unas pocas áreas especiales, les dedicamos un capítulo especial <info:bigint>.
 
-Aquí hablaremos de números regulares. Extendamos lo que ya sabemos de ellos.
+Aquí hablaremos de números regulares. Ampliemos lo que ya sabemos de ellos.
 
 ## Más formas de escribir un número
 
@@ -23,7 +23,7 @@ En JavaScript, acortamos un número agregando la letra `"e"` y especificando la 
 ```js run
 let billion = 1e9;  // 1 billion, literalmente: 1 y 9 ceros
 
-alert( 7.3e9 );  // 7.3 billions (7 300 000 000)
+alert( 7.3e9 );  // 7.3 billions (7,300,000,000)
 ```
 
 En otras palabras, `"e"` multiplica el número por el `1` seguido de la cantidad de ceros dada.
@@ -68,7 +68,7 @@ alert( 0xff ); // 255
 alert( 0xFF ); // 255 (lo mismo en mayúsculas o minúsculas )
 ```
 
-Los sistemas binario y octal son raramente usados, pero también soportados mediante el uso de los prefijos `0b` and `0o`:
+Los sistemas binario y octal son raramente usados, pero también soportados mediante el uso de los prefijos `0b` y `0o`:
 
 
 ```js run
@@ -98,7 +98,7 @@ Casos de uso común son:
 
 - **base=16** usada para colores hex, codificación de caracteres, etc; los dígitos pueden ser `0..9` o `A..F`.
 - **base=2** mayormente usada para el debug de operaciones de bit, los dígitos pueden ser `0` o `1`.
-- **base=36** Es el máximo, los dígitos pueden ser `0..9` o `A..Z`.  Aquí el alfabeto inglés completo es usado para representar un número.  Un peculiar pero práctico uso para `36` es cuando necesitamos convertir un largo identificador numérico en algo más corto, por ejemplo para abreviar una url. Podemos simplemente representarlo en el sistema numeral de base `36`:
+- **base=36** Es el máximo, los dígitos pueden ser `0..9` o `A..Z`.  Aquí el alfabeto inglés completo es usado para representar un número.  Un uso peculiar pero práctico para la base `36` es cuando necesitamos convertir un largo identificador numérico en algo más corto, por ejemplo para abreviar una url. Podemos simplemente representarlo en el sistema numeral de base `36`:
 
     ```js run
     alert( 123456..toString(36) ); // 2n9c
@@ -119,7 +119,7 @@ Una de las operaciones más usadas cuando se trabaja con números es el redondeo
 Hay varias funciones incorporadas para el redondeo:
 
 `Math.floor`
-: Redondea hacia abajo: `3.1` torna en `3`, y `-1.1` torna en `-2`.
+: Redondea hacia abajo: `3.1` se convierte en `3`, y `-1.1` se hace `-2`.
 
 `Math.ceil`
 : Redondea hacia arriba: `3.1` torna en `4`, y `-1.1` torna en `-1`.
@@ -279,7 +279,7 @@ Esto es porque el signo es representado por un bit, así cada número puede ser 
 En la mayoría de los casos la distinción es imperceptible, porque los operadores están adaptados para tratarlos como iguales.
 ```
 
-## Tests: isFinite y isNaN
+## Tests: isFinite e isNaN
 
 ¿Recuerdas estos dos valores numéricos especiales?
 
