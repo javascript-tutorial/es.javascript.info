@@ -1,45 +1,49 @@
-Links anteriores a la supersincronización de Valentina -comming soon-
+Links Y MARCAS
+
+anteriores a la supersincronización de Valentina -comming soon-
  
-Son las traducciones presuntamente desactualizadas respecto al repo ENG
-
-Como el bot no registra fechas, esta guia permite revisar donde el bot no puede ayudar, commits posteriores deberían tener buen tracking.
-
-Hay que revisar las X, el que lo haga plis marque la linea de alguna forma (o borre) y el último que borre el archivo y apague la vela.
-
-También están las asignadas sin commit, supongo que puedo borrarlas si no se les ocurre uso. Intuyo que puede tenerlo.
+```
+*** Conflictos estructura ***
+Garbage collection (@PawFV) #151
+Constructor, operator "new" (@ezzep66) #160
+Map and Set (@vplentinax) #162
+Object.keys, values, entries (@ezzep66) #161
+Destructuring assignment (@ezzep66) #163
+JSON methods, toJSON (@ezzep66) #170
+```
 
 
 ### An introduction
 
-* [X] [An Introduction to JavaScript](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/01-getting-started/1-intro) (@tscandalitta) #16
+* [X] [An Introduction to JavaScript](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/01-getting-started/1-intro) (@tscandalitta) #16           #16 CERRADO SIN MERGE
 * [X] [Manuals and specifications](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/01-getting-started/2-manuals-specifications) (@tiomno)
-* [X] [Code editors](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/01-getting-started/3-code-editors) (@lizzie136 ) #16
+* [X] [Code editors](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/01-getting-started/3-code-editors) (@lizzie136 ) #16                 #16 CERRADO SIN MERGE
 * [ ] [Developer console](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/01-getting-started/4-devtools) (@ezzep66)
 
 ### JavaScript Fundamentals
 
-* [X] [Hello, world!](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/02-first-steps/01-hello-world) (@victorze ) #31
-* [X] [Code structure](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/02-first-steps/02-structure) (@victorze ) #32
+* [X] [Hello, world!](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/02-first-steps/01-hello-world) (@victorze ) #31                        VICTORZE  NO FIRMO AGREEMENT
+* [X] [Code structure](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/02-first-steps/02-structure) (@victorze ) #32                        VICTORZE  NO FIRMO AGREEMENT
 * [X] [The modern mode, &quot;use strict&quot;](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/02-first-steps/03-strict-mode) (@SantiEspada )
-* [X] [Variables](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/02-first-steps/04-variables) (@javier123454321) #93
+* [X] [Variables](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/02-first-steps/04-variables) (@javier123454321) #93                  NO FIRMO AGREEMENT
 * [X] [Data types](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/02-first-steps/05-types) (@tscandalitta) #46
 * [X] [Interaction: alert, prompt, confirm](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/02-first-steps/06-alert-prompt-confirm) (@tscandalitta ) #49
 * [X] [Type Conversions](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/02-first-steps/07-type-conversions) (@tikoflano) #57
 * [ ] [Basic operators, maths](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/02-first-steps/08-operators) (@ezzep66) #187
 * [X] [Comparisons](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/02-first-steps/09-comparison) 
-* [X] [Conditional operators: if, &#39;?&#39;](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/02-first-steps/10-ifelse) (@Giorgiosaud) #95
+* [X] [Conditional operators: if, &#39;?&#39;](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/02-first-steps/10-ifelse) (@Giorgiosaud) #95    ??  BUENA, COMPLETA VARIOS ARCH, APROBADO SIN MERGE, CONFLICTOS, NO LA QUIERO PERDER!!  
 * [X] [Logical operators](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/02-first-steps/11-logical-operators) (@Sjesc ) #47
 * [X] [Nullish coalescing operator &#39;??&#39;](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/02-first-steps/12-nullish-coalescing-operator) (@ddanielcruzz) #196
 * [X] [Loops: while and for](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/02-first-steps/13-while-for) (@Sjesc) #50
 * [ ] [The &quot;switch&quot; statement](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/02-first-steps/14-switch) (@rajcespedes)
-* [X] [Functions](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/02-first-steps/15-function-basics) (@Giorgiosaud) #96
+* [X] [Functions](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/02-first-steps/15-function-basics) (@Giorgiosaud) #96       ??????  BUENA Y COMPLETA E VARIOS ARCHIVOS, SIN MERGE, CONFLICTOS, NO LA QUIERO PERDER!! 
 * [ ] [Function expressions](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/02-first-steps/16-function-expressions) (@ezzep66) #159
 * [ ] [Arrow functions, the basics](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/02-first-steps/17-arrow-functions-basics) (@ricardov03)
-* [ ] [JavaScript specials](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/02-first-steps/18-javascript-specials) (@Giorgiosaud) #99
+* [ ] [JavaScript specials](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/02-first-steps/18-javascript-specials) (@Giorgiosaud) #99                 ????  BUENA  , SIN MERGE, CONFLICTOS, NO LA QUIERO PERDER!!
 
 ### Code quality
 
-* [X] [Debugging in Chrome](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/03-code-quality/01-debugging-chrome) (@Giorgiosaud) #101
+* [X] [Debugging in Chrome](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/03-code-quality/01-debugging-chrome) (@Giorgiosaud) #101       ??????  BUENA   5 ARCHIVOS, SIN MERGE, CONFLICTOS, NO LA QUIERO PERDER!!
 * [ ] [Coding Style](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/03-code-quality/02-coding-style) (@luisandia)
 * [ ] [Comments](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/03-code-quality/03-comments) (@Arnau-Ninerola)
 * [ ] [Ninja code](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/03-code-quality/04-ninja-code) (@Sjesc) #109
@@ -50,7 +54,7 @@ También están las asignadas sin commit, supongo que puedo borrarlas si no se l
 
 * [ ] [Objects](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/04-object-basics/01-object) (@lucasrdz994) #92
 * [ ] [Object copying, references](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/04-object-basics/02-object-copy) (@ddanielcruzz)
-* [ ] [Garbage collection](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/04-object-basics/03-garbage-collection) (@PawFV) #151
+* [ ] [Garbage collection](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/04-object-basics/03-garbage-collection) (@PawFV) #151                          ??? OK, 2 APRoBADOS... conflicto estructura  !!!  le Dejé MSG en discord
 * [ ] [Object methods, &quot;this&quot;](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/04-object-basics/04-object-methods) (@martinivanalfonso)
 * [ ] [Constructor, operator &quot;new&quot;](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/04-object-basics/06-constructor-new) (@ezzep66) #160
 * [ ] [Optional chaining &#39;?.&#39;](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/04-object-basics/07-optional-chaining) (@vplentinax)
@@ -89,7 +93,7 @@ También están las asignadas sin commit, supongo que puedo borrarlas si no se l
 ### Object properties configuration
 
 * [ ] [Property flags and descriptors](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/07-object-properties/01-property-descriptors) (@kenliten) #183
-* [ ] [Property getters and setters](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/07-object-properties/02-property-accessors) (@rainvare) #194
+* [ ] [Property getters and setters](https://github.com/javascript-tutorial/es.javascript.info/blob/master/1-js/07-object-properties/02-property-accessors) (@rainvare) #194                         NO FIRMO-----------------------------
 
 ### Prototypes, inheritance
 
@@ -141,7 +145,7 @@ También están las asignadas sin commit, supongo que puedo borrarlas si no se l
 
 ### Document
 
-* [X] [Browser environment, specs](https://github.com/javascript-tutorial/es.javascript.info/blob/master/2-ui/1-document/01-browser-environment) (@victorze)
+* [X] [Browser environment, specs](https://github.com/javascript-tutorial/es.javascript.info/blob/master/2-ui/1-document/01-browser-environment) (@victorze)                     -----------no FIRMÓ -------------------
 * [X] [Walking the DOM](https://github.com/javascript-tutorial/es.javascript.info/blob/master/2-ui/1-document/03-dom-navigation) (@victorze)
 
 ### Introduction to Events
