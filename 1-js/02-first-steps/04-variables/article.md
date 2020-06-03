@@ -274,7 +274,7 @@ Ventajas:
 - Es mucho más fácil escribir mal `"#FF7F00"` que `COLOR_ORANGE`.
 - Al leer el código, `COLOR_ORANGE` tiene mucho más significado que `#FF7F00`.
 
-¿Cuando se deben utilizar letras mayúsculas para una constante, y cuando se debe nombrarla de manera normal? Dejémoslo claro.
+¿Cuándo se deben utilizar letras mayúsculas para una constante, y cuando se debe nombrarla de manera normal? Dejémoslo claro.
 
 Ser una "constante" solo significa que el valor de la variable nunca cambia. Pero hay constantes que son conocidas previo a la ejecución (como el valor hexadecimal del color rojo) y hay constantes que son *calculadas* en el tiempo de ejecución, pero no cambian después de su asignación inicial.
 
