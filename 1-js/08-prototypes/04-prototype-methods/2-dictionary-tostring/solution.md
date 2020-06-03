@@ -1,31 +1,31 @@
 
-El método puede tomar todas las claves enumerables usando `Object.keys` y generar su lista.
+The method can take all enumerable keys using `Object.keys` and output their list.
 
-Para hacer que `toString` no sea enumerable, definámoslo usando un descriptor de propiedad. La sintaxis de `Object.create` nos permite proporcionar un objeto con descriptores de propiedad como segundo argumento.
+To make `toString` non-enumerable, let's define it using a property descriptor. The syntax of `Object.create` allows us to provide an object with property descriptors as the second argument.
 
 ```js run
 *!*
 let dictionary = Object.create(null, {
-  toString: { // define la propiedad toString
-    value() { // el valor es una funcion
+  toString: { // define toString property
+    value() { // the value is a function
       return Object.keys(this).join();
     }
   }
 });
 */!*
 
-dictionary.apple = "Manzana";
-dictionary.__proto__ = "prueba";
+dictionary.apple = "Apple";
+dictionary.__proto__ = "test";
 
-// manzana y __proto__ están en el ciclo
+// apple and __proto__ is in the loop
 for(let key in dictionary) {
-  alert(key); // "manzana", despues "__proto__"
+  alert(key); // "apple", then "__proto__"
 }  
 
-// lista de propiedades separadas por comas por toString
-alert(dictionary); // "manzana,__proto__"
+// comma-separated list of properties by toString
+alert(dictionary); // "apple,__proto__"
 ```
 
-Cuando creamos una propiedad usando un descriptor, sus banderas son `false` por defecto. Entonces, en el código anterior, `dictionary.toString` no es enumerable.
+When we create a property using a descriptor, its flags are `false` by default. So in the code above, `dictionary.toString` is non-enumerable.
 
-Consulte el capítulo [](info:property-descriptors) para su revisión.
+See the the chapter [](info:property-descriptors) for review.
