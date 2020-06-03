@@ -26,7 +26,7 @@ Even after the fix, there's still important difference in `"class Rabbit extends
 As we know, the "extends" syntax sets up two prototypes:
 
 1. Between `"prototype"` of the constructor functions (for methods).
-2. Between the constructor functions itself (for static methods).
+2. Between the constructor functions themselves (for static methods).
 
 In our case, for `class Rabbit extends Object` it means:
 
@@ -71,7 +71,7 @@ By the way, `Function.prototype` has "generic" function methods, like `call`, `b
 
 Here's the picture:
 
-![](rabbit-extends-object.png)
+![](rabbit-extends-object.svg)
 
 So, to put it short, there are two differences:
 

@@ -1,10 +1,10 @@
-The first variant:
+La primer variante:
 
 ```js
 if (!(age >= 14 && age <= 90))
 ```
 
-The second variant:
+La segunda variante:
 
 ```js
 if (age < 14 || age > 90)
