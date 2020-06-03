@@ -4,6 +4,7 @@ importance: 5
 
 # Propiedad de función después del enlace
 
+
 Hay un valor en la propiedad de una función. ¿Cambiará después de `bind`? ¿Por qué sí o por qué no?
 
 ```js run

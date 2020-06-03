@@ -2,6 +2,7 @@ importance: 5
 
 ---
 
+
 # Arreglar una función que perdió "this"
 
 La llamada a `askPassword()` en el código a continuación debe verificar la contraseña y luego llamar a `user.loginOk/loginFail` dependiendo de la respuesta.
