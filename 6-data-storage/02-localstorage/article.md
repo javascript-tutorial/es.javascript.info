@@ -1,8 +1,8 @@
 # LocalStorage, sessionStorage
 
-Los objetos de almacenaje web `localStorage` y `sessionStorage` permiten guardar pares de clave/valor en el navegador
+Los objetos de almacenaje web `localStorage` y `sessionStorage` permiten guardar pares de clave/valor en el navegador.
 
-Lo que es interesante sobre ellos es que los datos sobreviven a una recarga de página (en el caso de `sessionStorage`) y hasta un reinicio completo de navegador (en el caso de `localStorage`). Lo veremos en breves.
+Lo que es interesante sobre ellos es que los datos sobreviven a una recarga de página (en el caso de `sessionStorage`) y hasta un reinicio completo de navegador (en el caso de `localStorage`). Lo veremos en breve.
 
 Ya tenemos cookies. ¿Por qué tener objetos adicionales?
 
@@ -60,13 +60,13 @@ delete localStorage.test;
 
 Esto se permite por razones históricas, y principalmente funciona, pero en general no se recomienda por dos motivos:
 
-1. Si la clave es generada por el usuario, puede ser cualquier cosa, como `length` o `toString`, o otro método propio de `localStorage`. En este caso `getItem/setItem` funcionan correctamente, mientras que el acceso tipo objeto falla;
+1. Si la clave es generada por el usuario, puede ser cualquier cosa, como `length` o `toString`, u otro método propio de `localStorage`. En este caso `getItem/setItem` funcionan correctamente, mientras que el acceso tipo objeto falla;
     ```js run
     let key = 'length';
-    localStorage[key] = 5; // Error, can't assign length
+    localStorage[key] = 5; // Error, no se puede asignar 'length'
     ```
     
-2. Existe un evento `storage`, que salta cuando modificamos los datos. Éste evento no salta si utilizamos el acceso tipo objeto. Lo veremos más tarde en éste capítulo.
+2. Existe un evento `storage`, que se dispara cuando modificamos los datos. Este evento no se dispara si utilizamos el acceso tipo objeto. Lo veremos más tarde en este capítulo.
 
 ## Iterando sobre las claves
 
@@ -114,7 +114,7 @@ for(let key of keys) {
 }
 ```
 
-Ésta última opción funciona, ya que `Object.keys` solo devuelve las claves que pertenecen al objeto, ignorando el prototipo.
+Esta última opción funciona, ya que `Object.keys` solo devuelve las claves que pertenecen al objeto, ignorando el prototipo.
 
 ## Solo strings
 
@@ -176,7 +176,7 @@ Esto es exactamente porque `sessionStorage` no está vinculado solamente al orí
 
 ## Evento storage
 
-Cuando los datos se actualizan en `localStorage` o en `sessionStorage`, el evento [storage](https://www.w3.org/TR/webstorage/#the-storage-event) salta, con las propiedades:
+Cuando los datos se actualizan en `localStorage` o en `sessionStorage`, el evento se dispara [storage](https://www.w3.org/TR/webstorage/#the-storage-event) con las propiedades:
 
 - `key` – la clave que ha cambiado, (`null` si se llama `.clear()`).
 - `oldValue` – el anterior valor (`null` si se añade una clave).
@@ -184,7 +184,7 @@ Cuando los datos se actualizan en `localStorage` o en `sessionStorage`, el event
 - `url` – la url del documento donde ha pasado la actualización.
 - `storageArea` – bien el objeto `localStorage` o `sessionStorage`, donde se ha producido la actualización.
 
-El hecho importante es: el evento salta en todos los objetos `window` donde el almacenaje es accesible, excepto en el que lo ha causado.
+El hecho importante es: el evento se dispara en todos los objetos `window` donde el almacenaje es accesible, excepto en el que lo ha causado.
 
 Vamos a desarrollarlo.
 
@@ -194,10 +194,10 @@ Imagina que tienes dos ventanas con el mismo sitio en cada una, de modo que `loc
 Quizá quieras abrir ésta página en dos ventanas distintas para probar el código que sigue.
 ```
 
-Si ámbas ventanas están escuchando el evento `window.onstorage`, cada una reaccionará a las actualizaciones que pasen en la otra.
+Si ambas ventanas están escuchando el evento `window.onstorage`, cada una reaccionará a las actualizaciones que pasen en la otra.
 
 ```js run
-// salta en actualizaciones hechas en el mismo almacenaje, des de otros documentos
+// se dispara en actualizaciones hechas en el mismo almacenaje, desde otros documentos
 window.onstorage = event => {
   if (event.key != 'now') return;
   alert(event.key + ':' + event.newValue + " at " + event.url);
@@ -210,11 +210,11 @@ Hay que tener en cuenta que el evento también contiene: `event.url` -- la url d
 
 También que `event.storageArea` contiene el objeto de almacenaje -- el evento es el mismo para `sessionStorage` y `localStorage`, de modo que `storageArea` referencia el que se modificó. Podemos hasta querer cambiar datos en él, para "responder" a un cambio.
 
-**Ésto permite que distintas ventanas del mismo orígen puedan intercambiar mensajes.**
+**Esto permite que distintas ventanas del mismo orígen puedan intercambiar mensajes.**
 
-Los navegadores modernos también soportan la [API de Broadcast channel API](https://developer.mozilla.org/en-US/docs/Web/API/Broadcast_Channel_API), la API específica para la comunicación entre ventanas del mismo orígen. Es más completa, pero tiene menos soporte. Hay librerías que añaden polyfills para ésta API, basados en `localStorage`, para que se pueda utilizar en cualquier entorno.
+Los navegadores modernos también soportan la [API de Broadcast channel API](https://developer.mozilla.org/en-US/docs/Web/API/Broadcast_Channel_API), la API específica para la comunicación entre ventanas del mismo orígen. Es más completa, pero tiene menos soporte. Hay librerías que añaden polyfills para ésta API basados en `localStorage` para que se pueda utilizar en cualquier entorno.
 
-## Resúmen
+## Resumen
 
 Los objetos de almacenaje web `localStorage` y `sessionStorage` permiten guardar pares de clave/valor en el navegador.
 - Tanto la `clave` como el `valor` deben ser strings, cadenas de texto.
@@ -224,7 +224,7 @@ Los objetos de almacenaje web `localStorage` y `sessionStorage` permiten guardar
 
 | `localStorage` | `sessionStorage` |
 |----------------|------------------|
-| Compartida entre todas las pestañas y ventanas que tengan el mismo orígen | Accesible en una pestaña del navegador, incluyendo iframes del mismo orígen |
+| Compartida entre todas las pestañas y ventanas que tengan el mismo orígen | Accesible en una pestaña del navegador, incluyendo iframes del mismo origen |
 | Sobrevive a reinicios del navegador | Muere al cerrar la pestaña |
 
 API:
@@ -236,10 +236,10 @@ API:
 - `key(índice)` -- coje la clave en una posición determinada.
 - `length` -- el número de ítems almacenados.
 - Utiliza `Object.keys` para conseguir todas las claves.
-- Puede utilizar las claves como propiedades de objetor, pero en ese caso el evento `storage` no salta
+- Puede utilizar las claves como propiedades de objetor, pero en ese caso el evento `storage` no se dispara
 
 Evento storage:
 
-- Salta en las llamadas a `setItem`, `removeItem`, `clear`.
+- Se dispara en las llamadas a `setItem`, `removeItem`, `clear`.
 - Contiene todos los datos relativos a la operación, la `url` del documento y el objeto de almacenaje.
-- Salta en todos los objetos `window` que tienen acceso al almacenaje excepto el que ha generado el evento (en una pestaña en el caso de `sessionStorage` o globalmente en el caso de `localStorage`).
+- Se dispara en todos los objetos `window` que tienen acceso al almacenaje excepto el que ha generado el evento (en una pestaña en el caso de `sessionStorage` o globalmente en el caso de `localStorage`).
