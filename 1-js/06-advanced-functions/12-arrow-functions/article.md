@@ -2,9 +2,11 @@
 
 Volvamos a revisar las funciones de flecha.
 
+
 Las funciones de flecha no son solo una "taquigrafía" para escribir pequeñas cosas. Tienen algunas características muy específicas y útiles.
 
 JavaScript está lleno de situaciones en las que necesitamos escribir una pequeña función que se ejecuta en otro lugar.
+
 
 Por ejemplo
 
@@ -14,7 +16,9 @@ Por ejemplo
 
 Está en el espíritu de JavaScript crear una función y pasarla a algún otro lugar.
 
+
 Y en tales funciones, por lo general, no queremos abandonar el contexto actual. Ahí es donde las funciones de flecha son útiles.
+
 
 ## Las funciones de flecha no tienen "this"
 
@@ -118,9 +122,11 @@ Aquí tuvimos que crear variables adicionales `args` y `ctx` para que la funció
 
 Funciones de flecha:
 
+
 - No tienen `this`
 - No tienen argumentos
 - No se pueden llamar con `new`
 - Tampoco tienen `super`, que aún no hemos estudiado. Lo veremos en el capítulo <info:class-inheritance>
 
 Esto se debe a que están diseñadas para piezas cortas de código que no tienen su propio "contexto", sino que funcionan en el actual. Y realmente brillan en ese caso de uso.
+
