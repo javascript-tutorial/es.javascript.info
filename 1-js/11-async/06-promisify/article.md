@@ -1,12 +1,12 @@
 # Promisification
 
-Promisification (Promisificación) -- es una palabra larga para una simple transformación. Es una conversión de una función que acepta un callback a una función que retorna una promesa.
+Promisification (Promisificación) -- es una palabra larga para una simple transformación. Es una conversión: de una función que acepta un callback a una función que retorna una promesa.
 
 En otras palabras, creamos una función de envoltura que realiza lo mismo, llamando a la original internamente, pero retornando una promesa.
 
 Estas transformaciones son usualmente necesarias en la vida real, ya que muchas funciones y librerías están basadas en callbacks. Pero las promesas son mas convenientes, así que tiene sentido promisificar.
 
-Por ejemplo, tenemos `loadScript(src, callback)` del capitulo <info:callbacks>.
+Por ejemplo, tenemos `loadScript(src, callback)` del capítulo <info:callbacks>.
 
 ```js run
 function loadScript(src, callback) {
@@ -23,7 +23,7 @@ function loadScript(src, callback) {
 // loadScript('path/script.js', (err, script) => {...})
 ```
 
-Vamos a promisificarla. La funcion nueva `loadScriptPromise(src)` va a hacer lo mismo, pero solo acepta `src` (sin callback) y retorna una promesa.
+Vamos a promisificarla. La función nueva `loadScriptPromise(src)` va a hacer lo mismo, pero solo acepta `src` (sin callback) y retorna una promesa.
 
 ```js
 let loadScriptPromise = function(src) {
@@ -45,7 +45,7 @@ Como podemos ver, le delega todo el trabajo a la función `loadScript` original,
 
 Como vamos a tener que promisificar muchas funciones, tiene sentido usar un ayudante.
 
-Esto es en realidad muy simple -- La función `promisify(f)` debajo toma una función `f` que sera promisificada y retorna una función de envoltura.
+Esto es en realidad muy simple -- La función `promisify(f)` debajo toma una función `f` que sera promisificada y retorna una función de envoltura (wrapper function).
 
 Esa envoltura realiza lo mismo que el código de arriba: retorna una promesa y pasa el llamado a la `f` original, rastreando el resultado en un callback personalizado.
 
@@ -106,10 +106,10 @@ f(...).then(arrayOfResults => ..., err => ...)
 ```
 En algunos casos, puede que `err` esté ausente: `callback(result)`, o que haya algo que no es habitual en el formato del callback, por lo que tendremos que promisificar tales funciones manualmente.
 
-También hay módulos con funciones de promisificación un poco más flexibles, ej. [es6-promisify](https://github.com/digitaldesignlabs/es6-promisify). En Node.js, hay una función integrada `util.promisfy` para ello.
+También hay módulos con funciones de promisificación un poco más flexibles, ej. [es6-promisify](https://github.com/digitaldesignlabs/es6-promisify). En Node.js, hay una función integrada `util.promisify` para ello.
 
 ```smart
-La promisificación es un excelente enfoque, especialmente cuando usas `async/await` (revisa el siguiente capitulo), pero no es totalmente un substituto para los callbacks.
+La promisificación es un excelente enfoque, especialmente cuando usas `async/await` (revisa el siguiente capítulo), pero no es totalmente un substituto para los callbacks.
 
 Recuerda, una promesa puede tener sólo un resultado, pero un callback puede ser técnicamente llamado muchas veces.
 
