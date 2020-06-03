@@ -137,7 +137,7 @@ En lugar, reúsa nombres que ya existen. Simplemente escribe nuevo valores en el
 
 En una función intenta solo usar las variables pasadas como parámetro.
 
-Eso hará que sea realmente difícil identificar qué es exactamente la variable *ahora*. Y además de donde viene. Una persona con intuición débil tendrá que analizar el código línea por línea y seguir los cambios en cada rama de código.
+Eso hará que sea realmente difícil identificar qué es exactamente la variable *ahora*. Y además de donde viene. El propósito es desarrollar la intuición y memoria de la persona que lee el código. Una persona con intuición débil tendrá que analizar el código línea por línea y seguir los cambios en cada rama de código.
 
 **Una variante avanzada del enfoque es reemplazar los valores de forma encubierta con algo igual en la mitad de un bucle o una función.**
 
@@ -153,7 +153,7 @@ function ninjaFunction(elem) {
 }
 ```
 
-Un compañero de programación que quiera trabajar con `elem` en la segunda mitad de la función será sorprendido... Solo durante la depuración, después de examinar el código encontrara que está trabajando con un clon.
+Un colega programador que quiera trabajar con `elem` en la segunda mitad de la función será sorprendido... ¡Solo durante la depuración, después de examinar el código encontrara que está trabajando con un clon!
 
 Visto regularmente en códigos. Letalmente efectivo, incluso contra ninjas experimentados. 
 
@@ -169,7 +169,7 @@ Un ninja inteligente coloca los guiones bajos en un solo lugar del código y los
 
 ¡Deja que todos vean cuán magníficas son tus entidades! Nombres como `superElement`, `megaFrame` and `niceItem` iluminaran sin duda al lector.
 
-En efecto, por una parte, algo es escrito: `super..`, `mega..`, `nice..`, pero por otra parte -- no trae ningún detalle. Un lector podría decidir mirar por un significado oculto y meditar por una hora o dos.
+En efecto, por una parte, algo es escrito: `super..`, `mega..`, `nice..`, pero por otra parte -- no da ningún detalle. Un lector podría decidir mirar por un significado oculto y meditar por una hora o dos.
 
 
 ## Superpón variables externas
@@ -179,7 +179,7 @@ Cuando está a la luz, no puede ver nada en la oscuridad. <br>
 Cuando está en la oscuridad, puede ver todo a la luz.
 ```
 
-Usa los mismos nombres para variables dentro y fuera de una función. Así de simple. Sin esfuerzo.
+Usa los mismos nombres para variables dentro y fuera de una función. Así de simple. Sin el esfuerzo de inventar nuevos nombres.
 
 ```js
 let *!*user*/!* = authenticateUser();
