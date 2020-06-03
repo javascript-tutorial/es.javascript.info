@@ -2,9 +2,10 @@ importance: 5
 
 ---
 
-# Function property after bind
+# Propiedad de función después del enlace
 
-There's a value in the property of a function. Will it change after `bind`? Why, or why not?
+
+Hay un valor en la propiedad de una función. ¿Cambiará después de `bind`? ¿Por qué sí o por qué no?
 
 ```js run
 function sayHi() {
@@ -17,7 +18,7 @@ let bound = sayHi.bind({
   name: "John"
 });
 
-alert( bound.test ); // what will be the output? why?
+alert( bound.test ); // ¿Cuál será la salida? ¿por qué?
 */!*
 ```
 
