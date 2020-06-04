@@ -1,30 +1,30 @@
 # Comentarios
 
-Como hemos aprendido en el capítulo <info:structure>, los comentarios pueden ser de una sola línea: comenzando con `//` y de múltiples líneas: `/* ... */`.
+Como hemos aprendido en el capï¿½tulo <info:structure>, los comentarios pueden ser de una sola lï¿½nea: comenzando con `//` y de mï¿½ltiples lï¿½neas: `/* ... */`.
 
-Normalmente los usamos para describir cómo y por qué el código funciona.
+Normalmente los usamos para describir cï¿½mo y por quï¿½ el cï¿½digo funciona.
 
-A primera vista, los comentarios pueden ser obvios, pero los principiantes en programación generalmente los usan incorrectamente.
+A primera vista, los comentarios pueden ser obvios, pero los principiantes en programaciï¿½n generalmente los usan incorrectamente.
 
 ## Comentarios incorrectos
 
-Principiantes tienden a utilizar los comentarios para explicar "lo que está pasando en el código". Así:
+Principiantes tienden a utilizar los comentarios para explicar "lo que estï¿½ pasando en el cï¿½digo". Asï¿½:
 
 ```js
-// Este código hará esto (...) y esto (...)
-// ...y quién sabe qué más...
-código;
+// Este cï¿½digo harï¿½ esto (...) y esto (...)
+// ...y quiï¿½n sabe quï¿½ mï¿½s...
+cï¿½digo;
 muy;
 complejo;
 ```
 
-Pero en un buen código, la cantidad de comentarios "explicativos" debería ser mínima. En serio, el código debería de ser fácil de entender sin ellos.
+Pero en un buen cï¿½digo, la cantidad de comentarios "explicativos" deberï¿½a ser mï¿½nima. En serio, el cï¿½digo deberï¿½a de ser fï¿½cil de entender sin ellos.
 
-Existe una fantástica regla al respeto: "si el código es tan poco claro que necesita un comentario, entonces tal vez debería reescribirse en su lugar".
+Existe una fantï¿½stica regla al respeto: "si el cï¿½digo es tan poco claro que necesita un comentario, entonces tal vez deberï¿½a reescribirse en su lugar".
 
 ### Receta: funciones externas
 
-A veces es beneficioso reemplazar trozos de código con funciones, como aquí:
+A veces es beneficioso reemplazar trozos de cï¿½digo con funciones, como aquï¿½:
 
 ```js
 function showPrimes(n) {
@@ -32,7 +32,7 @@ function showPrimes(n) {
   for (let i = 2; i < n; i++) {
 
 *!*
-    // comprobar si i es un número primo
+    // comprobar si i es un nï¿½mero primo
     for (let j = 2; j < i; j++) {
       if (i % j == 0) continue nextPrime;
     }
@@ -43,7 +43,7 @@ function showPrimes(n) {
 }
 ```
 
-La mejor variante, con una función externa `isPrime`:
+La mejor variante, con una funciï¿½n externa `isPrime`:
 
 ```js
 function showPrimes(n) {
@@ -64,21 +64,21 @@ function isPrime(n) {
 }
 ```
 
-Ahora podemos entender el código fácilmente. La propia función se convierte en comentario. Este tipo de código se le llama *auto descriptivo*.
+Ahora podemos entender el cï¿½digo fï¿½cilmente. La propia funciï¿½n se convierte en comentario. Este tipo de cï¿½digo se le llama *auto descriptivo*.
 
 ### Receta: crear funciones
 
-Y si tenemos una larga "hoja de código" como esta:
+Y si tenemos una larga "hoja de cï¿½digo" como esta:
 
 ```js
-// aquí añadimos whiskey
+// aquï¿½ aï¿½adimos whiskey
 for(let i = 0; i < 10; i++) {
   let drop = getWhiskey();
   smell(drop);
   add(drop, glass);
 }
 
-// aquí añadimos zumo
+// aquï¿½ aï¿½adimos zumo
 for(let t = 0; t < 3; t++) {
   let tomato = getTomato();
   examine(tomato);
@@ -89,7 +89,7 @@ for(let t = 0; t < 3; t++) {
 // ...
 ```
 
-Entonces, una versión mejor puede ser reescribirlo en funciones de esta manera:
+Entonces, una versiï¿½n mejor puede ser reescribirlo en funciones de esta manera:
 
 ```js
 addWhiskey(glass);
@@ -110,27 +110,27 @@ function addJuice(container) {
 }
 ```
 
-De nuevo, la propias funciones nos dicen que está pasando. No hay nada que comentar. Y además, la estructura del código es mejor cuando esta dividida. Queda claro que hace cada función, que necesita y que retorna.
+De nuevo, la propias funciones nos dicen que estï¿½ pasando. No hay nada que comentar. Y ademï¿½s, la estructura del cï¿½digo es mejor cuando esta dividida. Queda claro que hace cada funciï¿½n, que necesita y que retorna.
 
-En realidad, no podemos evitar totalmente los comentarios "explicativos". Existen algoritmos complejos. Y existen "trucos" ingeniosos con el propósito de optimizar. Pero generalmente, tenemos que intentar mantener el código simple y auto descriptivo.
+En realidad, no podemos evitar totalmente los comentarios "explicativos". Existen algoritmos complejos. Y existen "trucos" ingeniosos con el propï¿½sito de optimizar. Pero generalmente, tenemos que intentar mantener el cï¿½digo simple y auto descriptivo.
 
 ## Comentarios correctos
 
-Entonces, los comentarios explicativos suelen ser incorrectos.¿Qué comentarios son correctos?
+Entonces, los comentarios explicativos suelen ser incorrectos.ï¿½Quï¿½ comentarios son correctos?
 
 Describe la arquitectura
-: Proporcionan una descripción general de alto nivel de los componentes, cómo interactúan, cual es el flujo de control en diversas situaciones... En resumen -- la vista panorámica del código. Hay un lenguaje de diagramas especial [UML](https://es.wikipedia.org/wiki/Lenguaje_unificado_de_modelado) para diagramas de alto nivel. Definitivamente vale la pena estudiarlo.
+: Proporcionan una descripciï¿½n general de alto nivel de los componentes, cï¿½mo interactï¿½an, cual es el flujo de control en diversas situaciones... En resumen -- la vista panorï¿½mica del cï¿½digo. Hay un lenguaje de diagramas especial [UML](https://es.wikipedia.org/wiki/Lenguaje_unificado_de_modelado) para diagramas de alto nivel. Definitivamente vale la pena estudiarlo.
 
-Documenta la utilización de una función
-: Hay una sintaxis especial [JSDoc](https://en.wikipedia.org/wiki/JSDoc) para documentar una función: utilización, parámetros, valor devuelto.
+Documenta la utilizaciï¿½n de una funciï¿½n
+: Hay una sintaxis especial [JSDoc](https://en.wikipedia.org/wiki/JSDoc) para documentar una funciï¿½n: utilizaciï¿½n, parï¿½metros, valor devuelto.
 
 	Por ejemplo:
 	```js
     /**
      * Devuelve x elevado a la potencia de n.
      *
-     * @param {number} x El número a elevar.
-     * @param {number} n La potencia, debe ser un número natural.
+     * @param {number} x El nï¿½mero a elevar.
+     * @param {number} n La potencia, debe ser un nï¿½mero natural.
      * @return {number} x elevado a la potencia de n.
      */
     function pow(x, n) {
@@ -138,42 +138,42 @@ Documenta la utilización de una función
     }
     ```
 	
-	Estos tipos de comentarios nos permiten entender el propósito de la función y como usarla de la manera correcta sin mirar su código.
+	Estos tipos de comentarios nos permiten entender el propï¿½sito de la funciï¿½n y como usarla de la manera correcta sin mirar su cï¿½digo.
 	
-	Por cierto, muchos editores como [WebStorm](https://www.jetbrains.com/webstorm/) también pueden entenderlos y usarlos para proveer auto completado y algún tipo de verificación automática para el código.
+	Por cierto, muchos editores como [WebStorm](https://www.jetbrains.com/webstorm/) tambiï¿½n pueden entenderlos y usarlos para proveer auto completado y algï¿½n tipo de verificaciï¿½n automï¿½tica para el cï¿½digo.
 	
-	Además, existen herramientas como [JSDoc](https://github.com/jsdoc3/jsdoc) que pueden generar documentación en formato HTML de los comentarios. Puedes leer más información sobre JSDoc aquí <http://usejsdoc.org/>.
+	Ademï¿½s, existen herramientas como [JSDoc](https://github.com/jsdoc3/jsdoc) que pueden generar documentaciï¿½n en formato HTML de los comentarios. Puedes leer mï¿½s informaciï¿½n sobre JSDoc aquï¿½ <http://usejsdoc.org/>.
 	
-¿Por qué se resuelve de esa manera?
-: Lo que está escrito es importante. Pero lo que *no* está escrito puede ser aún más importante para entender que está pasando. ¿Por qué resuelven la tarea exactamente de esa manera? El código no nos da ninguna respuesta.
+ï¿½Por quï¿½ se resuelve de esa manera?
+: Lo que estï¿½ escrito es importante. Pero lo que *no* estï¿½ escrito puede ser aï¿½n mï¿½s importante para entender que estï¿½ pasando. ï¿½Por quï¿½ resuelven la tarea exactamente de esa manera? El cï¿½digo no nos da ninguna respuesta.
 
-	Si hay muchas maneras de resolver el problema, ¿por qué esta? Especialmente cuando no es la más obvia.
+	Si hay muchas maneras de resolver el problema, ï¿½por quï¿½ esta? Especialmente cuando no es la mï¿½s obvia.
 	
 	Sin dichos comentarios, las siguientes situaciones son posibles:
-	1. Tu (o tu compañero) abres el código escrito hace ya algún tiempo, y te das cuenta de que es "subóptimo".
-	2. Piensas: "Que estúpido que era antes, y que inteligente que soy ahora", y lo reescribes utilizando la variante "más obvia y correcta".
-	3. ...El impulso de reescribir era bueno. Pero en el proceso ves que la solución "más obvia" en realidad falla. Incluso recuerdas vagamente el por qué, por qué ya lo intentaste hace mucho. Vuelves a la variante correcta pero has estado perdiendo el tiempo.
+	1. Tu (o tu compaï¿½ero) abres el cï¿½digo escrito hace ya algï¿½n tiempo, y te das cuenta de que es "subï¿½ptimo".
+	2. Piensas: "Que estï¿½pido que era antes, y que inteligente que soy ahora", y lo reescribes utilizando la variante "mï¿½s obvia y correcta".
+	3. ...El impulso de reescribir era bueno. Pero en el proceso ves que la soluciï¿½n "mï¿½s obvia" en realidad falla. Incluso recuerdas vagamente el por quï¿½, por quï¿½ ya lo intentaste hace mucho. Vuelves a la variante correcta pero has estado perdiendo el tiempo.
 	
-	Los comentarios que explican la solución correcta son muy importantes. Nos ayudan a continuar el desarrollo de forma correcta.
+	Los comentarios que explican la soluciï¿½n correcta son muy importantes. Nos ayudan a continuar el desarrollo de forma correcta.
 	
-¿Alguna característica sutil del código? ¿Donde se usan?
-: Si el código tiene algo sutil y contra intuitivo, definitivamente vale la pena comentarlo.
+ï¿½Alguna caracterï¿½stica sutil del cï¿½digo? ï¿½Donde se usan?
+: Si el cï¿½digo tiene algo sutil y contra intuitivo, definitivamente vale la pena comentarlo.
 
 ## Resumen
 
-Una señal importante de un buen desarrollador son los comentarios: su presencia e incluso su ausencia.
+Una seï¿½al importante de un buen desarrollador son los comentarios: su presencia e incluso su ausencia.
 
-Los buenos comentarios nos permiten mantener bien el código, volver después de un retraso y usarlo de manera más efectiva.
+Los buenos comentarios nos permiten mantener bien el cï¿½digo, volver despuï¿½s de un retraso y usarlo de manera mï¿½s efectiva.
 
 **Comenta esto:**
 
 - Arquitectura en general, vista de alto nivel.
-- Utilización de funciones.
+- Utilizaciï¿½n de funciones.
 - Soluciones importantes, especialmente cuando no son inmediatamente obvias.
 
 **Evita comentarios:**
 
-- Que explican "como funciona el código" y "que hace".
-- Escribelos solo si es imposible escribir el código de manera tan simple y auto descriptiva que no los necesite.
+- Que explican "como funciona el cï¿½digo" y "que hace".
+- Escribelos solo si es imposible escribir el cï¿½digo de manera tan simple y auto descriptiva que no los necesite.
 
-Los comentarios también son usados para herramientas de auto documentación como JSDoc3: los leen y generan documentación en HTML (o documentos en otros formatos).
+Los comentarios tambiï¿½n son usados para herramientas de auto documentaciï¿½n como JSDoc3: los leen y generan documentaciï¿½n en HTML (o documentos en otros formatos).
