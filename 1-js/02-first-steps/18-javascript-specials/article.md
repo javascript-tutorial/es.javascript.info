@@ -202,7 +202,7 @@ Detalles en: <info:while-for>.
 
 Más adelante estudiaremos más tipos de bucles para tratar con objetos.
 
-## El constructor "switch"
+## El constructo "switch"
 
 El constructo "switch" puede reemplazar múltiples revisiones con `if`. Utiliza `===` (igualdad estricta) para comparar.
 
