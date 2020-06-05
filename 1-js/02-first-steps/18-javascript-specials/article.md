@@ -238,7 +238,7 @@ Cubrimos tres formas de crear una función en JavaScript:
       return result;
     }
     ```
-
+    
 2. Expresión de función: la función en el contexto de una expresión
 
     ```js
@@ -273,7 +273,6 @@ Cubrimos tres formas de crear una función en JavaScript:
 - Los parámetros pueden tener valores predeterminados: `function sum(a = 1, b = 2) {...}`.
 - Las funciones siempre devuelven algo. Si no hay `return`, entonces el resultado es `undefined`.
 
-
 | Declaración de funciones | Expresión de funciones |
 |----------------------|---------------------|
 | visible en todo el bloque de código | creado cuando la ejecución lo alcanza |
@@ -284,4 +283,3 @@ Más: ver <info:function-basics>, <info:function-expressions-arrows>.
 ## Más por venir
 
 Esa fue una breve lista de características de JavaScript. Por ahora solo hemos estudiado lo básico. Más adelante en el tutorial encontrará más características especiales y avanzadas de JavaScript.
-
