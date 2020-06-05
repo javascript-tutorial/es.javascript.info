@@ -2,6 +2,7 @@ importance: 5
 
 ---
 
+
 # Filtrar miembros únicos del array
 
 Permita que `arr` sea un array.
@@ -22,6 +23,8 @@ let values = ["Hare", "Krishna", "Hare", "Krishna",
 alert( unique(values) ); // Hare, Krishna, :-O
 ```
 
+
 P.D. Aquí se usan strings, pero pueden ser valores de cualquier tipo.
 
 P.D.S. Use `Set` para almacenar valores únicos.
+

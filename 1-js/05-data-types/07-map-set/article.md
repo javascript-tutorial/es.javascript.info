@@ -1,3 +1,4 @@
+
 # Map y Set
 
 Hasta este momento, hemos aprendido sobre las siguientes estructuras de datos:
@@ -32,6 +33,7 @@ map.set(true, 'bool1'); // un booleano como propiedad
 
 // recuerda el objeto regular? convertiría las propiedades en un string
 // Map mantiene el tipo de dato en las propiedades, por lo que estas dos son diferentes:
+
 alert( map.get(1)   ); // 'num1'
 alert( map.get('1') ); // 'str1'
 
@@ -58,6 +60,7 @@ let john = { name: "John" };
 let visitsCountMap = new Map();
 
 // John es la propiedad para el Map
+
 visitsCountMap.set(john, 123);
 
 alert( visitsCountMap.get(john) ); // 123
@@ -66,6 +69,7 @@ alert( visitsCountMap.get(john) ); // 123
 El uso de objetos como propiedades es una de las características de `Map` más notables e importantes. Para las propiedades de tipo string, `Object` puede estar bien, pero no para las propiedades de tipo objeto.
 
 Intentémoslo:
+
 
 ```js run
 let john = { name: "John" };
@@ -79,7 +83,6 @@ alert( visitsCountObj["[object Object]"] ); // 123
 ```
 
 Como `visitsCountObj` es un objeto, convierte todas las propiedades, como John en string, por lo que tenemos la propiedad de tipo string `"[objeto Objeto]"`. Definitivamente no es lo que queremos.
-
 
 ```smart header="Cómo `Map` compara las propiedades"
 `Map` utiliza el algoritmo [SameValueZero](https://tc39.es/ecma262/#sec-samevaluezero). Es aproximadamente lo mismo que la igualdad estricta `===`, pero la diferencia es que `NaN` se considera igual a `NaN`. Por lo tanto, `NaN` también se puede usar como propiedad.
@@ -119,6 +122,7 @@ for (let vegetable of recipeMap.keys()) {
 }
 
 // iterando sobre los valores (precios)
+
 for (let amount of recipeMap.values()) {
   alert(amount); // 500, 350, 50
 }
@@ -147,6 +151,7 @@ Cuando se crea un `Map`, podemos pasar un array (u otro iterable) con pares prop
 
 ```js run
 // array de [propiedad, valor]
+
 let map = new Map([
   ['1',  'str1'],
   [1,    'num1'],
@@ -155,6 +160,7 @@ let map = new Map([
 
 alert( map.get('1') ); // str1
 ```
+
 Aquí hay un método incorporado [Object.entries(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/entries) que devuelve un array de pares propiedad / valor para un objeto exactamente en ese formato.
 
 Entonces podemos inicializar un mapa desde un objeto como este:
@@ -176,6 +182,7 @@ Aquí, `Object.entries` devuelve el array de pares propiedad / valor: [["" name 
 Acabamos de ver cómo crear un `Map` a partir de un objeto simple con `Object.entries (obj).`
 
 Existe el método `Object.fromEntries` que hace lo contrario: dado un array de pares [propiedad, valor], crea un objeto a partir de ellos:
+
 ```js run
 let prices = Object.fromEntries([
   ['banana', 1],
@@ -242,6 +249,7 @@ let pete = { name: "Pete" };
 let mary = { name: "Mary" };
 
 // visitas, algunos usuarios lo hacen varias veces
+
 set.add(john);
 set.add(pete);
 set.add(mary);
@@ -260,12 +268,14 @@ La alternativa a `Set` podría ser un array de usuarios y el código para verifi
 ## Iteración sobre Set
 Podemos recorrer `Set` con `for..of` o usando `forEach`:
 
+
 ```js run
 let set = new Set(["oranges", "apples", "bananas"]);
 
 for (let value of set) alert(value);
 
 // lo mismo que forEach:
+
 set.forEach((value, valueAgain, set) => {
   alert(value);
 });
