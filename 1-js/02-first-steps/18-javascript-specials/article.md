@@ -195,7 +195,7 @@ Más en: <info:operators>, <info:comparison>, <info:logical-operators>.
     }
     ```
 
-- La variable declarada en `for(let...)` El bucle solo es visible dentro del bucle. Pero también podemos omitir el `let` y reutilizar una variable existente.
+- La variable declarada en el bucle `for(let...)` sólo es visible dentro del bucle. Pero también podemos omitir el `let` y reutilizar una variable existente.
 - Directivas `break/continue` permiten salir de todo el ciclo/iteración actual. Use etiquetas para romper bucles anidados.
 
 Detalles en: <info:while-for>.
