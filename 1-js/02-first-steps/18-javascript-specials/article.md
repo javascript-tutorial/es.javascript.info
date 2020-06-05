@@ -153,7 +153,7 @@ Ternarios
 Operadores Lógicos
 : Los operadores lógicos Y `&&` y Ó `||` realizan una evaluación de circuito corto y luego devuelven el valor donde se detuvo. El operador lógico NOT `!` convierte el operando a tipo booleano y devuelve el valor inverso.
 
-Comparadores
+Comparaciones
 : Revision de igualdad `==` para valores de diferentes tipos los convierte en un número (excepto `null` y `undefined` que son iguales entre sí y nada más), por lo que son iguales:
 
     ```js run
