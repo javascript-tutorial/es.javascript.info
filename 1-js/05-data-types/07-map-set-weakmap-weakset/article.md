@@ -1,187 +1,238 @@
+# Map y Set
 
-# Map, Set, WeakMap and WeakSet
+Hasta este momento, hemos aprendido sobre las siguientes estructuras de datos:
 
-Now we've learned about the following complex data structures:
+- Objetos para almacenar colecciones de propiedades.
+- Arrays para almacenar colecciones ordenadas.
 
-- Objects for storing keyed collections.
-- Arrays for storing ordered collections.
-
-But that's not enough for real life. That's why `Map` and `Set` also exist.
+Pero eso no es suficiente para la vida real. Por eso también existen Map y Set.
 
 ## Map
 
-[Map](mdn:js/Map) is a collection of keyed data items, just like an `Object`. But the main difference is that `Map` allows keys of any type.
+[Map](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Map) es una colección de elementos de datos con propiedad, al igual que un objeto, y valor. Pero la principal diferencia es que Map permite propiedades de cualquier tipo.
 
-The main methods are:
+Los métodos y propiedades son:
 
-- `new Map()` -- creates the map.
-- `map.set(key, value)` -- stores the value by the key.
-- `map.get(key)` -- returns the value by the key, `undefined` if `key` doesn't exist in map.
-- `map.has(key)` -- returns `true` if the `key` exists, `false` otherwise.
-- `map.delete(key)` -- removes the value by the key.
-- `map.clear()` -- clears the map
-- `map.size` -- returns the current element count.
+- `new Map()` -- crea el mapa.
+- `map.set(propiedad, valor)` -- almacena el valor para la propiedad.
+- `map.get(propiedad)` -- devuelve el valor de la propiedad: será `undefined` si la `propiedad` no exite en Map.
+- `map.has(propiedad)` -- devuelve`true` si la `propiedad` exite, y `false` si no existe.
+- `map.delete(propiedad)` -- elimina los valores de la propiedad.
+- `map.clear()` -- limpia el Map.
+- `map.size` -- retorna el número del elemento actual en el recuento de elementos en el Map.
 
-For instance:
+Por ejemplo:
 
 ```js run
 let map = new Map();
 
-map.set('1', 'str1');   // a string key
-map.set(1, 'num1');     // a numeric key
-map.set(true, 'bool1'); // a boolean key
+map.set('1', 'str1');   // un string como propiedad
+map.set(1, 'num1');     // un número como propiedad
+map.set(true, 'bool1'); // un booleano como propiedad
 
-// remember the regular Object? it would convert keys to string
-// Map keeps the type, so these two are different:
+// recuerda el objeto regular? convertiría las propiedades en un string
+// Map mantiene el tipo de dato en las propiedades, por lo que estas dos son diferentes:
 alert( map.get(1)   ); // 'num1'
 alert( map.get('1') ); // 'str1'
 
 alert( map.size ); // 3
 ```
 
-As we can see, unlike objects, keys are not converted to strings. Any type of key is possible.
+Como podemos ver, a diferencia de los objetos, las propiedades no se convierten en strings. Cualquier tipo de propiedad es posible en un Map.
 
-**Map can also use objects as keys.**
+```smart header="map[propiedad] no es la forma correcta para usar Map"
+Aunque el map[propiedad] también funciona, por ejemplo, podemos establecer map[propiedad] = 2, esto es tratar a map como un objeto JavaScript simple, por lo que implica todas las limitaciones correspondientes (sin objetos como propiedad, etc.).
 
-For instance:
+Por lo tanto, deberíamos usar los métodos de `Map`: set, get, etc.
+```
+
+**El mapa también puede usar objetos como propiedades.**
+
+Por ejemplo:
+
 ```js run
+//John es un objeto
 let john = { name: "John" };
 
-// for every user, let's store their visits count
+// para cada usuario, almacenemos el recuento de visitas
 let visitsCountMap = new Map();
 
-// john is the key for the map
+// John es la propiedad para el Map
 visitsCountMap.set(john, 123);
 
 alert( visitsCountMap.get(john) ); // 123
 ```
 
-Using objects as keys is one of most notable and important `Map` features. For string keys, `Object` can be fine, but it would be difficult to replace the `Map` with a regular `Object` in the example above.
+El uso de objetos como propiedades es una de las características de `Map` más notables e importantes. Para las propiedades de tipo string, `Object` puede estar bien, pero no para las propiedades de tipo objeto.
 
-In the old times, before `Map` existed, people added unique identifiers to objects for that:
+Intentémoslo:
 
 ```js run
-// we add the id field
-let john = { name: "John", *!*id: 1*/!* };
+let john = { name: "John" };
 
-let visitsCounts = {};
+let visitsCountObj = {}; // intenta usar un objeto
 
-// now store the value by id
-visitsCounts[john.id] = 123;
+visitsCountObj[john] = 123; // intenta usar el objeto john como propiedad
 
-alert( visitsCounts[john.id] ); // 123
+// Esto es lo que se escribió!
+alert( visitsCountObj["[object Object]"] ); // 123
 ```
 
-...But `Map` is much more elegant.
+Como `visitsCountObj` es un objeto, convierte todas las propiedades, como John en string, por lo que tenemos la propiedad de tipo string `"[objeto Objeto]"`. Definitivamente no es lo que queremos.
 
 
-```smart header="How `Map` compares keys"
-To test values for equivalence, `Map` uses the algorithm [SameValueZero](https://tc39.github.io/ecma262/#sec-samevaluezero). It is roughly the same as strict equality `===`, but the difference is that `NaN` is considered equal to `NaN`. So `NaN` can be used as the key as well.
+```smart header="Cómo `Map` compara las propiedades"
+`Map` utiliza el algoritmo [SameValueZero](https://tc39.es/ecma262/#sec-samevaluezero). Es aproximadamente lo mismo que la igualdad estricta `===`, pero la diferencia es que `NaN` se considera igual a `NaN`. Por lo tanto, `NaN` también se puede usar como propiedad.
 
-This algorithm can't be changed or customized.
+Este algoritmo no se puede cambiar ni personalizar.
 ```
 
-
-````smart header="Chaining"
-
-Every `map.set` call returns the map itself, so we can "chain" the calls:
+````smart header="Encadenamiento"
+Cada llamada a `map.set` devuelve Map en sí, para que podamos "encadenar" las llamadas:
 
 ```js
 map.set('1', 'str1')
-  .set(1, 'num1')
-  .set(true, 'bool1');
+   .set(1, 'num1')
+   .set(true, 'bool1');
 ```
 ````
 
-## Map from Object
+## Iteración sobre Map
+Para recorrer un `Map`, hay 3 métodos:
 
-When a `Map` is created, we can pass an array (or another iterable) with key-value pairs, like this:
+- `map.keys()` – devuelve un iterable para las propiedades.
+- `map.values()` – devuelve un iterable para los valores.
+- `map.entries()` – devuelve un iterable para las entradas `[propiedad, valor]`, se usa por defecto en `for..of`.
+
+Por ejemplo:
+
+```js run
+let recipeMap = new Map([
+  ['pepino', 500],
+  ['tomates', 350],
+  ['cebollas',    50]
+]);
+
+// iterando sobre las propiedades (verduras)
+for (let vegetable of recipeMap.keys()) {
+  alert(vegetable); // pepino, tomates, cebollas
+}
+
+// iterando sobre los valores (precios)
+for (let amount of recipeMap.values()) {
+  alert(amount); // 500, 350, 50
+}
+
+// iterando sobre las entradas [propiedad, valor]
+for (let entry of recipeMap) { // lo mismo que recipeMap.entries()
+  alert(entry); // pepino,500 (etc)
+}
+```
+```smart header="Se utiliza el orden de inserción."
+La iteración va en el mismo orden en que se insertaron los valores. `Map` conserva este orden, a diferencia de un `Objeto` normal.
+```
+
+Además de eso, `Map` tiene un método `forEach` incorporado, similar a `Array`:
 
 ```js
-// array of [key, value] pairs
+// recorre la función para cada par (propiedad, valor)
+recipeMap.forEach( (value, key, map) => {
+  alert(`${key}: ${value}`); // pepino: 500 etc
+});
+```
+
+## Object.entries: Map desde Objeto
+
+Cuando se crea un `Map`, podemos pasar un array (u otro iterable) con pares propiedad / valor para la inicialización, de esta manera:
+
+```js run
+// array de [propiedad, valor]
 let map = new Map([
   ['1',  'str1'],
   [1,    'num1'],
   [true, 'bool1']
 ]);
+
+alert( map.get('1') ); // str1
 ```
+Aquí hay un método incorporado [Object.entries(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/entries) que devuelve un array de pares propiedad / valor para un objeto exactamente en ese formato.
 
-There is a built-in method [Object.entries(obj)](mdn:js/Object/entries) that returns an array of key/value pairs for an object exactly in that format.
-
-So we can initialize a map from an object like this:
-
-```js
-let map = new Map(Object.entries({
-  name: "John",
-  age: 30
-}));
-```
-
-Here, `Object.entries` returns the array of key/value pairs: `[ ["name","John"], ["age", 30] ]`. That's what `Map` needs.
-
-## Iteration over Map
-
-For looping over a `map`, there are 3 methods:
-
-- `map.keys()` -- returns an iterable for keys,
-- `map.values()` -- returns an iterable for values,
-- `map.entries()` -- returns an iterable for entries `[key, value]`, it's used by default in `for..of`.
-
-For instance:
+Entonces podemos inicializar un mapa desde un objeto como este:
 
 ```js run
-let recipeMap = new Map([
-  ['cucumber', 500],
-  ['tomatoes', 350],
-  ['onion',    50]
+let obj = {
+  name: "John",
+  age: 30
+};
+
+let map = new Map(Object.entries(obj));
+
+alert( map.get('name') ); // John
+```
+
+Aquí, `Object.entries` devuelve el array de pares propiedad / valor: [["" name "," John "], [" age ", 30]]. Eso es lo que necesita `Map`.
+
+## Object.fromEntries: Objeto desde Map
+Acabamos de ver cómo crear un `Map` a partir de un objeto simple con `Object.entries (obj).`
+
+Existe el método `Object.fromEntries` que hace lo contrario: dado un array de pares [propiedad, valor], crea un objeto a partir de ellos:
+```js run
+let prices = Object.fromEntries([
+  ['banana', 1],
+  ['orange', 2],
+  ['meat', 4]
 ]);
 
-// iterate over keys (vegetables)
-for (let vegetable of recipeMap.keys()) {
-  alert(vegetable); // cucumber, tomatoes, onion
-}
+// ahora prices es un objeto = { banana: 1, orange: 2, meat: 4 }
 
-// iterate over values (amounts)
-for (let amount of recipeMap.values()) {
-  alert(amount); // 500, 350, 50
-}
+alert(prices.orange); // 2
+```
+Podemos usar `Object.fromEntries` para obtener un objeto plano de `Map`.
 
-// iterate over [key, value] entries
-for (let entry of recipeMap) { // the same as of recipeMap.entries()
-  alert(entry); // cucumber,500 (and so on)
-}
+Ej. almacenamos los datos en un `Map`, pero necesitamos pasarlos a un código de terceros que espera un objeto simple.
+
+Aquí vamos:
+
+```js run
+let map = new Map();
+map.set('banana', 1);
+map.set('orange', 2);
+map.set('meat', 4);
+
+let obj = Object.fromEntries(map.entries()); // hace un objeto simple
+
+// Hecho!
+// obj = { banana: 1, orange: 2, meat: 4 }
+
+alert(obj.orange); // 2
 ```
 
-```smart header="The insertion order is used"
-The iteration goes in the same order as the values were inserted. `Map` preserves this order, unlike a regular `Object`.
-```
+Una llamada a `map.entries()` devuelve un array de pares propiedad / valor, exactamente en el formato correcto para `Object.fromEntries.`
 
-Besides that, `Map` has a built-in `forEach` method, similar to `Array`:
+También podríamos acortar la línea 6 del ejemplo anterior:
 
 ```js
-// runs the function for each (key, value) pair 
-recipeMap.forEach( (value, key, map) => {
-  alert(`${key}: ${value}`); // cucumber: 500 etc
-});
+let obj = Object.fromEntries(map); // omitimos .entries()
 ```
-
+Es lo mismo, porque `Object.fromEntries` espera un objeto iterable como argumento. No necesariamente un array. Y la iteración estándar para el `Map` devuelve los mismos pares propiedad / valor que `map.entries()`. Entonces obtenemos un objeto simple con las mismas propiedades / valores que `Map`.
 
 ## Set
+`Set` es una colección de tipo especial: "conjunto de valores" (sin propiedades), donde cada valor puede aparecer solo una vez.
 
-A `Set` is a collection of values, where each value may occur only once.
+Sus principales métodos son:
 
-Its main methods are:
+- `new Set(iterable)` -- crea el set y, si se proporciona un objeto iterable (generalmente un array), copia los valores del mismo en el set.
+- `set.add(valor)` -- agrega un valor, devuelve el set en sí.
+- `set.delete(valor)` -- elimina el valor, devuelve `true` si `valor` existe al momento de la llamada, si no, devuelve `false`.
+- `set.has(valor)` -- devuelve `true` si el valor existe en el set, si no, devuelve `false`.
+- `set.clear()` -- elimina todo del set.
+- `set.size` -- es el contador de los elementos.
 
-- `new Set(iterable)` -- creates the set, optionally from an array of values (any iterable will do).
-- `set.add(value)` -- adds a value, returns the set itself.
-- `set.delete(value)` -- removes the value, returns `true` if `value` existed at the moment of the call, otherwise `false`.
-- `set.has(value)` -- returns `true` if the value exists in the set, otherwise `false`.
-- `set.clear()` -- removes everything from the set.
-- `set.size` -- is the elements count.
+La característica principal es que las llamadas repetidas de `set.add (valor)` con el mismo valor no hacen nada. Esa es la razón por la cual cada valor aparece en `Set` solo una vez.
 
-For example, we have visitors coming, and we'd like to remember everyone. But repeated visits should not lead to duplicates. A visitor must be "counted" only once.
+Por ejemplo, tenemos visitantes que vienen y nos gustaría recordar a todos. Pero las visitas repetidas no deberían conducir a duplicados. Un visitante debe ser "contado" solo una vez.
 
-`Set` is just the right thing for that:
+`Set` es lo correcto para eso:
 
 ```js run
 let set = new Set();
@@ -190,269 +241,70 @@ let john = { name: "John" };
 let pete = { name: "Pete" };
 let mary = { name: "Mary" };
 
-// visits, some users come multiple times
+// visitas, algunos usuarios lo hacen varias veces
 set.add(john);
 set.add(pete);
 set.add(mary);
 set.add(john);
 set.add(mary);
 
-// set keeps only unique values
+// set solo guarda valores únicos
 alert( set.size ); // 3
 
 for (let user of set) {
-  alert(user.name); // John (then Pete and Mary)
+  alert(user.name); // John (luego Pete y Mary)
 }
 ```
+La alternativa a `Set` podría ser un array de usuarios y el código para verificar si hay duplicados en cada inserción usando [arr.find](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/find). Pero el rendimiento sería mucho peor, porque este método recorre el array completo comprobando cada elemento. `Set` está mucho mejor optimizado internamente para verificaciones de unicidad.
 
-The alternative to `Set` could be an array of users, and the code to check for duplicates on every insertion using [arr.find](mdn:js/Array/find). But the performance would be much worse, because this method walks through the whole array checking every element. `Set` is much better optimized internally for uniqueness checks.
-
-## Iteration over Set
-
-We can loop over a set either with `for..of` or using `forEach`:
+## Iteración sobre Set
+Podemos recorrer `Set` con `for..of` o usando `forEach`:
 
 ```js run
 let set = new Set(["oranges", "apples", "bananas"]);
 
 for (let value of set) alert(value);
 
-// the same with forEach:
+// lo mismo que forEach:
 set.forEach((value, valueAgain, set) => {
   alert(value);
 });
 ```
 
-Note the funny thing. The `forEach` function in the `Set` has 3 arguments: a value, then *again a value*, and then the target object. Indeed, the same value appears in the arguments twice.
-
-That's for compatibility with `Map` where `forEach` has three arguments. Looks a bit strange, for sure. But may help to replace `Map` with `Set` in certain cases with ease, and vice versa.
-
-The same methods `Map` has for iterators are also supported:
-
-- `set.keys()` -- returns an iterable object for values,
-- `set.values()` -- same as `set.keys`, for compatibility with `Map`,
-- `set.entries()` -- returns an iterable object for entries `[value, value]`, exists for compatibility with `Map`.
-
-## WeakMap and WeakSet
-
-`WeakSet` is a special kind of `Set` that does not prevent JavaScript from removing its items from memory. `WeakMap` is the same thing for `Map`.
-
-As we know from the chapter <info:garbage-collection>, JavaScript engine stores a value in memory while it is reachable (and can potentially be used).
-
-For instance:
-```js
-let john = { name: "John" };
-
-// the object can be accessed, john is the reference to it
-
-// overwrite the reference
-john = null;
-
-*!*
-// the object will be removed from memory
-*/!*
-```
-
-Usually, properties of an object or elements of an array or another data structure are considered reachable and kept in memory while that data structure is in memory.
-
-For instance, if we put an object into an array, then while the array is alive, the object will be alive as well, even if there are no other references to it.
-
-Like this:
-
-```js
-let john = { name: "John" };
-
-let array = [ john ];
-
-john = null; // overwrite the reference
-
-*!*
-// john is stored inside the array, so it won't be garbage-collected
-// we can get it as array[0]
-*/!*
-```
-
-Or, if we use an object as the key in a regular `Map`, then while the `Map` exists, that object exists as well. It occupies memory and may not be garbage collected.
-
-For instance:
-
-```js
-let john = { name: "John" };
-
-let map = new Map();
-map.set(john, "...");
-
-john = null; // overwrite the reference
-
-*!*
-// john is stored inside the map,
-// we can get it by using map.keys()
-*/!*
-```
-
-`WeakMap/WeakSet` are fundamentally different in this aspect. They do not prevent garbage-collection of key objects.
-
-Let's explain it starting with `WeakMap`.
-
-The first difference from `Map` is that `WeakMap` keys must be objects, not primitive values:
-
-```js run
-let weakMap = new WeakMap();
-
-let obj = {};
-
-weakMap.set(obj, "ok"); // works fine (object key)
-
-*!*
-// can't use a string as the key
-weakMap.set("test", "Whoops"); // Error, because "test" is not an object
-*/!*
-```
-
-Now, if we use an object as the key in it, and there are no other references to that object -- it will be removed from memory (and from the map) automatically.
-
-```js
-let john = { name: "John" };
-
-let weakMap = new WeakMap();
-weakMap.set(john, "...");
-
-john = null; // overwrite the reference
-
-// john is removed from memory!
-```
-
-Compare it with the regular `Map` example above. Now if `john` only exists as the key of `WeakMap` -- it is to be automatically deleted.
-
-`WeakMap` does not support iteration and methods `keys()`, `values()`, `entries()`, so there's no way to get all keys or values from it.
-
-`WeakMap` has only the following methods:
-
-- `weakMap.get(key)`
-- `weakMap.set(key, value)`
-- `weakMap.delete(key)`
-- `weakMap.has(key)`
-
-Why such a limitation? That's for technical reasons. If an object has lost all other references (like `john` in the code above), then it is to be garbage-collected automatically. But technically it's not exactly specified *when the cleanup happens*.
-
-The JavaScript engine decides that. It may choose to perform the memory cleanup immediately or to wait and do the cleaning later when more deletions happen. So, technically the current element count of a `WeakMap` is not known. The engine may have cleaned it up or not, or did it partially. For that reason, methods that access `WeakMap` as a whole are not supported.
-
-Now where do we need such thing?
-
-The idea of `WeakMap` is that we can store something for an object that should exist only while the object exists. But we do not force the object to live by the mere fact that we store something for it.
-
-```js
-weakMap.set(john, "secret documents");
-// if john dies, secret documents will be destroyed automatically
-```
-
-That's useful for situations when we have a main storage for the objects somewhere and need to keep additional information, that is only relevant while the object lives.
-
-Let's look at an example.
-
-For instance, we have code that keeps a visit count for each user. The information is stored in a map: a user is the key and the visit count is the value. When a user leaves, we don't want to store their visit count anymore.
-
-One way would be to keep track of users, and when they leave -- clean up the map manually:
-
-```js run
-let john = { name: "John" };
-
-// map: user => visits count
-let visitsCountMap = new Map();
-
-// john is the key for the map
-visitsCountMap.set(john, 123);
-
-// now john leaves us, we don't need him anymore
-john = null;
-
-*!*
-// but it's still in the map, we need to clean it!
-*/!*
-alert( visitsCountMap.size ); // 1
-// and john is also in the memory, because Map uses it as the key
-```
-
-Another way would be to use `WeakMap`:
-
-```js
-let john = { name: "John" };
-
-let visitsCountMap = new WeakMap();
-
-visitsCountMap.set(john, 123);
-
-// now john leaves us, we don't need him anymore
-john = null;
-
-// there are no references except WeakMap,
-// so the object is removed both from the memory and from visitsCountMap automatically
-```
-
-With a regular `Map`, cleaning up after a user has left becomes a tedious task: we not only need to remove the user from its main storage (be it a variable or an array), but also need to clean up the additional stores like `visitsCountMap`. And it can become cumbersome in more complex cases when users are managed in one place of the code and the additional structure is in another place and is getting no information about removals.
-
-```summary
-`WeakMap` can make things simpler, because it is cleaned up automatically. The information in it like visits count in the example above lives only while the key object exists.
-```
-
-`WeakSet` behaves similarly:
-
-- It is analogous to `Set`, but we may only add objects to `WeakSet` (not primitives).
-- An object exists in the set while it is reachable from somewhere else.
-- Like `Set`, it supports `add`, `has` and `delete`, but not `size`, `keys()` and no iterations.
-
-For instance, we can use it to keep track of whether a message is read:
-
-```js
-let messages = [
-    {text: "Hello", from: "John"},
-    {text: "How goes?", from: "John"},
-    {text: "See you soon", from: "Alice"}
-];
-
-// fill it with array elements (3 items)
-let unreadSet = new WeakSet(messages);
-
-// use unreadSet to see whether a message is unread
-alert(unreadSet.has(messages[1])); // true
-
-// remove it from the set after reading
-unreadSet.delete(messages[1]); // true
-
-// and when we shift our messages history, the set is cleaned up automatically
-messages.shift();
-
-*!*
-// no need to clean unreadSet, it now has 2 items
-*/!*
-// (though technically we don't know for sure when the JS engine clears it)
-```
-
-The most notable limitation of `WeakMap` and `WeakSet` is the absence of iterations, and inability to get all current content. That may appear inconvenient, but does not prevent `WeakMap/WeakSet` from doing their main job -- be an "additional" storage of data for objects which are stored/managed at another place.
-
-## Summary
-
-Regular collections:
-- `Map` -- is a collection of keyed values.
-
-    The differences from a regular `Object`:
-
-    - Any keys, objects can be keys.
-    - Iterates in the insertion order.
-    - Additional convenient methods, the `size` property.
-
-- `Set` -- is a collection of unique values.
-
-    - Unlike an array, does not allow to reorder elements.
-    - Keeps the insertion order.
-
-Collections that allow garbage-collection:
-
-- `WeakMap` -- a variant of `Map` that allows only objects as keys and removes them once they become inaccessible by other means.
-
-    - It does not support operations on the structure as a whole: no `size`, no `clear()`, no iterations.
-
-- `WeakSet` -- is a variant of `Set` that only stores objects and removes them once they become inaccessible by other means.
-
-    - Also does not support `size/clear()` and iterations.
-
-`WeakMap` and `WeakSet` are used as "secondary" data structures in addition to the "main" object storage. Once the object is removed from the main storage, if it is only found in the `WeakMap/WeakSet`, it will be cleaned up automatically.
+Tenga en cuenta algo gracioso: la función callback pasada en forEach tiene 3 argumentos:  un valor, luego el mismo valor "valueAgain" y luego el objeto de destino que es set. El mismo valor aparece en los argumentos dos veces.
+
+Eso es por compatibilidad con `Map` donde la función callback tiene tres argumentos. Parece un poco extraño, seguro. Pero puede ayudar a reemplazar `Map` con `Set` en ciertos casos con facilidad, y viceversa.
+
+También soporta los mismos métodos que `Map` tiene para los iteradores:
+
+- `set.keys()` – devuelve un iterable para las propiedades.
+- `set.values()` – lo mismo que `set.keys()`, por su compatibilidad con `Map`.
+- `set.entries()` – devuelve un iterable para las entradas `[propiedad, valor]`, por su compatibilidad con `Map`.
+
+## Resumen
+`Map`: es una colección de valores con propiedad.
+
+Métodos y propiedades:
+- `new Map()` -- crea el mapa.
+- `map.set(propiedad, valor)` -- almacena el valor para la propiedad.
+- `map.get(propiedad)` -- devuelve el valor de la propiedad: será `undefined` si la `propiedad` no exite en Map.
+- `map.has(propiedad)` -- devuelve`true` si la `propiedad` exite, y `false` si no existe.
+- `map.delete(propiedad)` -- elimina los valores de la propiedad.
+- `map.clear()` -- limpia el Map.
+- `map.size` -- retorna el número del elemento actual en el recuento de elementos en el Map.
+
+La diferencia con `Objeto` regular:
+- Cualquier propiedad, los objetos tambien pueden ser propiedads.
+- Adicionalmente tiene métodos que nos convienen, como la propiedad `size`.
+
+`Set`: es una colección de valores únicos.
+
+Métodos y propiedades:
+- `new Set(iterable)` -- crea el set y, si se proporciona un objeto iterable (generalmente un array), copia los valores del mismo en el set.
+- `set.add(valor)` -- agrega un valor, devuelve el set en sí.
+- `set.delete(valor)` -- elimina el valor, devuelve `true` si `valor` existe al momento de la llamada, si no, devuelve `false`.
+- `set.has(valor)` -- devuelve `true` si el valor existe en el set, si no, devuelve `false`.
+- `set.clear()` -- elimina todo del set.
+- `set.size` -- es el contador de los elementos.
+
+La iteración sobre `Map` y `Set` siempre está en el orden de inserción, por lo que no podemos decir que estas colecciones están desordenadas, pero no podemos reordenar elementos u obtener un elemento directamente por su número.
