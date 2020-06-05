@@ -20,7 +20,8 @@ alert('World')
 That's called "automatic semicolon insertion". Sometimes it doesn't work, for instance:
 
 ```js run
-alert("There will be an error after this message")
+alert("Habrá un error después de este mensaje.")
+
 
 [1, 2].forEach(alert)
 ```
@@ -44,8 +45,6 @@ for(;;) {
 More in: <info:structure>.
 
 ## Strict mode
-
-To fully enable all features of modern JavaScript, we should start scripts with `"use strict"`.
 
 ```js
 'use strict';
@@ -73,8 +72,6 @@ A variable name can include:
 - Letters and digits, but the first character may not be a digit.
 - Characters `$` and `_` are normal, on par with letters.
 - Non-Latin alphabets and hieroglyphs are also allowed, but commonly not used.
-
-Variables are dynamically typed. They can store any value:
 
 ```js
 let x = 5;
@@ -174,8 +171,6 @@ More in: <info:operators>, <info:comparison>, <info:logical-operators>.
 
 ## Loops
 
-- We covered 3 types of loops:
-
     ```js
     // 1
     while (condition) {
@@ -193,10 +188,8 @@ More in: <info:operators>, <info:comparison>, <info:logical-operators>.
     }
     ```
 
-- The variable declared in `for(let...)` loop is visible only inside the loop. But we can also omit `let` and reuse an existing variable.
-- Directives `break/continue` allow to exit the whole loop/current iteration. Use labels to break nested loops.
-
-Details in: <info:while-for>.
+- La variable declarada en `for(let...)` El bucle solo es visible dentro del bucle. Pero también podemos omitir el `let` y reutilizar una variable existente.
+- Directivas `break/continue` permiten salir de todo el ciclo/iteración actual. Use etiquetas para romper bucles anidados.
 
 Later we'll study more types of loops to deal with objects.
 
@@ -238,7 +231,7 @@ We covered three ways to create a function in JavaScript:
     }
     ```
 
-2. Function Expression: the function in the context of an expression
+2. Expresión de función: la función en el contexto de una expresión
 
     ```js
     let sum = function(a, b) {
@@ -247,8 +240,7 @@ We covered three ways to create a function in JavaScript:
       return result;
     }
     ```
-
-    Function expressions can have a name, like `sum = function name(a, b)`, but that `name` is only visible inside that function.
+    Las expresiones de función pueden tener un nombre, como `sum = function name(a, b)`, pero ese `name` solo es visible dentro de esa función.
 
 3. Arrow functions:
 
@@ -269,10 +261,9 @@ We covered three ways to create a function in JavaScript:
     let double = n => n * 2;
     ```
 
-
-- Functions may have local variables: those declared inside its body. Such variables are only visible inside the function.
-- Parameters can have default values: `function sum(a = 1, b = 2) {...}`.
-- Functions always return something. If there's no `return` statement, then the result is `undefined`.
+- Las funciones pueden tener variables locales: aquellas declaradas dentro de su cuerpo. Estas variables solo son visibles dentro de la función.
+- Los parámetros pueden tener valores predeterminados: `function sum(a = 1, b = 2) {...}`.
+- Las funciones siempre devuelven algo. Si no hay `return`, entonces el resultado es `undefined`.
 
 
 | Function Declaration | Function Expression |
