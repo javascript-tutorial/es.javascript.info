@@ -167,7 +167,7 @@ Comparaciones
 
     Valores `null` y `undefined` son especiales: son iguales `==` el uno al otro y no son iguales a nada más.
 
-    Las comparaciones mayores / menores comparan las cadenas carácter por carácter, otros tipos se convierten en un número.
+    Las comparaciones mayores / menores comparan las cadenas carácter por carácter, otros tipos de datos se convierten en un número.
 
 Otros operadores
 : Hay algunos otros, como un operador de coma.
