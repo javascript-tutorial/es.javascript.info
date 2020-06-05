@@ -204,7 +204,7 @@ Más adelante estudiaremos más tipos de bucles para tratar con objetos.
 
 ## El constructor "switch"
 
-El constructor "switch" puede reemplazar múltiples revisiones con `if`. Utiliza `===` (igualdad estricta) para comparar.
+El constructo "switch" puede reemplazar múltiples revisiones con `if`. Utiliza `===` (igualdad estricta) para comparar.
 
 Por ejemplo:
 
