@@ -163,7 +163,7 @@ Comparadores
 
     Otras comparaciones también se convierten en un número.
 
-    El operador de igualdad estricta `===` no realiza la conversión: diferentes tipos siempre significan diferentes valores para ella, así que:
+    El operador de igualdad estricta `===` no realiza la conversión: diferentes tipos de valores siempre significan diferentes valores para ella, así que:
 
     Valores `null` y `undefined` son especiales: son iguales `==` el uno al otro y no son iguales a nada más.
 
