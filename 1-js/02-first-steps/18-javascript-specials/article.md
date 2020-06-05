@@ -98,7 +98,7 @@ typeof null == "object" // error del lenguaje
 typeof function(){} == "function" // las funciones son tratadas especialmente
 ```
 
-Más en: <info:variables> and <info:types>.
+Más en: <info:variables> y <info:types>.
 
 ## Interacción
 
@@ -285,4 +285,3 @@ Más: ver <info:function-basics>, <info:function-expressions-arrows>.
 ## Más por venir
 
 Esa fue una breve lista de características de JavaScript. Por ahora solo hemos estudiado lo básico. Más adelante en el tutorial encontrará más características especiales y avanzadas de JavaScript.
-
