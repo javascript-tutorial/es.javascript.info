@@ -238,7 +238,7 @@ Cubrimos tres formas de crear una función en JavaScript:
       return result;
     }
     ```
-    
+
 2. Expresión de función: la función en el contexto de una expresión
 
     ```js
@@ -248,6 +248,7 @@ Cubrimos tres formas de crear una función en JavaScript:
       return result;
     }
     ```
+
     Las expresiones de función pueden tener un nombre, como `sum = function name(a, b)`, pero ese `name` solo es visible dentro de esa función.
 
 3. Funciones de flecha:
@@ -269,9 +270,11 @@ Cubrimos tres formas de crear una función en JavaScript:
     let double = n => n * 2;
     ```
 
+
 - Las funciones pueden tener variables locales: aquellas declaradas dentro de su cuerpo. Estas variables solo son visibles dentro de la función.
 - Los parámetros pueden tener valores predeterminados: `function sum(a = 1, b = 2) {...}`.
 - Las funciones siempre devuelven algo. Si no hay `return`, entonces el resultado es `undefined`.
+
 
 | Declaración de funciones | Expresión de funciones |
 |----------------------|---------------------|
