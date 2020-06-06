@@ -1,3 +1,4 @@
+
 # Export e Import
 
 Las directivas export e import tienen varias variantes de sintáxis.
@@ -15,7 +16,7 @@ Por ejemplo, aquí todas las exportaciones son válidas:
 *!*export*/!* let months = ['Jan', 'Feb', 'Mar','Apr', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 // exportar una constante
-*!*export*/!* const MODULES_BECAME_STANDARD_YEAR = 2015;
+*!*export*/!* co<<<<<<< trad_export_importnst MODULES_BECAME_STANDARD_YEAR = 2015;
 
 // exportar una clase
 *!*export*/!* clase User {
@@ -29,8 +30,6 @@ Por ejemplo, aquí todas las exportaciones son válidas:
 Tenga en cuenta que `export` antes de una clase o una función no la hace una [expresión de función](info:function-expressions). Sigue siendo una declaración de función, aunque exportada.
 
 La mayoría de las guías de estilos JavaScript no recomiendan los punto y comas después de declarar funciones y clases.
-
-Es por esto que no hay necesidad de un punto y coma al final de `export class` y `export function`:
 
 ```js
 export function sayHi(user) {
@@ -95,7 +94,9 @@ Pues hay algunas razones.
 
 1. Las herramientas de ensamblaje modernas ([webpack](http://webpack.github.io) y otras) empaquetan los módulos juntos y los optimiza para acelerar la carga y quitan las cosas sin usar.
 
+
 Digamos que agregamos una librería externa `say.js` a nuestro proyecto con varias funciones:
+
     ```js
     // 📁 say.js
     export function sayHi() { ... }
@@ -104,10 +105,12 @@ Digamos que agregamos una librería externa `say.js` a nuestro proyecto con vari
     ```
 
     Ahora si solamnente utilizamos una de las funciones de `say.js` en nuestro proyecto:
+
     ```js
     // 📁 main.js
     import {sayHi} from './say.js';
     ```
+    
 ...Entonces el optimizador lo verá y eliminará las otras funciones del código empaquetado, por lo tanto la compilación es más pequeña. Esto se llama "tree-shaking".
 
 2. Listar explícitamente qué importar da nombres más cortos: `sayHi()` en lugar de `say.sayHi()`.
@@ -179,6 +182,7 @@ Sólo puede existir un sólo `export default` por archivo.
 
 ...Y luego importarlo sin llaves:
 
+
 ```js
 // 📁 main.js
 import *!*User*/!* from './user.js'; // no {User}, sólo User
@@ -212,6 +216,7 @@ export default function(user) { // sin nombre de función
 ```
 
 ```js
+
 // exportar un único valor, sin crear una variable
 export default ['Jan', 'Feb', 'Mar','Apr', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 ```
@@ -270,7 +275,6 @@ Y por último, si importamos todo `*` como un objeto, entonce la propiedad `defa
 ```js
 // 📁 main.js
 import * as user from './user.js';
-
 let User = user.default; // la exportación predeterminada
 new User('John');
 ```
@@ -324,6 +328,7 @@ export {default as User} from './user.js'; // reexportar default
 Imagínese, estamos escribiendo un "paquete": una carpeta con muchos módulos, con algunas de las funciones exportadas al exterior (herramientas como NPM nos permiten publicar y distribuir dichos paquetes), y muchos módulos son solo "ayudantes", para uso interno en otros módulos de paquete.
 
 La estructura del archivo podría ser así:
+
 ```
 auth/
     index.js  
@@ -349,11 +354,9 @@ Como la funcionalidad real exportada se encuentra dispersa entre el paquete, pod
 
 ```js
 // 📁 auth/index.js
-
 // importar login/logout e inmediatamente exportarlas
 import {login, logout} from './helpers.js';
 export {login, logout};
-
 // importar default como User y exportarlo
 import User from './user.js';
 export {User};
@@ -386,6 +389,7 @@ export default class User {
   // ...
 }
 ```
+
 
 1. `export User from './user.js'` no funcionará. Qué puede fallar?... Pero es un errro de sintáxis!
 
@@ -431,11 +435,10 @@ Importación:
 Podemos poner las declaraciones `import/export` en la parte superior o inferior de un script, eso no importa.
 
 Entonces, técnicamente este código está bien:
+
 ```js
 sayHi();
-
 // ...
-
 import {sayHi} from './say.js'; // import al final del archivo
 ```
 
@@ -453,3 +456,4 @@ if (something) {
 ...Pero, ¿qué pasa si realmente necesitamos importar algo condicionalmente? O en el momento adecuado? Por ejemplo, ¿cargar un módulo a pedido, cuando realmente se necesita?
 
 Veremos importaciones dinámicas en el próximo artículo.
+
