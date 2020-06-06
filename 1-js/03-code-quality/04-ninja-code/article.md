@@ -92,7 +92,8 @@ Cuando estés escogiendo un nombre intenta usar la palabra más abstracta. Como 
 
 ## Prueba de atención
 
-Solo un realmente atento programador debería ser capaz de entender tu código. Pero, ¿cómo comprobarlo?
+Solo un programador realmente atento debería ser capaz de entender tu código. Pero, ¿cómo comprobarlo?
+``
 
 **Una de las maneras -- usa nombre de variables similares, como `date` y `data`.**
 
