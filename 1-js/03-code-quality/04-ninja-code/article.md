@@ -84,7 +84,7 @@ Cuando estés escogiendo un nombre intenta usar la palabra más abstracta. Como 
 
     Claro, el nombre de la variable sigue significando algo. Dice que hay en el interior de la variable: una cadena de texto, un número o cualquier otra cosa. Pero cuando una persona ajena intenta entender el código, se verá sorprendido al ver que en realidad no hay información. Y finalmente fracasara en el intento de alterar tu código bien pensado.
 
-    El valor del tipo es fácil de encontrar con una depuración. Pero, ¿cuál es el significado de la variable? ¿Qué cadena de texto o número guarda?
+    El tipo de valor es fácil de encontrar con una depuración. Pero, ¿cuál es el significado de la variable? ¿Qué cadena de texto o número guarda?
 
     ¡No hay forma de saberlo sin una buena meditación!
 
