@@ -88,7 +88,7 @@ Cuando estés escogiendo un nombre intenta usar la palabra más abstracta. Como 
 
     ¡No hay forma de saberlo sin una buena meditación!
 
-- **...Pero, ¿Y si ya no hay dichos nombres?** Simplemente añade un número: `data1, item2, elem5`...
+- **...Pero, ¿Y si ya no hay más de tales nombres?** Simplemente añade un número: `data1, item2, elem5`...
 
 ## Prueba de atención
 
