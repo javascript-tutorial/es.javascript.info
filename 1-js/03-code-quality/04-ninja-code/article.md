@@ -74,7 +74,7 @@ La gran imagen no tiene forma.
 
 Cuando estés escogiendo un nombre intenta usar la palabra más abstracta. Como `obj`, `data`, `value`, `item`, `elem`, etc.
 
-- **El nombre ideal para una variable es `data`.** Usalo lo más que puedas. En efecto, toda variable sostiene *data*, ¿no?
+- **El nombre ideal para una variable es `data`.** Usalo lo más que puedas. En efecto, toda variable contiene *data*, ¿no?
 
     ...¿Pero qué hacer si `data` ya está siendo usado? Intenta con `value`, también es universal. Después de todo, una variable eventualmente obtiene un *value*(valor).
 
