@@ -76,7 +76,7 @@ Cuando estés escogiendo un nombre intenta usar la palabra más abstracta. Como 
 
 - **El nombre ideal para una variable es `data`.** Usalo lo más que puedas. En efecto, toda variable contiene *data*, ¿no?
 
-    ...¿Pero qué hacer si `data` ya está siendo usado? Intenta con `value`, también es universal. Después de todo, una variable eventualmente obtiene un *value*(valor).
+    ...¿Pero qué hacer si `data` ya está siendo usado? Intenta con `value`, también es universal. Después de todo, una variable eventualmente recibe un *value* (valor).
 
 - **Nombra una variable por su tipo: `str`, `num`...**
 
