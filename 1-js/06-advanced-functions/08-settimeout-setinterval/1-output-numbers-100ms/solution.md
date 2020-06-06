@@ -20,7 +20,6 @@ printNumbers(5, 10);
 
 Usando `setTimeout` anidado:
 
-
 ```js run
 function printNumbers(from, to) {
   let current = from;

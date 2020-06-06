@@ -74,6 +74,7 @@ Los desarrolladores novatos a veces cometen un error al agregar paréntesis `()`
 // mal!
 setTimeout(sayHi(), 1000);
 ```
+
 Eso no funciona, porque `setTimeout` espera una referencia a una función. Y aquí `sayHi()` ejecuta la función, y el *resultado de su ejecución* se pasa a `setTimeout`. En nuestro caso, el resultado de `sayHi()` es `undefined` (la función no devuelve nada), por lo que no hay nada planificado.
 ````
 
@@ -283,7 +284,7 @@ Para JavaScript del lado del servidor, esa limitación no existe, y existen otra
 
 ## Resumen
 
-- Los métodos `setTimeout(func, delay, ... args)` y `setInterval(func, delay, ... args)` nos permiten ejecutar el `func` una vez / regularmente después de un retarso (delay) en milisegundos.
+- Los métodos `setTimeout(func, delay, ... args)` y `setInterval(func, delay, ... args)` nos permiten ejecutar el `func` una vez / regularmente después de un retardo (delay) en milisegundos.
 - Para cancelar la ejecución, debemos llamar a `clearTimeout / clearInterval` con el valor devuelto por `setTimeout / setInterval`.
 - Las llamadas anidadas `setTimeout` son una alternativa más flexible a `setInterval`, lo que nos permite establecer el tiempo *entre* ejecuciones con mayor precisión.
 - La programación de retardo cero con `setTimeout(func, 0) `(lo mismo que `setTimeout(func)`) se usa para programar la llamada "lo antes posible, pero después de que se complete el script actual".
@@ -297,3 +298,4 @@ Por ejemplo, el temporizador en el navegador puede ralentizarse por muchas razon
 - El portátil está con batería.
 
 Todo eso puede aumentar la resolución mínima del temporizador (el retraso mínimo) a 300 ms o incluso 1000 ms dependiendo de la configuración de rendimiento del navegador y del nivel del sistema operativo.
+
