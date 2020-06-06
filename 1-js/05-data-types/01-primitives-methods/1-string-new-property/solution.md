@@ -17,7 +17,7 @@ Depende de si usas el modo estricto "use strict" o no, el resultado será:
 
 1. Cuando se accede a una propiedad de `str`, se crea un "wrapper object" (objeto envolvente ).
 2. Con modo estricto, tratar de alterarlo produce error.
-3. Sin modo estricto, la operación es llevada a cabo y el objeto obtiene la propiedad `test`, pero después de ello el "wrapper object" desaparece, entonces en la última linea `str` queda sin rastros de la propiedad.
+3. Sin modo estricto, la operación es llevada a cabo y el objeto obtiene la propiedad `test`, pero después de ello el "objeto envolvente" desaparece, entonces en la última linea `str` queda sin rastros de la propiedad.
 
 **Este ejemlplo claramente muestra que los tipos primitivos no son objetos.**
 
