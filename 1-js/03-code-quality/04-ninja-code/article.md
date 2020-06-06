@@ -80,7 +80,7 @@ Cuando estés escogiendo un nombre intenta usar la palabra más abstracta. Como 
 
 - **Nombra una variable por su tipo: `str`, `num`...**
 
-    Dales un intento. Un recién iniciado puede preguntarse -- ¿Son dichos nombres realmente útiles para un ninja? En efecto, ¡lo son!
+    Pruébalos. Un recién iniciado puede preguntarse -- ¿Son estos nombres realmente útiles para un ninja? En efecto, ¡lo son!
 
     Claro, el nombre de la variable sigue significando algo. Dice que hay en el interior de la variable: una cadena de texto, un número o cualquier otra cosa. Pero cuando un forastero intenta entender el código, se verá sorprendido al ver que en realidad no hay información. Y finalmente fracasara en el intento de alterar tu código bien pensado.
 
