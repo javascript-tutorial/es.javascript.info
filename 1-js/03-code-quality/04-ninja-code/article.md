@@ -161,7 +161,7 @@ Visto regularmente en códigos. Letalmente efectivo, incluso contra ninjas exper
 
 Coloca guiones bajos `_` y `__` antes de los nombres de las variables. Como `_name` o `__value`. Sería genial si solo tú sabes su significado. O, mejor, añádelos simplemente por diversión, sin ningún significado especial. O diferentes significados en diferentes lugares.
 
-Matarás dos pájaros de un solo tiro. Primero, el código se hará más largo y menos legible, y segundo, un desarrollador colega podría gastar una gran cantidad de tiempo intentado entender el significado del guion bajo.
+Matarás dos pájaros de un solo tiro. Primero, el código se hará más largo y menos legible, y segundo, un colega desarrollador podría gastar una gran cantidad de tiempo intentado entender el significado del guion bajo.
 
 Un ninja inteligente coloca los guiones bajos en un solo lugar del código y los evita en otros lugars. Eso hace que el código sea mucho más frágil y aumenta la probabilidad de errores futuros.
 
