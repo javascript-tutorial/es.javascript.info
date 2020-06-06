@@ -16,7 +16,7 @@ Por ejemplo, aquí todas las exportaciones son válidas:
 *!*export*/!* let months = ['Jan', 'Feb', 'Mar','Apr', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 // exportar una constante
-*!*export*/!* co<<<<<<< trad_export_importnst MODULES_BECAME_STANDARD_YEAR = 2015;
+*!*export*/!* const MODULES_BECAME_STANDARD_YEAR = 2015;
 
 // exportar una clase
 *!*export*/!* clase User {
@@ -31,12 +31,13 @@ Tenga en cuenta que `export` antes de una clase o una función no la hace una [e
 
 La mayoría de las guías de estilos JavaScript no recomiendan los punto y comas después de declarar funciones y clases.
 
+Es por esto que no hay necesidad de un punto y coma al final de `export class` y `export function`:
+
 ```js
 export function sayHi(user) {
   alert(`Hello, ${user}!`);
 } *!* // no ; at the end */!*
 ```
-
 ````
 
 ## Export separado de la declaración
@@ -93,7 +94,6 @@ A primera vista, "importar todo" parece algo tan genial, corto de escribir, por 
 Pues hay algunas razones.
 
 1. Las herramientas de ensamblaje modernas ([webpack](http://webpack.github.io) y otras) empaquetan los módulos juntos y los optimiza para acelerar la carga y quitan las cosas sin usar.
-
 
 Digamos que agregamos una librería externa `say.js` a nuestro proyecto con varias funciones:
 
@@ -186,7 +186,6 @@ Sólo puede existir un sólo `export default` por archivo.
 ```js
 // 📁 main.js
 import *!*User*/!* from './user.js'; // no {User}, sólo User
-
 new User('John');
 ```
 
@@ -216,7 +215,6 @@ export default function(user) { // sin nombre de función
 ```
 
 ```js
-
 // exportar un único valor, sin crear una variable
 export default ['Jan', 'Feb', 'Mar','Apr', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 ```
@@ -319,7 +317,6 @@ La sintáxis "Reexportar" `export ... from ...` permite importar cosas e inmedia
 
 ```js
 export {sayHi} from './say.js'; // reexportar sayHi
-
 export {default as User} from './user.js'; // reexportar default
 ```
 
@@ -456,4 +453,3 @@ if (something) {
 ...Pero, ¿qué pasa si realmente necesitamos importar algo condicionalmente? O en el momento adecuado? Por ejemplo, ¿cargar un módulo a pedido, cuando realmente se necesita?
 
 Veremos importaciones dinámicas en el próximo artículo.
-
