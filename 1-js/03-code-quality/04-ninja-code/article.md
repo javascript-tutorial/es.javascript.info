@@ -197,7 +197,7 @@ function render() {
 
 Un programador que se adentra en `render` probablemente no notara que hay un `user` local opacando al de afuera.
 
-Entonces intentaran trabajar con `user` asumiendo que es la variable externa, el resultado de `authenticateUser()`...
+Entonces intentaran trabajar con `user` asumiendo que es la variable externa, el resultado de `authenticateUser()`... ¡Se activa la trampa! Hola, depurador...
 
 
 ## ¡Efectos secundarios en todas partes!
