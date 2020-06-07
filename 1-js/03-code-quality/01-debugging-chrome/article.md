@@ -1,6 +1,6 @@
 # Debugging en Chrome
 
-Antes de escribir código mas complejo, hablemos de debugging.
+Antes de escribir código más complejo, hablemos de debugging.
 
 Todos lo exploradores modernos y la mayoría de los otros ambientes soportan el "debugging" -- una herramienta especial de UI para desarrolladores que nos permite encontrar y reparar errores mas fácilmente.
 
