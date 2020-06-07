@@ -31,7 +31,7 @@ Podemos ver tres zonas:
 2. La **Zona de Recursos** muestra el código fuente de los archivos.
 3. La  **Zona de información y control** es para "debugging", la exploraremos pronto.
 
-Ahora puedes hacer click en el mismo botón toggler <span class="devtools" style="background-position:-200px -76px"></span> otra vez para esconder la lista de recursos y darnos mas espacio.
+Ahora puedes hacer click en el mismo botón de activación <span class="devtools" style="background-position:-200px -76px"></span> otra vez para esconder la lista de recursos y darnos más espacio.
 
 ## Consola
 
