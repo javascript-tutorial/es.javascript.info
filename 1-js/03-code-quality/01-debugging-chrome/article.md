@@ -21,7 +21,7 @@ Esto es lo que debería ver si lo está haciendo por primera vez:
 
 El botón toggler <span class="devtools" style="background-position:-168px -76px"></span> abre el tab con los archivos.
 
-Hagamos click allí y seleccionemos `index.html` y luego `hello.js` en el árbol de archivos. Aca esta lo que se debería ver:
+Hagamos click allí y seleccionemos `index.html` y luego `hello.js` en el árbol de archivos. Esto es lo que se debería ver:
 
 ![](chrome-tabs.svg)
 
