@@ -45,7 +45,7 @@ alert( sumAll(1, 2, 3) ); // 6
 
 Podermos elegir obtener los primeros parámetros como variables, y juntar solo el resto.
 
-Aquí los primeros  dos argumentos se populan en variables y el resto populan el `titles`:
+Aquí los primeros dos argumentos van a variables y el resto va al array `titles`:
 
 ```js run
 function showName(firstName, lastName, ...titles) {
