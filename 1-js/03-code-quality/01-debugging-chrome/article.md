@@ -58,7 +58,7 @@ Un *breakpoint* es un punto de código donde el debugger pausará automáticamen
 Mientras se pausa el código, podemos examinar las variables actuales, ejecutar comandos en la consola, etc. En otras palabras, podemos depurar.
 
 Siempre podemos encontrar una lista de los breakpoints en el panel derecho. Esto es muy útil cuando tenemos muchos breakpoints en varios archivos. Ya que nos permite:
-- Saltar rápidamente al breakpoint en el código (clickeando en el dentro del panel).
+- Saltar rápidamente al breakpoint en el código (haciendo click en él dentro del panel).
 - Desactivar temporalmente el breakpoint deschequeandolo.
 - Eliminar el breakpoint haciendo click derecho y seleccionando quitar/eliminar/remove.
 - ...y mucho más.
