@@ -177,7 +177,7 @@ Como podemos ver, hay tres fromas principales para pausar un script:
 
 Entonces podemos examinar las variables y paso a paso ver que falla en el proceso de ejecución.
 
-Hay muchas mas opciones en la consola de desarrollo que las que se cubren aca. El manual completo lo conseguimos en <https://developers.google.com/web/tools/chrome-devtools>.
+Hay muchas más opciones en la consola de desarrollo que las que se cubren aquí. El manual completo lo conseguimos en <https://developers.google.com/web/tools/chrome-devtools>.
 
 La información de este capítulo es suficiente para debuggear, pero luego, especialmente si hacemos muchas cosas con el explorador, por favor revisa las capacidades avanzadas de la consola de desarrolladores.
 
