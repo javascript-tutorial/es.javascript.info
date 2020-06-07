@@ -20,7 +20,7 @@ complejo;
 
 Pero en un buen código, la cantidad de comentarios "explicativos" debería ser mínima. En serio, el código debería de ser fácil de entender sin ellos.
 
-Existe una fantástica regla al respeto: "si el código es tan poco claro que necesita un comentario, entonces tal vez debería reescribirse en su lugar".
+Existe una fantástica regla al respeto: "si el código es tan poco claro que necesita un comentario, tal vez en su lugar debería ser reescrito.".
 
 ### Receta: funciones externas
 
