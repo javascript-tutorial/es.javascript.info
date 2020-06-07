@@ -179,6 +179,6 @@ Entonces podemos examinar las variables y paso a paso ver que falla en el proces
 
 Hay muchas mas opciones en la consola de desarrollo que las que se cubren aca. El manual completo lo conseguimos en <https://developers.google.com/web/tools/chrome-devtools>.
 
-La informacion de este capitulo es suficiente para debuggear, pero luego, especialemnte si hcemos muchas cosas con el explorador, por favor revisa las capacidades avanzadas de la consola de desarrolladores.
+La información de este capítulo es suficiente para debuggear, pero luego, especialmente si hacemos muchas cosas con el explorador, por favor revisa las capacidades avanzadas de la consola de desarrolladores.
 
 Ah, y también puedes hacer click en todos lados en la consola a ver qué pasa. Esta es probablemente la ruta más rapida para aprender a usar la consola de desarrolladores. ¡Tampoco olvides el click derecho!
