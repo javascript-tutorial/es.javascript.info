@@ -27,7 +27,7 @@ Hagamos click allí y seleccionemos `index.html` y luego `hello.js` en el árbol
 
 Podemos ver tres zonas:
 
-1. La **Zona de recursos** lista HTML, JavaScript, CSS y otros archivos, incluyendo imágenes que están incluidas en la página. Las extensiones de Chrome quizás también aparezcan aca.
+1. La **Zona de recursos** lista los archivos HTML, JavaScript, CSS y otros, incluyendo imágenes que están incluidas en la página. Las extensiones de Chrome quizás también aparezcan aquí.
 2. La **Zona de Recursos** muestra el codigo fuente de los archivos.
 3. La  **Zona de información y control** es para "debugging", la exploraremos pronto.
 
