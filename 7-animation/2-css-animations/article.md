@@ -114,7 +114,7 @@ Aquí, si haces clic en el dígito, comienza la animación desde el segundo actu
 
 [codetabs src="digits-negative-delay"]
 
-JavaScript lo hace por una línea extra:
+JavaScript lo hace con una línea extra:
 
 ```js
 stripe.onclick = function() {
