@@ -2,7 +2,7 @@
 
 El lenguaje JavaScript evoluciona constantemente. Nuevas propuestas al lenguaje aparecen regularmente, son analizadas y, si se consideran valiosas, se agregan a la lista en <https://tc39.github.io/ecma262/> y luego avanzan hasta [specification](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
 
-Equipos detrás de intérpretes (engines) de JavaScript tienen sus propias ideas sobre que implementar primero. Pueden decidir implementar propuestas que están en borrador y posponer cosas que ya están en la especificación, por qué son menos interesantes o simplemente más difíciles de hacer.
+Equipos detrás de intérpretes (engines) de JavaScript tienen sus propias ideas sobre qué implementar primero. Pueden decidir implementar propuestas que están en borrador y posponer cosas que ya están en la especificación, porque son menos interesantes o simplemente más difíciles de hacer.
 
 Por lo tanto, es bastante común para un intérprete implementar solo la parte del estándar.
 
