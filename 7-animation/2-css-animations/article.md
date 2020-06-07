@@ -324,7 +324,7 @@ Cuando finaliza la animación CSS, se dispara el evento `transitionend`.
 
 Es ampliamente utilizado para hacer una acción después que se realiza la animación. También podemos unir animaciones.
 
-Por ejemplo, el barco en el ejemplo a continuación comienza a navegar ida y vuelta al hacer clic, cada vez más y más a la derecha:
+Por ejemplo, el barco a continuación comienza a navegar ida y vuelta al hacer clic, cada vez más y más a la derecha:
 
 [iframe src="boat" height=300 edit link]
 
