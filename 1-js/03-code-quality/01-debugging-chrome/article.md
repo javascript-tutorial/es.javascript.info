@@ -92,7 +92,7 @@ Esto es muy conveniente cuando estamos en un editor de código y no queremos cam
 
 En nuestro ejemplo, `hello()` este se llama durante la carga de la página, entonces la forma mas facil de activar el debugger es recargando la pagina. Entonces presionemos `key:F5` (en Windows ó Linux) ó `key:Cmd+R` (en Mac).
 
-Como el breakpoint esta definido, la ejecución se detiene en la linea 4:
+Como el breakpoint está definido, la ejecución se detiene en la línea 4:
 
 ![](chrome-sources-debugger-pause.svg)
 
