@@ -100,7 +100,6 @@ Solo un programador realmente atento debería ser capaz de entender tu código. 
 Combínalos donde puedas.
 
 Una lectura rápida de dicho código se hace imposible. Y cuando hay un error de tipografía.... Ummm... Estamos atrapados por mucho tiempo, hora de tomar té.
-A quick read of such code becomes impossible. And when there's a typo... Ummm... Estamos atrapados por mucho tiempo, tiempo para tomar té.
 
 
 ## Sinónimos inteligentes
