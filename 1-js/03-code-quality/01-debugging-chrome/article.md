@@ -134,7 +134,7 @@ Hay botones para esto en le panel superior derecho. Revisémoslos.
 : Si hacemos click , se mostrará el `alert`. Lo importante es que ese `alert` puede ser cualquier función, la ejecución "se para sobre ella", saltándose los pasos internos.
 
 <span class="devtools" style="background-position:-72px -76px"></span> -- siguiente paso, hotkey `key:F11`.
-: Es lo mismo que la anterior, pero but "Entras" en las funciones anidadas. Haciendo click en este caminarás por todos los pasos uno por uno.
+: Es lo mismo que la anterior, pero "Entras" en las funciones anidadas. Haciendo click en este caminarás por todos los pasos uno por uno.
 
 <span class="devtools" style="background-position:-104px -76px"></span> -- continuar la ejecución hasta el final de la función actual, hotkey `key:Shift+F11`.
 : La ejecucion se detendrá en la última linea de la función actual. Esto es útil cuando accidentalmente entramos en una llamada anidada usando <span class="devtools" style="background-position:-72px -76px"></span>, pero estono nos interesa, y queremos continuar hasta el final tan rápido como se pueda.
