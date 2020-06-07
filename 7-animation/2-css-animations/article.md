@@ -76,7 +76,7 @@ Ahora cubramos las propiedades de animación una por una.
 
 En `transition-property` escribimos una lista de propiedades para animar, por ejemplo: `left`, `margin-left`, `height`, `color`.
 
-No todas las propiedades pueden ser animadas, pero [muchas de ellas](http://www.w3.org/TR/css3-transitions/#animatable-properties-). El valor `all` significa "animar todas las propiedades".
+No todas las propiedades pueden ser animadas, sí [muchas de ellas](http://www.w3.org/TR/css3-transitions/#animatable-properties-). El valor `all` significa "animar todas las propiedades".
 
 ## transition-duration
 
