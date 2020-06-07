@@ -22,7 +22,7 @@ En realidad, hay dos partes en Babel:
 
 2. Segundo, el polyfill.
 
-    El transpiler reescribe el código, por lo que se cubren las características de la sintaxis. Pero para funciones nuevas tenemos que escribir un script especial que las implemente. JavaScript es un lenguaje muy dinámico, puede que los scripts no solo agreguen nuevas funciones, pero que también modifiquen las funciones incorporadas, para que actúen de forma correspondiente al estándar moderno.
+    El transpiler reescribe el código, por lo que se cubren las características de la sintaxis. Pero para funciones nuevas tenemos que escribir un script especial que las implemente. JavaScript es un lenguaje muy dinámico, puede que los scripts no solo agreguen nuevas funciones, sino también modifiquen las funciones incorporadas, para que actúen de forma correspondiente al estándar moderno.
 
     Existe el término "polyfill" para scripts que "llenan"(fill in) el vacío y agregan las implementaciones que faltan.
 
