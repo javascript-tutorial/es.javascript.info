@@ -119,7 +119,7 @@ En realidad, no podemos evitar totalmente los comentarios "explicativos". Existe
 Entonces, los comentarios explicativos suelen ser incorrectos. ¿Qué comentarios son correctos?
 
 Describe la arquitectura
-: Proporcionan una descripción general de alto nivel de los componentes, cómo interactúan, cual es el flujo de control en diversas situaciones... En resumen -- la vista panorámica del código. Hay un lenguaje de diagramas especial [UML](https://es.wikipedia.org/wiki/Lenguaje_unificado_de_modelado) para diagramas de alto nivel. Definitivamente vale la pena estudiarlo.
+: Proporcionan una descripción general de alto nivel de los componentes, cómo interactúan, cuál es el flujo de control en diversas situaciones... En resumen -- la vista panorámica del código. Hay un lenguaje de diagramas especial [UML](https://es.wikipedia.org/wiki/Lenguaje_unificado_de_modelado) para diagramas de alto nivel. Definitivamente vale la pena estudiarlo.
 
 Documenta la utilización de una función
 : Hay una sintaxis especial [JSDoc](https://en.wikipedia.org/wiki/JSDoc) para documentar una función: utilización, parámetros, valor devuelto.
