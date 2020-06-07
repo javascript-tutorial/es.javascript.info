@@ -145,7 +145,7 @@ Documenta la utilización de una función
 	Además, existen herramientas como [JSDoc](https://github.com/jsdoc3/jsdoc) que pueden generar documentación en formato HTML de los comentarios. Puedes leer más información sobre JSDoc aquí <http://usejsdoc.org/>.
 	
 ¿Por qué se resuelve de esa manera?
-: Lo que está escrito es importante. Pero lo que *no* está escrito puede ser aún más importante para entender que está pasando. ¿Por qué resuelven la tarea exactamente de esa manera? El código no nos da ninguna respuesta.
+: Lo que está escrito es importante. Pero lo que *no* está escrito puede ser aún más importante para entender qué está pasando. ¿Por qué resuelven la tarea exactamente de esa manera? El código no nos da ninguna respuesta.
 
 	Si hay muchas maneras de resolver el problema, ¿por qué esta? Especialmente cuando no es la más obvia.
 	
