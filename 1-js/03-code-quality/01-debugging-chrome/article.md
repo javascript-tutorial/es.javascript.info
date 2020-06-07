@@ -137,7 +137,7 @@ Hay botones para esto en le panel superior derecho. Revisémoslos.
 : Es lo mismo que la anterior, pero "Entras" en las funciones anidadas. Haciendo click en este caminarás por todos los pasos uno por uno.
 
 <span class="devtools" style="background-position:-104px -76px"></span> -- continuar la ejecución hasta el final de la función actual, hotkey `key:Shift+F11`.
-: La ejecucion se detendrá en la última linea de la función actual. Esto es útil cuando accidentalmente entramos en una llamada anidada usando <span class="devtools" style="background-position:-72px -76px"></span>, pero estono nos interesa, y queremos continuar hasta el final tan rápido como se pueda.
+: La ejecucion se detendrá en la última línea de la función actual. Esto es útil cuando accidentalmente entramos en una llamada anidada usando <span class="devtools" style="background-position:-72px -76px"></span>, pero esto no nos interesa, y queremos continuar hasta el final tan rápido como se pueda.
 
 <span class="devtools" style="background-position:-7px -28px"></span> -- activar/desactivar todos los breakpoints.
 : Este boton no mueve la ejecución. Solo prende y apaga los breakpoints.
