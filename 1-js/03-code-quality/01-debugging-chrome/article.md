@@ -47,7 +47,7 @@ Por ejemplo, si colocamos `1+2` el resultado es `3`, y `hello("debugger")` no de
 
 Examinemos qué pasa con el código de la [página de ejemplo](debugging/index.html). En `hello.js`, haz click en el número de línea `4`. Si, en el número `4`, no en el código.
 
-Felicidades! Ya configuraste un breakpoint. Por favor haz click también en el numero de la linea `8`.
+¡Felicidades! Ya configuraste un breakpoint. Por favor haz click también en el número de la linea `8`.
 
 Deberia verse así (en donde esta azul es donde deberías hacer click):
 
