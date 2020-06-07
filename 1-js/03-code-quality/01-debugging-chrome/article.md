@@ -14,7 +14,6 @@ Tu version de Chrome posiblemente se vea distinta, pero sigue siendo obvio lo qu
 - Activa las herramientas de desarrollo con `key:F12` (Mac: `key:Cmd+Opt+I`).
 - Selecciona el panel `sources/recursos`.
 
-
 Esto es lo que debería ver si lo está haciendo por primera vez:
 
 ![](chrome-open-sources.svg)
@@ -160,11 +159,11 @@ Por ejemplo, esto muestra los valores desde el `0` hasta el `4` en la consola:
 ```js run
 // open console to see
 for (let i = 0; i < 5; i++) {
-  console.log("value", i);
+  console.log("value,", i);
 }
 ```
-
 Los usuarios regulares no ven este output, ya que está en la consola. Para verlo, debemos abrir la consola de desarrolladores y presionar la tecla `key:Esc` y en otro tab: se abrirá la consola debajo.
+
 
 Si tenemos suficiente log en nuestro código, podemos entonces ver lo que va pasando en nuestro registro, sin el debugger.
 
