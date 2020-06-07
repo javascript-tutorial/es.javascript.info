@@ -337,7 +337,7 @@ boat.onclick = function() {
 
   function go() {
     if (times % 2) {
-      // navegar al a derecha
+      // navegar a la derecha
       boat.classList.remove('back');
       boat.style.marginLeft = 100 * times + 200 + 'px';
     } else {
