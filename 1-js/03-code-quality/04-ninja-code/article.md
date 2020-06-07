@@ -233,5 +233,5 @@ Imagina, otro desarrollador quiere solo comprobar el correo, y no mostrar ningú
 Todos los *consejos* anteriores son de código real... Algunas veces, escrito por desarrolladores experimentados. Quizás incluso más experimentado que tú ;)
 
 - Sigue alguno de ellos, y tu código estará lleno de sorpresas.
-- Sigue muchos de ellos, y tu código será realmente tuyo, nadie quera cambiarlo.
+- Sigue muchos de ellos, y tu código será realmente tuyo, nadie querrá cambiarlo.
 - Sigue todos, y tu código será una lección valiosa para desarrolladores jóvenes buscando iluminación.
