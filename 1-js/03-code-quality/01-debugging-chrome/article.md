@@ -119,7 +119,7 @@ Por favor abre el desplegable de informacion de la derecha (etiquetado con flech
 
 Ahora es tiempo de *trazar* el script.
 
-Hay botones para esto en le panel superior derecho. Revisemoslos.
+Hay botones para esto en le panel superior derecho. Revisémoslos.
 
 <span class="devtools" style="background-position:-7px -76px"></span> -- continuar la ejecución, hotkey `key:F8`.
 : Resumir la ejecución. Si no hay breakpoints adicionales, entonces la ejecución continua y el debugger pierde el control.
