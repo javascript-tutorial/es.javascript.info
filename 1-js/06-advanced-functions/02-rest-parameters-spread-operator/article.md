@@ -8,7 +8,7 @@ Por ejemplo:
 - `Object.assign(dest, src1, ..., srcN)` -- copia las propiedades de `src1..N` en `dest`.
 - ...y otros más
 
-En este capítulo aprenderemos como hacer lo mismo. Y, además, como trabajar cómodamente con dichas funciones y arrays.
+En este capítulo aprenderemos como hacer lo mismo. Y, además, cómo trabajar cómodamente con dichas funciones y arrays.
 
 ## Parámetros Rest `...`
 
