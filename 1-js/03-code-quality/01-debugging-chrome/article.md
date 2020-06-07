@@ -175,7 +175,7 @@ Como podemos ver, hay tres fromas principales para pausar un script:
 2. La declaración `debugger`.
 3. Un error (Si la consola esta abierta y el botón <span class="devtools" style="background-position:-264px -4px"></span> esta "activo").
 
-Entonces podemos examinar las variables y paso a paso ver que falla en el proceso de ejecución.
+Entonces podemos examinar las variables y paso a paso ver qué falla en el proceso de ejecución.
 
 Hay muchas más opciones en la consola de desarrollo que las que se cubren aquí. El manual completo lo conseguimos en <https://developers.google.com/web/tools/chrome-devtools>.
 
