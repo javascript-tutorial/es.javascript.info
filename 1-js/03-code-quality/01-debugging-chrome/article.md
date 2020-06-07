@@ -181,4 +181,4 @@ Hay muchas mas opciones en la consola de desarrollo que las que se cubren aca. E
 
 La informacion de este capitulo es suficiente para debuggear, pero luego, especialemnte si hcemos muchas cosas con el explorador, por favor revisa las capacidades avanzadas de la consola de desarrolladores.
 
-Ah, y tambien puedes hacer click en todos lados en la consola a ver que pasa. Esta es probablemente la ruta mas rapida de aprender a usar la consola de desarrolladores. No te olvides del click derecho también!!!
+Ah, y también puedes hacer click en todos lados en la consola a ver qué pasa. Esta es probablemente la ruta más rapida para aprender a usar la consola de desarrolladores. ¡Tampoco olvides el click derecho!
