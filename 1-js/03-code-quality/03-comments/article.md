@@ -110,7 +110,7 @@ function addJuice(container) {
 }
 ```
 
-De nuevo, la propias funciones nos dicen que está pasando. No hay nada que comentar. Y además, la estructura del código es mejor cuando esta dividida. Queda claro que hace cada función, que necesita y que retorna.
+De nuevo, la propias funciones nos dicen qué está pasando. No hay nada que comentar. Y además, la estructura del código es mejor cuando está dividida. Queda claro qué hace cada función, qué necesita y qué retorna.
 
 En realidad, no podemos evitar totalmente los comentarios "explicativos". Existen algoritmos complejos. Y existen "trucos" ingeniosos con el propósito de optimizar. Pero generalmente, tenemos que intentar mantener el código simple y auto descriptivo.
 
