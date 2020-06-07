@@ -49,7 +49,7 @@ Examinemos qué pasa con el código de la [página de ejemplo](debugging/index.h
 
 ¡Felicidades! Ya configuraste un breakpoint. Por favor haz click también en el número de la linea `8`.
 
-Deberia verse así (en donde esta azul es donde deberías hacer click):
+Debería verse así (en donde está azul es donde deberías hacer click):
 
 ![](chrome-sources-breakpoint.svg)
 
