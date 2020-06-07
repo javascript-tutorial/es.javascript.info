@@ -64,7 +64,7 @@ Siempre podemos encontrar una lista de los breakpoints en el panel derecho. Esto
 - ...y mucho más.
 
 ```smart header="Breakpoints Condicionales"
-*Click derecho* en el numero de linea nos permite crear un breakpoint *concional*. Solo se ejecutará cuando la expresión sea verdadera.
+*Click derecho* en el número de línea nos permite crear un breakpoint *concional*. Solo se ejecutará cuando la expresión sea verdadera.
 
 Esto es útil cuando necesitamos detener la ejecución para cierto valor de variable o para ciertos párametros de función.
 ```
