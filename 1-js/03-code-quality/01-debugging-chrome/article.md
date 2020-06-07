@@ -45,7 +45,7 @@ Por ejemplo, si colocamos `1+2` el resultado es `3`, y `hello("debugger")` no de
 
 ## Breakpoints (puntos de interrupción)
 
-Examinemos que pasa con el codigo de la [pagina de ejemplo](debugging/index.html). En `hello.js`, haz click en el numero de linea `4`. Si, en el número `4`, no en el código.
+Examinemos qué pasa con el código de la [página de ejemplo](debugging/index.html). En `hello.js`, haz click en el número de línea `4`. Si, en el número `4`, no en el código.
 
 Felicidades! Ya configuraste un breakpoint. Por favor haz click también en el numero de la linea `8`.
 
