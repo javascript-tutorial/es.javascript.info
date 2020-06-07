@@ -25,7 +25,7 @@ Hagamos click allí y seleccionemos `index.html` y luego `hello.js` en el árbol
 
 ![](chrome-tabs.svg)
 
-Aca veremos las tres zonas:
+Podemos ver tres zonas:
 
 1. La **Zona de recursos** lista HTML, JavaScript, CSS y otros archivos, incluyendo imágenes que están incluidas en la página. Las extensiones de Chrome quizás también aparezcan aca.
 2. La **Zona de Recursos** muestra el codigo fuente de los archivos.
