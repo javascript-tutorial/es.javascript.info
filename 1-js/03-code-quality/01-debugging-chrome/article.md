@@ -148,7 +148,7 @@ Hay botones para esto en le panel superior derecho. Revisémoslos.
 ```smart header="Continuar hasta aquí"
 Click derecho en un una línea de código abre el menú contextual con una gran opción que dice "Continua hasta aquí".
 
-Esto es útil cuando queremos movernos multiples pasos adelante, pero somos muy flojos como para definir un breakpoint.
+Esto es útil cuando queremos movernos múltiples pasos adelante, pero somos muy flojos como para definir un breakpoint.
 ```
 
 ## Logging
