@@ -125,7 +125,7 @@ Como recordamos, las funciones flecha no tienen su propio `this`. Ahora sabemos 
 
 ## Operador Spread [#spread-operator]
 
-Acabamos de ver como obtener un array de la lista de parámetros.
+Acabamos de ver cómo obtener un array de la lista de parámetros.
 
 Pero a veces necesitamos hacer exactamente lo opuesto.
 
