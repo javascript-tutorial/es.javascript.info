@@ -27,7 +27,7 @@ El getter funciona cuando se lee `obj.propName`, el setter -- cuando se asigna.
 
 Por ejemplo, tenemos un objeto "usuario" con "nombre" y "apellido":
 
-```js run
+```js
 let user = {
   name: "John",
   surname: "Smith"
@@ -57,6 +57,18 @@ Desde fuera, una propiedad accesoria se parece a una normal. Esa es la idea de l
 
 A partir de ahora, "Nombre completo" sólo tiene un receptor. Si intentamos asignar "user.fullName", habrá un error.
 
+```js run
+let user = {
+  get fullName() {
+    return `...`;
+  }
+};
+
+*!*
+user.fullName = "Test"; // Error (property has only a getter)
+*/!*
+```
+
 Arreglémoslo agregando un setter para " user.fullName":
 
 ```js run
@@ -82,7 +94,6 @@ alert(user.name); // Alice
 alert(user.surname); // Cooper
 ```
 
-Ahora tenemos una propiedad "virtual". Esta es legible y escribible, pero de hecho no existe.
 
 ```smart header="Accessor properties are only accessible with get/set"
 Una vez que una propiedad se define con `get prop()` o `set prop()`, es una propiedad accesoria, ya no es una propiedad de los datos.
@@ -93,12 +104,14 @@ Una vez que una propiedad se define con `get prop()` o `set prop()`, es una prop
 Y en cualquier caso no podemos "borrar" una propiedad accesoria.
 ```
 
+Como resultado, tenemos una propiedad virtual `fullName` que puede leerse y escribirse.
+
 
 ## Accessor descriptors
 
-Los descriptores de las propiedades accesorias son different -- en comparación con las propiedades de los datos.
+Los descriptores de las propiedades de acceso son diferentes de aquellos para las propiedades de los datos.
 
-Para las propiedades de los accesorios, no hay funciones de "valor" y "escritura", sino de "get" y "set".
+Para las propiedades de los accesorios, no hay cosas como "valor" y "escritura", sino de "get" y "set".
 
 Así que un descriptor de accesorios puede tener:
 
@@ -132,7 +145,7 @@ alert(user.fullName); // John Smith
 for(let key in user) alert(key); // name, surname
 ```
 
-Tenga en cuenta una vez más que una propiedad puede ser un accesorio o una propiedad de datos, no ambas.
+Tenga en cuenta que una propiedad puede ser un accesorio (tiene métodos `get/set`)  o una propiedad de datos (tiene un 'valor'), no ambas.
 
 Si intentamos poner tanto " get" como " valor" en el mismo descriptor, habrá un error:
 
@@ -176,14 +189,16 @@ alert(user.name); // Pete
 user.name = ""; // El nombre es demasiado corto...
 ```
 
+Entonces, el nombre es almacenado en la propiedad `_name`, y el acceso se hace a traves de getter y setter.
+
 Técnicamente, el código externo todavía puede acceder al nombre directamente usando "usuario._nombre". Pero hay un acuerdo ampliamente conocido de que las propiedades que comienzan con un guión bajo "_" son internas y no deben ser manipuladas desde el exterior del objeto.
 
 
 ## Using for compatibility
 
-Una de las grandes ideas detrás de los getters y setters -- permiten tomar el control de una propiedad de datos "normal" y ajustarla en cualquier momento.
+Una de los grandes usos de los getters y setters es que permiten tomar el control de una propiedad de datos "normal" y reemplazarla con getter y setter y así refinar su coportamiento.
 
-Por ejemplo, empezamos a implementar objetos de usuario usando las propiedades de datos "nombre" y "edad":
+Imagina que empezamos a implementar objetos usuario usando las propiedades de datos "nombre" y "edad":
 
 ```js
 function User(name, age) {
@@ -211,7 +226,9 @@ Ahora, ¿qué hacer con el viejo código que todavía usa la propiedad de la "ed
 
 Podemos intentar encontrar todos esos lugares y arreglarlos, pero eso lleva tiempo y puede ser difícil de hacer si ese código está escrito por otras personas. Y además, la "edad" es algo bueno para tener en "usuario", ¿verdad? En algunos lugares es justo lo que queremos.
 
-Añadiendo un getter para la "edad" se atenúa el problema:
+Pues mantengámoslo.
+
+Añadiendo un getter para la "edad" resuelve el problema:
 
 ```js run no-beautify
 function User(name, birthday) {
