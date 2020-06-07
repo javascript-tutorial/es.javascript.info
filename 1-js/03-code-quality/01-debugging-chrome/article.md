@@ -85,7 +85,7 @@ function hello(name) {
 }
 ```
 
-Esto es muy conveniente cuando estamos en un editor de código y no queremos cambiar al explorador y ver el script en la consola de desarrolladores para setear el breakpoint.
+Esto es muy conveniente cuando estamos en un editor de código.  No necesitamos cambiar al explorador y revisar el script en la consola de desarrolladores para setear el breakpoint.
 
 
 ## Pausar y mirar alrededor
