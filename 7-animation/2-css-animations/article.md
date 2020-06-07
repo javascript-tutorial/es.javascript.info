@@ -145,7 +145,7 @@ La función de temporización se puede establecer como una [curva de Bézier](/b
 
 La sintaxis de una curva de Bézier en CSS: `cubic-bezier(x2, y2, x3, y3)`. Aquí necesitamos especificar solo los puntos de control segundo y tercero, porque el primero está fijado a `(0,0)` y el cuarto es `(1,1)`.
 
-La función de temporización describe como de rápido pasa en el tiempo el proceso de animación.
+La función de temporización determina qué tan rápido ocurre el proceso de animación a lo largo del tiempo.
 
 - El eje `x` es el tiempo: `0` -- el momento inicial, `1` -- el último momento de `transition-duration`.
 - El eje `y` especifica la finalización del proceso: `0` -- el valor inicial de la propiedad, `1` -- el valor final.
