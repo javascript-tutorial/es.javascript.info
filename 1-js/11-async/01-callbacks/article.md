@@ -1,5 +1,3 @@
-
-
 # Introducción: callbacks
 
 ```warn header="Usamos métodos de navegador en estos ejemplos"
@@ -233,9 +231,34 @@ En el código de arriba:
 2. Cargamos `2.js`, entonces si no hay error.
 3. Cargamos `3.js`, luego, si no hay ningún error, haga otra cosa `(*)`.
 
+
 A medida que las llamadas se anidan más, el código se vuelve más profundo y difícil de administrar, especialmente si tenemos un código real en lugar de '...' que puede incluir más bucles, declaraciones condicionales, etc.
 
 A esto se le llama "infierno de callback" o "pirámide de la fatalidad".
+
+<!--
+loadScript('1.js', function(error, script) {
+  if (error) {
+    handleError(error);
+  } else {
+    // ...
+    loadScript('2.js', function(error, script) {
+      if (error) {
+        handleError(error);
+      } else {
+        // ...
+        loadScript('3.js', function(error, script) {
+          if (error) {
+            handleError(error);
+          } else {
+            // ...
+          }
+        });
+      }
+    })
+  }
+});
+-->
 
 <!--
 loadScript('1.js', function(error, script) {
@@ -302,6 +325,7 @@ function step3(error, script) {
 ¿Lo Ves? Hace lo mismo, y ahora no hay anidamiento profundo porque convertimos cada acción en una función de nivel superior separada.
 
 Funciona, pero el código parece una hoja de cálculo desgarrada. Es difícil de leer, y habrías notado que hay que saltar de un lado a otro mientras lees. Es un inconveniente, especialmente si el lector no está familiarizado con el código y no sabe dónde dirigirse.
+
 
 Además, las funciones llamadas `step*` son de un solo uso, son para evitar la "pirámide de la fatalidad". Nadie los reutilizará fuera de la cadena de acción. Así que hay muchos nombres abarrotados aquí.
 

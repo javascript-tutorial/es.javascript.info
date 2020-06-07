@@ -1,3 +1,8 @@
+# Bienvenidos nuevos contribuidores
+Durante las dos primeras semanas de este mes de Junio nos encontraremos **actualizando y ordenando** este repositorio. Agradeceríamos que las contribuciones se realizaran posterior a la fecha indicada.
+
+Si desea hacer seguimiento a este trabajo, le invitamos a que se una a nuestro servidor: [Discord](https://discord.gg/gBuzJb)
+
 # El Tutorial Moderno de JavaScript en Español
 
 # Como contribuir
