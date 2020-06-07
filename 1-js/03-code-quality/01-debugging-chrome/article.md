@@ -43,7 +43,7 @@ Por ejemplo, si colocamos `1+2` el resultado es `3`, y `hello("debugger")` no de
 
 ![](chrome-sources-console.svg)
 
-## Breakpoints
+## Breakpoints (puntos de interrupción)
 
 Examinemos que pasa con el codigo de la [pagina de ejemplo](debugging/index.html). En `hello.js`, haz click en el numero de linea `4`. Si, en el número `4`, no en el código.
 
