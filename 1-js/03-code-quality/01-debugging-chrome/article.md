@@ -109,7 +109,7 @@ Por favor abre el desplegable de informacion de la derecha (etiquetado con flech
     Si haces click en un elemento de la pila, el debugger saltará al código correspondiente, y todas sus variables también serán examinadas.
 3. **`Scope` -- variables activas.**
 
-    `Local` muestra las variables de la función local. Tambien puedes ver sus valores resaltados sobre el código fuente.
+    `Local` muestra las variables de la función local. También puedes ver sus valores resaltados sobre el código fuente.
 
     `Global` contiene las variables globales (fuera de cualquier función).
 
