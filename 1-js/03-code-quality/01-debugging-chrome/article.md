@@ -4,7 +4,7 @@ Antes de escribir código más complejo, hablemos de debugging.
 
 Todos lo exploradores modernos y la mayoría de los otros ambientes soportan el "debugging" -- una herramienta especial de UI para desarrolladores que nos permite encontrar y reparar errores más fácilmente.
 
-Aca utilizaremos Chrome, porque es uno de los que les podemos sacar mas jugo en este aspecto.
+Aquí utilizaremos Chrome porque es uno de los que mejores herramientas tienen en este aspecto.
 
 ## El panel "sources/recursos"
 
