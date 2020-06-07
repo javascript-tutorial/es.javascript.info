@@ -19,7 +19,7 @@ Esto es lo que debería ver si lo está haciendo por primera vez:
 
 ![](chrome-open-sources.svg)
 
-El botón toggler <span class="devtools" style="background-position:-168px -76px"></span> abre el tab con los archivos.
+El botón botón de activación (toggle button) <span class="devtools" style="background-position:-168px -76px"></span> abre la pestaña con los archivos.
 
 Hagamos click allí y seleccionemos `index.html` y luego `hello.js` en el árbol de archivos. Esto es lo que se debería ver:
 
