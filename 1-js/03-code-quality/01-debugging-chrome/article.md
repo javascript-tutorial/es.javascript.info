@@ -146,7 +146,7 @@ Hay botones para esto en le panel superior derecho. Revisémoslos.
 : Cuando está activo y la consola de developers tools esta abierta, un error de script automáticamente pausa la ejecución. Entonces podemos analizar las variables para ver qué está mal. Y si nuestro script muere por un error, podemos abrir el debugger, activar esta opción y recargar la página para ver dónde muere y cuál es el contexto en ese momento.
 
 ```smart header="Continuar hasta aquí"
-Click derecho en un una linea de código abre el menu contextual con una gran opción que dice "Continua hasta aquí".
+Click derecho en un una línea de código abre el menú contextual con una gran opción que dice "Continua hasta aquí".
 
 Esto es útil cuando queremos movernos multiples pasos adelante, pero somos muy flojos como para definir un breakpoint.
 ```
