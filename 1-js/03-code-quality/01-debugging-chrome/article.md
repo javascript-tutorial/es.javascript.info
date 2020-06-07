@@ -55,7 +55,7 @@ Debería verse así (en donde está azul es donde deberías hacer click):
 
 Un *breakpoint* es un punto de código donde el debugger pausará automáticamente la ejecución de JavaScript.
 
-Mientras se pausa el código, podemos examinar las variables actuales, ejecutar comandos en la consola etc. En otras palabras, podemos debuggear.
+Mientras se pausa el código, podemos examinar las variables actuales, ejecutar comandos en la consola, etc. En otras palabras, podemos depurar.
 
 Siempre podemos encontrar una lista de los breakpoints en el panel derecho. Esto es muy útil cuando tenemos muchos breakpoints en varios archivos. Ya que nos permite:
 - Saltar rápidamente al breakpoint en el código (clickeando en el dentro del panel).
