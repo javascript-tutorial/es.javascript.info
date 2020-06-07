@@ -131,7 +131,7 @@ Hay botones para esto en le panel superior derecho. Revisémoslos.
     La ejecución continuó, alcanzando el siguiente breakpoint dentro de `say()` y pausándose allí. Revisa el "Call stack" a la derecha. Ha incrementado su valor una llamada. Ahora estamos dentro de `say()`.
 
 <span class="devtools" style="background-position:-137px -76px"></span> -- siguiente paso (corre el comando siguiente), pero *no te metas en la función*, hotkey `key:F10`.
-: Si hacemos click , se mostrara el `alert`. Lo importante es que ese `alert` puede ser cualquier función, la ejecución "se para sobre ella", saltándose los pasos internos.
+: Si hacemos click , se mostrará el `alert`. Lo importante es que ese `alert` puede ser cualquier función, la ejecución "se para sobre ella", saltándose los pasos internos.
 
 <span class="devtools" style="background-position:-72px -76px"></span> -- siguiente paso, hotkey `key:F11`.
 : Es lo mismo que la anterior, pero but "Entras" en las funciones anidadas. Haciendo click en este caminarás por todos los pasos uno por uno.
