@@ -37,7 +37,7 @@ Ahora puedes hacer click en el mismo botón de activación <span class="devtools
 
 Si presionamos `Esc`, la consola se abrirá debajo. Podemos escribir los comandos y presionar `key:Enter` para ejecutar.
 
-Despues de que se ejecuta una sentencia, el resultado se muestra debajo.
+Después de que se ejecuta una sentencia, el resultado se muestra debajo.
 
 Por ejemplo, si colocamos `1+2` el resultado es `3`, y `hello("debugger")` no devuelve nada, entonces el resultado es `undefined`:
 
