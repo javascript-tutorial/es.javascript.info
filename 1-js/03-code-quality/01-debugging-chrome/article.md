@@ -53,7 +53,7 @@ Debería verse así (en donde está azul es donde deberías hacer click):
 
 ![](chrome-sources-breakpoint.svg)
 
-Un *breakpoint* es un punto de código donde el debugger se detendrá automáticamente y detendrá la ejecución del código JavaScript.
+Un *breakpoint* es un punto de código donde el debugger pausará automáticamente la ejecución de JavaScript.
 
 Mientras se pausa el código, podemos examinar las variables actuales, ejecutar comandos en la consola etc. En otras palabras, podemos debuggear.
 
