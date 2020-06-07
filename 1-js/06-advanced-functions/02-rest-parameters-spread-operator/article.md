@@ -12,7 +12,7 @@ En este capítulo aprenderemos como hacer lo mismo. Y, además, cómo trabajar c
 
 ## Parámetros Rest `...`
 
-Una función puede ser llamada con cualquier número de argumentos sin importar como sea definida.
+Una función puede ser llamada con cualquier número de argumentos sin importar cómo sea definida.
 
 Por ejemplo::
 ```js run
