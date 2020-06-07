@@ -4,7 +4,7 @@ Muchas funciones nativas de JavaScript soportan un número arbitrario de argumen
 
 Por ejemplo:
 
-- `Math.max(arg1, arg2, ..., argN)` -- retorna el argumento más grande.
+- `Math.max(arg1, arg2, ..., argN)` -- devuelve el argumento más grande.
 - `Object.assign(dest, src1, ..., srcN)` -- copia las propiedades de `src1..N` en `dest`.
 - ...y otros más
 
