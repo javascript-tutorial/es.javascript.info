@@ -2,7 +2,7 @@ importance: 5
 
 ---
 
-# Animar el avión volador (CSS)
+# Animar el avión volando (CSS)
 
 Modifica la solución de la tarea anterior <info:task/animate-logo-css> para hacer que el avión crezca más que su tamaño original 400x240px (saltar fuera), y luego vuelva a ese tamaño.
 
