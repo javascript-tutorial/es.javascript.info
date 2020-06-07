@@ -365,7 +365,7 @@ El objeto de evento para `transitionend` tiene pocas propiedades específicas:
 `event.elapsedTime`
 : El tiempo (en segundos) que duró la animación, sin `transition-delay`.
 
-## Fotogramas clave
+## Fotogramas clave  (Keyframes)
 
 Podemos unir múltiples animaciones simples juntas usando la regla CSS `@keyframes`.
 
