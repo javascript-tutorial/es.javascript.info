@@ -138,7 +138,7 @@ Documenta la utilización de una función
     }
     ```
 	
-	Estos tipos de comentarios nos permiten entender el propósito de la función y como usarla de la manera correcta sin mirar su código.
+	Estos tipos de comentarios nos permiten entender el propósito de la función y cómo usarla de la manera correcta sin mirar su código.
 	
 	Por cierto, muchos editores como [WebStorm](https://www.jetbrains.com/webstorm/) también pueden entenderlos y usarlos para proveer auto completado y algún tipo de verificación automática para el código.
 	
