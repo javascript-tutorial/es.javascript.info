@@ -156,7 +156,7 @@ Documenta la utilización de una función
 	
 	Los comentarios que explican la solución correcta son muy importantes. Nos ayudan a continuar el desarrollo de forma correcta.
 	
-¿Alguna característica sutil del código? ¿Donde se usan?
+¿Alguna característica sutil del código? ¿Dónde se usan?
 : Si el código tiene algo sutil y contraintuitivo, definitivamente vale la pena comentarlo.
 
 ## Resumen
