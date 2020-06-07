@@ -11,7 +11,7 @@ Aquí utilizaremos Chrome porque es uno de los que mejores herramientas tienen e
 Tu version de Chrome posiblemente se vea distinta, pero sigue siendo obvio lo que hablamos aquí.
 
 - Abre la [pagina de ejemplo](debugging/index.html) en Chrome.
-- Enciende las herramientas de desarrollo con `key:F12` (Mac: `key:Cmd+Opt+I`).
+- Activa las herramientas de desarrollo con `key:F12` (Mac: `key:Cmd+Opt+I`).
 - Selecciona el panel `sources/recursos`.
 
 
