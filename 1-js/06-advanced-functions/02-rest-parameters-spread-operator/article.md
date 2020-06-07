@@ -149,7 +149,7 @@ alert( Math.max(arr) ); // NaN
 
 Y seguramente no podremos listar manualmente los ítems en el código `Math.max(arr[0], arr[1], arr[2])`, porque tal vez no sepamos cuántos son. A medida que nuestro script se ejecuta, podría haber muchos elementos, o podría no haber ninguno. Y eso podría ponerse feo.
 
-¡*Operador Spread* al rescate! Luce similar a los parámetros rest, utilizando también `...`, pero hace exactamente lo opuesto.
+¡*Operador Spread* al rescate!  Es similar a los parámetros rest, también usa `...`, pero hace exactamente lo opuesto.
 
 Cuando `...arr` es usado en el llamado de una función, "expande" el objeto iterable `arr` en una lista de argumentos.
 
