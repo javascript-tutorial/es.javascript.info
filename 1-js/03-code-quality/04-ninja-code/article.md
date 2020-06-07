@@ -20,7 +20,7 @@ Muchos intentan seguir los caminos de los ninjas. Pocos tienen éxito.
 
 ## La brevedad es el alma del ingenio
 
-Has el código lo más corto posible. Demuestra cuan inteligente eres.
+Haz el código lo más corto posible. Demuestra cuán inteligente eres.
 
 Deja que las características sutiles del lenguaje te guíen.
 
@@ -52,7 +52,7 @@ Una variable exótica como el contador de un bucle es especialmente genial si el
 
 ## Usa abreviaciones
 
-Si las reglas del equipo prohíben el uso de nombres de una sola letra o nombres vagos -- acórtalos, has abreviaciones.
+Si las reglas del equipo prohíben el uso de nombres de una sola letra o nombres vagos -- acórtalos, haz abreviaciones.
 
 Como esto:
 
@@ -63,7 +63,7 @@ Como esto:
 
 Solo aquel con buena intuición será capaz de entender dichos nombres. Intenta acortar todo. Solo una persona digna debería ser capaz de sostener el desarrollo de tu código.
 
-## Vuela alto. Se abstracto
+## Vuela alto. Sé abstracto
 
 ```quote author="Laozi (Tao Te Ching)"
 El gran cuadrado no tiene esquina<br>
@@ -109,7 +109,7 @@ A quick read of such code becomes impossible. And when there's a typo... Ummm...
 Es difícil encontrar un gato negro en una habitación oscura, sobre todo cuando no está.
 ```
 
-Usando nombres *similar* para las mismas cosas hace tu vida mas interesante y le muestra al público tu creatividad.
+Usando nombres *similares* para las mismas cosas hace tu vida mas interesante y le muestra al público tu creatividad.
 
 Por ejemplo, considera prefijos de funciones. Si una función muestra un mensaje en la pantalla -- comiénzalo con `mostrar...`, como `mostarMensaje`. Y entonces si otra función muestra en la pantalla otra cosa, como un nombre de usuario, comiénzalo con `presentar...` (como `presentarNombre`).
 
@@ -121,9 +121,9 @@ Has un pacto con tus compañeros ninjas del equipo: si John comienza funciones d
 
 Para dos funciones con importantes diferencias -- ¡usa el mismo prefijo!
 
-Por ejemplo, la función `imprimirPagina(pagina)` usara una impresora. Y la función `imprimirTexto(texto)` mostrará el texto en la pantalla.. Deja que un lector no familiar a tu código piense sobre una función llamada de forma similar `imprimirMensaje`: "¿Dónde coloca el mensaje? ¿A una impresora o en la pantalla?. Como guinda al pastel, ¡`imprimirMensaje(mensaje)` debería mostrar el mensaje en una nueva ventana!
+Por ejemplo, la función `imprimirPágina(página)` usara una impresora. Y la función `imprimirTexto(texto)` mostrará el texto en la pantalla.. Deja que un lector no familiar a tu código piense bien sobre una función llamada de forma similar `imprimirMensaje`: "¿Dónde coloca el mensaje? ¿A una impresora o en la pantalla?. Para que realmente se destaque, ¡`imprimirMensaje(mensaje)` debería mostrar el mensaje en una nueva ventana!
 
-## Reúsa nombres
+## Reutilizar nombres
 
 ```quote author="Laozi (Tao Te Ching)"
 Una vez que el todo se divide, las partes <br>
@@ -132,15 +132,15 @@ Ya hay suficientes nombres. <br>
 Uno debe saber cuándo parar.
 ```
 
-Añade una nueva variable solo cuando sea necesario.
+Añade una nueva variable sólo cuando sea necesario.
 
-En lugar, reúsa nombres que ya existen. Simplemente escribe nuevo valores en ellos.
+En lugar, reutiliza nombres que ya existen. Simplemente escribe nuevo valores en ellos.
 
-En una función intenta solo usar las variables pasadas como parámetro.
+En una función intenta sólo usar las variables pasadas como parámetros.
 
 Eso hará que sea realmente difícil identificar qué es exactamente la variable *ahora*. Y además de donde viene. El propósito es desarrollar la intuición y memoria de la persona que lee el código. Una persona con intuición débil tendrá que analizar el código línea por línea y seguir los cambios en cada rama de código.
 
-**Una variante avanzada del enfoque es reemplazar los valores de forma encubierta con algo igual en la mitad de un bucle o una función.**
+**Una variante avanzada del enfoque es reemplazar los valores de forma encubierta con algo parecido en la mitad de un bucle o una función.**
 
 Por ejemplo:
 
@@ -210,7 +210,7 @@ Una expresión de sorpresa aturdida aparecerá en la cara de tus colegas cuando 
 
 **Otra forma de sorprender es retornar un resultado no estándar**
 
-¡Muestra tu pensamiento original! Deja que la llamada de `comprobarPermiso` retorne no `true/false`, pero un objeto complejo con los resultados de tu comprobación.
+¡Muestra tu pensamiento original! Deja que la llamada de `comprobarPermiso` retorne no `true/false` sino un objeto complejo con los resultados de tu comprobación.
 
 ## Funciones poderosas!
 
