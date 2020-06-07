@@ -170,7 +170,7 @@ Si tenemos suficiente log en nuestro código, podemos entonces ver lo que va pas
 
 ## Resúmen
 
-Como podemos ver, hay tres fromas principales para pausar un script:
+Como podemos ver, hay tres formas principales para pausar un script:
 1. Un breakpoint.
 2. La declaración `debugger`.
 3. Un error (Si la consola esta abierta y el botón <span class="devtools" style="background-position:-264px -4px"></span> esta "activo").
