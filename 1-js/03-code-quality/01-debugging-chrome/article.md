@@ -140,7 +140,7 @@ Hay botones para esto en le panel superior derecho. Revisémoslos.
 : La ejecucion se detendrá en la última línea de la función actual. Esto es útil cuando accidentalmente entramos en una llamada anidada usando <span class="devtools" style="background-position:-72px -76px"></span>, pero esto no nos interesa, y queremos continuar hasta el final tan rápido como se pueda.
 
 <span class="devtools" style="background-position:-7px -28px"></span> -- activar/desactivar todos los breakpoints.
-: Este boton no mueve la ejecución. Solo prende y apaga los breakpoints.
+: Este botón no mueve la ejecución. Solo prende y apaga los breakpoints.
 
 <span class="devtools" style="background-position:-264px -4px"></span> -- activar/desactivar pausa automática en caso de error.
 : Cuando esta activo, y la consola de developers tools esta abierta, un error de script automáticamente pausa la ejecución. Entonces podemos analizar las variables para ver que está mal. Y si nuestro script muere por un error, podemos abrir el debugger, activar esta opcióny recargar la página para ver donde muere y cual es el contexto en ese momento.
