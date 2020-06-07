@@ -168,7 +168,7 @@ Los usuarios regulares no ven este output, ya que está en la consola. Para verl
 
 Si tenemos suficiente log en nuestro código, podemos entonces ver lo que va pasando en nuestro registro, sin el debugger.
 
-## Resúmen
+## Resumen
 
 Como podemos ver, hay tres formas principales para pausar un script:
 1. Un breakpoint.
