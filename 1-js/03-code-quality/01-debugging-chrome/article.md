@@ -71,7 +71,7 @@ Esto es útil cuando necesitamos detener la ejecución para cierto valor de vari
 
 ## Comando debugger 
 
-Tambien podemos pausar el código utilizando el comando `debugger`, así:
+También podemos pausar el código utilizando el comando `debugger`, así:
 
 ```js
 function hello(name) {
