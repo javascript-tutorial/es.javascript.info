@@ -90,7 +90,7 @@ Esto es muy conveniente cuando estamos en un editor de código.  No necesitamos 
 
 ## Pausar y mirar alrededor
 
-En nuestro ejemplo, `hello()` este se llama durante la carga de la página, entonces la forma mas facil de activar el debugger es recargando la pagina. Entonces presionemos `key:F5` (en Windows ó Linux) ó `key:Cmd+R` (en Mac).
+En nuestro ejemplo, `hello()` se llama durante la carga de la página, entonces la forma mas fácil de activar el debugger es recargando la página. Entonces presionemos `key:F5` (en Windows ó Linux) ó `key:Cmd+R` (en Mac).
 
 Como el breakpoint está definido, la ejecución se detiene en la línea 4:
 
