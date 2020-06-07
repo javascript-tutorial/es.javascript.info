@@ -143,7 +143,7 @@ Hay botones para esto en le panel superior derecho. Revisémoslos.
 : Este botón no mueve la ejecución. Solo prende y apaga los breakpoints.
 
 <span class="devtools" style="background-position:-264px -4px"></span> -- activar/desactivar pausa automática en caso de error.
-: Cuando esta activo, y la consola de developers tools esta abierta, un error de script automáticamente pausa la ejecución. Entonces podemos analizar las variables para ver que está mal. Y si nuestro script muere por un error, podemos abrir el debugger, activar esta opcióny recargar la página para ver donde muere y cual es el contexto en ese momento.
+: Cuando está activo y la consola de developers tools esta abierta, un error de script automáticamente pausa la ejecución. Entonces podemos analizar las variables para ver qué está mal. Y si nuestro script muere por un error, podemos abrir el debugger, activar esta opción y recargar la página para ver dónde muere y cuál es el contexto en ese momento.
 
 ```smart header="Continuar hasta aquí"
 Click derecho en un una linea de código abre el menu contextual con una gran opción que dice "Continua hasta aquí".
