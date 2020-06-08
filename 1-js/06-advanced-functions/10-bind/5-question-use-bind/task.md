@@ -2,6 +2,10 @@ importance: 5
 
 ---
 
+<<<<<<< HEAD
+=======
+# Fix a function that loses "this"
+>>>>>>> d35baee32dcce127a69325c274799bb81db1afd8
 
 # Arreglar una función que perdió "this"
 
