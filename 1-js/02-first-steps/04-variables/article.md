@@ -246,7 +246,7 @@ const myBirthday = '18.04.1982';
 myBirthday = '01.01.2001'; // ¡error, no se puede reasignar la constante!
 ```
 
-Cuando un programador está seguro que una variable nunca cambiara, puede declarar la variable con `const` para garantizar y comunicar claramente este hecho a todos.
+Cuando un programador está seguro de que una variable nunca cambiará, puede declarar la variable con `const` para garantizar y comunicar claramente este hecho a todos.
 
 
 ### Constantes mayúsculas
