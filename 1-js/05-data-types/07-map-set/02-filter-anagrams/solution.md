@@ -1,6 +1,7 @@
-To find all anagrams, let's split every word to letters and sort them. When letter-sorted, all anagrams are same.
 
-For instance:
+Para encontrar todos los anagramas, dividamos cada palabra en letras y las ordenamos. Cuando se clasifican las letras, todos los anagramas son iguales.
+
+Por ejemplo:
 
 ```
 nap, pan -> anp
@@ -9,20 +10,19 @@ cheaters, hectares, teachers -> aceehrst
 ...
 ```
 
-We'll use the letter-sorted variants as map keys to store only one value per each key:
+Utilizaremos las variantes ordenadas por letras como propiedades de Map para almacenar solo un valor por cada propiedad:
 
 ```js run
 function aclean(arr) {
   let map = new Map();
 
   for (let word of arr) {
-    // split the word by letters, sort them and join back
+    // dividir la palabra por letras, ordenarlas y volver a unir
 *!*
     let sorted = word.toLowerCase().split('').sort().join(''); // (*)
 */!*
     map.set(sorted, word);
   }
-
   return Array.from(map.values());
 }
 
@@ -30,34 +30,34 @@ let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
 
 alert( aclean(arr) );
 ```
+La clasificación de letras se realiza mediante la cadena de llamadas en la línea `(*)`.
 
-Letter-sorting is done by the chain of calls in the line `(*)`.
-
-For convenience let's split it into multiple lines:
+Por conveniencia la dividimos en múltiples líneas:
 
 ```js
-let sorted = word // PAN
+let sorted = arr[i] // PAN
   .toLowerCase() // pan
   .split('') // ['p','a','n']
   .sort() // ['a','n','p']
   .join(''); // anp
 ```
+Dos palabras diferentes`'PAN'` y `'nap'` reciben la misma forma ordenada por letras `'anp'`.
 
-Two different words `'PAN'` and `'nap'` receive the same letter-sorted form `'anp'`.
+La siguiente línea pone la palabra en el Map:
 
-The next line put the word into the map:
 
 ```js
 map.set(sorted, word);
 ```
 
-If we ever meet a word the same letter-sorted form again, then it would overwrite the previous value with the same key in the map. So we'll always have at maximum one word per letter-form.
+Si alguna vez volvemos a encontrar una palabra con la misma forma ordenada por letras, sobrescribiría el valor anterior con la misma propiedad en Map. Por lo tanto, siempre tendremos como máximo una palabra ordenada por letras.
 
-At the end `Array.from(map.values())` takes an iterable over map values (we don't need keys in the result) and returns an array of them.
+Al final, `Array.from (map.values())` toma un valor iterativo sobre los valores de Map (no necesitamos propiedades en el resultado) y devuelve un array de ellos.
 
-Here we could also use a plain object instead of the `Map`, because keys are strings.
+Aquí también podríamos usar un objeto plano en lugar del `Map`, porque las propiedades son strings.
 
-That's how the solution can look:
+Así es como puede verse la solución:
+
 
 ```js run demo
 function aclean(arr) {

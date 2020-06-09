@@ -22,7 +22,6 @@ Eso se llama "inserción automática de punto y coma". A veces no funciona, por 
 ```js run
 alert("Habrá un error después de este mensaje.")
 
-
 [1, 2].forEach(alert)
 ```
 
@@ -50,7 +49,6 @@ Para habilitar completamente todas las características de JavaScript moderno, d
 
 ```js
 'use strict';
-
 ...
 ```
 
@@ -69,7 +67,6 @@ Se pueden declarar usando:
 - `let`
 - `const` (constante, no se puede cambiar)
 - `var` (estilo antiguo, lo veremos más tarde)
-
 
 Un nombre de variable puede incluir:
 - Letras y dígitos, pero el primer carácter puede no ser un dígito.
@@ -151,9 +148,11 @@ Ternarios
 : El único operador con 3 parametros: `cond ? resultA : resultB`. Sí `cond` es verdadera, devuelve `resultA`, de lo contrario `resultB`.
 
 Operadores Lógicos
+
 : Los operadores lógicos Y `&&` y Ó `||` realizan una evaluación de circuito corto y luego devuelven el valor donde se detuvo. El operador lógico NOT `!` convierte el operando a tipo booleano y devuelve el valor inverso.
 
 Comparaciones
+
 : Revision de igualdad `==` para valores de diferentes tipos los convierte en un número (excepto `null` y `undefined` que son iguales entre sí y nada más), por lo que son iguales:
 
     ```js run
@@ -196,6 +195,7 @@ Más en: <info:operators>, <info:comparison>, <info:logical-operators>.
     ```
 
 - La variable declarada en el bucle `for(let...)` sólo es visible dentro del bucle. Pero también podemos omitir el `let` y reutilizar una variable existente.
+
 - Directivas `break/continue` permiten salir de todo el ciclo/iteración actual. Use etiquetas para romper bucles anidados.
 
 Detalles en: <info:while-for>.
@@ -213,8 +213,9 @@ let age = prompt('¿Su Edad?', 18);
 
 switch (age) {
   case 18:
-    alert("No funciona"); // el resultado de la petición es un string, no un número
 
+    alert("No funciona"); // el resultado de la petición es un string, no un número
+    
   case "18":
     alert("¡Funciona!");
     break;
