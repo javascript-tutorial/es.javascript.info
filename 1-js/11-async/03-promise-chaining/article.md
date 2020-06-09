@@ -248,7 +248,7 @@ fetch('/article/promise-chaining/user.json')
   })
   .then(function(text) {
     // ...y aquí está el contenido del archivo remoto
-    alert(text); // {"nombre": "iliakan", isAdmin: true}
+    alert(text); // {"name": "iliakan", isAdmin: true}
   });
 ```
 
