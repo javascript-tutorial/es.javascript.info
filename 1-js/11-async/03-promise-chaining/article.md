@@ -44,7 +44,7 @@ A medida que el resultado se pasa a lo largo de la cadena de controladores, pode
 
 ![](promise-then-chain.svg)
 
-Todo funciona, porque una llamada a `promise.then` devuelve una promesa, para que podamos llamar a la siguiente `.then`.
+Todo funciona, porque una llamada a `promise.then` devuelve una promesa, para que podamos llamar al siguiente `.then`.
 
 Cuando un controlador devuelve un valor, se convierte en el resultado de esa promesa, por lo que se llama al siguiente `.then`.
 
