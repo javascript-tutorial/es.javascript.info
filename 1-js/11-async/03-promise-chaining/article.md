@@ -3,7 +3,7 @@
 
 Volvamos al problema mencionado en el capítulo <info:callbacks>: tenemos una secuencia de tareas asincrónicas que se realizarán una tras otra, por ejemplo, cargar scripts. ¿Cómo podemos codificarlo bien?
 
-Las promesas proporcionan un par de recetas para hacer eso.
+Las promesas proporcionan un par de maneras para hacer eso.
 
 En este capítulo cubrimos el encadenamiento de promesas.
 
