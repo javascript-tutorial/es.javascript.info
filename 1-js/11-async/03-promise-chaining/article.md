@@ -74,7 +74,7 @@ promise.then(function(result) {
 
 Lo que hicimos aquí fue varios controladores para una sola promesa. No se pasan el resultado el uno al otro; en su lugar lo procesan de forma independiente.
 
-Aquí está la imagen (compárela con el encadenamiento anterior):
+Aquí está la imagen (compárala con el encadenamiento anterior):
 
 ![](promise-then-many.svg)
 
