@@ -274,7 +274,7 @@ fetch('/article/promise-chaining/user.json')
   .then(response => response.json())
   // Hacer una solicitud a GitHub
   .then(user => fetch(`https://api.github.com/users/${user.name}`))
-  // Cargue la respuesta como json
+  // Carga la respuesta como json
   .then(response => response.json())
   // Mostrar la imagen de avatar (githubUser.avatar_url) durante 3 segundos (tal vez animarla)
   .then(githubUser => {
