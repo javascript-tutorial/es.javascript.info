@@ -1,6 +1,6 @@
 La respuesta corta es: **no, no son iguales**:
 
-La diferencia es que si ocurre un error en `f1`, entonces es manejado por `.catch` aquí:
+La diferencia es que si ocurre un error en `f1`, entonces aqui es manejado por `.catch`:
 
 ```js run
 promise
