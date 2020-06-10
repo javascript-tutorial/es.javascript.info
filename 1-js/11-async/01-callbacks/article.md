@@ -109,7 +109,7 @@ Eso se llama programación asincrónica "basado en callback". Una función que h
 
 Aquí lo hicimos en `loadScript`, pero por supuesto es un enfoque general.
 
-## callback en una callback
+## Callback en una callback
 
 ¿Cómo podemos cargar dos scripts secuencialmente: el primero y después el segundo al cargarse el primero?
 
