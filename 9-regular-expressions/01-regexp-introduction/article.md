@@ -39,7 +39,7 @@ igual que /<h2>/ si respondió "h2" en el mensaje anterior
 
 ## Banderas
 
-Las expresiones regulares pueden usar flags que afectan la búsqueda.
+Las expresiones regulares pueden usar banderas que afectan la búsqueda.
 
 Solo hay 6 de ellas en JavaScript:
 
