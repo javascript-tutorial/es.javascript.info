@@ -47,7 +47,7 @@ Solo hay 6 de ellas en JavaScript:
 : Con esta bandera, la búsqueda no distingue entre mayúsculas y minúsculas: no hay diferencia entre `A` y `a` (consulte el ejemplo a continuación).
 
 `pattern:g`
-: Con esta flag, la búsqueda encuentra todas las coincidencias, sin ella, solo se devuelve la primera coincidencia.
+: Con esta bandera, la búsqueda encuentra todas las coincidencias, sin ella, solo se devuelve la primera coincidencia.
 
 `pattern:m`
 : Modo multilínea (cubierto en el capítulo <info:regexp-multiline-mode>).
