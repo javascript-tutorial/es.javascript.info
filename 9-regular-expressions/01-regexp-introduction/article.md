@@ -132,7 +132,7 @@ Por ejemplo:
 // sin la bandera g
 alert( "We will, we will".replace(/we/i, "I") ); // I will, we will
 
-// con la flag g
+// con la bandera g
 alert( "We will, we will".replace(/we/ig, "I") ); // I will, I will
 ```
 
