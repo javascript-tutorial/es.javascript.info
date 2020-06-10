@@ -192,7 +192,7 @@ La convención es:
 
 Por lo tanto, la única función de 'callback' se usa tanto para informar errores como para transferir resultados.
 
-## Pirámide de la fatalidad
+## Pirámide de funciones callback
 
 A primvera vista, es una forma viable de codificación asincrónica. Y de hecho lo es. Para una o quizás dos llamadas anidadas, se ve bien.
 
