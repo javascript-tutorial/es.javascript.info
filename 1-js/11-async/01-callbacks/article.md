@@ -80,7 +80,7 @@ Ahora, si queremos llamar las nuevas funciones desde el script, deberíamos escr
 ```js
 loadScript('/my/script.js', function() {
   // la callback se ejecuta luego que se carga el script
-  newFunction(); // entones trabaja ahora
+  newFunction(); // ahora funciona
   ...
 });
 ```
