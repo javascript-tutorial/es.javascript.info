@@ -122,6 +122,7 @@ String.prototype.show = function() {
 Durante el proceso de desarrollo, podemos tener ideas para nuevos métodos integrados que nos gustaría tener, y podemos sentir la tentación de agregarlos a los prototipos nativos. Pero eso es generalmente una mala idea.
 
 ```warn
+
 Los prototipos son globales, por lo que es fácil generar un conflicto. Si dos bibliotecas agregan un método `String.prototype.show`, entonces una de ellas sobrescribirá el método de la otra.
 
 Por lo tanto, en general, modificar un prototipo nativo se considera una mala idea.
@@ -178,7 +179,6 @@ obj.join = Array.prototype.join;
 
 alert( obj.join(',') ); // Hola,mundo!
 ```
-
 Funciona porque el algoritmo interno del método integrado `join` solo se preocupa por los índices correctos y la propiedad `length`. No comprueba si el objeto es realmente un arreglo. Muchos métodos integrados son así.
 
 Otra posibilidad es heredar estableciendo `obj.__proto__` en `Array.prototype`, de modo que todos los métodos `Array` estén disponibles automáticamente en `obj`.
