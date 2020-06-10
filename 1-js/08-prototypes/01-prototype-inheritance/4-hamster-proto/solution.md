@@ -76,5 +76,4 @@ alert( speedy.stomach ); // manzana
 // El estómago de Lazy está vacio
 alert( lazy.stomach ); // <nada>
 ```
-
 Como solución común, todas las propiedades que describen el estado de un objeto en particular, como el "stomach" anterior, deben escribirse en ese objeto. Eso evita tales problemas.

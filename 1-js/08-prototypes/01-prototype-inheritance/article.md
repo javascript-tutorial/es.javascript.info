@@ -291,6 +291,7 @@ let rabbit = {
   __proto__: animal
 };
 
+
 for(let prop in rabbit) {
   let isOwn = rabbit.hasOwnProperty(prop);
 
