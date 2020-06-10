@@ -38,7 +38,7 @@ alert(id1 == id2); // false
 
 Si estás familiarizado con Ruby u otro lenguaje que también tiene symbols -- por favor no te confundas. Los Symbols de Javascript son diferentes.
 
-````warn header="Symbols no se auto convierten a String"
+````warn header="Symbols no se autoconvierten a String"
 La mayoría de los valores en JavaScript soportan la conversión implícita a string. Por ejemplo, podemos hacer un ´alert´ con casi cualquier valor y funcionará. Los Symbols son distintos, éstos no se auto-convierten.
 
 Por ejemplo, este `alert` mostrará un error:
