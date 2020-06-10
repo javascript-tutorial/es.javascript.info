@@ -8,7 +8,7 @@ Si no estás familiarizado con estos métodos, y los ejemplos son confusos, pued
 Sin embargo, intentaremos aclarar las cosas de todos modos. No habrá nada en cuanto al navegador realmente complejo.
 ```
 
-Los entornos anfitriones de JavaScript proporcionan muchas funciones que te permiten programar acciones *asíncronas*. En otras palabras, acciones que iniciamos ahora, pero que terminan más tarde.
+Muchas funciones son proporcionadas por el entorno de host de Javascript que permiten programar acciones *asíncronas*. En otras palabras, acciones que iniciamos ahora, pero que terminan más tarde.
 
 Por ejemplo, una de esas funciones es la función `setTimeout`.
 
