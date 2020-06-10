@@ -66,7 +66,7 @@ let weakMap = new WeakMap();
 
 let obj = {};
 
-weakMap.set(obj, "ok"); // funciona bien(propiedad de objeto)
+weakMap.set(obj, "ok"); // funciona bien (propiedad de objeto)
 
 *!*
 // no puede usar un string como propiedad
