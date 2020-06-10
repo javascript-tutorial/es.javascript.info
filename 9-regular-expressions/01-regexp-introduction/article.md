@@ -94,7 +94,7 @@ Tiene 3 modos de trabajo:
     alert( result[0] );     // We (1ra coincidencia)
     alert( result.length ); // 1
 
-    // Details:
+    // Detalles:
     alert( result.index );  // 0 (posición de la coincidencia)
     alert( result.input );  // We will, we will rock you (cadena fuente)
     ```
