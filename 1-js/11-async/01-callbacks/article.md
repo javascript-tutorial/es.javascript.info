@@ -327,7 +327,7 @@ function step3(error, script) {
 Funciona, pero el código parece una hoja de cálculo desgarrada. Es difícil de leer, y habrías notado que hay que saltar de un lado a otro mientras lees. Es un inconveniente, especialmente si el lector no está familiarizado con el código y no sabe dónde dirigirse.
 
 
-Además, las funciones llamadas `step*` son de un solo uso, son para evitar la "pirámide de la fatalidad". Nadie los reutilizará fuera de la cadena de acción. Así que hay muchos nombres abarrotados aquí.
+Además, las funciones llamadas `step*` son de un solo uso, son para evitar la "Pirámide de funciones callback". Nadie los reutilizará fuera de la cadena de acción. Así que hay muchos nombres abarrotados aquí.
 
 Nos gustaría tener algo mejor.
 
