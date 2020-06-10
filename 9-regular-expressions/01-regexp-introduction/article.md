@@ -89,7 +89,7 @@ Tiene 3 modos de trabajo:
     ```js run
     let str = "We will, we will rock you";
 
-    let result = str.match(/we/i); // sin la flag g
+    let result = str.match(/we/i); // sin la bandera g
 
     alert( result[0] );     // We (1ra coincidencia)
     alert( result.length ); // 1
