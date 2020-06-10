@@ -234,7 +234,7 @@ En el código de arriba:
 
 A medida que las llamadas se anidan más, el código se vuelve más profundo y difícil de administrar, especialmente si tenemos un código real en lugar de '...' que puede incluir más bucles, declaraciones condicionales, etc.
 
-A esto se le llama "infierno de callback" o "pirámide de la fatalidad".
+A esto se le llama "callback hell" o "Pirámide de Doom".
 
 <!--
 loadScript('1.js', function(error, script) {
