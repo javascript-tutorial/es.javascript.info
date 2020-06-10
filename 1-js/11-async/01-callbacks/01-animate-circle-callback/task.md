@@ -1,5 +1,5 @@
 
-# Círculo animado con retrollamadas
+# Círculo animado con función de callback
 
 En la tarea <info:task/animate-circle> se muestra un círculo creciente animado.
 
