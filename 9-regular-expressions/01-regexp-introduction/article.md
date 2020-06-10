@@ -8,6 +8,7 @@ En JavaScript, están disponibles a través del objeto [RegExp](mdn:js/RegExp), 
 
 Una expresión regular (también "regexp", o simplemente "reg") consiste en un *patrón* y *banderas* opcionales.
 
+
 Hay dos sintaxis que se pueden usar para crear un objeto de expresión regular.
 
 La sintaxis "larga":
@@ -54,6 +55,7 @@ Solo hay 6 de ellas en JavaScript:
 
 `pattern:s`
 : Habilita el modo "dotall", que permite que un punto `pattern:.` coincida con el carácter de línea nueva `\n` (cubierto en el capítulo <info:regexp-character-classes>).
+
 
 `pattern:u`
 : Permite el soporte completo de Unicode. La bandera permite el procesamiento correcto de pares sustitutos. Más del tema en el capítulo <info:regexp-unicode>.
@@ -161,6 +163,7 @@ El método `regexp.test(str)` busca al menos una coincidencia, si se encuentra, 
 let str = "Me gusta JavaScript";
 let regexp = /GUSTA/i;
 
+
 alert( regexp.test(str) ); // true
 ```
 
@@ -175,3 +178,4 @@ La información completa sobre métodos se proporciona en el artículo <info:reg
 - El método `str.match(regexp)` busca coincidencias: devuelve todas si hay una bandera `pattern:g`, de lo contrario, solo la primera.
 - El método `str.replace(regexp, replacement)` reemplaza las coincidencias encontradas usando `regexp` con `replacement`: devuelve todas si hay una bandera `pattern:g`, de lo contrario solo la primera.
 - El método `regexp.test(str)` devuelve `true` si hay al menos una coincidencia, de lo contrario, devuelve `false`.
+
