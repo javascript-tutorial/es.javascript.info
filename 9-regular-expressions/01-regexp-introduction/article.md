@@ -138,7 +138,7 @@ alert( "We will, we will".replace(/we/i, "I") ); // I will, we will
 alert( "We will, we will".replace(/we/ig, "I") ); // I will, I will
 ```
 
-El segundo argumento es la cadena de `reemplazo`. Podemos usar combinaciones de caracteres especiales para insertar fragmentos de la coincidencia:
+El segundo argumento es la cadena de `replacement`. Podemos usar combinaciones de caracteres especiales para insertar fragmentos de la coincidencia:
 
 | Símbolos | Acción en la cadena de reemplazo |
 |--------|--------|
@@ -178,4 +178,3 @@ La información completa sobre métodos se proporciona en el artículo <info:reg
 - El método `str.match(regexp)` busca coincidencias: devuelve todas si hay una bandera `pattern:g`, de lo contrario, solo la primera.
 - El método `str.replace(regexp, replacement)` reemplaza las coincidencias encontradas usando `regexp` con `replacement`: devuelve todas si hay una bandera `pattern:g`, de lo contrario solo la primera.
 - El método `regexp.test(str)` devuelve `true` si hay al menos una coincidencia, de lo contrario, devuelve `false`.
-
