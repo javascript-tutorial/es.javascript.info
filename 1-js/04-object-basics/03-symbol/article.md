@@ -23,7 +23,7 @@ También le podemos agregar una descripción (también llamada symbol name), que
 let id = Symbol("id");
 ```
 
-Los Symbols están garantizados a ser únicos. Aunque declaremos varios Symbols con la misma descripción éstos tendrán valores distintos. La descripción es solamente una etiqueta que no afecta nada más.
+Se garantiza que los símbolos son únicos. Aunque declaremos varios Symbols con la misma descripción, éstos tendrán valores distintos. La descripción es solamente una etiqueta que no afecta nada más.
 
 Por ejemplo, aquí hay dos Symbols con la misma descripción -- pero no son iguales:
 
