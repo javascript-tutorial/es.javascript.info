@@ -7,7 +7,7 @@ Ahora digamos que necesitamos no solo un círculo, sino mostrar un mensaje dentr
 
 En la solución de la tarea, la función `showCircle(cx, cy, radius)` dibuja el círculo, pero no hay forma de saber cuando lo termina.
 
-Agrega un argumento de retrollamada: `showCircle(cx, cy, radius, callback)` que se llamará cuando se complete la animación. La `retrollamada` debería recibir el círculo `<div>` como argumento.
+Agrega un argumento callback: `showCircle(cx, cy, radius, callback)` que se llamará cuando se complete la animación. El `callback` debería recibir el círculo `<div>` como argumento.
 
 Aqui el ejemplo:
 
