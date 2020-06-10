@@ -100,7 +100,7 @@ Tiene 3 modos de trabajo:
     ```
     El arreglo puede tener otros índices, además de `0` si una parte de la expresión regular está encerrada entre paréntesis. Cubriremos eso en el capítulo <info:regexp-groups>.
 
-3. Y, finalmente, si no hay coincidencias, se devuelve `null` (no importa si hay una flag `pattern:g` o no).
+3. Y, finalmente, si no hay coincidencias, se devuelve `null` (no importa si hay una bandera `pattern:g` o no).
 
     Este es un matiz muy importante. Si no hay coincidencias, no recibimos un arreglo vacío, sino que recibimos `null`. Olvidar eso puede conducir a errores, por ejemplo:
 
