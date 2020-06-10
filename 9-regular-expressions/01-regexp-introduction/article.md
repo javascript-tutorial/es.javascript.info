@@ -129,7 +129,7 @@ El método `str.replace(regexp, replacement)` reemplaza las coincidencias encont
 Por ejemplo:
 
 ```js run
-// sin la flag g
+// sin la bandera g
 alert( "We will, we will".replace(/we/i, "I") ); // I will, we will
 
 // con la flag g
