@@ -56,7 +56,7 @@ Si realmente queremos mostrar un Symbol, necesitamos llamar el método `.toStrin
 ```js run
 let id = Symbol("id");
 *!*
-alert(id.toString()); // Symbol(id), ahora si funciona
+alert(id.toString()); // Symbol(id), ahora sí funciona
 */!*
 ```
 
