@@ -172,6 +172,6 @@ La información completa sobre métodos se proporciona en el artículo <info:reg
 
 - Una expresión regular consiste en un patrón y banderas opcionales: `pattern:g`, `pattern:i`, `pattern:m`, `pattern:u`, `pattern:s`, `pattern:y`.
 - Sin flags y símbolos especiales (que estudiaremos más adelante), la búsqueda por expresión regular es lo mismo que una búsqueda de subcadena.
-- El método `str.match(regexp)` busca coincidencias: devuelve todas si hay una flag `pattern:g`, de lo contrario, solo la primera.
+- El método `str.match(regexp)` busca coincidencias: devuelve todas si hay una bandera `pattern:g`, de lo contrario, solo la primera.
 - El método `str.replace(regexp, replacement)` reemplaza las coincidencias encontradas usando `regexp` con `replacement`: devuelve todas si hay una flag `pattern:g`, de lo contrario solo la primera.
 - El método `regexp.test(str)` devuelve `true` si hay al menos una coincidencia, de lo contrario, devuelve `false`.
