@@ -56,7 +56,7 @@ Solo hay 6 de ellas en JavaScript:
 : Habilita el modo "dotall", que permite que un punto `pattern:.` coincida con el carácter de línea nueva `\n` (cubierto en el capítulo <info:regexp-character-classes>).
 
 `pattern:u`
-: Permite el soporte completo de Unicode. La flag permite el procesamiento correcto de pares sustitutos. Más del tema en el capítulo <info:regexp-unicode>.
+: Permite el soporte completo de Unicode. La bandera permite el procesamiento correcto de pares sustitutos. Más del tema en el capítulo <info:regexp-unicode>.
 
 `pattern:y`
 : Modo "adhesivo": búsqueda en la posición exacta del texto (cubierto en el capítulo <info:regexp-sticky>)
