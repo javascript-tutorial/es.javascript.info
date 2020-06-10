@@ -6,7 +6,7 @@ En JavaScript, están disponibles a través del objeto [RegExp](mdn:js/RegExp), 
 
 ## Expresiones Regulares
 
-Una expresión regular (también "regexp", o simplemente "reg") consiste en un *patrón* y *flags* opcionales.
+Una expresión regular (también "regexp", o simplemente "reg") consiste en un *patrón* y *banderas* opcionales.
 
 Hay dos sintaxis que se pueden usar para crear un objeto de expresión regular.
 
