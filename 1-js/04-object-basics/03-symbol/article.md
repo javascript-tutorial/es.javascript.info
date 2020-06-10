@@ -268,7 +268,7 @@ Otros symbols también te serán más familiares cuando estudiemos las caracter�
 
 Symbols son creados al llamar `Symbol()` con una descripción opcional.
 
-Symbols son siempre valores distintos, aunque tengan el mismo nombre. Si queremos que symbols con el mismo nombre, tengan el mismo valor,entonces debemos guardarlos en el registro global: `Symbol.for(key)` retornará un symbol (en caso de no existir, lo creará) con el `key` como su nombre. Múltiples llamadas de `Symbol.for` retornarán siempre el mismo symbol.
+Symbols son siempre valores distintos aunque tengan el mismo nombre. Si queremos que symbols con el mismo nombre tengan el mismo valor, entonces debemos guardarlos en el registro global: `Symbol.for(key)` retornará un symbol (en caso de no existir, lo creará) con el `key` como su nombre. Múltiples llamadas de `Symbol.for` retornarán siempre el mismo symbol.
 
 Symbols se utilizan principalmente en dos casos:
 
