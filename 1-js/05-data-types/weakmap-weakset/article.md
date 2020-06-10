@@ -20,7 +20,7 @@ Por lo general, las propiedades de un objeto o elementos de un array u otra estr
 
 Por ejemplo, si colocamos un objeto en un array, mientras el array esté vivo, el objeto también estará vivo, incluso si no hay otras referencias a él.
 
-Like this:
+Como esto:
 
 ```js
 let john = { name: "John" };
