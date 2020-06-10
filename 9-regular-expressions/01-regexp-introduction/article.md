@@ -19,7 +19,7 @@ regexp = new RegExp("patrón", "flags");
 Y el "corto", usando barras `"/"`:
 
 ```js
-regexp = /pattern/; // sin flags
+regexp = /pattern/; // sin banderas
 regexp = /pattern/gmi; // con flags g,m e i (para ser cubierto pronto)
 ```
 
