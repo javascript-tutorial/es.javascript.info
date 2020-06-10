@@ -273,7 +273,7 @@ Symbols son siempre valores distintos, aunque tengan el mismo nombre. Si queremo
 Symbols se utilizan principalmente en dos casos:
 
 1. Propiedades "Ocultas" dentro de un objeto.
-	Si queremos agregar una propiedad a un objeto que "pertenezca" a otro script u otra librería,podemos crear un symbol y usarlo como propiedad. Una propiedad de symbol no aparecerá en los ciclos `for..in`,por lo que no aparecerá listada. Tampoco podrá ser accedada directamente por otro script porque este no tendrá nuestro symbol y no podrá intervenir en sus acciones.
+	Si queremos agregar una propiedad a un objeto que "pertenezca" a otro script u otra librería, podemos crear un symbol y usarlo como propiedad. Una propiedad de symbol no aparecerá en los ciclos `for..in`,por lo que no aparecerá listada. Tampoco podrá ser accesada directamente por otro script porque este no tendrá nuestro symbol y no podrá intervenir en sus acciones.
 
 	Podemos "ocultar" ciertos valores dentro de un objeto que solo estarán disponibles dentro de ese script usando las propiedades de symbol.
 
