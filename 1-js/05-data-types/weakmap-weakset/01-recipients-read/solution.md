@@ -31,7 +31,7 @@ Se limpia automáticamente. La compensación es que no podemos iterar sobre él,
 
 Otra solución diferente podría ser agregar una propiedad como `message.isRead = true` a un mensaje después de leerlo. Como los objetos de mensajes son administrados por otro código, generalmente se desaconseja, pero podemos usar una propiedad simbólica para evitar conflictos.
 
-Like this:
+Como esto:
 ```js
 // la propiedad simbólica solo es conocida por nuestro código
 let isRead = Symbol("isRead");
