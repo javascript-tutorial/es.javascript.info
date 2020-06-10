@@ -37,7 +37,7 @@ let tag = prompt("¿Qué etiqueta quieres encontrar?", "h2");
 igual que /<h2>/ si respondió "h2" en el mensaje anterior
 ```
 
-## Flags
+## Banderas
 
 Las expresiones regulares pueden usar flags que afectan la búsqueda.
 
