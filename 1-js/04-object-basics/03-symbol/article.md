@@ -72,7 +72,7 @@ alert(id.description); // id
 
 ## Propiedades "Ocultas"
 
-Los Symbols nos permiten crear propiedades "ocultas" en un objeto, las cuales ninguna otra parte del código puede accesar ni sobre-escribir.
+Los Symbols nos permiten crear propiedades "ocultas" en un objeto, a las cuales ninguna otra parte del código puede accesar ni sobrescribir.
 
 Por ejemplo, si queremos guardar un "identificador" para el objeto `usuario`, podemos asignar un symbol como propiedad del objeto:
 
