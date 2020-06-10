@@ -184,7 +184,7 @@ loadScript('/my/script.js', function(error, script) {
 });
 ```
 
-Una vez más, la receta que usamos para `loadScript` es bastante común. Se llama el estilo de "callback primero con error".
+Una vez más, la receta que usamos para `loadScript` es bastante común. Se llama el estilo de "callback error primero".
 
 La convención es:
 1. El primer argumento de la 'callback' está reservado para un error, si ocurre. Entonces se llama a `callback(err)`.
