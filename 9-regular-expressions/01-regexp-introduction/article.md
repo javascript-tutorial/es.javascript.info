@@ -1,4 +1,4 @@
-# Patrones y flags
+# Patrones y banderas (flags)
 
 Las expresiones regulares son patrones que proporcionan una forma poderosa de buscar y reemplazar texto.
 
