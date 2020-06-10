@@ -85,7 +85,7 @@ Tiene 3 modos de trabajo:
     ```
     Tenga en cuenta que tanto `match:We` como `match: we` se encuentran, porque la bandera `pattern:i` hace que la expresión regular no distinga entre mayúsculas y minúsculas.
 
-2. Si no existe dicha flag, solo devuelve la primera coincidencia en forma de arreglo, con la coincidencia completa en el índice `0` y algunos detalles adicionales en las propiedades:
+2. Si no existe dicha bandera, solo devuelve la primera coincidencia en forma de arreglo, con la coincidencia completa en el índice `0` y algunos detalles adicionales en las propiedades:
     ```js run
     let str = "We will, we will rock you";
 
