@@ -77,7 +77,7 @@ El método `str.match(regex)` busca todas las coincidencias de `regex` en la cad
 
 Tiene 3 modos de trabajo:
 
-1. Si la expresión regular tiene la flag `pattern:g`, devuelve un arreglo de todas las coincidencias:
+1. Si la expresión regular tiene la bandera `pattern:g`, devuelve un arreglo de todas las coincidencias:
     ```js run
     let str = "We will, we will rock you";
 
