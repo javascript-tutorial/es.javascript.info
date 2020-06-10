@@ -18,4 +18,4 @@ La pregunta ahora es: ¿qué estructura de datos es la adecuada para almacenar l
 
 En la tarea anterior solo necesitábamos almacenar el hecho de "sí / no". Ahora necesitamos almacenar la fecha, y solo debe permanecer en la memoria hasta que el mensaje sea recolectado como basura.
 
-P.D Las fechas se pueden almacenar como objetos de la clase incorporada `Fecha`, que cubriremos más adelante.
+P.D Las fechas se pueden almacenar como objetos de la clase incorporada `Date`, que cubriremos más adelante.
