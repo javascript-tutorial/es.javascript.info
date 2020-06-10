@@ -20,7 +20,7 @@ Y el "corto", usando barras `"/"`:
 
 ```js
 regexp = /pattern/; // sin banderas
-regexp = /pattern/gmi; // con flags g,m e i (para ser cubierto pronto)
+regexp = /pattern/gmi; // con banderas g,m e i (para ser cubierto pronto)
 ```
 
 Las barras `pattern:/.../` le dicen a JavaScript que estamos creando una expresión regular. Juegan el mismo papel que las comillas para las cadenas.
