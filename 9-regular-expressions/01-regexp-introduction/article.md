@@ -83,7 +83,7 @@ Tiene 3 modos de trabajo:
 
     alert( str.match(/we/gi) ); // We,we (un arreglo de 2 subcadenas que coinciden)
     ```
-    Tenga en cuenta que tanto `match:We` como `match: we` se encuentran, porque la flag `pattern:i` hace que la expresión regular no distinga entre mayúsculas y minúsculas.
+    Tenga en cuenta que tanto `match:We` como `match: we` se encuentran, porque la bandera `pattern:i` hace que la expresión regular no distinga entre mayúsculas y minúsculas.
 
 2. Si no existe dicha flag, solo devuelve la primera coincidencia en forma de arreglo, con la coincidencia completa en el índice `0` y algunos detalles adicionales en las propiedades:
     ```js run
