@@ -124,7 +124,7 @@ Tiene 3 modos de trabajo:
 
 ## Reemplazando: str.replace
 
-El método `str.replace(regexp, replacement)` reemplaza las coincidencias encontradas usando `regexp` en la cadena `str` con `replacement` (todas las coincidencias si está la flag `pattern:g`, de lo contrario, solo la primera).
+El método `str.replace(regexp, replacement)` reemplaza las coincidencias encontradas usando `regexp` en la cadena `str` con `replacement` (todas las coincidencias si está la bandera `pattern:g`, de lo contrario, solo la primera).
 
 Por ejemplo:
 
