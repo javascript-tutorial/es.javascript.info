@@ -101,7 +101,7 @@ usuario[id] = "Valor de id";
 
 No habrá conflicto porque los Symbols siempre son diferentes, incluso si tienen el mismo nombre.
 
-Ahora ten en cuenta que si utilizamos un string `"id"` en lugar de un Symbol, para el mismo propósito, entonces SI *habría* un conflicto:
+Ahora ten en cuenta que si utilizamos un string `"id"` en lugar de un Symbol para el mismo propósito, entonces SÍ *habría* un conflicto:
 
 ```js run
 let usuario = { nombre:  "Juan" };
