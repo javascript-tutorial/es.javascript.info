@@ -1,4 +1,4 @@
-# Introducción: callbacks
+# Introducción: funciones de retrollamadas (callbacks)
 
 ```warn header="Usamos métodos de navegador en estos ejemplos"
 Para demostrar el uso de callbacks, promesas y otros conceptos abstractos, utilizaremos algunos métodos de navegador: específicamente, carga de scripts y simples manipulaciones de documentos.
