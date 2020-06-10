@@ -46,6 +46,7 @@ Después veremos cómo los "fanáticos" pueden suscribirse a estos cambios.
 
 Aquí hay un ejemplo de un constructor de promesas y una función ejecutora simple con "código productor" que toma tiempo (a través de `setTimeout`):
 
+
 ```js run
 let promise = new Promise(function(resolve, reject) {
   // la función se ejecuta automáticamente cuando se construye la promesa
@@ -143,7 +144,6 @@ promise.then(
   function(error) { *!*/* manejar un error */*/!* }
 );
 ```
-
 El primer argumento de `.then` es una función que se ejecuta cuando se resuelve la promesa y recibe el resultado.
 
 El segundo argumento de `.then` es una función que se ejecuta cuando se rechaza la promesa y recibe el error.
@@ -167,6 +167,7 @@ promise.then(
 La primera función fue ejecutada.
 
 Y en el caso de un rechazo, el segundo:
+
 
 ```js run
 let promise = new Promise(function(resolve, reject) {
@@ -232,7 +233,6 @@ new Promise((resolve, reject) => {
 */!*
   .then(result => show result, err => show error)
 ```
-
 Sin embargo, no es exactamente un alias de `then(f, f)`. Hay varias diferencias importantes:
 
 1. Un manejador `finally` no tiene argumentos. En `finally` no sabemos si la promesa es exitosa o no. Eso está bien, ya que nuestra tarea generalmente es realizar procedimientos de finalización "generales".
