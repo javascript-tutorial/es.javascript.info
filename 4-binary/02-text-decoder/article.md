@@ -2,7 +2,7 @@
 
 What if the binary data is actually a string? For instance, we received a file with textual data.
 
-The build-in [TextDecoder](https://encoding.spec.whatwg.org/#interface-textdecoder) object allows to read the value into an an actual Javascript string, given the buffer and the encoding.
+The build-in [TextDecoder](https://encoding.spec.whatwg.org/#interface-textdecoder) object allows to read the value into an actual JavaScript string, given the buffer and the encoding.
 
 We first need to create it:
 ```js
@@ -58,7 +58,7 @@ alert( new TextDecoder().decode(binaryString) ); // Hello
 
 The syntax is:
 
-```js run
+```js
 let encoder = new TextEncoder();
 ```
 
