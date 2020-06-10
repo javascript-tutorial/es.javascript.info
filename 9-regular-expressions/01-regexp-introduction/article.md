@@ -13,7 +13,7 @@ Hay dos sintaxis que se pueden usar para crear un objeto de expresión regular.
 La sintaxis "larga":
 
 ```js
-regexp = new RegExp("patrón", "flags");
+regexp = new RegExp("patrón", "banderas");
 ```
 
 Y el "corto", usando barras `"/"`:
