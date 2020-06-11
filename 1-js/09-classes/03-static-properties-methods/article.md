@@ -94,7 +94,6 @@ let article = Article.createTodays();
 
 alert( article.title ); // Resumen de hoy
 ```
-
 Ahora, cada vez que necesitamos crear un resumen de hoy, podemos llamar a `Article.createTodays()`. Una vez más, ese no es el método de un objeto artículo, sino el método de toda la clase.
 
 Los métodos estáticos también se utilizan en clases relacionadas con base de datos para buscar/guardar/eliminar entradas de la misma, como esta:
@@ -134,7 +133,6 @@ Por ejemplo, `Animal.compare` y `Animal.planet` en el siguiente código son here
 ```js run
 class Animal {
   static planet = "Tierra";
-
   constructor(name, speed) {
     this.speed = speed;
     this.name = name;
