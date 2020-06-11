@@ -1,7 +1,7 @@
 # Bienvenidos nuevos contribuidores
-Durante las dos primeras semanas de este mes de Junio nos encontraremos **actualizando y ordenando** este repositorio. Agradeceríamos que las contribuciones se realizaran posterior a la fecha indicada.
+Abajo se les dan las instrucciones para comenzar a contribuir. Recuerden que al seleccionar un artículo, **deberán traducir todo su contenido**, incluidos los tasks y soluciones. No deben hacer PR si no está todo el artículo seleccionado traducido, haciendo esto, nos ayudarán a hacer mejores y más rápidas las revisiones. 
 
-Si desea hacer seguimiento a este trabajo, le invitamos a que se una a nuestro servidor: [Discord](https://discord.gg/gBuzJb)
+Si desea hacer seguimiento al trabajo realizado en este repositorio, saber más a cerca de como contribuir, o presentarte al equipo, le invitamos a que se una a nuestro servidor: [Discord](https://discord.gg/gBuzJb)
 
 # El Tutorial Moderno de JavaScript en Español
 
