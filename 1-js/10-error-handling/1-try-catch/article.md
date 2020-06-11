@@ -182,6 +182,7 @@ Como ya sabemos, JavaScript admite el método [JSON.parse(str)](mdn:js/JSON/pars
 
 Por lo general, se utiliza para decodificar datos recibidos a través de la red, desde el servidor u otra fuente.
 
+
 Lo recibimos y llamamos a `JSON.parse` así:
 
 ```js run
@@ -350,6 +351,7 @@ try {
 }
 ```
 
+
 ¡Por supuesto, todo es posible! Los programadores cometen errores. Incluso en las utilidades de código abierto utilizadas por millones durante décadas, de repente se puede descubrir un error que conduce a hacks terribles.
 
 En nuestro caso, `try..catch` está destinado a detectar errores de "datos incorrectos". Pero por su naturaleza, `catch` obtiene *todos* los errores de `try`. Aquí recibe un error inesperado, pero aún muestra el mismo mensaje de "Error en JSON". Eso está mal y también hace que el código sea más difícil de depurar.
@@ -359,10 +361,13 @@ Afortunadamente, podemos averiguar qué error obtenemos, por ejemplo, de su `nam
 ```js run
 try {
   user = { /*...*/ };
-} catch(e) {
+} catch(err) {
 *!*
+
   alert(e.name); // "ReferenceError" para acceder a una variable indefinida
 */!*
+    alert('ReferenceError'); // "ReferenceError" for accessing an undefined variable
+  }
 }
 ```
 
@@ -424,7 +429,7 @@ function readData() {
 */!*
   } catch (e) {
     // ...
-    if (e.name != 'SyntaxError') {
+    if (!(e instanceof SyntaxError)) {
 *!*
       throw e; // volver a lanzar (no sé cómo lidiar con eso)
 */!*
@@ -516,15 +521,14 @@ try {
 }
 */!*
 
-alert(result || "error ocurrido");
 
+alert(result || "error ocurrido");
 alert( `la ejecución tomó ${diff}ms` );
 ```
 
 Puede verificar ejecutando el código ingresando `35` en `prompt`; se ejecuta normalmente, `finalmente` después de `try`. Y luego ingrese `-1` - habrá un error inmediato, y la ejecución tomará `0ms`. Ambas mediciones se realizan correctamente.
 
 En otras palabras, la función puede terminar con `return` o `throw`, eso no importa. La cláusula `finally` se ejecuta en ambos casos.
-
 
 ```smart header="Las variables son locales dentro de `try..catch..finally`"
 Tenga en cuenta que las variables `result` y `diff` en el código anterior se declaran *antes de* `try..catch`.
