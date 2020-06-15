@@ -98,7 +98,7 @@ Compárelo con el ejemplo del `Map` regular anterior. Ahora, si `john` solo exis
 - `weakMap.delete(propiedad)`
 - `weakMap.has(propiedad)`
 
-¿Por qué tanta limitación? Eso es por razones técnicas. Si un objeto ha perdido todas las demás referencias (como `john` en el código anterior), entonces se debe recolectar basura automáticamente. Pero técnicamente no se especifica exactamente *cuando se realiza la limpieza*.
+¿Por qué tanta limitación? Eso es por razones técnicas. Si un objeto ha perdido todas las demás referencias (como `john` en el código anterior), entonces se debe recolectar automáticamente como basura. Pero técnicamente no se especifica exactamente *cuándo se realiza la limpieza*.
 
 El motor de JavaScript decide eso. Puede optar por realizar la limpieza de la memoria inmediatamente o esperar y realizar la limpieza más tarde cuando ocurran más eliminaciones. Por lo tanto, técnicamente no se conoce el recuento actual de elementos de un `WeakMap`. El motor puede haberlo limpiado o no, o lo hizo parcialmente. Por esa razón, los métodos que acceden a todas las propiedades / valores no son compatibles.
 
