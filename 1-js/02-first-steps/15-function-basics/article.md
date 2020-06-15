@@ -334,7 +334,7 @@ Eso no funciona, porque JavaScript asume un punto y coma después del `return`. 
 
 ```js
 return*!*;*/!*
- (una + expresion  + o + cualquier + cosa * f(a) + f(b))
+ (una + expresion + o + cualquier + cosa * f(a) + f(b))
 ```
 Entonces, efectivamente se convierte en un return vacío. Deberíamos poner el valor en la misma línea.
 ````
