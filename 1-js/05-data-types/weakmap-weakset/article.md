@@ -89,7 +89,7 @@ john = null; // sobreescribe la referencia
 
 Compárelo con el ejemplo del `Map` regular anterior. Ahora, si `john` solo existe como la propiedad de` WeakMap`, se eliminará automáticamente del map (y de la memoria).
 
-`WeakMap` no admite iteración y métodos `keys()`, `values()`, `entries()`, así que no hay forma de obtener todas las propiedades o valores de él.
+`WeakMap` no admite la iteración ni los métodos `keys()`, `values()`, `entries()`, así que no hay forma de obtener todas las propiedades o valores de él.
 
 `WeakMap` tiene solo los siguientes métodos:
 
