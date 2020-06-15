@@ -35,7 +35,7 @@ john = null; // sobrescribe la referencia
 */!*
 ```
 
-Similar a eso, si usamos un objeto como la propiedad en un `Map` regular, entonces mientras exista el` Map`, ese objeto también existe. Éste objeto cupa memoria y no puede ser recolectado por el recolector de basura.
+Similar a eso, si usamos un objeto como la propiedad en un `Map` regular, entonces mientras exista el` Map`, ese objeto también existe. Este objeto ocupa memoria y no puede ser reclamado por el recolector de basura.
 
 Por ejemplo
 
