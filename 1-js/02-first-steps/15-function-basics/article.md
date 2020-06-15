@@ -10,7 +10,7 @@ Ya hemos visto ejemplos de funciones integradas, como `alert(message)`, `prompt(
 
 ## Declaración de funcicones
 
-Para crear una función podemos usar una *declaración de function*.
+Para crear una función podemos usar una *declaración de función*.
 
 Se Parece a esto:
 
