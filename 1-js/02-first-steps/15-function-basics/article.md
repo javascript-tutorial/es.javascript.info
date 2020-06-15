@@ -60,7 +60,7 @@ function showMessage() {
   alert( message );
 }
 
-showMessage(); // Hola, ¡Soy JavaScript!!
+showMessage(); // Hola, ¡Soy JavaScript!
 
 alert( message ); // <-- Error! La variable es local para esta función
 ```
