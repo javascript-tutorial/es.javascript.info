@@ -96,13 +96,11 @@ showName("Julio", "Cesar");
 showName("Ilya");
 ```
 
-Antiguamente, los parámetros rest no existían en el lenguaje, y usar `arguments` era la única manera de obtener todos los argumentos de una función, sin importar la cantidad de ellos.
-
-Y aún funciona, podemos usarlo hoy en día.
+Antiguamente, los parámetros rest no existían en el lenguaje, y usar `arguments` era la única manera de obtener todos los argumentos de una función. Y aún funciona, podemos encontrarlo en código antiguo.
 
 Pero la desventaja es que a pesar de que `arguments` es símil-array e iterable, no es un array. No soporta los métodos de array, no podemos ejecutar `arguments.map(...)` por ejemplo.
 
-Además, siempre contiene todos los argumentos. No podemos capturarlos parcialmente, como hicimos con los parámetros rest.
+Además, siempre contiene todos los argumentos. No podemos capturarlos parcialmente como hicimos con los parámetros rest.
 
 Por lo tanto, cuando necesitemos estas funcionalidades, los parámetros rest son preferidos.
 
@@ -119,9 +117,10 @@ function f() {
 
 f(1); // 1
 ```
-````
 
 Como recordamos, las funciones flecha no tienen su propio `this`. Ahora sabemos que tampoco tienen el objeto especial `arguments`.
+````
+
 
 ## Operador Spread [#spread-operator]
 
@@ -224,6 +223,51 @@ Pero hay una sutil diferencia entre `Array.from(obj)` y `[...obj]`:
 - El operador spread solo opera con iterables.
 
 Por lo tanto, para la tarea de convertir algo en un array, `Array.from` tiende a ser mas universal.
+
+
+## Obtener una copia de un objeto array
+
+¿Recuerdas cuando hablamos acerca de `Object.assign()` [anteriormente](https://javascript.info/object#cloning-and-merging-object-assign)?
+
+Es posible hacer lo mismo con la sintaxis de spread
+
+```js run
+let arr = [1, 2, 3];
+let arrCopy = [...arr]; // separa el array en una lista de parameters
+                        // luego pone el resultado en un nuevo array
+
+// ¿los arrays tienen el mismo contenido?
+alert(JSON.stringify(arr) === JSON.stringify(arrCopy)); // true
+
+// ¿los arrays son iguales?
+alert(arr === arrCopy); // false (no es la misma referencia)
+
+// modificando nuestro array inicial no modifica la copia:
+arr.push(4);
+alert(arr); // 1, 2, 3, 4
+alert(arrCopy); // 1, 2, 3
+```
+
+Nota que es posible hacer lo mismo para hacer una copia de un objeto:
+
+```js run
+let obj = { a: 1, b: 2, c: 3 };
+let objCopy = { ...obj }; // separa el objeto en una lista de parámetros
+                          // luego devuelve el resultado en un nuevo objeto
+
+// ¿tienen los objetos el mismo contenido?
+alert(JSON.stringify(obj) === JSON.stringify(objCopy)); // true
+
+// ¿son iguales los objetos?
+alert(obj === objCopy); // false (no es la misma referencia)
+
+// modificando el objeto inicial no modifica la copia:
+obj.d = 4;
+alert(JSON.stringify(obj)); // {"a":1,"b":2,"c":3,"d":4}
+alert(JSON.stringify(objCopy)); // {"a":1,"b":2,"c":3}
+```
+
+Esta manera de copiar un objeto es mucho más corta que `let objCopy = Object.assign({}, obj);` o para un array `let arrCopy = Object.assign([], arr);` por lo que preferimos usarla siempre que podemos.
 
 
 ## Resumen
