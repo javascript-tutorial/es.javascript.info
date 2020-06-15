@@ -54,7 +54,7 @@ Por ejemplo:
 ```js run
 function showMessage() {
 *!*
-  let message = "Hola, ¡Soy JavaScript!"; // local variable
+  let message = "Hola, ¡Soy JavaScript!"; // variable local
 */!*
 
   alert( message );
