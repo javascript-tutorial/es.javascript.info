@@ -231,7 +231,7 @@ let obj = {/* some object */};
 let result1 = process(obj);
 let result2 = process(obj);
 
-// ...después, cuando el objeto no se necesitarám más:
+// ...después, cuando el objeto no se necesitará más:
 obj = null;
 
 // No se puede obtener cache.size, ya que es un WeakMap,
