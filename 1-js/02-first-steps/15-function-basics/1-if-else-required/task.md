@@ -4,7 +4,7 @@ importance: 4
 
 # ¿Es "else" requerido?
 
-La siguiente función devuelve `true` si el parámetro `age` es mayour a `18`.
+La siguiente función devuelve `true` si el parámetro `age` es mayor a `18`.
 
 De lo contrario, solicita una confirmación y devuelve su resultado:
 
