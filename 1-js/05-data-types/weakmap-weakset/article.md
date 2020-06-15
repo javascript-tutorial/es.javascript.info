@@ -84,7 +84,7 @@ weakMap.set(john, "...");
 
 john = null; // sobreescribe la referencia
 
-// John se eliminó de la memoria!
+// ¡John se eliminó de la memoria!
 ```
 
 Compárelo con el ejemplo del `Map` regular anterior. Ahora, si `john` solo existe como la propiedad de` WeakMap`, se eliminará automáticamente del map (y de la memoria).
