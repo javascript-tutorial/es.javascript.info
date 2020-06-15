@@ -394,7 +394,7 @@ Las funciones deben ser cortas y hacer exactamente una cosa. Si esa cosa es gran
 
 Una función separada no solo es más fácil de probar y depurar, -- ¡su existencia es un gran comentario!
 
-Por ejemplo, comparemos las dos funciones `showPrimes(n)` siguientes. Cada una devuelve [números primos](https://en.wikipedia.org/wiki/Prime_number) hasta `n`.
+Por ejemplo, comparemos las dos funciones `showPrimes(n)` siguientes. Cada una devuelve [números primos](https://es.wikipedia.org/wiki/N%C3%BAmero_primo) hasta `n`.
 
 La primera variante usa una etiqueta:
 
