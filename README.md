@@ -7,15 +7,27 @@ Si desea hacer seguimiento al trabajo realizado en este repositorio, saber más 
 
 # El Tutorial Moderno de JavaScript en Español
 
+<<<<<<< HEAD
 # Como contribuir
+=======
+See <https://javascript.info/translate> for the details.
+>>>>>>> b52aa942a8e9b75ba8a65124c22593171e273bb6
 
 ## 1. Ingresar a la siguiente página: [es.javascript.info](https://github.com/javascript-tutorial/es.javascript.info/issues/17)
 
+<<<<<<< HEAD
 Buscar un artículo de la lista que no esté asignado a un usuario.
+=======
+We'd also like to collaborate on the tutorial with other people.
+>>>>>>> b52aa942a8e9b75ba8a65124c22593171e273bb6
 
 Por ejemplo: 
 
+<<<<<<< HEAD
 Type Conversions (@tikoflano) #57
+=======
+**You can edit the text in any editor.** The tutorial uses enhanced "markdown" format, easy to grasp. And if you want to see how it looks on-site, there's a server to run the tutorial locally at <https://github.com/javascript-tutorial/server>.  
+>>>>>>> b52aa942a8e9b75ba8a65124c22593171e273bb6
 
 Este artículo ya fue solicitado por el usuario @tikoflano y está en proceso de traducción o revisión. 
 
@@ -177,6 +189,7 @@ Some files, usually tasks, have YAML metadata at the top, delimited by `---`:
 importance: 5
 
 ---
+<<<<<<< HEAD
 ...
 ```
 
@@ -197,3 +210,7 @@ Please don't translate or remove the `[#...]` part, it's for URL anchors.
 You can run the tutorial server locally to see how the translation looks.
 
 The server and install instructions are at <https://github.com/javascript-tutorial/server>. 
+=======
+♥  
+Ilya Kantor @iliakan
+>>>>>>> b52aa942a8e9b75ba8a65124c22593171e273bb6

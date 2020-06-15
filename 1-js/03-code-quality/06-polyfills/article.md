@@ -16,10 +16,15 @@ Aquí Babel viene al rescate.
 
 [Babel](https://babeljs.io) es un [transpiler](https://en.wikipedia.org/wiki/Source-to-source_compiler). Reescribe código JavaScript moderno en el estándar anterior.
 
+<<<<<<< HEAD
 En realidad, hay dos partes en Babel:
+=======
+1. First, the transpiler program, which rewrites the code. The developer runs it on their own computer. It rewrites the code into the older standard. And then the code is delivered to the website for users. Modern project build systems like [webpack](http://webpack.github.io/) provide means to run transpiler automatically on every code change, so that it's very easy to integrate into development process.
+>>>>>>> b52aa942a8e9b75ba8a65124c22593171e273bb6
 
 1. Primero, el programa transpiler, que reescribe código. El desarrollador lo ejecuta en su propio ordenador. Reescribe el código al viejo estándar. Y entonces el código es entregado al navegador para los usuarios. Proyectos modernos para construcción de sistemas como [webpack](http://webpack.github.io/) o [brunch](http://brunch.io/), proporcionan medios para ejecutar el transpiler automáticamente en cada cambio al código, de modo que no implique ninguna perdida de tiempo de nuestra parte.
 
+<<<<<<< HEAD
 2. Segundo, el polyfill.
 
     El transpiler reescribe el código, por lo que se cubren las características de la sintaxis. Pero para funciones nuevas tenemos que escribir un script especial que las implemente. JavaScript es un lenguaje muy dinámico, puede que los scripts no solo agreguen nuevas funciones, sino también modifiquen las funciones incorporadas, para que actúen de forma correspondiente al estándar moderno.
@@ -31,6 +36,18 @@ En realidad, hay dos partes en Babel:
     - [polyfill.io](http://polyfill.io) servicio que nos permite cargar/construir polyfills bajo demanda, dependiendo de las características que necesitemos.
 
 Así que, si queremos usar características modernas del lenguaje, el transpiler y polyfill son necesarios.
+=======
+    New language features may include new built-in functions and syntax constructs.
+    The transpiler rewrites the code, transforming syntax constructs into older ones. But as for new built-in functions, we need to implement them. JavaScript is a highly dynamic language, scripts may add/modify any functions, so that they behave according to the modern standard.
+
+    A script that updates/adds new functions is called "polyfill". It "fills in" the gap and adds missing implementations.
+
+    Two interesting polyfills are:
+    - [core js](https://github.com/zloirock/core-js) that supports a lot, allows to include only needed features.
+    - [polyfill.io](http://polyfill.io) service that provides a script with polyfills, depending on the features and user's browser.
+
+So, if we're going to use modern language features, a transpiler and a polyfill are necessary.
+>>>>>>> b52aa942a8e9b75ba8a65124c22593171e273bb6
 
 ## Ejemplos en el tutorial
 
@@ -46,7 +63,14 @@ Ejemplos que usan JS moderno solo funcionarán si tu navegador lo soporta.
 ````
 
 ```offline
+<<<<<<< HEAD
 Como estás leyendo la verión offline, en PDF los ejemplos no se pueden ejecutar. En EPUB algunos pueden ejecutarse.
 ```
 
 Generalmente, Google Chrome está actualizado con las últimas características del lenguaje, funciona bien para ejecutar demos con tecnología puntera sin ningún transpiler, pero otros navegadores modernos también funcionan bien.
+=======
+As you're reading the offline version, in PDF examples are not runnable. In EPUB some of them can run.
+```
+
+Google Chrome is usually the most up-to-date with language features, good to run bleeding-edge demos without any transpilers, but other modern browsers also work fine.
+>>>>>>> b52aa942a8e9b75ba8a65124c22593171e273bb6

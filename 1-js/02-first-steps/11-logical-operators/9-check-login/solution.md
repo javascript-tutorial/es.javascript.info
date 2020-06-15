@@ -7,6 +7,7 @@ if (userName == "Admin") {
     
     let pass = prompt("Contraseña?", "");
 
+<<<<<<< HEAD
     if (pass == "TheMaster") {
 	alert( "Bienvenido!" );
     } else if (pass == "" || pass == null) {
@@ -17,6 +18,20 @@ if (userName == "Admin") {
 	
 } else if (userName == "" || userName == null) {
     alert( "Canceledo" );
+=======
+  let pass = prompt('Password?', '');
+
+  if (pass == 'TheMaster') {
+    alert( 'Welcome!' );
+  } else if (pass == '' || pass == null) {
+    alert( 'Canceled' );
+  } else {
+    alert( 'Wrong password' );
+  }
+
+} else if (userName == '' || userName == null) {
+  alert( 'Canceled' );
+>>>>>>> b52aa942a8e9b75ba8a65124c22593171e273bb6
 } else {
     alert( "No te conozco" );
 }

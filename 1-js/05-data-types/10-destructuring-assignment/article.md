@@ -138,7 +138,11 @@ alert(`${guest} ${admin}`); // Pete Jane (successfully swapped!)
 Here we create a temporary array of two variables and immediately destructure it in swapped order.
 
 We can swap more than two variables this way.
+<<<<<<< HEAD:1-js/05-data-types/10-destructuring-assignment/article.md
 ```
+=======
+
+>>>>>>> b52aa942a8e9b75ba8a65124c22593171e273bb6:1-js/05-data-types/10-destructuring-assignment/article.md
 
 ### The rest '...'
 
