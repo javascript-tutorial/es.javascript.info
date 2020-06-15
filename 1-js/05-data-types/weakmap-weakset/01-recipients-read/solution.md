@@ -27,7 +27,7 @@ messages.shift();
 
 El `WeakEst` permite almacenar un conjunto de mensajes y verificar fácilmente la existencia de un mensaje en él.
 
-Se limpia automáticamente. La compensación es que no podemos iterar sobre él, no podemos obtener "todos los mensajes leídos" directamente. Pero podemos hacerlo iterando sobre todos los mensajes y filtrando los que están en el conjunto.
+Se limpia automáticamente. La desventaja es que no podemos iterar sobre él, no podemos obtener "todos los mensajes leídos" directamente. Pero podemos hacerlo iterando sobre todos los mensajes y filtrando los que están en el conjunto.
 
 Otra solución diferente podría ser agregar una propiedad como `message.isRead = true` a un mensaje después de leerlo. Como los objetos de mensajes son administrados por otro código, generalmente se desaconseja, pero podemos usar una propiedad simbólica para evitar conflictos.
 
