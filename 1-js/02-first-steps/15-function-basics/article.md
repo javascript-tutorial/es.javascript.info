@@ -328,7 +328,7 @@ Para una expresion larga de `return`, puede ser tentador ponerlo en una línea s
 
 ```js
 return
- (una + expresion  + o + cualquier + cosa * f(a) + f(b))
+ (una + expresion + o + cualquier + cosa * f(a) + f(b))
 ```
 Eso no funciona, porque JavaScript asume un punto y coma después del `return`. Eso funcionará igual que:
 
