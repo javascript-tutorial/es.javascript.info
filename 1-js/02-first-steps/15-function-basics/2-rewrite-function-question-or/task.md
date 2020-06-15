@@ -4,7 +4,7 @@ importance: 4
 
 # Reescriba la función utilizando '?' o '||'
 
-La siguiente función devuelve `true` si el parametro `age` es mayour que `18`.
+La siguiente función devuelve `true` si el parametro `age` es mayor que `18`.
 
 De lo contrario, solicita una confirmación y devuelve su resultado.
 
