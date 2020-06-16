@@ -1,6 +1,6 @@
 # Operadores condicionales: if, '?'
 
-Algunas Veces, necesitamos ejecutar diferentes acciones basadas en diferentes condiciones.
+Algunas veces, necesitamos ejecutar diferentes acciones basadas en diferentes condiciones.
 
 Para hacer esto, nosotros utilizaremos la sentencia `if` y el operador condicional (ternario) al cual nos referiremos de aqui en adelante como operador de “signo de interrogación” `?` por simplicidad.
 
