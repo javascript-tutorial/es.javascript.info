@@ -1,7 +1,7 @@
 
 # Tipo Symbol
 
-Por especificación, las "propiedades claves" (key) de un objeto deben ser solamente del tipo String o Symbol.  No Number, no Boolean, solo esos dos: string o symbol. 
+Por especificación, las claves de un objeto deben ser solamente del tipo String o Symbol.  Solamente esos dos: String o Symbol. 
 
 Hasta ahora sólo hemos aprendido acerca de los Strings, por lo que es momento de conocer las ventajas que Symbol nos puede dar.
 
