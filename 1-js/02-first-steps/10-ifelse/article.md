@@ -186,7 +186,7 @@ Puede ser difícil al principio comprender lo que está sucediendo. Pero despué
 3. Si es cierto -- devuelve `'¡Hola!'`. De lo contrario, continúa con la expresión que está después de los dos puntos siguientes '":"', revisando `age < 100`.
 4. Si es cierto -- devuelve `'¡Felicidades!'`. De lo contrario, continúa a la expresión que está después de los dos puntos '":"', devolviendo `'¡Qué edad tan inusual!'`.
 
-Aqui lo podemos ver utilizando `if..else`:
+Aquí lo podemos ver utilizando `if..else`:
 
 ```js
 if (age < 3) {
