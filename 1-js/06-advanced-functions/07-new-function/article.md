@@ -1,4 +1,4 @@
-# La sintáxis "new Function"
+# La sintaxis "new Function"
 
 Existe más de una manera de crear una función. Raramente usada, pero en ocasiones no tenemos otra alternativa.
 
@@ -128,4 +128,3 @@ new Function('a , b', 'return a + b'); // separados por coma y espacios
 ```
 
 Las funciones creadas con `new Function`, tienen un `[[Environment]]` que hace referencia al entorno léxico global, no al exterior. Por lo tanto, no pueden usar las variables externas. Pero en realidad eso es bueno, porque nos salva de errores. Pasar parámetros explícitamente es un método mucho mejor arquitectónicamente y no provoca problemas con los minificadores.
-
