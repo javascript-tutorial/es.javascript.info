@@ -38,7 +38,7 @@ La sentencia `if (…)` evalúa la expresión dentro de sus paréntesis y convie
 Recordemos las reglas de conversión del capítulo.
 <info:type-conversions>:
 
-- El numero `0`, un string vació `""`, `null`, `undefined`, y `NaN` se convierte en `false`. Por esto son llamados valores "falso".
+- El número `0`, un string vacio `""`, `null`, `undefined`, y `NaN` se convierte en `false`. Por esto son llamados valores "falso".
 - El resto de los valores se convierten en  `true`, entonces los llamaremos valores "verdadero".
 
 Entonces, el código que vemos a continuación nunca se ejecutaria:
