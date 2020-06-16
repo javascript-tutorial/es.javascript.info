@@ -31,7 +31,7 @@ if (year == 2015) {
 
 Recomendamos siempre encerrar nuestro bloque de código entre llaves `{}` siempre que se utilice la sentencia `if`, inclusive si solo se va a ejecutar una sola sentencia en este caso. Hacer eso mejora la legibilidad.
 
-## Conversion Booleana
+## Conversión Booleana
 
 La sentencia `if (…)` evalua la exprecion dentro de sus parentesis y convierte el resultado en booleano.
 
