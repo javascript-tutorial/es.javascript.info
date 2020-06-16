@@ -60,7 +60,7 @@ if (1) { // 1 es verdadero
 También podemos pasar un valor booleano pre-evaluado al `if`, así:
 
 ```js
-let cond = (year == 2015); // la igualdad evalua y devuelve un true o false
+let cond = (year == 2015); // la igualdad evalúa y devuelve un true o false
 
 if (cond) {
   ...
