@@ -33,7 +33,7 @@ Recomendamos siempre encerrar nuestro bloque de código entre llaves `{}` siempr
 
 ## Conversión Booleana
 
-La sentencia `if (…)` evalua la exprecion dentro de sus parentesis y convierte el resultado en booleano.
+La sentencia `if (…)` evalúa la expresión dentro de sus paréntesis y convierte el resultado en booleano.
 
 Recordemos las reglas de conversión del capítulo.
 <info:type-conversions>:
