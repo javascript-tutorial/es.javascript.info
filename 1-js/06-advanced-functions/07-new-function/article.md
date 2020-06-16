@@ -4,7 +4,7 @@ Hay una forma más de crear una función. Raramente se usa, pero a veces no hay 
 
 ## Sintaxis
 
-La sintáxis para crear una función:
+La sintaxis para crear una función:
 
 ```js
 let func = new Function ([arg1, arg2, ...argN], functionBody);
