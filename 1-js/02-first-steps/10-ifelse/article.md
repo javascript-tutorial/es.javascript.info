@@ -196,7 +196,7 @@ if (age < 3) {
 } else if (age < 100) {
   message = '¡Felicidades!';
 } else {
-  message = '¡Que edad tan inusual!';
+  message = '¡Qué edad tan inusual!';
 }
 ```
 
