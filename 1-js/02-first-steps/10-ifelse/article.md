@@ -202,7 +202,7 @@ if (age < 3) {
 
 ## Uso no tradicional de '?'
 
-ALgunas veces el signo de interrogacion cerrado `?` se utiliza para reemplazar `if`:
+A veces el signo de interrogación cerrado `?` se utiliza para reemplazar `if`:
 
 ```js run no-beautify
 let company = prompt('¿Que compañía creó JavaScript?', '');
