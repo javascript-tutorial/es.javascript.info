@@ -135,7 +135,7 @@ let user = {
 */!*
 };
 ```
-Se hace así porque necesitamos que el valor de la variable `id` sea la propiedad, no el string "id".
+Se hace así porque necesitamos que el valor de la variable `id` sea la clave, no el string "id".
 
 ### Los Symbols son omitidos en for..in
 
