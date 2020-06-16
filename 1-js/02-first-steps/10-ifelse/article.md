@@ -183,7 +183,7 @@ Puede ser difícil al principio comprender lo que está sucediendo. Pero despué
 
 1. La Primera marca de pregunta revisa si `age < 3`.
 2. Si es cierto -- devuelve `'¡Hola, bebé!'`. De lo contrario, continua a la expresión que está después de los dos puntos '":"', revisando `age < 18`.
-3. Si es cierto -- devuelve `'¡Hola!'`. De lo contrario, continua con la expresionque esta despues de los dos puntos siguientes '":"', checking `age < 100`.
+3. Si es cierto -- devuelve `'¡Hola!'`. De lo contrario, continúa con la expresión que está después de los dos puntos siguientes '":"', revisando `age < 100`.
 4. Si es cierto -- devuelve `'¡Felicidades!'`. De lo contrario, continua a la expresion que esta despues de los dos puntos '":"', returning `'¡Que edad tan inusual!'`.
 
 Aqui lo podemos ver utilizando `if..else`:
