@@ -100,7 +100,7 @@ if (year < 2015) {
 }
 ```
 
-En el código de arriba, JavaScript primero revisa si `year < 2015`. Si esto es falso, continua a la siguiente condición `year > 2015`. Si esta también es falsa, mostrará la última `alert`.
+En el código de arriba, JavaScript primero revisa si `year < 2015`. Si esto es falso, continúa a la siguiente condición `year > 2015`. Si esta también es falsa, mostrará la última `alert`.
 
 Podrían haber mas bloques `else if`. Y el último
  `else` es opcional.
