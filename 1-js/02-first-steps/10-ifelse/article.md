@@ -69,7 +69,7 @@ if (cond) {
 
 ## La clausula "else"
 
-La sentencia `if` quizás contenga un bloque "de lo contrario" opcional. Este se ejecutará cuando la condición sea falsa.
+La sentencia `if` quizás contenga un bloque "else" opcional. Este se ejecutará cuando la condición sea falsa.
 
 Por ejemplo:
 ```js run
