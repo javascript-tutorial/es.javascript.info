@@ -1,6 +1,6 @@
 # La sintaxis "new Function"
 
-Existe más de una manera de crear una función. Raramente usada, pero en ocasiones no tenemos otra alternativa.
+Hay una forma más de crear una función. Raramente se usa, pero a veces no hay alternativa.
 
 ## Sintáxis
 
