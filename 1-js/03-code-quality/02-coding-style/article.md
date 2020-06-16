@@ -26,7 +26,7 @@ let n = prompt("n?", "");
 
 if (n < 0) {
   alert(`Power ${n} is not supported,
-    please enter an integer number, greater than 0`);
+    please enter a non-negative integer number`);
 } else {
   alert( pow(x, n) );
 }
@@ -57,17 +57,11 @@ Aqui estan las variantes anotadas para que puedas juzgar la legibilidad por ti m
 ```js no-beautify
 if (n < 0) {alert(`Power ${n} is not supported`);}
 
-if (n < 0) alert(`Power ${n} is not supported`);
+For a very brief code, one line is allowed, e.g. `if (cond) return null`. But a code block (the last variant) is usually more readable.
 
-if (n < 0)
-  alert(`Power ${n} is not supported`);
+### Line Length
 
-if (n < 0) {
-  alert(`Power ${n} is not supported`);
-}
-```
--->
-![](figure-bracket-style.png)
+No one likes to read a long horizontal line of code. It's best practice to split them.
 
 En resumen:
 - Para codigo muy corto, una linea es aceptable. Por ejemplo: `if (cond) return null`
@@ -300,8 +294,8 @@ Aqui un ejemplo de un archivo `.eslintrc`:
   },
   "rules": {
     "no-console": 0,
-  },
-  "indent": 2
+    "indent": ["warning", 2]
+  }
 }
 ```
 
