@@ -7,7 +7,7 @@ Existe más de una manera de crear una función. Raramente usada, pero en ocasio
 La sintáxis para crear una función:
 
 ```js
-let func = new Function ([arg1[, arg2[, ...argN]],] functionBody)
+let func = new Function ([arg1, arg2, ...argN], functionBody);
 ```
 
 En otras palabras, los parámetros de la función (o, para ser más precisos, los nombres de los parámetros) van primero, y luego el cuerpo de la función. Todos los argumentos son de tipo strings
@@ -16,7 +16,6 @@ Es más fácil entender viendo un ejemplo: Aquí tenemos una función con dos ar
 
 ```js run
 let sumar = new Function('a', 'b', 'return a + b');
-
 alert(sumar(1, 2)); // 3
 ```
 
@@ -27,7 +26,6 @@ let diHola = new Function('alert("Hola")');
 
 diHola(); // Hola
 ```
-
 La mayor diferencia sobre las otras maneras de crear funciones que hemos visto, es que la función se crea literalmente con un string y es pasada en tiempo de ejecución.
 
 Las declaraciones anteriores nos obliga a nosotros, los programadores, a escribir el código de la función en el script.
@@ -40,7 +38,6 @@ let str = ... recibir el código de un servidor dinámicamente ...
 let func = new Function(str);
 func();
 ```
-
 Se utilizan en casos muy específicos, como cuando recibimos código de un servidor, o compilar dinámicamente una función a partir de una plantilla. La necesidad surge en etapas avanzadas de desarrollo.
 
 ## Closure
@@ -49,8 +46,9 @@ Normalmente, una función recuerda dónde nació en una propiedad especial llama
 
 Pero cuando una función es creada usando `new Function`, su `[[Environment]]` no hace referencia al entorno léxico actual, sino al global.
 
-```js run
+So, such function doesn't have access to outer variables, only to the global ones.
 
+```js run
 function getFunc() {
   let valor = "test";
 
@@ -112,15 +110,13 @@ let a = 1, b = 2;
 alert( sum(a, b) ); // 3
 */!*
 ```
-
 ## Resumen
 
 La sintáxis:
 
 ```js
-let func = new Function(arg1, arg2, ..., body);
+let func = new Function ([arg1, arg2, ...argN], functionBody);
 ```
-
 Por razones históricas, los argumentos también pueden ser pasados como una lista separada por comas.
 
 Estos tres significan lo mismo:
@@ -132,3 +128,4 @@ new Function('a , b', 'return a + b'); // separados por coma y espacios
 ```
 
 Las funciones creadas con `new Function`, tienen un `[[Environment]]` que hace referencia al entorno léxico global, no al exterior. Por lo tanto, no pueden usar las variables externas. Pero en realidad eso es bueno, porque nos salva de errores. Pasar parámetros explícitamente es un método mucho mejor arquitectónicamente y no provoca problemas con los minificadores.
+
