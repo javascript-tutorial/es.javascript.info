@@ -128,7 +128,7 @@ alert(accessAllowed);
 
 Entonces el operador "ternario" también llamado  "signo de interrogación" nos permite ejecutar esto en una forma más corta y simple.
 
-El operador esta representado por un signo de interrogación de cierre `?`.  El termino formal "ternario" significa que el operador tiene tres operandos. Este es actualmente el primer y único operador de JavaScript que tiene esta cantidad.
+El operador está representado por un signo de interrogación de cierre `?`.  El término formal "ternario" significa que el operador tiene tres operandos. Este es actualmente el primer y único operador de JavaScript que tiene esta cantidad.
 
 La Sintaxis es:
 ```js
