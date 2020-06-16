@@ -205,7 +205,7 @@ if (age < 3) {
 A veces el signo de interrogación cerrado `?` se utiliza para reemplazar `if`:
 
 ```js run no-beautify
-let company = prompt('¿Que compañía creó JavaScript?', '');
+let company = prompt('¿Qué compañía creó JavaScript?', '');
 
 *!*
 (company == 'Netscape') ?
