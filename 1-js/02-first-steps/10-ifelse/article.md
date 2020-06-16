@@ -174,7 +174,7 @@ let age = prompt('¿edad?', 18);
 let message = (age < 3) ? '¡Hola, bebé!' :
   (age < 18) ? '¡Hola!' :
   (age < 100) ? '¡Felicidades!' :
-  '¡Que edad tan inusual!';
+  '¡Qué edad tan inusual!';
 
 alert( message );
 ```
