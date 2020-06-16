@@ -26,7 +26,7 @@ let n = prompt("n?", "");
 
 if (n < 0) {
   alert(`Power ${n} is not supported,
-    please enter an integer number, greater than 0`);
+    please enter a non-negative integer number`);
 } else {
   alert( pow(x, n) );
 }
@@ -328,8 +328,8 @@ Aquí un ejemplo de un archivo `.eslintrc`:
   },
   "rules": {
     "no-console": 0,
-  },
-  "indent": 2
+    "indent": ["warning", 2]
+  }
 }
 ```
 
