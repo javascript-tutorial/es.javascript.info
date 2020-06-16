@@ -10,7 +10,7 @@ La sintaxis para crear una función:
 let func = new Function ([arg1, arg2, ...argN], functionBody);
 ```
 
-En otras palabras, los parámetros de la función (o, para ser más precisos, los nombres de los parámetros) van primero, y luego el cuerpo de la función. Todos los argumentos son de tipo strings
+La función se crea con los argumentos `arg1 ... argN` y el `functionBody` dado.
 
 Es más fácil entender viendo un ejemplo: Aquí tenemos una función con dos argumentos:
 
