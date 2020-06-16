@@ -126,7 +126,7 @@ alert( userName ); // *!*John*/!*, se mantiene, la función no accedió a la var
 ```smart header="Variables globales"
 Variables declaradas fuera de cualquier función, como la variable externa `userName` en el código anterior, se llaman *global*.
 
-Las variables globales son visibles desde cualquier función (a menos que estén se haga shadowing en el contexto local).
+Las variables globales son visibles desde cualquier función (a menos que se haga shadowing en el contexto local).
 
 Por lo general, una función declara todas las variables específicas de su tarea. Las variables globales solo almacenan datos a nivel de proyecto, y es importante que estas variables sean accesibles desde cualquier lugar. El código moderno tiene pocos o ninguna variable global. La mayoría de las variables residen en sus funciones.
 ```
