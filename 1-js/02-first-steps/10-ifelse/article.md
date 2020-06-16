@@ -89,7 +89,7 @@ Algunas veces, queremos probar variantes de una condición. La clausula `else if
 Por ejemplo:
 
 ```js run
-let year = prompt('¿En que año la fué publicada la especificación ECMAScript-2015?', '');
+let year = prompt('¿En qué año fue publicada la especificación ECMAScript-2015?', '');
 
 if (year < 2015) {
   alert( 'Muy poco...' );
