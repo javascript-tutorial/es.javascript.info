@@ -20,7 +20,7 @@ if (year == 2015) alert( '¡Estás en lo cierto!' );
 
 En el ejemplo de arriba, la condición es un simple signo de igualdad (`year == 2015`), pero podría ser mucho mas complejo.
 
-Si quisiéramos ejecutar mas de una sentencia, debemos encerrar nuestro bloque de código entre llaves:
+Si quisiéramos ejecutar más de una sentencia, debemos encerrar nuestro bloque de código entre llaves:
 
 ```js
 if (year == 2015) {
