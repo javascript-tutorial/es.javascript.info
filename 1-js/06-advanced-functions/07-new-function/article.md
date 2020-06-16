@@ -2,7 +2,7 @@
 
 Hay una forma más de crear una función. Raramente se usa, pero a veces no hay alternativa.
 
-## Sintáxis
+## Sintaxis
 
 La sintáxis para crear una función:
 
