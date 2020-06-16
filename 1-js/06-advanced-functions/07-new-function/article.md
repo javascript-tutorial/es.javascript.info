@@ -123,4 +123,3 @@ Estos tres significan lo mismo:
 
 ```js
 new Function('a', 'b', 'return a + b'); // sintáxis básica
-Las funciones creadas con `new Function`, tienen un `[[Environment]]` que hace referencia al entorno léxico global, no al exterior. Por lo tanto, no pueden usar las variables externas. Pero en realidad eso es bueno, porque nos salva de errores. Pasar parámetros explícitamente es un método mucho mejor arquitectónicamente y no provoca problemas con los minificadores.
