@@ -123,7 +123,6 @@ Estos tres significan lo mismo:
 
 ```js
 new Function('a', 'b', 'return a + b'); // sintáxis básica
-new Function('a,b', 'return a + b'); // separados por coma
 new Function('a , b', 'return a + b'); // separados por coma y espacios
 ```
 
