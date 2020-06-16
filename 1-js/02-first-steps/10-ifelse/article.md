@@ -165,7 +165,7 @@ let accessAllowed = age > 18;
 
 ## Múltiples '?'
 
-Una secuencia de operadores de signos de interrogación  `?` puede devolver un valor que depende de mas de una condición.
+Una secuencia de operadores de signos de interrogación  `?` puede devolver un valor que depende de más de una condición.
 
 Por ejemplo:
 ```js run
