@@ -103,7 +103,7 @@ alert( userName ); // *!*Bob*/!*, el valor fué modificado por la función
 
 La variable externa solo se usa si no hay una local. Por lo tanto, puede ocurrir una modificación ocasional si olvidamos colocar el `let`.
 
-Si una variable con el mismo nombre se declara dentro de la función, entonces *hace shadowing a* la externa. Por ejemplo, en el siguiente código, la función usa el `userName` local. El exterior se ignora:
+Si una variable con el mismo nombre se declara dentro de la función, entonces *hace shadowing* a la externa. Por ejemplo, en el siguiente código, la función usa el `userName` local. El exterior se ignora:
 
 ```js run
 let userName = 'Juan';
