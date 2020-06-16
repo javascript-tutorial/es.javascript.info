@@ -171,7 +171,7 @@ showMessage(from, "Hola"); // *Ann*: Hola
 alert( from ); // Ann
 ```
 
-## Valores predeterminado
+## Valores predeterminados
 
 Si no se proporciona un parámetro, su valor se convierte en `undefined`.
 
