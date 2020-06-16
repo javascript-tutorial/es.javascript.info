@@ -113,7 +113,7 @@ Por ejemplo:
 
 ```js run no-beautify
 let accessAllowed;
-let age = prompt('¿Que edad tienes?', '');
+let age = prompt('¿Qué edad tienes?', '');
 
 *!*
 if (age > 18) {
