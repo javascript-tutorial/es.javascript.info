@@ -107,7 +107,7 @@ Podría haber más bloques `else if`.  Y el último  `else` es opcional.
 
 ## Operador ternario '?'
 
-Algunas veces, necesitamos asignar una variable dependiendo de alguna condición.
+A veces necesitamos asignar una variable dependiendo de alguna condición.
 
 Por ejemplo:
 
