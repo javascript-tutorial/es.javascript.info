@@ -212,7 +212,7 @@ En JavaScript, se evalúa un parámetro predeterminado cada vez que se llama a l
 
 
 ````smart header="Parámetros predeterminados de estilo antiguo"
-Las ediciones anteriores de JavaScript no admitían parámetros predeterminados. Por lo tanto, hay formas alternativas de apoyarlos, que se pueden encontrar principalmente en los scripts antiguos.
+Las ediciones anteriores de JavaScript no admitían parámetros predeterminados. Por lo tanto, hay formas alternativas de admitirlos, que se pueden encontrar principalmente en los scripts antiguos.
 
 Por ejemplo, una comprobación explícita de ser `undefined`:
 
