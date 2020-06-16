@@ -182,7 +182,7 @@ alert( message );
 Puede ser difícil al principio comprender lo que está sucediendo. Pero después de una mirada más cercana, podemos ver que es solo una secuencia ordinaria de condiciones:
 
 1. La Primera marca de pregunta revisa si `age < 3`.
-2. Si es cierto -- devuelve `'¡Hola, bebé!'`. De lo contrario, continua a la expresion que esta despues de los dos puntos '":"', revisando `age < 18`.
+2. Si es cierto -- devuelve `'¡Hola, bebé!'`. De lo contrario, continua a la expresión que está después de los dos puntos '":"', revisando `age < 18`.
 3. Si es cierto -- devuelve `'¡Hola!'`. De lo contrario, continua con la expresionque esta despues de los dos puntos siguientes '":"', checking `age < 100`.
 4. Si es cierto -- devuelve `'¡Felicidades!'`. De lo contrario, continua a la expresion que esta despues de los dos puntos '":"', returning `'¡Que edad tan inusual!'`.
 
