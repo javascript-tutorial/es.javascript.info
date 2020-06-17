@@ -5,6 +5,8 @@ También aconsejamos cuidar la **ortografía**, lo que incluye no olvidar los ac
 
 Les recordamos también, que para cada traducción, deberán crear una **nueva rama en su fork**, ya que la rama master deberá estar siempre limpia. **Un artículo = nueva rama**. 
 
+Hemos acordado un glosario para la consistencia de las traducciones, por favor, revíselo. [Glosario](https://github.com/javascript-tutorial/es.javascript.info/issues/225)
+
 Si desea hacer seguimiento al trabajo realizado en este repositorio, saber más a cerca de como contribuir, o presentarte al equipo, le invitamos a que se una a nuestro servidor: [Discord](https://discord.gg/gBuzJb)
 
 # El Tutorial Moderno de JavaScript en Español
