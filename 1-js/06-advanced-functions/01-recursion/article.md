@@ -296,7 +296,7 @@ let company = {
     salary: 1000
   }, {
     name: 'Alice',
-    salary: 600
+    salary: 1600
   }],
 
   development: {
@@ -366,7 +366,7 @@ function sumSalaries(department) {
 }
 */!*
 
-alert(sumSalaries(company)); // 6700
+alert(sumSalaries(company)); // 7700
 ```
 
 El código es corto y fácil de entender (¿Quizás?). Ese es el poder de la recursividad. También funciona para cualquier nivel de anidamiento de subdepartamentos.
@@ -453,6 +453,7 @@ let list = { value: 1 };
 list.next = { value: 2 };
 list.next.next = { value: 3 };
 list.next.next.next = { value: 4 };
+list.next.next.next.next = null;
 ```
 
 Aquí podemos ver aún más claramente que hay varios objetos, cada uno tiene el `value` y el `next` apuntando al vecino. La variable `list` es el primer objeto en la cadena, por lo que siguiendo los punteros` next` de ella podemos alcanzar cualquier elemento.
