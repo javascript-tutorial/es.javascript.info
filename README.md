@@ -1,4 +1,5 @@
 # Bienvenidos nuevos contribuidores
+## Tutorial Moderno de JavaScript en Español
 Abajo se les dan las instrucciones para comenzar a contribuir. Recuerden que al seleccionar un artículo, **deberán traducir todo su contenido**, incluidos los tasks y soluciones. No deben hacer PR si no está todo el artículo seleccionado traducido, haciendo esto, nos ayudarán a hacer mejores y más rápidas las revisiones.
 
 También aconsejamos cuidar la **ortografía**, lo que incluye no olvidar los acentos en las traducciones.
@@ -8,8 +9,6 @@ Les recordamos también, que para cada traducción, deberán crear una **nueva r
 Hemos acordado un glosario para la consistencia de las traducciones, por favor, revíselo. [Glosario](https://github.com/javascript-tutorial/es.javascript.info/issues/225)
 
 Si desea hacer seguimiento al trabajo realizado en este repositorio, saber más a cerca de como contribuir, o presentarte al equipo, le invitamos a que se una a nuestro servidor: [Discord](https://discord.gg/gBuzJb)
-
-# El Tutorial Moderno de JavaScript en Español
 
 # Como contribuir
 
