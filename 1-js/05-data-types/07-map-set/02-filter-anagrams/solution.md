@@ -10,12 +10,8 @@ cheaters, hectares, teachers -> aceehrst
 ...
 ```
 
-<<<<<<< HEAD
-Utilizaremos las variantes ordenadas por letras como propiedades de Map para almacenar solo un valor por cada propiedad:
-=======
 
 Utilizaremos las variantes ordenadas por letras como claves de Map para almacenar solo un valor por cada clave:
->>>>>>> c5a10d76... mapandset
 
 ```js run
 function aclean(arr) {
@@ -55,12 +51,8 @@ La siguiente línea pone la palabra en el Map:
 map.set(sorted, word);
 ```
 
-<<<<<<< HEAD
-Si alguna vez volvemos a encontrar una palabra con la misma forma ordenada por letras, sobrescribiría el valor anterior con la misma propiedad en Map. Por lo tanto, siempre tendremos como máximo una palabra ordenada por letras.
-=======
 
 Si alguna vez volvemos a encontrar una palabra con la misma forma ordenada por letras, sobrescribiría el valor anterior con la misma clave en Map. Por lo tanto, siempre tendremos como máximo una palabra ordenada por letras.
->>>>>>> c5a10d76... mapandset
 
 Al final, `Array.from (map.values())` toma un valor iterativo sobre los valores de Map (no necesitamos claves en el resultado) y devuelve un array de ellos.
 

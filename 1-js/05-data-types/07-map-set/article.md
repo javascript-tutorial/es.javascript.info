@@ -25,13 +25,6 @@ Por ejemplo:
 
 ```js run
 let map = new Map();
-<<<<<<< HEAD
-map.set('1', 'str1');   // un string como propiedad
-map.set(1, 'num1');     // un número como propiedad
-map.set(true, 'bool1'); // un booleano como propiedad
-// recuerda el objeto regular? convertiría las propiedades en un string
-// Map mantiene el tipo de dato en las propiedades, por lo que estas dos son diferentes:
-=======
 
 map.set('1', 'str1');   // un string como clave
 map.set(1, 'num1');     // un número como clave
@@ -40,7 +33,6 @@ map.set(true, 'bool1'); // un booleano como clave
 // recuerda el regular Object? convertiría las claves en un string
 // Map mantiene el tipo de dato en las claves, por lo que estas dos son diferentes:
 
->>>>>>> c5a10d76... mapandset
 alert( map.get(1)   ); // 'num1'
 alert( map.get('1') ); // 'str1'
 
@@ -66,22 +58,14 @@ let john = { name: "John" };
 // para cada usuario, almacenemos el recuento de visitas
 let visitsCountMap = new Map();
 
-<<<<<<< HEAD
-// John es la propiedad para el Map
-=======
 // John es la clave para el Map
 
->>>>>>> c5a10d76... mapandset
 visitsCountMap.set(john, 123);
 
 alert( visitsCountMap.get(john) ); // 123
 ```
-<<<<<<< HEAD
-El uso de objetos como propiedades es una de las características de `Map` más notables e importantes. Para las propiedades de tipo string, `Object` puede estar bien, pero no para las propiedades de tipo objeto.
-=======
 
 El uso de objetos como claves es una de las características de `Map` más notables e importantes. Para las claves de tipo string, `Object` puede estar bien, pero no para las claves de tipo objeto.
->>>>>>> c5a10d76... mapandset
 
 Intentémoslo:
 
@@ -164,12 +148,8 @@ recipeMap.forEach( (value, key, map) => {
 Cuando se crea un `Map`, podemos pasar un array (u otro iterable) con pares clave / valor para la inicialización, de esta manera:
 
 ```js run
-<<<<<<< HEAD
-// array de [propiedad, valor]
-=======
 // array de [clave, valor]
 
->>>>>>> c5a10d76... mapandset
 let map = new Map([
   ['1',  'str1'],
   [1,    'num1'],
@@ -178,12 +158,8 @@ let map = new Map([
 
 alert( map.get('1') ); // str1
 ```
-<<<<<<< HEAD
-Aquí hay un método incorporado [Object.entries(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/entries) que devuelve un array de pares propiedad / valor para un objeto exactamente en ese formato.
-=======
 
 Aquí hay un método incorporado [Object.entries(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/entries) que devuelve un array de pares clave / valor para un objeto exactamente en ese formato.
->>>>>>> c5a10d76... mapandset
 
 Entonces podemos inicializar un mapa desde un objeto como este:
 
