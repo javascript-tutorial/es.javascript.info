@@ -52,7 +52,7 @@ Los backticks además nos permiten especificar una "función de plantilla" antes
 
 ## Caracteres especiales
 
-Es posible crear strings de múltiples líneas usando comillas simples, usando un llamado "caracter de nueva línea", escrito como `\n`, lo que denota un salto de línea:
+Es posible crear strings de múltiples líneas usando comillas simples, usando un llamado "carácter de nueva línea", escrito como `\n`, lo que denota un salto de línea:
 
 ```js run
 let guestList = 'Invitados:\n * Juan\n * Pedro\n * Maria';
@@ -60,7 +60,7 @@ let guestList = 'Invitados:\n * Juan\n * Pedro\n * Maria';
 alert(guestList); // una lista de invitados en múltiples líneas
 ```
 
-Por ejemplo, estas dos líneas describen lo mismo:
+Por ejemplo, estas dos líneas son iguales, solo que escritas en forma diferente:
 
 ```js run
 alert('Hola\nMundo'); // dos líneas usando el "símbolo de nueva línea"
@@ -70,7 +70,9 @@ alert(`Hola
 Mundo`);
 ```
 
-Existen otros tipos de caracteres especiales, menos comunes. Aquí está la lista:
+Existen otros tipos de caracteres especiales, menos comunes. 
+
+Esta es la lista completa:
 
 | Caracter       | Descripción                                                                                                                                                      |
 | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -90,7 +92,7 @@ alert('\u{20331}'); // 佫, un raro jeroglífico chino (unicode largo)
 alert('\u{1F60D}'); // 😍, un emoticón sonriendo (otro unicode largo)
 ```
 
-Todos los caracteres especiales comienzan con una barra invertida `\`. También conocida como "caracter de escape".
+Todos los caracteres especiales comienzan con una barra invertida `\`. También conocida como "carácter de escape".
 
 También la usamos si queremos insertar una comilla dentro de un string.
 
@@ -110,7 +112,7 @@ alert(`Yo soy "Walrus"`); // Yo soy "Walrus"
 
 Notar que el caracter de escape `\` sirve para la correcta lectura del string por JavaScript, luego desaparece. El string que quedó en la memoria no incluye `\`. Lo puedes ver claramente en el `alert` del ejemplo anterior.
 
-¿Pero qué pasa si necesitamos incluir un caracter de escape `\` en el string?
+¿Pero qué pasa si necesitamos incluir un carácter de escape `\` en el string?
 
 Es posible, pero debemos duplicarlo como sigue `\\`:
 
@@ -125,10 +127,11 @@ La propiedad 'length' entrega el largo del string:
 ```js run
 alert(`Mi\n`.length); // 3
 ```
+
 Notar que `\n` es un caracter "especial" único, por lo que el largo es `3`.
 
-```warn header="`length` es una característica"
-Gente con experiencia en otros lenguajes a veces comete errores de tipeo al llamar `str.length()` en vez de `str.length`. Esto no funciona.
+```warn header="`length` es una propiedad"
+Gente con experiencia en otros lenguajes a veces comete el error de tipear `str.length()` en vez de `str.length`. Eso no funciona.
 
 Por favor notar que `str.length` es una propiedad numérica, no una función. No hay necedidad de agregar un paréntesis después de ella.
 
@@ -136,7 +139,7 @@ Por favor notar que `str.length` es una propiedad numérica, no una función. No
 
 ## Accediendo caracteres
 
-Para acceder a un caracter en la posición `pos`, se debe usar paréntesis cuadrados `[pos]` o llamar al método [str.charAt(pos)](mdn:js/String/charAt). El primer caracter comienza desde la posición cero:
+Para acceder a un carácter en la posición `pos`, se debe usar paréntesis cuadrados `[pos]` o llamar al método [str.charAt(pos)](mdn:js/String/charAt). El primer carácter comienza desde la posición cero:
 
 ```js run
 let str = `Hola`;
@@ -149,9 +152,9 @@ alert( str.charAt(0) ); // H
 alert( str[str.length - 1] ); // a
 ````
 
-Los paréntesis cuadrados son una forma moderna de acceder a los caracteres, mientras que `charAt` existe principalmente por razones históricas.
+Los corchetes son una forma moderna de acceder a los caracteres, mientras que `charAt` existe principalmente por razones históricas.
 
-La única diferencia entre ellos es que si no se encuentra un caracter, `[]` retorna `undefined` (indefinido), y `charAt` retorna un string vacío.
+La única diferencia entre ellos es que si no se encuentra un caracter, `[]` devuelve `undefined`, y `charAt` devuelve un string vacío.
 
 ```js run
 let str = `Hola`;
@@ -170,9 +173,9 @@ for (let char of 'Hola') {
 
 ## Strings son inmutables
 
-Strings no pueden ser modificados en JavaScript. Es imposible modificar un caracter.
+Strings no pueden ser modificados en JavaScript. Es imposible modificar un carácter.
 
-Intentemoslo para demostrar que no funciona:
+Intentémoslo para demostrar que no funciona:
 
 ```js run
 let str = 'Hola';
@@ -218,7 +221,7 @@ Existen muchas formas de buscar por subcadenas de caracteres dentro de una caden
 
 El primer método es [str.indexOf(substr, pos)](mdn:js/String/indexOf).
 
-Este busca un `substr` en `str`, comenzando desde la posición entregada `pos`, y retorna la posición donde es encontrado el subcaracter o `-1` en caso de no encontrar nada.
+Este busca un `substr` en `str`, comenzando desde la posición entregada `pos`, y retorna la posición donde es encontrada la coincidencia o `-1` en caso de no encontrar nada.
 
 Por ejemplo:
 
@@ -275,8 +278,7 @@ while ((pos = str.indexOf(target, pos + 1)) != -1) {
 ```smart header="`str.lastIndexOf(substr, position)`"
 Existe también un método similar [str.lastIndexOf(substr, position)](mdn:js/String/lastIndexOf) que busca desde el final del string hasta el comienzo.
 
-Este imprimirá las ocurrencias en orden reverso.
-
+Este imprimirá las ocurrencias en orden invertido.
 ````
 
 Existe un leve inconveniente con `indexOf` en la prueba `if`. No podemos utilizarlo en el `if` como sigue:
@@ -304,7 +306,8 @@ if (str.indexOf("Widget") != -1) {
 ```
 
 ````smart header="El truco bitwise NOT"
-Uno de los trucos antiguos es el operador [bitwise NOT](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Bitwise_Operators#Bitwise_NOT)) `~`. Este convierte el número en un entero de 32-bits (elimina la parte decimal si es que existe) y luego reversa todos los bits en su representación binaria.
+
+Uno de los trucos antiguos es el operador [bitwise NOT](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Bitwise_Operators#Bitwise_NOT)) `~`. Este convierte el número en un entero de 32-bits (elimina la parte decimal si es que existe) y luego invierte todos los bits en su representación binaria.
 
 Para enteros de 32 bits, el llamado `~n` significa exactamente lo mismo que `-(n+1)` (debido al formato IEEE-754).
 
@@ -319,11 +322,11 @@ alert( ~-1 ); // 0, lo mismo que -(-1+1)
 */!*
 ```
 
-Como podemos ver, `~n` es cero sólo si `n == -1`.
+Como podemos ver, `~n` es cero sólo si `n == -1`.  (para cualquier entero de 32-bit con signo).
 
 Por lo que, la prueba `if ( ~str.indexOf("...") )` es veraz y el resultado de ``indexOf no es `-1`. En otras palabras, cuando es encontrado.
 
-La gente lo usa para acrotar verificaciones `indexOf`:
+La gente lo usa para acortar verificaciones `indexOf`:
 
 ```js run
 let str = "Widget";
@@ -336,7 +339,10 @@ if (~str.indexOf("Widget")) {
 Usualmente no es recomendado utilizar características linguisticas en formas no obvias, pero en particular, este truco es utilizado ampliamente en código antiguo, por lo que debemos entenderlo.
 
 Recuerda: `if (~str.indexOf(...))` es leído como "si es encontrado".
-````
+
+Para ser preciso, como los números grandes son truncados a 32 bits por el operador `~`,  existen otros números que dan `0`, el menor es `~4294967295=0`.  Esto hace que tal chequeo sea correcto solo si el string no es así de largo.
+
+Ahora podemos ver este truco solo en código viejo, porque JavaScript moderno provee el método `.includes` (ver a continuación).
 
 ### includes, startsWith, endsWith
 
@@ -350,7 +356,7 @@ alert('Widget con id'.includes('Widget')); // true
 alert('Hola'.includes('Adios')); // false
 ```
 
-El segundo argumento opcional de `str.includes` es la posición desde dónde comienza a buscar:
+El segundo argumento opcional de `str.includes` es la posición desde donde comienza a buscar:
 
 ```js run
 alert('Midget'.includes('id')); // true
@@ -386,7 +392,7 @@ Existen 3 métodos en JavaScript para obtener un substring: `substring`, `substr
     alert( str.slice(2) ); // ringify, desde la 2nda posición hasta el final
     ```
 
-    Valores negativos para `comienzo/final` también son posibles. Ellos indican que la posición es contada desde el final del string.
+    También son posibles valores negativos para `comienzo/final`. Ellos indican que la posición es contada desde el final del string.
     
 
     ```js run
@@ -414,7 +420,7 @@ Existen 3 métodos en JavaScript para obtener un substring: `substring`, `substr
 
     ```
 
-    Argumentos negativos son (al contrario de slice) compatibles, son tratados como `0`.
+    Los argumentos negativos (al contrario de slice) no son soportados, son tratados como `0`.
 
 `str.substr(comienzo [, largo])`
 : Retorna la parte del string desde `comienzo`, con el `largo` dado.
@@ -443,16 +449,16 @@ Recapitulemos los métodos para evitar confusiones:
 | `substr(comienzo, largo)` | desde `comienzo` toma `largo` caracteres        | permite negativos `comienzo`  |
 
 ```smart header="¿Cuál elegir?"
-Todos son capaces de hacer el trabajo. Formalmente, `substr` tiene una pequeña desventaja: no es descrito en la especificación central de JavaScript, pero en Annex B, la cual cubre características sólo de navegadores, que existen principalmente por razones históricas. Por lo que entornos sin navegador pueden fallar en compatibilidad. Pero en la práctica funciona en todos lados.
+Todos son capaces de hacer el trabajo. Formalmente, `substr` tiene una pequeña desventaja: no es descrito en la especificación central de JavaScript, sino en el anexo B, el cual cubre características sólo de navegadores, que existen principalmente por razones históricas. Por lo que entornos sin navegador pueden fallar en compatibilidad. Pero en la práctica funciona en todos lados.
 
-Los autores generalmente usan `slice` casi todo el tiempo
+De las otras dos variantes, `slice` es algo más flexible, permite argumentos negativos y es más corta. Entones, es sufuciente con, de estos tres métodos, recordar únicamente `slice`.
 ```
 
 ## Comparando strings
 
-Como sabemos desde el capítulo <info:comparison>, strings son comparados caracter por caracter, en orden alfabético.
+Como sabemos desde el capítulo <info:comparison>, strings son comparados carácter por carácter en orden alfabético.
 
-Aunque, existen algunas singularidades.
+Aunque existen algunas singularidades.
 
 1. Una letra minúscula es siempre mayor que una mayúscula:
 
@@ -470,7 +476,7 @@ Aunque, existen algunas singularidades.
 
 Para entender qué pasa, revisemos la representaciín interna de strings en JavaScript.
 
-Todos los strings son codificados usando [UTF-16](https://es.wikipedia.org/wiki/UTF-16). Esto significa: cada caracter tiene un código numérico correspondiente. Existen métodos especiales que permiten obtener el carácter para el código y viceversa.
+Todos los strings son codificados usando [UTF-16](https://es.wikipedia.org/wiki/UTF-16). Esto significa: cada carácter tiene un código numérico correspondiente. Existen métodos especiales que permiten obtener el carácter para el código y viceversa.
 
 `str.codePointAt(pos)`
 : Retorna el código para el caracter en la posición `pos`:
@@ -515,7 +521,7 @@ Ahora se vuelve obvio por qué `a > Z`.
 Los caracteres son comparados por su código numérico. Código mayor significa que el caracter es mayor. El código para `a` (97) es mayor que el código para `Z` (90).
 
 - Todas las letras minúsculas van después de las mayúsculas ya que sus códigos son mayores.
-- Algunas letras como `Ö` se mantienen apartadas del alfabeto principal. Aquó, el codigo es mayor que cualquiera desde `a` hasta `z`.
+- Algunas letras como `Ö` se mantienen apartadas del alfabeto principal. Aquí el codigo es mayor que cualquiera desde `a` hasta `z`.
 
 ### Comparaciones correctas
 
@@ -544,7 +550,7 @@ Este método tiene dos argumentos adicionales especificados en [la documentació
 ## Internals, Unicode
 
 ```warn header="Conocimiento avanzado"
-Esta sección ahonda en string internals. Este conocimiento será útil para ti si pleaneas lidiar con emoticones, raros caracteres matemáticos, jeroglíficos o otros símbolos extraños.
+Esta sección ahonda en string internals. Este conocimiento será útil para ti si pleaneas lidiar con emoticones, raros caracteres matemáticos, jeroglíficos u otros símbolos extraños.
 
 Puedes saltar esta sección si no planeas mantenerlos.
 ```
@@ -589,7 +595,7 @@ alert('𝒳'.charCodeAt(0).toString(16)); // d835, entre 0xd800 y 0xdbff
 alert('𝒳'.charCodeAt(1).toString(16)); // dcb3, entre 0xdc00 y 0xdfff
 ```
 
-Encontrarás más formas de trabajar con pares sustitutos más adelante en el capítulo <info:iterable>. Probablemente hay bibliotecas especiales para eso también, pero nada lo suficientemente famoso como para sugerir aquí.
+Encontrarás más formas de trabajar con pares sustitutos más adelante en el capítulo <info:iterable>. Probablemente hay bibliotecas especiales para eso también, pero nada lo suficientemente famoso como para sugerirlo aquí.
 
 ### Marcas diacríticas y normalización
 
@@ -665,4 +671,3 @@ Existen varios otros métodos útiles en cadenas:
 
 
 Strings también tienen métodos para buscar / reemplazar con expresiones regulares. Pero ese tema merece un capítulo separado, así que volveremos a eso más adelante.
-

@@ -4,7 +4,7 @@ importance: 5
 
 # Truncar el texto
 
-Crea una función `truncate(str, maxlength)` que verifique la longitud de `str` y, si excede `maxlength` - reemplaza el final de `str` con el carácter de puntos suspensivos `"..."`, para hacer su longitud igual a `maxlength`.
+Crea una función `truncate(str, maxlength)` que verifique la longitud de `str` y, si excede `maxlength` - reemplaza el final de `str` con el carácter de puntos suspensivos `"…"`, para hacer su longitud igual a `maxlength`.
 
 El resultado de la función debe ser la cadena truncada (si es necesario).
 
