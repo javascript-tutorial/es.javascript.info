@@ -132,7 +132,6 @@ Gente con experiencia en otros lenguajes a veces comete errores de tipeo al llam
 
 Por favor notar que `str.length` es una propiedad numérica, no una función. No hay necedidad de agregar un paréntesis después de ella.
 
-
 ````
 
 ## Accediendo caracteres
@@ -188,9 +187,7 @@ Por ejemplo:
 
 ```js run
 let str = 'Hola';
-
 str = 'h' + str[1]; // reemplaza el string
-
 alert(str); // hola
 ```
 
@@ -394,7 +391,6 @@ Existen 3 métodos en JavaScript para obtener un substring: `substring`, `substr
 
     ```js run
     let str = "strin*!*gif*/!*y";
-
     // comienza en la 4ta posición desde la derecha, finaliza en la 1era posición desde la derecha
     alert( str.slice(-4, -1) ); // gif
     ```
@@ -403,9 +399,7 @@ Existen 3 métodos en JavaScript para obtener un substring: `substring`, `substr
 : Retorna la parte del string _entre_ `comienzo` y `final`.
 
     Esto es casi lo mismo que `slice`, pero permite que `comienzo` sea mayor que `final`. 
-
     Por ejemplo:
-
 
     ```js run
     let str = "st*!*ring*/!*ify";
@@ -422,12 +416,10 @@ Existen 3 métodos en JavaScript para obtener un substring: `substring`, `substr
 
     Argumentos negativos son (al contrario de slice) compatibles, son tratados como `0`.
 
-
 `str.substr(comienzo [, largo])`
 : Retorna la parte del string desde `comienzo`, con el `largo` dado.
 
     A diferencia de los métodos anteriores, este nos permite especificar el `largo` en lugar de la posición final:
-
 
     ```js run
     let str = "st*!*ring*/!*ify";
@@ -521,7 +513,6 @@ Ves? Caracteres capitalizados (mayúsculas) van primero, luego unos cuantos cara
 Ahora se vuelve obvio por qué `a > Z`.
 
 Los caracteres son comparados por su código numérico. Código mayor significa que el caracter es mayor. El código para `a` (97) es mayor que el código para `Z` (90).
-
 
 - Todas las letras minúsculas van después de las mayúsculas ya que sus códigos son mayores.
 - Algunas letras como `Ö` se mantienen apartadas del alfabeto principal. Aquó, el codigo es mayor que cualquiera desde `a` hasta `z`.
@@ -671,6 +662,7 @@ Existen varios otros métodos útiles en cadenas:
 - `str.trim()` -- remueve ("recorta") espacios desde el comienzo y final de un string.
 - `str.repeat(n)` -- repite el string `n` veces.
 - ...y más. Mira el [manual](mdn:js/String) para más detalles.
+
 
 Strings también tienen métodos para buscar / reemplazar con expresiones regulares. Pero ese tema merece un capítulo separado, así que volveremos a eso más adelante.
 
