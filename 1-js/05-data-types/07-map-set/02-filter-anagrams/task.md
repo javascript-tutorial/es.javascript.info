@@ -8,11 +8,13 @@ importance: 4
 
 Por ejemplo:
 
+
 ```
 nap - pan
 ear - are - era
 cheaters - hectares - teachers
 ```
+
 
 Escriba una función `aclean(arr)` que devuelva un array limpio de anagramas.
 
@@ -22,7 +24,9 @@ Por ejemplo:
 ```js
 let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
 
+
 alert( aclean(arr) ); // "nap,teachers,ear" o "PAN,cheaters,era"
 ```
+
 Es decir, de cada grupo de anagramas debe quedar solo una palabra, sin importar cual.
 
