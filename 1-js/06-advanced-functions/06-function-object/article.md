@@ -343,11 +343,11 @@ Aquí cubrimos sus propiedades:
 - `name` -- El nombre de la función. Por lo general, se toma de la definición de la función, pero si no hay ninguno, JavaScript intenta adivinarlo por el contexto (por ejemplo, una asignación).
 - `length` -- El número de argumentos en la definición de la función. Los *parámetros rest* no se cuentan.
 
+
 Si la función se declara como una Expresión de función (no en el flujo de código principal), y lleva el nombre, se llama Expresión de Función con Nombre *(Named Function Expression)*. El nombre se puede usar dentro para hacer referencia a sí mismo, para llamadas recursivas o similares.
 
 Además, las funciones pueden tener propiedades adicionales. Muchas bibliotecas de JavaScript conocidas hacen un gran uso de esta función.
 
 Crean una función "principal" y le asignan muchas otras funciones "auxiliares". Por ejemplo, la biblioteca [jQuery](https://jquery.com) crea una función llamada `$`. la biblioteca  [lodash](https://lodash.com)  crea una función  `_`, y luego agrega `_.clone`, `_.keyBy` y otras propiedades (see the [docs](https://lodash.com/docs) cuando quieras aprender más sobre ello). En realidad, lo hacen para disminuir su contaminación del espacio global, de modo que una sola biblioteca proporciona solo una variable global. Eso reduce la posibilidad de nombrar conflictos.
-
 
 Por lo tanto, una función puede hacer un trabajo útil por sí misma y también puede tener muchas otras funcionalidades en las propiedades.
