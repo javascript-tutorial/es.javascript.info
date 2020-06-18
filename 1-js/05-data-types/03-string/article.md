@@ -17,7 +17,7 @@ let double = "comillas dobles";
 let backticks = `backticks`;
 ```
 
-Comillas simples y dobles son escencialmente lo mismo. Sin embargo, los backticks, nos permiten ingresar expresiones dentro del string, incluso llamados a funciones:
+Comillas simples y dobles son escencialmente lo mismo. Sin embargo los "backticks" nos permiten ingresar expresiones dentro del string, incluso llamados a funciones:
 
 ```js run
 function sum(a, b) {
@@ -123,7 +123,7 @@ Notar que el caracter de escape `\` sirve para la correcta lectura del string po
 Es posible, pero debemos duplicarlo como sigue `\\`:
 
 ```js run
-alert(`El caracter de escape: \\`); // El caracter de escape: \
+alert(`El carácter de escape: \\`); // El carácter de escape: \
 ```
 
 ## Largo del string (String length)
@@ -212,7 +212,7 @@ alert('Interfaz'.toUpperCase()); // INTERFAZ
 alert('Interfaz'.toLowerCase()); // interfaz
 ```
 
-Si queremos un sólo caractér en minúscula:
+Si queremos un solo caractér en minúscula:
 
 ```js
 alert('Interfaz'[0].toLowerCase()); // 'i'
@@ -341,7 +341,7 @@ if (~str.indexOf("Widget")) {
 }
 ```
 
-Usualmente no es recomendado utilizar características linguisticas en formas no obvias, pero en particular, este truco es utilizado ampliamente en código antiguo, por lo que debemos entenderlo.
+Usualmente no es recomendado utilizar características del lenguaje en formas no obvias, pero en particular, este truco es utilizado ampliamente en código antiguo, por lo que debemos entenderlo.
 
 Recuerda: `if (~str.indexOf(...))` es leído como "si es encontrado".
 
@@ -519,7 +519,7 @@ alert(str);
 // ¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜ
 ```
 
-Ves? Caracteres capitalizados (mayúsculas) van primero, luego unos cuantos caracteres especiales, luego las minúsculas.
+¿Lo ves? Caracteres capitalizados (mayúsculas) van primero, luego unos cuantos caracteres especiales, luego las minúsculas.
 
 Ahora se vuelve obvio por qué `a > Z`.
 
@@ -631,7 +631,7 @@ Esto proporciona una gran flexibilidad, pero también un problema interesante: d
 Por ejemplo:
 
 ```js run
-let s1 = 'S\u0307\u0323'; // Ṩ, S + punti arriba + punto debajo
+let s1 = 'S\u0307\u0323'; // Ṩ, S + punto arriba + punto debajo
 let s2 = 'S\u0323\u0307'; // Ṩ, S + punto debajo + punto arriba
 
 alert( `s1: ${s1}, s2: ${s2}` );
@@ -676,4 +676,4 @@ Existen varios otros métodos útiles en cadenas:
 - `str.repeat(n)` -- repite el string `n` veces.
 - ...y más. Mira el [manual](mdn:js/String) para más detalles.
 
-Strings también tienen métodos con expresiones regulares para buscar/reemplazar. Pero ese tema es importante, así que es explicado en la sección <info:regular-expressions> .
+Strings también tienen métodos con expresiones regulares para buscar/reemplazar. Es un tema importante, así que es explicado en su propia sección <info:regular-expressions> .
