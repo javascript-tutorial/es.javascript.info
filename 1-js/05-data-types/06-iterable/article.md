@@ -13,6 +13,7 @@ Podemos comprender fácilmente el concepto de iterables por medio de la práctic
 
 Por ejemplo, tenemos un objeto, que no es una matriz, pero parece adecuado para `for..of`.
 
+
 Como un objeto *`range`* que representa un intervalo de números:
 
 ```js
@@ -34,7 +35,6 @@ Para hacer que el `range` sea iterable (y así permitir que` for..of` funcione) 
 
 Aquí está la implementación completa de `range`:
  
-
 ```js run
 let range = {
   from: 1,
@@ -115,7 +115,6 @@ No hay limitaciones en `next`, éste puede retornar muchos valores.
 Por supuesto, el bucle `for..of` sobre un iterativo de este tipo sería interminable. Pero siempre podemos detenerlo usando `break`.
 ```
 
-
 ## *String* es iterable
 
 Las matrices y cadenas son los iterables integrados más utilizados.
@@ -146,14 +145,15 @@ Pero para comprender las cosas un poco más en profundidad, veamos cómo crear u
 
 Vamos a iterar sobre una cadena de la misma manera que `for..of`, pero con llamadas directas. Este código obtiene un iterador de cadena y lo llama "manualmente":
  
-
 ```js run
 let str = "Hola";
 
 // hace lo mismo que
 // for (let char of str) alert(char);
 
+*!*
 let iterator = str[Symbol.iterator]();
+*/!*
 
 while (true) {
   let result = iterator.next();
@@ -222,8 +222,9 @@ Lo mismo sucede para un iterable:
 let arr = Array.from(range);
 alert(arr); // 1,2,3,4,5 (la conversión de matriz a cadena funciona)
 ```
+
 La sintaxis completa para `Array.from` permite proporcionar una función opcional de "mapeo" :
- 
+
 ```js
 Array.from(obj[, mapFn, thisArg])
 ```
