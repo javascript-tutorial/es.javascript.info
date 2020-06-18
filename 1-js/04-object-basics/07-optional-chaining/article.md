@@ -47,7 +47,6 @@ Aquí está la forma segura de acceder a `user.address.street`:
 
 ```js run
 let user = {}; // El usuario no tiene dirección
-
 alert( user?.address?.street ); // undefined (no error)
 ```
 
@@ -74,7 +73,7 @@ Por ejemplo, si de acuerdo con nuestra lógica de codificación, el objeto `user
 Entonces, si `user` no está definido debido a un error, lo sabremos y lo arreglaremos. De lo contrario, los errores de codificación pueden silenciarse donde no sea apropiado y volverse más difíciles de depurar.
 ```
 
-````warn header="La variable antes de `?.` debe existir"
+````warn header="La variable antes de ?. debe existir"
 Si no hay una variable `user`, entonces `user? .Anything` provocará un error:
 
 ```js run
@@ -132,9 +131,7 @@ La sintaxis `?.[]` también funciona, si nos gustaría usar corchetes `[]` para 
 let user1 = {
   firstName: "John"
 };
-
 let user2 = null; // Imagine, no podríamos autorizar al usuario
-
 let key = "firstName";
 
 alert( user1?.[key] ); // John
@@ -174,3 +171,4 @@ Una cadena de `?.` permite acceder de forma segura a las propiedades anidadas.
 Aún así, debemos aplicar `?.` con cuidado, solo donde está bien que la parte izquierda no exista.
 
 Para que no nos oculte errores de programación, si ocurren.
+
