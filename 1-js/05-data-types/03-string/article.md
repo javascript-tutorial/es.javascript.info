@@ -39,6 +39,8 @@ let guestList = `Invitados:
 alert(guestList); // una lista de invitados, en múltiples líneas
 ```
 
+Se ve natural, ¿no es cierto? Pero las comillas simples y dobles no funcionan de esa manera.
+
 Si intentamos usar comillas simples o dobles de la misma forma, obtendremos un error:
 
 ```js run
@@ -63,26 +65,30 @@ alert(guestList); // una lista de invitados en múltiples líneas
 Por ejemplo, estas dos líneas son iguales, solo que escritas en forma diferente:
 
 ```js run
-alert('Hola\nMundo'); // dos líneas usando el "símbolo de nueva línea"
+let str1 = "Hello\nWorld"; // dos líneas usando el "símbolo de nueva línea"
 
-// dos líneas usando una nueva línea normal y los backticks
-alert(`Hola
-Mundo`);
+// dos líneas usando nueva línea normal y backticks
+let str2 = `Hello
+World`;
+
+alert(str1 == str2); // true
 ```
 
 Existen otros tipos de caracteres especiales, menos comunes. 
 
 Esta es la lista completa:
 
-| Caracter       | Descripción                                                                                                                                                      |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `\b`           | Retroceso                                                                                                                                                        |
-| `\f`           | Salto de página                                                                                                                                                  |
-| `\n`           | Nueva línea                                                                                                                                                      |
-| `\r`           | Retorno                                                                                                                                                          |
-| `\t`           | Tab                                                                                                                                                              |
-| `\uNNNN`       | Un símbolo unicode con el código hex `NNNN`, por ejemplo `\u00A9` -- es un unicode para el símbolo de derechos de autor `©`. Deben ser exactamente 4 dígitos hex. |
-| `\u{NNNNNNNN}` | Algunos caracteres extraños son codificados con dos símbolos unicode, utilizando hasta 4 bytes. Este unicode largo requiere llaves a su alrededor.               |
+| Carácter | Descripción |
+|-----------|-------------|
+|`\n`|Nueva línea|
+|`\r`|Carriage return (retorno de carro): No se usa solo. Los archivos de texto de Windows usan una combinaión de dos caracteres `\r\n` para representar un corte de línea. |
+|`\'`, `\"`|Comillas|
+|`\\`|Barra invertida|
+|`\t`|Tabulación|
+|`\b`, `\f`, `\v`| Backspace, Form Feed, Vertical Tab -- Se mantienen por compatibilidad. No son usados actualmente |
+|`\xXX`|Carácter Unicode con el hexadecimal dado `XX`, por ej. `'\x7A'` es lo mismo que `'z'`.|
+|`\uXXXX`|Un símbolo unicode con el hexadecimal dado `XXXX` en codificación UTF-16, p.ej. `\u00A9` -- es el unicode para el símbolo copyright `©`. Debe ser exactamente 4 dígitos  hex. |
+|`\u{X…XXXXXX}` (1 a 6 caracteres hex)|Un símbolo unicode con el hexadecimal dado en codificación UTF-32. Algunos caracteres raros son codificados con  dos símbolos unicode, tomando 4 bytes. De esta manera podemos insertar códigos largos. |
 
 Ejemplos con unicode:
 
@@ -128,14 +134,13 @@ La propiedad 'length' entrega el largo del string:
 alert(`Mi\n`.length); // 3
 ```
 
-Notar que `\n` es un caracter "especial" único, por lo que el largo es `3`.
+Notar que `\n` es un carácter "especial" único, por lo que el largo es `3`.
 
 ```warn header="`length` es una propiedad"
 Gente con experiencia en otros lenguajes a veces comete el error de tipear `str.length()` en vez de `str.length`. Eso no funciona.
 
-Por favor notar que `str.length` es una propiedad numérica, no una función. No hay necedidad de agregar un paréntesis después de ella.
-
-````
+Por favor notar que `str.length` es una propiedad numérica, no una función. No hay necesidad de agregar un paréntesis después de ella.
+```
 
 ## Accediendo caracteres
 
@@ -144,13 +149,13 @@ Para acceder a un carácter en la posición `pos`, se debe usar paréntesis cuad
 ```js run
 let str = `Hola`;
 
-// el primer caracter
+// el primer carácter
 alert( str[0] ); // H
 alert( str.charAt(0) ); // H
 
-// el último caracter
+// el último carácter
 alert( str[str.length - 1] ); // a
-````
+```
 
 Los corchetes son una forma moderna de acceder a los caracteres, mientras que `charAt` existe principalmente por razones históricas.
 
@@ -190,8 +195,10 @@ Por ejemplo:
 
 ```js run
 let str = 'Hola';
+
 str = 'h' + str[1]; // reemplaza el string
-alert(str); // hola
+
+alert( str ); // hola
 ```
 
 En la sección siguiente veremos más ejemplos de esto.
@@ -215,9 +222,7 @@ alert('Interfaz'[0].toLowerCase()); // 'i'
 
 Existen muchas formas de buscar por subcadenas de caracteres dentro de una cadena completa.
 
-
 ### str.indexOf
-
 
 El primer método es [str.indexOf(substr, pos)](mdn:js/String/indexOf).
 
@@ -279,7 +284,7 @@ while ((pos = str.indexOf(target, pos + 1)) != -1) {
 Existe también un método similar [str.lastIndexOf(substr, position)](mdn:js/String/lastIndexOf) que busca desde el final del string hasta el comienzo.
 
 Este imprimirá las ocurrencias en orden invertido.
-````
+```
 
 Existe un leve inconveniente con `indexOf` en la prueba `if`. No podemos utilizarlo en el `if` como sigue:
 
@@ -289,7 +294,7 @@ let str = "Widget con id";
 if (str.indexOf("Widget")) {
     alert("Lo encontramos"); // no funciona!
 }
-````
+```
 
 La `alerta` en el ejemplo anterior no se muestra ya que `str.indexOf("Widget")` retorna `0` (lo que significa que encontró el string en la posoción inicial). Correcto pero `if` considera `0` como `falso`.
 
@@ -305,11 +310,11 @@ if (str.indexOf("Widget") != -1) {
 }
 ```
 
-````smart header="El truco bitwise NOT"
+#### El truco "bitwise NOT"
 
-Uno de los trucos antiguos es el operador [bitwise NOT](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Bitwise_Operators#Bitwise_NOT)) `~`. Este convierte el número en un entero de 32-bits (elimina la parte decimal si es que existe) y luego invierte todos los bits en su representación binaria.
+Uno de los antiguos trucos es el operador [bitwise NOT](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Bitwise_Operators#Bitwise_NOT)) `~`. Este convierte el número en un entero de 32-bits (elimina la parte decimal si es que existe) y luego invierte todos los bits en su representación binaria.
 
-Para enteros de 32 bits, el llamado `~n` significa exactamente lo mismo que `-(n+1)` (debido al formato IEEE-754).
+En la práctica, esto significa una simple cosa: Para enteros de 32 bits, `~n` es igual a `-(n+1)`.
 
 Por ejemplo:
 
@@ -402,9 +407,10 @@ Existen 3 métodos en JavaScript para obtener un substring: `substring`, `substr
     ```
 
 `str.substring(comienzo [, final])`
-: Retorna la parte del string _entre_ `comienzo` y `final`.
+: Devuelve la parte del string _entre_ `comienzo` y `final`.
 
     Esto es casi lo mismo que `slice`, pero permite que `comienzo` sea mayor que `final`. 
+    
     Por ejemplo:
 
     ```js run
@@ -433,7 +439,6 @@ Existen 3 métodos en JavaScript para obtener un substring: `substring`, `substr
     ```
 
     El primer argumento puede ser negativo, para contar desde el final:
-
 
     ```js run
     let str = "strin*!*gi*/!*fy";
@@ -493,6 +498,7 @@ Todos los strings son codificados usando [UTF-16](https://es.wikipedia.org/wiki/
     ```js run
     alert( String.fromCodePoint(90) ); // Z
     ```
+    
     También podemos agregar caracteres unicode por sus códigos usando `\u` seguido de un código hex:
 
     ```js run
@@ -501,7 +507,6 @@ Todos los strings son codificados usando [UTF-16](https://es.wikipedia.org/wiki/
     ```
 
 Ahora veamos los caracteres con códigos `65..220` (el alfabeto latín y unos extras) haciendo de ellos un string:
-
 
 ```js run
 let str = '';
@@ -571,11 +576,11 @@ alert('𩷶'.length); // 2, un raro jeroglífico chino
 
 Notar que los pares sustitutos no existían en el tiempo que JavaScript fue creado, y por ello no son procesados correctamente por el lenguaje!
 
-De hecho, tenemos un sólo símbolo en cada string más arriba, pero el `length` (largo) muestra `2`.
+De hecho, tenemos un solo símbolo en cada string más arriba, pero el `length` (largo) muestra `2`.
 
 `String.fromCodePoint` y `str.codePointAt` son algunos métodos extraños que tratan con pares sustitutos. Aparecieron recientemente en el lenguaje. Antes de ellos, existían sólo [String.fromCharCode](mdn:js/String/fromCharCode) y [str.charCodeAt](mdn:js/String/charCodeAt). Estos métodos son actualmente lo mismo que `fromCodePoint/codePointAt`, pero no funcionan con pares sustitutos.
 
-Pero por ejemplo, obtener un símbolo puede ser dificil, ya que los pares substitutos son tratados como dos caracteres:
+Obtener un símbolo puede ser dificil, ya que los pares substitutos son tratados como dos caracteres:
 
 ```js run
 alert('𝒳'[0]); // símbolo extraño...
@@ -626,10 +631,12 @@ Esto proporciona una gran flexibilidad, pero también un problema interesante: d
 Por ejemplo:
 
 ```js run
-alert('S\u0307\u0323'); // Ṩ, S + punti arriba + punto debajo
-alert('S\u0323\u0307'); // Ṩ, S + punto debajo + punto arriba
+let s1 = 'S\u0307\u0323'; // Ṩ, S + punti arriba + punto debajo
+let s2 = 'S\u0323\u0307'; // Ṩ, S + punto debajo + punto arriba
 
-alert('S\u0307\u0323' == 'S\u0323\u0307'); // false
+alert( `s1: ${s1}, s2: ${s2}` );
+
+alert( s1 == s2 ); // false aunque los caracteres se ven idénticos (?!)
 ```
 
 Para resolver esto, existe un algoritmo de "normalización unicode" que lleva cada cadena a la forma "normal".
@@ -669,5 +676,4 @@ Existen varios otros métodos útiles en cadenas:
 - `str.repeat(n)` -- repite el string `n` veces.
 - ...y más. Mira el [manual](mdn:js/String) para más detalles.
 
-
-Strings también tienen métodos para buscar / reemplazar con expresiones regulares. Pero ese tema merece un capítulo separado, así que volveremos a eso más adelante.
+Strings también tienen métodos con expresiones regulares para buscar/reemplazar. Pero ese tema es importante, así que es explicado en la sección <info:regular-expressions> .
