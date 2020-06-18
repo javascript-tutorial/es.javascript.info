@@ -96,25 +96,21 @@ let node2 = {"name":"HTML","nodeType":1,"children":[{"name":"HEAD","nodeType":1,
 drawHtmlTree(node2, 'div.domtree', 690, 210);
 </script>
 
-```smart header="Spaces at string start/end and space-only text nodes are usually hidden in tools"
-Browser tools (to be covered soon) that work with DOM usually do not show spaces at the start/end of the text and empty text nodes (line-breaks) between tags.
-
-```smart header="Los espacios al inicio/final de la cadena y los nodos de texto que solo contienen espacios en blanco, por lo general, están ocultos en las herramientas.
+```cabecera inteligente="Los espacios al inicio/final de la cadena y los nodos de texto que solo contienen espacios en blanco, por lo general, están ocultos en las herramientas.
 Las herramientas del navegador (las veremos más adelante) que funcionan con DOM usualmente no muestran espacios al inicio/final del texto y nodos de texto vacíos (saltos de línea) entre etiquetas.
 
-Las herramientas para desarrolladores ahorran espacio en la pantalla de esta manera.
+De esta manera, las herramientas para desarrolladores ahorran espacio en la pantalla.
 
-On further DOM pictures we'll sometimes omit them when they are irrelevant. Such spaces usually do not affect how the document is displayed.
+En otras representaciones del DOM, las omitiremos cuando sean irrelevantes. Tales espacios generalmente no afectan la forma en la cual es mostrado el documento.
 ```
 
 ## Autocorreción
 
-Si el navegador encuentra HTML con formato incorrecto, lo corrige automáticamente al realizar el DOM.
+Si el navegador encuentra código HTML con formato incorrecto, lo corrige automáticamente al construir el DOM.
 
-For instance, the top tag is always `<html>`. Even if it doesn't exist in the document, it will exist in the DOM, because the browser will create it. The same goes for `<body>`.
+Por ejemplo, la etiqueta superior siempre será `<html>`. Incluso si no existe en el documento, esta existirá en el DOM, ya que, el navegador la creará. Sucede lo mismo con la etiqueta `<body>`.
 
-As an example, if the HTML file is the single word `"Hello"`, the browser will wrap it into `<html>` and `<body>`, and add the required `<head>`, and the DOM will be:
-
+Como ejemplo de ello, si el archivo HTML es la palabra `"Hello"`, el navegador lo envolverá con de las etiquetas `<html>` y `<body>`, y añadirá la etiqueta `<head>` la cual es requerida, basado en esto,  el DOM resultante será:
 
 <div class="domtree"></div>
 
@@ -124,18 +120,17 @@ let node3 = {"name":"HTML","nodeType":1,"children":[{"name":"HEAD","nodeType":1,
 drawHtmlTree(node3, 'div.domtree', 690, 150);
 </script>
 
-While generating the DOM, browsers automatically process errors in the document, close tags and so on.
+Al generar el DOM, los navegadores procesan automaticamente los errores en el documento, cierran etiquetas, etc.
 
-A document with unclosed tags:
+Un documento sin etiquetas de cierre:
 
-```html no-beautify
+```html sin formatear
 <p>Hello
 <li>Mom
 <li>and
 <li>Dad
 ```
-
-...will become a normal DOM as the browser reads tags and restores the missing parts:
+...se convertirá en un DOM normal a medida que el navegador lee las etiquetas y compone las partes faltantes:
 
 <div class="domtree"></div>
 
@@ -145,16 +140,16 @@ let node4 = {"name":"HTML","nodeType":1,"children":[{"name":"HEAD","nodeType":1,
 drawHtmlTree(node4, 'div.domtree', 690, 360);
 </script>
 
-````warn header="Tables always have `<tbody>`"
-An interesting "special case" is tables. By the DOM specification they must have `<tbody>`, but HTML text may (officially) omit it. Then the browser creates `<tbody>` in the DOM automatically.
+````cabecera de advertencia="Las tablas siempre tienen la etiqueta `<tbody>`"
+Un "caso especial" interesante son las tablas. De acuerdo a la especificación, DOM debe tener `<tbody>`, sin embargo, el texto HTML por convención puede omitir esto. Por lo tanto, el navegador crea automáticamente la etiqueta `<tbody>` en el DOM.
 
-For the HTML:
+Para el HTML:
 
-```html no-beautify
+```html sin formatear
 <table id="table"><tr><td>1</td></tr></table>
 ```
 
-DOM-structure will be:
+La estructura del DOM será:
 <div class="domtree"></div>
 
 <script>
