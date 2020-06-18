@@ -100,7 +100,7 @@ Comparado con la creada "de la forma usual" `user.name`: ahora todos los indicad
 
 Ahora veamos los efectos de los indicadores con ejemplo.
 
-## Read-only
+## Non-writable
 
 Vamos a hacer `user.name` de solo lectura cambiando el indicador `writable`:
 
@@ -124,13 +124,16 @@ Ahora nadie puede cambiar el nombre de nuestro usuario, a menos que le apliquen 
 
 Aquí está la misma operación, pero cuando la propiedad no existe:
 
+
 ```js run
 let user = { };
 
 Object.defineProperty(user, "name", {
 *!*
+
   value: "Pedro",
   // para las nuevas propiedades se necesita listarlas explicitamente como true
+
   enumerable: true,
   configurable: true
 */!*
@@ -139,7 +142,6 @@ Object.defineProperty(user, "name", {
 alert(user.name); // Pedro
 user.name = "Alicia"; // Error
 ```
-
 
 ## Non-enumerable
 
@@ -234,7 +236,7 @@ Object.defineProperty(user, "name", {
 // Nada de esto funcionará:
 //   user.name = "Pedro"
 //   delete user.name
-//   defineProperty(user, "name", ...)
+//   defineProperty(user, "name", { value: "Pete" })
 Object.defineProperty(user, "name", {writable: true}); // Error
 */!*
 ```
@@ -298,6 +300,7 @@ Los descriptores de propiedad trabajan al nivel de propiedades individuales.
 También hay métodos que limitan el acceso al objeto *completo*:
 
 [Object.preventExtensions(obj)](mdn:js/Object/preventExtensions)
+
 : Prohíbe añadir propiedades al objeto.
 
 [Object.seal(obj)](mdn:js/Object/seal)
