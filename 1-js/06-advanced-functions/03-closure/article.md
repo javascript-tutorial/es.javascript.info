@@ -7,7 +7,7 @@ Ya sabemos que una función puede acceder a variables fuera de ella.
 
 Ahora ampliemos nuestro conocimiento para incluir escenarios más complejos.
 
-```smart header="Hablaremos de las variables `let / const` aquí"
+```smart header="Hablaremos de las variables let / const aquí"
 En JavaScript, hay 3 formas de declarar una variable: `let`, `const` (las modernas) y `var` (más antigua).
 
 - En este artículo usaremos las variables `let` en los ejemplos.
@@ -24,9 +24,7 @@ Por ejemplo:
 ```js run
 {
   // hacer un trabajo con variables locales que no deberían verse fuera
-
   let message = "Hello"; // solo visible en este bloque
-
   alert(message); // Hello
 }
 
@@ -67,6 +65,7 @@ alert(message);
 
 Para `if`,` for`, `while` y así sucesivamente, las variables declaradas en `{...} ` de igual manera solo son visibles en el interior:
 
+
 ```js run
 if (true) {
   let phrase = "Hello!";
@@ -93,6 +92,7 @@ alert(i); // ¡Error, no hay tal variable!
 ```
 
 Visualmente, `let i` está fuera de `{...} `. Pero la construcción `for` es especial aquí: la variable, declarada dentro de ella, se considera parte del bloque.
+
 
 ## Funciones anidadas
 
@@ -121,6 +121,7 @@ Aquí la función *anidada* `getFullName()` se hace por conveniencia. Puede acce
 Lo que es mucho más interesante, es que puede devolverse una función anidada: ya sea como propiedad de un nuevo objeto o como resultado en sí mismo. Luego se puede usar en otro lugar. No importa dónde, todavía tiene acceso a las mismas variables externas.
 
 A continuación, `makeCounter` crea la función "contador "que devuelve el siguiente número en cada invocación:
+
 
 ```js run
 function makeCounter() {
@@ -355,9 +356,7 @@ function f() {
     alert(value);
   }
 }
-
 let g = f(); // mientras exista la función g, el valor permanece en la memoria
-
 g = null; // ... y ahora la memoria está limpia
 ```
 
@@ -376,11 +375,9 @@ Cuando se detiene, en el tipo de consola `alert(value)`.
 ```js run
 function f() {
   let value = Math.random();
-
   function g() {
     debugger; // en console: type alert(value); ¡No hay tal variable!
   }
-
   return g;
 }
 
@@ -408,7 +405,7 @@ function f() {
 let g = f();
 g();
 ```
-
 Esta característica de V8 es bueno saberla. Si está depurando con Chrome / Opera, tarde o temprano lo encontrará.
 
 Eso no es un error en el depurador, sino más bien una característica especial de V8. Tal vez en algún momento la cambiarán. Siempre puede verificarlo ejecutando los ejemplos en esta página.
+

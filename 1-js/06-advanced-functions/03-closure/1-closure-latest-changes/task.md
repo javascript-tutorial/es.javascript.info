@@ -21,3 +21,4 @@ sayHi(); // ¿qué mostrará: "John" o "Pete"?
 Tales situaciones son comunes tanto en el desarrollo del navegador como del lado del servidor. Se puede programar que una función se ejecute más tarde de lo que se creó, por ejemplo, después de una acción del usuario o una solicitud de red.
 
 Entonces, la pregunta es: ¿recoge los últimos cambios?
+

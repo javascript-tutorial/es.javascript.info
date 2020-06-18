@@ -1,3 +1,4 @@
+
 El resultado es: **error**.
 
 Intenta correr esto:
@@ -11,7 +12,6 @@ function func() {
 */!*
   let x = 2;
 }
-
 func();
 ```
 
@@ -26,6 +26,7 @@ El código anterior lo demuestra.
 ```js
 function func() {
 *!*
+
 // la variable local x es conocida por el motor desde el comienzo de la función,
 // pero "unitialized" (inutilizable) hasta let ("zona muerta")
 // de ahí el error
@@ -38,3 +39,4 @@ function func() {
 ```
 
 Esta zona de inutilización temporal de una variable (desde el comienzo del bloque de código hasta `let`) a veces se denomina" zona muerta ".
+

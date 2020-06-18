@@ -1,6 +1,7 @@
 
 # Filtrar inBetween
 
+
 ```js run
 function inBetween(a, b) {
   return function(x) {
@@ -13,6 +14,7 @@ alert( arr.filter(inBetween(3, 6)) ); // 3,4,5,6
 ```
 
 # Filtrar inArray
+
 
 ```js run demo
 function inArray(arr) {

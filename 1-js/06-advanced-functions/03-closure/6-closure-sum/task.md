@@ -10,7 +10,9 @@ Sí, exactamente de esta manera, usando paréntesis dobles (no un tipo incorrect
 
 Por ejemeplo:
 
+
 ```js
 sum(1)(2) = 3
 sum(5)(-1) = 4
 ```
+

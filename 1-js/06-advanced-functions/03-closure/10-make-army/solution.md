@@ -6,6 +6,7 @@ Examinemos lo que se hace dentro de `makeArmy`, y la solución será obvia.
     ```js
     let shooters = [];
     ```
+
 2. Lo llena en el bucle a través de `shooters.push(function...)`.
 
   Cada elemento es una función, por lo que el array resultante se ve así:
@@ -24,7 +25,7 @@ Examinemos lo que se hace dentro de `makeArmy`, y la solución será obvia.
       function () { alert(i); }
     ];
     ```
-
+    
 3. El array se devuelve desde la función.
 
 Luego, más tarde, la llamada a `army[5] ()` obtendrá el elemento `army[5]` de el array (será una función) y lo llamará.
@@ -118,3 +119,4 @@ army[5](); // 5
 El bucle `while`, al igual que `for`, crea un nuevo entorno léxico para cada ejecución. Así que aquí nos aseguramos de que obtenga el valor correcto para un `shooter`.
 
 Copiamos `let j = i`. Esto hace que el cuerpo del bucle sea `j` local y copia el valor de `i` en él. Los primitivos se copian "por valor", por lo que en realidad obtenemos una copia independiente completa de `i`, que pertenece a la iteración del bucle actual.
+

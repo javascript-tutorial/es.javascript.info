@@ -6,6 +6,7 @@ importance: 5
 
 Tenemos una variedad de objetos para ordenar:
 
+
 ```js
 let users = [
   { name: "John", age: 20, surname: "Johnson" },
@@ -26,6 +27,7 @@ users.sort((a, b) => a.age > b.age ? 1 : -1);
 
 ¿Podemos hacerlo aún menos detallado, como este?
 
+
 ```js
 users.sort(byField('name'));
 users.sort(byField('age'));
@@ -34,3 +36,4 @@ users.sort(byField('age'));
 Entonces, en lugar de escribir una función, simplemente ponga `byField (fieldName)`.
 
 Escriba la función `byField` que se pueda usar para eso.
+

@@ -32,3 +32,4 @@ army[5](); //y el número 5 también produce 10...
 ```
 
 ¿Por qué todos los tiradores muestran el mismo valor? Arregle el código para que funcionen según lo previsto.
+

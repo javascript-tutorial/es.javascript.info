@@ -8,6 +8,7 @@ Aquí hacemos dos contadores: `counter` y `counter2` usando la misma función `m
 
 ¿Son independientes? ¿Qué va a mostrar el segundo contador? `0,1` o `2,3` o algo más?
 
+
 ```js
 function makeCounter() {
   let count = 0;
@@ -28,3 +29,4 @@ alert( counter2() ); // ?
 alert( counter2() ); // ?
 */!*
 ```
+
