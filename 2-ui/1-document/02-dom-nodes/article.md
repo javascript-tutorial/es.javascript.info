@@ -4,16 +4,21 @@ libs:
 
 ---
 
-# DOM tree
+# Arbol del Modelo de Objetos del Documento (DOM)
 
+//La estructura de un documento HTML son las etiquetas.//
 The backbone of an HTML document is tags.
 
+// Según el Modelo de Objetos del Documento (DOM), cada etiqueta HTML es un objeto. Las etiquetas anidadas son "hijos" de la etiqueta que las contiene. El texto dentro de una etiqueta también es un objeto.//
 According to the Document Object Model (DOM), every HTML tag is an object. Nested tags are  "children" of the enclosing one. The text inside a tag is an object as well.
 
+//Todos estos objetos son accesibles usando JavaScript, y podemos usarlos para modificar la página.//
 All these objects are accessible using JavaScript, and we can use them to modify the page.
 
+//Por ejemplo, `document.body` es el objeto que representa la etiqueta `<body>`.
 For example, `document.body` is the object representing the `<body>` tag.
 
+//Ejecutar este código hará que el `<body>` sea de color rojo durante 3 segundos://
 Running this code will make the `<body>` red for 3 seconds:
 
 ```js run
@@ -267,8 +272,10 @@ That's for debugging purposes of course. From the next chapter on we'll access a
 
 The browser developer tools are a great help in development: we can explore the DOM, try things and see what goes wrong.
 
+//## Resumen
 ## Summary
 
+//Un documento HTML/XML esta representado dentro del navegador como el arbol DOM.
 An HTML/XML document is represented inside the browser as the DOM tree.
 
 - Tags become element nodes and form the structure.
