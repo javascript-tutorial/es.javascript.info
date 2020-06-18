@@ -1,3 +1,3 @@
-# Regular expressions
+# Expresiones Regulares
 
-Regular expressions is a powerful way of doing search and replace in strings.
+Las expresiones regulares son una forma poderosa de hacer búsqueda y reemplazo de cadenas.

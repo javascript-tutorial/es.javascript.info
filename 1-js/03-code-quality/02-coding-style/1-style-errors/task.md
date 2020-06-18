@@ -2,9 +2,9 @@ importance: 4
 
 ---
 
-# Bad style
+# Estilo pobre
 
-What's wrong with the code style below?
+¿Qué hay de malo con el estilo de código a continuación?
 
 ```js no-beautify
 function pow(x,n)
@@ -25,4 +25,4 @@ else
 }
 ```
 
-Fix it.
+Arreglalo.
