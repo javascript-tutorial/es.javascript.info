@@ -4,42 +4,37 @@ libs:
 
 ---
 
-# Arbol del Modelo de Objetos del Documento (DOM)
+# Árbol del Modelo de Objetos del Documento (DOM)
 
-//La estructura de un documento HTML son las etiquetas.//
-The backbone of an HTML document is tags.
+La estructura de un documento HTML son las etiquetas.
 
-// Según el Modelo de Objetos del Documento (DOM), cada etiqueta HTML es un objeto. Las etiquetas anidadas son "hijos" de la etiqueta que las contiene. El texto dentro de una etiqueta también es un objeto.//
-According to the Document Object Model (DOM), every HTML tag is an object. Nested tags are  "children" of the enclosing one. The text inside a tag is an object as well.
+Según el Modelo de Objetos del Documento (DOM), cada etiqueta HTML es un objeto. Las etiquetas anidadas son "hijas" de la etiqueta que las contiene. El texto dentro de una etiqueta también es un objeto.
 
-//Todos estos objetos son accesibles usando JavaScript, y podemos usarlos para modificar la página.//
-All these objects are accessible using JavaScript, and we can use them to modify the page.
+Todos estos objetos son accesibles empleando JavaScript, y podemos usarlos para modificar la página.
 
-//Por ejemplo, `document.body` es el objeto que representa la etiqueta `<body>`.
-For example, `document.body` is the object representing the `<body>` tag.
+Por ejemplo, `document.body` es el objeto que representa la etiqueta `<body>`.
 
-//Ejecutar este código hará que el `<body>` sea de color rojo durante 3 segundos://
-Running this code will make the `<body>` red for 3 seconds:
+Ejecutar este código hará que el `<body>` sea de color rojo durante 3 segundos:
 
 ```js run
-document.body.style.background = 'red'; // make the background red
+document.body.style.background = 'red'; // establece un color de fondo rojo
 
-setTimeout(() => document.body.style.background = '', 3000); // return back
+setTimeout(() => document.body.style.background = '', 3000); // devolución
 ```
 
-Here we used `style.background` to change the background color of `document.body`, but there are many other properties, such as:
+Aquí usamos `style.background` para cambiar el color de fondo del `document.body`, sin embargo existen muchas otras propiedades, tales como:
 
-- `innerHTML` -- HTML contents of the node.
-- `offsetWidth` -- the node width (in pixels)
-- ...and so on.
+- `innerHTML` -- contenido HTML del nodo.
+- `offsetWidth` -- anchura del nodo (en píxeles).
+- ..., etc.
 
-Soon we'll learn more ways to manipulate the DOM, but first we need to know about its structure.
+Más adelante, aprenderemos otras formas de manipular el DOM, pero primero necesitamos conocer su estructura.
 
-## An example of the DOM
+## Un ejemplo del DOM
 
-Let's start with the following simple document:
+Comencemos con un documento sencillo, descrito a continuación:
 
-```html run no-beautify
+```ejecución html sin formatear
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -51,7 +46,7 @@ Let's start with the following simple document:
 </html>
 ```
 
-The DOM represents HTML as a tree structure of tags. Here's how it looks:
+El DOM representa HTML como una estructura de etiquetas. En el siguiente código, podemos ver como se muestra el DOM:
 
 <div class="domtree"></div>
 
@@ -61,34 +56,34 @@ let node1 = {"name":"HTML","nodeType":1,"children":[{"name":"HEAD","nodeType":1,
 drawHtmlTree(node1, 'div.domtree', 690, 320);
 </script>
 
-```online
-On the picture above, you can click on element nodes and their children will open/collapse.
+```conectado
+En la imagen de arriba, puedes hacer clic sobre los nodos del elemento y como resultado se expanden/colapsan sus nodos hijos. 
 ```
 
-Every tree node is an object.
+Cada nodo del árbol es un objeto.
 
-Tags are *element nodes* (or just elements) and form the tree structure: `<html>` is at the root, then `<head>` and `<body>` are its children, etc.
+Las etiquetas son *nodos de elementos* (o solo elementos) y forman la estructura del árbol: `<html>` está en la raíz del documento, por lo tanto, `<head>` y `<body>` son sus hijos, etc.
 
-The text inside elements forms *text nodes*, labelled as `#text`. A text node contains only a string. It may not have children and is always a leaf of the tree.
+El texto dentro de los elementos forma *nodos de texto*, etiquetados como `#text`. Un nodo de texto contiene solo una cadena. Esta puede no tener hijos y siempre es una hoja del árbol.
 
-For instance, the `<title>` tag has the text `"About elk"`.
+Por ejemplo, la etiqueta `<title>` tiene el texto `"About elk"`.
 
-Please note the special characters in text nodes:
+Hay que tener en cuenta los caracteres especiales en nodos de texto:
 
-- a newline: `↵` (in JavaScript known as `\n`)
-- a space: `␣`
+- una nueva línea: `↵` (en JavaScript se emplea `\n` para obtener este resultado)
+- un espacio: `␣`
 
-Spaces and newlines are totally valid characters, like letters and digits. They form text nodes and become a part of the DOM. So, for instance, in the example above the `<head>` tag contains some spaces before `<title>`, and that text becomes a `#text` node (it contains a newline and some spaces only).
+Los espacios y nuevas líneas son caracteres totalmente válidos, al igual que letras y dígitos. Ellos forman nodos de texto y se convierten en parte del DOM. Así, por ejemplo, en el caso de arriba la etiqueta `<head>` contiene algunos espacios antes de la etiqueta `<title>`, entonces ese texto se convierte en el nodo `#text`, que contiene una nueva línea y solo algunos espacios.
 
-There are only two top-level exclusions:
-1. Spaces and newlines before `<head>` are ignored for historical reasons.
-2. If we put something after `</body>`, then that is automatically moved inside the `body`, at the end, as the HTML spec requires that all content must be inside `<body>`. So there can't be any spaces after `</body>`.
+Hay solo dos excepciones de nível superior:
+1. Los espacios y nuevas líneas antes de la etiqueta `<head>` son ignorados por razones históricas.
+2. Si colocamos algo después de la etiqueta `</body>`, automáticamente se situa dentro de `body`, al final, ya que, la especificación HTML necesita que todo el contenido esté dentro de la etiqueta `<body>`, no puede haber espacios después de esta.
 
-In other cases everything's straightforward -- if there are spaces (just like any character) in the document, then they become text nodes in the DOM, and if we remove them, then there won't be any.
+En otros casos todo es sencillo -- si hay espacios (como cualquier caracter) en el documento, se convierten en nodos de texto en el DOM, y si los eliminamos, entonces no habrá ninguno.
 
-Here are no space-only text nodes:
+En el siguiente código, no hay nodos de texto con espacios en blanco:
 
-```html no-beautify
+```html sin formatear
 <!DOCTYPE HTML>
 <html><head><title>About elk</title></head><body>The truth about elk.</body></html>
 ```
@@ -104,14 +99,17 @@ drawHtmlTree(node2, 'div.domtree', 690, 210);
 ```smart header="Spaces at string start/end and space-only text nodes are usually hidden in tools"
 Browser tools (to be covered soon) that work with DOM usually do not show spaces at the start/end of the text and empty text nodes (line-breaks) between tags.
 
-Developer tools save screen space this way.
+```smart header="Los espacios al inicio/final de la cadena y los nodos de texto que solo contienen espacios en blanco, por lo general, están ocultos en las herramientas.
+Las herramientas del navegador (las veremos más adelante) que funcionan con DOM usualmente no muestran espacios al inicio/final del texto y nodos de texto vacíos (saltos de línea) entre etiquetas.
+
+Las herramientas para desarrolladores ahorran espacio en la pantalla de esta manera.
 
 On further DOM pictures we'll sometimes omit them when they are irrelevant. Such spaces usually do not affect how the document is displayed.
 ```
 
-## Autocorrection
+## Autocorreción
 
-If the browser encounters malformed HTML, it automatically corrects it when making the DOM.
+Si el navegador encuentra HTML con formato incorrecto, lo corrige automáticamente al realizar el DOM.
 
 For instance, the top tag is always `<html>`. Even if it doesn't exist in the document, it will exist in the DOM, because the browser will create it. The same goes for `<body>`.
 
@@ -168,7 +166,7 @@ drawHtmlTree(node5,  'div.domtree', 600, 200);
 You see? The `<tbody>` appeared out of nowhere. You should keep this in mind while working with tables to avoid surprises.
 ````
 
-## Other node types
+## Otros tipos de nodos
 
 There are some other node types besides elements and text nodes.
 
@@ -272,11 +270,9 @@ That's for debugging purposes of course. From the next chapter on we'll access a
 
 The browser developer tools are a great help in development: we can explore the DOM, try things and see what goes wrong.
 
-//## Resumen
-## Summary
+## Resumen
 
-//Un documento HTML/XML esta representado dentro del navegador como el arbol DOM.
-An HTML/XML document is represented inside the browser as the DOM tree.
+Un documento HTML/XML esta representado dentro del navegador como un árbol de nodos (DOM).
 
 - Tags become element nodes and form the structure.
 - Text becomes text nodes.
