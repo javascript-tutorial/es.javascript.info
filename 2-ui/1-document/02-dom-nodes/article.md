@@ -8,13 +8,13 @@ libs:
 
 La estructura de un documento HTML son las etiquetas.
 
-Según el Modelo de Objetos del Documento (DOM), cada etiqueta HTML es un objeto. Las etiquetas anidadas son "hijas" de la etiqueta que las contiene. El texto dentro de una etiqueta también es un objeto.
+Según el Modelo de Objetos del Documento (DOM), cada etiqueta HTML es un objeto. Las etiquetas anidadas son llamadas "hijas" de la etiqueta que las contiene. El texto dentro de una etiqueta también es un objeto.
 
 Todos estos objetos son accesibles empleando JavaScript, y podemos usarlos para modificar la página.
 
 Por ejemplo, `document.body` es el objeto que representa la etiqueta `<body>`.
 
-Ejecutar este código hará que el `<body>` sea de color rojo durante 3 segundos:
+Ejecutar el siguiente código hará que el `<body>` sea de color rojo durante 3 segundos:
 
 ```js run
 document.body.style.background = 'red'; // establece un color de fondo rojo
@@ -22,7 +22,7 @@ document.body.style.background = 'red'; // establece un color de fondo rojo
 setTimeout(() => document.body.style.background = '', 3000); // devolución
 ```
 
-Aquí usamos `style.background` para cambiar el color de fondo del `document.body`, sin embargo existen muchas otras propiedades, tales como:
+En el caso anterior usamos `style.background` para cambiar el color de fondo del `document.body`, sin embargo existen muchas otras propiedades, tales como:
 
 - `innerHTML` -- contenido HTML del nodo.
 - `offsetWidth` -- anchura del nodo (en píxeles).
@@ -46,7 +46,7 @@ Comencemos con un documento sencillo, descrito a continuación:
 </html>
 ```
 
-El DOM representa HTML como una estructura de etiquetas. En el siguiente código, podemos ver como se muestra el DOM:
+El DOM representa el código HTML como una estructura de etiquetas. A continuación, podemos ver como se muestra el DOM:
 
 <div class="domtree"></div>
 
@@ -62,7 +62,7 @@ En la imagen de arriba, puedes hacer clic sobre los nodos del elemento y como re
 
 Cada nodo del árbol es un objeto.
 
-Las etiquetas son *nodos de elementos* (o solo elementos) y forman la estructura del árbol: `<html>` está en la raíz del documento, por lo tanto, `<head>` y `<body>` son sus hijos, etc.
+Las etiquetas son *nodos de elementos* (o solo elementos) y forman la estructura del árbol: `<html>` está ubicado en la raíz del documento, por lo tanto, `<head>` y `<body>` son sus hijos, etc.
 
 El texto dentro de los elementos forma *nodos de texto*, etiquetados como `#text`. Un nodo de texto contiene solo una cadena. Esta puede no tener hijos y siempre es una hoja del árbol.
 
@@ -77,7 +77,7 @@ Los espacios y nuevas líneas son caracteres totalmente válidos, al igual que l
 
 Hay solo dos excepciones de nível superior:
 1. Los espacios y nuevas líneas antes de la etiqueta `<head>` son ignorados por razones históricas.
-2. Si colocamos algo después de la etiqueta `</body>`, automáticamente se situa dentro de `body`, al final, ya que, la especificación HTML necesita que todo el contenido esté dentro de la etiqueta `<body>`, no puede haber espacios después de esta.
+2. Si colocamos algo después de la etiqueta `</body>`, automáticamente se sitúa dentro de `body`, al final, ya que, la especificación HTML necesita que todo el contenido esté dentro de la etiqueta `<body>`, no puede haber espacios después de esta.
 
 En otros casos todo es sencillo -- si hay espacios (como cualquier caracter) en el documento, se convierten en nodos de texto en el DOM, y si los eliminamos, entonces no habrá ninguno.
 
@@ -108,9 +108,9 @@ En otras representaciones del DOM, las omitiremos cuando sean irrelevantes. Tale
 
 Si el navegador encuentra código HTML con formato incorrecto, lo corrige automáticamente al construir el DOM.
 
-Por ejemplo, la etiqueta superior siempre será `<html>`. Incluso si no existe en el documento, esta existirá en el DOM, ya que, el navegador la creará. Sucede lo mismo con la etiqueta `<body>`.
+Por ejemplo, la etiqueta superior siempre será `<html>`. Incluso si no existe en el documento, esta existirá en el DOM, puesto que, el navegador la creará. Sucede lo mismo con la etiqueta `<body>`.
 
-Como ejemplo de ello, si el archivo HTML es la palabra `"Hello"`, el navegador lo envolverá con de las etiquetas `<html>` y `<body>`, y añadirá la etiqueta `<head>` la cual es requerida, basado en esto,  el DOM resultante será:
+Como ejemplo de esto, si el archivo HTML es la palabra `"Hello"`, el navegador lo envolverá con de las etiquetas `<html>` y `<body>`, y añadirá la etiqueta `<head>` la cual es requerida, basado en esto,  el DOM resultante será:
 
 <div class="domtree"></div>
 
@@ -158,14 +158,14 @@ let node5 = {"name":"TABLE","nodeType":1,"children":[{"name":"TBODY","nodeType":
 drawHtmlTree(node5,  'div.domtree', 600, 200);
 </script>
 
-You see? The `<tbody>` appeared out of nowhere. You should keep this in mind while working with tables to avoid surprises.
+¿Lo ves? La etiqueta `<tbody>` apareció de la nada. Debes tener esto en cuenta al trabajar con tablas para evitar sorpresas.
 ````
 
 ## Otros tipos de nodos
 
-There are some other node types besides elements and text nodes.
+Hay algunos otros tipos de nodos además de elementos y nodos de texto. 
 
-For example, comments:
+Por ejemplo, los comentarios:
 
 ```html
 <!DOCTYPE HTML>
@@ -175,7 +175,7 @@ For example, comments:
   <ol>
     <li>An elk is a smart</li>
 *!*
-    <!-- comment -->
+    <!-- comentario -->
 */!*
     <li>...and cunning animal!</li>
   </ol>
@@ -191,15 +191,24 @@ let node6 = {"name":"HTML","nodeType":1,"children":[{"name":"HEAD","nodeType":1,
 drawHtmlTree(node6, 'div.domtree', 690, 500);
 </script>
 
-We can see here a new tree node type -- *comment node*, labeled as `#comment`, between two text nodes.
+Aquí podemos ver un nuevo tipo de nodo de árbol -- *nodo de comentario*, etiquetado como `#comment`, entre dos nodos de texto.
 
-We may think -- why is a comment added to the DOM? It doesn't affect the visual representation in any way. But there's a rule -- if something's in HTML, then it also must be in the DOM tree.
+Podemos pensar -- ¿Por qué se agrega un comentario al DOM? Esto no afecta la representación de ninguna manera. Pero hay una regla -- si algo está en el código HTML, entonces también debe estar en el árbol DOM.
 
-**Everything in HTML, even comments, becomes a part of the DOM.**
+**Todo en HTML, incluso los comentarios, se convierte en parte del DOM.**
 
-Even the `<!DOCTYPE...>` directive at the very beginning of HTML is also a DOM node. It's in the DOM tree right before `<html>`. We are not going to touch that node, we even don't draw it on diagrams for that reason, but it's there.
+Hasta la declaración `<!DOCTYPE...>` al principio del HTML es un nodo del DOM. Su ubicación en el DOM es justo antes de la etiqueta `<html>`. No vamos a tocar ese nodo, por esa razón ni siquiera lo dibujamos en diagramas, pero esta ahí.
 
-The `document` object that represents the whole document is, formally, a DOM node as well.
+El objeto `document` que representa todo el documento es también, formalmente, un nodo DOM.
+
+Hay [12 tipos de nodos](https://dom.spec.whatwg.org/#node). En la práctica generalmente trabajamos con 4 de ellos:
+
+1. `document` -- el "punto de entrada" en el DOM.
+2. nodos de elemento -- HTML-tags, the tree building blocks.
+3. text nodes -- contain text.
+4. comments -- sometimes we can put information there, it won't be shown, but JS can read it from the DOM.
+
+
 
 There are [12 node types](https://dom.spec.whatwg.org/#node). In practice we usually work with 4 of them:
 
@@ -208,7 +217,7 @@ There are [12 node types](https://dom.spec.whatwg.org/#node). In practice we usu
 3. text nodes -- contain text.
 4. comments -- sometimes we can put information there, it won't be shown, but JS can read it from the DOM.
 
-## See it for yourself
+## Miralo por ti mismo See it for yourself
 
 To see the DOM structure in real-time, try [Live DOM Viewer](http://software.hixie.ch/utilities/js/live-dom-viewer/). Just type in the document, and it will show up as a DOM at an instant.
 
