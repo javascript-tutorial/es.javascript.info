@@ -273,8 +273,8 @@ Un documento HTML/XML esta representado dentro del navegador como un árbol de n
 - El texto se convierte en nodos de texto.
 - ...etc, todos los elementos de HTML tienen su lugar en el DOM, incluso los comentarios.
 
-We can use developer tools to inspect DOM and modify it manually.
+Podemos utilizar las herramientas para desarrolladores para inspeccionar el DOM y modificarlo manualmente.
 
-Here we covered the basics, the most used and important actions to start with. There's an extensive documentation about Chrome Developer Tools at <https://developers.google.com/web/tools/chrome-devtools>. The best way to learn the tools is to click here and there, read menus: most options are obvious. Later, when you know them in general, read the docs and pick up the rest.
+Aquí cubrimos los conceptos básicos, las acciones más importantes y más utilizadas, para comenzar. Hay una extensa documentación acerca de las herramientas para desarrolladores de Chrome en <https://developers.google.com/web/tools/chrome-devtools>. La mejor forma de aprender a usar las herramientas es hacer clic en ellas, leer los menús: la mayoría de las opciones son obvias. Más adelante, cuando tenga conocimiento general sobre ellas, lea los documentos y elija el resto.
 
-DOM nodes have properties and methods that allow us to travel between them, modify them, move around the page, and more. We'll get down to them in the next chapters.
+Los nodos del DOM tienen propiedades y métodos que nos permiten desplazarnos entre ellos, modificarlos, movernos por la página, y más.  Empezaremos a realizar todo esto en los siguienes capítulos.
