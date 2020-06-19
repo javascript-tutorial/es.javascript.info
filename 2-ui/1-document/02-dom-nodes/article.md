@@ -204,83 +204,74 @@ El objeto `document` que representa todo el documento es también, formalmente, 
 Hay [12 tipos de nodos](https://dom.spec.whatwg.org/#node). En la práctica generalmente trabajamos con 4 de ellos:
 
 1. `document` -- el "punto de entrada" en el DOM.
-2. nodos de elemento -- HTML-tags, the tree building blocks.
-3. text nodes -- contain text.
-4. comments -- sometimes we can put information there, it won't be shown, but JS can read it from the DOM.
+2. nodos de elementos -- Etiquetas-HTML, los bloques construcción del árbol.
+3. nodos de texto -- contienen texto.
+4. comentarios -- a veces podemos colocar  ocasiones información allí, no se mostrará, pero JS puede leerla desde el DOM.
 
+## Véalo usted mismo
 
+Para ver la estructura del DOM en tiempo real, intente [visor en vivo del DOM](http://software.hixie.ch/utilities/js/live-dom-viewer/). Simplemente escriba el documento, y se mostrará como un DOM al instante.
 
-There are [12 node types](https://dom.spec.whatwg.org/#node). In practice we usually work with 4 of them:
+Otra forma de explorar el DOM es usando la herramienta para desarrolladores del navegador. En realidad, eso es lo que usamos cuando estamos desarrollando.
 
-1. `document` -- the "entry point" into DOM.
-2. element nodes -- HTML-tags, the tree building blocks.
-3. text nodes -- contain text.
-4. comments -- sometimes we can put information there, it won't be shown, but JS can read it from the DOM.
+Para hacerlo, abra la página web [elk.html](elk.html), active las herramientas para desarroladores del navegador y cambie la pestaña a elementos.
 
-## Miralo por ti mismo See it for yourself
-
-To see the DOM structure in real-time, try [Live DOM Viewer](http://software.hixie.ch/utilities/js/live-dom-viewer/). Just type in the document, and it will show up as a DOM at an instant.
-
-Another way to explore the DOM is to use the browser developer tools. Actually, that's what we use when developing.
-
-To do so, open the web page [elk.html](elk.html), turn on the browser developer tools and switch to the Elements tab.
-
-It should look like this:
+Debe verse así:
 
 ![](elk.svg)
 
-You can see the DOM, click on elements, see their details and so on.
+Puedes mirar el DOM, hacer clic sobre los elementos, ver sus detalles, etc.
 
-Please note that the DOM structure in developer tools is simplified. Text nodes are shown just as text. And there are no "blank" (space only) text nodes at all. That's fine, because most of the time we are interested in element nodes.
+Tenga en cuenta que la estructura DOM en la herramienta para desarrolladores está simplificada. Los nodos de texto se muestran como texto. Y absolutamente no hay nodos de texto con espacios en blanco. Esto está bien, porque la mayoría de las veces nos interesan los nodos de elementos.
 
-Clicking the <span class="devtools" style="background-position:-328px -124px"></span> button in the left-upper corner allows us to choose a node from the webpage using a mouse (or other pointer devices) and "inspect" it (scroll to it in the Elements tab). This works great when we have a huge HTML page (and corresponding huge DOM) and would like to see the place of a particular element in it.
+Hacer clic en el botón <span class="devtools" style="background-position:-328px -124px"></span> ubicado en la esquina superior izquierda nos permite elegir un nodo desde la página web utilizando un "mouse" (u otros dispositivos de puntero) e "inspeccionar" (desplazarse hasta él en la pestaña elementos). Esto funciona muy bien cuando tenemmos una página HTML enorme (y el DOM correspondiente es enorme) y nos gustaría ver la posición de un elemento en particular.
 
-Another way to do it would be just right-clicking on a webpage and selecting "Inspect" in the context menu.
+Otra forma de realizarlo sería hacer clic derecho en la página web y en el menú contextual elegir la opción "inspeccionar".
 
 ![](inspect.svg)
 
-At the right part of the tools there are the following subtabs:
-- **Styles** -- we can see CSS applied to the current element rule by rule, including built-in rules (gray). Almost everything can be edited in-place, including the dimensions/margins/paddings of the box below.
-- **Computed** -- to see CSS applied to the element by property: for each property we can see a rule that gives it (including CSS inheritance and such).
-- **Event Listeners** -- to see event listeners attached to DOM elements (we'll cover them in the next part of the tutorial).
-- ...and so on.
+En la parte derecha de las herramientos encontramos las siguientes sub-pestañas:
+- **Styles** -- podemos ver CSS aplicado al elemento actual regla por regla, incluidas las reglas integradas (gris). Casi todo puede ser editado en el lugar, incluyendo las dimensiones/márgenes/relleno de la siguiente caja.
+- **Computed** -- nos permite ver cada propiedad CSS aplicada al elemento: para cada propiedad podemos ver la regla que la provee (inluida la herencia CSS y demás).
+- **Event Listeners** -- nos ayuda a ver los escuchadores de eventos adjuntos a elementos del DOM (los cubriremos en la siguiente parte del tutorial). 
+- ...,etc.
 
-The best way to study them is to click around. Most values are editable in-place.
+La manera de estudiarlos es haciendo clic en ellos. Casi todos los valores son editables en el lugar.
 
-## Interaction with console
+## Interacción con la consola
 
-As we work the DOM, we also may want to apply JavaScript to it. Like: get a node and run some code to modify it, to see the result. Here are few tips to travel between the Elements tab and the console.
+A medida que trabajamos el DOM, también podemos querer aplicarle JavaScript. Al igual que: obtener un nodo y ejecutar algún código para modificarlo, para ver el resultado. Aquí hay algunos consejos para desplazarse entre la pestaña elementos y la consola.
 
-For the start:
+Para empezar:
 
-1. Select the first `<li>` in the Elements tab.
-2. Press `key:Esc` -- it will open console right below the Elements tab.
+1. Seleccione el primer elemento `<li>` en la pestaña elementos.
+2. Presiona la tecla `Esc` -- esto abrirá la consola justo debajo de la pestaña de elementos.
 
-Now the last selected element is available as `$0`, the previously selected is `$1` etc.
+Ahora el último elemento seleccionado esta disponible como `$0`, el seleccionado previamente es `$1`, etc.
 
-We can run commands on them. For instance, `$0.style.background = 'red'` makes the selected list item red, like this:
+Podemos ejecutar comandos en ellos. Por ejemplo, `$0.style.background = 'red'` hace que el elemento de la lista seleccionado sea rojo, algo así:
 
 ![](domconsole0.svg)
 
-That's how to get a node from Elements in Console.
+Así es como en la consola, se obtiene un nodo de los elementos.
 
-There's also a road back. If there's a variable referencing a DOM node, then we can use the command `inspect(node)` in Console to see it in the Elements pane.
+También hay un camino de regreso. Si hay una variable que hace referencia a un nodo del DOM, usamos el comando `inspect(node)` en la consola para verlo en el panel de elementos.
 
-Or we can just output the DOM node in the console and explore "in-place", like `document.body` below:
+O simplemente podemos generar el nodo del DOM en la consola y explorar en el lugar, así como `document.body` a continuación:
 
 ![](domconsole1.svg)
 
-That's for debugging purposes of course. From the next chapter on we'll access and modify DOM using JavaScript.
+Desde luego, eso es para propósitos de depuración del curso. A partir del siguiente capítulo accederemos y modificaremos el DOM usando JavaScript.
 
-The browser developer tools are a great help in development: we can explore the DOM, try things and see what goes wrong.
+Las herramientas para desarrolladores del navegador son de mucha ayuda en el desarrollo: podemos explorar el DOM, probar cosas y ver que sale mal.
 
 ## Resumen
 
 Un documento HTML/XML esta representado dentro del navegador como un árbol de nodos (DOM).
 
-- Tags become element nodes and form the structure.
-- Text becomes text nodes.
-- ...etc, everything in HTML has its place in DOM, even comments.
+- Las etiquetas se convierten en nodos de elemento y forman la estructura.
+- El texto se convierte en nodos de texto.
+- ...etc, todos los elementos de HTML tienen su lugar en el DOM, incluso los comentarios.
 
 We can use developer tools to inspect DOM and modify it manually.
 
