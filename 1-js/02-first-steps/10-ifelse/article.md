@@ -220,7 +220,7 @@ Aquí no asignamos el resultado de una variable. En vez de esto, ejecutamos dife
 
 La notacion es mas corta que la sentencia equivalente con `if`, lo cual seduce a algunos programadores. Pero es menos legible.
 
-Aqui esta el mismo codigo utilizando la sentencia `if` para comparar:
+Aquí está el mismo código utilizando la sentencia `if` para comparar:
 
 ```js run no-beautify
 let company = prompt('¿Que compañía creó JavaScript?', '');
