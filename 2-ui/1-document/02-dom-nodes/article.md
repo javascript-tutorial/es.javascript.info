@@ -124,7 +124,7 @@ Al generar el DOM, los navegadores procesan automaticamente los errores en el do
 
 Un documento sin etiquetas de cierre:
 
-```html sin formatear
+```html no-beautify
 <p>Hello
 <li>Mom
 <li>and
