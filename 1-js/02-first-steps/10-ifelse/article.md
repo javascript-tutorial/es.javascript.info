@@ -223,7 +223,7 @@ La notacion es mas corta que la sentencia equivalente con `if`, lo cual seduce a
 Aquí está el mismo código utilizando la sentencia `if` para comparar:
 
 ```js run no-beautify
-let company = prompt('¿Que compañía creó JavaScript?', '');
+let company = prompt('¿Cuál compañía creó JavaScript?', '');
 
 *!*
 if (company == 'Netscape') {
