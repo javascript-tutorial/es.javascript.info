@@ -106,7 +106,7 @@ En otras representaciones del DOM, las omitiremos cuando sean irrelevantes. Tale
 
 ## Autocorreción
 
-Si el navegador encuentra código HTML con formato incorrecto, lo corrige automáticamente al construir el DOM.
+Si el navegador encuentra HTML mal escrito, lo corrige automáticamente al construir el DOM.
 
 Por ejemplo, la etiqueta superior siempre será `<html>`. Incluso si no existe en el documento, esta existirá en el DOM, puesto que, el navegador la creará. Sucede lo mismo con la etiqueta `<body>`.
 
