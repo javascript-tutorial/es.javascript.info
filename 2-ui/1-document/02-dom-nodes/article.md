@@ -58,7 +58,6 @@ drawHtmlTree(node1, 'div.domtree', 690, 320);
 
 ```online
 En la imagen de arriba, puedes hacer clic sobre los nodos del elemento y como resultado se expanden/colapsan sus nodos hijos.
-On the picture above, you can click on element nodes and their children will open/collapse.//////////////////////////
 ```
 
 Cada nodo del árbol es un objeto.
