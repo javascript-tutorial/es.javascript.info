@@ -147,7 +147,7 @@ Técnicamente, podemos omitir el paréntesis alrededor de  `age > 18`. El operad
 En este ejemplo realizaremos lo mismo que en el anterior:
 
 ```js
-// el operador de comparación  "age > 18" se ejecuta de primero de cualquier forma
+// el operador de comparación  "age > 18" se ejecuta primero de cualquier forma
 // (no necesitamos agregar los paréntesis)
 let accessAllowed = age > 18 ? true : false;
 ```
