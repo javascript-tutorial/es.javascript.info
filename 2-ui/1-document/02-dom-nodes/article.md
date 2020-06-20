@@ -46,7 +46,7 @@ Comencemos con un documento sencillo, descrito a continuación:
 </html>
 ```
 
-El DOM representa el código HTML como una estructura de etiquetas. A continuación, podemos ver como se muestra el DOM:
+El DOM representa HTML como una estructura de árbol de etiquetas. A continuación podemos ver como se muestra:
 
 <div class="domtree"></div>
 
