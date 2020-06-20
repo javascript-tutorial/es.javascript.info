@@ -4,7 +4,7 @@ importance: 5
 
 # if (un string con cero)
 
-Creará un `alert` que se muestre?
+Se mostrará el `alert`?
 
 ```js
 if ("0") {
