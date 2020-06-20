@@ -1,7 +1,7 @@
 
 
 ```js run
-let value = prompt('Type a number', 0);
+let value = prompt('Escribe un número', 0);
 
 if (value > 0) {
   alert( 1 );
