@@ -8,7 +8,7 @@ Les recordamos también, que para cada traducción, deberán crear una **nueva r
 
 Hemos acordado un glosario para la consistencia de las traducciones, por favor, revíselo. [Glosario](https://github.com/javascript-tutorial/es.javascript.info/issues/225)
 
-Si desea hacer seguimiento al trabajo realizado en este repositorio, saber más a cerca de como contribuir, o presentarte al equipo, le invitamos a que se una a nuestro servidor: [Discord](https://discord.gg/gBuzJb)
+Si desea hacer seguimiento al trabajo realizado en este repositorio, saber más a cerca de como contribuir, o presentarte al equipo, le invitamos a que se una a nuestro servidor: [Discord](https://discord.gg/mcsMcHN)
 
 # Como contribuir
 
