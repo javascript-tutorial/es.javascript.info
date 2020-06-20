@@ -1,4 +1,4 @@
-**Yes, it will.**
+**Sí lo hará.**
 
 Cualquier string excepto uno vacío (y `"0"` que no es vacío) se convierte en `true` en un contexto lógico.
 
@@ -9,4 +9,3 @@ if ("0") {
   alert( 'Hola' );
 }
 ```
-
