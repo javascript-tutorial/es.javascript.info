@@ -81,7 +81,7 @@ Hay solo dos excepciones de nível superior:
 
 En otros casos todo es sencillo -- si hay espacios (como cualquier caracter) en el documento, se convierten en nodos de texto en el DOM, y si los eliminamos, entonces no habrá ninguno.
 
-En el siguiente código, no hay nodos de texto con espacios en blanco:
+En el siguiente ejemplo, no hay nodos de texto con espacios en blanco:
 
 ```html sin formatear
 <!DOCTYPE HTML>
