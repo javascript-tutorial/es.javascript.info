@@ -73,7 +73,7 @@ Hay que tener en cuenta los caracteres especiales en nodos de texto:
 - una línea nueva: `↵` (en JavaScript se emplea `\n` para obtener este resultado)
 - un espacio: `␣`
 
-Los espacios y nuevas líneas son caracteres totalmente válidos, al igual que letras y dígitos. Ellos forman nodos de texto y se convierten en parte del DOM. Así, por ejemplo, en el caso de arriba la etiqueta `<head>` contiene algunos espacios antes de la etiqueta `<title>`, entonces ese texto se convierte en el nodo `#text`, que contiene una nueva línea y solo algunos espacios.
+Los espacios y líneas nuevas son caracteres totalmente válidos, al igual que letras y dígitos. Ellos forman nodos de texto y se convierten en parte del DOM. Así, por ejemplo, en el caso de arriba la etiqueta `<head>` contiene algunos espacios antes de la etiqueta `<title>`, entonces ese texto se convierte en el nodo `#text`, que contiene una nueva línea y solo algunos espacios.
 
 Hay solo dos excepciones de nível superior:
 1. Los espacios y nuevas líneas antes de la etiqueta `<head>` son ignorados por razones históricas.
