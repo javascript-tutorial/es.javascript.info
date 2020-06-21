@@ -1,5 +1,5 @@
-An empty string is the only match: it starts and immediately finishes.
+Una cadena vacía es la única coincidencia: comienza y termina inmediatamente.
 
-The task once again demonstrates that anchors are not characters, but tests.
+Esta tarea demuestra una vez más que los anclajes no son caracteres, sino pruebas.
 
-The string is empty `""`. The engine first matches the `pattern:^` (input start), yes it's there, and then immediately the end `pattern:$`, it's here too. So there's a match.
+La cadena está vacía `""`. El motor primero coincide con `pattern:^` (inicio de entrada), sí, está allí, y luego inmediatamente el final `pattern:$`, también está. Entonces hay una coincidencia.
