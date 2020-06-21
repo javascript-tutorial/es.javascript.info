@@ -4,9 +4,11 @@ Lo que tenemos aquí son en realidad 3 pruebas, pero presentadas como una sola f
 
 A veces es más fácil escribir de esta manera, pero si ocurre un error, es mucho menos obvio saber qué salió mal.
 
+Si un error ocurre en el medio de un flujo de ejecución complejo, tendremos que imaginar los datos en tal punto.  Tendremos, en realidad, que hacer un *debug del test*
+
 Sería mucho mejor dividir la prueba en múltiples bloques 'it' con entradas y salidas claramente escritas.
 
-Como ésto:
+Como esto:
 ```js
 describe("Eleva x a la potencia n", function() {
   it("5 elevado a 1 es igual a 5", function() {
@@ -23,7 +25,7 @@ describe("Eleva x a la potencia n", function() {
 });
 ```
 
-Reemplazamos el único `it` por un `describe` y agrupamos los bloques `it` dentro. Ahora si algo sale mal, podemos ver claramente que dato fue.
+Reemplazamos el único `it` por un `describe` y agrupamos los bloques `it` dentro. Ahora si algo sale mal, podemos ver claramente qué dato fue.
 
 Además podemos aislar un único test y ejecutarlo individualmente escribiendo `it.only` en lugar de `it`:
 
