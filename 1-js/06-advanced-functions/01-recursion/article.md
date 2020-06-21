@@ -188,7 +188,7 @@ El nuevo contexto de ejecución actual está en la parte superior (y en negrita)
 Cuando terminamos la subllamada -- es fácil reanudar el contexto anterior, ya que mantiene ambas variables y el lugar exacto del código donde se detuvo. Aquí en la imagen usamos la palabra "línea", pero por supuesto es más precisa.
 
 ```smart
-Here in the picture we use the word "line", as our example there's only one subcall in line, but generally a single line of code may contain multiple subcalls, like `pow(…) + pow(…) + somethingElse(…)`.
+En la figura usamos la palabra línea "line" porque en nuestro ejemplo hay solo una subllamada en línea, pero generalmente una simple línea de código puede contener múltiples subllamadas, como `pow(…) + pow(…) + otraCosa(…)`.
 So it would be more precise to say that the execution resumes "immediately after the subcall".
 ```
 ### pow(2, 1)
@@ -285,7 +285,7 @@ El iterativo `pow` utiliza un contexto único que cambia `i` y `result` en el pr
 
 ... Pero a veces la reescritura no es trivial, especialmente cuando la función utiliza sub-llamadas recursivas diferentes según las condiciones y combina sus resultados o cuando la ramificación es más compleja. Y la optimización puede ser innecesaria y no merece la pena el esfuerzo.
 
-La recursión puede dar un código más corto, más fácil de entender y apoyar. No se requieren optimizaciones en todos los lugares, principalmente necesitamos un buen código, por eso se usa.
+La recursión puede dar un código más corto, más fácil de entender y mantener. No se requieren optimizaciones en todos los lugares, principalmente necesitamos un buen código, por eso se usa.
 
 ## Recorridos recursivos
 
@@ -339,9 +339,9 @@ Como podemos ver, cuando nuestra función hace que un departamento sume, hay dos
 1. O bien es un departamento "simple" con una *array de personas* -- entonces podemos sumar los salarios en un bucle simple.
 2. O es *un objeto con subdepartamentos `N`*, entonces podemos hacer llamadas recursivas `N` para obtener la suma de cada uno de los subdepartamentos y combinar los resultados.
 
-El (1) es la base de la recursividad, el caso trivial.
+El primer caso es la base de la recursividad, el caso trivial, cuando obtenemos un "array"
 
-El (2) es el paso recursivo. Una tarea compleja se divide en subtareas para departamentos más pequeños. A su vez, pueden dividirse nuevamente, pero tarde o temprano la división terminará en (1).
+El segundo caso, cuando obtenemos un objeto, es el paso recursivo. Una tarea compleja se divide en subtareas para departamentos más pequeños. A su vez, pueden dividirse nuevamente, pero tarde o temprano la división terminará en (1).
 
 El algoritmo es probablemente aún más fácil de leer desde el código:
 
@@ -410,7 +410,7 @@ Para una mejor comprensión, cubriremos una estructura recursiva más llamada "L
 
 ### Lista enlazada
 
-Imagínese, queremos almacenar una lista ordenada de objetos.
+Imagina que queremos almacenar una lista ordenada de objetos.
 
 La elección natural sería una matriz:
 
@@ -513,7 +513,11 @@ El principal inconveniente es que no podemos acceder fácilmente a un elemento p
 
 ... Pero no siempre necesitamos tales operaciones. Por ejemplo, cuando necesitamos una cola o incluso un [deque](https://es.wikipedia.org/wiki/Cola_doblemente_terminada) -- la estructura ordenada que debe permitir agregar/eliminar elementos muy rápidamente desde ambos extremos.
 
-A veces vale la pena agregar otra variable llamada `tail` (cola) para rastrear el último elemento de la lista (y actualizarlo al agregar/eliminar elementos del final). Para grandes conjuntos de elementos, la diferencia de velocidad frente a las matrices es enorme.
+Las "listas" pueden ser mejoradas:
+- Podemos agregar la propiedad `prev` (previo) junto a `next` (siguiente) para referenciar el elemento previo para mover hacia atrás fácilmente.
+- Podemos también agregar una variable llamada `tail` (cola) referenciando el último elemento de la lista (y actualizarla cuando se agregan/remueven elementos del final).
+- ...La estructura de datos puede variar de acuerdo a nuestras necesidades.
+
 
 ## Resumen
 
@@ -534,4 +538,4 @@ Glosario:
 
     Las funciones recursivas se pueden usar para recorrerlas como hemos visto en el ejemplo `sumSalary`.
 
-Cualquier función recursiva puede reescribirse en una iterativa. Y eso a veces es necesario para optimizar las cosas. Pero para muchas tareas, una solución recursiva es lo suficientemente rápida y fácil de escribir y soportar.
+Cualquier función recursiva puede reescribirse en una iterativa. Y eso a veces es necesario para optimizar las cosas. Pero para muchas tareas, una solución recursiva es lo suficientemente rápida y fácil de escribir y mantener.
