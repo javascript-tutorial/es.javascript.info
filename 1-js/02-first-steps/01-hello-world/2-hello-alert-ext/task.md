@@ -2,8 +2,8 @@ importance: 5
 
 ---
 
-# Show an alert with an external script
+# Mostrar una alerta con un script externo
 
-Take the solution of the previous task <info:task/hello-alert>. Modify it by extracting the script content into an external file `alert.js`, residing in the same folder.
+Toma la solución de la tarea anterior <info:task/hello-alert>. Modificarla extrayendo el contenido del script a un archivo externo `alert.js`, ubicado en la misma carpeta.
 
-Open the page, ensure that the alert works.
+Abrir la página, asegurarse que la alerta funcione.
