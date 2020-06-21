@@ -189,8 +189,10 @@ Cuando terminamos la subllamada -- es fácil reanudar el contexto anterior, ya q
 
 ```smart
 En la figura usamos la palabra línea "line" porque en nuestro ejemplo hay solo una subllamada en línea, pero generalmente una simple línea de código puede contener múltiples subllamadas, como `pow(…) + pow(…) + otraCosa(…)`.
-So it would be more precise to say that the execution resumes "immediately after the subcall".
+
+Entonces sería más preciso decir que la ejecución se reanuda "inmediatamente después de la subllamada".
 ```
+
 ### pow(2, 1)
 
 El proceso se repite: se realiza una nueva subllamada en la línea `5`, ahora con argumentos` x = 2`, `n = 1`.
