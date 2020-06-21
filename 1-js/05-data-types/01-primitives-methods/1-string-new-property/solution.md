@@ -1,5 +1,5 @@
 
-Try running it:
+Prueba ejecutándolo:
 
 ```js run
 let str = "Hello";
@@ -9,16 +9,16 @@ str.test = 5; // (*)
 alert(str.test);
 ```
 
-Depending on whether you have `use strict` or not, the result may be:
-1. `undefined` (no strict mode)
-2. An error (strict mode).
+Depende de si usas el modo estricto "use strict" o no, el resultado será:
+1. `undefined` (sin strict mode)
+2. Un error.  (strict mode)
 
-Why? Let's replay what's happening at line `(*)`:
+¿Por qué? Repasemos lo que ocurre en la línea `(*)`:
 
-1. When a property of `str` is accessed, a "wrapper object" is created.
-2. In strict mode, writing into it is an error.
-3. Otherwise, the operation with the property is carried on, the object gets the `test` property, but after that the "wrapper object" disappears, so in the last line `str` has no trace of the property.
+1. Cuando se accede a una propiedad de `str`, se crea un "wrapper object" (objeto envolvente ).
+2. Con modo estricto, tratar de alterarlo produce error.
+3. Sin modo estricto, la operación es llevada a cabo y el objeto obtiene la propiedad `test`, pero después de ello el "objeto envolvente" desaparece, entonces en la última linea `str` queda sin rastros de la propiedad.
 
-**This example clearly shows that primitives are not objects.**
+**Este ejemlplo claramente muestra que los tipos primitivos no son objetos.**
 
-They can't store additional data.
+Ellos no pueden almacenar datos adicionales.

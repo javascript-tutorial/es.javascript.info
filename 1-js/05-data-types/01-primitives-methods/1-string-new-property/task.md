@@ -2,10 +2,10 @@ importance: 5
 
 ---
 
-# Can I add a string property?
+# ¿Puedo agregar una propiedad a un string?
 
 
-Consider the following code:
+Considera el siguiente código:
 
 ```js
 let str = "Hello";
@@ -15,4 +15,4 @@ str.test = 5;
 alert(str.test);
 ```
 
-How do you think, will it work? What will be shown?
+Qué piensas, ¿funcionará? ¿Que mostrará?
