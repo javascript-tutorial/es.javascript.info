@@ -56,7 +56,7 @@ Esto lo hacemos más que nada para "ponernos de acuerdo" acerca de la terminolog
 
 Otro recurso para consultar es la sección Translator Tips (https://github.com/javascript-tutorial/es.javascript.info#translation-tips) aquí se establecen algunos lineamientos y convenciones básicas para realizar la traducción.
 
-También tenemos un canal en Discord donde nos puedes consultar cualquier duda que tengas. (https://discord.gg/Qf3bFnn) 
+También tenemos un canal en Discord donde nos puedes consultar cualquier duda que tengas. (https://discord.gg/mcsMcHN) 
 
 Te esperamos en Discord! Bienvenido a la comunidad!
 
