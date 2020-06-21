@@ -187,6 +187,10 @@ El nuevo contexto de ejecución actual está en la parte superior (y en negrita)
 
 Cuando terminamos la subllamada -- es fácil reanudar el contexto anterior, ya que mantiene ambas variables y el lugar exacto del código donde se detuvo. Aquí en la imagen usamos la palabra "línea", pero por supuesto es más precisa.
 
+```smart
+Here in the picture we use the word "line", as our example there's only one subcall in line, but generally a single line of code may contain multiple subcalls, like `pow(…) + pow(…) + somethingElse(…)`.
+So it would be more precise to say that the execution resumes "immediately after the subcall".
+```
 ### pow(2, 1)
 
 El proceso se repite: se realiza una nueva subllamada en la línea `5`, ahora con argumentos` x = 2`, `n = 1`.
