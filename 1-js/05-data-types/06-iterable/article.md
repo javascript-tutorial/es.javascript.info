@@ -68,7 +68,7 @@ for (let num of range) {
 }
 ```
 
-Tenga en cuenta la característica principal de los iterables: separación de preocupaciones.
+Tenga en cuenta la característica principal de los iterables: separación de conceptos.
 
 - El `range` en sí mismo no tiene el método` next() `.
 - En cambio, la llamada a `range[Symbol.iterator]()` crea un llamado "iterador" que maneja toda la iteración.
