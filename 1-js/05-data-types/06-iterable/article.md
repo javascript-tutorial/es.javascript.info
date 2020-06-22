@@ -188,7 +188,7 @@ let arrayLike = { // tiene índices y longitud => array-like
 };
 
 *!*
-// Error (arrayLike no es un iterable)
+// Error (sin Symbol.iterator)
 for (let item of arrayLike) {}
 */!*
 ```
