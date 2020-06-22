@@ -170,7 +170,9 @@ Hay dos términos oficiales que se parecen, pero son muy diferentes. Asegúrese 
 
 Cuando usamos JavaScript para tareas prácticas en el navegador u otros entornos, podemos encontrar objetos que son iterables o array-like, o ambos.
 
-Pero un iterable puede no tener forma de matriz. Y viceversa, un tipo de matriz puede no ser iterable.
+Por ejemplo, las cadenas son iterables (`for..of` funciona en ellas) y array-like (tienen índices numéricos y `length`).
+
+Pero un iterable puede no ser array-like. Y viceversa, un array-like puede no ser iterable.
 
 Por ejemplo,`range` en el ejemplo anterior es iterable, pero no como una matriz, porque no tiene propiedades indexadas ni`longitud` o *length*.
 
