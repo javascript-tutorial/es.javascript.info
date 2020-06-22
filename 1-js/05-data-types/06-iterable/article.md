@@ -254,7 +254,7 @@ alert(chars[1]); // 😂
 alert(chars.length); // 2
 ```
 
-A diferencia de `str.split`,`Array.from` se basa en la naturaleza iterable de la cadena y, por lo tanto, al igual que`for..of`, funciona correctamente con pares sustitutos.
+A diferencia de `str.split`, `Array.from` se basa en la naturaleza iterable de la cadena y, por lo tanto, al igual que `for..of`, funciona correctamente con pares sustitutos.
 
 Técnicamente aquí hace lo mismo que:
  
