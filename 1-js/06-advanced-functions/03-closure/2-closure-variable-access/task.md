@@ -19,7 +19,7 @@ function makeWorker() {
 
 let name = "John";
 
-// crea una funcion
+// crea una función
 let work = makeWorker();
 
 // la llama
