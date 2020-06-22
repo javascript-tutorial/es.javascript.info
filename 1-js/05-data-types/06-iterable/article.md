@@ -112,7 +112,7 @@ También son posibles los iteradores infinitos. Por ejemplo, el objeto `range` s
 
 No hay limitaciones en `next`, puede devolver más y más valores, eso es normal.
 
-Por supuesto, el bucle `for..of` sobre un iterativo de este tipo sería interminable. Pero siempre podemos detenerlo usando `break`.
+Por supuesto, el bucle `for..of` sobre un iterable de este tipo sería interminable. Pero siempre podemos detenerlo usando `break`.
 ```
 
 ## *String* es iterable
