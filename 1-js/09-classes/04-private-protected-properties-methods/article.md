@@ -278,7 +278,7 @@ Con campos privados eso es imposible: `this['#name']` no funciona. Esa es una li
 
 ## Resumen
 
-En términos de POO, la delimitación de la interfaz interna de la externa se llama [encapsulamiento] (https://en.wikipedia.org/wiki/Encapsulation_ (computer_programming)).
+En términos de POO, la delimitación de la interfaz interna de la externa se llama [encapsulamiento] (https://es.wikipedia.org/wiki/Encapsulamiento_(inform%C3%A1tica)).
 
 Ofrece los siguientes beneficios:
 
@@ -311,4 +311,4 @@ Para ocultar una interfaz interna utilizamos propiedades protegidas o privadas:
 - Los campos protegidos comienzan con `_`. Esa es una convención bien conocida, no aplicada a nivel de lenguaje. Los programadores solo deben acceder a un campo que comience con `_` de su clase y las clases que hereden de él.
 - Los campos privados comienzan con `#`. JavaScript se asegura de que solo podamos acceder a los que están dentro de la clase.
 
-En este momento, los campos privados no son compatibles entre los navegadores, pero se pueden rellenar.
+En este momento, los campos privados no son compatibles entre los navegadores, pero se puede usar "polyfill".
