@@ -28,7 +28,7 @@ let range = {
 
 Para hacer que el `range` sea iterable (y así permitir que `for..of` funcione) necesitamos agregar un método al objeto llamado `Symbol.iterator` (un símbolo incorporado especial usado solo para realizar esa función, proporcionar iterabilidad).
 
-1. Cuando se inicia el `for..of`, éste llama al método  `Symbol.iterator` una vez (o genera un error si no lo encuentra). El método debe devolver un *iterador* --un objeto con el método `next()`.
+1. Cuando se inicia el `for..of`, éste llama al método `Symbol.iterator` una vez (o genera un error si no lo encuentra). El método debe devolver un *iterador* --un objeto con el método `next()`.
 2.  En adelante, `for..of` trabaja *solo con ese objeto devuelto*.
 3. Cuando `for..of` quiere el siguiente valor, llama a `next()` en ese objeto.
 4.El resultado de `next()` debe tener la forma `{done: Boolean, value: any}`, donde `done = true` significa que la iteración ha finalizado; de lo contrario,`value` debe ser el nuevo valor.
