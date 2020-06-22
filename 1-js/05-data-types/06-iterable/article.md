@@ -228,7 +228,7 @@ La sintaxis completa para `Array.from` también nos permite proporcionar una fun
 Array.from(obj[, mapFn, thisArg])
 ```
 
-El segundo argumento `mapFn` debería ser la función que se aplicará a cada elemento antes de agregarlo a la matriz, y` thisArg` permite establecerlo mediante el `this`.
+El segundo argumento opcional `mapFn` puede ser una función que se aplicará a cada elemento antes de agregarlo a la matriz, y `thisArg` permite establecer el `this` para ello.
 
 Por ejemplo:
 
