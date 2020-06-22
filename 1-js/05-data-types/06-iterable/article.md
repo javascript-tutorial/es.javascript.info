@@ -223,7 +223,7 @@ let arr = Array.from(range);
 alert(arr); // 1,2,3,4,5 (la conversión de matriz a cadena funciona)
 ```
 
-La sintaxis completa para `Array.from` permite proporcionar una función opcional de "mapeo" :
+La sintaxis completa para `Array.from` también nos permite proporcionar una función opcional de "mapeo":
 
 ```js
 Array.from(obj[, mapFn, thisArg])
