@@ -6,7 +6,7 @@ importance: 4
 
 Escriba la función `sum` que funcione así: `sum(a)(b) = a+b`.
 
-Sí, exactamente de esta manera, usando paréntesis dobles (no un tipo incorrecto).
+Sí, exactamente de esta manera, usando paréntesis dobles (no es un error de tipeo).
 
 Por ejemeplo:
 
@@ -15,4 +15,3 @@ Por ejemeplo:
 sum(1)(2) = 3
 sum(5)(-1) = 4
 ```
-
