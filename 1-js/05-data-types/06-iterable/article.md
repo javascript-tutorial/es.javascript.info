@@ -110,7 +110,7 @@ La desventaja es que ahora es imposible tener dos bucles `for..of` corriendo sob
 ```smart header="Iteradores Infinitos"
 También son posibles los iteradores infinitos. Por ejemplo, el objeto `range` se vuelve infinito así: `range.to = Infinity`. O podemos hacer un objeto iterable que genere una secuencia infinita de números pseudoaleatorios. También puede ser útil.
 
-No hay limitaciones en `next`, éste puede retornar muchos valores.
+No hay limitaciones en `next`, puede devolver más y más valores, eso es normal.
 
 Por supuesto, el bucle `for..of` sobre un iterativo de este tipo sería interminable. Pero siempre podemos detenerlo usando `break`.
 ```
