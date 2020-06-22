@@ -77,7 +77,7 @@ Por lo tanto, el objeto iterador está separado del objeto sobre el que itera.
 
 Técnicamente, podemos fusionarlos y usar `range` en sí mismo como iterador para simplificar el código.
 
-Como este:
+De esta manera:
 
 ```js run
 let range = {
