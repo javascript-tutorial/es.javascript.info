@@ -662,7 +662,11 @@ In most cases we can do the same without `Reflect`, for instance, reading a prop
 
 ### Proxying a getter
 
+<<<<<<< HEAD
 Let's see an example that demonstrates why `Reflect.get` is better. And we'll also see why `get/set` have the fourth argument `receiver`, that we didn't use before.
+=======
+Let's see an example that demonstrates why `Reflect.get` is better. And we'll also see why `get/set` have the third argument `receiver`, that we didn't use before.
+>>>>>>> e4e6a50b5762dd5dc4c0f0c58f870c64be39dcfa
 
 We have an object `user` with `_name` property and a getter for it.
 

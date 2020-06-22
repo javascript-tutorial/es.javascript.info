@@ -1,8 +1,18 @@
 # Números
 
+<<<<<<< HEAD
 En JavaScript moderno, hay dos tipos de números:
 
 1. Los números regulares en JavaScript son almacenados con el formato de 64-bit [IEEE-754](https://es.wikipedia.org/wiki/IEEE_coma_flotante), conocido como "números de doble precisión de coma flotante". Estos números son los que estaremos usando la mayor parte del tiempo y hablaremos de ellos en este capítulo.
+=======
+In modern JavaScript, there are two types of numbers:
+
+1. Regular numbers in JavaScript are stored in 64-bit format [IEEE-754](https://en.wikipedia.org/wiki/IEEE_754-2008_revision), also known as "double precision floating point numbers". These are numbers that we're using most of the time, and we'll talk about them in this chapter.
+
+2. BigInt numbers, to represent integers of arbitrary length. They are sometimes needed, because a regular number can't exceed <code>2<sup>53</sup></code> or be less than <code>-2<sup>53</sup></code>. As bigints are used in few special areas, we devote them a special chapter <info:bigint>.
+
+So here we'll talk about regular numbers. Let's expand our knowledge of them.
+>>>>>>> e4e6a50b5762dd5dc4c0f0c58f870c64be39dcfa
 
 2. Número BigInt , que representa enteros de longitud arbitraria. A veces son necesarios porque un número regular no puede exceder <code>2<sup>53</sup></code> ni ser menor a <code>-2<sup>53</sup></code>. Como los bigints son usados en unas pocas áreas especiales, les dedicamos un capítulo especial <info:bigint>.
 
@@ -16,7 +26,11 @@ Imagina que necesitamos escribir mil millones (En inglés "1 billion"). La forma
 let billion = 1000000000;
 ```
 
+<<<<<<< HEAD
 Pero en la vida real tratamos de evitar esribir una larga cadena de ceros porque es fácil tipear mal. 
+=======
+But in real life, we usually avoid writing a long string of zeroes as it's easy to mistype. Also, we are lazy. We will usually write something like `"1bn"` for a billion or `"7.3bn"` for 7 billion 300 million. The same is true for most large numbers.
+>>>>>>> e4e6a50b5762dd5dc4c0f0c58f870c64be39dcfa
 
 En JavaScript, acortamos un número agregando la letra `"e"` y especificando la cantidad de ceros:
 
@@ -33,13 +47,21 @@ En otras palabras, `"e"` multiplica el número por el `1` seguido de la cantidad
 1.23e6 = 1.23 * 1000000
 ```
 
+<<<<<<< HEAD
 Ahora escribamos algo muy pequeño. Digamos 1 microsegundo (un millonésimo de segundo):
+=======
+Now let's write something very small. Say, 1 microsecond (one millionth of a second):
+>>>>>>> e4e6a50b5762dd5dc4c0f0c58f870c64be39dcfa
 
 ```js
 let ms = 0.000001;
 ```
 
+<<<<<<< HEAD
 Como antes, el uso de `"e"` puede ayudar. Si queremos evitar la escritura de ceros explícitamente, podríamos expresar lo mismo así:
+=======
+Just like before, using `"e"` can help. If we'd like to avoid writing the zeroes explicitly, we could say the same as:
+>>>>>>> e4e6a50b5762dd5dc4c0f0c58f870c64be39dcfa
 
 ```js
 let ms = 1e-6; // seis ceros a la izquierda de 1
@@ -180,7 +202,11 @@ Hay dos formas de hacerlo:
 
 ## Cálculo impreciso
 
+<<<<<<< HEAD
 Internamente, un número es representado en formato de 64-bit [IEEE-754](http://en.wikipedia.org/wiki/IEEE_754-1985), donde hay exactamente 64 bits para almacenar un número: 52 de ellos son usados para almacenar los dígitos, 11 para almacenar la posición del punto decimal (son cero para los enteros), y 1 bit es para el signo.
+=======
+Internally, a number is represented in 64-bit format [IEEE-754](https://en.wikipedia.org/wiki/IEEE_754-2008_revision), so there are exactly 64 bits to store a number: 52 of them are used to store the digits, 11 of them store the position of the decimal point (they are zero for integer numbers), and 1 bit is for the sign.
+>>>>>>> e4e6a50b5762dd5dc4c0f0c58f870c64be39dcfa
 
 Si un número es demasiado grande rebasaría el almacén de 64 bit, potencialmente dando infinito:
 
@@ -204,11 +230,19 @@ Es así, al comprobar si la suma de `0.1` y `0.2` es `0.3`, obtenemos `false`.
 alert( 0.1 + 0.2 ); // 0.30000000000000004
 ```
 
+<<<<<<< HEAD
 ¡Ay! Hay más consecuencias que una comparación incorrecta aquí. Imagina que estás haciendo un sitio de compras electrónicas y el visitante pone `$0.10` y `$0.20` en productos en su carrito. El total de la orden será `$0.30000000000000004`. Eso sorprendería a cualquiera..
+=======
+Ouch! There are more consequences than an incorrect comparison here. Imagine you're making an e-shopping site and the visitor puts `$0.10` and `$0.20` goods into their cart. The order total will be `$0.30000000000000004`. That would surprise anyone.
+>>>>>>> e4e6a50b5762dd5dc4c0f0c58f870c64be39dcfa
 
 ¿Pero por qué pasa esto?
 
+<<<<<<< HEAD
 Un número es almacenado en memoria en su forma binaria, una secuencia de bits, unos y ceros. Pero decimales como `0.1`, `0.2` que se ven simples en el sistema decimal son realmente fracciones sin fin en su forma binaria.
+=======
+A number is stored in memory in its binary form, a sequence of bits - ones and zeroes. But fractions like `0.1`, `0.2` that look simple in the decimal numeric system are actually unending fractions in their binary form.
+>>>>>>> e4e6a50b5762dd5dc4c0f0c58f870c64be39dcfa
 
 En otras palabras, ¿qué es `0.1`? Es un uno dividido por 10 `1/10`, un décimo. En sistema decimal es fácilmente representable. Compáralo con un tercio: `1/3`, se vuelve una fracción sin fin `0.33333(3)`.
 
@@ -216,7 +250,11 @@ Así, la división en potencias de diez garantizan un buen funcionamiento en el 
 
 Simplemente no hay manera de guardar *exactamente 0.1* o *exactamente 0.2* usando el sistema binario, así como no hay manera de guardar un tercio en fracción decimal.
 
+<<<<<<< HEAD
 El formato numérico IEEE-754 resuelve esto redondeando al número posible más cercano. Estas reglas de redondeo normalmente no nos permiten percibir aquella "pequeña pérdida de precisión", pero existe.
+=======
+The numeric format IEEE-754 solves this by rounding to the nearest possible number. These rounding rules normally don't allow us to see that "tiny precision loss", but it exists.
+>>>>>>> e4e6a50b5762dd5dc4c0f0c58f870c64be39dcfa
 
 Podemos verlo en acción:
 ```js run
@@ -274,11 +312,16 @@ JavaScript no dispara error en tales eventos. Hace lo mejor que puede para ajust
 ```smart header="Dos ceros"
 Otra consecuencia peculiar de la representación interna de los números es la existencia de dos ceros: `0` y `-0`.
 
+<<<<<<< HEAD
 Esto es porque el signo es representado por un bit, así cada número puede ser positivo o negativo, incluyendo al cero.
+=======
+That's because a sign is represented by a single bit, so it can be set or not set for any number including a zero.
+>>>>>>> e4e6a50b5762dd5dc4c0f0c58f870c64be39dcfa
 
 En la mayoría de los casos la distinción es imperceptible, porque los operadores están adaptados para tratarlos como iguales.
 ```
 
+<<<<<<< HEAD
 ## Tests: isFinite e isNaN
 
 ¿Recuerdas estos dos valores numéricos especiales?
@@ -286,6 +329,14 @@ En la mayoría de los casos la distinción es imperceptible, porque los operador
 - `Infinity` (y `-Infinity`) es un valor numérico especial que es mayor (menor) que cualquier otra cosa.
 - `NaN` ("No un Número") representa un error.
 =======
+=======
+## Tests: isFinite and isNaN
+
+Remember these two special numeric values?
+
+- `Infinity` (and `-Infinity`) is a special numeric value that is greater (less) than anything.
+- `NaN` represents an error.
+>>>>>>> e4e6a50b5762dd5dc4c0f0c58f870c64be39dcfa
 
 Ambos pertenecen al tipo `number`, pero no son números "normales", así que hay funciones especiales para chequearlos:
 
@@ -325,10 +376,17 @@ Ten en cuenta que un valor vacío o un string de solo espacios es tratado como `
 
 ```smart header="Comparación con `Object.is`"
 
+<<<<<<< HEAD
 Hay un método especial incorporado [Object.is](mdn:js/Object/is) que compara valores como el `===`, pero es más confiable para dos casos extremos:
 
 1. Funciona con `NaN`: `Object.is(NaN, NaN) === true`, lo que es una buena cosa.
 2. Los valores `0` y `-0` son diferentes: `Object.is(0, -0) === false`. `false` es técnicamente correcto, porque internamente el número puede tener el bit de signo diferente incluso aunque todos los demás sean ceros.
+=======
+There is a special built-in method [`Object.is`](mdn:js/Object/is) that compares values like `===`, but is more reliable for two edge cases:
+
+1. It works with `NaN`: `Object.is(NaN, NaN) === true`, that's a good thing.
+2. Values `0` and `-0` are different: `Object.is(0, -0) === false`, technically that's true, because internally the number has a sign bit that may be different even if all other bits are zeroes.
+>>>>>>> e4e6a50b5762dd5dc4c0f0c58f870c64be39dcfa
 
 En todos los demás casos, `Object.is(a, b)` es lo mismo que `a === b`.
 
@@ -411,16 +469,29 @@ Hay más funciones y constantes en el objeto `Math`, incluyendo trigonometría, 
 
 ## Resumen
 
+<<<<<<< HEAD
 Para escribir números con muchos ceros:
 
 - Agregar `"e"` con la cantidad de ceros al número. Como: `123e6` es `123` con 6 ceros `123000000`.
 - un número negativo después de `"e"` causa que el número sea dividido por 1 con los ceros dados:. `123e-6` significa `0.000123` (`123` millonésimos).
+=======
+To write numbers with many zeroes:
+
+- Append `"e"` with the zeroes count to the number. Like: `123e6` is the same as `123` with 6 zeroes `123000000`.
+- A negative number after `"e"` causes the number to be divided by 1 with given zeroes. E.g. `123e-6` means `0.000123` (`123` millionths).
+>>>>>>> e4e6a50b5762dd5dc4c0f0c58f870c64be39dcfa
 
 Para sistemas numéricos diferentes:
 
+<<<<<<< HEAD
 - Se pueden escribir números directamente en sistemas hexa (`0x`), octal (`0o`) y binario (`0b`).
 - `parseInt(str, base)` convierte un string a un entero en el sistema numérico de la `base` dada `base`, `2 ≤ base ≤ 36`.
 - `num.toString(base)` convierte un número a string en el sistema de la `base` dada.
+=======
+- Can write numbers directly in hex (`0x`), octal (`0o`) and binary (`0b`) systems.
+- `parseInt(str, base)` parses the string `str` into an integer in numeral system with given `base`, `2 ≤ base ≤ 36`.
+- `num.toString(base)` converts a number to a string in the numeral system with the given `base`.
+>>>>>>> e4e6a50b5762dd5dc4c0f0c58f870c64be39dcfa
 
 Para convertir valores como `12pt` y `100px` a un número:
 

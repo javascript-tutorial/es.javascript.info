@@ -38,10 +38,15 @@ Una solución alternativa podría ser:
 askPassword(() => user.loginOk(), () => user.loginFail());
 ```
 
+<<<<<<< HEAD
 
 Por lo general, eso también funciona y se ve bien.
 
 Aunque es un poco menos confiable en situaciones más complejas donde la variable `user` podría cambiar *después* de que se llama a `askPassword`, *antes* de que el visitante responde y llame a `() => user.loginOk ()`.
 
 
+=======
+Usually that also works and looks good.
+
+>>>>>>> e4e6a50b5762dd5dc4c0f0c58f870c64be39dcfa
 It's a bit less reliable though in more complex situations where `user` variable might change *after* `askPassword` is called, but *before* the visitor answers and calls `() => user.loginOk()`. 
