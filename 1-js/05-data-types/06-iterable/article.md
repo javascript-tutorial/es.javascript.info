@@ -105,7 +105,7 @@ for (let num of range) {
 
 Ahora `range[Symbol.iterator]()` devuelve el objeto `range` en sí: tiene el método `next()` necesario y recuerda el progreso de iteración actual en `this.current`. ¿Más corto? Sí. Y a veces eso también está bien.
 
-La desventaja es que ahora es imposible tener dos bucles `for..of` corriendo sobre el objeto simultáneamente: compartirán el estado de iteración, porque solo hay un iterador: el objeto en sí. Pero dos for-ofs paralelos es algo raro, factible con algunos escenarios asíncronos.
+La desventaja es que ahora es imposible tener dos bucles `for..of` corriendo sobre el objeto simultáneamente: compartirán el estado de iteración, porque solo hay un iterador: el objeto en sí. Pero dos for-ofs paralelos es algo raro, incluso en escenarios asíncronos.
  
 ```smart header="Iteradores Infinitos"
 También son posibles los iteradores infinitos. Por ejemplo, el objeto `range` se vuelve infinito así:` range.to = Infinity`. O podemos hacer un objeto iterable que genere una secuencia infinita de números pseudoaleatorios. También puede ser útil.
