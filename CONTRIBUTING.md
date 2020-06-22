@@ -1,8 +1,6 @@
 # The Modern JavaScript tutorial en Español
 
-¡Hola! Si quieres contribuir traduciendo este proyecto puedes encontrar el estado 
-de las partes traducidas en nuestro [trello a cargo de](https://trello.com/b/B0jdy1qX/traducción-al-español-del-tutorial-javascriptinfo) 
-[@victorze](https://github.io/victorze).
+¡Hola! Si quieres contribuir traduciendo este proyecto puedes encontrar una guía en el [readme](https://github.com/javascript-tutorial/es.javascript.info#como-contribuir).
 
 Para coordinar los elementos de la traducción y la comunicación general, y/o 
 preguntar por palabras o frases en las que tengas dudas durante la traducción, 
