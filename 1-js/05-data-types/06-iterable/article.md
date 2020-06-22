@@ -159,7 +159,6 @@ while (true) {
   alert(result.value); // retorna los caracteres uno por uno
 }
 ```
-
 Rara vez se necesita esto, pero nos da más control sobre el proceso que `for..of`. Por ejemplo, podemos dividir el proceso de iteración: iterar un poco, luego parar, hacer otra cosa y luego continuar.
  
 ## Iterables y array-likes [#array-like]
