@@ -304,5 +304,5 @@ Los objetos que tienen propiedades indexadas y `longitud` o *length* se llaman *
 
 Si miramos dentro de la especificación, veremos que la mayoría de los métodos incorporados suponen que funcionan con iterables o array-likes en lugar de matrices "reales", porque eso es más abstracto.
 
-`Array.from (obj[, mapFn, thisArg])` crea un verdadero `Array` de un` obj` iterable o array-like, y luego podemos usar métodos de matriz en él. Los argumentos opcionales `mapFn` y` thisArg` nos permiten aplicar una función a cada elemento.
+`Array.from (obj[, mapFn, thisArg])` crea un verdadero `Array` de un `obj` iterable o array-like, y luego podemos usar métodos de matriz en él. Los argumentos opcionales `mapFn` y `thisArg` nos permiten aplicar una función a cada elemento.
  
