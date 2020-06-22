@@ -139,7 +139,6 @@ for (let char of str) {
 
 ## Llamar a un iterador explícitamente
 
-Normalmente, las partes internas de los iterables están ocultas al código externo. Hay un bucle `for..of`, que funciona, eso es todo lo que necesita saber.
 
 Pero para comprender las cosas un poco más en profundidad, veamos cómo crear un iterador explícitamente.
 
