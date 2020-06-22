@@ -2,7 +2,7 @@ importance: 4
 
 ---
 
-# Suma con cierres
+# Suma con clausuras
 
 Escriba la función `sum` que funcione así: `sum(a)(b) = a+b`.
 
