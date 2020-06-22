@@ -11,11 +11,11 @@ describe("calculator", function() {
     calculator.read();
   });
 
-  it("when 2 and 3 are entered, the sum is 5", function() {
+  it("cuando se ingresa 2 y 3, la suma es 5", function() {
     assert.equal(calculator.sum(), 5);
   });
 
-  it("when 2 and 3 are entered, the product is 6", function() {
+  it("cuandose ingresa 2 y 3, el producto es 6", function() {
     assert.equal(calculator.mul(), 6);
   });
 
