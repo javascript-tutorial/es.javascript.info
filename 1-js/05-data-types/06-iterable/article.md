@@ -14,7 +14,7 @@ Podemos comprender fácilmente el concepto de iterables por medio de la práctic
 Por ejemplo, tenemos un objeto, que no es una matriz, pero parece adecuado para `for..of`.
 
 
-Como un objeto *`range`* que representa un intervalo de números:
+Como un objeto `range` que representa un intervalo de números:
 
 ```js
 let range = {
