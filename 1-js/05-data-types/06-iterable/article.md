@@ -193,7 +193,7 @@ for (let item of arrayLike) {}
 */!*
 ```
 
-¿Qué tienen en común? Tanto los iterables como los array-like generalmente son *no matrices*, no tienen "push", "pop", etc. Eso genera inconvenientes si tenemos un objeto así y queremos trabajar con él como con una matriz.
+Tanto los iterables como los array-like generalmente no son *matrices*, no tienen "push", "pop", etc. Eso es bastante inconveniente si tenemos un objeto de este tipo y queremos trabajar con él como con una matriz. P.ej. nos gustaría trabajar con `range` utilizando métodos de matriz. ¿Cómo lograr eso?
 
 ## Array.from
 
