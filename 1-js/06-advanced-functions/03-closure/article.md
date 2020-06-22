@@ -304,7 +304,7 @@ Un [closure](https://en.wikipedia.org/wiki/Closure_(computer_programming)) es un
 
 Es decir: recuerdan automáticamente dónde se crearon utilizando una propiedad oculta `[[Environment]]`, y luego su código puede acceder a las variables externas.
 
-Cuando en una entrevista, un desarrollador frontend recibe una pregunta sobre "¿qué es un cierre?", Una respuesta válida sería una definición del cierre y una explicación de que todas las funciones en JavaScript son cierres, y tal vez algunas palabras más sobre detalles técnicos: la propiedad `[[Environment]]` y cómo funcionan los entornos léxicos.
+Cuando en una entrevista, un desarrollador frontend recibe una pregunta sobre "¿qué es una clausura?", Una respuesta válida sería una definición de clausura y una explicación de que todas las funciones en JavaScript son clausuras, y tal vez algunas palabras más sobre detalles técnicos: la propiedad `[[Environment]]` y cómo funcionan los entornos léxicos.
 ```
 
 ## Recolector de basura
@@ -408,4 +408,3 @@ g();
 Esta característica de V8 es bueno saberla. Si está depurando con Chrome / Opera, tarde o temprano lo encontrará.
 
 Eso no es un error en el depurador, sino más bien una característica especial de V8. Tal vez en algún momento la cambiarán. Siempre puede verificarlo ejecutando los ejemplos en esta página.
-
