@@ -174,7 +174,8 @@ Por ejemplo, las cadenas son iterables (`for..of` funciona en ellas) y array-lik
 
 Pero un iterable puede no ser array-like. Y viceversa, un array-like puede no ser iterable.
 
-Por ejemplo,`range` en el ejemplo anterior es iterable, pero no como una matriz, porque no tiene propiedades indexadas ni`longitud` o *length*.
+
+Por ejemplo, `range` en el ejemplo anterior es iterable, pero no array-like, porque no tiene propiedades indexadas ni `longitud` o *length*.
 
 Y aquí está el objeto que tiene forma de matriz, pero no es iterable:
 
