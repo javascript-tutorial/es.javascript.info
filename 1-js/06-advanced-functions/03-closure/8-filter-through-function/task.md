@@ -8,7 +8,7 @@ Tenemos un método incorporado `arr.filter(f)` para arrays. Filtra todos los ele
 
 Haga un conjunto de filtros "listos para usar":
 
-- `inBetween(a, b)` -- entre `a` y `b` o igual a ellos (inclusive). (inclusively).
+- `inBetween(a, b)` -- entre `a` y `b` o igual a ellos (inclusive).
 - `inArray([...])` -- en el array dado
 
 El uso debe ser así:
