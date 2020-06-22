@@ -5,7 +5,7 @@ Los objetos *iterables* son una generalización de matrices. Este es un concepto
 
 Por supuesto, las matrices o *arrays* son iterables. Pero hay muchos otros objetos integrados, que también lo son. Por ejemplo, las cadenas o *strings* son iterables también. Como veremos, muchos operadores y métodos se basan en la iterabilidad.
 
-Si un objeto representa una colección (lista, conjunto) de algo, entonces el uso de la sintaxis `for..of` es una gran forma de recorrerlo, así que veamos cómo funciona.
+Si un objeto no es técnicamente una matriz, pero representa una colección (lista, conjunto) de algo, entonces el uso de la sintaxis `for..of` es una gran forma de recorrerlo, así que veamos cómo funciona.
 
 ## Symbol.iterator
 
