@@ -168,7 +168,7 @@ Hay dos términos oficiales que se parecen, pero son muy diferentes. Asegúrese 
 - *Iterables* son objetos que implementan el método `Symbol.iterator`, como se describió anteriormente.
 - *Array-likes* son objetos que tienen índices y `longitud` o *length*, por lo que se ven como matrices.
 
-Naturalmente, estas propiedades pueden combinarse. Por ejemplo, las cadenas son iterables (`for..of` funciona en ellas) y tienen forma de matriz (tienen índices numéricos y` longitud` o *length*).
+Cuando usamos JavaScript para tareas prácticas en el navegador u otros entornos, podemos encontrar objetos que son iterables o array-like, o ambos.
 
 Pero un iterable puede no tener forma de matriz. Y viceversa, un tipo de matriz puede no ser iterable.
 
