@@ -1,12 +1,12 @@
 
-# Extending built-in classes
+# Ampliación de clases integradas
 
-Built-in classes like Array, Map and others are extendable also.
+Las clases integradas como Array, Map y otras también son extensibles.
 
-For instance, here `PowerArray` inherits from the native `Array`:
+Por ejemplo, aquí `PowerArray` hereda del nativo `Array`:
 
 ```js run
-// add one more method to it (can do more)
+// se agrega un método más (puedes hacer más)
 class PowerArray extends Array {
   isEmpty() {
     return this.length === 0;
@@ -14,27 +14,27 @@ class PowerArray extends Array {
 }
 
 let arr = new PowerArray(1, 2, 5, 10, 50);
-alert(arr.isEmpty()); // false
+alert(arr.isEmpty()); // falso
 
 let filteredArr = arr.filter(item => item >= 10);
 alert(filteredArr); // 10, 50
-alert(filteredArr.isEmpty()); // false
+alert(filteredArr.isEmpty()); // falso
 ```
 
-Please note a very interesting thing. Built-in methods like `filter`, `map` and others -- return new objects of exactly the inherited type `PowerArray`. Their internal implementation uses the object's `constructor` property for that.
+Tenga en cuenta una cosa muy interesante. Métodos incorporados como `filter`, `map` y otros: devuelven nuevos objetos exactamente del tipo heredado `PowerArray`. Su implementación interna utiliza la propiedad `constructor` del objeto para eso.
 
-In the example above,
+En el ejemplo anterior,
 ```js
 arr.constructor === PowerArray
 ```
 
-When `arr.filter()` is called, it internally creates the new array of results using exactly `arr.constructor`, not basic `Array`. That's actually very cool, because we can keep using `PowerArray` methods further on the result.
+Cuando se llama a `arr.filter()`, crea internamente la nueva matriz de resultados usando exactamente `arr.constructor`, no el básico `Array`. En realidad, eso es muy bueno, porque podemos seguir usando métodos `PowerArray` más adelante en el resultado.
 
-Even more, we can customize that behavior.
+Aún más, podemos personalizar ese comportamiento.
 
-We can add a special static getter `Symbol.species` to the class. If it exists, it should return the constructor that JavaScript will use internally to create new entities in `map`, `filter` and so on.
+Podemos agregar un `getter` estático especial `Symbol.species` a la clase. Si existe, debería devolver el constructor que JavaScript usará internamente para crear nuevas entidades en `map`, `filter` y así sucesivamente.
 
-If we'd like built-in methods like `map` or `filter` to return regular arrays, we can return `Array` in `Symbol.species`, like here:
+Si queremos que los métodos incorporados como `map` o `filter` devuelvan matrices regulares, podemos devolver `Array` en `Symbol.species`, como aquí:
 
 ```js run
 class PowerArray extends Array {
@@ -43,7 +43,7 @@ class PowerArray extends Array {
   }
 
 *!*
-  // built-in methods will use this as the constructor
+  // los métodos incorporados usarán esto como el constructor
   static get [Symbol.species]() {
     return Array;
   }
@@ -51,39 +51,39 @@ class PowerArray extends Array {
 }
 
 let arr = new PowerArray(1, 2, 5, 10, 50);
-alert(arr.isEmpty()); // false
+alert(arr.isEmpty()); // falso
 
-// filter creates new array using arr.constructor[Symbol.species] as constructor
+// filter crea una nueva matriz usando arr.constructor[Symbol.species] como constructor
 let filteredArr = arr.filter(item => item >= 10);
 
 *!*
-// filteredArr is not PowerArray, but Array
+// filterArr no es PowerArray, sino Array
 */!*
-alert(filteredArr.isEmpty()); // Error: filteredArr.isEmpty is not a function
+alert(filteredArr.isEmpty()); // Error: filterArr.isEmpty no es una función
 ```
 
-As you can see, now `.filter` returns `Array`. So the extended functionality is not passed any further.
+Como puede ver, ahora `.filter` devuelve `Array`. Por lo tanto, la funcionalidad extendida ya no se pasa.
 
-```smart header="Other collections work similarly"
-Other collections, such as `Map` and `Set`, work alike. They also use `Symbol.species`.
+```smart header="Other collections trabaja similarmente"
+Otras colecciones, como `Map` y `Set`, funcionan igual. También usan `Symbol.species`.
 ```
 
-## No static inheritance in built-ins
+## Sin herencia estática en incorporados
 
-Built-in objects have their own static methods, for instance `Object.keys`, `Array.isArray` etc.
+Los objetos incorporados tienen sus propios métodos estáticos, por ejemplo, `Object.keys`, `Array.isArray`, etc.
 
-As we already know, native classes extend each other. For instance, `Array` extends `Object`.
+Como ya sabemos, las clases nativas se extienden entre sí. Por ejemplo, `Array` extiende `Object`.
 
-Normally, when one class extends another, both static and non-static methods are inherited. That was thoroughly explained in the article [](info:static-properties-methods#statics-and-inheritance).
+Normalmente, cuando una clase extiende a otra, se heredan los métodos estáticos y no estáticos. Eso se explicó a fondo en el artículo [](info:static-properties-methods#statics-and-inheritance).
 
-But built-in classes are an exception. They don't inherit statics from each other.
+Pero las clases integradas son una excepción. No heredan estáticos el uno del otro.
 
-For example, both `Array` and `Date` inherit from `Object`, so their instances have methods from `Object.prototype`. But `Array.[[Prototype]]` does not reference `Object`, so there's no, for instance, `Array.keys()` (or `Date.keys()`) static method.
+Por ejemplo, tanto `Array` como `Date` heredan de `Object`, por lo que sus instancias tienen métodos de `Object.prototype`. Pero `Array.[[Prototype]]` no hace referencia a `Object`, por lo que no existe, por ejemplo, el método estático `Array.keys()` (o `Date.keys()`).
 
-Here's the picture structure for `Date` and `Object`:
+Aquí está la imagen, estructura para `Date` y `Object`:
 
 ![](object-date-inheritance.svg)
 
-As you can see, there's no link between `Date` and `Object`. They are independent, only `Date.prototype` inherits from `Object.prototype`.
+Como puede ver, no hay un vínculo entre `Date` y `Object`. Son independientes, solo `Date.prototype` hereda de `Object.prototype`.
 
-That's an important difference of inheritance between built-in objects compared to what we get with `extends`.
+Esa es una diferencia importante de herencia entre los objetos integrados en comparación con lo que obtenemos con 'extends`.
