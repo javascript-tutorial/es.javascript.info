@@ -59,7 +59,7 @@ let filteredArr = arr.filter(item => item >= 10);
 *!*
 // filterArr no es PowerArray, sino Array
 */!*
-alert(filteredArr.isEmpty()); // Error: filterArr.isEmpty no es una función
+alert(filteredArr.isEmpty()); // Error: filteredArr.isEmpty no es una función
 ```
 
 Como puede ver, ahora `.filter` devuelve `Array`. Por lo tanto, la funcionalidad extendida ya no se pasa.
