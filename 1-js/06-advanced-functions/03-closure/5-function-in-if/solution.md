@@ -1,3 +1,5 @@
-The result is **an error**.
 
-The function `sayHi` is declared inside the `if`, so it only lives inside it. There is no `sayHi` outside.
+El resultado es **un error**.
+
+La función `sayHi` se declara dentro de `if`, por lo que solo vive dentro de ella. No hay `sayHi` afuera.
+
