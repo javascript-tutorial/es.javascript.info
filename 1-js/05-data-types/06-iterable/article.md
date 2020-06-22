@@ -50,7 +50,7 @@ range[Symbol.iterator] = function() {
     current: this.from,
     last: this.to,      
 
-    // 3. next () es llamado en cada iteración por el bucle for..of
+    // 3. next() es llamado en cada iteración por el bucle for..of
     next() {
       // 4. debería devolver el valor como un objeto {done:.., value :...}
       if (this.current <= this.last) {
