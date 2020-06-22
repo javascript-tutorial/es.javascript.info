@@ -139,6 +139,7 @@ for (let char of str) {
 
 ## Llamar a un iterador explícitamente
 
+Para una comprensión más profunda, veamos cómo usar un iterador explícitamente.
 
 Vamos a iterar sobre una cadena exactamente de la misma manera que `for..of`, pero con llamadas directas. Este código crea un iterador de cadena y obtiene valores de él "manualmente":
 
