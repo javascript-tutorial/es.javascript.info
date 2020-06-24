@@ -129,7 +129,7 @@ Este es un caso particular llamado [polimorfismo](https://es.wikipedia.org/wiki/
 
 ## Propiedades personalizadas
 
-También podemos agrega nuestras propias propiedades.
+También podemos agregar nuestras propias propiedades.
 
 Aquí agregamos la propiedad `counter` para rastrear el recuento total de llamadas
 
