@@ -177,7 +177,7 @@ alert( counter() ); // 0
 alert( counter() ); // 1
 ```
 
-`Count`  ahora se almacena en la función directamente, no en su entorno léxico externo.
+`count` ahora se almacena en la función directamente, no en su entorno léxico externo.
 
 ¿Es mejor o peor que usar un cierre (*closure*)?
 
