@@ -301,7 +301,7 @@ sayHi = null;
 welcome(); // Error, ¡la llamada sayHi anidada ya no funciona!
 ```
 
-Eso sucede porque la función toma `sayHi` de su entorno léxico externo. No hay `sayHi` local, por lo que se utiliza la variable externa. Y en el momento de la llamada, ese `sayHi`  externo es ` nulo`.
+Eso sucede porque la función toma `sayHi` de su entorno léxico externo. No hay `sayHi` local, por lo que se utiliza la variable externa. Y en el momento de la llamada, ese `sayHi` externo es `nulo`.
 
 El nombre opcional que podemos poner en la Expresión de función está destinado a resolver exactamente este tipo de problemas.
 
