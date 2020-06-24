@@ -12,4 +12,4 @@ Modifique el código de `makeCounter()` para que el contador también pueda dism
 
 Consulte el código de sandbox para ver el ejemplo de uso completo.
 
-P.D Puede usar un cierre o la propiedad de función para mantener el recuento actual. O escribe ambas variantes.
+P.D. Puedes usar un cierre o la propiedad de función para mantener el recuento actual. O escribe ambas variantes.
