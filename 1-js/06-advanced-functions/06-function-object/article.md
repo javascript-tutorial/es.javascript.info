@@ -93,7 +93,7 @@ alert(many.length); // 2
 
 Aquí podemos ver que los *parámetros rest* no se cuentan.
 
-La propiedad `length` a veces se usa para [introspección](https://en.wikipedia.org/wiki/Type_introspection) en funciones que operan en otras funciones..
+La propiedad `length` a veces se usa para [introspección](https://es.wikipedia.org/wiki/Introspecci%C3%B3n_de_tipos) en funciones que operan en otras funciones.
 
 Por ejemplo, en el siguiente código, la función `ask` , acepta una` question`  y un número arbitrario de funciones `handler` para llamar.
 
