@@ -14,4 +14,4 @@ sum(6)(-1)(-2)(-3) == 0
 sum(0)(1)(2)(3)(4)(5) == 15
 ```
 
-P.D Sugerencia: es posible que deba configurar un objeto personalizado para una conversión primitiva para su función.
+P.D. Sugerencia: es posible que deba configurar una conversión personalizada "objeto a primitiva" en su función.
