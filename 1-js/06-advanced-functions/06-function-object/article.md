@@ -348,6 +348,6 @@ Si la función se declara como una Expresión de función (no en el flujo de có
 
 Además, las funciones pueden tener propiedades adicionales. Muchas bibliotecas de JavaScript conocidas hacen un gran uso de esta función.
 
-Crean una función "principal" y le asignan muchas otras funciones "auxiliares". Por ejemplo, la biblioteca [jQuery](https://jquery.com) crea una función llamada `$`. la biblioteca  [lodash](https://lodash.com)  crea una función  `_`, y luego agrega `_.clone`, `_.keyBy` y otras propiedades (see the [docs](https://lodash.com/docs) cuando quieras aprender más sobre ello). En realidad, lo hacen para disminuir su contaminación del espacio global, de modo que una sola biblioteca proporciona solo una variable global. Eso reduce la posibilidad de nombrar conflictos.
+Crean una función "principal" y le asignan muchas otras funciones "auxiliares". Por ejemplo, la biblioteca [jQuery](https://jquery.com) crea una función llamada `$`. La biblioteca  [lodash](https://lodash.com) crea una función  `_`, y luego agrega `_.clone`, `_.keyBy` y otras propiedades (mira los [docs](https://lodash.com/docs) cuando quieras aprender más sobre ello). En realidad, lo hacen para disminuir su contaminación del espacio global, de modo que una sola biblioteca proporciona solo una variable global. Eso reduce la posibilidad de conflictos de nombres.
 
 Por lo tanto, una función puede hacer un trabajo útil por sí misma y también puede tener muchas otras funcionalidades en las propiedades.
