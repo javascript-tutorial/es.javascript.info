@@ -1,7 +1,7 @@
 
 # Objeto Global
 
-El objeto global proporciona variables y funciones que están disponibles en cualquier lugar. Por defecto,  aquellas que están integradas en el lenguaje o el entorno.
+El objeto global proporciona variables y funciones que están disponibles en cualquier lugar. Por defecto, aquellas que están integradas en el lenguaje o el entorno.
 
 En un navegador se denomina `window`, para Node.js es` global`, para otros entornos puede tener otro nombre.
 
