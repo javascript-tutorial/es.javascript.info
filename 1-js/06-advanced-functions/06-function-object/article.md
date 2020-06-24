@@ -246,7 +246,7 @@ Hay dos cosas especiales sobre el nombre `func`, que le hacen útil:
 1. Permite que la función se haga referencia internamente.
 2. No es visible fuera de la función..
 
-Por ejemplo, la función `sayHi` a continuación se vuelve a llamar a sí misma con ` "Guest"  `si no se proporciona ` who`:
+Por ejemplo, la función `sayHi` a continuación se vuelve a llamar a sí misma con `"Guest" ` si no se proporciona `who`:
 
 ```js run
 let sayHi = function *!*func*/!*(who) {
