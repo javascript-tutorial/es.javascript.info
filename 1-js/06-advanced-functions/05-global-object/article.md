@@ -67,7 +67,7 @@ if (!window.Promise) {
 }
 ```
 
-Si no hay ninguno (suponiendo que  estamos en un navegador antiguo), podemos crear "polyfills": agregar funciones que no son compatibles con el entorno, pero que existen en el estándar moderno.
+Si no hay ninguno (suponiendo que estamos en un navegador antiguo), podemos crear "polyfills": agregar funciones que no son compatibles con el entorno, pero que existen en el estándar moderno.
 
 ```js run
 if (!window.Promise) {
