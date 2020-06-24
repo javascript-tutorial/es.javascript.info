@@ -231,7 +231,7 @@ Primero, tengamos en cuenta que todavía tenemos una `expresión de función`. A
 
 Agregar ese nombre tampoco rompió nada.
 
-La función todavía está disponible como `sayHi ()`:
+La función todavía está disponible como `sayHi()`:
 
 ```js run
 let sayHi = function *!*func*/!*(who) {
