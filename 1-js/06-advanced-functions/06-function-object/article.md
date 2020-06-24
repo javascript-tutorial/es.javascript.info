@@ -254,7 +254,7 @@ let sayHi = function *!*func*/!*(who) {
     alert(`Hello, ${who}`);
   } else {
 *!*
-    func("Guest"); //usa func para volver a llamarse
+    func("Guest"); // usa func para volver a llamarse a sí misma
 */!*
   }
 };
