@@ -156,7 +156,7 @@ Una propiedad asignada a una función como `sayHi.counter = 0` *no* define una v
 Podemos tratar una función como un objeto, almacenar propiedades en ella, pero eso no tiene ningún efecto en su ejecución. Las variables no son propiedades de la función y viceversa. Estos solo son dos mundos paralelos.
 ```
 
-Las propiedades de la función a veces pueden reemplazar los cierres o *closures* . Por ejemplo, podemos reescribir el ejemplo de la función de contador del capítulo <info:closure>  para usar una propiedad de función:
+Las propiedades de la función a veces pueden reemplazar las clausuras o *closures*. Por ejemplo, podemos reescribir el ejemplo de la función de contador del capítulo <info:closure> para usar una propiedad de función:
 
 ```js run
 function makeCounter() {
