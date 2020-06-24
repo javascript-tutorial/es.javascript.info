@@ -79,7 +79,7 @@ if (!window.Promise) {
 
 - El objeto global contiene variables que deberían estar disponibles en todas partes.
 
-    Eso incluye JavaScript incorporado, como  `Array` y valores específicos del entorno, como ` window.innerHeight` -- la altura de la ventana en el navegador.
+    Eso incluye JavaScript incorporado, como `Array` y valores específicos del entorno, como ` window.innerHeight` -- la altura de la ventana en el navegador.
 
 - El objeto global tiene un nombre universal: `globalThis`.
 
