@@ -7,7 +7,7 @@ En un navegador se denomina `window`, para Node.js es` global`, para otros entor
 
 Recientemente, `globalThis`  se agregó al lenguaje, como un nombre estandarizado para un objeto global, que debería ser compatible con todos los entornos. En algunos navegadores, como Chromium  Edge, `globalThis` aún no es compatible, pero se puede  usar  mediante *polyfill*.
 
-Aquí usaremos  `window` , suponiendo que nuestro entorno sea un navegador. Si su script puede ejecutarse en otros entornos, es mejor usar `globalThis` en su lugar.
+Aquí usaremos `window`, suponiendo que nuestro entorno sea un navegador. Si su script puede ejecutarse en otros entornos, es mejor usar `globalThis` en su lugar.
 
 Se puede acceder directamente a todas las propiedades del objeto global:
 
