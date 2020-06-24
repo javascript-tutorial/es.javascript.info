@@ -7,7 +7,7 @@ Cada valor en JavaScript tiene un tipo. ¿Qué tipo es una función?
 
 En JavaScript, las funciones son objetos.
 
-Una buena manera de imaginar funciones es como "objetos de acción" invocables. No solo podemos llamarlos, sino también tratarlos como objetos: agregar / eliminar propiedades, pasar por referencia, etc.
+Una buena manera de imaginar funciones es como "objetos de acción" invocables. No solo podemos llamarlos, sino también tratarlos como objetos: agregar/eliminar propiedades, pasar por referencia, etc.
 
 
 ## La propiedad "name"
