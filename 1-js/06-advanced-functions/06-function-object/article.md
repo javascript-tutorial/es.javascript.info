@@ -125,7 +125,7 @@ function ask(question, ...handlers) {
 ask("Question?", () => alert('You said yes'), result => alert(result));
 ```
 
-Este es un caso particular llamado [polimorfismo](https://en.wikipedia.org/wiki/Polymorphism_(computer_science)) --tratar los argumentos de manera diferente según su tipo o, en nuestro caso, según la 'longitud'. La idea tiene un uso en las bibliotecas de JavaScript.
+Este es un caso particular llamado [polimorfismo](https://es.wikipedia.org/wiki/Polimorfismo_(inform%C3%A1tica)) -- tratar los argumentos de manera diferente según su tipo o, en nuestro caso, según la 'longitud'. La idea tiene un uso en las bibliotecas de JavaScript.
 
 ## Propiedades personalizadas
 
