@@ -31,7 +31,7 @@ let sayHi = function() {
   alert("Hi");
 };
 
-alert(sayHi.name); // sayHi (hay un nombre!)
+alert(sayHi.name); // sayHi (¡hay un nombre!)
 ```
 
 También funciona si la asignación se realiza mediante un valor predeterminado:
