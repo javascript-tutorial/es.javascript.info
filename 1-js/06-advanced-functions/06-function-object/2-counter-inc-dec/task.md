@@ -2,7 +2,7 @@ importance: 5
 
 ---
 
-# Establecer y disminuir  un contador
+# Establecer y disminuir un contador
 
 Modifique el código de `makeCounter ()` para que el contador también pueda disminuir y establecer el número:
 
