@@ -4,7 +4,7 @@ importance: 5
 
 # Establecer y disminuir un contador
 
-Modifique el código de `makeCounter ()` para que el contador también pueda disminuir y establecer el número:
+Modifique el código de `makeCounter()` para que el contador también pueda disminuir y establecer el número:
 
 - `counter()` debería devolver el siguiente número (como antes).
 - `counter.set(value)` debería establecer el contador  para  `value`.
