@@ -227,7 +227,7 @@ let sayHi = function *!*func*/!*(who) {
 
 ¿Logramos algo aquí? ¿Cuál es el propósito de ese nombre adicional de "func"?
 
-Primero, tengamos en cuenta que todavía tenemos una `expresión de función`. Agregar el nombre `" func "` después de `function` no lo convirtió en una `declaración de función`, porque todavía se crea como parte de una expresión de asignación.
+Primero, tengamos en cuenta que todavía tenemos una `expresión de función`. Agregar el nombre `"func"` después de `function` no lo convirtió en una `declaración de función`, porque todavía se crea como parte de una expresión de asignación.
 
 Agregar ese nombre tampoco rompió nada.
 
