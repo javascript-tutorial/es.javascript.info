@@ -108,7 +108,7 @@ En otras representaciones del DOM, las omitiremos cuando sean irrelevantes. Tale
 
 Si el navegador encuentra HTML mal escrito, lo corrige automáticamente al construir el DOM.
 
-Por ejemplo, la etiqueta superior siempre será `<html>`. Incluso si no existe en el documento, esta existirá en el DOM, puesto que, el navegador la creará. Sucede lo mismo con la etiqueta `<body>`.
+Por ejemplo, la etiqueta superior siempre será `<html>`. Incluso si no existe en el documento, ésta existirá en el DOM, puesto que, el navegador la creará. Sucede lo mismo con la etiqueta `<body>`.
 
 Como ejemplo de esto, si el archivo HTML es la palabra `"Hello"`, el navegador lo envolverá con las etiquetas `<html>` y `<body>`, y añadirá la etiqueta `<head>` la cual es requerida, basado en esto,  el DOM resultante será:
 
