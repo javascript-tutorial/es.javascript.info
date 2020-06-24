@@ -179,7 +179,7 @@ alert( counter() ); // 1
 
 `count` ahora se almacena en la función directamente, no en su entorno léxico externo.
 
-¿Es mejor o peor que usar un cierre (*closure*)?
+¿Es mejor o peor que usar una clausura (*closure*)?
 
 La principal diferencia es que si el valor de `count` vive en una variable externa, entonces el código externo no puede acceder a él. Solo las funciones anidadas pueden modificarlo. Y si está vinculado a una función, entonces tal cosa es posible:
 
