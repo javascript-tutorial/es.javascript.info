@@ -55,7 +55,7 @@ alert(window.currentUser.name); // John
 
 Dicho esto, generalmente se desaconseja el uso de variables globales. Debe haber la menor cantidad posible de ellas. El diseño del código donde una función obtiene variables de "entrada" y produce cierto "resultado" es más claro, menos propenso a errores y más fácil de probar que si usa variables externas o globales.
 
-## Usado como  polyfills
+## Uso para polyfills
 
 Usamos el objeto global para probar el soporte de las características del lenguaje moderno.
 
