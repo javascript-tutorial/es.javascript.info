@@ -91,7 +91,7 @@ alert(f2.length); // 2
 alert(many.length); // 2
 ```
 
-Aquí podemos ver que los *parámetros  rest* no se cuentan:.
+Aquí podemos ver que los *parámetros rest* no se cuentan.
 
 La propiedad `length` a veces se usa para [introspección](https://en.wikipedia.org/wiki/Type_introspection) en funciones que operan en otras funciones..
 
