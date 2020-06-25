@@ -122,7 +122,7 @@ user.name = "Pedro"; // Error: No se puede asignar a la propiedad de solo lectur
 
 Ahora nadie puede cambiar el nombre de nuestro usuario, a menos que le apliquen su propio `defineProperty` para sobrescribir el nuestro.
 
-Aquí está la misma operación, pero cuando la propiedad no existe:
+```smart header="Los errores aparecen solo en modo estricto"
 
 
 ```js run
