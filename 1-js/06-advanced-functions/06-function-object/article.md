@@ -131,7 +131,7 @@ Este es un caso particular llamado [polimorfismo](https://es.wikipedia.org/wiki/
 
 También podemos agregar nuestras propias propiedades.
 
-Aquí agregamos la propiedad `counter` para rastrear el recuento total de llamadas
+Aquí agregamos la propiedad `counter` para rastrear el recuento total de llamadas:
 
 ```js run
 function sayHi() {
