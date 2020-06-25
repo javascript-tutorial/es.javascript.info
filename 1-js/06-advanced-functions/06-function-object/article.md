@@ -150,7 +150,7 @@ sayHi(); // Hi
 alert( `Called ${sayHi.counter} times` ); //  Llamamos 2 veces
 ```
 
-```warn header="Una propiedad no es una variable."
+```warn header="Una propiedad no es una variable"
 Una propiedad asignada a una función como `sayHi.counter = 0` *no* define una variable local `counter` dentro de ella. En otras palabras, una propiedad `counter` y una variable `let counter` son dos cosas no relacionadas.
 
 Podemos tratar una función como un objeto, almacenar propiedades en ella, pero eso no tiene ningún efecto en su ejecución. Las variables no son propiedades de la función y viceversa. Estos solo son dos mundos paralelos.
