@@ -329,7 +329,7 @@ Ahora funciona, porque el nombre `"func"` es una función local. No se toma desd
 El código externo todavía tiene su variable `sayHi` o `welcome`. Y `func` es un "nombre de función interna", porque la función puede llamarse internamente.
 
 ```smart header="No existe tal cosa para la `Declaración de funciones`"
-La función de "nombre interno" descrita aquí solo está disponible para `Expresiones de funciones`, no para` Declaraciones de funciones`. Para las declaraciones de funciones, no hay sintaxis para agregar un nombre "interno".
+La característica "nombre interno" descrita aquí solo está disponible para Expresiones de funciones, no para Declaraciones de funciones. Para las declaraciones de funciones, no hay sintaxis para agregar un nombre "interno".
 
 A veces,  necesitamos un nombre interno confiable, este es un motivo para reescribir un formulario de Declaración de funciones en Expresión de funciones con nombre.
 ```
