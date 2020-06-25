@@ -93,7 +93,7 @@ setTimeout(() => promise.catch(err => alert('atrapado')), 1000);
 window.addEventListener('unhandledrejection', event => alert(event.reason));
 ```
 
-Ahora si nosotros ejecumtamos, veremos `¡Promesa fallida!` primero y después `atrapado`.
+Ahora si nosotros ejecutamos, veremos `¡Promesa fallida!` primero y después `atrapado`.
 
 Si no supiéramos acerca de la cola de microtareas podríamos preguntarnos: "¿Porqué se ejecutó el controlador `unhandledrejection`? ¡Capturamos y manejamos el error!
 
