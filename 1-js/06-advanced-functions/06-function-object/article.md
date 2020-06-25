@@ -138,7 +138,7 @@ function sayHi() {
   alert("Hi");
 
   *!*
-  //vamos a contar
+  //vamos a contar las veces que se ejecuta
   sayHi.counter++;
   */!*
 }
