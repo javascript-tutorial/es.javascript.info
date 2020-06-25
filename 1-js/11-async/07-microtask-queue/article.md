@@ -1,7 +1,7 @@
 
 # Microtareas (Microtasks)
 
-Los manejadores o controladores (en adelante controladores) de Promesas `.then`/`.catch`/`.finally` son siempre asíncronicos.
+Los manejadores o controladores (en adelante controladores) de Promesas `.then`/`.catch`/`.finally` son siempre asincrónicos.
 
 Incluso cuando una Promesa es inmediatamente resuelta, el código en las líneas *debajo de* `.then`/`.catch`/`.finally` se ejecutará antes que estos controladores.
 
