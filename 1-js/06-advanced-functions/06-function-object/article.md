@@ -147,7 +147,7 @@ sayHi.counter = 0; // valor inicial
 sayHi(); // Hi
 sayHi(); // Hi
 
-alert( `Called ${sayHi.counter} times` ); //  Llamamos 2 times
+alert( `Called ${sayHi.counter} times` ); //  Llamamos 2 veces
 ```
 
 ```warn header="Una propiedad no es una variable."
