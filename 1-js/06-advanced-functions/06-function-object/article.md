@@ -95,7 +95,7 @@ Aquí podemos ver que los *parámetros rest* no se cuentan.
 
 La propiedad `length` a veces se usa para [introspección](https://es.wikipedia.org/wiki/Introspecci%C3%B3n_de_tipos) en funciones que operan en otras funciones.
 
-Por ejemplo, en el siguiente código, la función `ask` , acepta una` question`  y un número arbitrario de funciones `handler` para llamar.
+Por ejemplo, en el siguiente código, la función `ask` , acepta una `question`  y un número arbitrario de funciones `handler` para llamar.
 
 Una vez que un usuario proporciona su respuesta, la función llama a los controladores. Podemos pasar dos tipos de controladores:
 
