@@ -5,20 +5,20 @@ Hay dos tipos de propiedades.
 
 El primer tipo son las *propiedades de los datos*. Ya sabemos cómo trabajar con ellas. En realidad, todas las propiedades que hemos estado usando hasta ahora eran propiedades de datos.
 
-El segundo tipo de propiedades es algo nuevo. Son las *propiedades de los accesorios*. Estas son esencialmente funciones que trabajan en la obtención y configuración de un valor, pero que parecen propiedades normales de un código externo.
+El segundo tipo de propiedades es algo nuevo. Son las *propiedades de acceso*. Estas son esencialmente funciones que, trabajan en la obtención y asignación de un valor, pero parecen propiedades normales para un código externo.
 
 ## Getters and setters
 
-Las propiedades del accesorio están representadas por los métodos "getter" y "setter". En un objeto con la notación literal se denotan por "get" y "set":
+Las propiedades de acceso están representadas por los métodos "getter" y "setter". En un objeto con la notación literal se denotan por "get" y "set":
 
 ```js
 let obj = {
   *!*get propName()*/!* {
-    // getter, el código ejecutado al obtener obj.propName
+    // getter, el código ejecutado para asignar  obj.propName
   },
 
   *!*set propName(value)*/!* {
-    // setter, el código ejecutado al obtener obj.propName = value
+    // setter, el código ejecutado para asignar obj.propName = value
   }
 };
 ```
@@ -34,7 +34,7 @@ let user = {
 };
 ```
 
-Ahora queremos añadir una propiedad de "nombre completo", que debería ser "John Smith". Por supuesto, no queremos copiar-pegar la información existente, así que podemos aplicarla como un accesorio:
+Ahora queremos añadir una propiedad de "nombre completo", que debería ser "John Smith". Por supuesto, no queremos copiar-pegar la información existente, así que podemos aplicarla como un acceso:
 
 ```js run
 let user = {
@@ -53,7 +53,7 @@ alert(user.fullName); // John Smith
 */!*
 ```
 
-Desde fuera, una propiedad accesoria se parece a una normal. Esa es la idea de las propiedades accesorias. No llamamos a " user.fullName" como una función, la leemos normalmente: el "getter" corre detrás de la escena.
+Desde fuera, una propiedad de acceso se parece a una normal. Esa es la idea de estas propiedades. No llamamos a " user.fullName" como una función, la leemos normalmente: el "getter" corre detrás de la escena.
 
 A partir de ahora, "Nombre completo" sólo tiene un receptor. Si intentamos asignar "user.fullName", habrá un error.
 
@@ -111,16 +111,16 @@ Como resultado, tenemos una propiedad virtual `fullName` que puede leerse y escr
 
 Los descriptores de las propiedades de acceso son diferentes de aquellos para las propiedades de los datos.
 
-Para las propiedades de los accesorios, no hay cosas como "valor" y "escritura", sino de "get" y "set".
+Para las propiedades de acceso, no hay cosas como "valor" y "escritura", sino de "get" y "set".
 
-Así que un descriptor de accesorios puede tener:
+Así que un descriptor de accesos puede tener:
 
 - **`get`** -- una función sin argumentos, que funciona cuando se lee una propiedad,
 - **`set`** -- una función con un argumento, que se llama cuando se establece la propiedad,
 - **`enumerable`** -- lo mismo que para las propiedades de los datos,
 - **`configurable`** -- lo mismo que para las propiedades de los datos.
 
-Por ejemplo, para crear un accesorio " Nombre Completo" con "Definir Propiedad", podemos pasar un descriptor con `get` y `set`:
+Por ejemplo, para crear un acceso " Nombre Completo" con "Definir Propiedad", podemos pasar un descriptor con `get` y `set`:
 
 ```js run
 let user = {
@@ -145,7 +145,7 @@ alert(user.fullName); // John Smith
 for(let key in user) alert(key); // name, surname
 ```
 
-Tenga en cuenta que una propiedad puede ser un accesorio (tiene métodos `get/set`)  o una propiedad de datos (tiene un 'valor'), no ambas.
+Tenga en cuenta que una propiedad puede ser un acceso (tiene métodos `get/set`)  o una propiedad de datos (tiene un 'valor'), no ambas.
 
 Si intentamos poner tanto " get" como " valor" en el mismo descriptor, habrá un error:
 
