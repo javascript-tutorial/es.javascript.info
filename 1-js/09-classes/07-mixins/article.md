@@ -124,7 +124,7 @@ Aquí está el código:
 ```js run
 let eventMixin = {
   /**
-   * Suscríbete al evento, uso:
+   * Suscribe al evento, uso:
    *  menu.on('select', function(item) { ... }
   */
   on(eventName, handler) {
