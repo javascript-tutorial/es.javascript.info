@@ -194,7 +194,7 @@ result = await generator.next(); // resultado = {value: ..., done: true/false}
 
 ## Iteradores asíncronos
 
-Como ya sabemos, para que un objeto sea iterable, debems agregarle `Symbol.iterator` .
+Como ya sabemos, para que un objeto sea iterable, debemos agregarle `Symbol.iterator` .
 
 ```js
 let range = {
