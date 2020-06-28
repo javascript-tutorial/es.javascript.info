@@ -153,7 +153,7 @@ En los generadores normales no podemos usar`await`. Todos los valores deben veni
 
 Pero, ¿qué pasa si necesitamos usar `await` en el cuerpo del generador? Para realizar solicitudes de red, por ejemplo.
 
-No problem, solo añádelo con `async`, así:
+No hay problema, solo añádelo con `async`, así:
 
 ```js run
 *!*async*/!* function* generateSequence(start, end) {
