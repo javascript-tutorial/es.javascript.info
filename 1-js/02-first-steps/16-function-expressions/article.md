@@ -130,7 +130,7 @@ function showCancel() {
   alert( "Cancelaste la ejecución." );
 }
 
-// so: las funciones showOk, showCancel son pasadas como argumentos de ask
+// uso: las funciones showOk, showCancel son pasadas como argumentos de ask
 ask("Estás de acuerdo?", showOk, showCancel);
 ```
 
