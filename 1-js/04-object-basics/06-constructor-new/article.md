@@ -126,7 +126,7 @@ let john = User("John"); // redirige llamado a new User
 alert(john.name); // John
 ```
 
-Este enfoque es utilizado aveces para hacer el sintaxis más flexible. Para que la gente pueda llamar a la función con o sin `new`, y aun funciona.
+Este enfoque es utilizado aveces en las librerías para hacer el sintaxis más flexible. Para que la gente pueda llamar a la función con o sin `new`, y aun funciona.
 
 Sin embargo, probablemente no sea algo bueno para usar en todas partes, porque omitir `new` hace que sea un poco menos obvio lo que está sucediendo. Con `new` todos sabemos que se está creando el nuevo objeto.
 
