@@ -27,7 +27,7 @@ let range = {
       current: this.from,
       last: this.to,
 
-      // next() se llama en cada iteración por el buce for..of
+      // next() se llama en cada iteración por el bucle for..of
 *!*
       next() { // (2)
         // debería devolver el valor como un objeto {done:.., value :...}
