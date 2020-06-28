@@ -184,7 +184,7 @@ Ahora tenemos el generador asíncrono iterable con `for await...of`.
 
 De hecho es muy simple: Agregamos la palabra clave `async`, y el generador ahora puede usar `await` dentro de ella, confiar en promesas y en otras funciones asíncronas.
 
-Técnicamente, otra diferencia de un generador asíncrono es que su método `generator.next()` ahora es asíncrono también, y develve promesas.
+Técnicamente, otra diferencia de un generador asíncrono es que su método `generator.next()` ahora es asíncrono también, y devuelve promesas.
 
 En un generador normal usariamos `result = generator.next()` para obtener valores. En un generador asíncrono debemos agregar `await`, así:
 
