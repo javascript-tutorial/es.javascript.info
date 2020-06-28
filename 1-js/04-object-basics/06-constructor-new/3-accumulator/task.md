@@ -4,7 +4,7 @@ importance: 5
 
 # Crear nuevo Acumulador
 
-Crear una función contructor `Accumulator(valorInicial)`.
+Crear una función contructor `Accumulator(startingValue)`.
 
 El objeto que crea debería:
 
