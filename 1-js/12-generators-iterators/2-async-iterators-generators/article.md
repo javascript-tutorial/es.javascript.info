@@ -314,7 +314,7 @@ async function* fetchCommits(repo) {
 
 1. Usamos el método del navegador [fetch](info:fetch) para descargar desde una URL remota. Esto nos permite proporcionar aturorización y otros encabezados si es necesario -- aquí GitHub requiere `User-Agent`.
 2. El resultado de la búsqueda se analiza como JSON. De nuevo, esto es un método específico de `fetch`.
-3. Deberíamos obteer la siguiente URL de la página del `enlace` en el encabezado de la respuesta. Esto tiene un formato especial, por lo que usamos una expresión regular para eso. La URL de la página siguiente puede verse así `https://api.github.com/repositories/93253246/commits?page=2`. Eso es generado por el propio Github.
+3. Deberíamos obtener la siguiente URL de la página del `enlace` en el encabezado de la respuesta. Esto tiene un formato especial, por lo que usamos una expresión regular para eso. La URL de la página siguiente puede verse así `https://api.github.com/repositories/93253246/commits?page=2`. Eso es generado por el propio Github.
 4. Luego entregamos todas las confirmaciones recibidas, y cuando finalizan, se activará la siguiente iteración `while(url)` haciendo una solicitud más.
 
 Un ejemplo de uso (muestra autores de commit en la consola):
