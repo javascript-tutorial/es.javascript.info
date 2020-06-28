@@ -277,7 +277,7 @@ Este patrón es muy común. No se trata de usuarios, sino de cualquier cosa. Por
 Pero nos gustaría tener una API más simple: un objeto iterable con commits, para poder repasarlos así:
 
 ```js
-let repo = 'javascript-tutorial/en.javascript.info'; // GitHub repositorio para obtener commits desde
+let repo = 'javascript-tutorial/es.javascript.info'; // GitHub repositorio para obtener commits desde
 
 for await (let commit of fetchCommits(repo)) {
   // proceso de commit
