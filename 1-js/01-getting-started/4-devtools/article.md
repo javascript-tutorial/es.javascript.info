@@ -31,7 +31,7 @@ El aspecto exacto de las herramientas de desarrollador depende de su versión de
 
 Debajo del mensaje de error, hay un símbolo azul `>`. Marca una "línea de comando" donde podemos escribir comandos JavaScript. Presione la tecla `: Enter` para ejecutarlos (tecla`: Shift + Enter` para ingresar comandos de varias líneas).
 
-Ahora podemos ver errores, y eso es suficiente para empezar. Volveremos a las herramientas de desarrollador más adelante y cubriremos la depuración más en profundidad en el capítulo <info: debugging-chrome>.
+Ahora podemos ver errores, y eso es suficiente para empezar. Volveremos a las herramientas de desarrollador más adelante y cubriremos la depuración más en profundidad en el capítulo <info:debugging-chrome>.
 
 
 ## Firefox, Edge, y otros
