@@ -15,7 +15,7 @@ describe("calculator", function() {
     assert.equal(calculator.sum(), 5);
   });
 
-  it("cuandose ingresa 2 y 3, el producto es 6", function() {
+  it("cuando se ingresa 2 y 3, el producto es 6", function() {
     assert.equal(calculator.mul(), 6);
   });
 
