@@ -86,7 +86,7 @@ El constructor no puede ser llamado de nuevo porque no es guardado en ninguna pa
 ## Constructor modo test: new.target
 
 ```smart header="Temas avanzados"
-La sintaxis a partir de esta sección es raramente utilizada, puedes saltearla a menos que quieras saber todo.
+La sintaxis a partir de esta sección es raramente utilizada, puedes omitirla a menos que quieras saber todo.
 ```
 
 Dentro de una función, podemos verificar si ha sido llamada con o sin el `new`, utilizando una propiedad especial `new.target`.
