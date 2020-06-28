@@ -116,7 +116,7 @@ También podemos realizar ambas llamadas `new` y regular para que realicen lo mi
 ```js run
 function User(name) {
   if (!new.target) { // si me ejecutas sin new
-    return new User(name); // ...Yo te agrego new por ti
+    return new User(name); // ...Agregaré new por ti
   }
 
   this.name = name;
