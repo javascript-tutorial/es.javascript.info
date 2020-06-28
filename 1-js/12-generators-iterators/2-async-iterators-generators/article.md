@@ -229,7 +229,7 @@ for(let value of range) {
 }
 ```
 
-Aquí, un objeto personalizado `range` es iterable, y el generador `*[Symbol.iterator]` implementa la logia para listar valroes.
+Aquí, un objeto personalizado `range` es iterable, y el generador `*[Symbol.iterator]` implementa la lógica para listar valores.
 
 Si nos gustaría agregar acciones asíncronas en el generador, entonces deberíamos reemplazar `Symbol.iterator` con `Symbol.asyncIterator` asíncrono:
 
