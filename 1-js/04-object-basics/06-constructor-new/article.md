@@ -67,7 +67,7 @@ Este es el principal propósito del constructor -- implementar código de creaci
 Tomemos nota otra vez -- técnicamente cualquier función puede ser utilizada como constructor. Es decir: cualquier función puede ser ejecutada con `new`, y ejecutará el algoritmo de arriba. La "primera letra mayúscula" es un acuerdo común, para dejar en claro que la función debe ser ejecutada con `new`.
 
 ````smart header="new function() { ... }"
-Si tenemos muchas líneas de código todas sobre la creación de un único objeto complejo, podemos rodearlas en constructor de función, de ésta manera:
+Si tenemos muchas líneas de código todas sobre la creación de un único objeto complejo, podemos agruparlas en un constructor de función, de ésta manera:
 
 ```js
 let user = new function() {
