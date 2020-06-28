@@ -8,7 +8,7 @@ Crear una función contructor `Accumulator(startingValue)`.
 
 El objeto que crea debería:
 
-- Almacene el "valor actual" en la propiedad `value`. El valor inicial se establece en el argumento del constructor `valorInicial`.
+- Almacene el "valor actual" en la propiedad `value`. El valor inicial se establece en el argumento del constructor `startingValue`.
 - El método `read()` debe usar `prompt` para leer un nuevo número y agregarlo a `value`.
 
 En otras palabras, la propiedad `value` es la suma de todos los valores ingresados por el usuario con el valor inicial `startingValue`.
