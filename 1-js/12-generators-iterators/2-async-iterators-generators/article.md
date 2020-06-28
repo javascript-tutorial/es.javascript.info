@@ -149,7 +149,7 @@ for(let value of generateSequence(1, 5)) {
 }
 ```
 
-En los generadores normales no podemos usar`await`. Todos los valores deben venir sincrónicamente: no hay luga para el retraso en `for..of`, ya que es una construcción síncrona.
+En los generadores normales no podemos usar`await`. Todos los valores deben venir sincrónicamente: no hay lugar para el retraso en `for..of`, ya que es una construcción síncrona.
 
 Pero, ¿qué pasa si necesitamos usar `await` en el cuerpo del generador? Para realizar solicitudes de red, por ejemplo.
 
