@@ -1,6 +1,6 @@
 # Consola de desarrollador
 
-El código es propenso a errores. Es muy probable que cometas errores ... Oh, ¿de qué estoy hablando? Vas a *absolutamente* cometer errores, al menos si eres un humano, no un [robot](https://en.wikipedia.org/wiki/Bender_(Futurama)).
+El código es propenso a errores. Es muy probable que cometas errores ... Oh, ¿de qué estoy hablando? *Definitivamente* vas a cometer errores, al menos si eres un humano, no un [robot](https://en.wikipedia.org/wiki/Bender_(Futurama)).
 
 Pero en el navegador, por defecto los usuarios no ven errores. Entonces, si algo sale mal en el script, no veremos lo que está roto y no podemos arreglarlo.
 
