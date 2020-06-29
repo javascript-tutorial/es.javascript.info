@@ -94,16 +94,6 @@ alert(user.name); // Alice
 alert(user.surname); // Cooper
 ```
 
-
-```smart header="Accessor properties are only accessible with get/set"
-Una vez que una propiedad se define con `get prop()` o `set prop()`, es una propiedad accesoria, ya no es una propiedad de los datos.
-
-- Si hay un getter -- podemos leer `object.prop`, de otro modo no podemos.
-- Si hay un setter -- podemos fijar `object.prop=...`, de otro modo no podemos.
-
-Y en cualquier caso no podemos "borrar" una propiedad accesoria.
-```
-
 Como resultado, tenemos una propiedad virtual `fullName` que puede leerse y escribirse.
 
 
