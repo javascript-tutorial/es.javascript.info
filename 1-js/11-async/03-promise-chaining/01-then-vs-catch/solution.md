@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+The short answer is: **no, they are not equal**:
+>>>>>>> 340ce4342100f36bb3c4e42dbe9ffa647d8716c8
 
 La respuesta corta es: **no, no son iguales**:
 
@@ -20,3 +24,7 @@ Esto se debe a que se pasa un error por la cadena y en la segunda pieza del cód
 
 En otras palabras, `.then` pasa los resultados/errores al siguiente `.then/catch`. Entonces, en el primer ejemplo, hay un `catch` debajo, y en el segundo no lo hay, por lo que el error no se maneja.
 
+<<<<<<< HEAD
+=======
+In other words, `.then` passes results/errors to the next `.then/catch`. So in the first example, there's a `catch` below, and in the second one there isn't, so the error is unhandled.
+>>>>>>> 340ce4342100f36bb3c4e42dbe9ffa647d8716c8

@@ -124,7 +124,11 @@ user2.admin?.();
 
 Here, in both lines we first use the dot `.` to get `admin` property, because the user object must exist, so it's safe read from it.
 
+<<<<<<< HEAD
 Then `?.()` checks the left part: if the user exists, then it runs (for `user1`). Otherwise (for `user2`) the evaluation stops without errors.
+=======
+Then `?.()` checks the left part: if the admin function exists, then it runs (for `user1`). Otherwise (for `user2`) the evaluation stops without errors.
+>>>>>>> 340ce4342100f36bb3c4e42dbe9ffa647d8716c8
 
 The `?.[]` syntax also works, if we'd like to use brackets `[]` to access properties instead of dot `.`. Similar to previous cases, it allows to safely read a property from an object that may not exist.
 

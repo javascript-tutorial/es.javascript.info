@@ -2,11 +2,11 @@ importance: 5
 
 ---
 
-# Propiedades iterables
+# Iterable keys
 
-Nos gustaría obtener un array de `map.keys()` en una variable y luego aplicarle métodos específicos de array, ej. .push.
+We'd like to get an array of `map.keys()` in a variable and then do apply array-specific methods to it, e.g. `.push`.
 
-Pero eso no funciona:
+But that doesn't work:
 
 ```js run
 let map = new Map();
@@ -16,10 +16,9 @@ map.set("name", "John");
 let keys = map.keys();
 
 *!*
-// Error: keys.push no es una función
+// Error: keys.push is not a function
 keys.push("more");
 */!*
 ```
 
-¿Por qué? ¿Cómo podemos arreglar el código para que funcione `keys.push`?
-
+Why? How can we fix the code to make `keys.push` work?
