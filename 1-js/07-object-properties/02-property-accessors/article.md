@@ -9,7 +9,7 @@ El segundo tipo de propiedades es algo nuevo. Son las *propiedades de acceso*. E
 
 ## Getters and setters
 
-Las propiedades de acceso están representadas por los métodos "getter" y "setter". Propiamente, en un objeto se denotan por "get" y "set":
+Las propiedades de acceso están representadas por métodos "getter" y "setter". Propiamente, en un objeto se denotan por `get` y `set`:
 
 ```js
 let obj = {
