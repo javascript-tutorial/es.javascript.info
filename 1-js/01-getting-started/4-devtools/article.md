@@ -52,7 +52,7 @@ Ahora la tecla: `Cmd + Opt + C` puede alternar la consola. Además, tenga en cue
 
 ## Entrada multilínea
 
-Por lo general, cuando ponemos una línea de código en la consola y luego presionamos la tecla `Enter`, se ejecuta.
+Por lo general, cuando ponemos una línea de código en la consola y luego presionamos `key:Enter`, se ejecuta.
 
 Para insertar varias líneas, presione la tecla: `Shift + Enter`.
 
