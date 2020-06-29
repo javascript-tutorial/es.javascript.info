@@ -36,7 +36,7 @@ Ahora podemos ver errores, y eso es suficiente para empezar. Volveremos a las he
 
 ## Firefox, Edge, y otros
 
-La mayoría de los otros navegadores usan `tecla: F12` para abrir herramientas de desarrollador.
+La mayoría de los otros navegadores usan `key:F12` para abrir herramientas de desarrollador.
 
 La apariencia de ellos es bastante similar. Una vez que sepa cómo usar una de estas herramientas (puede comenzar con Chrome), puede cambiar fácilmente a otra.
 
