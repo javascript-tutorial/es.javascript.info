@@ -59,6 +59,6 @@ Para insertar varias líneas, presione la tecla: `Shift + Enter`.
 ## Resumen
 
 - Las herramientas para desarrolladores nos permiten ver errores, ejecutar comandos, examinar variables y mucho más.
-- Se pueden abrir con `tecla: F12` para la mayoría de los navegadores en Windows. Chrome para Mac necesita la tecla `Cmd + Opt + J`, Safari: tecla `Cmd + Opt + C` (primero debe habilitarse).
+- Se pueden abrir con `key:F12` para la mayoría de los navegadores en Windows. Chrome para Mac necesita la combinación `key:Cmd+Opt+J`, Safari: `key:Cmd+Opt+C` (primero debe habilitarse).
 
 Ahora tenemos el entorno listo. En la siguiente sección, nos abocaremos a JavaScript.
