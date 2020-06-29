@@ -29,7 +29,7 @@ El aspecto exacto de las herramientas de desarrollador depende de su versión de
 - Aquí podemos ver el mensaje de error de color rojo. En este caso, el script contiene un comando desconocido "lalala".
 - A la derecha, hay un enlace en el que se puede hacer clic en la fuente `bug.html:12` con el número de línea donde se produjo el error.
 
-Debajo del mensaje de error, hay un símbolo azul `>`. Marca una "línea de comando" donde podemos escribir comandos JavaScript. Presione la tecla `: Enter` para ejecutarlos (tecla`: Shift + Enter` para ingresar comandos de varias líneas).
+Debajo del mensaje de error, hay un símbolo azul `>`. Marca una "línea de comando" donde podemos escribir comandos JavaScript. Presione `key:Enter` para ejecutarlos (combine `key:Shift+Enter` para ingresar comandos de varias líneas).
 
 Ahora podemos ver errores, y eso es suficiente para empezar. Volveremos a las herramientas de desarrollador más adelante y cubriremos la depuración más en profundidad en el capítulo <info:debugging-chrome>.
 
