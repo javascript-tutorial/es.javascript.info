@@ -55,7 +55,7 @@ alert(user.fullName); // John Smith
 
 Desde fuera, una propiedad de acceso se parece a una normal. Esa es la idea de estas propiedades. No *llamamos* a `user.fullName` como una función, la *leemos* normalmente: el "getter" corre detrás de la escena.
 
-A partir de ahora, "Nombre completo" sólo tiene un receptor. Si intentamos asignar "user.fullName", habrá un error.
+A partir de ahora, "Nombre completo" sólo tiene un receptor. Si intentamos asignar `user.fullName=`, habrá un error.
 
 ```js run
 let user = {
