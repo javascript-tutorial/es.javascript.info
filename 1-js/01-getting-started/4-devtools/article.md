@@ -16,7 +16,7 @@ Abre la página [bug.html](bug.html).
 
 Hay un error en el código JavaScript dentro de la página. Está oculto a los ojos de un visitante regular, así que abramos las herramientas de desarrollador para verlo.
 
-Presione la tecla `F12` o, si está en Mac, entonces la tecla`: Cmd + Opt + J`.
+Presione `key:F12` o, si está en Mac, entonces combine `key:Cmd+Opt+J`.
 
 Las herramientas de desarrollador se abrirán en la pestaña Consola de forma predeterminada.
 
