@@ -1,7 +1,7 @@
 
 # Property getters and setters
 
-Hay dos tipos de propiedades.
+Hay dos tipos de propiedades de objetos.
 
 El primer tipo son las *propiedades de los datos*. Ya sabemos cómo trabajar con ellas. En realidad, todas las propiedades que hemos estado usando hasta ahora eran propiedades de datos.
 
