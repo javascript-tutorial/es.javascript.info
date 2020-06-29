@@ -14,7 +14,7 @@ Las propiedades de acceso están representadas por los métodos "getter" y "sett
 ```js
 let obj = {
   *!*get propName()*/!* {
-    // getter, el código ejecutado para asignar  obj.propName
+    // getter, el código ejecutado para obtener obj.propName
   },
 
   *!*set propName(value)*/!* {
