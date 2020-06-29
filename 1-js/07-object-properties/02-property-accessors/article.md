@@ -147,7 +147,7 @@ for(let key in user) alert(key); // name, surname
 
 Tenga en cuenta que una propiedad puede ser un acceso (tiene métodos `get/set`)  o una propiedad de datos (tiene un 'valor'), no ambas.
 
-Si intentamos poner tanto " get" como " valor" en el mismo descriptor, habrá un error:
+Si intentamos poner tanto `get` como `valor` en el mismo descriptor, habrá un error:
 
 ```js run
 *!*
