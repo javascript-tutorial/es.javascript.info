@@ -69,7 +69,7 @@ user.fullName = "Test"; // Error (property has only a getter)
 */!*
 ```
 
-Arreglémoslo agregando un setter para " user.fullName":
+Arreglémoslo agregando un setter para `user.fullName`:
 
 ```js run
 let user = {
