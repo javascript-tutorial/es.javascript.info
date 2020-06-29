@@ -34,7 +34,7 @@ let user = {
 };
 ```
 
-Ahora queremos añadir una propiedad de "Nombre completo", que debería ser "John Smith". Por supuesto, no queremos copiar-pegar la información existente, así que podemos aplicarla como un acceso:
+Ahora queremos añadir una propiedad de "Nombre completo" (`fullName`), que debería ser `"John Smith"`. Por supuesto, no queremos copiar-pegar la información existente, así que podemos aplicarla como una propiedad de acceso:
 
 ```js run
 let user = {
