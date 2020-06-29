@@ -48,7 +48,7 @@ Abra Preferencias y vaya al panel "Avanzado". Hay una casilla de verificación e
 
 ![safari](safari.png)
 
-Ahora la tecla: `Cmd + Opt + C` puede alternar la consola. Además, tenga en cuenta que ha aparecido el nuevo elemento del menú superior denominado "Desarrollar". Tiene muchos comandos y opciones.
+Ahora combine `key:Cmd+Opt+C` para alternar a consola. Además, tenga en cuenta que ha aparecido el nuevo elemento del menú superior denominado "Desarrollar". Tiene muchos comandos y opciones.
 
 ## Entrada multilínea
 
