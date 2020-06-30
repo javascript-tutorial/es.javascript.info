@@ -19,7 +19,7 @@ let json = `{ "name": "John", "age": 30 }`;
 
 Internamente, usaremos `JSON.parse`. Si recibe `json` mal formado, entonces arroja `SyntaxError`. Pero incluso si `json` es sintácticamente correcto, eso no significa que sea un usuario válido, ¿verdad? Puede perder los datos necesarios. Por ejemplo, puede no tener propiedades de nombre y edad que son esenciales para nuestros usuarios.
 
-Nuestra función `readUser(json)` no solo leerá JSON, sino que verificará ("validará") los datos. Si no hay campos obligatorios, o el formato es incorrecto, entonces es un error. Y eso no es un "SyntaxError", porque los datos son sintácticamente correctos, pero si otro tipo de error. Lo llamaremos `ValidationError` y crearemos una clase para ello. Un error de ese tipo también debe llevar la información sobre el campo infractor.
+Nuestra función `readUser(json)` no solo leerá JSON, sino que verificará ("validará") los datos. Si no hay campos obligatorios, o el formato es incorrecto, entonces es un error. Y eso no es un "SyntaxError", porque los datos son sintácticamente correctos, sino otro tipo de error. Lo llamaremos `ValidationError` y crearemos una clase para ello. Un error de ese tipo también debe llevar la información sobre el campo infractor.
 
 Nuestra clase `ValidationError` debería heredar de la clase incorporada `Error`.
 
