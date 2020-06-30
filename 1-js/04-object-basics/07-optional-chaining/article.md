@@ -132,7 +132,9 @@ La sintaxis `?.[]` también funciona si quisiéramos usar corchetes `[]` para ac
 let user1 = {
   firstName: "John"
 };
+
 let user2 = null; // Imagine, no podríamos autorizar al usuario
+
 let key = "firstName";
 
 alert( user1?.[key] ); // John
