@@ -126,7 +126,7 @@ Aquí, en ambas líneas, primero usamos el punto `.` para obtener la propiedad `
 
 Entonces `?.()` Comprueba la parte izquierda: si el usuario existe, entonces se ejecuta (para `user1`). De lo contrario (para `user2`) la evaluación se detiene sin errores.
 
-La sintaxis `?.[]` también funciona, si nos gustaría usar corchetes `[]` para acceder a las propiedades en lugar de punto `.`. Al igual que en casos anteriores, permite leer de forma segura una propiedad de un objeto que puede no existir.
+La sintaxis `?.[]` también funciona si quisiéramos usar corchetes `[]` para acceder a las propiedades en lugar de punto `.`. Al igual que en casos anteriores, permite leer de forma segura una propiedad de un objeto que puede no existir.
 
 ```js run
 let user1 = {
