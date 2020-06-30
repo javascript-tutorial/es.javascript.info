@@ -98,7 +98,7 @@ user?.sayHi(x++); // no pasa nada
 alert(x); // 0, el valor no se incrementa
 ```
 
-## Otros casos: ?.(), ?.[ ]
+## Otros casos: ?.(), ?.[]
 
 El encadenamiento opcional `?.` no es un operador, sino una construcción de sintaxis especial, que también funciona con funciones y corchetes.
 
@@ -171,4 +171,3 @@ Una cadena de `?.` permite acceder de forma segura a las propiedades anidadas.
 Aún así, debemos aplicar `?.` con cuidado, solo donde está bien que la parte izquierda no exista.
 
 Para que no nos oculte errores de programación, si ocurren.
-
