@@ -248,8 +248,10 @@ Object.defineProperty(user, "name", {writable: true}); // Error
 */!*
 ```
 
-```smart header="Los errores aparecen solo en uso estricto"
-En el modo no estricto, no aparecen errores al escribir en propiedades de solo lectura y semejantes. Pero la operación no será ejecutada. Las acciones viola-identificadores son silenciadas e ignoradas en modo no estricto.
+```smart header="\"Non-configurable\" no significa \"non-writable\""
+Excepción notable: un valor de propiedad no-configurable pero writable puede ser cambiado.
+
+La idea de `configurable: false` is para evitar cambios y borrado de indicadores de propiedad, no cambios a su valor.
 ```
 
 ## Object.defineProperties
