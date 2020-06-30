@@ -251,7 +251,7 @@ Object.defineProperty(user, "name", {writable: true}); // Error
 ```smart header="\"Non-configurable\" no significa \"non-writable\""
 Excepción notable: un valor de propiedad no-configurable pero writable puede ser cambiado.
 
-La idea de `configurable: false` is para evitar cambios y borrado de indicadores de propiedad, no cambios a su valor.
+La idea de `configurable: false` is para evitar cambios a los indicadores de propiedad y su borrado, no cambios a su valor.
 ```
 
 ## Object.defineProperties
