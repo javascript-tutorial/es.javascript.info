@@ -124,6 +124,8 @@ Ahora nadie puede cambiar el nombre de nuestro usuario, a menos que le apliquen 
 
 ```smart header="Los errores aparecen solo en modo estricto"
 En el modo no estricto, no se producen errores al escribir en propiedades no grabables y demás. Pero la operación aún no tendrá éxito. Las acciones que infringen el indicador se ignoran silenciosamente de forma no estricta.
+```
+
 Aquí está el mismo ejemplo, pero la propiedad se crea desde cero:
 ```js run
 let user = { };
@@ -133,7 +135,6 @@ Object.defineProperty(user, "name", {
 
   value: "Pedro",
   // para las nuevas propiedades se necesita listarlas explicitamente como true
-
   enumerable: true,
   configurable: true
 */!*
@@ -219,11 +220,13 @@ Math.PI = 3; // Error
 ```
 
 Convertir una propiedad en no configurable es hacer una calle de una vía. No podremos cambiarla de vuelta, porque `defineProperty` no funciona en propiedades no configurables.
+
 Para ser precisos, la no configurabilidad impone varias restricciones a `defineProperty`:
 - 1. No se puede cambiar la bandera o flag `configurable`.
 - 2. No se puede cambiar la bandera o flag `enumerable`.
 - 3. No se puede cambiar `writable: false` a `true` (al revés funciona).
 - 4. No se puede cambiar `get/set` por una propiedad accesoria (pero puede asignarlos si está ausente).
+
 Aquí estamos haciendo `user.name` una constante "sellada por siempre":
 
 ```js run
