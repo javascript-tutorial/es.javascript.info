@@ -47,6 +47,7 @@ Aquí está la forma segura de acceder a `user.address.street`:
 
 ```js run
 let user = {}; // El usuario no tiene dirección
+
 alert( user?.address?.street ); // undefined (no error)
 ```
 
