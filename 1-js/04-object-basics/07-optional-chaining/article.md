@@ -164,7 +164,7 @@ user?.name = "John"; // Error, no funciona
 La sintaxis `?.` tiene tres formas:
 
 1. `obj?.prop` -- devuelve `obj.prop` si `obj` existe, si no, `undefined`.
-2. `obj?.[prop]` -- devuelve `obj[prop]` si `obj` existe, sino `undefined`.
+2. `obj?.[prop]` -- devuelve `obj[prop]` si `obj` existe, si no, `undefined`.
 3. `obj?.method()` -- llama a `obj.method()` si `obj` existe, sino devuelve `undefined`.
 
 Como podemos ver, todos ellos son sencillos y fáciles de usar. El `?.` comprueba la parte izquierda para `null/undefined` y permite que la evaluación continúe si no es así.
