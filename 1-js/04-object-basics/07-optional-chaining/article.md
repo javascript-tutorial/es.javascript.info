@@ -12,7 +12,7 @@ Si acaba de comenzar a leer el tutorial y aprender JavaScript, quizás el proble
 Por ejemplo, algunos de nuestros usuarios tienen direcciones, pero pocos no las proporcionaron. Entonces no podemos leer con seguridad `user.address.street`:
 
 ```js run
-let user = {}; // el usuario pasa a estar sin dirección
+let user = {}; // usuario sin dirección
 
 alert(user.address.street); // Error!
 ```
