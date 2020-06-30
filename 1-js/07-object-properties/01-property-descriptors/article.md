@@ -124,7 +124,7 @@ Ahora nadie puede cambiar el nombre de nuestro usuario, a menos que le apliquen 
 
 ```smart header="Los errores aparecen solo en modo estricto"
 En el modo no estricto, no se producen errores al escribir en propiedades no grabables y demás. Pero la operación aún no tendrá éxito. Las acciones que infringen el indicador se ignoran silenciosamente de forma no estricta.
-
+Aquí está el mismo ejemplo, pero la propiedad se crea desde cero:
 ```js run
 let user = { };
 
