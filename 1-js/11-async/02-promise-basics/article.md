@@ -120,7 +120,7 @@ let promise = new Promise(function(resolve, reject) {
 
 Por ejemplo, esto puede suceder cuando comenzamos una tarea pero luego vemos que todo ya se ha completado y almacenado en caché.
 
-Esta bien. Inmediatamente tenemos una promesa resuelta.
+Está bien. Inmediatamente tenemos una promesa resuelta.
 ````
 
 ```smart header="El `state` y el `result` son internos"
