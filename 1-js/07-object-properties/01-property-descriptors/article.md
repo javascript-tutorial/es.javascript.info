@@ -196,7 +196,7 @@ Los indicadores no configurables (`configurable:false`) a veces es un preajuste 
 
 Una propiedad no configurable no puede ser eliminada ni cambiada por `defineProperty`.
 
-Por ejemplo, `Math.PI` se de solo lectura, no enumerable y no configurable:
+Por ejemplo, `Math.PI` es de solo lectura, no enumerable y no configurable:
 
 ```js run
 let descriptor = Object.getOwnPropertyDescriptor(Math, 'PI');
