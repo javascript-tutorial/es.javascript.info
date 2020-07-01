@@ -80,7 +80,7 @@ let worker = {
   }
 };
 
-// algo de código después
+// el mismo código de antes
 function cachingDecorator(func) {
   let cache = new Map();
   return function(x) {
