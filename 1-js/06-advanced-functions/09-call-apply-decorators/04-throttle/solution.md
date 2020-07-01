@@ -30,7 +30,7 @@ function throttle(func, ms) {
 }
 ```
 
-Una llamada a `throttle(func, ms)` devuelve `wrapper`.
+Una llamada a `throttle(func, ms)` devuelve un `wrapper`.
 
 1. Durante la primera llamada, el `wrapper` solo ejecuta `func` y establece el estado de enfriamiento (`isThrottled = true`).
 2. En este estado, todas las llamadas se memorizan en `savedArgs/savedThis`. Tenga en cuenta que tanto el contexto como los argumentos son igualmente importantes y deben memorizarse. Los necesitamos simultáneamente para reproducir la llamada.
