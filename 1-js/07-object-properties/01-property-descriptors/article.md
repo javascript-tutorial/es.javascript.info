@@ -222,7 +222,7 @@ Math.PI = 3; // Error
 Convertir una propiedad en no configurable es hacer una calle de una vía. No podremos cambiarla de vuelta, porque `defineProperty` no funciona en propiedades no configurables.
 
 Para ser precisos, la no configurabilidad impone varias restricciones a `defineProperty`:
-- 1. No se puede cambiar la bandera o flag `configurable`.
+- 1. No se puede cambiar el indicador `configurable`.
 - 2. No se puede cambiar el indicador `enumerable`.
 - 3. No se puede cambiar `writable: false` a `true` (al revés funciona).
 - 4. No se puede cambiar `get/set` por una propiedad accesoria (pero puede asignarlos si está ausente).
