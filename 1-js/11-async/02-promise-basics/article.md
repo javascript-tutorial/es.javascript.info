@@ -257,7 +257,7 @@ Sin embargo, no es exactamente un alias de `then(f, f)`. Hay varias diferencias 
       .catch(err => alert(err));  // <-- .catch maneja el objeto error
     ```
 
-    Eso es muy conveniente, porque 'finally' no está destinado a procesar un resultado prometedor. Entonces lo pasa.
+    Eso es muy conveniente, porque 'finally' no está destinado a procesar un resultado "promesa". Entonces lo pasa.
 
     Hablaremos más sobre el encadenamiento de promesas y la transmisión de resultados entre los manejadores en el próximo capítulo.
 
