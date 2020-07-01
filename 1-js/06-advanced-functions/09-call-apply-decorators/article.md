@@ -301,7 +301,7 @@ Entonces estas dos llamadas son casi equivalentes:
 
 ```js
 func.call(context, ...args); // pasar un array como lista con sintaxis extendida
-func.apply(context, args);   // es lo mismo que usar apply
+func.apply(context, args);   // es lo mismo que usar call
 ```
 
 Solo hay una sutil diferencia:
