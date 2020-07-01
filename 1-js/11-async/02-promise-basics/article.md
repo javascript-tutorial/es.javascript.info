@@ -71,7 +71,7 @@ Y ahora un ejemplo del ejecutor rechazando la promesa con un error:
 ```js
 let promise = new Promise(function(resolve, reject) {
   // después de 1 segundo, indica que la tarea ha finalizado con un error
-  setTimeout(() => *!*reject(new Error("Vaya!"))*/!*, 1000);
+  setTimeout(() => *!*reject(new Error("¡Vaya!"))*/!*, 1000);
 });
 ```
 
