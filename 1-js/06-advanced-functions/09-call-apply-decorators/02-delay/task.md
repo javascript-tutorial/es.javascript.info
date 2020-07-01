@@ -23,4 +23,4 @@ f1500("test"); // mostrar "test" después de 1500ms
 
 En otras palabras, `delay (f, ms)` devuelve una variante "Retrasada por `ms`" de`f`.
 
-En el código anterior, `f` es una función de un solo argumento, pero en ésta solución debe pasar todos los argumentos y el contexto `this`.
+En el código anterior, `f` es una función de un solo argumento, pero en esta solución debe pasar todos los argumentos y el contexto `this`.
