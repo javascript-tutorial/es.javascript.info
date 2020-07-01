@@ -95,7 +95,7 @@ function cachingDecorator(func) {
   };
 }
 
-alert( worker.slow(1) ); // el método original trabajando
+alert( worker.slow(1) ); // el método original funciona
 
 worker.slow = cachingDecorator(worker.slow); // ahora hazlo en caché
 
