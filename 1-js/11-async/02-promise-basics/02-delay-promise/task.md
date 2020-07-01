@@ -10,5 +10,5 @@ function delay(ms) {
   // tu código
 }
 
-delay(3000).then(() => alert('se ejecuta despues de 3 segundos'));
+delay(3000).then(() => alert('se ejecuta después de 3 segundos'));
 ```
