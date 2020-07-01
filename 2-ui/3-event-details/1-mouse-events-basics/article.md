@@ -120,7 +120,7 @@ Incluso si quisieramos obligar a los usuarios de Mac a hacer `key:Ctrl`+click --
 
 Así que si queremos que los usuarios de todos los sistemas operativos se sientan cómodos, entonces junto con `ctrlKey` debemos verificar `metaKey`.
 
-Para código JS  signidica que debemos hacer la comprobación `if (event.ctrlKey || event.metaKey)`.
+Para código JS  significa que debemos hacer la comprobación `if (event.ctrlKey || event.metaKey)`.
 ```
 
 ```warn header="También hay dispositivos móviles"
@@ -153,7 +153,7 @@ Mueve el mouse sobre el campo de entrada para ver `clientX/clientY` (el ejemplo 
 ```
 ````
 
-## Prevención de selección en mousedown
+## Previniendo la selección en mousedown
 
 El doble clic del mouse tiene un efecto secundario que puede ser molesto en algunas interfaces: selecciona texto.
 
@@ -167,46 +167,46 @@ Si se pulsa el botón izquierdo del ratón y, sin soltarlo, mueve el ratón, tam
 
 Hay varias maneras de evitar la selección, que se pueden leer en el capítulo <info:selection-range>.
 
-In this particular case the most reasonable way is to prevent the browser action on `mousedown`. It prevents both these selections:
+En este caso particular, la forma más razonable es evitar la acción del navegador `mousedown`. Esto evita ambas selecciones:
 
 ```html autorun height=50
-Before...
+Antes...
 <b ondblclick="alert('Click!')" *!*onmousedown="return false"*/!*>
-  Double-click me
+  Haz doble click en mí
 </b>
-...After
+...Después
 ```
 
-Now the bold element is not selected on double clicks, and pressing the left button on it won't start the selection.
+Ahora el elemento en negrita no se selecciona con doble clic, y al mantener presionado el botón izquierdo y arrastrar no se iniciará la selección.
 
-Please note: the text inside it is still selectable. However, the selection should start not on the text itself, but before or after it. Usually that's fine for users.
+Tenga en cuenta: el texto dentro de él todavía es seleccionable. Sin embargo, la selección no debe comenzar en el texto en sí, sino antes o después. Por lo general, eso está bien para los usuarios.
 
-````smart header="Preventing copying"
-If we want to disable selection to protect our page content from copy-pasting, then we can use another event: `oncopy`.
+````smart header="Previniendo copias"
+Si queremos inhabilitar la selección para proteger nuestro contenido de la página del copy-paste, entonces podemos utilizar otro evento: `oncopy`.
 
 ```html autorun height=80 no-beautify
-<div *!*oncopy="alert('Copying forbidden!');return false"*/!*>
-  Dear user,
-  The copying is forbidden for you.
-  If you know JS or HTML, then you can get everything from the page source though.
+<div *!*oncopy="alert('¡Copiado prohibido!');return false"*/!*>
+  Querido usuario,
+  El copiado está prohibida para ti.
+  Si sabes JS o HTML entonces puedes obtener todo de la fuente de la página.
 </div>
 ```
-If you try to copy a piece of text in the `<div>`, that won't work, because the default action `oncopy` is prevented.
+Si intenta copiar un fragmento de texto en el `<div>` no va a funcionar porque la acción default de `oncopy` fue evitada.
 
-Surely the user has access to HTML-source of the page, and can take the content from there, but not everyone knows how to do it.
+Seguramente el usuario tiene acceso a la fuente HTML de la página, y puede tomar el contenido desde allí, pero no todos saben cómo hacerlo.
 ````
 
-## Summary
+## Resumen
 
-Mouse events have the following properties:
+Los eventos del mouse tienen las siguientes propiedades:
 
-- Button: `button`.
-- Modifier keys (`true` if pressed): `altKey`, `ctrlKey`, `shiftKey` and `metaKey` (Mac).
-  - If you want to handle `key:Ctrl`, then don't forget Mac users, they usually use `key:Cmd`, so it's better to check `if (e.metaKey || e.ctrlKey)`.
+- Botón: `button`.
+- Teclas modificadoras (`true` si fueron presionadas): `altKey`, `ctrlKey`, `shiftKey` y `metaKey` (Mac).
+  - Si quieres controlar las acciones de la tecla `key:Ctrl` no te olvides de los usuarios de Mac que generalmente usan `key:Cmd`, de manera que es mejor ferificar con la condicional: `if (e.metaKey || e.ctrlKey)`.
 
-- Window-relative coordinates: `clientX/clientY`.
-- Document-relative coordinates: `pageX/pageY`.
+- Coordenadas relativas a la ventana: `clientX/clientY`.
+- Coordenadas relativas al documento: `pageX/pageY`.
 
-The default browser action of `mousedown` is text selection, if it's not good for the interface, then it should be prevented.
+La acción predeterminada del navegador `mousedown` es la selección del texto, si no es bueno para la interfaz, entonces debe evitarse.
 
-In the next chapter we'll see more details about events that follow pointer movement and how to track element changes under it.
+En el próximo capítulo veremos más detalles sobre los eventos que siguen al movimiento del puntero y cómo rastrear los cambios de elementos debajo de él.
