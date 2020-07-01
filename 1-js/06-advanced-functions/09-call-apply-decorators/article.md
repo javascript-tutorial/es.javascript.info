@@ -400,7 +400,7 @@ E.j. en el ejemplo anterior, si la función `slow` tenía propiedades, entonces 
 
 Algunos decoradores pueden proporcionar sus propias propiedades. P.ej. un decorador puede contar cuántas veces se invocó una función y cuánto tiempo tardó, y exponer esta información a través de propiedades de envoltura.
 
-Existe una forma de crear decoradores que mantienen el acceso a las propiedades de la función, pero esto requiere el uso de un objeto especial `Proxy` para ajustar una función. Lo discutiremos más adelante en el artículo [Proxy and Reflect](https://javascript.info/proxy#proxy-apply)
+Existe una forma de crear decoradores que mantienen el acceso a las propiedades de la función, pero esto requiere el uso de un objeto especial `Proxy` para ajustar una función. Lo discutiremos más adelante en el artículo  <info:proxy#proxy-apply>.
 
 ## Resumen
 
