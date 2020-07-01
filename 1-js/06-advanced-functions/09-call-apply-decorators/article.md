@@ -206,7 +206,7 @@ Para aclararlo todo, veamos más profundamente cómo se transmite `this`:
 
 1. Después del decorador `worker.slow`, ahora el contenedor es `function(x) { ... }`.
 2. Entonces, cuando `worker.slow(2)` se ejecuta, el contenedor toma `2` como un argumento y a `this=worker` (objeto antes del punto).
-3. Dentro del contenedor, suponiendo que el resultado aún no se haya almacenado en caché, `func.call(this, x)` pasa el acutal `this` (`=worker`) y el argumento actual (`=2`) al método original.
+3. Dentro del contenedor, suponiendo que el resultado aún no se haya almacenado en caché, `func.call(this, x)` pasa el `this` actual (`=worker`) y el argumento actual (`=2`) al método original.
 
 ## Veamos los multi-argumentos
 
