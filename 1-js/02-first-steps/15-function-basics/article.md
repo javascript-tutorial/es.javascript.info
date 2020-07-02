@@ -371,7 +371,7 @@ Una función debe hacer exactamente lo que sugiere su nombre, no más.
 
 Dos acciones independientes por lo general merecen dos funciones, incluso si generalmente se convocan juntas (en ese caso, podemos hacer una tercera función que llame a esas dos).
 
-Algunos ejemplos de como se rompen estas reglas:
+Algunos ejemplos de cómo se rompen estas reglas:
 
 - `getAge` -- sería malo si muestra una `alert` con la edad (solo debería obtener).
 - `createForm` -- sería malo si modifica el documento y lo agrega (solo debe crearlo y devolverlo).
