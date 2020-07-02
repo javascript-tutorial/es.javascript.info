@@ -225,7 +225,9 @@ alert( Symbol.keyFor(sym) ); // name
 alert( Symbol.keyFor(sym2) ); // id
 ```
 
-El `Symbol.keyFor` utiliza internamente el global symbol registry para buscar la propiedad del symbol, por lo tanto, no funciona para los symbol que no están dentro del registro. Si el symbol no es global, no será capaz de encontrarlo y por lo tanto retornará `undefined`.
+El `Symbol.keyFor` utiliza internamente el registro "global symbol registry" para buscar la propiedad del symbol, por lo tanto, no funciona para los symbol que no están dentro del registro. Si el symbol no es global, no será capaz de encontrarlo y por lo tanto devolverá `undefined`.
+
+Dicho esto, todo symbol tiene `description` de propiedad.
 
 Por ejemplo:
 
