@@ -183,7 +183,7 @@ showMessage("Ann");
 
 Eso no es un error. la llamada saldría `"Ann: undefined"`. No existe el parámetro `text`, entonces asumimos que `text === undefined`.
 
-Si quisieramos usar un `text` "predeterminado" en este caso, lo podemos identificar despues del `=`:
+Si quisiéramos usar un `text` "predeterminado" en este caso, lo podemos identificar después del `=`:
 
 ```js run
 function showMessage(from, *!*text = "sin texto"*/!*) {
