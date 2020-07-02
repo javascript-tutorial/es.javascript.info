@@ -195,7 +195,7 @@ showMessage("Ann"); // Ann: sin texto
 
 Ahora, si no existe el parámetro `text`, obtendrá el valor `"sin texto"`
 
-Aquí `"sin texto"` es un string, pero puede ser una expresión mas compleja, la cual solo es evaluada y asignada si el parámetro falta. Entonces, esto es posible:
+Aquí `"sin texto"` es un string, pero puede ser una expresión más compleja, la cual solo es evaluada y asignada si el parámetro falta. Entonces, esto es posible:
 
 ```js run
 function showMessage(from, text = anotherFunction()) {
