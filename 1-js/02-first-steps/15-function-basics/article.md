@@ -8,7 +8,7 @@ Las funciones son los principales "bloques de construcción" del programa. Permi
 
 Ya hemos visto ejemplos de funciones integradas, como `alert(message)`, `prompt(message, default)` y `confirm(question)`. Pero también podemos crear funciones propias.
 
-## Declaración de funcicones
+## Declaración de funciones
 
 Para crear una función podemos usar una *declaración de función*.
 
