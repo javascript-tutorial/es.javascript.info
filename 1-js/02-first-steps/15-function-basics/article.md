@@ -274,7 +274,7 @@ function checkAge(age) {
   }
 }
 
-let age = prompt('¿Que edad tienes?', 18);
+let age = prompt('¿Qué edad tienes?', 18);
 
 if ( checkAge(age) ) {
   alert( 'Acceso otorgado' );
