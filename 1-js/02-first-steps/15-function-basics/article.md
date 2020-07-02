@@ -193,7 +193,7 @@ function showMessage(from, *!*text = "sin texto"*/!*) {
 showMessage("Ann"); // Ann: sin texto
 ```
 
-Ahora si no existe el parámetro `text`, obtendrá el valor `"sin texto"`
+Ahora, si no existe el parámetro `text`, obtendrá el valor `"sin texto"`
 
 Aquí `"sin texto"` es un string, pero puede ser una expresión mas compleja, la cual solo es evaluada y asignada si el parámetro falta. Entonces, esto es posible:
 
