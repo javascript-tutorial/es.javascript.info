@@ -350,7 +350,7 @@ Por ejemplo, funciones que comienzan con `"show"` usualmente muestran algo.
 Funciones que comienza con...
 
 - `"get…"` -- devuelven un valor,
-- `"calc…"` -- calcúlan algo,
+- `"calc…"` -- calculan algo,
 - `"create…"` -- crean algo,
 - `"check…"` -- revisan algo y devuelven un boolean, etc.
 
