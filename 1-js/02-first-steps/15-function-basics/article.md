@@ -347,7 +347,7 @@ Es una práctica generalizada comenzar una función con un prefijo verbal que de
 
 Por ejemplo, funciones que comienzan con `"show"` usualmente muestran algo.
 
-Funciónes que comienza con...
+Funciones que comienza con...
 
 - `"get…"` -- devuelven un valor,
 - `"calc…"` -- calcúlan algo,
