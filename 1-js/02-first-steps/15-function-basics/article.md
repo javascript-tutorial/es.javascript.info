@@ -143,7 +143,7 @@ function showMessage(*!*from, text*/!*) { // argumentos: from, text
 }
 
 *!*
-showMessage('Ann', 'Hola!'); // Ann: Hola! (*)
+showMessage('Ann', '¡Hola!'); // Ann: ¡Hola! (*)
 showMessage('Ann', "¿Como estás?"); // Ann: ¿Como estás? (**)
 */!*
 ```
