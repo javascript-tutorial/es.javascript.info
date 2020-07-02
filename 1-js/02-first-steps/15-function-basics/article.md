@@ -373,7 +373,7 @@ Dos acciones independientes por lo general merecen dos funciones, incluso si gen
 
 Algunos ejemplos de cómo se rompen estas reglas:
 
-- `getAge` -- sería malo si muestra una `alert` con la edad (solo debería obtener).
+- `getAge` -- sería malo si mostrara una `alert` con la edad (solo debería obtener).
 - `createForm` -- sería malo si modifica el documento y lo agrega (solo debe crearlo y devolverlo).
 - `checkPermission` -- sería malo si muestra el mensaje `acceso otorgsado/denegado`(solo debe realizar la verificación y devolver el resultado).
 
