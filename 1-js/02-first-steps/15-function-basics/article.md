@@ -283,7 +283,7 @@ if ( checkAge(age) ) {
 }
 ```
 
-Es posible utilizar `return` sin ningun valor. Eso hace que la función salga o termine inmediatamente.
+Es posible utilizar `return` sin ningún valor. Eso hace que la función salga o termine inmediatamente.
 
 
 Por ejemplo:
