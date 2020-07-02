@@ -296,7 +296,7 @@ function showMovie(age) {
 */!*
   }
 
-  alert( "Mostrandote la película" ); // (*)
+  alert( "Mostrándote la película" ); // (*)
   // ...
 }
 ```
