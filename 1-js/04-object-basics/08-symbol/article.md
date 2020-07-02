@@ -85,7 +85,7 @@ let id = Symbol("id");
 
 user[id] = 1;
 
-alert( user[id] ); // podemos accesar a la información utilizando  el symbol como clave
+alert( user[id] ); // podemos accesar a la información utilizando  el symbol como nombre de propiedad 
 ```
 
 ¿Cuál es la ventaja de usar `Symbol("id")` y no un string `"id"`?
