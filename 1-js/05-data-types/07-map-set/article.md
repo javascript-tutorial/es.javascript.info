@@ -10,7 +10,7 @@ Pero eso no es suficiente para la vida real. Por eso también existen `Map` y `S
 
 ## Map
 
-[Map](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Map) es una colección de elementos de datos con clave, al igual que un objeto, y valor. Pero la principal diferencia es que Map permite claves de cualquier tipo.
+[Map](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Map) es una colección de de datos relacionados, al igual que un `Objeto`. Pero la principal diferencia es que `Map` permite claves de cualquier tipo.
 
 Los métodos y propiedades son:
 
