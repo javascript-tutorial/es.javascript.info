@@ -19,7 +19,9 @@ let values = ["Hare", "Krishna", "Hare", "Krishna",
   "Krishna", "Krishna", "Hare", "Hare", ":-O"
 ];
 
+P.D. Aquí se usan strings, pero pueden ser valores de cualquier tipo.
 
+P.D.S. Use `Set` para almacenar valores únicos.
 
 P.D. Aquí se usan strings, pero pueden ser valores de cualquier tipo.
 
