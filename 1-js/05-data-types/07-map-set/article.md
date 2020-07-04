@@ -20,7 +20,7 @@ Los métodos y propiedades son:
 - `map.has(clave)` -- devuelve `true` si la `clave` exite, y `false` si no existe.
 - `map.delete(clave)` -- elimina los valores de la clave.
 - `map.clear()` -- limpia el Map.
-- `map.size` -- retorna el número del elemento actual en el recuento de elementos en el Map.
+- `map.size` -- retorna el número actual de elementos.
 
 Por ejemplo:
 
