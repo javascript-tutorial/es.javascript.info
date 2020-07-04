@@ -33,7 +33,6 @@ map.set(true, 'bool1'); // un booleano como clave
 
 // recuerda el objeto regular? convertiría las claves en un string
 // Map mantiene el tipo de dato en las claves, por lo que estas dos son diferentes:
-
 alert( map.get(1)   ); // 'num1'
 alert( map.get('1') ); // 'str1'
 
@@ -53,14 +52,12 @@ Por lo tanto, deberíamos usar los métodos de `Map`: `set`, `get`, etc.
 Por ejemplo:
 
 ```js run
-//John es un objeto
 let john = { name: "John" };
 
 // para cada usuario, almacenemos el recuento de visitas
 let visitsCountMap = new Map();
 
-// John es la clave para el Map
-
+// john es la clave para el Map
 visitsCountMap.set(john, 123);
 
 alert( visitsCountMap.get(john) ); // 123
@@ -70,7 +67,6 @@ El uso de objetos como claves es una de las características de `Map` más notab
 
 Intentémoslo:
 
-
 ```js run
 let john = { name: "John" };
 
@@ -78,13 +74,15 @@ let visitsCountObj = {}; // intenta usar un objeto
 
 visitsCountObj[john] = 123; // intenta usar el objeto john como clave
 
+*!*
 // Esto es lo que se escribió!
 alert( visitsCountObj["[object Object]"] ); // 123
+*/!*
 ```
 
-Como `visitsCountObj` es un objeto, convierte todas las claves, como John en string, por lo que tenemos la clave de tipo string `"[objeto Objeto]"`. Definitivamente no es lo que queremos.
+Como `visitsCountObj` es un objeto, convierte todas las claves, como `john` en string, por lo que tenemos la clave de tipo string `"[objeto Objeto]"`. Definitivamente no es lo que queremos.
 
-```smart header="Cómo Map compara las claves" 
+```smart header="Cómo `Map` compara las claves" 
 `Map` utiliza el algoritmo [SameValueZero](https://tc39.es/ecma262/#sec-samevaluezero). Es aproximadamente lo mismo que la igualdad estricta `===`, pero la diferencia es que `NaN` se considera igual a `NaN`. Por lo tanto, `NaN` también se puede usar como clave.
 
 Este algoritmo no se puede cambiar ni personalizar.
@@ -100,7 +98,9 @@ map.set('1', 'str1')
 ```
 ````
 
+
 ## Iteración sobre Map
+
 Para recorrer un `Map`, hay 3 métodos:
 
 - `map.keys()` – devuelve un iterable para las claves.
