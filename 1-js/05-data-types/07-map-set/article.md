@@ -83,7 +83,7 @@ alert( visitsCountObj["[object Object]"] ); // 123
 Como `visitsCountObj` es un objeto, convierte todas las claves, como `john` en string, por lo que tenemos la clave de tipo string `"[objeto Objeto]"`. Definitivamente no es lo que queremos.
 
 ```smart header="Cómo `Map` compara las claves" 
-`Map` utiliza el algoritmo [SameValueZero](https://tc39.es/ecma262/#sec-samevaluezero). Es aproximadamente lo mismo que la igualdad estricta `===`, pero la diferencia es que `NaN` se considera igual a `NaN`. Por lo tanto, `NaN` también se puede usar como clave.
+Para probar la equivalencia de claves, `Map` utiliza el algoritmo [SameValueZero](https://tc39.es/ecma262/#sec-samevaluezero). Es aproximadamente lo mismo que la igualdad estricta `===`, pero la diferencia es que `NaN` se considera igual a `NaN`. Por lo tanto, `NaN` también se puede usar como clave.
 
 Este algoritmo no se puede cambiar ni personalizar.
 ```
