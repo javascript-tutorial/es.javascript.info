@@ -101,7 +101,7 @@ map.set('1', 'str1')
 
 ## Iteración sobre Map
 
-Para recorrer un `Map`, hay 3 métodos:
+Para recorrer un `map`, hay 3 métodos:
 
 - `map.keys()` – devuelve un iterable para las claves.
 - `map.values()` – devuelve un iterable para los valores.
