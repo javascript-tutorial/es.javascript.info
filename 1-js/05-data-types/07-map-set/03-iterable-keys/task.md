@@ -4,7 +4,7 @@ importance: 5
 
 # Claves iterables
 
-Nos gustaría obtener un array de `map.keys()` en una variable y luego aplicarle métodos específicos de array, ej. .push.
+Nos gustaría obtener un array de `map.keys()` en una variable y luego aplicarle métodos específicos de array, ej. `.push`.
 
 Pero eso no funciona:
 
