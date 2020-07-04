@@ -122,7 +122,6 @@ for (let vegetable of recipeMap.keys()) {
 }
 
 // iterando sobre los valores (precios)
-
 for (let amount of recipeMap.values()) {
   alert(amount); // 500, 350, 50
 }
@@ -132,6 +131,7 @@ for (let entry of recipeMap) { // lo mismo que recipeMap.entries()
   alert(entry); // pepino,500 (etc)
 }
 ```
+
 ```smart header="Se utiliza el orden de inserción."
 La iteración va en el mismo orden en que se insertaron los valores. `Map` conserva este orden, a diferencia de un `Objeto` normal.
 ```
@@ -151,7 +151,6 @@ Cuando se crea un `Map`, podemos pasar un array (u otro iterable) con pares clav
 
 ```js run
 // array de [clave, valor]
-
 let map = new Map([
   ['1',  'str1'],
   [1,    'num1'],
@@ -171,14 +170,18 @@ let obj = {
   age: 30
 };
 
+*!*
 let map = new Map(Object.entries(obj));
+*/!*
 
 alert( map.get('name') ); // John
 ```
 
 Aquí, `Object.entries` devuelve el array de pares clave / valor: [["" name "," John "], [" age ", 30]]. Eso es lo que necesita `Map`.
 
+
 ## Object.fromEntries: Objeto desde Map
+
 Acabamos de ver cómo crear un `Map` a partir de un objeto simple con `Object.entries (obj).`
 
 Existe el método `Object.fromEntries` que hace lo contrario: dado un array de pares [clave, valor], crea un objeto a partir de ellos:
@@ -190,10 +193,11 @@ let prices = Object.fromEntries([
   ['meat', 4]
 ]);
 
-// ahora prices es un objeto = { banana: 1, orange: 2, meat: 4 }
+// ahora prices = { banana: 1, orange: 2, meat: 4 }
 
 alert(prices.orange); // 2
 ```
+
 Podemos usar `Object.fromEntries` para obtener un objeto plano de `Map`.
 
 Ej. almacenamos los datos en un `Map`, pero necesitamos pasarlos a un código de terceros que espera un objeto simple.
@@ -206,7 +210,9 @@ map.set('banana', 1);
 map.set('orange', 2);
 map.set('meat', 4);
 
+*!*
 let obj = Object.fromEntries(map.entries()); // hace un objeto simple
+*/!*
 
 // Hecho!
 // obj = { banana: 1, orange: 2, meat: 4 }
@@ -216,14 +222,15 @@ alert(obj.orange); // 2
 
 Una llamada a `map.entries()` devuelve un array de pares clave / valor, exactamente en el formato correcto para `Object.fromEntries.`
 
-También podríamos acortar la línea 6 del ejemplo anterior:
-
+También podríamos acortar la línea `(*)`:
 ```js
 let obj = Object.fromEntries(map); // omitimos .entries()
 ```
+
 Es lo mismo, porque `Object.fromEntries` espera un objeto iterable como argumento. No necesariamente un array. Y la iteración estándar para el `Map` devuelve los mismos pares clave / valor que `map.entries()`. Entonces obtenemos un objeto simple con las mismas claves / valores que `Map`.
 
 ## Set
+
 `Set` es una colección de tipo especial: "conjunto de valores" (sin claves), donde cada valor puede aparecer solo una vez.
 
 Sus principales métodos son:
@@ -249,7 +256,6 @@ let pete = { name: "Pete" };
 let mary = { name: "Mary" };
 
 // visitas, algunos usuarios lo hacen varias veces
-
 set.add(john);
 set.add(pete);
 set.add(mary);
@@ -263,11 +269,12 @@ for (let user of set) {
   alert(user.name); // John (luego Pete y Mary)
 }
 ```
+
 La alternativa a `Set` podría ser un array de usuarios y el código para verificar si hay duplicados en cada inserción usando [arr.find](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/find). Pero el rendimiento sería mucho peor, porque este método recorre el array completo comprobando cada elemento. `Set` está mucho mejor optimizado internamente para verificaciones de unicidad.
 
 ## Iteración sobre Set
-Podemos recorrer `Set` con `for..of` o usando `forEach`:
 
+Podemos recorrer `Set` con `for..of` o usando `forEach`:
 
 ```js run
 let set = new Set(["oranges", "apples", "bananas"]);
@@ -275,7 +282,6 @@ let set = new Set(["oranges", "apples", "bananas"]);
 for (let value of set) alert(value);
 
 // lo mismo que forEach:
-
 set.forEach((value, valueAgain, set) => {
   alert(value);
 });
@@ -292,9 +298,11 @@ También soporta los mismos métodos que `Map` tiene para los iteradores:
 - `set.entries()` – devuelve un iterable para las entradas `[clave, valor]`, por su compatibilidad con `Map`.
 
 ## Resumen
+
 `Map`: es una colección de valores con clave.
 
 Métodos y propiedades:
+
 - `new Map()` -- crea el mapa.
 - `map.set(clave, valor)` -- almacena el valor para la clave.
 - `map.get(clave)` -- devuelve el valor de la clave: será `undefined` si la `clave` no exite en Map.
@@ -304,12 +312,14 @@ Métodos y propiedades:
 - `map.size` -- retorna el número del elemento actual en el recuento de elementos en el Map.
 
 La diferencia con `Objeto` regular:
+
 - Cualquier clave, los objetos tambien pueden ser claves.
 - Adicionalmente tiene métodos que nos convienen, como la clave `size`.
 
 `Set`: es una colección de valores únicos.
 
 Métodos y propiedades:
+
 - `new Set(iterable)` -- crea el set y, si se proporciona un objeto iterable (generalmente un array), copia los valores del mismo en el set.
 - `set.add(valor)` -- agrega un valor, devuelve el set en sí.
 - `set.delete(valor)` -- elimina el valor, devuelve `true` si `valor` existe al momento de la llamada, si no, devuelve `false`.
