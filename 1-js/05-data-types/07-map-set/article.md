@@ -4,7 +4,7 @@
 Hasta este momento, hemos aprendido sobre las siguientes estructuras de datos:
 
 - Objetos para almacenar colecciones de datos ordenadas mediante una clave.
-- Arrays para almacenar colecciones ordenadas.
+- Arrays para almacenar colecciones ordenadas de datos.
 
 Pero eso no es suficiente para la vida real. Por eso también existen Map y Set.
 
