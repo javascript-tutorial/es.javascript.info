@@ -2,10 +2,16 @@
 
 Conocemos muchos operadores de comparación de las matemáticas:
 
+En Javascript se escriben así:
+
 - Mayor/menor que: <code>a &gt; b</code>, <code>a &lt; b</code>.
 - Mayor/menor o igual que: <code>a &gt;= b</code>, <code>a &lt;= b</code>.
 - Igual: `a == b` (ten en cuenta el doble signo `=`. Un solo símbolo `a = b` significaría una asignación).
 - Distinto. En matemáticas la notación es <code>&ne;</code>, pero en JavaScript se escribe como una asignación con un signo de exclamación delante: <code>a != b</code>.
+
+En este artículo, aprenderemos más sobre los diferentes tipos de comparaciones, cómo las realiza JavaScript, incluidas las peculiaridades importantes.
+
+Al final, encontrará una buena receta para evitar problemas relacionados con "peculiaridades de JavaScript"("javascript quirks").
 
 ## Booleano es el resultado
 
@@ -195,7 +201,7 @@ Obtenemos estos resultados porque:
 - Las comparaciones `(1)` y `(2)` retornan `falso` porque `no definido` se convierte en `NaN` y `NaN` es un valor numérico especial que retorna `falso` para todas las comparaciones.
 - La comparación de igualdad `(3)` retorna `falso` porque `undefined` sólo equivale a `null` y a ningún otro valor.
 
-### Evita los problemas
+### Evitar los problemas
 
 ¿Por qué repasamos estos ejemplos? ¿Deberíamos recordar estas peculiaridades todo el tiempo? Bueno, en realidad no. En realidad, estas cosas difíciles se volverán familiares con el tiempo, pero hay una manera sólida de evadir los problemas con ellas:
 
