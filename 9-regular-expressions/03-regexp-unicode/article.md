@@ -125,7 +125,7 @@ alert("número: xAF".match(regexp)); // xAF
 
 ### Ejemplo: sinogramas chinos
 
-Busquemos jeroglíficos chinos.
+Busquemos sinogramas chinos.
 
 Hay una propiedad Unicode `Script` (un sistema de escritura), que puede tener un valor: `Cyrillic`, `Greek`, `Arabic`, `Han` (chino), etc. [lista completa](https://en.wikipedia.org/wiki/Script_(Unicode)).
 
