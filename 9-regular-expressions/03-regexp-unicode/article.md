@@ -2,7 +2,7 @@
 
 JavaScript utiliza [codificación Unicode](https://en.wikipedia.org/wiki/Unicode) para las cadenas. La mayoría de los caracteres están codificados con 2 bytes, esto permite representar un máximo de 65536 caracteres.
 
-Ese rango no es lo suficientemente grande como para codificar todos los caracteres posibles, es por eso que algunos caracteres raros se codifican con 4 bytes, por ejemplo como `𝒳` (X matemática) o `😄` (una sonrisa), algunos jeroglíficos, etc.
+Ese rango no es lo suficientemente grande como para codificar todos los caracteres posibles, es por eso que algunos caracteres raros se codifican con 4 bytes, por ejemplo como `𝒳` (X matemática) o `😄` (una sonrisa), algunos sinogramas, etc.
 
 Aquí los valores unicode de algunos caracteres:
 
