@@ -132,7 +132,7 @@ Hay una propiedad Unicode `Script` (un sistema de escritura), que puede tener un
 Para buscar caracteres de un sistema de escritura dado, debemos usar `pattern:Script=<value>`, por ejemplo para letras cirílicas: `pattern:\p{sc=Cyrillic}`, para sinogramas chinos: `pattern:\p{sc=Han}`, y así sucesivamente:
 
 ```js run
-let regexp = /\p{sc=Han}/gu; // devuelve jeroglíficos chinos
+let regexp = /\p{sc=Han}/gu; // devuelve sinogramas chinos
 
 let str = `Hello Привет 你好 123_456`;
 
