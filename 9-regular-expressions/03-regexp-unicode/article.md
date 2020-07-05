@@ -93,7 +93,7 @@ Estas son las principales categorías y subcategorías de caracteres:
   - control `Cc`,
   - format (formato) `Cf`,
   - not assigned (sin asignación) `Cn`,
-  -- private use (uso privado) `Co`,
+  - private use (uso privado) `Co`,
   - surrogate (sustitudo) `Cs`.
 
 
