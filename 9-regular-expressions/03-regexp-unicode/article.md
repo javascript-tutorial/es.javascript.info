@@ -123,7 +123,7 @@ let regexp = /x\p{Hex_Digit}\p{Hex_Digit}/u;
 alert("número: xAF".match(regexp)); // xAF
 ```
 
-### Ejemplo: jeroglíficos chinos
+### Ejemplo: sinogramas chinos
 
 Busquemos jeroglíficos chinos.
 
