@@ -127,7 +127,7 @@ alert("número: xAF".match(regexp)); // xAF
 
 Busquemos jeroglíficos chinos.
 
-Hay una propiedad Unicode `Script` (un sistema de escritura), que puede tener un valor: `Cyrillic`, `Greek`, `Arabic`, `Han` (chino), etc. [lista completa]("https://en.wikipedia.org/wiki/Script_(Unicode)").
+Hay una propiedad Unicode `Script` (un sistema de escritura), que puede tener un valor: `Cyrillic`, `Greek`, `Arabic`, `Han` (chino), etc. [lista completa](https://en.wikipedia.org/wiki/Script_(Unicode)).
 
 Para buscar caracteres de un sistema de escritura dado, debemos usar `pattern:Script=<value>`, por ejemplo para letras cirílicas: `pattern:\p{sc=Cyrillic}`, para jeroglíficos chinos: `pattern:\p{sc=Han}`, y así sucesivamente:
 
