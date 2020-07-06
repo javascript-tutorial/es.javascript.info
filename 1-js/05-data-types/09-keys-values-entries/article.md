@@ -32,7 +32,7 @@ Tenga en cuenta las distinciones (en comparación con map, por ejemplo):
 
 La primera diferencia es que tenemos que llamar `Object.keys(obj)`, y no `obj.keys()`.
 
-¿Porque? La razón principal es la flexibilidad. Recuerda, los objetos son una base de todas las estructuras complejas en JavaScript. Entonces, podemos tener un objeto propio como `data` que implementa su propio método `data.values ()`. Y todavía podemos llamar a `Object.values(data)` en él. 
+¿Por qué? La razón principal es la flexibilidad. Recuerda, los objetos son una base de todas las estructuras complejas en JavaScript. Entonces, podemos tener un objeto propio como `data` que implementa su propio método `data.values ()`. Y todavía podemos llamar a `Object.values(data)` en él. 
 
 La segunda diferencia es que los métodos `Object.*` devuelven objetos de array "reales", no solo un iterable. Eso es principalmente por razones históricas.
 
