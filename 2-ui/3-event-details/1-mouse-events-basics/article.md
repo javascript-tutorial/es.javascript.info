@@ -48,7 +48,7 @@ Además podemos ver la propiedad de `button` que nos permite detectar el botón 
 
 ## El botón del mouse
 
-Los eventos relacionados con clics siempre tienen la propiedad `button`, esta nos permite conocer el boton exacto del mouse.
+Los eventos relacionados con clics siempre tienen la propiedad `button`, esta nos permite conocer el botón exacto del mouse.
 
 Normalmente no la usamos para eventos `click` y `contextmenu` events, porque sabemos que ocurren solo con click izquierdo y derecho respectivamente. 
 
