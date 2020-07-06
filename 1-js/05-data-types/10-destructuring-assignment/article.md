@@ -522,7 +522,7 @@ En el código de arriba, todo el objeto de argumentos es `{}` por defecto, por l
     let {prop : varName = default, ...rest} = object
     ```
 
-    Esto significa que la propiedad `prop` debería ir en la variable `varName ` y, si no existe tal propiedad, entonces el valor `default` debe ser usado.
+    Esto significa que la propiedad `prop` debería ir en la variable `varName` y, si no existe tal propiedad, entonces el valor `default` debe ser usado.
 
     Las propiedades de objeto que no tienen mapeo son copiadas al objeto `rest`.
 
