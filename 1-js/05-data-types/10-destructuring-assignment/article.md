@@ -183,7 +183,7 @@ alert(surname); // lo que reciba la captura
 
 ## Desestructuración de Objeto
 
-La asignación desestructurante también funciona con objectos.
+La asignación desestructurante también funciona con objetos.
 
 La sintaxis básica es:
 
