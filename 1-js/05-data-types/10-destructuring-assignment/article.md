@@ -6,7 +6,7 @@ Los objetos nos permiten crear una entidad individual que almacena elementos de 
 
 Pero cuando pasamos estos a una función, tal vez no necesite un objeto/array como un conjunto, sino más bien piezas individuales.
 
-*Asignación Desestructurante* es una sintaxis especial que nos permite "vaciar" arrays u objetos en varias variables, ya que esto aveces es más conveniente. La desestructuración también funciona bien con funciones complejas que tienen muchos argumentos, valores por defecto, etcétera.
+*Asignación Desestructurante* es una sintaxis especial que nos permite "vaciar" arrays u objetos en varias variables, ya que esto a veces es más conveniente. La desestructuración también funciona bien con funciones complejas que tienen muchos argumentos, valores por defecto, etcétera.
 
 ## Desestructuración  de Arrays
 
