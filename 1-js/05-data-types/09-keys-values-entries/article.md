@@ -64,7 +64,7 @@ for (let value of Object.values(user)) {
 ```
 
 ```warn header="Object.keys/values/entries ignoran propiedades simbólicas"
-Al igual que un bucle `for..in`, estos métodos ignoran propiedades que utilizan `Symbol(...)` como propiedades.
+Al igual que un bucle `for..in`, estos métodos ignoran propiedades que utilizan `Symbol(...)` como nombre de propiedades.
 
 Normalmente, esto es conveniente. Pero si también queremos propiedades simbólicas, entonces hay un método aparte [Object.getOwnPropertySymbols](mdn:js/Object/getOwnPropertySymbols) que devuelve un array de únicamente propiedades simbólicas. También existe un método [Reflect.ownKeys(obj)](mdn:js/Reflect/ownKeys) que devuelve *todas* las propiedades.
 ```
