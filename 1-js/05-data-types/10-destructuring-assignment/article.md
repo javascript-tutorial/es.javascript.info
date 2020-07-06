@@ -4,9 +4,9 @@ Las dos estructuras de datos más usadas en JavaScript son `Objetos` y `Array`.
 
 Los objetos nos permiten crear una entidad individual que almacena elementos de información por propiedad, y los arrays nos permiten reunir elementos de información en una colección ordenada.
 
-Pero cuando pasamos estos a una función, talvez no necesite un objeto/array como un conjunto, sino más bien piezas individuales.
+Pero cuando pasamos estos a una función, tal vez no necesite un objeto/array como un conjunto, sino más bien piezas individuales.
 
-*Asignación Desestructurante* es una sintaxis especial que nos permite "vaciar" arrays u objetos en varias variables, ya que esto aveces es más conveniente. La desestructuración también funciona bien con funciones complejas que tienen muchos argumentos, valores por defecto, etcétera.
+*Asignación Desestructurante* es una sintaxis especial que nos permite "vaciar" arrays u objetos en varias variables, ya que esto a veces es más conveniente. La desestructuración también funciona bien con funciones complejas que tienen muchos argumentos, valores por defecto, etcétera.
 
 ## Desestructuración  de Arrays
 
@@ -182,7 +182,7 @@ alert(surname); // lo que reciba la captura
 
 ## Desestructuración de Objeto
 
-La asignación desestructurante también funciona con objectos.
+La asignación desestructurante también funciona con objetos.
 
 La sintaxis básica es:
 
@@ -360,7 +360,7 @@ El problema es que JavaScript trata al `{...}` como un bloque de código en el f
 
 Aquí JavaScript supone que tenemos un bloque de código, eso es porque hay un error. Nosotros, en lugar, queremos desestructuración.
 
-Para mostrar a JavaScript que no es un bloque de código, podemos rodear la expresión en paréntesis `(...)`:
+Para mostrarle a JavaScript que no es un bloque de código, podemos rodear la expresión en paréntesis `(...)`:
 
 ```js run
 let title, width, height;
@@ -412,7 +412,7 @@ Todas las propiedades del objeto `options` con excepción de `extra` que no est�
 
 Por último tenemos `width`, `height`, `item1`, `item2` y `title` del valor predeterminado.
 
-Tenga en cuenta que no hay variables para `size` y` items`, ya que tomamos su contenido en su lugar.
+Tenga en cuenta que no hay variables para `size` e `items`, ya que tomamos su contenido en su lugar.
 
 ## Argumentos de función inteligentes
 
@@ -437,7 +437,7 @@ showMenu("My Menu", undefined, undefined, ["Item1", "Item2"])
 
 Esto es nada grato. Y se torna ilegible cuando tratamos con muchos argumentos.
 
-La desestructuración llega al rescate!
+¡La desestructuración llega al rescate!
 
 Podemos pasar argumentos como un objeto, y la función inmediatamente los desestructura en variables:
 
@@ -518,10 +518,10 @@ En el código de arriba, todo el objeto de argumentos es `{}` por defecto, por l
 - La asignación desestructurante permite mapear instantáneamente un objeto o array en varias variables.
 - La sintaxis objeto completo:
     ```js
-    let {prop : varName  = default, ...rest} = object
+    let {prop : varName = default, ...rest} = object
     ```
 
-    Esto significa que la propiedad `prop` debería ir en la variable `varName ` y, si no existe tal propiedad, entonces el valor `default` debe ser usado.
+    Esto significa que la propiedad `prop` debería ir en la variable `varName` y, si no existe tal propiedad, entonces el valor `default` debe ser usado.
 
     Las propiedades de objeto que no tienen mapeo son copiadas al objeto `rest`.
 
