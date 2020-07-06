@@ -91,7 +91,7 @@ let prices = {
 
 *!*
 let doublePrices = Object.fromEntries(
-  // conviertir a array, map, y luego fromEntries nos devuelve el objecto
+  // convertir a array, map, y luego fromEntries nos devuelve el objeto
   Object.entries(prices).map(([key, value]) => [key, value * 2])
 );
 */!*
