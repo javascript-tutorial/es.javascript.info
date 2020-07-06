@@ -75,7 +75,7 @@ El código puede utilizar la propiedad `event.which` que es una forma antigua no
 - `event.which == 2` – botón central,
 - `event.which == 3` – botón derecho.
 
-A partir de ahora `event.which` is deprecatedestá en desuso, no deberíamos usarlo.
+Ahora `event.which` está en desuso, no deberíamos usarlo.
 ```
 
 ## Modificadores: shift, alt, ctrl y meta
