@@ -4,7 +4,7 @@ Las dos estructuras de datos más usadas en JavaScript son `Objetos` y `Array`.
 
 Los objetos nos permiten crear una entidad individual que almacena elementos de información por propiedad, y los arrays nos permiten reunir elementos de información en una colección ordenada.
 
-Pero cuando pasamos estos a una función, talvez no necesite un objeto/array como un conjunto, sino más bien piezas individuales.
+Pero cuando pasamos estos a una función, tal vez no necesite un objeto/array como un conjunto, sino más bien piezas individuales.
 
 *Asignación Desestructurante* es una sintaxis especial que nos permite "vaciar" arrays u objetos en varias variables, ya que esto aveces es más conveniente. La desestructuración también funciona bien con funciones complejas que tienen muchos argumentos, valores por defecto, etcétera.
 
