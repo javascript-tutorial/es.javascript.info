@@ -270,7 +270,7 @@ let options = {
 };
 
 *!*
-let {width = prompt("ancho?"), title = prompt("título?")} = options;
+let {width = prompt("¿ancho?"), title = prompt("¿título?")} = options;
 */!*
 
 alert(title);  // Menu
