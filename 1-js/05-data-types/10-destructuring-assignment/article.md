@@ -438,7 +438,7 @@ showMenu("My Menu", undefined, undefined, ["Item1", "Item2"])
 
 Esto es nada grato. Y se torna ilegible cuando tratamos con muchos argumentos.
 
-La desestructuración llega al rescate!
+¡La desestructuración llega al rescate!
 
 Podemos pasar argumentos como un objeto, y la función inmediatamente los desestructura en variables:
 
