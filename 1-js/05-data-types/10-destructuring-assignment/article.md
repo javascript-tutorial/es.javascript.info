@@ -361,7 +361,7 @@ El problema es que JavaScript trata al `{...}` como un bloque de código en el f
 
 Aquí JavaScript supone que tenemos un bloque de código, eso es porque hay un error. Nosotros, en lugar, queremos desestructuración.
 
-Para mostrar a JavaScript que no es un bloque de código, podemos rodear la expresión en paréntesis `(...)`:
+Para mostrarle a JavaScript que no es un bloque de código, podemos rodear la expresión en paréntesis `(...)`:
 
 ```js run
 let title, width, height;
