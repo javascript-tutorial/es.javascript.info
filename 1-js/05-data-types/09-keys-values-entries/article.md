@@ -74,7 +74,7 @@ Normalmente, esto es conveniente. Pero si también queremos propiedades simbóli
 
 Los objetos carecen de muchos métodos que existen para los arrays, p. Ej. `map`,` filter` y otros.
 
-Si nos gustaría aplicarlos, entonces podemos usar `Object.entries` seguido de `Object.fromEntries`:
+Si queremos aplicarlos, entonces podemos usar `Object.entries` seguido de `Object.fromEntries`:
 
 1. Use `Object.entries(obj)` para obtener un array de pares propiedad/valor de `obj`.
 2. Use métodos de array en ese array, p.ej. `map`.
