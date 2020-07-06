@@ -55,7 +55,7 @@ La especificación DOM explica la estructura de un documento y proporciona objet
 Por ejemplo, los scripts del lado del servidor que descargan páginas HTML y las procesan, también pueden usar DOM. Sin embargo, pueden admitir solo una parte de la especificación.
 ```
 
-```smart header="CSSOM for styling"
+```smart header="CSSOM para los estilos"
 También hay una especificación separada, [CSS Object Model (CSSOM)] (https://www.w3.org/TR/cssom-1/) para las reglas y hojas de estilo CSS, que explica cómo se representan como objetos y cómo leerlos y escribirlos.
 
 CSSOM se usa junto con DOM cuando modificamos las reglas de estilo para el documento. Sin embargo, en la práctica, rara vez se requiere CSSOM, porque rara vez necesitamos modificar las reglas CSS de JavaScript (generalmente solo agregamos / eliminamos clases CSS, no modificamos sus reglas CSS), pero eso también es posible.
