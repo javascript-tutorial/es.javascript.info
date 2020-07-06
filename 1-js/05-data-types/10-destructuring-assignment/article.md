@@ -314,7 +314,6 @@ Qué pasa si el objeto tiene más propiedades que las variables que tenemos? Pod
 
 Podemos usar el patrón resto, de la misma forma que lo usamos con arrays. No es compatible con algunos navegadores antiguos (IE, use Babel para rellenarlo), pero funciona en los navegadores modernos.
 
-No es compatible con algunos navegadores antiguos (IE, use Babel para rellenarlo), pero funciona en los navegadores modernos.
 
 Se ve así:
 
