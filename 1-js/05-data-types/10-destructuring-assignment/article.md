@@ -310,7 +310,7 @@ alert(title); // Menu
 
 ### El patrón resto "..."
 
-Qué pasa si el objeto tiene más propiedades que las que tenemos variables? Podemos tomar algunas y luego asignar el "resto" en alguna parte?
+Qué pasa si el objeto tiene más propiedades que las variables que tenemos? Podemos tomar algunas y luego asignar el "resto" en alguna parte?
 
 Podemos usar el patrón resto, de la misma forma que lo usamos con arrays. No es 
 
