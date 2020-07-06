@@ -1,5 +1,5 @@
 
-# Object.keys, valores, entradas
+# Object.keys, values, entries
 
 Alejémonos de las estructuras de datos individuales y hablemos sobre las iteraciones sobre ellas.
 
