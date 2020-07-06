@@ -336,7 +336,7 @@ alert(rest.width);   // 100
 ```
 
 ````smart header="Trampa si no hay `let`"
-En los ejemplos de arriba, las variables fueron declaradas en la asignación: `let {…} = {…}`. Por supuesto que también podemos usar variables existentes, sint `let`. Pero hay una trampa.
+En los ejemplos de arriba, las variables fueron declaradas en la asignación: `let {…} = {…}`. Por supuesto que también podemos usar variables existentes, sin `let`. Pero hay una trampa.
 
 Esto no funcionará:
 ```js run
