@@ -49,7 +49,7 @@ setTimeout(() => document.body.style.background = "", 1000);
 
 Aquí usamos `document.body.style`, pero hay muchos, muchos más. Las propiedades y métodos se describen en la especificación: [DOM Living Standard](https://dom.spec.whatwg.org).
 
-```smart header="DOM is not only for browsers"
+```smart header="DOM no es solo para navegadores"
 La especificación DOM explica la estructura de un documento y proporciona objetos para manipularlo. Hay instrumentos que no son del navegador que también usan DOM.
 
 Por ejemplo, los scripts del lado del servidor que descargan páginas HTML y las procesan, también pueden usar DOM. Sin embargo, pueden admitir solo una parte de la especificación.
