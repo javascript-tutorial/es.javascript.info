@@ -143,7 +143,7 @@ En resumen, las coordenadas relativas al documento `pageX/Y`se cuentan desde la 
 
 Por ejemplo, si tenemos una ventana del tamaño 500x500, y el mouse está en la esquina superior izquierda, entonces `clientX` y `clientY` son `0`, sin importar cómo se desplace la página. 
 
-Y si el mouse está en el centro, entonces `clientX` y `clientY` son `250`, No importa en eque parte del documento se encuentren. Esto es similar a `position:fixed` en ese aspecto.
+Y si el mouse está en el centro, entonces `clientX` y `clientY` son `250`, No importa en qué parte del documento se encuentren. Esto es similar a `position:fixed` en ese aspecto.
 
 ````online
 Mueve el mouse sobre el campo de entrada para ver `clientX/clientY` (el ejemplo está dentro del `iframe`, así que las coordenadas son relativas al `iframe`):
