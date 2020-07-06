@@ -342,7 +342,7 @@ Esto no funcionará:
 ```js run
 let title, width, height;
 
-// error en ésta línea
+// error en esta línea
 {title, width, height} = {title: "Menu", width: 200, height: 100};
 ```
 
