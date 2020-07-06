@@ -413,7 +413,7 @@ Todas las propiedades del objeto `options` con excepción de `extra` que no est�
 
 Por último tenemos `width`, `height`, `item1`, `item2` y `title` del valor predeterminado.
 
-Tenga en cuenta que no hay variables para `size` y` items`, ya que tomamos su contenido en su lugar.
+Tenga en cuenta que no hay variables para `size` e `items`, ya que tomamos su contenido en su lugar.
 
 ## Argumentos de función inteligentes
 
