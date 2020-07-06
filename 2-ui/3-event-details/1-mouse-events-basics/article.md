@@ -18,7 +18,7 @@ Ya hemos visto algunos de estos eventos:
 : Cualquier movimiento del mouse sobre un elemento activa el evento.
 
 `click`
-: Se activa después de `mousedown` y un `mouseup` enseguida sobre el mismo elemeto si se usó el botón.
+: Se activa después de `mousedown` y un `mouseup` enseguida sobre el mismo elemento si se usó el botón.
 
 `dblclick`
 : Se activa después de dos clicks seguidos sobre el mismo elemento. Hoy en día se usa raramente.
