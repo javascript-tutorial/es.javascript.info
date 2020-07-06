@@ -177,7 +177,11 @@ But we continue tracking track `pointermove` events and move the thumb until `po
 
 [Previously](info:mouse-drag-and-drop), to handle `pointermove` events that happen outside of the slider, we listened for `pointermove` events on the whole `document`. 
 
+<<<<<<< HEAD
 Pointer capturing provides an alternative solution: we can call `thumb.setPointerCapture(event.pointerId)` in `pointerdown` handler, and then all future pointer events until `pointerup` will be retarteted to `thumb`.
+=======
+Pointer capturing provides an alternative solution: we can call `thumb.setPointerCapture(event.pointerId)` in `pointerdown` handler, and then all future pointer events until `pointerup` will be retargeted to `thumb`.
+>>>>>>> 445bda39806050acd96f87166a7c97533a0c67e9
 
 That is: events handlers on `thumb` will be called, and `event.target` will always be `thumb`, even if the user moves their pointer around the whole document. So we can listen at `thumb` for `pointermove`, no matter where it happens.
 
@@ -226,4 +230,8 @@ Additional abilities of Pointer events are:
 - Device-specific properties, such as `pressure`, `width/height` and others.
 - Pointer capturing: we can retarget all pointer events to a specific element until `pointerup`/`pointercancel`.
 
+<<<<<<< HEAD
 As of now, pointer events are supported in all major browsers, so we can safely switch to them, if IE10- and Safari 12- are not needed. And even with those browsers, there are polyfills that enable the support of pointer events.
+=======
+As of now, pointer events are supported in all major browsers, so we can safely switch to them, if IE10- and Safari 12- are not needed. And even with those browsers, there are polyfills that enable the support of pointer events.
+>>>>>>> 445bda39806050acd96f87166a7c97533a0c67e9

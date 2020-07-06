@@ -2,9 +2,15 @@ importance: 4
 
 ---
 
+<<<<<<< HEAD
 # ¿Es visible la variable?
 
 ¿Cuál será el resultado de este código?
+=======
+# Is variable visible?
+
+What will be the result of this code?
+>>>>>>> 445bda39806050acd96f87166a7c97533a0c67e9
 
 ```js
 let x = 1;
@@ -18,5 +24,9 @@ function func() {
 func();
 ```
 
+<<<<<<< HEAD
 P.D Hay una trampa en esta tarea. La solución no es obvia.
 
+=======
+P.S. There's a pitfall in this task. The solution is not obvious.
+>>>>>>> 445bda39806050acd96f87166a7c97533a0c67e9

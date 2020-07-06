@@ -14,10 +14,13 @@ let x = prompt("x?", '');
 let n = prompt("n?", '');
 
 if (n < 1) {
+<<<<<<< HEAD:1-js/02-first-steps/15-function-basics/4-pow/solution.md
   alert(`Potencia ${n} no soportada,
     use un entero mayor a 0`);
+=======
+  alert(`Power ${n} is not supported, use a positive integer`);
+>>>>>>> 445bda39806050acd96f87166a7c97533a0c67e9:1-js/02-first-steps/15-function-basics/4-pow/solution.md
 } else {
   alert( pow(x, n) );
 }
 ```
-

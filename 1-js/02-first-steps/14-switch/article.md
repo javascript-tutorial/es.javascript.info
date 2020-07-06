@@ -117,7 +117,7 @@ Several variants of `case` which share the same code can be grouped.
 For example, if we want the same code to run for `case 3` and `case 5`:
 
 ```js run no-beautify
-let a = 2 + 2;
+let a = 3;
 
 switch (a) {
   case 4:
@@ -125,7 +125,7 @@ switch (a) {
     break;
 
 *!*
-  case 3:                    // (*) grouped two cases
+  case 3: // (*) grouped two cases
   case 5:
     alert('Wrong!');
     alert("Why don't you take a math class?");
