@@ -7,7 +7,7 @@ importancia: 5
 Cree una lista donde los elementos son seleccionables, como en los administradores de archivos.
 
 - Un clic en un elemento de la lista selecciona solo ese elemento (agrega la clase `.selected`), deselecciona todos los demás.
-- Si se hace un clic con `key:Ctrl` (`key:Cmd` para Mac), la selección se activa junto con el elemento, pero otros elementos no se modifican.
+- Si se hace un clic con `key:Ctrl` (`key:Cmd` para Mac), el estado seleccionado/deseleccionado cambia para ese solo elemento, los otros elementos no se modifican.
 
 Demo:
 
