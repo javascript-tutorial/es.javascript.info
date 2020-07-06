@@ -139,8 +139,7 @@ alert(rest.length); // 2
 */!*
 ```
 
-El valor de `rest` es un array de los elementos restantes. Podemos
-usar cualquier otro nombre de variable en lugar de `rest`, sólo hay que asegurar que tenga tres puntos que lo antecedan y que esté último en la asignación desestructurante.
+El valor de `rest` es un array de los elementos restantes. Podemos usar cualquier otro nombre de variable en lugar de `rest`, sólo hay que asegurar que tenga tres puntos que lo antecedan y que esté último en la asignación desestructurante.
 
 ### Valores predeterminados
 
