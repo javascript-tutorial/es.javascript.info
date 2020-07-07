@@ -82,6 +82,6 @@ Como podemos ver, hay 2 coincidencias en lugar de 3.
 
 Esto se debe a que no hay una línea nueva después de `subject:3` (sin embargo, hay un final de texto, por lo que coincide con `pattern:$`).
 
-Otra diferencia: ahora cada coincidencia incluye un carácter de línea nueva `coincidencia:\n`. A diferencia de las anclas `pattern:^` `pattern:$`, que solo prueban la condición (inicio/final de una línea), `\n` es un carácter, por lo que se hace parte del resultado.
+Otra diferencia: ahora cada coincidencia incluye un carácter de línea nueva `match:\n`. A diferencia de las anclas `pattern:^` `pattern:$`, que solo prueban la condición (inicio/final de una línea), `\n` es un carácter, por lo que se hace parte del resultado.
 
 Entonces, un `\n` en el patrón se usa cuando necesitamos encontrar caracteres de línea nueva, mientras que las anclas se usan para encontrar algo "al principio/al final" de una línea.
