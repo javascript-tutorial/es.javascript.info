@@ -522,7 +522,7 @@ rabbit.eat();  // Error al llamar a super (porque no hay [[HomeObject]])
      - Eso significa que `Child.prototype.__proto__` será `Parent.prototype`, por lo que los métodos se heredan.
 2. Al sobrescribir un constructor:
      - Debemos llamar al constructor padre como `super()` en el constructor `Child` antes de usar `this`.
-3. Al anular otro método:
+3. Al sobrescribir otro método:
      - Podemos usar `super.method()` en un método `Child` para llamar al método `Parent`.
 4. Características internas:
      - Los métodos recuerdan su clase/objeto en la propiedad interna `[[HomeObject]]`. Así es como `super` resuelve los métodos padres.
