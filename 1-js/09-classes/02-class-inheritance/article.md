@@ -177,7 +177,7 @@ setTimeout(function() { super.stop() }, 1000);
 ````
 
 
-## Anular un constructor
+## Sobrescribir un constructor
 
 Con los constructores se pone un poco complicado.
 
