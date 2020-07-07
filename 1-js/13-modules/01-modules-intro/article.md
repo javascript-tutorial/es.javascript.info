@@ -58,7 +58,7 @@ Asi:
 El navegador busca y evalúa automáticamente el módulo importado (y sus importaciones si es necesario), y luego ejecuta el script.
 
 ```warn header="Los módulos funcionan solo a través de HTTP(s), no en archivos locales"
-Si intenta abrir una página web localmente, a través del protocolo `file://`, encontrará que las directivas `import / export` no funcionan. Use un servidor web local, como [static-server](https://www.npmjs.com/package/static-server#getting-started)  o use la capacidad de "servidor en vivo" de su editor, como VS Código [Live Server Extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) para probar los módulos.
+Si intenta abrir una página web localmente a través del protocolo `file://`, encontrará que las directivas `import / export` no funcionan. Use un servidor web local, como [static-server](https://www.npmjs.com/package/static-server#getting-started)  o use la capacidad de "servidor en vivo" de su editor, como VS Code [Live Server Extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) para probar los módulos.
 ```	
 
 ## Características del módulo central
