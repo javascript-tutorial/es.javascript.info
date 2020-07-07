@@ -1,6 +1,8 @@
 # Importaciones dinámicas
 
-Las declaraciones de exportación e importación que cubrimos en capítulos anteriores se denominan "estáticas". La sintaxis es muy simple y estricta. Primero, no podemos generar dinámicamente ningún parámetro de `import`.
+Las declaraciones de exportación e importación que cubrimos en capítulos anteriores se denominan "estáticas". La sintaxis es muy simple y estricta. 
+
+Primero, no podemos generar dinámicamente ningún parámetro de `import`.
 
 La ruta del módulo debe ser una cadena primitiva, no puede ser una llamada de función. Esto no funcionará:
 
