@@ -3,7 +3,7 @@
 
 Los manejadores o controladores (en adelante controladores) de promesas `.then`/`.catch`/`.finally` son siempre asincrónicos.
 
-Incluso cuando una Promesa es inmediatamente resuelta, el código en las líneas *debajo de* `.then`/`.catch`/`.finally` se ejecutará antes que estos controladores.
+Incluso cuando una promesa es inmediatamente resuelta, el código en las líneas *debajo de* `.then`/`.catch`/`.finally` se ejecutará antes que estos controladores.
 
 Veamos una demostración:
 
