@@ -520,7 +520,7 @@ rabbit.eat();  // Error al llamar a super (porque no hay [[HomeObject]])
 
 1. Para extender una clase: `class Child extends Parent`:
      - Eso significa que `Child.prototype.__proto__` será `Parent.prototype`, por lo que los métodos se heredan.
-2. Al anular un constructor:
+2. Al sobrescribir un constructor:
      - Debemos llamar al constructor padre como `super()` en el constructor `Child` antes de usar `this`.
 3. Al anular otro método:
      - Podemos usar `super.method()` en un método `Child` para llamar al método `Parent`.
