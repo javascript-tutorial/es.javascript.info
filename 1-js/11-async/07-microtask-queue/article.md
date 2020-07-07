@@ -95,7 +95,7 @@ window.addEventListener('unhandledrejection', event => alert(event.reason));
 
 Ahora si lo ejecutamos, veremos `¡Promesa fallida!` primero y después `atrapado`.
 
-Si no supiéramos acerca de la cola de microtareas podríamos preguntarnos: "¿Porqué se ejecutó el controlador `unhandledrejection`? ¡Capturamos y manejamos el error!
+Si no supiéramos acerca de la cola de microtareas podríamos preguntarnos: "¿Por qué se ejecutó el controlador `unhandledrejection`? ¡Capturamos y manejamos el error!
 
 Pero ahora entendemos que `unhandledrejection` se genera cuando se completa la cola de microtareas: el motor examina las promesas y, si alguna de ellas está en el estado "rechazado", entonces el evento se dispara.
 
