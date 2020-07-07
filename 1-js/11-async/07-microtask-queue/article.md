@@ -60,7 +60,7 @@ Ahora podemos ver exactamente cómo Javascript descubre que hubo un rechazo no c
 
 **Se produce un "rechazo no controlado" cuando no se maneja un error de promesa al final de la cola de microtareas.**
 
-Normalmente, si esperamos un error, agregamos `.catch` a la cadena de promesa para controlarlo:
+Normalmente, si esperamos un error, agregamos `.catch` a la cadena de promesa para manejarlo:
 
 ```js run
 let promise = Promise.reject(new Error("¡Promesa fallida!"));
