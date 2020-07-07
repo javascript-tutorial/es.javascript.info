@@ -23,7 +23,7 @@ Es algo extraño, porque la promesa se realiza por completo desde el principio.
 
 ## Cola de microtareas (Microtasks queue)
 
-Las tareas asincrónicas necesitan una gestion adecuada. Para ello, el estándar ECMA especifica una cola interna `PromiseJobs`, en ocasiones más conocida como "cola de microtareas" (término ES8).
+Las tareas asincrónicas necesitan una gestión adecuada. Para ello, el estándar ECMA especifica una cola interna `PromiseJobs`, en ocasiones más conocida como "cola de microtareas" (término ES8).
 
 Como se indica en la [especificación](https://tc39.github.io/ecma262/#sec-jobs-and-job-queues):
 
