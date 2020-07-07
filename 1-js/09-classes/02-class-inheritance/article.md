@@ -91,7 +91,7 @@ Observa: `class User` hereda del resultado de `f("Hola")`.
 Eso puede ser útil para patrones de programación avanzados cuando usamos funciones para generar clases dependiendo de muchas condiciones y podamos heredar de ellas.
 ````
 
-## Anular un método
+## Sobrescribir un método
 
 Ahora avancemos y anulemos un método. Por defecto, todos los métodos que no están especificados en la clase `Rabbit` se toman directamente "tal cual" de la clase `Animal`.
 
