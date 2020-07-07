@@ -93,7 +93,7 @@ Eso puede ser útil para patrones de programación avanzados cuando usamos funci
 
 ## Sobrescribir un método
 
-Ahora avancemos y anulemos un método. Por defecto, todos los métodos que no están especificados en la clase `Rabbit` se toman directamente "tal cual" de la clase `Animal`.
+Ahora avancemos y sobrescribamos un método. Por defecto, todos los métodos que no están especificados en la clase `Rabbit` se toman directamente "tal cual" de la clase `Animal`.
 
 Si especificamos nuestro propio método `stop()` en `Rabbit`, se utilizará en su lugar:
 
