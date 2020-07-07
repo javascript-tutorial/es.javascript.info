@@ -103,7 +103,7 @@ En el ejemplo anterior, `.catch` agregado por `setTimeout` también se dispara. 
 
 ## Resumen
 
-El control de promesas siempre es asíncrono, ya que todas las acciones de promesa pasa por la cola interna de "PromiseJobs", también llamada "cola de microtareas" (término ES8).
+El control de promesas siempre es asíncrono, ya que todas las acciones de promesa pasan por la cola interna de "PromiseJobs", también llamada "cola de microtareas" (término ES8).
 
 Entonces, los controladores `.then/catch/finally` siempre se llaman después de que el código actual ha finalizado.
 
