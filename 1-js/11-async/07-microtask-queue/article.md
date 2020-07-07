@@ -54,7 +54,7 @@ Ahora lo pedido es lo previsto.
 
 ## Rechazo no controlado
 
-Recuerdas el evento `unhandledrejection` de el artículo <info:promise-error-handling>?
+Recuerdas el evento `unhandledrejection` del artículo <info:promise-error-handling>?
 
 Ahora podemos ver exactamente cómo Javascript descubre que hubo un rechazo no controlado o *unhandled rejection*
 
