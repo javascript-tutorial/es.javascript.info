@@ -100,7 +100,7 @@ alert( JSON.stringify(true) ); // true
 alert( JSON.stringify([1, 2, 3]) ); // [1,2,3]
 ```
 
-JSON es una especificación independiente del lenguaje de sólo datos, por lo tanto algunas propiedades de objeto específicas de Javascript son omitidas por `JSON.stringify`.
+JSON es una especificación de sólo datos independiente del lenguaje, por lo tanto algunas propiedades de objeto específicas de Javascript son omitidas por `JSON.stringify`.
 
 A saber:
 
