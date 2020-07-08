@@ -440,7 +440,7 @@ Aquí algunos de los errores más comunes al escribir JSON a mano (a veces tenem
 let json = `{
   *!*name*/!*: "John",                     // error: nombre de propiedad sin comillas
   "surname": *!*'Smith'*/!*,               // error: comillas simples en valor (debe ser doble)
-  *!*'isAdmin'*/!*: falso                  // error: comillas simples en propiedad (debe ser doble)
+  *!*'isAdmin'*/!*: false                  // error: comillas simples en propiedad (debe ser doble)
   "birthday": *!*new Date(2000, 2, 3)*/!*, // error: no se permite "new", únicamente valores simples
   "friends": [0,1,2,3]              // aquí todo bien
 }`;
