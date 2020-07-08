@@ -481,7 +481,7 @@ Upss! Un error!
 
 El valor de `meetup.date` es un string, no un objeto `Date`. Cómo puede saber `JSON.parse` que debe transformar ese string a una `Date`?
 
-Le pasemos a `JSON.parse` la función reactivadora como el segundo argumento, esto devuelve todos los valores "tal cual", pero `date` se convertirá en una `Date`:
+Le pasemos a `JSON.parse` la función reactivadora como el segundo argumento, esto devuelve todos los valores "tal cual" pero `date` se convertirá en una `Date`:
 
 ```js run
 let str = '{"title":"Conference","date":"2017-11-30T12:00:00.000Z"}';
