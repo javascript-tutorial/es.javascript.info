@@ -2,7 +2,7 @@ importance: 5
 
 ---
 
-# Excluir referencias posteriores
+# Excluir referencias circulares
 
 En casos simples de referencias circulares, podemos excluir una propiedad infractora de la serialización por su nombre.
 
