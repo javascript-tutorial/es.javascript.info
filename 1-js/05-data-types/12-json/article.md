@@ -244,7 +244,7 @@ Ahora todo con excepción de `occupiedBy` está serializado. Pero la lista de pr
 
 Por suerte podemos utilizar una función en lugar de un array como el `sustituto`.
 
-La función se llamará para cada par de `(propiedad, valor)` y debe devolver el valor "sustituidod", el cuál ser´´a utilizado en lugar del original. O `undefined` si el valor va a ser omitido.
+La función se llamará para cada par de `(propiedad, valor)` y debe devolver el valor "sustituido", el cual será utilizado en lugar del original. O `undefined` si el valor va a ser omitido.
 
 En nuestro caso, podemos devolver `value` "tal cual" para todo excepto `occupiedBy`. Para ignorar `occupiedBy`, el código de abajo devuelve `undefined`:
 
