@@ -50,7 +50,7 @@ Promise.resolve()
   .then(() => alert("código finalizado"));
 ```
 
-Ahora lo pedido es lo previsto.
+Ahora el orden es el previsto.
 
 ## Rechazo no controlado
 
