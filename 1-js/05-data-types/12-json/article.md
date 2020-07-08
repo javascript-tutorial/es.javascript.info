@@ -120,7 +120,7 @@ let user = {
 alert( JSON.stringify(user) ); // {} (objeto vacío)
 ```
 
-Normalmente esto esta bien. Si esto no es lo que queremos, pronto veremos cómo personalizar el proceso.
+Normalmente esto está bien. Si esto no es lo que queremos, pronto veremos cómo personalizar el proceso.
 
 Lo mejor es que se permiten objetos anidados y se convierten automáticamente.
 
