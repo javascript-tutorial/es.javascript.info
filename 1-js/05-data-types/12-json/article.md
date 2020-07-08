@@ -48,7 +48,7 @@ let student = {
 let json = JSON.stringify(student);
 */!*
 
-alert(typeof json); // obtenemos un string!
+alert(typeof json); // ¡obtenemos un string!
 
 alert(json);
 *!*
