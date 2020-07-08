@@ -1,13 +1,13 @@
 
-# Class inheritance
+# Herencia de clase
 
-Class inheritance is a way for one class to extend another class.
+La herencia de clase es un método para que una clase extienda a otra.
 
-So we can create new functionality on top of the existing.
+Entonces podemos crear una nueva funcionalidad además de la existente.
 
-## The "extends" keyword
+## La palabra clave "extends"
 
-Let's say we have class `Animal`:
+Digamos que tenemos la clase `Animal`:
 
 ```js
 class Animal {
@@ -17,61 +17,61 @@ class Animal {
   }
   run(speed) {
     this.speed = speed;
-    alert(`${this.name} runs with speed ${this.speed}.`);
+    alert(`${this.name} corre a una velocidad de ${this.speed}.`);
   }
   stop() {
     this.speed = 0;
-    alert(`${this.name} stands still.`);
+    alert(`${this.name} se queda quieto.`);
   }
 }
 
-let animal = new Animal("My animal");
+let animal = new Animal("Mi animal");
 ```
 
-Here's how we can represent `animal` object and `Animal` class graphically:
+Así es como podemos representar gráficamente el objeto `animal` y la clase `Animal`:
 
 ![](rabbit-animal-independent-animal.svg)
 
-...And we would like to create another `class Rabbit`.
+...Y nos gustaría crear otra clase `Rabbit`.
 
-As rabbits are animals, `Rabbit` class should be based on `Animal`, have access to animal methods, so that rabbits can do what "generic" animals can do.
+Como los conejos son animales, la clase 'Rabbit' debe basarse en 'Animal', tener acceso a métodos animales, para que los conejos puedan hacer lo que los animales "genéricos" pueden hacer.
 
-The syntax to extend another class is: `class Child extends Parent`.
+La sintaxis para extender otra clase es: `class Child extends Parent`.
 
-Let's create `class Rabbit` that inherits from `Animal`:
+Construyamos la clase `Rabbit` que herede de `Animal`:
 
 ```js
 *!*
 class Rabbit extends Animal {
 */!*
   hide() {
-    alert(`${this.name} hides!`);
+    alert(`${this.name} se esconde!`);
   }
 }
 
-let rabbit = new Rabbit("White Rabbit");
+let rabbit = new Rabbit("Conejo Blanco");
 
-rabbit.run(5); // White Rabbit runs with speed 5.
-rabbit.hide(); // White Rabbit hides!
+rabbit.run(5); // Conejo Blanco corre a una velocidad de 5.
+rabbit.hide(); // Conejo Blanco se esconde!
 ```
 
-Object of `Rabbit` class have access to both `Rabbit` methods, such as `rabbit.hide()`, and also to `Animal` methods, such as `rabbit.run()`.
+Los objetos de la clase `Rabbit` tienen acceso a los métodos de `Rabbit`, como `rabbit.hide()`, y también a los métodos `Animal`, como `rabbit.run()`.
 
-Internally, `extends` keyword works using the good old prototype mechanics. It sets `Rabbit.prototype.[[Prototype]]` to `Animal.prototype`. So, if a method is not found in `Rabbit.prototype`, JavaScript takes it from `Animal.prototype`.
+Internamente, la palabra clave `extends` funciona con la buena mecánica de prototipo. Establece `Rabbit.prototype. [[Prototype]]` a `Animal.prototype`. Entonces, si no se encuentra un método en `Rabbit.prototype`, JavaScript lo toma de` Animal.prototype`.
 
 ![](animal-rabbit-extends.svg)
 
-For instance, to find `rabbit.run` method, the engine checks (bottom-up on the picture):
-1. The `rabbit` object (has no `run`).
-2. Its prototype, that is `Rabbit.prototype` (has `hide`, but not `run`).
-3. Its prototype, that is (due to `extends`) `Animal.prototype`, that finally has the `run` method.
+Por ejemplo, para encontrar el método `rabbit.run`, el motor verifica (de abajo hacia arriba en la imagen) que:
+1. El objeto `rabbit` (no tiene el método `run`).
+2. Su prototipo, que es `Rabbit.prototype` (tiene el método `hide`, pero no el método `run`).
+3. Su prototipo,  `Animal.prototype` (debido a `extends`), este finalmente tiene el método `run`.
 
-As we can recall from the chapter <info:native-prototypes>, JavaScript itself uses prototypal inheritance for built-in objects. E.g. `Date.prototype.[[Prototype]]` is `Object.prototype`. That's why dates have access to generic object methods.
+Como podemos recordar del capítulo <info:native-prototypes>, JavaScript usa la misma herencia prototípica para los objetos incorporados. P.ej. `Date.prototype.[[Prototype]]` es `Object.prototype`, por lo que "Date" tiene métodos de objeto genéricos.
 
-````smart header="Any expression is allowed after `extends`"
-Class syntax allows to specify not just a class, but any expression after `extends`.
+````smart header="Cualquier expresión está permitida después de `extends`"
+La sintaxis de clase permite especificar no solo una clase, sino cualquier expresión después de `extends`.
 
-For instance, a function call that generates the parent class:
+Por ejemplo, una llamada a función que genera la clase padre:
 
 ```js run
 function f(phrase) {
@@ -81,39 +81,39 @@ function f(phrase) {
 }
 
 *!*
-class User extends f("Hello") {}
+class User extends f("Hola") {}
 */!*
 
-new User().sayHi(); // Hello
+new User().sayHi(); // Hola
 ```
-Here `class User` inherits from the result of `f("Hello")`.
+Observa: `class User` hereda del resultado de `f("Hola")`.
 
-That may be useful for advanced programming patterns when we use functions to generate classes depending on many conditions and can inherit from them.
+Eso puede ser útil para patrones de programación avanzados cuando usamos funciones para generar clases dependiendo de muchas condiciones y podamos heredar de ellas.
 ````
 
-## Overriding a method
+## Sobrescribir un método
 
-Now let's move forward and override a method. By default, all methods that are not specified in `class Rabbit` are taken directly "as is" from `class Animal`.
+Ahora avancemos y sobrescribamos un método. Por defecto, todos los métodos que no están especificados en la clase `Rabbit` se toman directamente "tal cual" de la clase `Animal`.
 
-But if we specify our own method in `Rabbit`, such as `stop()` then it will be used instead:
+Si especificamos nuestro propio método `stop()` en `Rabbit`, se utilizará en su lugar:
 
 ```js
 class Rabbit extends Animal {
   stop() {
-    // ...now this will be used for rabbit.stop()
-    // instead of stop() from class Animal
+    // ...esto se usará para rabbit.stop()
+    // en lugar de stop() de la clase Animal
   }
 }
 ```
 
-Usually we don't want to totally replace a parent method, but rather to build on top of it to tweak or extend its functionality. We do something in our method, but call the parent method before/after it or in the process.
+...Pero, por lo general, no queremos reemplazar totalmente un método padre, sino más bien construir sobre él, modificar o ampliar su funcionalidad. Hacemos algo en nuestro método, pero llamamos al método padre antes/después o en el proceso.
 
-Classes provide `"super"` keyword for that.
+Las clases proporcionan la palabra clave `"super"` para eso.
 
-- `super.method(...)` to call a parent method.
-- `super(...)` to call a parent constructor (inside our constructor only).
+- `super.method(...)` llama un método padre.
+- `super(...)` llama un constructor padre (solo dentro de nuestro constructor).
 
-For instance, let our rabbit autohide when stopped:
+Por ejemplo, dejemos que nuestro conejo se oculte automáticamente cuando se detenga:
 
 ```js run
 class Animal {
@@ -125,69 +125,69 @@ class Animal {
 
   run(speed) {
     this.speed = speed;
-    alert(`${this.name} runs with speed ${this.speed}.`);
+    alert(`${this.name} corre a una velocidad de ${this.speed}.`);
   }
 
   stop() {
     this.speed = 0;
-    alert(`${this.name} stands still.`);
+    alert(`${this.name} se queda quieto.`);
   }
 
 }
 
 class Rabbit extends Animal {
   hide() {
-    alert(`${this.name} hides!`);
+    alert(`${this.name} se esconde!`);
   }
 
 *!*
   stop() {
-    super.stop(); // call parent stop
-    this.hide(); // and then hide
+    super.stop(); // llama el stop padre
+    this.hide(); // y luego hide
   }
 */!*
 }
 
-let rabbit = new Rabbit("White Rabbit");
+let rabbit = new Rabbit("Conejo Blanco");
 
-rabbit.run(5); // White Rabbit runs with speed 5.
-rabbit.stop(); // White Rabbit stands still. White rabbit hides!
+rabbit.run(5); // Conejo Blanco corre a una velocidad de 5.
+rabbit.stop(); // Conejo Blanco se queda quieto. Conejo Blanco se esconde!
 ```
 
-Now `Rabbit` has the `stop` method that calls the parent `super.stop()` in the process.
+Ahora `Rabbit` tiene el método `stop` que llama al padre `super.stop()` en el proceso.
 
-````smart header="Arrow functions have no `super`"
-As was mentioned in the chapter <info:arrow-functions>, arrow functions do not have `super`.
+````smart header="Las funciones de flecha no tienen `super`"
+Como se mencionó en el capítulo <info:arrow-functions>, las funciones de flecha no tienen `super`.
 
-If accessed, it's taken from the outer function. For instance:
+Si se accede, se toma de la función externa. Por ejemplo:
 ```js
 class Rabbit extends Animal {
   stop() {
-    setTimeout(() => super.stop(), 1000); // call parent stop after 1sec
+    setTimeout(() => super.stop(), 1000); // llama al stop() padre despues de 1seg
   }
 }
 ```
 
-The `super` in the arrow function is the same as in `stop()`, so it works as intended. If we specified a "regular" function here, there would be an error:
+El método `super` en la función de flecha es el mismo que en `stop()`, y funciona según lo previsto. Si aquí especificamos una función "regular", habría un error:
 
 ```js
-// Unexpected super
+// super inesperado
 setTimeout(function() { super.stop() }, 1000);
 ```
 ````
 
 
-## Overriding constructor
+## Sobrescribir un constructor
 
-With constructors it gets a little bit tricky.
+Con los constructores se pone un poco complicado.
 
-Until now, `Rabbit` did not have its own `constructor`.
+Hasta ahora, `Rabbit` no tenía su propio `constructor`.
 
-According to the [specification](https://tc39.github.io/ecma262/#sec-runtime-semantics-classdefinitionevaluation), if a class extends another class and has no `constructor`, then the following "empty" `constructor` is generated:
+De acuerdo con la [especificación](https://tc39.github.io/ecma262/#sec-runtime-semantics-classdefinitionevaluation), si una clase extiende otra clase y no tiene `constructor`, se genera el siguiente `constructor` "vacío":
 
 ```js
 class Rabbit extends Animal {
-  // generated for extending classes without own constructors
+  // generado para extender clases sin constructores propios
 *!*
   constructor(...args) {
     super(...args);
@@ -196,9 +196,9 @@ class Rabbit extends Animal {
 }
 ```
 
-As we can see, it basically calls the parent `constructor` passing it all the arguments. That happens if we don't write a constructor of our own.
+Como podemos ver, básicamente llama al padre `constructor` pasándole todos los argumentos. Eso sucede si no escribimos un constructor propio.
 
-Now let's add a custom constructor to `Rabbit`. It will specify the `earLength` in addition to `name`:
+Ahora agreguemos un constructor personalizado a `Rabbit`. Especificará `earLength` además de `name`:
 
 ```js run
 class Animal {
@@ -223,30 +223,30 @@ class Rabbit extends Animal {
 }
 
 *!*
-// Doesn't work!
-let rabbit = new Rabbit("White Rabbit", 10); // Error: this is not defined.
+// No funciona!
+let rabbit = new Rabbit("Conejo Blanco", 10); // Error: esto no está definido.
 */!*
 ```
 
-Whoops! We've got an error. Now we can't create rabbits. What went wrong?
+Vaya! Tenemos un error. Ahora no podemos crear conejos. ¿Qué salió mal?
 
-The short answer is:
-- **Constructors in inheriting classes must call `super(...)`, and (!) do it before using `this`.**
+La respuesta corta es: 
+- **Los constructores en las clases heredadas deben llamar a `super(...)`, y (!) hacerlo antes de usar `this`**.
 
-...But why? What's going on here? Indeed, the requirement seems strange.
+...¿Pero por qué? ¿Que está pasando aqui? De hecho, el requisito parece extraño.
 
-Of course, there's an explanation. Let's get into details, so you'll really understand what's going on.
+Por supuesto, hay una explicación. Vamos a entrar en detalles, para que realmente entiendas lo que está pasando.
 
-In JavaScript, there's a distinction between a constructor function of an inheriting class (so-called "derived constructor") and other functions. A derived constructor has a special internal property `[[ConstructorKind]]:"derived"`. That's a special internal label.
+En JavaScript, hay una distinción entre una función constructora de una clase heredera (llamada "constructor derivado") y otras funciones. Un constructor derivado tiene una propiedad interna especial `[[ConstructorKind]]:"derived"`. Esa es una etiqueta interna especial.
 
-That label affects its behavior with `new`.
+Esa etiqueta afecta su comportamiento con `new`.
 
-- When a regular function is executed with `new`, it creates an empty object and assigns it to `this`.
-- But when a derived constructor runs, it doesn't do this. It expects the parent constructor to do this job.
+- Cuando una función regular se ejecuta con `new`, crea un objeto vacío y lo asigna a `this`.
+- Pero cuando se ejecuta un constructor derivado, no hace esto. Espera que el constructor padre haga este trabajo.
 
-So a derived constructor must call `super` in order to execute its parent (base) constructor, otherwise the object for `this` won't be created. And we'll get an error.
+**Por lo tanto, un constructor derivado debe llamar a `super` para ejecutar su constructor padre (no derivado), de lo contrario no se creará el objeto para `this`. Y obtendremos un error.**
 
-For the `Rabbit` constructor to work, it needs to call `super()` before using `this`, like here:
+Para que el constructor `Rabbit` funcione, necesita llamar a `super()` antes de usar `this`, como aquí:
 
 ```js run
 class Animal {
@@ -273,8 +273,8 @@ class Rabbit extends Animal {
 
 *!*
 // now fine
-let rabbit = new Rabbit("White Rabbit", 10);
-alert(rabbit.name); // White Rabbit
+let rabbit = new Rabbit("Conejo Blanco", 10);
+alert(rabbit.name); // Conejo Blanco
 alert(rabbit.earLength); // 10
 */!*
 ```
@@ -364,68 +364,68 @@ Luckily, this behavior only reveals itself if an overridden field is used in the
 
 If it becomes a problem, one can fix it by using methods or getters/setters instead of fields.
 
-## Super: internals, [[HomeObject]]
+## [[HomeObject]]: el `super` interno 
 
-```warn header="Advanced information"
-If you're reading the tutorial for the first time - this section may be skipped.
+```warn header="Información avanzada"
+Si está leyendo el tutorial por primera vez, esta sección puede omitirse.
 
-It's about the internal mechanisms behind inheritance and `super`.
+Esta sección trata de los mecanismos internos detrás de la herencia y el método `super`.
 ```
 
-Let's get a little deeper under the hood of `super`. We'll see some interesting things along the way.
+Vamos a profundizar un poco más el tema de `super`. Veremos algunas cosas interesantes en el camino.
 
-First to say, from all that we've learned till now, it's impossible for `super` to work at all!
+En primer lugar, de todo lo que hemos aprendido hasta ahora, ¡es imposible que `super` funcione en absoluto!
 
-Yeah, indeed, let's ask ourselves, how it should technically work? When an object method runs, it gets the current object as `this`. If we call `super.method()` then, the engine needs to get the `method` from the prototype of the current object. But how?
+Sí, de hecho, preguntémonos, ¿cómo debería funcionar técnicamente? Cuando se ejecuta un método de objeto, obtiene el objeto actual como `this`. Si llamamos a `super.method()` entonces, el motor necesita obtener el `method` del prototipo del objeto actual. ¿Pero cómo?
 
-The task may seem simple, but it isn't. The engine knows the current object `this`, so it could get the parent `method` as `this.__proto__.method`. Unfortunately, such a "naive" solution won't work.
+La tarea puede parecer simple, pero no lo es. El motor conoce el objeto actual `this`, por lo que podría obtener el `method`  padre como `this.__proto __.method`. Desafortunadamente, una solución tan "ingenua" no funcionará.
 
-Let's demonstrate the problem. Without classes, using plain objects for the sake of simplicity.
+Demostremos el problema. Sin clases, usando objetos puros por simplicidad.
 
-You may skip this part and go below to the `[[HomeObject]]` subsection if you don't want to know the details. That won't harm. Or read on if you're interested in understanding things in-depth.
+Puedes omitir esta parte e ir a la subsección `[[HomeObject]]` si no deseas conocer los detalles. Eso no hará daño. O sigue leyendo si estás interesado en comprender las cosas en profundidad.
 
-In the example below, `rabbit.__proto__ = animal`. Now let's try: in `rabbit.eat()` we'll call `animal.eat()`, using `this.__proto__`:
+En el siguiente ejemplo, se hace la asignación `rabbit.__ proto__ = animal`. Ahora intentemos: en `rabbit.eat()` llamaremos a `animal.eat()`, usando `this.__proto__`:
 
 ```js run
 let animal = {
   name: "Animal",
   eat() {
-    alert(`${this.name} eats.`);
+    alert(`${this.name} come.`);
   }
 };
 
 let rabbit = {
   __proto__: animal,
-  name: "Rabbit",
+  name: "Conejo",
   eat() {
 *!*
-    // that's how super.eat() could presumably work
+    // así es como supuestamente podría funcionar super.eat()
     this.__proto__.eat.call(this); // (*)
 */!*
   }
 };
 
-rabbit.eat(); // Rabbit eats.
+rabbit.eat(); // Conejo come.
 ```
 
-At the line `(*)` we take `eat` from the prototype (`animal`) and call it in the context of the current object. Please note that `.call(this)` is important here, because a simple `this.__proto__.eat()` would execute parent `eat` in the context of the prototype, not the current object.
+En la línea `(*)` tomamos `eat` del prototipo (`animal`) y lo llamamos en el contexto del objeto actual. Tenga en cuenta que `.call(this)` es importante aquí, porque un simple `this.__ proto __.eat()` ejecutaría al padre `eat` en el contexto del prototipo, no del objeto actual.
 
-And in the code above it actually works as intended: we have the correct `alert`.
+Y en el código anterior, funciona según lo previsto: tenemos el `alert` correcto.
 
-Now let's add one more object to the chain. We'll see how things break:
+Ahora agreguemos un objeto más a la cadena. Veremos cómo se rompen las cosas:
 
 ```js run
 let animal = {
   name: "Animal",
   eat() {
-    alert(`${this.name} eats.`);
+    alert(`${this.name} come.`);
   }
 };
 
 let rabbit = {
   __proto__: animal,
   eat() {
-    // ...bounce around rabbit-style and call parent (animal) method
+    // ...rebota al estilo de conejo y llama al método padre (animal)
     this.__proto__.eat.call(this); // (*)
   }
 };
@@ -433,71 +433,71 @@ let rabbit = {
 let longEar = {
   __proto__: rabbit,
   eat() {
-    // ...do something with long ears and call parent (rabbit) method
+    // ...haz algo con orejas largas y llama al método padre (rabbit)
     this.__proto__.eat.call(this); // (**)
   }
 };
 
 *!*
-longEar.eat(); // Error: Maximum call stack size exceeded
+longEar.eat(); // Error: Se excedió el número máximo de llamadas a la pila
 */!*
 ```
 
-The code doesn't work anymore! We can see the error trying to call `longEar.eat()`.
+¡El código ya no funciona! Podemos ver el error al intentar llamar a `longEar.eat()`.
 
-It may be not that obvious, but if we trace `longEar.eat()` call, then we can see why. In both lines `(*)` and `(**)` the value of `this` is the current object (`longEar`). That's essential: all object methods get the current object as `this`, not a prototype or something.
+Puede que no sea tan obvio, pero si depuramos la llamada `longEar.eat()`, podremos ver por qué. En ambas líneas `(*)` y `(**)` el valor de `this` es el objeto actual (`longEar`). Eso es esencial: todos los métodos de objeto obtienen el objeto actual como `this`, no un prototipo o algo así.
 
-So, in both lines `(*)` and `(**)` the value of `this.__proto__` is exactly the same: `rabbit`. They both call `rabbit.eat` without going up the chain in the endless loop.
+Entonces, en ambas líneas `(*)` y `(**)` el valor de `this.__proto__` es exactamente el mismo: `rabbit`. Ambos llaman a  `rabbit.eat` sin subir la cadena en el bucle sin fin.
 
-Here's the picture of what happens:
+Aquí está la imagen de lo que sucede:
 
 ![](this-super-loop.svg)
 
-1. Inside `longEar.eat()`, the line `(**)` calls `rabbit.eat` providing it with `this=longEar`.
+1. Dentro de `longEar.eat()`, la línea `(**)` llama a `rabbit.eat` proporcionándole `this=longEar`.
     ```js
-    // inside longEar.eat() we have this = longEar
+    // dentro de longEar.eat() tenemos this = longEar
     this.__proto__.eat.call(this) // (**)
-    // becomes
+    // se convierte en
     longEar.__proto__.eat.call(this)
-    // that is
+    // es decir
     rabbit.eat.call(this);
     ```
-2. Then in the line `(*)` of `rabbit.eat`, we'd like to pass the call even higher in the chain, but `this=longEar`, so `this.__proto__.eat` is again `rabbit.eat`!
+2. Luego, en la línea `(*)` de `rabbit.eat`, nos gustaría pasar la llamada aún más arriba en la cadena, evitando `this=longEar`, entonces `this.__ proto__.eat` es nuevamente `rabbit.eat`!
 
     ```js
-    // inside rabbit.eat() we also have this = longEar
+    // dentro de rabbit.eat () también tenemos this = longEar
     this.__proto__.eat.call(this) // (*)
-    // becomes
+    // se convierte en
     longEar.__proto__.eat.call(this)
-    // or (again)
+    // o (de nuevo)
     rabbit.eat.call(this);
     ```
 
-3. ...So `rabbit.eat` calls itself in the endless loop, because it can't ascend any further.
+3. ...Entonces `rabbit.eat` se llama a sí mismo en el bucle sin fin, porque no puede ascender más.
 
-The problem can't be solved by using `this` alone.
+El problema no se puede resolver usando solo `this`.
 
 ### `[[HomeObject]]`
 
-To provide the solution, JavaScript adds one more special internal property for functions: `[[HomeObject]]`.
+Para proporcionar la solución, JavaScript agrega una propiedad interna especial para las funciones: `[[HomeObject]]`.
 
-When a function is specified as a class or object method, its `[[HomeObject]]` property becomes that object.
+Cuando una función se especifica como un método de clase u objeto, su propiedad `[[HomeObject]]` se convierte en ese objeto.
 
-Then `super` uses it to resolve the parent prototype and its methods.
+Entonces `super` lo usa para resolver el problema del prototipo padre y sus métodos.
 
-Let's see how it works, first with plain objects:
+Veamos cómo funciona, primero con objetos simples:
 
 ```js run
 let animal = {
   name: "Animal",
   eat() {         // animal.eat.[[HomeObject]] == animal
-    alert(`${this.name} eats.`);
+    alert(`${this.name} come.`);
   }
 };
 
 let rabbit = {
   __proto__: animal,
-  name: "Rabbit",
+  name: "Conejo",
   eat() {         // rabbit.eat.[[HomeObject]] == rabbit
     super.eat();
   }
@@ -505,38 +505,38 @@ let rabbit = {
 
 let longEar = {
   __proto__: rabbit,
-  name: "Long Ear",
+  name: "Oreja Larga",
   eat() {         // longEar.eat.[[HomeObject]] == longEar
     super.eat();
   }
 };
 
 *!*
-// works correctly
-longEar.eat();  // Long Ear eats.
+// funciona correctamente
+longEar.eat();  // Oreja Larga come.
 */!*
 ```
 
-It works as intended, due to `[[HomeObject]]` mechanics. A method, such as `longEar.eat`, knows its `[[HomeObject]]` and takes the parent method from its prototype. Without any use of `this`.
+Funciona según lo previsto, debido a la mecánica de `[[HomeObject]]`. Un método, como `longEar.eat`, conoce su `[[HomeObject]]` y toma el método padre de su prototipo. Sin el uso de `this`.
 
-### Methods are not "free"
+### Los métodos no son "libres"
 
-As we've known before, generally functions are "free", not bound to objects in JavaScript. So they can be copied between objects and called with another `this`.
+Como hemos sabido antes, generalmente las funciones son "libres", es decir no están vinculadas a objetos en JavaScript. Para que puedan copiarse entre objetos y llamarse con otro 'this`.
 
-The very existence of `[[HomeObject]]` violates that principle, because methods remember their objects. `[[HomeObject]]` can't be changed, so this bond is forever.
+La existencia misma de `[[HomeObject]]` viola ese principio, porque los métodos recuerdan sus objetos. `[[HomeObject]]` no se puede cambiar, por lo que este vínculo es para siempre.
 
-The only place in the language where `[[HomeObject]]` is used -- is `super`. So, if a method does not use `super`, then we can still consider it free and copy between objects. But with `super` things may go wrong.
+El único lugar en el lenguaje donde se usa `[[HomeObject]]` es en `super`. Si un método no usa `super`, entonces todavía podemos considerarlo "libre" y copiarlo entre objetos. Pero con `super` las cosas pueden salir mal.
 
-Here's the demo of a wrong `super` result after copying:
+Aquí está la demostración de un resultado incorrecto de `super` después de copiarlo:
 
 ```js run
 let animal = {
   sayHi() {
-    console.log(`I'm an animal`);
+    console.log(`Soy un animal`);
   }
 };
 
-// rabbit inherits from animal
+// rabbit hereda de animal
 let rabbit = {
   __proto__: animal,
   sayHi() {
@@ -546,11 +546,11 @@ let rabbit = {
 
 let plant = {
   sayHi() {
-    console.log("I'm a plant");
+    console.log("Soy una planta");
   }
 };
 
-// tree inherits from plant
+// tree hereda de plant
 let tree = {
   __proto__: plant,
 *!*
@@ -559,32 +559,32 @@ let tree = {
 };
 
 *!*
-tree.sayHi();  // I'm an animal (?!?)
+tree.sayHi();  // Soy un animal (?!?)
 */!*
 ```
 
-A call to `tree.sayHi()` shows "I'm an animal". Definitely wrong.
+Una llamada a `tree.sayHi()` muestra "Soy un animal". Definitivamente mal.
 
-The reason is simple:
-- In the line `(*)`, the method `tree.sayHi` was copied from `rabbit`. Maybe we just wanted to avoid code duplication?
-- Its `[[HomeObject]]` is `rabbit`, as it was created in `rabbit`. There's no way to change `[[HomeObject]]`.
-- The code of `tree.sayHi()` has `super.sayHi()` inside. It goes up from `rabbit` and takes the method from `animal`.
+La razón es simple:
+- En la línea `(*)`, el método `tree.sayHi` se copió de `rabbit`. ¿Quizás solo queríamos evitar la duplicación de código?
+- Su `[[HomeObject]]` es `rabbit`, ya que fue creado en `rabbit`. No hay forma de cambiar `[[HomeObject]]`.
+- El código de `tree.sayHi()` tiene dentro a `super.sayHi()`. Sube desde 'rabbit' y toma el método de 'animal'.
 
-Here's the diagram of what happens:
+Aquí está el diagrama de lo que sucede:
 
 ![](super-homeobject-wrong.svg)
 
-### Methods, not function properties
+### Métodos, no propiedades de función
 
-`[[HomeObject]]` is defined for methods both in classes and in plain objects. But for objects, methods must be specified exactly as `method()`, not as `"method: function()"`.
+`[[HomeObject]]` se define para métodos tanto en clases como en objetos simples. Pero para los objetos, los métodos deben especificarse exactamente como `method()`, no como `"method: function()"`.
 
-The difference may be non-essential for us, but it's important for JavaScript.
+La diferencia puede no ser esencial para nosotros, pero es importante para JavaScript.
 
-In the example below a non-method syntax is used for comparison. `[[HomeObject]]` property is not set and the inheritance doesn't work:
+En el siguiente ejemplo, se utiliza una sintaxis sin método para la comparación. La propiedad `[[HomeObject]]` no está establecida y la herencia no funciona:
 
 ```js run
 let animal = {
-  eat: function() { // intentionally writing like this instead of eat() {...
+  eat: function() { // escrito así intencionalmente en lugar de eat() {...
     // ...
   }
 };
@@ -597,21 +597,21 @@ let rabbit = {
 };
 
 *!*
-rabbit.eat();  // Error calling super (because there's no [[HomeObject]])
+rabbit.eat();  // Error al llamar a super (porque no hay [[HomeObject]])
 */!*
 ```
 
-## Summary
+## Resumen
 
-1. To extend a class: `class Child extends Parent`:
-    - That means `Child.prototype.__proto__` will be `Parent.prototype`, so methods are inherited.
-2. When overriding a constructor:
-    - We must call parent constructor as `super()` in `Child` constructor before using `this`.
-3. When overriding another method:
-    - We can use `super.method()` in a `Child` method to call `Parent` method.
-4. Internals:
-    - Methods remember their class/object in the internal `[[HomeObject]]` property. That's how `super` resolves parent methods.
-    - So it's not safe to copy a method with `super` from one object to another.
+1. Para extender una clase: `class Child extends Parent`:
+     - Eso significa que `Child.prototype.__proto__` será `Parent.prototype`, por lo que los métodos se heredan.
+2. Al sobrescribir un constructor:
+     - Debemos llamar al constructor padre como `super()` en el constructor `Child` antes de usar `this`.
+3. Al sobrescribir otro método:
+     - Podemos usar `super.method()` en un método `Child` para llamar al método `Parent`.
+4. Características internas:
+     - Los métodos recuerdan su clase/objeto en la propiedad interna `[[HomeObject]]`. Así es como `super` resuelve los métodos padres.
+     - Por lo tanto, no es seguro copiar un método con `super` de un objeto a otro.
 
-Also:
-- Arrow functions don't have their own `this` or `super`, so they transparently fit into the surrounding context.
+También:
+- Las funciones de flecha no tienen su propio `this` o `super`, por lo que se ajustan de manera transparente al contexto circundante.
