@@ -71,7 +71,7 @@ La cadena de caracteres `json` resultante se llama objeto *JSON-codificado* o *s
 
 Por favor tomar nota que el objeto JSON-codificado tiene varias diferencias importantes con el objeto literal:
 
-- Los strings utilizan comillas dobles. No comillas simples o acentos abiertos en JSON. Por lo tanto `'John'` pasa a ser `"John"`.
+- Los strings utilizan comillas dobles. No hay comillas simples o acentos abiertos en JSON. Por lo tanto `'John'` pasa a ser `"John"`.
 - Los nombres de propiedades de objeto también llevan comillas dobles. Eso es obligatorio. Por lo tanto `age:30` pasa a ser `"age":30`.
 
 `JSON.stringify` puede ser aplicado a los tipos de datos primitivos también.
