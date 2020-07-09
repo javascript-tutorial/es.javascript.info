@@ -94,5 +94,5 @@ Las importaciones dinámicas funcionan en scripts normales, no requieren `script
 ```smart
 Aunque `import()` parece una llamada de función, es una sintaxis especial que solo usa paréntesis (similar a `super ()`).
 
-Por lo tanto, no podemos copiar `import` a una variable o usar `call / apply` con ella. No es una función.
+Por lo tanto, no podemos copiar `import` a una variable o usar `call/apply` con ella. No es una función.
 ```
