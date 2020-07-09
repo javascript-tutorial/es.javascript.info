@@ -14,7 +14,7 @@ En segundo lugar, no podemos importar condicionalmente o en tiempo de ejecución
 
 ```js
 if(...) {
-  import ...; // Error, no permitido!
+  import ...; // ¡Error, no permitido!
 }
 
 {
