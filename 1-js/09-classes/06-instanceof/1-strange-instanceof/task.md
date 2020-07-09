@@ -2,9 +2,9 @@ importance: 5
 
 ---
 
-# Strange instanceof
+# Extraño instanceof
 
-In the code below, why does `instanceof` return `true`? We can easily see that `a` is not created by `B()`.
+En el siguiente código, ¿por qué `instanceof` devuelve `true`? Podemos ver fácilmente que `a` no es creado por `B()`.
 
 ```js run
 function A() {}
@@ -15,6 +15,6 @@ A.prototype = B.prototype = {};
 let a = new A();
 
 *!*
-alert( a instanceof B ); // true
+alert( a instanceof B ); // verdadero
 */!*
 ```

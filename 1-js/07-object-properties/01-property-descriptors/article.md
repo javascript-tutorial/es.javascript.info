@@ -1,52 +1,52 @@
 
-# Property flags and descriptors
+# Indicadores y descriptores de propiedad
 
-As we know, objects can store properties.
+Como sabemos, los objetos pueden almacenar propiedades.
 
-Until now, a property was a simple "key-value" pair to us. But an object property is actually a more flexible and powerful thing.
+Hasta ahora, una propiedad era un simple par "clave-valor" para nosotros. Pero una propiedad de un objeto es algo más flexible y poderoso.
 
-In this chapter we'll study additional configuration options, and in the next we'll see how to invisibly turn them into getter/setter functions.
+En éste capítulo vamos a estudiar opciones adicionales de configuración, y en el siguiente veremos como convertirlas invisiblemente en funciones 'getter/setter', de obtención y establecimiento.
 
-## Property flags
+## Indicadores de propiedad
 
-Object properties, besides a **`value`**, have three special attributes (so-called "flags"):
+Las propiedades de objeto, a parte de un **`value`**, tienen tres atributos especiales (también llamados "indicadores"):
 
-- **`writable`** -- if `true`, the value can be changed, otherwise it's read-only.
-- **`enumerable`** -- if `true`, then listed in loops, otherwise not listed.
-- **`configurable`** -- if `true`, the property can be deleted and these attributes can be modified, otherwise not.
+- **`writable`** -- si es `true`, puede ser editado, de otra manera es de solo lectura.
+- **`enumerable`** -- si es `true`, puede ser listado en bucles, de otro modo no puede serlo.
+- **`configurable`** -- si es `true`, la propiedad puede ser borrada y estos atributos pueden ser modificados, de otra forma no.
 
-We didn't see them yet, because generally they do not show up. When we create a property "the usual way", all of them are `true`. But we also can change them anytime.
+Aun no los vemos, porque generalmente no se muestran. Cuando creamos una propiedad "de la forma usual", todos ellos son `true`. Pero podemos cambiarlos en cualquier momento.
 
-First, let's see how to get those flags.
+Primero, veamos como conseguir estos indicadores.
 
-The method [Object.getOwnPropertyDescriptor](mdn:js/Object/getOwnPropertyDescriptor) allows to query the *full* information about a property.
+El método [Object.getOwnPropertyDescriptor](mdn:js/Object/getOwnPropertyDescriptor) permite consultar *toda* la información sobre una propiedad.
 
-The syntax is:
+La sintaxis es ésta:
 ```js
 let descriptor = Object.getOwnPropertyDescriptor(obj, propertyName);
 ```
 
 `obj`
-: The object to get information from.
+: El objeto del que se quiere obtener la información.
 
 `propertyName`
-: The name of the property.
+: El nombre de la propiedad.
 
-The returned value is a so-called "property descriptor" object: it contains the value and all the flags.
+El valor de retorno también es llamado objeto "descriptor de propiedad": éste contiene el valor de todos los indicadores.
 
-For instance:
+Por ejemplo:
 
 ```js run
 let user = {
-  name: "John"
+  name: "Juan"
 };
 
 let descriptor = Object.getOwnPropertyDescriptor(user, 'name');
 
 alert( JSON.stringify(descriptor, null, 2 ) );
-/* property descriptor:
+/* descriptor de propiedad:
 {
-  "value": "John",
+  "value": "Juan",
   "writable": true,
   "enumerable": true,
   "configurable": true
@@ -54,30 +54,30 @@ alert( JSON.stringify(descriptor, null, 2 ) );
 */
 ```
 
-To change the flags, we can use [Object.defineProperty](mdn:js/Object/defineProperty).
+Para cambiar los indicadores, podemos usar [Object.defineProperty](mdn:js/Object/defineProperty).
 
-The syntax is:
+La sintaxis es ésta:
 
 ```js
 Object.defineProperty(obj, propertyName, descriptor)
 ```
 
 `obj`, `propertyName`
-: The object and its property to apply the descriptor.
+: el objeto y la propiedad con los que se va a trabajar.
 
 `descriptor`
-: Property descriptor object to apply.
+: descriptor de propiedad a aplicar.
 
-If the property exists, `defineProperty` updates its flags. Otherwise, it creates the property with the given value and flags; in that case, if a flag is not supplied, it is assumed `false`.
+Si la propiedad existe, `defineProperty` actualiza sus indicadores. De otra forma, creará la propiedad con el valor y el indicador dado; en ese caso, si el indicador no es proporcionado, es asumido como `false`.
 
-For instance, here a property `name` is created with all falsy flags:
+Por ejemplo, aqui se crea una propiedad `name` con todos los indicadores en `false`:
 
 ```js run
 let user = {};
 
 *!*
 Object.defineProperty(user, "name", {
-  value: "John"
+  value: "Juan"
 });
 */!*
 
@@ -86,7 +86,7 @@ let descriptor = Object.getOwnPropertyDescriptor(user, 'name');
 alert( JSON.stringify(descriptor, null, 2 ) );
 /*
 {
-  "value": "John",
+  "value": "Juan",
 *!*
   "writable": false,
   "enumerable": false,
@@ -96,17 +96,17 @@ alert( JSON.stringify(descriptor, null, 2 ) );
  */
 ```
 
-Compare it with "normally created" `user.name` above: now all flags are falsy. If that's not what we want then we'd better set them to `true` in `descriptor`.
+Comparado con la creada "de la forma usual" `user.name`: ahora todos los indicadores son `false`. Si eso no es lo que queremos, entonces mejor los establecemos en `true` en el `descriptor`.
 
-Now let's see effects of the flags by example.
+Ahora veamos los efectos de los indicadores con ejemplo.
 
 ## Non-writable
 
-Let's make `user.name` non-writable (can't be reassigned) by changing `writable` flag:
+Vamos a hacer `user.name` de solo lectura cambiando el indicador `writable`:
 
 ```js run
 let user = {
-  name: "John"
+  name: "Juan"
 };
 
 Object.defineProperty(user, "name", {
@@ -116,57 +116,57 @@ Object.defineProperty(user, "name", {
 });
 
 *!*
-user.name = "Pete"; // Error: Cannot assign to read only property 'name'
+user.name = "Pedro"; // Error: No se puede asignar a la propiedad de solo lectura 'name'...
 */!*
 ```
 
-Now no one can change the name of our user, unless they apply their own `defineProperty` to override ours.
+Ahora nadie puede cambiar el nombre de nuestro usuario, a menos que le apliquen su propio `defineProperty` para sobrescribir el nuestro.
 
-```smart header="Errors appear only in strict mode"
-In the non-strict mode, no errors occur when writing to non-writable properties and such. But the operation still won't succeed. Flag-violating actions are just silently ignored in non-strict.
+```smart header="Los errores aparecen solo en modo estricto"
+En el modo no estricto, no se producen errores al escribir en propiedades no grabables y demás. Pero la operación aún no tendrá éxito. Las acciones que infringen el indicador se ignoran silenciosamente de forma no estricta.
 ```
 
-Here's the same example, but the property is created from scratch:
-
+Aquí está el mismo ejemplo, pero la propiedad se crea desde cero:
 ```js run
 let user = { };
 
 Object.defineProperty(user, "name", {
 *!*
-  value: "John",
-  // for new properties we need to explicitly list what's true
+
+  value: "Pedro",
+  // para las nuevas propiedades se necesita listarlas explicitamente como true
   enumerable: true,
   configurable: true
 */!*
 });
 
-alert(user.name); // John
-user.name = "Pete"; // Error
+alert(user.name); // Pedro
+user.name = "Alicia"; // Error
 ```
 
 ## Non-enumerable
 
-Now let's add a custom `toString` to `user`.
+Ahora vamos a añadir un `toString` personalizado a `user`.
 
-Normally, a built-in `toString` for objects is non-enumerable, it does not show up in `for..in`. But if we add a `toString` of our own, then by default it shows up in `for..in`, like this:
+Normalmente, un `toString` incorporado en objetos es no enumerable, no se muestra en un bucle `for..in`. Pero si añadimos nuestro propio `toString`, entonces por defecto, este se muestra en los bucles `for..in`, como sigue:
 
 ```js run
 let user = {
-  name: "John",
+  name: "Juan",
   toString() {
     return this.name;
   }
 };
 
-// By default, both our properties are listed:
+// Por defecto, nuestras propiedades se listan:
 for (let key in user) alert(key); // name, toString
 ```
 
-If we don't like it, then we can set `enumerable:false`. Then it won't appear in a `for..in` loop, just like the built-in one:
+Si no nos gusta, podemos establecer `enumerable:false`. Entonces, no aparecerá en bucles `for..in`, exactamente como el incorporado:
 
 ```js run
 let user = {
-  name: "John",
+  name: "Juan",
   toString() {
     return this.name;
   }
@@ -179,12 +179,12 @@ Object.defineProperty(user, "toString", {
 });
 
 *!*
-// Now our toString disappears:
+// Ahora nuestro toString desaparece:
 */!*
-for (let key in user) alert(key); // name
+for (let key in user) alert(key); // nombre
 ```
 
-Non-enumerable properties are also excluded from `Object.keys`:
+Las propiedades no enumerables también se excluyen de `Object.keys`:
 
 ```js
 alert(Object.keys(user)); // name
@@ -192,11 +192,11 @@ alert(Object.keys(user)); // name
 
 ## Non-configurable
 
-The non-configurable flag (`configurable:false`) is sometimes preset for built-in objects and properties.
+Los indicadores no configurables (`configurable:false`) a veces es un preajuste para los objetos propiedades incorporadas.
 
-A non-configurable property can not be deleted.
+Una propiedad no configurable no puede ser eliminada ni cambiada por `defineProperty`.
 
-For instance, `Math.PI` is non-writable, non-enumerable and non-configurable:
+Por ejemplo, `Math.PI` es de solo lectura, no enumerable y no configurable:
 
 ```js run
 let descriptor = Object.getOwnPropertyDescriptor(Math, 'PI');
@@ -211,54 +211,54 @@ alert( JSON.stringify(descriptor, null, 2 ) );
 }
 */
 ```
-So, a programmer is unable to change the value of `Math.PI` or overwrite it.
+Así que, un programador es incapaz de cambiar el valor de `Math.PI` o sobrescribirlo.
 
 ```js run
 Math.PI = 3; // Error
 
-// delete Math.PI won't work either
+// delete Math.PI tampoco funcionará
 ```
 
-Making a property non-configurable is a one-way road. We cannot change it back with `defineProperty`.
+Convertir una propiedad en no configurable es hacer una calle de una vía. No podremos cambiarla de vuelta, porque `defineProperty` no funciona en propiedades no configurables.
 
-To be precise, non-configurability imposes several restrictions on `defineProperty`:
-1. Can't change `configurable` flag.
-2. Can't change `enumerable` flag.
-3. Can't change `writable: false` to `true` (the other way round works).
-4. Can't change `get/set` for an accessor property (but can assign them if absent).
+Para ser precisos, la no configurabilidad impone varias restricciones a `defineProperty`:
+- 1. No se puede cambiar el indicador `configurable`.
+- 2. No se puede cambiar el indicador `enumerable`.
+- 3. No se puede cambiar `writable: false` a `true` (al revés funciona).
+- 4. No se puede cambiar `get/set` por una propiedad accesoria (pero puede asignarlos si está ausente).
 
-Here we are making `user.name` a "forever sealed" constant:
+Aquí estamos haciendo `user.name` una constante "sellada por siempre":
 
 ```js run
 let user = { };
 
 Object.defineProperty(user, "name", {
-  value: "John",
+  value: "Juan",
   writable: false,
   configurable: false
 });
 
 *!*
-// won't be able to change user.name or its flags
-// all this won't work:
-//   user.name = "Pete"
+// No seremos capaces de cambiar usuario.nombre o su identificador
+// Nada de esto funcionará:
+//   user.name = "Pedro"
 //   delete user.name
 //   defineProperty(user, "name", { value: "Pete" })
 Object.defineProperty(user, "name", {writable: true}); // Error
 */!*
 ```
 
-```smart header="\"Non-configurable\" doesn't mean \"non-writable\""
-Notable exception: a value of non-configurable, but writable property can be changed.
+```smart header="\"Non-configurable\" no significa \"non-writable\""
+Excepción notable: un valor de propiedad no-configurable pero writable puede ser cambiado.
 
-The idea of `configurable: false` is to prevent changes to property flags and its deletion, not changes to its value.
+La idea de `configurable: false` is para evitar cambios a los indicadores de propiedad y su borrado, no cambios a su valor.
 ```
 
 ## Object.defineProperties
 
-There's a method [Object.defineProperties(obj, descriptors)](mdn:js/Object/defineProperties) that allows to define many properties at once.
+Hay un método [Object.defineProperties(obj, descriptors)](mdn:js/Object/defineProperties) que permite definir varias propiedades de una sola vez.
 
-The syntax is:
+La sintaxis es esta:
 
 ```js
 Object.defineProperties(obj, {
@@ -268,29 +268,29 @@ Object.defineProperties(obj, {
 });
 ```
 
-For instance:
+Por ejemplo:
 
 ```js
 Object.defineProperties(user, {
-  name: { value: "John", writable: false },
-  surname: { value: "Smith", writable: false },
+  name: { value: "Juan", writable: false },
+  surname: { value: "Perez", writable: false },
   // ...
 });
 ```
 
-So, we can set many properties at once.
+Entonces, podemos asignar varias propiedades al mismo tiempo.
 
 ## Object.getOwnPropertyDescriptors
 
-To get all property descriptors at once, we can use the method [Object.getOwnPropertyDescriptors(obj)](mdn:js/Object/getOwnPropertyDescriptors).
+Para obtener todos los descriptores al mismo tiempo, podemos usar el método [Object.getOwnPropertyDescriptors(obj)](mdn:js/Object/getOwnPropertyDescriptors).
 
-Together with `Object.defineProperties` it can be used as a "flags-aware" way of cloning an object:
+Junto con `Object.defineProperties` puede ser usado como una forma de "indicadores-conscientes" al clonar un objeto:
 
 ```js
 let clone = Object.defineProperties({}, Object.getOwnPropertyDescriptors(obj));
 ```
 
-Normally when we clone an object, we use an assignment to copy properties, like this:
+Normalmente cuando clonamos un objeto, usamos una sentencia para copiar las propiedades, como esta:
 
 ```js
 for (let key in user) {
@@ -298,34 +298,35 @@ for (let key in user) {
 }
 ```
 
-...But that does not copy flags. So if we want a "better" clone then `Object.defineProperties` is preferred.
+...Pero eso no copia los identificadores. Así que si queremos un "mejor" clon entonces se prefiere `Object.defineProperties`.
 
-Another difference is that `for..in` ignores symbolic properties, but `Object.getOwnPropertyDescriptors` returns *all* property descriptors including symbolic ones.
+Otra diferencia es que `for..in` ignora propiedades simbólicas, pero `Object.getOwnPropertyDescriptors` retorna *todos* los descriptores de propiedades incluyendo los simbolicos.
 
-## Sealing an object globally
+## Sellando un objeto globalmente
 
-Property descriptors work at the level of individual properties.
+Los descriptores de propiedad trabajan al nivel de propiedades individuales.
 
-There are also methods that limit access to the *whole* object:
+También hay métodos que limitan el acceso al objeto *completo*:
 
 [Object.preventExtensions(obj)](mdn:js/Object/preventExtensions)
-: Forbids the addition of new properties to the object.
+
+: Prohíbe añadir propiedades al objeto.
 
 [Object.seal(obj)](mdn:js/Object/seal)
-: Forbids adding/removing of properties. Sets `configurable: false` for all existing properties.
+: Prohíbe añadir/eliminar propiedades, establece todas las propiedades existentes como `configurable: false`.
 
 [Object.freeze(obj)](mdn:js/Object/freeze)
-: Forbids adding/removing/changing of properties. Sets `configurable: false, writable: false` for all existing properties.
+: Prohíbe añadir/eliminar/cambiar propiedades, establece todas las propiedades existentes como `configurable: false, writable: false`.
 
-And also there are tests for them:
+Y también hay pruebas para ellos:
 
 [Object.isExtensible(obj)](mdn:js/Object/isExtensible)
-: Returns `false` if adding properties is forbidden, otherwise `true`.
+: Devuelve `false` si esta prohibido añadir propiedades, si no `true`.
 
 [Object.isSealed(obj)](mdn:js/Object/isSealed)
-: Returns `true` if adding/removing properties is forbidden, and all existing properties have `configurable: false`.
+: Devuelve `true` si añadir/eliminar propiedades está prohibido, y todas las propiedades existentes tienen `configurable: false`.
 
 [Object.isFrozen(obj)](mdn:js/Object/isFrozen)
-: Returns `true` if adding/removing/changing properties is forbidden, and all current properties are `configurable: false, writable: false`.
+: Devuelve `true` si añadir/eliminar/cambiar propiedades está prohibido, y todas las propiedades son `configurable: false, writable: false`.
 
-These methods are rarely used in practice.
+Estos métodos son usados rara vez en la práctica.
