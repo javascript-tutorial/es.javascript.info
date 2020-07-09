@@ -96,7 +96,6 @@ Estas son las principales categorías y subcategorías de caracteres:
   - private use (uso privado) `Co`,
   - surrogate (sustitudo) `Cs`.
 
-
 Entonces, por ejemplo si necesitamos letras en minúsculas, podemos escribir `pattern:\p{Ll}`, signos de puntuación: `pattern:\p{P}` y así sucesivamente.
 
 También hay otras categorías derivadas, como:

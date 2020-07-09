@@ -184,7 +184,7 @@ Los rectángulos en el lado derecho demuestran cómo cambia el entorno léxico g
 
 1. Cuando se inicia el script, el entorno léxico se rellena previamente con todas las variables declaradas.
      - Inicialmente, están en el estado "No inicializado". Ese es un estado interno especial, significa que el motor conoce la variable, pero no se puede hacer referencia a ella hasta que se haya declarado con `let`. Es casi lo mismo que si la variable no existiera.
-2. Luego aparece la definición `let phrase`.Todavía no hay una asignación, por lo que su valor es `undefined`. Podemos usar la variable desde este momento.
+2. Luego aparece la definición `let phrase`.Todavía no hay una asignación, por lo que su valor es `undefined`. Podemos usar la variable desde este punto en adelante.
 3. `phrase` se le asigna un valor.
 4. `phrase` cambia el valor.
 

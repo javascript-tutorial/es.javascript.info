@@ -148,7 +148,7 @@ Hay dos formas de hacerlo:
 
 1. Multiplicar y dividir.
 
-    Para redondear el número a dos dígitos tras el decimal, podemos multiplicarlo por `100`, llamar la función de redondeo y volverlo a dividir.
+    Para redondear el número a dos dígitos tras el decimal, podemos multiplicarlo por `100` (o una potencia mayor de 10), llamar la función de redondeo y volverlo a dividir.
     ```js run
     let num = 1.23456;
 
