@@ -22,7 +22,7 @@ if(...) {
 }
 ```
 
-Esto se debe a que `import`/`export` proporcionan una columna vertebral para la estructura del código. Eso es algo bueno, ya que la estructura del código se puede analizar, los módulos se pueden reunir y agrupar en un archivo mediante herramientas especiales, las exportaciones no utilizadas se pueden eliminar("tree-shaken"). Eso es posible solo porque la estructura de las importaciones / exportaciones es simple y fija.
+Esto se debe a que `import`/`export` proporcionan una columna vertebral para la estructura del código. Eso es algo bueno, ya que la estructura del código se puede analizar, los módulos se pueden reunir y agrupar en un archivo mediante herramientas especiales, las exportaciones no utilizadas se pueden eliminar ("tree-shaken"). Eso es posible solo porque la estructura de las importaciones / exportaciones es simple y fija.
 
 Pero, ¿cómo podemos importar un módulo dinámicamente, a petición?
 
