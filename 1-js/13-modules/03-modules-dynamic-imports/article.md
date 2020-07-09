@@ -88,7 +88,7 @@ Aquí está el ejemplo completo:
 [codetabs src="say" current="index.html"]
 
 ```smart
-Las importaciones dinámicas funcionan en scripts normales, no requieren `script type =" module "`.
+Las importaciones dinámicas funcionan en scripts normales, no requieren `script type="module"`.
 ```
 
 ```smart
