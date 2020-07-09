@@ -13,7 +13,7 @@ let obj = {};
 alert( obj ); // "[object Object]" ?
 ```
 
-¿Dónde está el código que genera la cadena `"[objeto Objeto]"`? Ese es un método integrado `toString`, pero ¿dónde está? ¡El `obj` está vacío!
+¿Dónde está el código que genera la cadena `"[objetc Objetc]"`? Ese es un método integrado `toString`, pero ¿dónde está? ¡El `obj` está vacío!
 
 ...Pero la notación corta `obj = {}` es la misma que `obj = new Object()`, donde `Object` es una función de constructor de objeto integrado, con su propio `prototype` que hace referencia a un objeto enorme con `toString` y otros métodos
 
@@ -145,7 +145,7 @@ if (!String.prototype.repeat) { // si no hay tal método
 
     // en realidad, el código debería ser un poco más complejo que eso
     // (el algoritmo completo está en la especificación)
-    // pero incluso un polirelleno imperfecto a menudo se considera lo suficientemente bueno
+    // pero incluso un polyfill (polirelleno) imperfecto a menudo se considera lo suficientemente bueno
     return new Array(n + 1).join(this);
   };
 }
@@ -179,6 +179,7 @@ obj.join = Array.prototype.join;
 
 alert( obj.join(',') ); // Hola,mundo!
 ```
+
 Funciona porque el algoritmo interno del método integrado `join` solo se preocupa por los índices correctos y la propiedad `length`. No comprueba si el objeto es realmente un arreglo. Muchos métodos integrados son así.
 
 Otra posibilidad es heredar estableciendo `obj.__proto__` en `Array.prototype`, de modo que todos los métodos `Array` estén disponibles automáticamente en `obj`.
