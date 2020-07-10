@@ -1,61 +1,61 @@
-# Dynamic imports
+# Importaciones dinámicas
 
-Export and import statements that we covered in previous chapters are called "static". The syntax is very simple and strict.
+Las declaraciones de exportación e importación que cubrimos en capítulos anteriores se denominan "estáticas". La sintaxis es muy simple y estricta. 
 
-First, we can't dynamically generate any parameters of `import`.
+Primero, no podemos generar dinámicamente ningún parámetro de `import`.
 
-The module path must be a primitive string, can't be a function call. This won't work:
+La ruta del módulo debe ser una cadena primitiva, no puede ser una llamada de función. Esto no funcionará:
 
 ```js
-import ... from *!*getModuleName()*/!*; // Error, only from "string" is allowed
+import ... from *!*getModuleName()*/!*; // Error, from sólo permite "string"
 ```
 
-Second, we can't import conditionally or at run-time:
+En segundo lugar, no podemos importar condicionalmente o en tiempo de ejecución:
 
 ```js
 if(...) {
-  import ...; // Error, not allowed!
+  import ...; // ¡Error, no permitido!
 }
 
 {
-  import ...; // Error, we can't put import in any block
+  import ...; // Error, no podemos poner importación en ningún bloque.
 }
 ```
 
-That's because `import`/`export` aim to provide a backbone for the code structure. That's a good thing, as code structure can be analyzed, modules can be gathered and bundled into one file by special tools, unused exports can be removed ("tree-shaken"). That's possible only because the structure of imports/exports is simple and fixed.
+Esto se debe a que `import`/`export` proporcionan una columna vertebral para la estructura del código. Eso es algo bueno, ya que la estructura del código se puede analizar, los módulos se pueden reunir y agrupar en un archivo mediante herramientas especiales, las exportaciones no utilizadas se pueden eliminar ("tree-shaken"). Eso es posible solo porque la estructura de las importaciones / exportaciones es simple y fija.
 
-But how can we import a module dynamically, on-demand?
+Pero, ¿cómo podemos importar un módulo dinámicamente, a petición?
 
-## The import() expression
+## La expresión import() 
 
-The `import(module)` expression loads the module and returns a promise that resolves into a module object that contains all its exports. It can be called from any place in the code.
+La expresión `import(module)` carga el módulo y devuelve una promesa que se resuelve en un objeto de módulo que contiene todas sus exportaciones. Se puede llamar desde cualquier lugar del código.
 
-We can use it dynamically in any place of the code, for instance:
+Podemos usarlo dinámicamente en cualquier lugar del código, por ejemplo:
 
 ```js
-let modulePath = prompt("Which module to load?");
+let modulePath = prompt("¿Qué modulo cargar?");
 
 import(modulePath)
   .then(obj => <module object>)
   .catch(err => <loading error, e.g. if no such module>)
 ```
 
-Or, we could use `let module = await import(modulePath)` if inside an async function.
+O, podríamos usar `let module = await import(modulePath)` si está dentro de una función asíncrona.
 
-For instance, if we have the following module `say.js`:
+Por ejemplo, si tenemos el siguiente módulo `say.js`:
 
 ```js
 // 📁 say.js
 export function hi() {
-  alert(`Hello`);
+  alert(`Hola`);
 }
 
 export function bye() {
-  alert(`Bye`);
+  alert(`Adiós`);
 }
 ```
 
-...Then dynamic import can be like this:
+...Entonces la importación dinámica puede ser así:
 
 ```js
 let {hi, bye} = await import('./say.js');
@@ -64,35 +64,35 @@ hi();
 bye();
 ```
 
-Or, if `say.js` has the default export:
+O, si `say.js` tiene la exportación predeterminada:
 
 ```js
 // 📁 say.js
 export default function() {
-  alert("Module loaded (export default)!");
+  alert("Módulo cargado (export default)!");
 }
 ```
 
-...Then, in order to access it, we can use `default` property of the module object:
+...Luego, para acceder a él, podemos usar la propiedad `default` del objeto del módulo:
 
 ```js
 let obj = await import('./say.js');
 let say = obj.default;
-// or, in one line: let {default: say} = await import('./say.js');
+// o, en una línea: let {default: say} = await import('./say.js');
 
 say();
 ```
 
-Here's the full example:
+Aquí está el ejemplo completo:
 
 [codetabs src="say" current="index.html"]
 
 ```smart
-Dynamic imports work in regular scripts, they don't require `script type="module"`.
+Las importaciones dinámicas funcionan en scripts normales, no requieren `script type="module"`.
 ```
 
 ```smart
-Although `import()` looks like a function call, it's a special syntax that just happens to use parentheses (similar to `super()`).
+Aunque `import()` parece una llamada de función, es una sintaxis especial que solo usa paréntesis (similar a `super ()`).
 
-So we can't copy `import` to a variable or use `call/apply` with it. It's not a function.
+Por lo tanto, no podemos copiar `import` a una variable o usar `call/apply` con ella. No es una función.
 ```
