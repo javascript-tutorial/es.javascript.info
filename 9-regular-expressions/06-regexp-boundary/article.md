@@ -23,7 +23,7 @@ En la cadena `subject:Hello, Java!` las flechas que se muestran corresponden a `
 
 Entonces, coincide con el patrón `pattern:\bHello\b`, porque:
 
-1. Al comienzo de la cadena coincide con la primer prueba: `pattern:\b`.
+1. Al comienzo de la cadena coincide con la primera prueba: `pattern:\b`.
 2. Luego coincide con la palabra `pattern:Hello`.
 3. Luego, la prueba `pattern:\b` vuelve a coincidir, ya que estamos entre `subject:o` y una coma.
 
