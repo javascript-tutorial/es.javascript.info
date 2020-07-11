@@ -283,7 +283,7 @@ Para errores incorporados (no para cualquier objeto, solo para errores), la prop
 Por ejemplo:
 
 ```js run
-let error = new Error("Las cosas pasan o_O");
+let error = new Error("Estas cosas pasan... o_O");
 
 alert(error.name); // Error
 alert(error.message); // Las cosas pasan o_O
