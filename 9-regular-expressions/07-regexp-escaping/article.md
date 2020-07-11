@@ -89,7 +89,7 @@ alert(regStr); // \d\.\d (ahora está correcto)
 
 let regexp = new RegExp(regStr);
 
-alert( "Cápitulo 5.1".match(regexp) ); // 5.1
+alert( "Capítulo 5.1".match(regexp) ); // 5.1
 ```
 
 ## Resumen
