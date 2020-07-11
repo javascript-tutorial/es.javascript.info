@@ -117,7 +117,7 @@ Por lo general, cuando queremos encontrar exactamente un carácter especial, nec
 
 Entre corchetes podemos usar la gran mayoría de caracteres especiales sin escaparlos:
 
-- Los símbolos `pattern:. + ( )` nunca se escapan.
+- Los símbolos `pattern:. + ( )` nunca necesitan escape.
 - Un guión `pattern:-` no se escapa al principio ni al final (donde no define un rango).
 - Un carácter caret `pattern:^` solo se escapa al principio (donde significa exclusión).
 - El corchete de cierre `pattern:]` siempre se escapa (si se necesita buscarlo).
