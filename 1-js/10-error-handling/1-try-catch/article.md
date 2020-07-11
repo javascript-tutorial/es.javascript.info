@@ -372,7 +372,7 @@ try {
   user = { /*...*/ };
 } catch(err) {
 *!*
-  alert(e.name); // "ReferenceError" para acceder a una variable indefinida
+  if (err instanceof ReferenceError) {
 */!*
     alert('ReferenceError'); // "ReferenceError" para acceder a una variable indefinida
   }
