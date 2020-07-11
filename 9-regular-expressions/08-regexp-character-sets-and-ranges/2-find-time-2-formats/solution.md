@@ -1,4 +1,4 @@
-Answer: `pattern:\d\d[-:]\d\d`.
+Respuesta: `pattern:\d\d[-:]\d\d`.
 
 ```js run
 let regexp = /\d\d[-:]\d\d/g;
