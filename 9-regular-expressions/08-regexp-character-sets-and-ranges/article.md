@@ -189,7 +189,7 @@ Si olvidamos agregar la flag `pattern:u`, habrá un error:
 
 La razón es que sin la flag `pattern:u` los pares sustitutos se perciben como dos caracteres, por lo que `[𝒳-𝒴]` se interpreta como `[<55349><56499>-<55349><56500>]` (cada par sustituto se reemplaza con sus códigos). Ahora es fácil ver que el rango `56499-55349` es inválido: su código de inicio `56499` es mayor que el último `55349`. Esa es la razón formal del error.
 
-Con la flag `pattern:u` el patrón funciona correctamente:
+Con la bandera `pattern:u` el patrón funciona correctamente:
 
 ```js run
 // buscar caracteres desde  𝒳  a 𝒵
