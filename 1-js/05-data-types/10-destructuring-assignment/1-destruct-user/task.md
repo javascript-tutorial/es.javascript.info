@@ -24,7 +24,7 @@ Here's an example of the values after your assignment:
 ```js
 let user = { name: "John", years: 30 };
 
-// your code to the left side:
+// tu código al lado izquierdo:
 // ... = user
 
 alert( name ); // John

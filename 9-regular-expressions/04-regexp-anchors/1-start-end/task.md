@@ -1,3 +1,3 @@
 # Regexp ^$
 
-Which string matches the pattern `pattern:^$`?
+¿Qué cadena coincide con el patrón `pattern:^$`?

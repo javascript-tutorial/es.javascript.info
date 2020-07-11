@@ -1,290 +1,290 @@
-# Promise
+# Promesa
 
-Imagine that you're a top singer, and fans ask day and night for your upcoming single.
+Imagina que eres un gran cantante y los fanáticos te preguntan día y noche por tu próximo sencillo.
 
-To get some relief, you promise to send it to them when it's published. You give your fans a list. They can fill in their email addresses, so that when the song becomes available, all subscribed parties instantly receive it. And even if something goes very wrong, say, a fire in the studio, so that you can't publish the song, they will still be notified.
+Para obtener algo de alivio, prometes enviárselos cuando se publique. Le das a tus fans una lista. Pueden completar sus direcciones de correo electrónico, de modo que cuando la canción esté disponible, todas las partes suscritas la reciban instantáneamente. E incluso si algo sale muy mal, digamos, un incendio en el estudio, para que no puedas publicar la canción, aún se les notificará.
 
-Everyone is happy: you, because the people don't crowd you anymore, and fans, because they won't miss the single.
+Todos están felices: tú, porque la gente ya no te abruma, y los fanáticos, porque no se perderán el sencillo.
 
-This is a real-life analogy for things we often have in programming:
+Esta es una analogía de la vida real para las cosas que a menudo tenemos en la programación:
 
-1. A "producing code" that does something and takes time. For instance, some code that loads the data over a network. That's a "singer".
-2. A "consuming code" that wants the result of the "producing code" once it's ready. Many functions  may need that result. These are the "fans".
-3. A *promise* is a special JavaScript object that links the "producing code" and the "consuming code" together. In terms of our analogy: this is the "subscription list". The "producing code" takes whatever time it needs to produce the promised result, and the "promise" makes that result available to all of the subscribed code when it's ready.
+1. Un "código productor" que hace algo y toma tiempo. Por ejemplo, algún código que carga los datos a través de una red. Eso es un "cantante".
+2. Un "código consumidor" que quiere el resultado del "código productor" una vez que está listo. Muchas funciones pueden necesitar ese resultado. Estos son los "fanáticos".
+3. Una *promesa* es un objeto JavaScript especial que une el "código productor" y el "código consumidor". En términos de nuestra analogía: esta es la "lista de suscripción". El "código productor" toma el tiempo que sea necesario para producir el resultado prometido, y la "promesa" hace que ese resultado esté disponible para todo el código suscrito cuando esté listo.
 
-The analogy isn't terribly accurate, because JavaScript promises are more complex than a simple subscription list: they have additional features and limitations. But it's fine to begin with.
+La analogía no es terriblemente precisa, porque las promesas de JavaScript son más complejas que una simple lista de suscripción: tienen características y limitaciones adicionales. Pero está bien para empezar.
 
-The constructor syntax for a promise object is:
+La sintaxis del constructor para un objeto promesa es:
 
 ```js
 let promise = new Promise(function(resolve, reject) {
-  // executor (the producing code, "singer")
+  // Ejecutor (el código productor, "cantante")
 });
 ```
 
-The function passed to `new Promise` is called the *executor*. When `new Promise` is created, the executor runs automatically. It contains the producing code which should eventually produce the result. In terms of the analogy above: the executor is the "singer".
+La función pasada a `new Promise` se llama *ejecutor*. Cuando se crea `new Promise`, el ejecutor corre automáticamente. Contiene el código productor que eventualmente debería producir el resultado. En términos de la analogía anterior: el ejecutor es el "cantante".
 
-Its arguments `resolve` and `reject` are callbacks provided by JavaScript itself. Our code is only inside the executor.
+Sus argumentos `resolve` y `reject` son callbacks proporcionadas por el propio JavaScript. Nuestro código solo está dentro del ejecutor.
 
-When the executor obtains the result, be it soon or late, doesn't matter, it should call one of these callbacks:
+Cuando el ejecutor obtiene el resultado, ya sea pronto o tarde, no importa, debe llamar a una de estos callbacks:
 
-- `resolve(value)` — if the job finished successfully, with result `value`.
-- `reject(error)` — if an error occurred, `error` is the error object.
+- `resolve(value)` - si el trabajo finalizó con éxito, con el resultado `value`.
+- `reject(error)` - si ocurrió un error, `error` es el objeto error.
 
-So to summarize: the executor runs automatically and attempts to perform a job. When it is finished with the attempt it calls `resolve` if it was successful or `reject` if there was an error.
+Para resumir: el ejecutor corre automáticamente e intenta realizar una tarea. Cuando termina con el intento, llama a 'resolve' si fue exitoso o 'reject' si hubo un error.
 
-The `promise` object returned by the `new Promise` constructor has these internal properties:
+El objeto `promise` devuelto por el constructor `new Promise` tiene estas propiedades internas:
 
-- `state` — initially `"pending"`, then changes to either `"fulfilled"` when `resolve` is called or `"rejected"` when `reject` is called.
-- `result` — initially `undefined`, then changes to `value` when `resolve(value)` called or `error` when `reject(error)` is called.
+- `state` - inicialmente `"pendiente"`, luego cambia a `"cumplido"` cuando se llama a `resolve` o `"rechazado"` cuando se llama a `reject`.
+- `result` - inicialmente `indefinido`, luego cambia a `valor` cuando se llama a `resolve(valor)` o `error` cuando se llama a `reject(error)`.
 
-So the executor eventually moves `promise` to one of these states:
+Entonces el ejecutor eventualmente mueve la `promise` a uno de estos estados:
 
 ![](promise-resolve-reject.svg)
 
-Later we'll see how "fans" can subscribe to these changes.
+Después veremos cómo los "fanáticos" pueden suscribirse a estos cambios.
 
-Here's an example of a promise constructor and a simple executor function with  "producing code" that takes time (via `setTimeout`):
+Aquí hay un ejemplo de un constructor de promesas y una función ejecutora simple con "código productor" que toma tiempo (a través de `setTimeout`):
 
 ```js run
 let promise = new Promise(function(resolve, reject) {
-  // the function is executed automatically when the promise is constructed
+  // la función se ejecuta automáticamente cuando se construye la promesa
 
-  // after 1 second signal that the job is done with the result "done"
-  setTimeout(() => *!*resolve("done")*/!*, 1000);
+  // después de 1 segundo, indica que la tarea está hecha con el resultado "hecho"
+  setTimeout(() => *!*resolve("hecho")*/!*, 1000);
 });
 ```
 
-We can see two things by running the code above:
+Podemos ver dos cosas al ejecutar el código anterior:
 
-1. The executor is called automatically and immediately (by `new Promise`).
-2. The executor receives two arguments: `resolve` and `reject`. These functions are pre-defined by the JavaScript engine, so we don't need to create them. We should only call one of them when ready.
+1. Se llama al ejecutor de forma automática e inmediata (por `new Promise`).
+2. El ejecutor recibe dos argumentos: `resolve` y `reject`. Estas funciones están predefinidas por el motor de JavaScript, por lo que no necesitamos crearlas. Solo debemos llamar a uno de ellos cuando esté listo.
 
-    After one second of "processing" the executor calls `resolve("done")` to produce the result. This changes the state of the `promise` object:
+    Después de un segundo de "procesamiento", el ejecutor llama a `resolve("hecho")` para producir el resultado. Esto cambia el estado del objeto `promise`:
 
     ![](promise-resolve-1.svg)
 
-That was an example of a successful job completion, a "fulfilled promise".
+Ese fue un ejemplo de finalización exitosa de la tarea, una "promesa cumplida".
 
-And now an example of the executor rejecting the promise with an error:
+Y ahora un ejemplo del ejecutor rechazando la promesa con un error:
 
 ```js
 let promise = new Promise(function(resolve, reject) {
-  // after 1 second signal that the job is finished with an error
-  setTimeout(() => *!*reject(new Error("Whoops!"))*/!*, 1000);
+  // después de 1 segundo, indica que la tarea ha finalizado con un error
+  setTimeout(() => *!*reject(new Error("¡Vaya!"))*/!*, 1000);
 });
 ```
 
-The call to `reject(...)` moves the promise object to `"rejected"` state:
+La llamada a `reject(...)` mueve el objeto promise al estado  `"rechazado"`:
 
 ![](promise-reject-1.svg)
 
-To summarize, the executor should perform a job (usually something that takes time) and then call `resolve` or `reject` to change the state of the corresponding promise object.
+Para resumir, el ejecutor debe realizar una tarea (generalmente algo que toma tiempo) y luego llamar a "resolve" o "reject" para cambiar el estado del objeto promise correspondiente.
 
-A promise that is either resolved or rejected is called "settled", as opposed to an initially "pending" promise.
+Una promesa que se resuelve o se rechaza se denomina "resuelta", en oposición a una promesa inicialmente "pendiente".
 
-````smart header="There can be only a single result or an error"
-The executor should call only one `resolve` or one `reject`. Any state change is final.
+````smart header="Solo puede haber un único resultado o un error"
+El ejecutor debe llamar solo a un 'resolve' o un 'reject'. Cualquier cambio de estado es definitivo.
 
-All further calls of `resolve` and `reject` are ignored:
+Se ignoran todas las llamadas adicionales de 'resolve' y 'reject':
 
 ```js
 let promise = new Promise(function(resolve, reject) {
 *!*
-  resolve("done");
+  resolve("hecho");
 */!*
 
-  reject(new Error("…")); // ignored
-  setTimeout(() => resolve("…")); // ignored
+  reject(new Error("…")); // ignorado
+  setTimeout(() => resolve("…")); // ignorado
 });
 ```
 
-The idea is that a job done by the executor may have only one result or an error.
+La idea es que una tarea realizada por el ejecutor puede tener solo un resultado o un error.
 
-Also, `resolve`/`reject` expect only one argument (or none) and will ignore additional arguments.
+Además, `resolve`/`reject` espera solo un argumento (o ninguno) e ignorará argumentos adicionales.
 ````
 
-```smart header="Reject with `Error` objects"
-In case something goes wrong, the executor should call `reject`. That can be done with any type of argument (just like `resolve`). But it is recommended to use `Error` objects (or objects that inherit from `Error`). The reasoning for that will soon become apparent.
+```smart header="Rechazar con objetos `Error`"
+En caso de que algo salga mal, el ejecutor debe llamar a 'reject'. Eso se puede hacer con cualquier tipo de argumento (al igual que `resolve`). Pero se recomienda usar objetos `Error` (u objetos que hereden de `Error`). El razonamiento para eso pronto se hará evidente.
 ```
 
-````smart header="Immediately calling `resolve`/`reject`"
-In practice, an executor usually does something asynchronously and calls `resolve`/`reject` after some time, but it doesn't have to. We also can call `resolve` or `reject` immediately, like this:
+````smart header="Inmediatamente llamando a `resolve`/`reject`"
+En la práctica, un ejecutor generalmente hace algo de forma asíncrona y llama a `resolve`/`reject` después de un tiempo, pero no tiene que hacerlo. También podemos llamar a `resolve` o `reject` inmediatamente, así:
 
 ```js
 let promise = new Promise(function(resolve, reject) {
-  // not taking our time to do the job
-  resolve(123); // immediately give the result: 123
+  // sin que nos quite tiempo para hacer la tarea
+  resolve(123); // dar inmediatamente el resultado: 123
 });
 ```
 
-For instance, this might happen when we start to do a job but then see that everything has already been completed and cached.
+Por ejemplo, esto puede suceder cuando comenzamos una tarea pero luego vemos que todo ya se ha completado y almacenado en caché.
 
-That's fine. We immediately have a resolved promise.
+Está bien. Inmediatamente tenemos una promesa resuelta.
 ````
 
-```smart header="The `state` and `result` are internal"
-The properties `state` and `result` of the Promise object are internal. We can't directly access them. We can use the methods `.then`/`.catch`/`.finally` for that. They are described below.
+```smart header="El `state` y el `result` son internos"
+Las propiedades `state` y `result` del objeto Promise son internas. No podemos acceder directamente a ellas. Podemos usar los métodos `.then`/`.catch`/`.finally` para eso. Se describen a continuación.
 ```
 
-## Consumers: then, catch, finally
+## Consumidores: then, catch, finally
 
-A Promise object serves as a link between the executor (the "producing code" or "singer") and the consuming functions (the "fans"), which will receive the result or error. Consuming functions can be registered (subscribed) using methods `.then`, `.catch` and `.finally`.
+Un objeto Promise sirve como enlace entre el ejecutor (el "código productor" o el "cantante") y las funciones consumidoras (los "fanáticos"), que recibirán el resultado o error. Las funciones de consumo pueden registrarse (suscribirse) utilizando los métodos `.then`, `.catch` y `.finally`.
 
 ### then
 
-The most important, fundamental one is `.then`.
+El más importante y fundamental es `.then`.
 
-The syntax is:
+La sintaxis es:
 
 ```js
 promise.then(
-  function(result) { *!*/* handle a successful result */*/!* },
-  function(error) { *!*/* handle an error */*/!* }
+  function(result) { *!*/* manejar un resultado exitoso */*/!* },
+  function(error) { *!*/* manejar un error */*/!* }
 );
 ```
 
-The first argument of `.then` is a function that runs when the promise is resolved, and receives the result.
+El primer argumento de `.then` es una función que se ejecuta cuando se resuelve la promesa y recibe el resultado.
 
-The second argument of `.then` is a function that runs when the promise is rejected, and receives the error.
+El segundo argumento de `.then` es una función que se ejecuta cuando se rechaza la promesa y recibe el error.
 
-For instance, here's a reaction to a successfully resolved promise:
+Por ejemplo, aquí hay una reacción a una promesa resuelta con éxito:
 
 ```js run
 let promise = new Promise(function(resolve, reject) {
-  setTimeout(() => resolve("done!"), 1000);
+  setTimeout(() => resolve("hecho!"), 1000);
 });
 
-// resolve runs the first function in .then
+// resolve ejecuta la primera función en .then
 promise.then(
 *!*
-  result => alert(result), // shows "done!" after 1 second
+  result => alert(result), // muestra "hecho!" después de 1 segundo
 */!*
-  error => alert(error) // doesn't run
+  error => alert(error) // no se ejecuta
 );
 ```
 
-The first function was executed.
+La primera función fue ejecutada.
 
-And in the case of a rejection, the second one:
+Y en el caso de un rechazo, el segundo:
 
 ```js run
 let promise = new Promise(function(resolve, reject) {
-  setTimeout(() => reject(new Error("Whoops!")), 1000);
+  setTimeout(() => reject(new Error("Vaya!")), 1000);
 });
 
-// reject runs the second function in .then
+// reject ejecuta la segunda función en .then
 promise.then(
-  result => alert(result), // doesn't run
+  result => alert(result), // no se ejecuta
 *!*
-  error => alert(error) // shows "Error: Whoops!" after 1 second
+  error => alert(error) // muestra "Error: ¡Vaya!" después de 1 segundo
 */!*
 );
 ```
 
-If we're interested only in successful completions, then we can provide only one function argument to `.then`:
+Si solo nos interesan las terminaciones exitosas, entonces podemos proporcionar solo un argumento de función para `.then`:
 
 ```js run
 let promise = new Promise(resolve => {
-  setTimeout(() => resolve("done!"), 1000);
+  setTimeout(() => resolve("hecho!"), 1000);
 });
 
 *!*
-promise.then(alert); // shows "done!" after 1 second
+promise.then(alert); // muestra "Error: ¡Vaya!" después de 1 segundo
 */!*
 ```
 
 ### catch
 
-If we're interested only in errors, then we can use `null` as the first argument: `.then(null, errorHandlingFunction)`. Or we can use `.catch(errorHandlingFunction)`, which is exactly the same:
+Si solo nos interesan los errores, entonces podemos usar `null` como primer argumento: `.then(null, errorHandlingFunction)`. O podemos usar `.catch(errorHandlingFunction)`, que es exactamente lo mismo:
 
 
 ```js run
 let promise = new Promise((resolve, reject) => {
-  setTimeout(() => reject(new Error("Whoops!")), 1000);
+  setTimeout(() => reject(new Error("Vaya!")), 1000);
 });
 
 *!*
-// .catch(f) is the same as promise.then(null, f)
-promise.catch(alert); // shows "Error: Whoops!" after 1 second
+// .catch(f) es lo mismo que promise.then(null, f)
+promise.catch(alert); // muestra "Error: ¡Vaya!" después de 1 segundo
 */!*
 ```
 
-The call `.catch(f)` is a complete analog of `.then(null, f)`, it's just a shorthand.
+La llamada `.catch(f)` es un análogo completo de `.then(null, f)`, es solo una abreviatura.
 
 ### finally
 
-Just like there's a `finally` clause in a regular `try {...} catch {...}`, there's `finally` in promises.
+Al igual que hay una cláusula `finally` en un `try {...} catch {...}` normal, hay un `finally` en las promesas.
 
-The call `.finally(f)` is similar to `.then(f, f)` in the sense that `f` always runs when the promise is settled: be it resolve or reject.
+La llamada `.finally(f)` es similar a `.then(f, f)` en el sentido de que `f` siempre se ejecuta cuando se resuelve la promesa: ya sea que se resuelva o rechace.
 
-`finally` is a good handler for performing cleanup, e.g. stopping our loading indicators, as they are not needed anymore, no matter what the outcome is.
+`finally` es un buen controlador para realizar la limpieza, por ejemplo, detener nuestros indicadores de carga, ya que ya no son necesarios, sin importar cuál sea el resultado.
 
-Like this:
+Como esto:
 
 ```js
 new Promise((resolve, reject) => {
-  /* do something that takes time, and then call resolve/reject */
+  /* hacer algo para tomar tiempo y luego llamar a resolve/reject */
 })
 *!*
-  // runs when the promise is settled, doesn't matter successfully or not
+  // se ejecuta cuando se cumple la promesa, no importa con éxito o no
   .finally(() => stop loading indicator)
 */!*
   .then(result => show result, err => show error)
 ```
 
-It's not exactly an alias of `then(f,f)` though. There are several important differences:
+Sin embargo, no es exactamente un alias de `then(f, f)`. Hay varias diferencias importantes:
 
-1. A `finally` handler has no arguments. In `finally` we don't know whether the promise is successful or not. That's all right, as our task is usually to perform "general" finalizing procedures.
-2. A `finally` handler passes through results and errors to the next handler.
+1. Un manejador `finally` no tiene argumentos. En `finally` no sabemos si la promesa es exitosa o no. Eso está bien, ya que nuestra tarea generalmente es realizar procedimientos de finalización "generales".
+2. Un controlador `finally` pasa a través de resultados y errores al siguiente controlador.
 
-    For instance, here the result is passed through `finally` to `then`:
+    Por ejemplo, aquí el resultado se pasa a través de `finally` a `then`:
     ```js run
     new Promise((resolve, reject) => {
-      setTimeout(() => resolve("result"), 2000)
+      setTimeout(() => resolve("resultado"), 2000)
     })
-      .finally(() => alert("Promise ready"))
-      .then(result => alert(result)); // <-- .then handles the result
+      .finally(() => alert("Promesa lista"))
+      .then(result => alert(result)); // <-- .luego maneja el resultado
     ```
 
-    And here there's an error in the promise, passed through `finally` to `catch`:
+    Y aquí hay un error en la promesa, pasado por `finally` a `catch`:
 
     ```js run
     new Promise((resolve, reject) => {
       throw new Error("error");
     })
-      .finally(() => alert("Promise ready"))
-      .catch(err => alert(err));  // <-- .catch handles the error object
+      .finally(() => alert("Promesa lista"))
+      .catch(err => alert(err));  // <-- .catch maneja el objeto error
     ```
 
-    That's very convenient, because `finally` is not meant to process a promise result. So it passes it through.
+    Eso es muy conveniente, porque 'finally' no está destinado a procesar un resultado "promesa". Entonces lo pasa.
 
-    We'll talk more about promise chaining and result-passing between handlers in the next chapter.
+    Hablaremos más sobre el encadenamiento de promesas y la transmisión de resultados entre los manejadores en el próximo capítulo.
 
-3. Last, but not least, `.finally(f)` is a more convenient syntax than `.then(f, f)`: no need to duplicate the function `f`.
+3. Por último, pero no menos importante, `.finally(f)` es una sintaxis más conveniente que `.then(f, f)`: no es necesario duplicar la función `f`.
 
-````smart header="On settled promises handlers run immediately"
-If a promise is pending, `.then/catch/finally` handlers wait for it. Otherwise, if a promise has already settled, they execute immediately:
+````smart header="En promesas establecidas, los manejadores se ejecutan inmediatamente"
+Si hay una promesa pendiente, los manejadores `.then/catch/finally` la esperan. De lo contrario, si una promesa ya se resolvió, se ejecutan inmediatamente:
 
 ```js run
-// the promise becomes resolved immediately upon creation
-let promise = new Promise(resolve => resolve("done!"));
+// la promesa se resuelve inmediatamente después de la creación
+let promise = new Promise(resolve => resolve("hecho!"));
 
-promise.then(alert); // done! (shows up right now)
+promise.then(alert); // ¡hecho! (aparece ahora)
 ```
 
-Note that this is different, and more powerful than the real life "subscription list" scenario. If the singer has already released their song and then a person signs up on the subscription list, they probably won't receive that song. Subscriptions in real life must be done prior to the event.
+Ten en cuenta que esto es diferente y más poderoso que el escenario de la "lista de suscripción" de la vida real. Si el cantante ya lanzó su canción y luego una persona se registra en la lista de suscripción, probablemente no recibirá esa canción. Las suscripciones en la vida real deben hacerse antes del evento.
 
-Promises are more flexible. We can add handlers any time: if the result is already there, our handlers get it immediately.
+Las promesas son más flexibles. Podemos agregar manejadores en cualquier momento: si el resultado ya está allí, nuestros manejadores lo obtienen de inmediato.
 ````
 
-Next, let's see more practical examples of how promises can help us write asynchronous code.
+A continuación, veamos ejemplos más prácticos de cómo las promesas pueden ayudarnos a escribir código asincrónico.
 
-## Example: loadScript [#loadscript]
+## Ejemplo: loadScript [#loadscript]
 
-We've got the `loadScript` function for loading a script from the previous chapter.
+Tenemos la función `loadScript` para cargar un script del capítulo anterior.
 
-Here's the callback-based variant, just to remind us of it:
+Aquí está la variante basada callback, solo para recordarnos:
 
 ```js
 function loadScript(src, callback) {
@@ -292,15 +292,15 @@ function loadScript(src, callback) {
   script.src = src;
 
   script.onload = () => callback(null, script);
-  script.onerror = () => callback(new Error(`Script load error for ${src}`));
+  script.onerror = () => callback(new Error(`Error de carga de script para $ {src}`));
 
   document.head.append(script);
 }
 ```
 
-Let's rewrite it using Promises.
+Reescribámoslo usando Promesas.
 
-The new function `loadScript` will not require a callback. Instead, it will create and return a Promise object that resolves when the loading is complete. The outer code can add handlers (subscribing functions) to it using `.then`:
+La nueva función `loadScript` no requerirá una callback. En su lugar, creará y devolverá un objeto Promise que se resuelve cuando se completa la carga. El código externo puede agregar manejadores (funciones de suscripción) usando `.then`:
 
 ```js run
 function loadScript(src) {
@@ -309,32 +309,32 @@ function loadScript(src) {
     script.src = src;
 
     script.onload = () => resolve(script);
-    script.onerror = () => reject(new Error(`Script load error for ${src}`));
+    script.onerror = () => reject(new Error(`Error de carga de script para $ {src}`));
 
     document.head.append(script);
   });
 }
 ```
 
-Usage:
+Uso:
 
 ```js run
 let promise = loadScript("https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.js");
 
 promise.then(
-  script => alert(`${script.src} is loaded!`),
+  script => alert(`${script.src} está cargado!`),
   error => alert(`Error: ${error.message}`)
 );
 
-promise.then(script => alert('Another handler...'));
+promise.then(script => alert('Otro manejador...'));
 ```
 
-We can immediately see a few benefits over the callback-based pattern:
+Podemos ver inmediatamente algunos beneficios sobre el patrón basado en callback:
 
 
-| Promises | Callbacks |
+| Promesas | Callbacks |
 |----------|-----------|
-| Promises allow us to do things in the natural order. First, we run `loadScript(script)`, and `.then` we write what to do with the result. | We must have a `callback` function at our disposal when calling `loadScript(script, callback)`. In other words, we must know what to do with the result *before* `loadScript` is called. |
-| We can call `.then` on a Promise as many times as we want. Each time, we're adding a new "fan", a new subscribing function, to the "subscription list". More about this in the next chapter: [](info:promise-chaining). | There can be only one callback. |
+| Las promesas nos permiten hacer las cosas en el orden natural. Primero, ejecutamos `loadScript (script)`, y `.then` escribimos qué hacer con el resultado. | Debemos tener una función `callback` a nuestra disposición al llamar a 'loadScript(script, callback)'. En otras palabras, debemos saber qué hacer con el resultado *antes* de llamar a `loadScript`. |
+| Podemos llamar a ".then" en una promesa tantas veces como queramos. Cada vez, estamos agregando un nuevo "fan", una nueva función de suscripción, a la "lista de suscripción". Más sobre esto en el próximo capítulo: [](info:promise-chaining). | Solo puede haber un callback. |
 
-So promises give us better code flow and flexibility. But there's more. We'll see that in the next chapters.
+Entonces, las promesas nos dan un mejor flujo de código y flexibilidad. Pero hay más. Lo veremos en los próximos capítulos.

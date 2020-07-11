@@ -1,57 +1,57 @@
 
-# Optional chaining '?.'
+# Encadenamiento opcional '?.'
 
 [recent browser="new"]
 
-The optional chaining `?.` is an error-proof way to access nested object properties, even if an intermediate property doesn't exist.
+El encadenamiento opcional `?.` es una forma a prueba de errores para acceder a las propiedades de los objetos anidados, incluso si no existe una propiedad intermedia.
 
-## The problem
+## El problema
 
-If you've just started to read the tutorial and learn JavaScript, maybe the problem hasn't touched you yet, but it's quite common.
+Si acaba de comenzar a leer el tutorial y aprender JavaScript, quizás el problema aún no lo haya tocado, pero es bastante común.
 
-For example, some of our users have addresses, but few did not provide them. Then we can't safely read `user.address.street`:
+Por ejemplo, algunos de nuestros usuarios tienen direcciones, pero pocos no las proporcionaron. Entonces no podemos leer con seguridad `user.address.street`:
 
 ```js run
-let user = {}; // the user happens to be without address
+let user = {}; // usuario sin dirección
 
 alert(user.address.street); // Error!
 ```
 
-Or, in the web development, we'd like to get an information about an element on the page, but it may not exist:
+O, en el desarrollo web, nos gustaría obtener información sobre un elemento en la página, pero puede no existir:
 
 ```js run
-// Error if the result of querySelector(...) is null
+// Error si el resultado de querySelector (...) es nulo
 let html = document.querySelector('.my-element').innerHTML;
 ```
 
-Before `?.` appeared in the language, the `&&` operator was used to work around that.
+Antes de que apareciera `?.` en el lenguaje, el operador `&&` se usaba para solucionarlo.
 
-For example:
+Por ejemplo:
 
 ```js run
-let user = {}; // user has no address
+let user = {}; // El usuario no tiene dirección
 
 alert( user && user.address && user.address.street ); // undefined (no error)
 ```
 
-AND'ing the whole path to the property ensures that all components exist, but is cumbersome to write.
+Y el camino completo a la propiedad asegura que todos los componentes existen, pero es engorroso de escribir.
 
-## Optional chaining
+## Encadenamiento opcional
 
-The optional chaining `?.` stops the evaluation and returns `undefined` if the part before `?.` is `undefined` or `null`.
+El encadenamiento opcional `?.` detiene la evaluación y devuelve` undefined` si la parte anterior a `?.` es` undefined` o `null`.
 
-Further in this article, for brevity, we'll be saying that something "exists" if it's not `null` and not `undefined`.
+Más adelante en este artículo, por brevedad, diremos que algo "existe" si no es `null` ni `undefined`.
 
 
-Here's the safe way to access `user.address.street`:
+Aquí está la forma segura de acceder a `user.address.street`:
 
 ```js run
-let user = {}; // user has no address
+let user = {}; // El usuario no tiene dirección
 
 alert( user?.address?.street ); // undefined (no error)
 ```
 
-Reading the address with `user?.address` works even if `user` object doesn't exist:
+Leer la dirección con `user? .Address` funciona incluso si el objeto `user` no existe:
 
 ```js run
 let user = null;
@@ -62,50 +62,50 @@ alert( user?.address.street ); // undefined
 alert( user?.address.street.anything ); // undefined
 ```
 
-Please note: the `?.` syntax works exactly where it's placed, not any further.
+Tenga en cuenta: la sintaxis `?.` funciona exactamente donde está colocada, nada más.
 
-In the last two lines the evaluation stops immediately after `user?.`, never accessing further properties. But if the `user` actually exists, then the further intermediate properties, such as `user.address` must exist.
+En las últimas dos líneas, la evaluación se detiene inmediatamente después de `user?.`, sin acceder nunca a otras propiedades. Pero si `user` realmente existe, entonces las propiedades intermedias adicionales, como `user.address`deben existir.
 
-```warn header="Don't overuse the optional chaining"
-We should use `?.` only where it's ok that something doesn't exist.
+```warn header="No abuses del encadenamiento opcional"
+Deberíamos usar `?.` solo donde está bien que algo no exista.
 
-For example, if according to our coding logic `user` object must be there, but `address` is optional, then `user.address?.street` would be better.
+Por ejemplo, si de acuerdo con nuestra lógica de codificación, el objeto `user` debe estar allí, pero `address` es opcional, entonces `user.address?.Street` sería mejor.
 
-So, if `user` happens to be undefined due to a mistake, we'll know about it and fix it. Otherwise, coding errors can be silenced where not appropriate, and become more difficult to debug.
+Entonces, si `user` no está definido debido a un error, lo sabremos y lo arreglaremos. De lo contrario, los errores de codificación pueden silenciarse donde no sea apropiado y volverse más difíciles de depurar.
 ```
 
-````warn header="The variable before `?.` must exist"
-If there's no variable `user`, then `user?.anything` triggers an error:
+````warn header="La variable antes de ?. debe existir"
+Si no hay una variable `user`, entonces `user? .Anything` provocará un error:
 
 ```js run
-// ReferenceError: user is not defined
+// ReferenceError: El usuario no está definido
 user?.address;
 ```
-The optional chaining only tests for `null/undefined`, doesn't interfere with any other language mechanics.
+El encadenamiento opcional solo prueba para `null/undefined`, no interfiere con ninguna otra mecánica del lenguaje.
 ````
 
-## Short-circuiting
+## Short-circuiting (Cortocircuitos)
 
-As it was said before, the `?.` immediately stops ("short-circuits") the evaluation if the left part doesn't exist.
+Como se dijo antes, el `?.` detiene inmediatamente ("cotocircuito") la evaluación si la parte izquierda no existe.
 
-So, if there are any further function calls or side effects, they don't occur:
+Entonces, si hay más llamadas a funciones o efectos secundarios, estos no suceden:
 
 ```js run
 let user = null;
 let x = 0;
 
-user?.sayHi(x++); // nothing happens
+user?.sayHi(x++); // no pasa nada
 
-alert(x); // 0, value not incremented
+alert(x); // 0, el valor no se incrementa
 ```
 
-## Other cases: ?.(), ?.[]
+## Otros casos: ?.(), ?.[]
 
-The optional chaining `?.` is not an operator, but a special syntax construct, that also works with functions and square brackets.
+El encadenamiento opcional `?.` no es un operador, sino una construcción de sintaxis especial, que también funciona con funciones y corchetes.
 
-For example, `?.()` is used to call a function that may not exist.
+Por ejemplo, `?.()` Se usa para llamar a una función que puede no existir.
 
-In the code below, some of our users have `admin` method, and some don't:
+En el siguiente código, algunos de nuestros usuarios tienen el método `admin`, y otros no:
 
 ```js run
 let user1 = {
@@ -122,18 +122,18 @@ user2.admin?.();
 */!*
 ```
 
-Here, in both lines we first use the dot `.` to get `admin` property, because the user object must exist, so it's safe read from it.
+Aquí, en ambas líneas, primero usamos el punto `.` para obtener la propiedad `admin`, porque el objeto usuario debe existir, por lo que es seguro leerlo.
 
-Then `?.()` checks the left part: if the user exists, then it runs (for `user1`). Otherwise (for `user2`) the evaluation stops without errors.
+Entonces `?.()` Comprueba la parte izquierda: si el usuario existe, entonces se ejecuta (para `user1`). De lo contrario (para `user2`) la evaluación se detiene sin errores.
 
-The `?.[]` syntax also works, if we'd like to use brackets `[]` to access properties instead of dot `.`. Similar to previous cases, it allows to safely read a property from an object that may not exist.
+La sintaxis `?.[]` también funciona si quisiéramos usar corchetes `[]` para acceder a las propiedades en lugar de punto `.`. Al igual que en casos anteriores, permite leer de forma segura una propiedad de un objeto que puede no existir.
 
 ```js run
 let user1 = {
   firstName: "John"
 };
 
-let user2 = null; // Imagine, we couldn't authorize the user
+let user2 = null; // Imagine, no podríamos autorizar al usuario
 
 let key = "firstName";
 
@@ -143,34 +143,34 @@ alert( user2?.[key] ); // undefined
 alert( user1?.[key]?.something?.not?.existing); // undefined
 ```
 
-Also we can use `?.` with `delete`:
+También podemos usar `?.` con `delete`:
 
 ```js run
-delete user?.name; // delete user.name if user exists
+delete user?.name; // Eliminar user.name si el usuario existe
 ```
 
-```warn header="We can use `?.` for safe reading and deleting, but not writing"
-The optional chaining `?.` has no use at the left side of an assignment:
+```warn header="Podemos usar `?.` para una lectura y eliminación segura, pero no para escribir"
+El encadenamiento opcional `?.` no tiene uso en el lado izquierdo de una tarea:
 
 ```js run
-// the idea of the code below is to write user.name, if user exists
+// la idea del siguiente código es escribir user.name, si el usuario existe
 
-user?.name = "John"; // Error, doesn't work
-// because it evaluates to undefined = "John"
+user?.name = "John"; // Error, no funciona
+// porque se evalúa como undefined = "John"
 ```
 
-## Summary
+## Resumen
 
-The `?.` syntax has three forms:
+La sintaxis `?.` tiene tres formas:
 
-1. `obj?.prop` -- returns `obj.prop` if `obj` exists, otherwise `undefined`.
-2. `obj?.[prop]` -- returns `obj[prop]` if `obj` exists, otherwise `undefined`.
-3. `obj?.method()` -- calls `obj.method()` if `obj` exists, otherwise returns `undefined`.
+1. `obj?.prop` -- devuelve `obj.prop` si `obj` existe, si no, `undefined`.
+2. `obj?.[prop]` -- devuelve `obj[prop]` si `obj` existe, si no, `undefined`.
+3. `obj?.method()` -- llama a `obj.method()` si `obj` existe, si no devuelve `undefined`.
 
-As we can see, all of them are straightforward and simple to use. The `?.` checks the left part for `null/undefined` and allows the evaluation to proceed if it's not so.
+Como podemos ver, todos ellos son sencillos y fáciles de usar. El `?.` comprueba la parte izquierda para `null/undefined` y permite que la evaluación continúe si no es así.
 
-A chain of `?.` allows to safely access nested properties.
+Una cadena de `?.` permite acceder de forma segura a las propiedades anidadas.
 
-Still, we should apply `?.` carefully, only where it's ok that the left part doesn't to exist.
+Aún así, debemos aplicar `?.` con cuidado, solo donde está bien que la parte izquierda no exista.
 
-So that it won't hide programming errors from us, if they occur.
+Para que no nos oculte errores de programación, si ocurren.

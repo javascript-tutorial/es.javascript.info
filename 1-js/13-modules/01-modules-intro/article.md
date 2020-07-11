@@ -1,13 +1,13 @@
 
 # Módulos, introducción
 
-A medida que nuestra aplicación crece, queremos dividirla en múltiples archivos, llamados "módulos". Un módulo generalmente contiene una clase o una biblioteca de funciones.
+A medida que nuestra aplicación crece, queremos dividirla en múltiples archivos, llamados "módulos". Un módulo puede contener una clase o una biblioteca de funciones para un propósito específico.
 
 Durante mucho tiempo, JavaScript existió sin una sintaxis de módulo a nivel de lenguaje. Eso no fue un problema, porque inicialmente los scripts eran pequeños y simples, por lo que no era necesario.
 
 Pero con el tiempo los scripts se volvieron cada vez más complejos, por lo que la comunidad inventó una variedad de formas de organizar el código en módulos, bibliotecas especiales para cargar módulos a pedido.
 
-Por ejemplo:
+Para nombrar algunos (por razones históricas):
 
 - [AMD](https://es.wikipedia.org/wiki/Asynchronous_module_definition) -- uno de los sistemas de módulos más antiguos, implementado inicialmente por la biblioteca [require.js](http://requirejs.org/).
 - [CommonJS](http://wiki.commonjs.org/wiki/Modules/1.1) -- el sistema de módulos creado para el servidor Node.js.
@@ -15,11 +15,11 @@ Por ejemplo:
 
 Ahora, todo esto se convierte lentamente en una parte de la historia, pero aún podemos encontrarlos en viejos scripts.
 
-El sistema de módulos a nivel de idioma apareció en el estándar en 2015, evolucionó gradualmente desde entonces y ahora es compatible con todos los principales navegadores y en Node.js. Así que lo estudiaremos de ahora en adelante.
+El sistema de módulos a nivel de idioma apareció en el estándar en 2015, evolucionó gradualmente desde entonces y ahora es compatible con todos los principales navegadores y en Node.js. Así que estudiaremos los módulos modernos de Javascript de ahora en adelante.
 
 ## Qué es un módulo?
 
-Un módulo es solo un archivo. Un script es un módulo.
+Un módulo es solo un archivo. Un script es un módulo. Tan sencillo como eso.
 
 Los módulos pueden cargarse entre sí y usar directivas especiales `export` e `import` para intercambiar funcionalidad, llamar a funciones de un módulo de otro:
 
@@ -56,6 +56,10 @@ Asi:
 [codetabs src="say" height="140" current="index.html"]
 
 El navegador busca y evalúa automáticamente el módulo importado (y sus importaciones si es necesario), y luego ejecuta el script.
+
+```warn header="Los módulos funcionan solo a través de HTTP(s), no en archivos locales"
+Si intenta abrir una página web localmente a través del protocolo `file://`, encontrará que las directivas `import / export` no funcionan. Use un servidor web local, como [static-server](https://www.npmjs.com/package/static-server#getting-started)  o use la capacidad de "servidor en vivo" de su editor, como VS Code [Live Server Extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) para probar los módulos.
+```	
 
 ## Características del módulo central
 

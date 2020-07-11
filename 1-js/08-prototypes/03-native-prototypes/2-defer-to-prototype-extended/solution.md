@@ -8,17 +8,17 @@ Function.prototype.defer = function(ms) {
   }
 };
 
-// check it
+// revísalo
 function f(a, b) {
   alert( a + b );
 }
 
-f.defer(1000)(1, 2); // shows 3 after 1 sec
+f.defer(1000)(1, 2); // muestra 3 después de 1 seg
 ```
 
-Please note: we use `this` in `f.apply` to make our decoration work for object methods.
+Tenga en cuenta: utilizamos `this` en `f.apply` para que nuestro decorado funcione para los métodos de objetos.
 
-So if the wrapper function is called as an object method, then `this` is passed to the original method `f`.
+Entonces, si la función contenedora es llamada como método de objeto, `this` se pasa al método original `f`.
 
 ```js run
 Function.prototype.defer = function(ms) {

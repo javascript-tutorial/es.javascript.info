@@ -2,14 +2,14 @@ importance: 5
 
 ---
 
-# Extended clock
+# Reloj extendido
 
-We've got a `Clock` class. As of now, it prints the time every second.
+Tenemos una clase de 'Clock'. A partir de ahora, imprime la hora cada segundo.
 
 
 [js src="source.view/clock.js"]
 
-Create a new class `ExtendedClock` that inherits from `Clock` and adds the parameter `precision` -- the number of `ms` between "ticks". Should be `1000` (1 second) by default.
+Crea una nueva clase `ExtendedClock` que herede de `Clock` y agrega el parámetro `precision`: este es el número de `milisegundos` entre "tics". Debe ser `1000` (1 segundo) por defecto.
 
-- Your code should be in the file `extended-clock.js`
-- Don't modify the original `clock.js`. Extend it.
+- Tu código debe estar en el archivo `extended-clock.js`
+- No modifiques el `clock.js` original. Extiéndelo.
