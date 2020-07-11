@@ -17,7 +17,7 @@ try {
 
 } catch (err) {
 
-  // manipualción de error
+  // manipulación de error
 
 }
 ```
