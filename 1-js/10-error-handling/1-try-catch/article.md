@@ -370,7 +370,7 @@ Por lo general, podemos verificar el tipo de error usando el operador `instanceo
 ```js run
 try {
   user = { /*...*/ };
-} catch(e) {
+} catch(err) {
 *!*
   alert(e.name); // "ReferenceError" para acceder a una variable indefinida
 */!*
