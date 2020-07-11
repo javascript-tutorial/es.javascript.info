@@ -17,7 +17,7 @@ A esto se le llama "escape de carácter".
 
 Por ejemplo:
 ```js run
-alert( "Capítulo 5.1".match(/\d\.\d/) ); // 5.1 (Coincide!)
+alert( "Capítulo 5.1".match(/\d\.\d/) ); // 5.1 (¡Coincide!)
 alert( "Capítulo 511".match(/\d\.\d/) ); // null (buscando un punto real \.)
 ```
 
