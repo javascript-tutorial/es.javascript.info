@@ -51,7 +51,7 @@ alert( "/".match(new RegExp("/")) ); // encuentra /
 
 ## new RegExp
 
-Si estamos creando una expresión regular con `new RegExp`, entonces no tenemos que escapar la barra `/`, pero si otros caracteres especiales.
+Si estamos creando una expresión regular con `new RegExp`, entonces no tenemos que escapar la barra `/`, pero sí otros caracteres especiales.
 
 Por ejemplo, considere esto:
 
