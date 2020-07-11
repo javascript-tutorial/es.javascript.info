@@ -1,4 +1,4 @@
-Answers: **no, si**.
+Respuestas: **no, si**.
 
 - En el script `subject:Java` no coincide con nada, porque `pattern:[^script]` significa "cualquier carácter excepto los dados". Entonces, la expresión regular busca `"Java"` seguido de uno de esos símbolos, pero hay un final de cadena, sin símbolos posteriores.
 
