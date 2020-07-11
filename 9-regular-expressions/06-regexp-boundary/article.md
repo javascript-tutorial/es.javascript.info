@@ -10,7 +10,7 @@ Hay tres posiciones diferentes que califican como límites de palabras:
 - Entre dos caracteres en la cadena, donde uno es un carácter de palabra `pattern:\w` y el otro no.
 - Al final de la cadena, si el último carácter de la cadena es un carácter de palabra `pattern:\w`.
 
-Por ejemplo, la expresión regular `pattern:\bJava\b` se encontrará en `subject:Hello, Java!`, Donde `subject:Java` es una palabra independiente, pero no en `subject:Hello, JavaScript!`.
+Por ejemplo, la expresión regular `pattern:\bJava\b` se encontrará en `subject:Hello, Java!`, donde `subject:Java` es una palabra independiente, pero no en `subject:Hello, JavaScript!`.
 
 ```js run
 alert( "Hello, Java!".match(/\bJava\b/) ); // Java
