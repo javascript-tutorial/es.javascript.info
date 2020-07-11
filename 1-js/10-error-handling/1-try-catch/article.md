@@ -161,7 +161,7 @@ alert(err); // ReferenceError: lalala no está definido
 }
 ```
 
-## Omitiendo "catch" obligatorio
+## Omitiendo el "catch" asociado
 
 [recent browser=new]
 
