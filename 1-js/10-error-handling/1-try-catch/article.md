@@ -429,7 +429,7 @@ function readData() {
 */!*
   } catch (e) {
     // ...
-    if (e.name != 'SyntaxError') {
+    if (!(e instanceof SyntaxError)) {
 *!*
       throw e; // rethrow (no sé cómo lidiar con eso)
 */!*
