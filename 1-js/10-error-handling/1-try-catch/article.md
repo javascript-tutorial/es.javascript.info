@@ -286,7 +286,7 @@ Por ejemplo:
 let error = new Error("Estas cosas pasan... o_O");
 
 alert(error.name); // Error
-alert(error.message); // Las cosas pasan o_O
+alert(error.message); // Estas cosas pasan... o_O
 ```
 
 Veamos qué tipo de error genera `JSON.parse`:
