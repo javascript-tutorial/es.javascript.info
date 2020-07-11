@@ -129,7 +129,7 @@ Un punto `.` dentro de corchetes significa solo un punto. El patrón `pattern:[.
 En el siguiente ejemplo, la expresión regular `pattern: [-().^+]` busca uno de los caracteres `-().^+`:
 
 ```js run
-// no necesita escapar
+// no es necesario escaparlos
 let regexp = /[-().^+]/g;
 
 alert( "1 + 2 - 3".match(regexp) ); // Coincide +, -
