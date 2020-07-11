@@ -8,7 +8,7 @@ O tenemos una clase `User` y una clase `EventEmitter` que implementa la generaci
 
 Hay un concepto que puede ayudar aquí, llamado "mixins".
 
-Como se define en Wikipedia, un [mixin](https://en.wikipedia.org/wiki/Mixin) es una clase que contiene métodos que pueden ser utilizados por otras clases sin necesidad de heredar de ella.
+Como se define en Wikipedia, un [mixin](https://es.wikipedia.org/wiki/Mixin) es una clase que contiene métodos que pueden ser utilizados por otras clases sin necesidad de heredar de ella.
 
 En otras palabras, un *mixin* proporciona métodos que implementan cierto comportamiento, pero su uso no es exclusivo, lo usamos para agregar el comportamiento a otras clases.
 
