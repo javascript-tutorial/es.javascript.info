@@ -27,7 +27,7 @@ Los paréntesis también son caracteres especiales, por lo que si los buscamos, 
 alert( "función g()".match(/g\(\)/) ); // "g()"
 ```
 
-Si estamos buscando una barra invertida `\`, como es un carácter especial tanto en cadenas regulares como en expresiones regulares,  debemos duplicarlo.
+Si estamos buscando una barra invertida `\`, como es un carácter especial tanto en cadenas regulares como en expresiones regulares, debemos duplicarlo.
 
 ```js run
 alert( "1\\2".match(/\\/) ); // '\'
