@@ -493,7 +493,7 @@ let meetup = JSON.parse(str, function(key, value) {
 });
 */!*
 
-alert( meetup.date.getDate() ); // ahora funciona!
+alert( meetup.date.getDate() ); // ¡Ahora funciona!
 ```
 
 Por cierto, esto funciona también para objetos anidados:
