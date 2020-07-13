@@ -105,7 +105,7 @@ En acción:
 alert( "0 1 12.345 7890".match(/\d+\.\d+/g) ); // 12.345
 ```
 
-**Regexp para una "etiqueta HTML de apertura si atributos", tal como `<span>` or `<p>`.**
+**Regexp para una "etiqueta HTML de apertura sin atributos", tales como `<span>` or `<p>`.**
 
 1. La más simple: `pattern:/<[a-z]+>/i`
 
