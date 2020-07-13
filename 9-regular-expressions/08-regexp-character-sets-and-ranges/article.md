@@ -111,7 +111,7 @@ El siguiente ejemplo busca cualquier carácter, excepto letras, dígitos y espac
 alert( "alice15@gmail.com".match(/[^\d\sA-Z]/gi) ); // @ y .
 ```
 
-## Escapando dentro de […]
+## Escapando dentro de corchetes […]
 
 Por lo general, cuando queremos encontrar exactamente un carácter especial, necesitamos escaparlo con `pattern:\.`. Y si necesitamos una barra invertida, entonces usamos `pattern:\\`, y así sucesivamente.
 
