@@ -27,7 +27,7 @@ El rango: `pattern:{3,5}`, coincide 3-5 veces
 : Para encontrar números de 3 a 5 dígitos, podemos poner los límites en llaves: `pattern:\d{3,5}`
 
     ```js run
-    alert( "No tengo 12, sino, 1234 años de edad".match(/\d{3,5}/) ); // "1234"
+    alert( "No tengo 12, sino 1234 años de edad".match(/\d{3,5}/) ); // "1234"
     ```
 
     Podemos omitir el límite superior
