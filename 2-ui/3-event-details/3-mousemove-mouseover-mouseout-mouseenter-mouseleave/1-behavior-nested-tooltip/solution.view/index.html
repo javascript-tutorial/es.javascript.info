@@ -6,7 +6,7 @@
   <style>
     body {
       height: 2000px;
-      /* El tooltip debe funcionar también despues de hacer scroll */
+      /* El tooltip debe seguir funcionando aúnn después de hacer scroll */
     }
 
     .tooltip {
@@ -66,24 +66,24 @@
     let tooltip;
 
     document.onmouseover = function(event) {
-      // Importante: un movimiento ráido del mouse podría saltar directamente al descendiente en un nodo anotado, ignorando el padre
+      // Importante: un movimiento rápido del mouse podría saltar directamente al descendiente en un nodo anotado, ignorando el padre
       // por lo tanto mouseover podría ejecutarse en un descendiente.
 
       let anchorElem = event.target.closest('[data-tooltip]');
 
       if (!anchorElem) return;
 
-      //  Mostrando el tooltip y recordandolo
+      //  Mostrando el tooltip y recordándolo.
       tooltip = showTooltip(anchorElem, anchorElem.dataset.tooltip);
     }
 
     document.onmouseout = function() {
-      // es posible que mouseout se active, pero estaremos dentro del elemento
-      // (el target ocurrira dentro y se aparecera)
+      // Es posible que mouseout se active, pero estaremos dentro del elemento
+      // (el target ocurrirá dentro y se aparecerá)
       // pero en este caso tendremos un mouse over inmediato,
-      // entonces el tooltip será destruido y mostrado otra vez
+      // entonces el tooltip será destruido y mostrado otra vez.
       //
-      // afortunadamente, el parpadeo no es visble,
+      // Afortunadamente, el parpadeo no es visble,
       // ya que ambos eventos ocurren casi al mismo tiempo.
       if (tooltip) {
         tooltip.remove();

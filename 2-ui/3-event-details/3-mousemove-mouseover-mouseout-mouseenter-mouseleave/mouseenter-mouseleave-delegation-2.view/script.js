@@ -3,7 +3,7 @@ let currentElem = null;
 
 table.onmouseover = function(event) {
   // antes de ingresar un uevo elemento, el mouse siempre abandonará al anterior
-  // si currentElem está establecido, no abdandonamos el <td> anterior,
+  // si currentElem está establecido, no abandonamos el <td> anterior,
   // hay un mouseover dentro de él, ignoramos el evento
   if (currentElem) return;
 
@@ -33,7 +33,7 @@ table.onmouseout = function(event) {
 
   while (relatedTarget) {
     // vamos a la cadena de padres y verificamos – si aún estamos dentro de currentElem
-    // entonces hay una transición interna – la ignramos
+    // entonces hay una transición interna – la ignoramos
     if (relatedTarget == currentElem) return;
 
     relatedTarget = relatedTarget.parentNode;
@@ -48,7 +48,7 @@ table.onmouseout = function(event) {
 function onEnter(elem) {
   elem.style.background = 'pink';
 
-  // lo mostramos en el area de texto
+  // lo mostramos en el área de texto
   text.value += `over -> ${currentElem.tagName}.${currentElem.className}\n`;
   text.scrollTop = 1e6;
 }

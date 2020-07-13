@@ -1,4 +1,4 @@
-Importancia: 5
+Importance: 5
 
 ---
 
@@ -20,12 +20,12 @@ Sus `options`:
 Un ejemplo de dicho objeto siendo usado para el tooltip:
 
 ```js
-//  un tooltip de muestra
+//  Un tooltip de muestra
 let tooltip = document.createElement('div');
 tooltip.className = "tooltip";
 tooltip.innerHTML = "Tooltip";
 
-// el obeto va a rastrear al mouse y llamar a over/out
+// El objeto va a rastrear al mouse y llamar a over/out
 new HoverIntent({
   elem,
   over() {
@@ -43,6 +43,6 @@ El demo:
 
 [iframe src="solution" height=140]
 
-Si mueves el mouse sobre el "reloj" rápido entonces no pasará nada, y si lo haces lento o paras sobre él, Entonces habrá un tooltip.
+Si mueves el mouse sobre el "reloj" rápido no pasará nada, y si lo haces lento o paras sobre él entonces habrá un tooltip.
 
 Toma en cuenta que el tooltip no "parpadea" cuando el cusor se mueve entre subelementos del reloj.
