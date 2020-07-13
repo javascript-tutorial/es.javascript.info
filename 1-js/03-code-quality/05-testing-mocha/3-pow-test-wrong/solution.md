@@ -4,7 +4,11 @@ Lo que tenemos aquí son en realidad 3 pruebas, pero presentadas como una sola f
 
 A veces es más fácil escribir de esta manera, pero si ocurre un error, es mucho menos obvio saber qué salió mal.
 
+<<<<<<< HEAD
 Si un error ocurre en el medio de un flujo de ejecución complejo, tendremos que imaginar los datos en tal punto.  Tendremos, en realidad, que hacer un *debug del test*
+=======
+If an error happens in the middle of a complex execution flow, then we'll have to figure out the data at that point. We'll actually have to *debug the test*.
+>>>>>>> c3a11c85e54153ebb137b5541b1d1f751c804439
 
 Sería mucho mejor dividir la prueba en múltiples bloques 'it' con entradas y salidas claramente escritas.
 

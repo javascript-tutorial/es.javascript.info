@@ -57,8 +57,15 @@ Creating the message div takes 3 steps:
 ```js
 // 1. Create <div> element
 let div = document.createElement('div');
+<<<<<<< HEAD
 // 2. Set its class to "alert"
 div.className = "alert";
+=======
+
+// 2. Set its class to "alert"
+div.className = "alert";
+
+>>>>>>> c3a11c85e54153ebb137b5541b1d1f751c804439
 // Fill it with the content
 div.innerHTML = "<strong>Hi there!</strong> You've read an important message.";
 ```
@@ -98,6 +105,7 @@ Here's the full code:
 Here we called `append` on `document.body`, but we can call `append` method on any other element, to put another element into it. For instance, we can append something to `<div>` by calling `div.append(anotherElement)`.
 
 Here are more insertion methods, they specify different places where to insert:
+<<<<<<< HEAD
 
 - `node.append(...nodes or strings)` -- append nodes or strings at the end of `node`,
 - `node.prepend(...nodes or strings)` -- insert nodes or strings at the beginning of `node`,
@@ -109,6 +117,19 @@ Arguments of these methods are an arbitrary list of DOM nodes to insert, or text
 
 Let's see them in action.
 
+=======
+
+- `node.append(...nodes or strings)` -- append nodes or strings *at the end* of `node`,
+- `node.prepend(...nodes or strings)` -- insert nodes or strings *at the beginning* of `node`,
+- `node.before(...nodes or strings)` –- insert nodes or strings *before* `node`,
+- `node.after(...nodes or strings)` –- insert nodes or strings *after* `node`,
+- `node.replaceWith(...nodes or strings)` –- replaces `node` with the given nodes or strings.
+
+Arguments of these methods are an arbitrary list of DOM nodes to insert, or text strings (that become text nodes automatically).
+
+Let's see them in action.
+
+>>>>>>> c3a11c85e54153ebb137b5541b1d1f751c804439
 Here's an example of using these methods to add items to a list and the text before/after it:
 
 ```html autorun

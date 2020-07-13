@@ -1,13 +1,20 @@
+<<<<<<< HEAD
 
 El resultado es: **error**.
 
 Intenta correr esto:
+=======
+The result is: **error**.
+
+Try running it:
+>>>>>>> c3a11c85e54153ebb137b5541b1d1f751c804439
 
 ```js run
 let x = 1;
 
 function func() {
 *!*
+<<<<<<< HEAD
   console.log(x); // ReferenceError: No se puede acceder a 'x' antes de la inicialización
 */!*
   let x = 2;
@@ -22,10 +29,28 @@ Como habrás leído en el artículo [](info:closure), una variable comienza en e
 En otras palabras, una variable técnicamente existe, pero no se puede usar antes de `let`.
 
 El código anterior lo demuestra.
+=======
+  console.log(x); // ReferenceError: Cannot access 'x' before initialization
+*/!*
+  let x = 2;
+}
+
+func();
+```
+
+In this example we can observe the peculiar difference between a "non-existing" and "unitialized" variable.
+
+As you may have read in the article [](info:closure), a variable starts in the "uninitialized" state from the moment when the execution enters a code block (or a function). And it stays uninitalized until the corresponding `let` statement.
+
+In other words, a variable technically exists, but can't be used before `let`.
+
+The code above demonstrates it.
+>>>>>>> c3a11c85e54153ebb137b5541b1d1f751c804439
 
 ```js
 function func() {
 *!*
+<<<<<<< HEAD
 
 // la variable local x es conocida por el motor desde el comienzo de la función,
 // pero "unitialized" (inutilizable) hasta let ("zona muerta")
@@ -33,10 +58,22 @@ function func() {
 */!*
 
   console.log(x); // ReferenceError: No se puede acceder a 'x' antes de la inicialización
+=======
+  // the local variable x is known to the engine from the beginning of the function,
+  // but "unitialized" (unusable) until let ("dead zone")
+  // hence the error
+*/!*
+
+  console.log(x); // ReferenceError: Cannot access 'x' before initialization
+>>>>>>> c3a11c85e54153ebb137b5541b1d1f751c804439
 
   let x = 2;
 }
 ```
 
+<<<<<<< HEAD
 Esta zona de inutilización temporal de una variable (desde el comienzo del bloque de código hasta `let`) a veces se denomina" zona muerta ".
 
+=======
+This zone of temporary unusability of a variable (from the beginning of the code block till `let`) is sometimes called the "dead zone".
+>>>>>>> c3a11c85e54153ebb137b5541b1d1f751c804439
