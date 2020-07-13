@@ -512,7 +512,7 @@ schedule = JSON.parse(schedule, function(key, value) {
 });
 
 *!*
-alert( schedule.meetups[1].date.getDate() ); // funciona!
+alert( schedule.meetups[1].date.getDate() ); // ¡Funciona!
 */!*
 ```
 
