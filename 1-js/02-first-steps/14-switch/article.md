@@ -171,3 +171,4 @@ switch (arg) {
 1. Para `0`, `1`, se ejecuta el primer `alert`.
 2. Para `2` se ejecuta el segundo `alert`.
 3. Pero para `3`, el resultado del `prompt` es un string `"3"`, el cual no es estrictamente igual `===` al número `3`. Por tanto ¡Tenemos un código muerto en `case 3`! La variante `default` se ejecutará.
+ 
