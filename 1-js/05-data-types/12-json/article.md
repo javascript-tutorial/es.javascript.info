@@ -259,7 +259,7 @@ let meetup = {
   place: room // meetup hace referencia a room
 };
 
-room.occupiedBy = meetup; // room hace referencia ameetup
+room.occupiedBy = meetup; // room hace referencia a meetup
 
 alert( JSON.stringify(meetup, function replacer(key, value) {
   alert(`${key}: ${value}`);
