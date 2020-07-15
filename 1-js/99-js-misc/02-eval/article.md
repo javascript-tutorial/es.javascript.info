@@ -69,7 +69,7 @@ Sin `use strict`, `eval` no tiene su propio entorno léxico, entonces podemos ve
 
 ## Usando "eval"
 
-En programación moderna `eval` es usado muy ocasionalmente. Se suele decir que "eval es diabólico".
+En programación moderna `eval` es usado muy ocasionalmente. Se suele decir que "eval is evil" - juego de palabras en inglés que significa en español: "eval es malvado".
 
 La razón es simple: largo, largo tiempo atrás JavaScript era un lenguaje mucho más débil, muchas cosas podían ser concretadas solamente con `eval`. Pero aquel tiempo pasó hace una década.
 
