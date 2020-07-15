@@ -75,7 +75,7 @@ La razón es simple: largo, largo tiempo atrás JavaScript era un lenguaje mucho
 
 Ahora casi no hay razones para usar `eval`. Si alguien lo está usando, hay buena chance de que pueda ser reemplazado con una construcción moderna del lenguaje o un [Módulo JavaScript](info:modules).
 
-Por favor ten en cuenta que su habilidad para acceder variables externas tiene efectos colaterales.
+Por favor ten en cuenta que su habilidad para acceder a variables externas tiene efectos colaterales.
 
 Los Code minifiers (minimizadores de código, herramientas usadas antes de poner JS en producción para comprimirlo) renombran las variables locales acortándolas (como `a`, `b` etc) para achicar el código. Usualmente esto es seguro, pero no si `eval` es usado porque las variables locales puden ser accedidas desde la cadena de código evaluada. Por ello los minimizadores no hacen tal renombado en todas las variables potencialmente visibles por `eval`. Esto afecta negativamente en el índice de compresión.
 
