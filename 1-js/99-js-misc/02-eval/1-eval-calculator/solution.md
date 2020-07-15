@@ -6,6 +6,6 @@ let expr = prompt("Escribe una expresión matemática:", '2*3+2');
 alert( eval(expr) );
 ```
 
-Pero el usuario puede ingresar cualquier texto o código.
+Aunque el usuario puede ingresar cualquier texto o código.
 
 Para hacer las cosas seguras, y limitarlo a aritmética solamente, podemos verificar `expr` usando una [expresión regular](info:regular-expressions) que solo pueda contener dígitos y operandos.
