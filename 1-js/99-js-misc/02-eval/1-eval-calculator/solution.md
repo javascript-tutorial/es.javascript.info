@@ -1,4 +1,4 @@
-Usemos `eval` para calcula la expresión matemática:
+Usemos `eval` para calcular la expresión matemática:
 
 ```js demo run
 let expr = prompt("Escribe una expresión matemática:", '2*3+2');
