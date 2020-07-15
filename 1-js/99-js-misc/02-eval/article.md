@@ -46,7 +46,7 @@ function f() {
 f();
 ```
 
-Puede también cambiar variables externas:
+Puede también modificar variables externas:
 
 ```js untrusted refresh run
 let x = 5;
