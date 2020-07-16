@@ -105,7 +105,7 @@ Por ejemplo, la división de bigints siempre devuelve un bigint (redondeado cuan
 
 Para emular tal comportamiento, un polyfill necesitaría analizar el código y reemplazar todos los operadores con sus funciones. Pero hacerlo es engorroso y tendría mucho costo en performance.
 
-Entonces no se conoce un buen polyfill.
+Por lo que no se conoce un buen polyfill.
 
 Aunque hay otra manera, la propuesta por los desarrolladores de la librería [JSBI](https://github.com/GoogleChromeLabs/jsbi).
 
