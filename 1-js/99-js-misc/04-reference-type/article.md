@@ -68,7 +68,7 @@ hi(); // Error porque this es indefinido
 */!*
 ```
 
-Aquí `hi = user.hi` coloca la función dentro de una variables y luego la última linea es completamente independiente, por lo tanto no hay `this`.
+Aquí `hi = user.hi` coloca la función dentro de una variable y luego la última linea es completamente independiente, por lo tanto no hay `this`.
 
 **Para hacer que la llamada `user.hi()` funcione, JavaScript usa un truco: el punto `'.'` no devuelve una función, sino un valor especial del [Tipo de referencia](https://tc39.github.io/ecma262/#sec-reference-specification-type).**
 
