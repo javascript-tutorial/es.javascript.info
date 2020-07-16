@@ -1,6 +1,6 @@
 # Métodos con arrays 
 
-Los arrays (arreglos) cuentan con muchos métodos. Para hacer las cosas más sencillas, en este capítulo se encuentran divididos en dos.
+Los arrays (arreglos) cuentan con muchos métodos. Para hacer las cosas más sencillas, en este capítulo se encuentran divididos en dos partes.
 
 ## Agregar/remover elementos
 
@@ -11,11 +11,11 @@ Ya conocemos métodos que agregan o extraen elementos del inicio o final de un a
 - `arr.shift()` -- extrae un elemento del inicio,
 - `arr.unshift(...items)` -- agrega elementos al principio.
 
-Algunos métodos más.
+Veamos algunos métodos más.
 
 ### splice
 
-¿Cómo borrar un elemento del array?
+¿Cómo podemos borrar un elemento de un array?
 
 Los arrays son objetos, por lo que podemos usar `delete`:
 
@@ -30,9 +30,9 @@ alert( arr[1] ); // undefined
 alert( arr.length ); // 3
 ```
 
-El elemento fue removido pero el array todavía tiene 3 elementos, podemos comprobarlo en `arr.length == 3`.
+El elemento fue removido pero el array todavía tiene 3 elementos, podemos comprobarlo en la línea `arr.length == 3`.
 
-Esto es esperable porque `delete obj.key` borra el valor de la `key`. Es todo lo que hace. Funciona bien para objetos pero para arrays usualmente lo que buscamos es que el resto de los elemetos se muevan y ocupen el lugar libre. Lo que esperamos obtener es un array más corto.
+Esto es porque `delete obj.key` borra el valor de la `key`. Es todo lo que hace. Funciona bien para objetos pero para arrays usualmente lo que buscamos es que el resto de los elemetos se muevan y ocupen el lugar libre. Lo que esperamos obtener es un array más corto.
 
 Por lo tanto, necesitamos utilizar métodos especiales.
 
@@ -98,7 +98,7 @@ alert( arr ); // "Yo", "estudio","el", "complejo", "language", "JavaScript"
 ```
 
 ````smart header="Negative indexes allowed"
-En este y en otros mátodos de arrays, los índices negativos están permitidos. Estos índices especifican la posición comenzando desde el final del array, de la siguiente manera:
+En este y en otros métodos de arrays, los índices negativos están permitidos. Estos índices indican la posición comenzando desde el final del array, de la siguiente manera:
 
 ```js run
 let arr = [1, 2, 5];
@@ -122,9 +122,9 @@ La sintáxis es:
 arr.slice([principio], [final])
 ```
 
-Devuelve un nuevo array copiendo en el mismo todos los elementos desde `principio` hasta `final` (sin incluir `final`). Ambos `principio` y `final` pueden ser negativos en cuyo caso se incluye la posición desde el final del array.
+Devuelve un nuevo array copiando en el mismo todos los elementos desde `principio` hasta `final` (sin incluir `final`). Ambos `principio` y `final` pueden ser negativos en cuyo caso se incluye la posición desde el final del array.
 
-Es similar al método para strings `str.slice`, pero en lugar de substrings elabora subarrays.
+Es similar al método para strings `str.slice`, pero en lugar de substrings genera subarrays.
 
 Por ejemplo:
 
@@ -206,18 +206,18 @@ El método [arr.forEach](mdn:js/Array/forEach) permite ejecutar una función a c
 La sintaxis:
 ```js
 arr.forEach(function(item, index, array) {
-  // ... do something with item
+  // ... hacer algo con el elemento
 });
 ```
 
-Por ejemplo, esto muestra cada elemento del array:
+Por ejemplo, el siguiente código muestra cada elemento del array:
 
 ```js run
 // para cada elemento ejecuta alert
 ["Bilbo", "Gandalf", "Nazgul"].forEach(alert);
 ```
 
-Y este código es más detallado acerca de la posición del elemento objetivo en el array:
+Y este caso es más detallado acerca de la posición del elemento objetivo en el array:
 
 ```js run
 ["Bilbo", "Gandalf", "Nazgul"].forEach((item, index, array) => {
@@ -249,7 +249,7 @@ alert( arr.indexOf(0) ); // 1
 alert( arr.indexOf(false) ); // 2
 alert( arr.indexOf(null) ); // -1
 
-alert( arr.includes(1) ); // true
+alert( arr.includes(1) ); // true (verdadero)
 ```
 
 Tener en cuenta que el método usa comparación estricta (`===`). Por lo tanto, si buscamos `false`, encontrará exactamente `false` y no cero.
@@ -266,58 +266,58 @@ alert( arr.includes(NaN) );// true (verdadero)
 
 ### find y findIndex
 
-Imagine we have an array of objects. How do we find an object with the specific condition?
+Imaginemos que tenemos un array de objetos. ¿Cómo podríamos encontrar un objeto con una condición específica?
 
-Here the [arr.find(fn)](mdn:js/Array/find) method comes in handy.
+Para este tipo de casos es útil el método [arr.find(fn)](mdn:js/Array/find) 
 
-The syntax is:
+La sintáxis es:
 ```js
 let result = arr.find(function(item, index, array) {
-  // if true is returned, item is returned and iteration is stopped
-  // for falsy scenario returns undefined
+  // si true es devuelto, se devuelve el item y la iteración se detiene
+  // para el caso en que sea false devuelve undefined
 });
 ```
 
-The function is called for elements of the array, one after another:
+La función es llamada para cada elemento del array, uno después del otro:
 
-- `item` is the element.
-- `index` is its index.
-- `array` is the array itself.
+- `item` es el elemento.
+- `index` es su índice.
+- `array` es el array mismo.
 
-If it returns `true`, the search is stopped, the `item` is returned. If nothing found, `undefined` is returned.
+Si devuelve `true`, la búsqueda se detiene y el `item` es devuelto. Si no encuentra nada, entonces devuelve `undefined`.
 
-For example, we have an array of users, each with the fields `id` and `name`. Let's find the one with `id == 1`:
+Por ejemplo, si tenemos un array de usuarios, cada uno con los campos `id` y `name`. Encontremos el elemento con `id == 1`:
 
 ```js run
 let users = [
-  {id: 1, name: "John"},
-  {id: 2, name: "Pete"},
-  {id: 3, name: "Mary"}
+  {id: 1, name: "Celina"},
+  {id: 2, name: "David"},
+  {id: 3, name: "Federico"}
 ];
 
 let user = users.find(item => item.id == 1);
 
-alert(user.name); // John
+alert(user.name); // Celina
 ```
 
-In real life arrays of objects is a common thing, so the `find` method is very useful.
+En la vida real los arrays de objetos son bastante comúnes por lo que el método `find` resulta muy útil.
 
-Note that in the example we provide to `find` the function `item => item.id == 1` with one argument. That's typical, other arguments of this function are rarely used.
+Ten en cuenta que en el ejemplo anterior le pasamos a `find` la función `item => item.id == 1` con un argumento. Esto es lo más común, otros argumentos son raramente usados en esta función.
 
-The [arr.findIndex](mdn:js/Array/findIndex) method is essentially the same, but it returns the index where the element was found instead of the element itself and `-1` is returned when nothing is found.
+El método [arr.findIndex](mdn:js/Array/findIndex) es escencialmente lo mismo, pero devuelve el índice donde el elemento fue encontrado en lugar del elemento en sí y devuelve `-1` cuando no encuentra nada.
 
 ### filter
 
-The `find` method looks for a single (first) element that makes the function return `true`.
+El método `find` busca un único elemento (el primero) que haga a la función devolver `true`.
 
-If there may be many, we can use [arr.filter(fn)](mdn:js/Array/filter).
+Ya existieran varios, podemos usar [arr.filter(fn)](mdn:js/Array/filter).
 
-The syntax is similar to `find`, but `filter` returns an array of all matching elements:
+La sintáxis es similar a `find`, pero `filter` devuelve un array con todos los elementos encontrados:
 
 ```js
 let results = arr.filter(function(item, index, array) {
-  // if true item is pushed to results and the iteration continues
-  // returns empty array if nothing found
+  // si devuelve true, el elemento es ingresado al array y la iteración continua
+  // si nada es encontrado, devuelve un array vacío
 });
 ```
 
@@ -325,20 +325,20 @@ For instance:
 
 ```js run
 let users = [
-  {id: 1, name: "John"},
-  {id: 2, name: "Pete"},
-  {id: 3, name: "Mary"}
+  {id: 1, name: "Celina"},
+  {id: 2, name: "David"},
+  {id: 3, name: "Federico"}
 ];
 
-// returns array of the first two users
+// devuelve un array con los dos primeros usuarios
 let someUsers = users.filter(item => item.id < 3);
 
 alert(someUsers.length); // 2
 ```
 
-## Transform an array
+## Transformar un array
 
-Let's move on to methods that transform and reorder an array.
+Pasamos ahora a los métodos que transforman y reordenan un array.
 
 ### map
 
