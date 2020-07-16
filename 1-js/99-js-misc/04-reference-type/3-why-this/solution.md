@@ -3,7 +3,7 @@ Aquí está la explicación.
 
 1. Esta es una llamada al metodo de objeto regular.
 
-2. Lo mismo, aquí los paréntesis no cambién el orden de las operaciones, el punto es el primero de todos modos.
+2. Lo mismo, aquí los paréntesis no cambian el orden de las operaciones, el punto es el primero de todos modos.
 
 3. Aquí tenemos una llamada más compleja `(expression).method()`. La llamada funciona como si se dividiera en dos líneas:
 
@@ -19,4 +19,3 @@ Aquí está la explicación.
 Para explicar el funcionamiento de `(3)` y `(4)` necesitamos recordar que los accesores de propiedad (punto o corchetes) devuelven un valor del Tipo de Referencia.  
 
 Cualquier operación en él excepto una llamada al método (como asignación `=` o `||`) lo convierte en un valor ordinario que no transporta la información que permite establecer `this`.
-
