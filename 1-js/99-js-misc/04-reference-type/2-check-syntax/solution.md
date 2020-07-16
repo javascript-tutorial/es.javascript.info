@@ -1,6 +1,6 @@
 ¡**Error**!
 
-Intentalo:
+Inténtalo:
 
 ```js run
 let user = {
