@@ -81,7 +81,7 @@ alert( 1 === 1n ); // false
 
 Cuando estan dentro de un `if` u otra operación booleana, los bigints se comportan como numbers.
 
-Por ejemplo, en `if`, el bigint `0n` is falso, los otros valores son verdaderos:
+Por ejemplo, en `if`, el bigint `0n` es falso, los otros valores son verdaderos:
 
 ```js run
 if (0n) {
