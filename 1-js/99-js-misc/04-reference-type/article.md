@@ -78,7 +78,7 @@ El valor del Tipo de Referencia es una combinación de triple valor `(base, name
 
 - `base` es el objeto.
 - `name` es el nombre de la propiedad.
-- `strict` es verdadero si `use strict` se lleva a cabo.
+- `strict` es verdadero si `use strict` está en efecto.
 
 El resultado de un acceso a la propiedad `user.hi` no es una función, sino un valor de Tipo de Referencia. Para `user.hi` en modo estricto esto es:
 
