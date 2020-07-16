@@ -45,7 +45,7 @@ alert(bigint + BigInt(number)); // 3
 alert(Number(bigint) + number); // 3
 ```
 
-Las operaciones de conversión siempre son silenciosas, nunca dan error, pero si el bigint es tan gigante que no podrá ajustarse al tipo numérico, los bits extra serán recortados, entonces deberíamos ser cuidadosos en hacer tal conversión.
+Las operaciones de conversión siempre son silenciosas, nunca dan error, pero si el bigint es tan gigante que no podrá ajustarse al tipo numérico, los bits extra serán recortados, entonces deberíamos ser cuidadosos al hacer tal conversión.
 
 ````smart header="El unario más no tiene soporte en bigints"
 El operador unario más `+value` es una manera bien conocida de convertir `value` a number.
