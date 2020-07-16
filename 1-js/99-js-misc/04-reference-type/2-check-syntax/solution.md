@@ -34,4 +34,4 @@ let user = {
 (user.go)() // John
 ```
 
-Tenga en cuenta que los paréntesis alrededor de `(user.go)` no hacen nada aquíe. UUsualmente son configurados para ordenar las operaciones, pero aquí el punto `.` funciona primero de todas formas, por lo que no tienen ningún efecto en él. Solamente el punto y coma importa.
+Tenga en cuenta que los paréntesis alrededor de `(user.go)` no hacen nada aquí. Usualmente son configurados para ordenar las operaciones, pero aquí el punto `.` funciona primero de todas formas, por lo que no tienen ningún efecto en él. Solamente el punto y coma importa.
