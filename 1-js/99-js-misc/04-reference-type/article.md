@@ -91,7 +91,7 @@ Cuando los paréntesis `()` son llamado sen el tipo de referencia, reciben la in
 
 Tipo de Referencia es un tipo interno de "intermediario", con el propósito de pasar información desde el punto `.` hacia los paréntesis de la llamada `()`.
 
-Cualquier otra operación como la asignación `hi = user.hi` descarta el tipo de referencia como un todo, toma el valor de `user.hi` (una función) y lo pasa encima. Entonces cualquier operación "pierde" `this`.
+Cualquier otra operación como la asignación `hi = user.hi` descarta el tipo de referencia como un todo, toma el valor de `user.hi` (una función) y lo pasa. Entonces cualquier operación "pierde" `this`.
 
 PEntonces, como resultado, el valor de `this` solo se pasa de la manera correcta si la función se llama directamente usando una sintaxis de punto `obj.method()` o corchetes `obj['method']()` (aquí hacen lo mismo). Más adelante en este tutorial, aprenderemos varias formas de resolver este problema así como [func.bind()](/bind#solution-2-bind).
 
