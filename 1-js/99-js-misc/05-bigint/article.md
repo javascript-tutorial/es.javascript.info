@@ -89,7 +89,7 @@ if (0n) {
 }
 ```
 
-Los operadoress booleanos como `||`, `&&` y otros también trabajan con bigints en forma similar a los number:
+Los operadores booleanos, tales como `||`, `&&` y otros también trabajan con bigints en forma similar a los number:
 
 ```js run
 alert( 1n || 2 ); // 1 (1n es considerado verdadero)
