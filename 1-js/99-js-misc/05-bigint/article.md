@@ -69,7 +69,7 @@ alert( 2n > 1n ); // true
 alert( 2n > 1 ); // true
 ```
 
-Aunque por favor, nota que number y bigint pertenecen a difierntes tipos, ellos pueden ser iguales `==`, pero no estrictamente iguales `===`:
+Por favor, nota que aunque number y bigint pertenecen a difierentes tipos, ellos pueden ser iguales `==`, pero no estrictamente iguales `===`:
 
 ```js run
 alert( 1 == 1n ); // true
