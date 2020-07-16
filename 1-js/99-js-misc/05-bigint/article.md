@@ -120,7 +120,7 @@ Esta librería implementa bigint usando sus propios métodos. Podemos usarlos en
 
 ...Y entonces usar polyfill (plugin Babel) para convertir las llamadas de JSBI en bigints nativos para aquellos navegadores que los soporten.
 
-En otras palabras, este enfoque sugiere que escribamos código en JSBI en lugar de bigints nativos. Pero JSBI trabaja internamente tanto con numbers como con bigints, los emula siguiendo de cerca la especificación, entonces el código será "bigint-ready" preparado para bigint.
+En otras palabras, este enfoque sugiere que escribamos código en JSBI en lugar de bigints nativos. Pero JSBI trabaja internamente tanto con numbers como con bigints, los emula siguiendo de cerca la especificación, entonces el código será "bigint-ready" (preparado para bigint).
 
 Podemos usar tal código JSBI "tal como está" en motores que no soportan bigints, y para aquellos que sí lo soportan - el polyfill convertirá las llamadas en bigints nativos.
 
