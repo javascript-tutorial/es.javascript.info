@@ -2,7 +2,7 @@
 
 [recent caniuse="bigint"]
 
-`BigInt` es un tipo numérico especial que provee soporte a enteros de largo arbitrario.
+`BigInt` es un tipo numérico especial que provee soporte a enteros de longitud arbitraria (muy grandes).
 
 Un bigint se crea agregando `n` al final del literal entero o llamando a la función `BigInt` que crea bigints desde cadenas, números, etc.
 
