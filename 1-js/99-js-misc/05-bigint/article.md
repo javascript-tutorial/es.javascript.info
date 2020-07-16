@@ -2,7 +2,7 @@
 
 [recent caniuse="bigint"]
 
-`BigInt` es un tipo numérico especial que provee soporte a enteros de longitud arbitraria (muy grandes).
+`BigInt` es un tipo numérico especial que provee soporte a enteros de tamaño arbitrario.
 
 Un bigint se crea agregando `n` al final del literal entero o llamando a la función `BigInt` que crea bigints desde cadenas, números, etc.
 
@@ -50,7 +50,7 @@ Las operaciones de conversión siempre son silenciosas, nunca dan error, pero si
 ````smart header="El unario más no tiene soporte en bigints"
 El operador unario más `+value` es una manera bien conocida de convertir `value` a number.
 
-Con bigints eso no es soportado para evitar confusión:
+Para evitar las confusiones, con bigints eso no es soportado:
 ```js run
 let bigint = 1n;
 
@@ -69,7 +69,7 @@ alert( 2n > 1n ); // true
 alert( 2n > 1 ); // true
 ```
 
-Por favor, nota que aunque number y bigint pertenecen a difierentes tipos, ellos pueden ser iguales `==`, pero no estrictamente iguales `===`:
+Por favor, nota que como number y bigint pertenecen a diferentes tipos, ellos pueden ser iguales `==`, pero no estrictamente iguales `===`:
 
 ```js run
 alert( 1 == 1n ); // true
@@ -89,7 +89,7 @@ if (0n) {
 }
 ```
 
-Los operadores booleanos, tales como `||`, `&&` y otros también trabajan con bigints en forma similar a los number:
+Los operadores booleanos, tales como `||`, `&&` y otros, también trabajan con bigints en forma similar a los number:
 
 ```js run
 alert( 1n || 2 ); // 1 (1n es considerado verdadero)
