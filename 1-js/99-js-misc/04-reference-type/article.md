@@ -72,7 +72,7 @@ Aquí `hi = user.hi` coloca la función dentro de una variable y luego la últim
 
 **Para hacer que la llamada `user.hi()` funcione, JavaScript usa un truco: el punto `'.'` no devuelve una función, sino un valor especial del [Tipo de referencia](https://tc39.github.io/ecma262/#sec-reference-specification-type).**
 
-El Tipo de Referencia un "tipo de especificación". No podemos usarla explícitamente pero es usada internamente por el lenguaje.
+El Tipo de Referencia es un "tipo de especificación". No podemos usarla explícitamente pero es usada internamente por el lenguaje.
 
 El valor del Tipo de Referencia es una combinación de triple valor `(base, name, strict)`, donde:
 
