@@ -15,7 +15,7 @@ El mensaje de error en la mayoría de los navegadores no nos da una pista sobre 
 
 **El error aparece porque falta un punto y coma después `user = {...}`.**
 
-JavaScript no inserta automáticamente un punto y coma antes de un paréntesis `(user.go)()`, por lo que leé el código así:
+JavaScript no inserta automáticamente un punto y coma antes de un paréntesis `(user.go)()`, por lo que lee el código así:
 
 ```js no-beautify
 let user = { go:... }(user.go)()
