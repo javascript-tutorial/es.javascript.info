@@ -1,15 +1,15 @@
 # Métodos con arrays 
 
-Los arrays cuentan con muchos métodos. Para hacer las cosas más sencillas, en este capítulo se encuentran divididos en dos.
+Los arrays (arreglos) cuentan con muchos métodos. Para hacer las cosas más sencillas, en este capítulo se encuentran divididos en dos.
 
-## Agregar/quitar items
+## Agregar/remover elementos
 
-Ya conocemos métodos que agregan o extraen items del inicio o final de un array:
+Ya conocemos métodos que agregan o extraen elementos del inicio o final de un array:
 
-- `arr.push(...items)` -- agrega items al final,
-- `arr.pop()` -- extrae un item del final,
-- `arr.shift()` -- extrae un item del inicio,
-- `arr.unshift(...items)` -- agrega items al principio.
+- `arr.push(...items)` -- agrega elementos al final,
+- `arr.pop()` -- extrae un elemento del final,
+- `arr.shift()` -- extrae un elemento del inicio,
+- `arr.unshift(...items)` -- agrega elementos al principio.
 
 Algunos métodos más.
 
@@ -140,36 +140,36 @@ También podemos invocarlo sin argumentos: `arr.slice()` crea una copia de `arr`
 
 ### concat
 
-The method [arr.concat](mdn:js/Array/concat) creates a new array that includes values from other arrays and additional items.
+El método [arr.concat](mdn:js/Array/concat) crea un nuevo array que incluye valores de otros arrays y elementos adicionales.
 
-The syntax is:
+La sintaxis es:
 
 ```js
 arr.concat(arg1, arg2...)
 ```
 
-It accepts any number of arguments -- either arrays or values.
+Este acepta cualquier número de argumentos --tanto arrays como valores.
 
-The result is a new array containing items from `arr`, then `arg1`, `arg2` etc.
+El resultado es un nuevo array que contiene elementos de `arr`, después `arg1`, `arg2` etc.
 
-If an argument `argN` is an array, then all its elements are copied. Otherwise, the argument itself is copied.
+Si un argumento `argN` es un array, entonces todos sus elementos son copiados. En otra palabras, el argumento en si es copiado.
 
-For instance:
+Por ejemplo:
 
 ```js run
 let arr = [1, 2];
 
-// create an array from: arr and [3,4]
+// crea un array a partir de: arr y [3,4]
 alert( arr.concat([3, 4]) ); // 1,2,3,4
 
-// create an array from: arr and [3,4] and [5,6]
+// crea un array a partir de: arr y [3,4] y [5,6]
 alert( arr.concat([3, 4], [5, 6]) ); // 1,2,3,4,5,6
 
-// create an array from: arr and [3,4], then add values 5 and 6
+// crea un array a partir de: arr y [3,4], luego agrega los valores 5 y 6
 alert( arr.concat([3, 4], 5, 6) ); // 1,2,3,4,5,6
 ```
 
-Normally, it only copies elements from arrays. Other objects, even if they look like arrays, are added as a whole:
+Normalmente solo copia elementos desde arrays. Otros objetos, incluso si parecen arrays, son agregados como un todo:  
 
 ```js run
 let arr = [1, 2];
@@ -182,7 +182,7 @@ let arrayLike = {
 alert( arr.concat(arrayLike) ); // 1,2,[object Object]
 ```
 
-...But if an array-like object has a special `Symbol.isConcatSpreadable` property, then it's treated as an array by `concat`: its elements are added instead:
+...Pero si un objeto similar a un array tiene una propiedad especial `Symbol.isConcatSpreadable`, entonces es tratado como un array por `concat` y en lugar de ser añadido como un todo, solo son añadidos sus elementos.
 
 ```js run
 let arr = [1, 2];
@@ -201,23 +201,23 @@ alert( arr.concat(arrayLike) ); // 1,2,something,else
 
 ## Iterate: forEach
 
-The [arr.forEach](mdn:js/Array/forEach) method allows to run a function for every element of the array.
+El método [arr.forEach](mdn:js/Array/forEach) permite ejecutar una función a cada elemento del array.
 
-The syntax:
+La sintaxis:
 ```js
 arr.forEach(function(item, index, array) {
   // ... do something with item
 });
 ```
 
-For instance, this shows each element of the array:
+Por ejemplo, esto muestra cada elemento del array:
 
 ```js run
-// for each element call alert
+// para cada elemento ejecuta alert
 ["Bilbo", "Gandalf", "Nazgul"].forEach(alert);
 ```
 
-And this code is more elaborate about their positions in the target array:
+Y este código es más detallado acerca de la posición del elemento objetivo en el array:
 
 ```js run
 ["Bilbo", "Gandalf", "Nazgul"].forEach((item, index, array) => {
@@ -225,22 +225,22 @@ And this code is more elaborate about their positions in the target array:
 });
 ```
 
-The result of the function (if it returns any) is thrown away and ignored.
+El resultado de la función (si es que lo hay) se descarta y se ignora.
 
 
-## Searching in array
+## Buscando en un array
 
-Now let's cover methods that search in an array.
+Ahora vamos a ver métodos que buscan elementos dentro de un array.
 
-### indexOf/lastIndexOf and includes
+### indexOf/lastIndexOf e includes
 
-The methods [arr.indexOf](mdn:js/Array/indexOf), [arr.lastIndexOf](mdn:js/Array/lastIndexOf) and [arr.includes](mdn:js/Array/includes) have the same syntax and do essentially the same as their string counterparts, but operate on items instead of characters:
+Los métodos [arr.indexOf](mdn:js/Array/indexOf), [arr.lastIndexOf](mdn:js/Array/lastIndexOf) y [arr.includes](mdn:js/Array/includes) tienen la misma sintaxis y hacen básicamente lo mismo que sus contrapartes de strings, pero operan sobre elementos en lugar de caracteres:
 
-- `arr.indexOf(item, from)` -- looks for `item` starting from index `from`, and returns the index where it was found, otherwise `-1`.
-- `arr.lastIndexOf(item, from)` -- same, but looks for from right to left.
-- `arr.includes(item, from)` -- looks for `item` starting from index `from`, returns `true` if found.
+- `arr.indexOf(item, from)` -- busca `item` comenzando desde el index `from`, y devuelve el index donde fue encontrado, es decir `-1`.
+- `arr.lastIndexOf(item, from)` -- igual que el anterior, pero busca de derecha a izquierda.
+- `arr.includes(item, from)` -- busca `item` comenzando desde el index `from`, devuelve `true` en caso de ser encontrado.
 
-For instance:
+Por ejemplo:
 
 ```js run
 let arr = [1, 0, false];
@@ -252,19 +252,19 @@ alert( arr.indexOf(null) ); // -1
 alert( arr.includes(1) ); // true
 ```
 
-Note that the methods use `===` comparison. So, if we look for `false`, it finds exactly `false` and not the zero.
+Tener en cuenta que el método usa comparación estricta (`===`). Por lo tanto, si buscamos `false`, encontrará exactamente `false` y no cero.
 
-If we want to check for inclusion, and don't want to know the exact index, then `arr.includes` is preferred.
+Si queremos comprobar si un elemento está incluído y no necesitamos saber su ubicación exacta, entonces es preferible usar `arr.includes`
 
-Also, a very minor difference of `includes` is that it correctly handles `NaN`, unlike `indexOf/lastIndexOf`:
+Además, una pequeña diferencia de `includes` es que puede manejar correctamente `NaN` a diferencia de `indexOf/lastIndexOf`:
 
 ```js run
 const arr = [NaN];
-alert( arr.indexOf(NaN) ); // -1 (should be 0, but === equality doesn't work for NaN)
-alert( arr.includes(NaN) );// true (correct)
+alert( arr.indexOf(NaN) ); // -1 (debería ser 0, pero la igualdad === no funciona para NaN)
+alert( arr.includes(NaN) );// true (verdadero)
 ```
 
-### find and findIndex
+### find y findIndex
 
 Imagine we have an array of objects. How do we find an object with the specific condition?
 
