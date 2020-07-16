@@ -1,7 +1,7 @@
 
 Aquí está la explicación.
 
-1. Esta es una llamada común al metodo de objeto regularl objeto
+1. Esta es una llamada común al método del objeto
 2. Lo mismo, aquí los paréntesis no cambian el orden de las operaciones, el punto es el primero de todos modos.
 
 3. Aquí tenemos una llamada más compleja `(expression).method()`. La llamada funciona como si se dividiera en dos líneas:
