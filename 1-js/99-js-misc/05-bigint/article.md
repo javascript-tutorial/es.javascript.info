@@ -24,7 +24,7 @@ alert(1n + 2n); // 3
 alert(5n / 2n); // 2
 ```
 
-Por favor ten en cuenta: la división `5/2` devuelve el resultado redondeado a cero, sin la parte decimal. Todas las operaciones sobre bigints devuelven bigints.
+Por favor, ten en cuenta: la división `5/2` devuelve el resultado redondeado a cero, sin la parte decimal. Todas las operaciones sobre bigints devuelven bigints.
 
 No podemos mezclar bigints con números regulares:
 
