@@ -26,7 +26,7 @@ alert(5n / 2n); // 2
 
 Por favor ten en cuenta: la división `5/2` devuelve el resultado redondeado a cero, sin la parte decimal. Todas las operaciones sobre bigints devuelven bigints.
 
-No podemos mezclar bigints con números regularess:
+No podemos mezclar bigints con números regulares:
 
 ```js run
 alert(1n + 2); // Error: No se puede mezclar BigInt y otros tipos.
