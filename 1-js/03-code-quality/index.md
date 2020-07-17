@@ -1,3 +1,3 @@
 # Calidad del código
 
-Este capítulo explica prácticas en programaciíon que más usaremos en el desarrollo. 
+Este capítulo explica las prácticas en programacíon que más usaremos en el desarrollo. 
