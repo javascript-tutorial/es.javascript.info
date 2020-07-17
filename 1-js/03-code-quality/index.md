@@ -1,3 +1,3 @@
-# Calidad del c�digo
+# Calidad del código
 
-Este capitulo explica practicas en programaci�n que usaremos durante el desarrollo. 
+Este capítulo explica prácticas en programaciíon que más usaremos en el desarrollo. 
