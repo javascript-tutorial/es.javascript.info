@@ -1,3 +1,3 @@
 # Tipos de datos
 
-Más estructuras de datos y más estudio a fondo de los tipos.
+Más estructuras de datos y un estudio más a fondo de los tipos.
