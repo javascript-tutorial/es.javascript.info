@@ -108,31 +108,31 @@ Las pseudo-classes como `:hover` y `:active` también son soportadas. Por ejempl
 
 ## querySelector [#querySelector]
 
-The call to `elem.querySelector(css)` returns the first element for the given CSS selector.
+La llamada a `elem.querySelector(css)` devuelve el primer elemento para el selector CSS dado. 
 
-In other words, the result is the same as `elem.querySelectorAll(css)[0]`, but the latter is looking for *all* elements and picking one, while `elem.querySelector` just looks for one. So it's faster and also shorter to write.
+En otras palabras, el resultados es el mismo que `elem.querySelectorAll(css)[0]`, pero este último busca *todos* los elementos y elige uno, mientras que  `elem.querySelector` sólo busca uno. Así que es más rápido y también más corto de escribir. 
 
 ## matches
 
-Previous methods were searching the DOM.
+Los métodos anteriores eran la búsqueda en el DOM.
 
-The [elem.matches(css)](http://dom.spec.whatwg.org/#dom-element-matches) does not look for anything, it merely checks if `elem` matches the given CSS-selector. It returns `true` or `false`.
+El [elem.matches(css)](http://dom.spec.whatwg.org/#dom-element-matches) no busca nada, sólo comprueba si el `elem` coincide con el selector CSS dado. Devuelve `true` o `false`.
 
-The method comes in handy when we are iterating over elements (like in an array or something) and trying to filter out those that interest us.
+Este método es útil cuando estamos iterando sobre los elementos  (como en un array) y tratando de filtrar los que nos interesan.
 
-For instance:
+Por ejemplo:
 
 ```html run
 <a href="http://example.com/file.zip">...</a>
 <a href="http://ya.ru">...</a>
 
 <script>
-  // can be any collection instead of document.body.children
+  // puede ser cualquier colección en lugar de document.body.children
   for (let elem of document.body.children) {
 *!*
     if (elem.matches('a[href$="zip"]')) {
 */!*
-      alert("The archive reference: " + elem.href );
+      alert("La referencia del archivo: " + elem.href );
     }
   }
 </script>
@@ -140,21 +140,21 @@ For instance:
 
 ## closest
 
-*Ancestors* of an element are: parent, the parent of parent, its parent and so on. The ancestors together form the chain of parents from the element to the top.
+Los *ancestros* de un elmento son: el padre, el padre del padre, su padre y así sucesivamente. Todos los ancestros juntos forman la cadena de padres desde el elemento hasta la cima.
 
-The method `elem.closest(css)` looks the nearest ancestor that matches the CSS-selector. The `elem` itself is also included in the search.
+El método `elem.closest(css)` busca el ancestro más cercano que coincide con el selector CSS. El propio `elem` también se incluye en la búsqueda.
 
-In other words, the method `closest` goes up from the element and checks each of parents. If it matches the selector, then the search stops, and the ancestor is returned.
+En otras palabras, el método `closest` subde del elemento y comprueba cada uno de los padres. Si coincide con el selector, entonces la búsqueda se detiene y devuelve dicho ancestro.
 
-For instance:
+Por ejemplo:
 
 ```html run
-<h1>Contents</h1>
+<h1>Contenido</h1>
 
 <div class="contents">
   <ul class="book">
-    <li class="chapter">Chapter 1</li>
-    <li class="chapter">Chapter 1</li>
+    <li class="chapter">Capítulo 1</li>
+    <li class="chapter">Capítulo 1</li>
   </ul>
 </div>
 
@@ -164,7 +164,7 @@ For instance:
   alert(chapter.closest('.book')); // UL
   alert(chapter.closest('.contents')); // DIV
 
-  alert(chapter.closest('h1')); // null (because h1 is not an ancestor)
+  alert(chapter.closest('h1')); // null (porque h1 no es un ancestro)
 </script>
 ```
 
