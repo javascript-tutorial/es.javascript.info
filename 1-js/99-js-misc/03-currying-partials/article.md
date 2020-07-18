@@ -55,7 +55,6 @@ alert( curriedSum(1, 2) ); // 3, todavía se puede llamar normalmente
 alert( curriedSum(1)(2) ); // 3, llamada parcial
 ```
 
-
 ## ¿Curry? ¿Para qué?
 
 Para comprender los beneficios, necesitamos un ejemplo digno, de la vida real.
