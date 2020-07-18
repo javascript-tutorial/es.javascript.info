@@ -97,7 +97,7 @@ Entonces, como resultado, el valor de `this` solo se pasa de la manera correcta 
 
 ## Resumen
 
-El Tipo de Referencia es un tipo interno del idioma.
+El Tipo de Referencia es un tipo interno del lenguaje.
 
 Leer una propiedad como las que tienen un punto `.` en `obj.method()` no devuelve exactamente el valor de la propiedad, sino un valor especial de "tipo de referencia" que almacena tanto el valor de la propiedad como el objeto del que se tomó.
 
