@@ -177,7 +177,7 @@ Para la llamada `curried(1)(2)(3)`:
 
 Si eso todavía no es obvio, solo rastrea la secuencia de llamadas en tu mente o en papel.
 
-```smart header =" Solo funciones de longitud fija "
+```smart header="Solo funciones de longitud fija "
 El currying requiere que la función tenga un número fijo de argumentos.
 
 Una función que utiliza multiples parámetros, como `f(... args)`, no se puede currificar.
