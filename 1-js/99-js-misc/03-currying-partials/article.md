@@ -67,7 +67,7 @@ function log(date, importance, message) {
 }
 ```
 
-Pongamosle curry!
+¡Pongámosle curry!
 
 ```js
 log = _.curry (log);
