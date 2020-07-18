@@ -95,7 +95,7 @@ let logNow = log(new Date());
 logNow("INFO", "message"); // [HH: mm] mensaje INFO
 ```
 
-Ahora `logNow` es` log` con un primer argumento fijo, en otras palabras, "función parcialmente aplicada" o "parcial" para abreviar.
+Ahora `logNow` es `log` con un primer argumento fijo, en otras palabras, "función parcialmente aplicada" o "parcial" para abreviar.
 
 Podemos ir más allá y hacer una función conveniente para los registros de depuración actuales:
 
