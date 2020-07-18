@@ -164,7 +164,7 @@ function curried(...args) {
 
 Cuando lo ejecutamos, hay dos ramas de ejecución `if`:
 
-1. Llame ahora: si el recuento de `args` pasado es el mismo que tiene la función original en su definición (` func.length`) o más, entonces simplemente páselo.
+1. Llame ahora: si el recuento de `args` pasado es el mismo que tiene la función original en su definición (`func.length`) o más, entonces simplemente páselo.
 2. Obtenga un parcial: de lo contrario, `func` aún no se llama. En cambio, se devuelve otro contenedor `pass`, que volverá a aplicar `curry` proporcionando argumentos anteriores junto con los nuevos. Luego, en una nueva llamada, nuevamente obtendremos un nuevo parcial (si no hay suficientes argumentos) o, finalmente, el resultado.
 
 Por ejemplo, veamos qué sucede en el caso de `sum(a, b, c)`. Tres argumentos, entonces `sum.length = 3`.
