@@ -180,7 +180,7 @@ Si eso todavía no es obvio, solo rastrea la secuencia de llamadas en tu mente o
 ```smart header="Solo funciones de longitud fija "
 El currying requiere que la función tenga un número fijo de argumentos.
 
-Una función que utiliza multiples parámetros, como `f(... args)`, no se puede currificar.
+Una función que utiliza múltiples parámetros, como `f(...args)`, no se puede currificar.
 ```
 
 ```smart header =" Un poco más que curry "
