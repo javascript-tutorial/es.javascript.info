@@ -183,7 +183,7 @@ El currying requiere que la función tenga un número fijo de argumentos.
 Una función que utiliza múltiples parámetros, como `f(...args)`, no se puede currificar.
 ```
 
-```smart header =" Un poco más que curry "
+```smart header="Un poco más que curry "
 Por definición, el curry debería convertir `sum(a, b, c)` en `sum(a)(b)(c)`.
 
 Pero la mayoría de las implementaciones de curry en JavaScript son avanzadas, como se describe: también mantienen la función invocable en la variante de múltiples argumentos.
