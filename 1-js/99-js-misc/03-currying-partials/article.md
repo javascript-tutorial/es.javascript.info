@@ -1,4 +1,3 @@
-
 libs:
   - lodash
 
