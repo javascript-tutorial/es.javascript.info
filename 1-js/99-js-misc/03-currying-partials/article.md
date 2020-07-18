@@ -169,7 +169,7 @@ Cuando lo ejecutamos, hay dos ramas de ejecución `if`:
 
 Por ejemplo, veamos qué sucede en el caso de `sum(a, b, c)`. Tres argumentos, entonces `sum.length = 3`.
 
-Para la llamada `curry(1)(2)(3)`:
+Para la llamada `curried(1)(2)(3)`:
 
 1. La primera llamada `curry(1)` recuerda `1` en su entorno léxico, y devuelve un contenedor` pass`.
 2. El contenedor `pass` se llama con `(2)`: toma los argumentos anteriores `(1)`, los concatena con lo que obtuvo `(2)` y llama `curried(1, 2)` con ambos argumentos. Como el recuento de argumentos es aún menor que 3, `curry` devuelve `pass`.
