@@ -147,7 +147,7 @@ alert( curriedSum(1)(2)(3) ); // 6, curry completo
 
 El nuevo `curry` puede parecer complicado, pero en realidad es fácil de entender.
 
-El resultado de la llamada `curry(func)` es el contenedor `curry` que se ve así:
+El resultado de la llamada `curry(func)` es el contenedor `curried` que se ve así:
 
 ```js
 // func es la función a transformar
