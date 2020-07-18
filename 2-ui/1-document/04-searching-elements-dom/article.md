@@ -1,93 +1,93 @@
-# Searching: getElement*, querySelector*
+# Buscar: getElement*, querySelector*
 
-DOM navigation properties are great when elements are close to each other. What if they are not? How to get an arbitrary element of the page?
+Las propiedades de navegación del DOM son ideales cuando los elementos están cerca unos de otros. ¿Pero y si no lo están? ¿Cómo obtener un elemento arbitrario de la página?
 
-There are additional searching methods for that.
+Para estos casos existen métodos de búsqueda adicionales. 
 
-## document.getElementById or just id
+## document.getElementById o sólo id
 
-If an element has the `id` attribute, we can get the element using the method `document.getElementById(id)`, no matter where it is.
+Si un elemento tiene el atributo `id`, podemos obtener el elemento usando el método `document.getElementById(id)`, sin importar dónde se encuentre.
 
-For instance:
+Por ejemplo:
 
 ```html run
 <div id="elem">
-  <div id="elem-content">Element</div>
+  <div id="elem-content">Elemento</div>
 </div>
 
 <script>
-  // get the element
+  // obtener el elemento
 *!*
   let elem = document.getElementById('elem');
 */!*
 
-  // make its background red
+  // hacer que su fondo sea rojo
   elem.style.background = 'red';
 </script>
 ```
 
-Also, there's a global variable named by `id` that references the element:
+Existe además una variable global llamada por el `id` que hace referencia al elemento:
 
 ```html run
 <div id="*!*elem*/!*">
-  <div id="*!*elem-content*/!*">Element</div>
+  <div id="*!*elem-content*/!*">Elemento</div>
 </div>
 
 <script>
-  // elem is a reference to DOM-element with id="elem"
+  // elem es una referencia al elemento del DOM con id="elem"
   elem.style.background = 'red';
 
-  // id="elem-content" has a hyphen inside, so it can't be a variable name
-  // ...but we can access it using square brackets: window['elem-content']
+  // id="elem-content" tiene un guión en su interior, por lo que no puede ser un nombre de variable
+  // ...pero podemos acceder a él usando corchetes: window['elem-content']
 </script>
 ```
 
-...That's unless we declare a JavaScript variable with the same name, then it takes precedence:
+...Esto es a menos que declaremos una variable de JavaScript con el mismo nombre, entonces ésta tiene prioridad:
 
 ```html run untrusted height=0
 <div id="elem"></div>
 
 <script>
-  let elem = 5; // now elem is 5, not a reference to <div id="elem">
+  let elem = 5; // ahora elem es 5, no una referencia a <div id="elem">
 
   alert(elem); // 5
 </script>
 ```
 
-```warn header="Please don't use id-named global variables to access elements"
-This behavior is described [in the specification](http://www.whatwg.org/specs/web-apps/current-work/#dom-window-nameditem), so it's kind of standard. But it is supported mainly for compatibility.
+```warn header="Por favor, no utilice variables globales con nombradas por id para acceder a los elementos"
+Este comportamiento se encuentra descrito [en la especificación](http://www.whatwg.org/specs/web-apps/current-work/#dom-window-nameditem), por lo que es una especie de estándar. Pero está soportado principalmente por la compatibilidad.
 
-The browser tries to help us by mixing namespaces of JS and DOM. That's fine for simple scripts, inlined into HTML, but generally isn't a good thing. There may be naming conflicts. Also, when one reads JS code and doesn't have HTML in view, it's not obvious where the variable comes from.
+El navegador intenta ayudarnos mezclando espacios de nombres de JS y DOM. Esto está bien para los scripts simples, inlined into HTML, pero generalmente no es una buena práctica. Puede haber conflictos de nombres. Además, cuando uno lee el código de JS y no tiene el HTML a la vista, no es obvio de dónde viene la variable. 
 
-Here in the tutorial we use `id` to directly reference an element for brevity, when it's obvious where the element comes from.
+Aquí en el tutorial usamos `id` para referirnos directamente a un elemento por brevedad, cuando es obvio de dónde viene el elemento.
 
-In real life `document.getElementById` is the preferred method.
+En la vida real `document.getElementById` es el método preferente.
 ```
 
-```smart header="The `id` must be unique"
-The `id` must be unique. There can be only one element in the document with the given `id`.
+```smart header="El `id` debe ser único"
+El `id` debe ser único. Sólo puede haber en todo el documento un elemento con un `id` determinado.
 
-If there are multiple elements with the same `id`, then the behavior of methods that use it is unpredictable, e.g. `document.getElementById` may return any of such elements at random. So please stick to the rule and keep `id` unique.
+Si hay múltiples elementos con el mismo id, entonces el comportamiento de los métodos que lo usan es impredecible, por ejemplo `document.getElementById` puede devolver cualquier de esos elementos al azar. Así que, por favor, sigan la regla y mantengan el `id` único. 
 ```
 
-```warn header="Only `document.getElementById`, not `anyElem.getElementById`"
-The method `getElementById` that can be called only on `document` object. It looks for the given `id` in the whole document.
+```warn header="Sólo `document.getElementById`, no `anyElem.getElementById`"
+El método `getElementById` sólo puede ser llamado en el objeto `document`. Busca el `id` dado en todo el documento.
 ```
 
 ## querySelectorAll [#querySelectorAll]
 
-By far, the most versatile method, `elem.querySelectorAll(css)` returns all elements inside `elem` matching the given CSS selector.
+Sin duda el método más versátil, `elem.querySelectorAll(css)` devuelve todos los elementos dentro de `elem` que coinciden con el selector CSS dado.
 
-Here we look for all `<li>` elements that are last children:
+Aquí buscamos todos los elementos `<li>` que son los últimos hijos:
 
 ```html run
 <ul>
-  <li>The</li>
-  <li>test</li>
+  <li>La</li>
+  <li>prueba</li>
 </ul>
 <ul>
-  <li>has</li>
-  <li>passed</li>
+  <li>ha</li>
+  <li>pasado/li>
 </ul>
 <script>
 *!*
@@ -95,15 +95,15 @@ Here we look for all `<li>` elements that are last children:
 */!*
 
   for (let elem of elements) {
-    alert(elem.innerHTML); // "test", "passed"
+    alert(elem.innerHTML); // "prueba", "pasado"
   }
 </script>
 ```
 
-This method is indeed powerful, because any CSS selector can be used.
+Este método es muy poderoso, porque se puede utilizar cualquier selector de CSS.
 
-```smart header="Can use pseudo-classes as well"
-Pseudo-classes in the CSS selector like `:hover` and `:active` are also supported. For instance, `document.querySelectorAll(':hover')` will return the collection with elements that the pointer is over now (in nesting order: from the outermost `<html>` to the most nested one).
+```smart header="También se pueden usar pseudo-classes"
+Las pseudo-classes como `:hover` y `:active` también son soportadas. Por ejemplo, `document.querySelectorAll(':hover')` devolverá una colección de elementos sobre los que el puntero hace hover en ese momento (en orden de anidación: desde el más exterior `<html>` hasta el más anidado).
 ```
 
 ## querySelector [#querySelector]
