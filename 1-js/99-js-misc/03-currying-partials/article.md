@@ -171,7 +171,7 @@ Por ejemplo, veamos qué sucede en el caso de `sum(a, b, c)`. Tres argumentos, e
 
 Para la llamada `curried(1)(2)(3)`:
 
-1. La primera llamada `curry(1)` recuerda `1` en su entorno léxico, y devuelve un contenedor` pass`.
+1. La primera llamada `curried(1)` recuerda `1` en su entorno léxico, y devuelve un contenedor` pass`.
 2. El contenedor `pass` se llama con `(2)`: toma los argumentos anteriores `(1)`, los concatena con lo que obtuvo `(2)` y llama `curried(1, 2)` con ambos argumentos. Como el recuento de argumentos es aún menor que 3, `curry` devuelve `pass`.
 3. El contenedor `pass` se llama nuevamente con` (3) `, para la próxima llamada` pass(3) `toma los argumentos anteriores (`1`, `2`) y agrega` 3` a ellos, haciendo la llamada `curried(1, 2, 3)` -- finalmente hay 3 argumentos , y son pasados a la función original.
 
