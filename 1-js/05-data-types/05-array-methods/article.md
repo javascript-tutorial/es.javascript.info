@@ -342,19 +342,19 @@ Pasamos ahora a los métodos que transforman y reordenan un array.
 
 ### map
 
-The [arr.map](mdn:js/Array/map) method is one of the most useful and often used.
+El método [arr.map](mdn:js/Array/map) es uno de los métodos más comunes y ampliamente usados. 
 
-It calls the function for each element of the array and returns the array of results.
+Llama a la función para cada elemento del array y devuelve un array con los resultados.
 
-The syntax is:
+La sintaxis es:
 
 ```js
 let result = arr.map(function(item, index, array) {
-  // returns the new value instead of item
+  // devuelve el nuevo valor en lugar de item
 });
 ```
 
-For instance, here we transform each element into its length:
+Por ejemplo, acá transformamos cada elemento en el valor de su respectivo largo (lenght):
 
 ```js run
 let lengths = ["Bilbo", "Gandalf", "Nazgul"].map(item => item.length);
@@ -363,41 +363,41 @@ alert(lengths); // 5,7,6
 
 ### sort(fn)
 
-The call to [arr.sort()](mdn:js/Array/sort) sorts the array *in place*, changing its element order.
+Cuando usamos [arr.sort()](mdn:js/Array/sort), este ordena el propio array cambiando el orden de los elementos.
 
-It also returns the sorted array, but the returned value is usually ignored, as `arr` itself is modified.
+También devuelve un nuevo array ordenado pero este usualmente se ignora ya que `arr` en sí mismo es modificado.
 
-For instance:
+Por ejemplo:
 
 ```js run
 let arr = [ 1, 2, 15 ];
 
-// the method reorders the content of arr
+// el método reordena el contenido de arr
 arr.sort();
 
 alert( arr );  // *!*1, 15, 2*/!*
 ```
 
-Did you notice anything strange in the outcome?
+¿Notas algo extraño en los valores de salida?
 
-The order became `1, 15, 2`. Incorrect. But why?
+Los elementos fueron reordenados a `1, 15, 2`. Pero por qué pasa esto?
 
-**The items are sorted as strings by default.**
+**Los elementos son ordenados como strings (cadenas de caracteres) por default**
 
-Literally, all elements are converted to strings for comparisons. For strings, lexicographic ordering is applied and indeed `"2" > "15"`.
+Todos los elementos son literalmente convertidos a string para ser comparados. En el caso de strings se aplica el orden lexicográfico, por lo que efectivamente `"2" > "15"`.
 
-To use our own sorting order, we need to supply a function as the argument of `arr.sort()`.
+Para usar nuestro propio criterio de reordenamiento, necesitamos proporcionar una función como argumento de `arr.sort()`.
 
-The function should compare two arbitrary values and return:
+La función debe comprar dos valores arbitrarios y devolver el resultado:
 ```js
 function compare(a, b) {
-  if (a > b) return 1; // if the first value is greater than the second
-  if (a == b) return 0; // if values are equal
-  if (a < b) return -1; // if the first value is less than the second
+  if (a > b) return 1; // si el primer valor es mayor que el segundo
+  if (a == b) return 0; // si ambos valores son iguales
+  if (a < b) return -1; // si el primer valor es menor que el segundo
 }
 ```
 
-For instance, to sort as numbers:
+Por ejemplo, para ordenar como números:
 
 ```js run
 function compareNumeric(a, b) {
@@ -415,13 +415,13 @@ arr.sort(compareNumeric);
 alert(arr);  // *!*1, 2, 15*/!*
 ```
 
-Now it works as intended.
+Ahora si funciona como esparabamos.
 
-Let's step aside and think what's happening. The `arr` can be array of anything, right? It may contain numbers or strings or objects or whatever. We have a set of *some items*. To sort it, we need an *ordering function* that knows how to compare its elements. The default is a string order.
+Demos un paso al costado un momento y pensemos que es lo que está pasando. El array `arr` puede ser un array de cualquier cosa no? Puede contener números, strings, objetos o lo que sea. Podemos decir que tenemos un conjunto de *ciertos items*. Para ordenarlos, necesitamos una *función de orden* que sepa como comparar los elementos. El orden por defecto es hacerlo como strings.
 
-The `arr.sort(fn)` method implements a generic sorting algorithm. We don't need to care how it internally works (an optimized [quicksort](https://en.wikipedia.org/wiki/Quicksort) most of the time). It will walk the array, compare its elements using the provided function and reorder them, all we need is to provide the `fn` which does the comparison.
+El método `arr.sort(fn)` implementa un algorito genérico de orden. No necesitamos preocuparnos de como funciona internamente (la mayoría de las veces es una forma optimizada del algoritmo [quicksort](https://es.wikipedia.org/wiki/Quicksort)). Este método va a recorrer el array, comparar sus elementos usando la función dada y finalmente, reordenarlos. Todo los que necesitamos hacer es proveer la `fn` que realiza la comparación.
 
-By the way, if we ever want to know which elements are compared -- nothing prevents from alerting them:
+Por cierto, si alguna vez queremos saber que elementos son comparados -- nada nos impide ejecutar alert() en ellos:
 
 ```js run
 [1, -2, 15, 2, 0, 8].sort(function(a, b) {
@@ -429,12 +429,12 @@ By the way, if we ever want to know which elements are compared -- nothing preve
 });
 ```
 
-The algorithm may compare an element with multiple others in the process, but it tries to make as few comparisons as possible.
+El algoritmo puede comparar un elemento con muchos otros en el proceso, pero trata de hacer las menos comparaciones posibles.
 
-````smart header="A comparison function may return any number"
-Actually, a comparison function is only required to return a positive number to say "greater" and a negative number to say "less".
+````smart header="Una función de comparación puede devolver cualquier número"
+En realidad, una función de comparación solo es requerida para devolver un número positivo para "mayor" y uno negativo para "menor".
 
-That allows to write shorter functions:
+Esto nos permite escribir una función más corta:
 
 ```js run
 let arr = [ 1, 2, 15 ];
@@ -445,14 +445,14 @@ alert(arr);  // *!*1, 2, 15*/!*
 ```
 ````
 
-````smart header="Arrow functions for the best"
-Remember [arrow functions](info:arrow-functions-basics)? We can use them here for neater sorting:
+````smart header="Funciones arrow son ideales"
+Recuerdas [arrow functions](info:arrow-functions-basics)? Podemos usarlas en este caso para un ordenamiento más prolijo:
 
 ```js
 arr.sort( (a, b) => a - b );
 ```
 
-This works exactly the same as the longer version above.
+Esto funciona exactamente igual que la versión más larga de arriba.
 ````
 
 ````smart header="Use `localeCompare` for strings"
