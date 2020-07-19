@@ -225,4 +225,6 @@ Los objetos son asignados y copiados por referencia. En otras palabras, una vari
 
 Todas la operaciones a través de referencias copiadas (como agregar y borrar propiedades) son efectuadas en el mismo y único objeto .
 
-Para hacer una "copia real" (un clon) podemos usar `Object.assign` para la denominada "clonación superficial" (con los objetos anidados copiados por referencia) o una función de "clonación profunda" como [_.cloneDeep(obj)](https://lodash.com/docs#cloneDeep).
+Si queremos conseguir una "copia real" (un clon), podemos usar: 
+Una "clonación superficial" por medio de la función `Object.assign` (con los objetos anidados copiados por referencia) 
+o una "clonación profunda" con una función como [_.cloneDeep(obj)](https://lodash.com/docs#cloneDeep).
