@@ -321,7 +321,7 @@ let results = arr.filter(function(item, index, array) {
 });
 ```
 
-For instance:
+Por ejemplo:
 
 ```js run
 let users = [
@@ -382,7 +382,7 @@ alert( arr );  // *!*1, 15, 2*/!*
 
 Los elementos fueron reordenados a `1, 15, 2`. Pero por qué pasa esto?
 
-**Los elementos son ordenados como strings (cadenas de caracteres) por default**
+**Los elementos son ordenados como strings (cadenas de caracteres) por defecto**
 
 Todos los elementos son literalmente convertidos a string para ser comparados. En el caso de strings se aplica el orden lexicográfico, por lo que efectivamente `"2" > "15"`.
 
@@ -445,8 +445,8 @@ alert(arr);  // *!*1, 2, 15*/!*
 ```
 ````
 
-````smart header="Funciones arrow son ideales"
-Recuerdas [arrow functions](info:arrow-functions-basics)? Podemos usarlas en este caso para un ordenamiento más prolijo:
+````smart header="Funciones arrow"
+Recuerdas las [arrow functions](info:arrow-functions-basics)? Podemos usarlas en este caso para un ordenamiento más prolijo:
 
 ```js
 arr.sort( (a, b) => a - b );
@@ -455,27 +455,27 @@ arr.sort( (a, b) => a - b );
 Esto funciona exactamente igual que la versión más larga de arriba.
 ````
 
-````smart header="Use `localeCompare` for strings"
-Remember [strings](info:string#correct-comparisons) comparison algorithm? It compares letters by their codes by default.
+````smart header="Usa `localeCompare` para strings"
+Recuerdas el algoritmo de comparación [strings](info:string#correct-comparisons)? Compara  letras por su código por defecto.
 
-For many alphabets, it's better to use `str.localeCompare` method to correctly sort letters, such as `Ö`.
+Para muchos alfabetos, es mejor usar el método `str.localeCompare` para ordenar correctamente letras como por ejemplo `Ö`.
 
-For example, let's sort a few countries in German:
+Por ejemplo, vamos a ordenar algunos países en alemán:
 
 ```js run
-let countries = ['Österreich', 'Andorra', 'Vietnam'];
+let paises = ['Österreich', 'Andorra', 'Vietnam'];
 
-alert( countries.sort( (a, b) => a > b ? 1 : -1) ); // Andorra, Vietnam, Österreich (wrong)
+alert( paises.sort( (a, b) => a > b ? 1 : -1) ); // Andorra, Vietnam, Österreich (incorrecto)
 
-alert( countries.sort( (a, b) => a.localeCompare(b) ) ); // Andorra,Österreich,Vietnam (correct!)
+alert( paises.sort( (a, b) => a.localeCompare(b) ) ); // Andorra,Österreich,Vietnam (¡correcto!)
 ```
 ````
 
 ### reverse
 
-The method [arr.reverse](mdn:js/Array/reverse) reverses the order of elements in `arr`.
+El método [arr.reverse](mdn:js/Array/reverse) revierte el orden de los elementos en `arr`.
 
-For instance:
+Por ejemplo:
 
 ```js run
 let arr = [1, 2, 3, 4, 5];
@@ -484,27 +484,27 @@ arr.reverse();
 alert( arr ); // 5,4,3,2,1
 ```
 
-It also returns the array `arr` after the reversal.
+También devuelve el array `arr` después de revertir el orden. 
 
-### split and join
+### split y join
 
-Here's the situation from real life. We are writing a messaging app, and the person enters the comma-delimited list of receivers: `John, Pete, Mary`. But for us an array of names would be much more comfortable than a single string. How to get it?
+Analicemos una situación de la vida real. Estamos programando una app de mensajería y y el usuario ingresa una lista de receptores delimitada por comas: `Celina, David, Federico`. Pero para nosotros un array sería mucho más práctico que una simple string. ¿Cómo podemos hacer para obtener un array?
 
-The [str.split(delim)](mdn:js/String/split) method does exactly that. It splits the string into an array by the given delimiter `delim`.
+El método [str.split(delim)](mdn:js/String/split) hace precisamente eso. Separa la string en un array siguiendo el delimitante dado `delim`.
 
-In the example below, we split by a comma followed by space:
+En el ejemplo de abajo, separamos por comas seguidas de espacio:
 
 ```js run
-let names = 'Bilbo, Gandalf, Nazgul';
+let nombres = 'Bilbo, Gandalf, Nazgul';
 
-let arr = names.split(', ');
+let arr = nombres.split(', ');
 
 for (let name of arr) {
-  alert( `A message to ${name}.` ); // A message to Bilbo  (and other names)
+  alert( `Un mensaje para ${name}.` ); // Un mensaje para Bilbo  (y los otros nombres)
 }
 ```
 
-The `split` method has an optional second numeric argument -- a limit on the array length. If it is provided, then the extra elements are ignored. In practice it is rarely used though:
+El método `split` tiene un segundo argumento numérico opcional -- un límite en la extensión del array. Si se provee este argumento, entonces el resto de los elementos son ignorados. Sin embargo en la práctica rara vez se utiliza:
 
 ```js run
 let arr = 'Bilbo, Gandalf, Nazgul, Saruman'.split(', ', 2);
@@ -512,8 +512,8 @@ let arr = 'Bilbo, Gandalf, Nazgul, Saruman'.split(', ', 2);
 alert(arr); // Bilbo, Gandalf
 ```
 
-````smart header="Split into letters"
-The call to `split(s)` with an empty `s` would split the string into an array of letters:
+````smart header="Separar en letras"
+El llamado a `split(s)` con un `s` vacío separará el strign en un array de letras:
 
 ```js run
 let str = "test";
@@ -522,27 +522,27 @@ alert( str.split('') ); // t,e,s,t
 ```
 ````
 
-The call [arr.join(glue)](mdn:js/Array/join) does the reverse to `split`. It creates a string of `arr` items joined by `glue` between them.
+El llamado de [arr.join(glue)](mdn:js/Array/join) hace lo opuesto a `split`. Crea una string de `arr` elementos unidos por `pegamento` entre ellos.
 
-For instance:
+Por ejemplo:
 
 ```js run
 let arr = ['Bilbo', 'Gandalf', 'Nazgul'];
 
-let str = arr.join(';'); // glue the array into a string using ;
+let str = arr.join(';'); // une el array en una string usando ;
 
 alert( str ); // Bilbo;Gandalf;Nazgul
 ```
 
 ### reduce/reduceRight
 
-When we need to iterate over an array -- we can use `forEach`, `for` or `for..of`.
+Cuando necesitamos iterar sobre un array -- podemos usar `forEach`, `for` or `for..of`.
 
-When we need to iterate and return the data for each element -- we can use `map`.
+Cuando ncesitamos iterar y devolver un valor por cada elemento -- podemos usar `map`.
 
-The methods [arr.reduce](mdn:js/Array/reduce) and [arr.reduceRight](mdn:js/Array/reduceRight) also belong to that breed, but are a little bit more intricate. They are used to calculate a single value based on the array.
+Los métodos [arr.reduce](mdn:js/Array/reduce) y [arr.reduceRight](mdn:js/Array/reduceRight) también pertenecen a ese grupo de acciones pero son un poco más complejos. Se los utiliza para calcular un único valor a partir del array.
 
-The syntax is:
+La sintaxis es la siguiente:
 
 ```js
 let value = arr.reduce(function(accumulator, item, index, array) {
@@ -550,24 +550,24 @@ let value = arr.reduce(function(accumulator, item, index, array) {
 }, [initial]);
 ```
 
-The function is applied to all array elements one after another and "carries on" its result to the next call.
+La función es aplicada a todos los elementos del array uno detrás de otro y arrastra los resultados al próximo llamado.
 
-Arguments:
+Argumentos:
 
-- `accumulator` -- is the result of the previous function call, equals `initial` the first time (if `initial` is provided).
-- `item` -- is the current array item.
-- `index` -- is its position.
-- `array` -- is the array.
+- `accumulator` -- es el resultado del llamado previo de la función, equivale a  `initial` la primera vez (si `initial` es dado como argumento).
+- `item` -- es el elemento actual del array.
+- `index` -- es la posición.
+- `array` -- es el array.
 
-As function is applied, the result of the previous function call is passed to the next one as the first argument.
+Mientras la función sea llamada, el resultado del llamado anterior se pasa al siguiente como primer argumento.
 
-So, the first argument is essentially the accumulator that stores the combined result of all previous executions. And at the end it becomes the result of `reduce`.
+Entonces, el primer argumento es el acumulador que almacena los resultados combinados de todas las veces anteriores en que se ejecutó y al final, se convierte en el resultado de `reduce`.
 
-Sounds complicated?
+¿Suena complicado?
 
-The easiest way to grasp that is by example.
+La forma más simple de entender algo es con un ejemplo.
 
-Here we get a sum of an array in one line:
+Acá tenemos la suma de un array en una línea:
 
 ```js run
 let arr = [1, 2, 3, 4, 5];
@@ -577,15 +577,15 @@ let result = arr.reduce((sum, current) => sum + current, 0);
 alert(result); // 15
 ```
 
-The function passed to `reduce` uses only 2 arguments, that's typically enough.
+La función pasada a `reduce` utiliza solo 2 argumentos, esto generalmente es suficiente.
 
-Let's see the details of what's going on.
+Veamos los detalles de lo que está pasando.
 
-1. On the first run, `sum` is the `initial` value (the last argument of `reduce`), equals `0`, and `current` is the first array element, equals `1`. So the function result is `1`.
-2. On the second run, `sum = 1`, we add the second array element (`2`) to it and return.
-3. On the 3rd run, `sum = 3` and we add one more element to it, and so on...
+1. En la primer pasada, `sum` es el valor `initial` (el último argumento de `reduce`), equivale a `0`, y `current` es el primer elemento de array, equivale a `1`. Entonces el resultado de la función es `1`.
+2. En la segunda pasada, `sum = 1`, agregamos el segundo elemento del array (`2`) y devolvemos el valor.
+3. En la tercer pasada, `sum = 3` y le agregamos un elemento más, y así sucesivamente...
 
-The calculation flow:
+El flujo de cálculos:
 
 ![](reduce.svg)
 
