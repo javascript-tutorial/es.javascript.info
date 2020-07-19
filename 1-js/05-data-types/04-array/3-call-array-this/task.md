@@ -2,9 +2,9 @@ importance: 5
 
 ---
 
-# Calling in an array context
+# LLamados en un contexto de array
 
-What is the result? Why?
+¿Cuál es el resultado?¿Por qué?
 
 ```js
 let arr = ["a", "b"];

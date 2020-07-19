@@ -1,4 +1,4 @@
-The result is `4`:
+El resultado es `4`:
 
 
 ```js run
@@ -13,5 +13,5 @@ alert( fruits.length ); // 4
 */!*
 ```
 
-That's because arrays are objects. So both `shoppingCart` and `fruits` are the references to the same array.
+Esto es porque los arrays son objetos. Entonces ambos, `shoppingCart` y `fruits` son referencias al mismo array.
 
