@@ -24,12 +24,12 @@ let form = document.getElementsByName('search')[0]
 //o, utilizando el form específicamente
 document.querySelector('form[name="search"]')
 
-// 5. El primer input en el formulario.
+// 5. El primer input en el form.
 form.getElementsByTagName('input')[0]
-// or
+// o
 form.querySelector('input')
 
-// 6. El último input en el formulario. 
+// 6. El último input en el form. 
 let inputs = form.querySelectorAll('input') // encontrar todos los inputs
 inputs[inputs.length-1] // obtener el último
 ```
