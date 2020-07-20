@@ -67,7 +67,7 @@ En la vida real `document.getElementById` es el método preferente.
 ```smart header="El `id` debe ser único"
 El `id` debe ser único. Sólo puede haber en todo el documento un elemento con un `id` determinado.
 
-Si hay múltiples elementos con el mismo id, entonces el comportamiento de los métodos que lo usan es impredecible, por ejemplo `document.getElementById` puede devolver cualquier de esos elementos al azar. Así que, por favor, sigan la regla y mantengan el `id` único. 
+Si hay múltiples elementos con el mismo id, entonces el comportamiento de los métodos que lo usan es impredecible, por ejemplo `document.getElementById` puede devolver cualquiera de esos elementos al azar. Así que, por favor, sigan la regla y mantengan el `id` único. 
 ```
 
 ```warn header="Sólo `document.getElementById`, no `anyElem.getElementById`"
