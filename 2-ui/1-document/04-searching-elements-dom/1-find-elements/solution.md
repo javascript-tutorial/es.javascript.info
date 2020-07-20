@@ -6,19 +6,19 @@ Aquí hay algunas de ellas:
 // 1. La tabla con `id="age-table"`.
 let table = document.getElementById('age-table')
 
-// 2. Todos los elementos de la etiqueta dentro de esa tabla
+// 2. Todos los elementos `label` dentro de esa tabla
 table.getElementsByTagName('label')
 // or
 document.querySelectorAll('#age-table label')
 
-// 3. El primer td en la tabla (con la palabra "Age")
+// 3. El primer `td` en la tabla (con la palabra "Age")
 table.rows[0].cells[0]
 // or
 table.getElementsByTagName('td')[0]
 // or
 table.querySelector('td')
 
-// 4. El formulario con el nombre "search"
+// 4. El `form` con name="search"
 // suponiendo que sólo hay un elemento con name="search" en el documento
 let form = document.getElementsByName('search')[0]
 //o, utilizando el form específicamente
