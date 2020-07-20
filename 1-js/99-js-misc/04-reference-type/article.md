@@ -51,7 +51,7 @@ Mirando de cerca podemos notar dos operaciones en la declaración  `obj.method()
 1. Primero, el punto '.'recupera la propiedad de `obj.method`.
 2. Luego el paréntesis `()` lo ejecuta.
 
-Entonces ¿como es trasladada la información de `this` de la primera parte a la segunda?
+Entonces ¿cómo es trasladada la información de `this` de la primera parte a la segunda?
 
 Si ponemos estas operaciones en líneas separadas, entonces `this` se perderá con seguridad:
 
