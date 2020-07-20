@@ -1,4 +1,4 @@
-Hay muchas maneras de resolvero.
+Hay muchas maneras de resolverlo.
 
 Aquí hay algunas de ellas:
 
