@@ -1,11 +1,19 @@
 
 # Property getters and setters
 
+<<<<<<< HEAD
 Hay dos tipos de propiedades de objetos.
 
 El primer tipo son las *propiedades de los datos*. Ya sabemos cómo trabajar con ellas. En realidad, todas las propiedades que hemos estado usando hasta ahora eran propiedades de datos.
 
 El segundo tipo de propiedades es algo nuevo. Son las *propiedades de acceso*. Estas son esencialmente funciones que se ejecutan para la obtención y asignación de un valor, pero parecen propiedades normales para un código externo.
+=======
+There are two kinds of object properties.
+
+The first kind is *data properties*. We already know how to work with them. All properties that we've been using until now were data properties.
+
+The second type of properties is something new. It's *accessor properties*. They are essentially functions that execute on getting and setting a value, but look like regular properties to an external code.
+>>>>>>> ae1171069c2e50b932d030264545e126138d5bdc
 
 ## Getters and setters
 
@@ -34,7 +42,11 @@ let user = {
 };
 ```
 
+<<<<<<< HEAD
 Ahora queremos añadir una propiedad de "Nombre completo" (`fullName`), que debería ser `"John Smith"`. Por supuesto, no queremos copiar-pegar la información existente, así que podemos aplicarla como una propiedad de acceso:
+=======
+Now we want to add a `fullName` property, that should be `"John Smith"`. Of course, we don't want to copy-paste existing information, so we can implement it as an accessor:
+>>>>>>> ae1171069c2e50b932d030264545e126138d5bdc
 
 ```js run
 let user = {
@@ -53,6 +65,7 @@ alert(user.fullName); // John Smith
 */!*
 ```
 
+<<<<<<< HEAD
 Desde fuera, una propiedad de acceso se parece a una normal. Esa es la idea de estas propiedades. No *llamamos* a `user.fullName` como una función, la *leemos* normalmente: el "getter" corre detrás de la escena.
 
 A partir de ahora, "Nombre completo" sólo tiene un receptor. Si intentamos asignar `user.fullName=`, habrá un error.
@@ -64,6 +77,19 @@ let user = {
   }
 };
 
+=======
+From the outside, an accessor property looks like a regular one. That's the idea of accessor properties. We don't *call* `user.fullName` as a function, we *read* it normally: the getter runs behind the scenes.
+
+As of now, `fullName` has only a getter. If we attempt to assign `user.fullName=`, there will be an error:
+
+```js run
+let user = {
+  get fullName() {
+    return `...`;
+  }
+};
+
+>>>>>>> ae1171069c2e50b932d030264545e126138d5bdc
 *!*
 user.fullName = "Test"; // Error (property has only a getter)
 */!*
@@ -94,6 +120,7 @@ alert(user.name); // Alice
 alert(user.surname); // Cooper
 ```
 
+<<<<<<< HEAD
 Como resultado, tenemos una propiedad virtual `fullName` que puede leerse y escribirse.
 
 
@@ -104,6 +131,17 @@ Los descriptores de las propiedades de acceso son diferentes de aquellos para la
 Para las propiedades de acceso, no hay cosas como "valor" y "escritura", sino de "get" y "set".
 
 Así que un descriptor de accesos puede tener:
+=======
+As the result, we have a "virtual" property `fullName`. It is readable and writable.
+
+## Accessor descriptors
+
+Descriptors for accessor properties are different from those for data properties.
+
+For accessor properties, there is no `value` or `writable`, but instead there are `get` and `set` functions.
+
+That is, an accessor descriptor may have:
+>>>>>>> ae1171069c2e50b932d030264545e126138d5bdc
 
 - **`get`** -- una función sin argumentos, que funciona cuando se lee una propiedad,
 - **`set`** -- una función con un argumento, que se llama cuando se establece la propiedad,
@@ -135,7 +173,11 @@ alert(user.fullName); // John Smith
 for(let key in user) alert(key); // name, surname
 ```
 
+<<<<<<< HEAD
 Tenga en cuenta que una propiedad puede ser un acceso (tiene métodos `get/set`)  o una propiedad de datos (tiene un 'valor'), no ambas.
+=======
+Please note that a property can be either an accessor (has `get/set` methods) or a data property (has a `value`), not both.
+>>>>>>> ae1171069c2e50b932d030264545e126138d5bdc
 
 Si intentamos poner tanto `get` como `valor` en el mismo descriptor, habrá un error:
 
@@ -154,9 +196,15 @@ Object.defineProperty({}, 'prop', {
 
 ## Smarter getters/setters
 
+<<<<<<< HEAD
 Getters/setters pueden ser usados como envoltorios sobre valores de propiedad "reales" para obtener más control sobre ellos.
 
 Por ejemplo, si queremos prohibir nombres demasiado cortos para "usuario", podemos guardar "nombre" en una propiedad especial "nombre". Y filtrar las asignaciones en el setter:
+=======
+Getters/setters can be used as wrappers over "real" property values to gain more control over operations with them.
+
+For instance, if we want to forbid too short names for `user`, we can have a setter `name` and keep the value in a separate property `_name`:
+>>>>>>> ae1171069c2e50b932d030264545e126138d5bdc
 
 ```js run
 let user = {
@@ -179,16 +227,28 @@ alert(user.name); // Pete
 user.name = ""; // El nombre es demasiado corto...
 ```
 
+<<<<<<< HEAD
 Entonces, el nombre es almacenado en la propiedad `_name`, y el acceso se hace a traves de getter y setter.
 
 Técnicamente, el código externo todavía puede acceder al nombre directamente usando "usuario._nombre". Pero hay un acuerdo ampliamente conocido de que las propiedades que comienzan con un guión bajo "_" son internas y no deben ser manipuladas desde el exterior del objeto.
+=======
+So, the name is stored in `_name` property, and the access is done via getter and setter.
+
+Technically, external code is able to access the name directly by using `user._name`. But there is a widely known convention that properties starting with an underscore `"_"` are internal and should not be touched from outside the object.
+>>>>>>> ae1171069c2e50b932d030264545e126138d5bdc
 
 
 ## Using for compatibility
 
+<<<<<<< HEAD
 Una de los grandes usos de los getters y setters es que permiten tomar el control de una propiedad de datos "normal" y reemplazarla con getter y setter y así refinar su coportamiento.
 
 Imagina que empezamos a implementar objetos usuario usando las propiedades de datos "nombre" y "edad":
+=======
+One of the great uses of accessors is that they allow to take control over a "regular" data property at any moment by replacing it with a getter and a setter and tweak its behavior.
+
+Imagine we started implementing user objects using data properties `name` and `age`:
+>>>>>>> ae1171069c2e50b932d030264545e126138d5bdc
 
 ```js
 function User(name, age) {
@@ -216,9 +276,17 @@ Ahora, ¿qué hacer con el viejo código que todavía usa la propiedad de la "ed
 
 Podemos intentar encontrar todos esos lugares y arreglarlos, pero eso lleva tiempo y puede ser difícil de hacer si ese código está escrito por otras personas. Y además, la "edad" es algo bueno para tener en "usuario", ¿verdad? En algunos lugares es justo lo que queremos.
 
+<<<<<<< HEAD
 Pues mantengámoslo.
 
 Añadiendo un getter para la "edad" resuelve el problema:
+=======
+We can try to find all such places and fix them, but that takes time and can be hard to do if that code is used by many other people. And besides, `age` is a nice thing to have in `user`, right?
+
+Let's keep it.
+
+Adding a getter for `age` solves the problem:
+>>>>>>> ae1171069c2e50b932d030264545e126138d5bdc
 
 ```js run no-beautify
 function User(name, birthday) {

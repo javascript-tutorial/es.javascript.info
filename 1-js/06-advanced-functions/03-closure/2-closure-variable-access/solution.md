@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 La respuesta es: **Pete**.
 
@@ -9,3 +10,14 @@ Entonces, el resultado es "Pete".
 
 Pero si no hubiera `let name` en` makeWorker () `, entonces la búsqueda saldría y tomaría la variable global como podemos ver en la cadena de arriba. En ese caso, el resultado sería `John`.
 
+=======
+The answer is: **Pete**.
+
+The `work()` function in the code below gets `name` from the place of its origin through the outer lexical environment reference:
+
+![](lexenv-nested-work.svg)
+
+So, the result is `"Pete"` here.
+
+But if there were no `let name` in `makeWorker()`, then the search would go outside and take the global variable as we can see from the chain above. In that case the result would be `"John"`.
+>>>>>>> ae1171069c2e50b932d030264545e126138d5bdc

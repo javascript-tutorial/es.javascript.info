@@ -2,7 +2,11 @@ importance: 5
 
 ---
 
+<<<<<<< HEAD
 # ¿Donde escribe?
+=======
+# Where does it write?
+>>>>>>> ae1171069c2e50b932d030264545e126138d5bdc
 
 Tenemos `rabbit` heredando de `animal`.
 

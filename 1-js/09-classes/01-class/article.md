@@ -325,6 +325,7 @@ class User {
   name = "John";
 */!*
 }
+<<<<<<< HEAD
 
 let user = new User();
 alert(user.name); // John
@@ -350,6 +351,34 @@ As demonstrated in the chapter <info:bind> functions in JavaScript have a dynami
 
 So if an object method is passed around and called in another context, `this` won't be a reference to its object any more.
 
+=======
+
+let user = new User();
+alert(user.name); // John
+alert(User.prototype.name); // undefined
+```
+
+We can also assign values using more complex expressions and function calls:
+
+```js run
+class User {
+*!*
+  name = prompt("Name, please?", "John");
+*/!*
+}
+
+let user = new User();
+alert(user.name); // John
+```
+
+
+### Making bound methods with class fields
+
+As demonstrated in the chapter <info:bind> functions in JavaScript have a dynamic `this`. It depends on the context of the call.
+
+So if an object method is passed around and called in another context, `this` won't be a reference to its object any more.
+
+>>>>>>> ae1171069c2e50b932d030264545e126138d5bdc
 For instance, this code will show `undefined`:
 
 ```js run
@@ -360,11 +389,43 @@ class Button {
 
   click() {
     alert(this.value);
+<<<<<<< HEAD
+=======
   }
 }
 
 let button = new Button("hello");
 
+*!*
+setTimeout(button.click, 1000); // undefined
+*/!*
+```
+
+The problem is called "losing `this`".
+
+There are two approaches to fixing it, as discussed in the chapter <info:bind>:
+
+1. Pass a wrapper-function, such as `setTimeout(() => button.click(), 1000)`.
+2. Bind the method to object, e.g. in the constructor.
+
+Class fields provide another, quite elegant syntax:
+
+```js run
+class Button {
+  constructor(value) {
+    this.value = value;
+>>>>>>> ae1171069c2e50b932d030264545e126138d5bdc
+  }
+*!*
+  click = () => {
+    alert(this.value);
+  }
+*/!*
+}
+
+let button = new Button("hello");
+
+<<<<<<< HEAD
 *!*
 setTimeout(button.click, 1000); // undefined
 */!*
@@ -396,6 +457,11 @@ let button = new Button("hello");
 setTimeout(button.click, 1000); // hello
 ```
 
+=======
+setTimeout(button.click, 1000); // hello
+```
+
+>>>>>>> ae1171069c2e50b932d030264545e126138d5bdc
 The class field `click = () => {...}` is created on a per-object basis, there's a separate function for each `Button` object, with `this` inside it referencing that object. We can pass `button.click` around anywhere, and the value of `this` will always be correct.
 
 That's especially useful in browser environment, for event listeners.
