@@ -8,7 +8,7 @@ let user = {
   go: function() { alert(this.name) }
 }
 
-(user.go)() // !Error!
+(user.go)() // ¡Error!
 ```
 
 El mensaje de error en la mayoría de los navegadores no nos da una pista sobre lo que salió mal.
