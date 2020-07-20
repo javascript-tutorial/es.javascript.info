@@ -110,7 +110,7 @@ Las pseudoclases como `:hover` y `:active` también son soportadas. Por ejemplo,
 
 La llamada a `elem.querySelector(css)` devuelve el primer elemento para el selector CSS dado. 
 
-En otras palabras, el resultados es el mismo que `elem.querySelectorAll(css)[0]`, pero este último busca *todos* los elementos y elige uno, mientras que `elem.querySelector` sólo busca uno. Así que es más rápido y también más corto de escribir. 
+En otras palabras, el resultado es el mismo que `elem.querySelectorAll(css)[0]`, pero este último busca *todos* los elementos y elige uno, mientras que `elem.querySelector` sólo busca uno. Así que es más rápido y también más corto de escribir. 
 
 ## matches
 
