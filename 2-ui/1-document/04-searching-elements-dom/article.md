@@ -174,7 +174,7 @@ También hay otros métodos que permiten buscar nodos por una etiqueta, una clas
 
 Hoy en día, son en su mayoría historia, ya que `querySelector` es más poderoso y corto de escribir.
 
-Aquí los cubrimos principalmente por completar el temario, aunque que todavía se pueden encontrar en scripts antiguos. 
+Aquí los cubrimos principalmente por completar el temario, aunque todavía se pueden encontrar en scripts antiguos. 
 
 - `elem.getElementsByTagName(tag)` busca elementos con la etiqueta dada y devuelve una colección con ellos. El parámetro `tag` también puede ser un asterisco `"*"` para "cualquier etiqueta".
 - `elem.getElementsByClassName(className)` devuelve elementos con la clase dada.
