@@ -26,7 +26,7 @@ Por ejemplo:
 </script>
 ```
 
-Existe además una variable global llamada por el `id` que hace referencia al elemento:
+Existe además una variable global nombrada por el `id` que hace referencia al elemento:
 
 ```html run
 <div id="*!*elem*/!*">
@@ -57,7 +57,7 @@ Existe además una variable global llamada por el `id` que hace referencia al el
 ```warn header="Por favor, no utilice variables globales con nombradas por id para acceder a los elementos"
 Este comportamiento se encuentra descrito [en la especificación](http://www.whatwg.org/specs/web-apps/current-work/#dom-window-nameditem), por lo que es una especie de estándar. Pero está soportado principalmente por la compatibilidad.
 
-El navegador intenta ayudarnos mezclando espacios de nombres de JS y DOM. Esto está bien para los scripts simples, inlined into HTML, pero generalmente no es una buena práctica. Puede haber conflictos de nombres. Además, cuando uno lee el código de JS y no tiene el HTML a la vista, no es obvio de dónde viene la variable. 
+El navegador intenta ayudarnos mezclando espacios de nombres (*namespaces*) de JS y DOM. Esto está bien para los scripts simples, incrustrados en HTML, pero generalmente no es una buena práctica. Puede haber conflictos de nombres. Además, cuando uno lee el código de JS y no tiene el HTML a la vista, no es obvio de dónde viene la variable. 
 
 Aquí en el tutorial usamos `id` para referirnos directamente a un elemento por brevedad, cuando es obvio de dónde viene el elemento.
 
@@ -102,23 +102,23 @@ Aquí buscamos todos los elementos `<li>` que son los últimos hijos:
 
 Este método es muy poderoso, porque se puede utilizar cualquier selector de CSS.
 
-```smart header="También se pueden usar pseudo-classes"
-Las pseudo-classes como `:hover` y `:active` también son soportadas. Por ejemplo, `document.querySelectorAll(':hover')` devolverá una colección de elementos sobre los que el puntero hace hover en ese momento (en orden de anidación: desde el más exterior `<html>` hasta el más anidado).
+```smart header="También se pueden usar pseudoclases"
+Las pseudoclases como `:hover` y `:active` también son soportadas. Por ejemplo, `document.querySelectorAll(':hover')` devolverá una colección de elementos sobre los que el puntero hace hover en ese momento (en orden de anidación: desde el más exterior `<html>` hasta el más anidado).
 ```
 
 ## querySelector [#querySelector]
 
 La llamada a `elem.querySelector(css)` devuelve el primer elemento para el selector CSS dado. 
 
-En otras palabras, el resultados es el mismo que `elem.querySelectorAll(css)[0]`, pero este último busca *todos* los elementos y elige uno, mientras que  `elem.querySelector` sólo busca uno. Así que es más rápido y también más corto de escribir. 
+En otras palabras, el resultados es el mismo que `elem.querySelectorAll(css)[0]`, pero este último busca *todos* los elementos y elige uno, mientras que `elem.querySelector` sólo busca uno. Así que es más rápido y también más corto de escribir. 
 
 ## matches
 
-Los métodos anteriores eran la búsqueda en el DOM.
+Los métodos anteriores consistían en buscar en el DOM.
 
 El [elem.matches(css)](http://dom.spec.whatwg.org/#dom-element-matches) no busca nada, sólo comprueba si el `elem` coincide con el selector CSS dado. Devuelve `true` o `false`.
 
-Este método es útil cuando estamos iterando sobre los elementos  (como en un array) y tratando de filtrar los que nos interesan.
+Este método es útil cuando estamos iterando sobre elementos (como en un array) y tratando de filtrar los que nos interesan.
 
 Por ejemplo:
 
@@ -144,7 +144,7 @@ Los *ancestros* de un elmento son: el padre, el padre del padre, su padre y así
 
 El método `elem.closest(css)` busca el ancestro más cercano que coincide con el selector CSS. El propio `elem` también se incluye en la búsqueda.
 
-En otras palabras, el método `closest` subde del elemento y comprueba cada uno de los padres. Si coincide con el selector, entonces la búsqueda se detiene y devuelve dicho ancestro.
+En otras palabras, el método `closest` sube del elemento y comprueba cada uno de los padres. Si coincide con el selector, entonces la búsqueda se detiene y devuelve dicho ancestro.
 
 Por ejemplo:
 
@@ -176,8 +176,8 @@ Hoy en día, son en su mayoría historia, ya que `querySelector` es más poderos
 
 Aquí los cubrimos principalmente por completar el temario, aunque que todavía se pueden encontrar en scripts antiguos. 
 
-- `elem.getElementsByTagName(tag)` busca elementos con la etiqueta dada y devuelve una colección de ellos. El parámetro `tag` también puede ser un asterisco `"*"` para "cualquier etiqueta".
-- `elem.getElementsByClassName(className)` devuelve elementos con la clases dada.
+- `elem.getElementsByTagName(tag)` busca elementos con la etiqueta dada y devuelve una colección con ellos. El parámetro `tag` también puede ser un asterisco `"*"` para "cualquier etiqueta".
+- `elem.getElementsByClassName(className)` devuelve elementos con la clase dada.
 - `document.getElementsByName(name)` devuelve elementos con el atributo `name` dado, en todo el documento. Muy raramente usado.
 
 Por ejemplo:
@@ -232,7 +232,7 @@ Otro error muy extendido entre los desarrolladores novatos es escribir:
 document.getElementsByTagName('input').value = 5;
 ```
 
-Esto no funcionará, porque toma una *collection* de inputs y le asigna el valor a ella en lugar de a los elementos dentro de ella.
+Esto no funcionará, porque toma una *colección* de inputs y le asigna el valor a ella en lugar de a los elementos dentro de ella.
 
 En dicho caso, deberíamos iterar sobre la colección o conseguir un elemento por su índice y luego asignarlo así: 
 
@@ -262,12 +262,12 @@ Buscando elementos `.article`:
 
 ## Colecciones vivas
 
-Todos los métodos `"getElementsBy*"` devuelve una colección *live* viva. Tales colecciones siempre reflejan el estado actual del documento y se "auto-actualizan" cuando cambia. 
+Todos los métodos `"getElementsBy*"` devuelven una colección *viva* (*live collection*). Tales colecciones siempre reflejan el estado actual del documento y se "auto-actualizan" cuando cambia. 
 
 En el siguiente ejemplo, hay dos scripts.
 
 1. El primero crea una referencia a la colección de `<div>`. Por ahora, su longitud es `1`.
-2. El segundo scriptse ejecuta después de que el navegador se encuentre con otro `<div>`, por lo que su longitud es de `2`.
+2. El segundo script se ejecuta después de que el navegador se encuentre con otro `<div>`, por lo que su longitud es de `2`.
 
 ```html run
 <div>Primer div</div>
@@ -363,7 +363,7 @@ Hay 6 métodos principales para buscar nodos en el DOM:
 </tbody>
 </table>
 
-Con diferencia, los más utilizadosson `querySelector` y `querySelectorAll`, pero `getElementBy*` puede ser de ayuda esporádicamente o encontrarse en scripts antiguos.
+Los más utilizados con diferencia son `querySelector` y `querySelectorAll`, pero `getElementBy*` puede ser de ayuda esporádicamente o encontrarse en scripts antiguos.
 
 Aparte de eso:
 
