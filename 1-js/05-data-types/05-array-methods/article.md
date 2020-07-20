@@ -589,62 +589,63 @@ El flujo de cálculos:
 
 ![](reduce.svg)
 
-Or in the form of a table, where each row represents a function call on the next array element:
+O en la forma de una tabla, donde cada fila representa un llamado a una función en el pŕoximo elemento del array:
 
 |   |`sum`|`current`|result|
 |---|-----|---------|---------|
-|the first call|`0`|`1`|`1`|
-|the second call|`1`|`2`|`3`|
-|the third call|`3`|`3`|`6`|
-|the fourth call|`6`|`4`|`10`|
-|the fifth call|`10`|`5`|`15`|
+|primer llamado|`0`|`1`|`1`|
+|segundo llamado|`1`|`2`|`3`|
+|tercer llamado|`3`|`3`|`6`|
+|cuarto llamado|`6`|`4`|`10`|
+|quinto llamado|`10`|`5`|`15`|
 
-Here we can clearly see how the result of the previous call becomes the first argument of the next one.
+Acá podemos ver claramente como el resultado del llamado anterior se convierte en el primer argumento del llamado siguiente.
 
-We also can omit the initial value:
+También podemos omitir el valor inicial:
 
 ```js run
 let arr = [1, 2, 3, 4, 5];
 
-// removed initial value from reduce (no 0)
+// valor inicial removido (no 0)
 let result = arr.reduce((sum, current) => sum + current);
 
 alert( result ); // 15
 ```
 
-The result is the same. That's because if there's no initial, then `reduce` takes the first element of the array as the initial value and starts the iteration from the 2nd element.
+El resultado es el mismo. Esto es porque en el caso de no haber valor inicial, `reduce` toma el primer elemento del array como valor inicial y comienza la iteración a partir del segundo elemento.
 
-The calculation table is the same as above, minus the first row.
+La tabla de calculos es igual a la anterior menos la primer fila.
 
-But such use requires an extreme care. If the array is empty, then `reduce` call without initial value gives an error.
+Pero este tipo de uso requiere tener extremo cuidado. Si el array está vacío, entonces el llamado a `reduce` sin valor inicial devuelve error.
 
-Here's an example:
+Acá vemos un ejemplo:
 
 ```js run
 let arr = [];
 
-// Error: Reduce of empty array with no initial value
-// if the initial value existed, reduce would return it for the empty arr.
+// Error: Reduce en un array vacío sin valor inicial
+// si el valor inicial existe, reduce lo devuelve en el arr vacío.
 arr.reduce((sum, current) => sum + current);
 ```
 
-So it's advised to always specify the initial value.
+Por lo tanto siempre se recomienda especificar un valor inicial.
 
-The method [arr.reduceRight](mdn:js/Array/reduceRight) does the same, but goes from right to left.
+El método [arr.reduceRight](mdn:js/Array/reduceRight) realiza lo mismo, pero va de derecha a izquierda.
 
 
 ## Array.isArray
 
-Arrays do not form a separate language type. They are based on objects.
+Los arrays no conforman un tipo diferente de lenguaje. Están basados en objetos.
 
-So `typeof` does not help to distinguish a plain object from an array:
+Por eso `typeof` no ayuda a distinguir un objeto de un array:
 
 ```js run
 alert(typeof {}); // object
-alert(typeof []); // same
+alert(typeof []); // lo mismo
 ```
 
 ...But arrays are used so often that there's a special method for that: [Array.isArray(value)](mdn:js/Array/isArray). It returns `true` if the `value` is an array, and `false` otherwise.
+...Pero los arrays son utilizados tan a menudo que tienen un método especial: [Array.isArray(value)](mdn:js/Array/isArray). Este devuelve `true` si el `valor` es un array y `false` si no lo es.
 
 ```js run
 alert(Array.isArray({})); // false
@@ -652,25 +653,26 @@ alert(Array.isArray({})); // false
 alert(Array.isArray([])); // true
 ```
 
-## Most methods support "thisArg"
+## La mayoría de los métodos aceptan "thisArg"
 
-Almost all array methods that call functions -- like `find`, `filter`, `map`, with a notable exception of `sort`, accept an optional additional parameter `thisArg`.
+Casi todos los métodos para arrays que realizan llamados a funciones -- como `find`, `filter`, `map`, con la notable excepción de `sort`, aceptan un parámetro opcional adicional `thisArg`.
 
 That parameter is not explained in the sections above, because it's rarely used. But for completeness we have to cover it.
+Ese parámetro no está explicado en la sección anterior porque es raramente usado. Pero para ser exhaustivos necesitamos verlo.
 
-Here's the full syntax of these methods:
+Esta es la sintáxis completa de este método:
 
 ```js
 arr.find(func, thisArg);
 arr.filter(func, thisArg);
 arr.map(func, thisArg);
 // ...
-// thisArg is the optional last argument
+// thisArg es el último argumento opcional
 ```
 
-The value of `thisArg` parameter becomes `this` for `func`.
+EL valor del parámetro `thisArg` se convierte en `this` para `func`.
 
-For example, here we use a method of `army` object as a filter, and `thisArg` passes the context:
+Por ejemplo, acá usamos un método del objeto `army` como un filtro y `thisArg` da el contexto:
 
 ```js run
 let army = {
@@ -689,7 +691,7 @@ let users = [
 ];
 
 *!*
-// find users, for who army.canJoin returns true
+// encuentra usuarios para los cuales army.canJoin devuelve true
 let soldiers = users.filter(army.canJoin, army);
 */!*
 
@@ -698,58 +700,58 @@ alert(soldiers[0].age); // 20
 alert(soldiers[1].age); // 23
 ```
 
-If in the example above we used `users.filter(army.canJoin)`, then `army.canJoin` would be called as a standalone function, with `this=undefined`, thus leading to an instant error.
+Si en el ejemplo anterior usamos `users.filter(army.canJoin)`, entonces `army.canJoin` puede ser llamada como una función independiente, con `this=undefined`, lo que puede llevar a un error instantáneo.
 
-A call to `users.filter(army.canJoin, army)` can be replaced with `users.filter(user => army.canJoin(user))`, that does the same. The former is used more often, as it's a bit easier to understand for most people.
+La llamada a `users.filter(army.canJoin, army)` puede ser reemplazada con `users.filter(user => army.canJoin(user))` que realiza lo mismo. La forma anterior se usa más a menudo, ya que es un poco más fácil de entender.
 
-## Summary
+## Resumen
 
-A cheat sheet of array methods:
+Una cheat sheet de métodos de arrays:
 
-- To add/remove elements:
-  - `push(...items)` -- adds items to the end,
-  - `pop()` -- extracts an item from the end,
-  - `shift()` -- extracts an item from the beginning,
-  - `unshift(...items)` -- adds items to the beginning.
-  - `splice(pos, deleteCount, ...items)` -- at index `pos` delete `deleteCount` elements and insert `items`.
-  - `slice(start, end)` -- creates a new array, copies elements from position `start` till `end` (not inclusive) into it.
-  - `concat(...items)` -- returns a new array: copies all members of the current one and adds `items` to it. If any of `items` is an array, then its elements are taken.
+- Para agregar/remover elementos:
+  - `push(...items)` -- agrega elementos al final,
+  - `pop()` -- extrae elementos del final,
+  - `shift()` -- extrae elementos del inicio,
+  - `unshift(...items)` -- agrega elementos al inicio.
+  - `splice(pos, deleteCount, ...items)` -- al índice `pos` borra `deleteCount` elementos e inserta `items`.
+  - `slice(start, end)` -- crea un nuevo array y copia elementos desde la posición `start` hasta `end` (no incluído) en el nuevo array.
+  - `concat(...items)` -- devuelve un nuevo array: copia todos los elementos del array actual y le agrega `items`. Si alguno de los `items` es un array, entonces su primer elemento es tomado
 
-- To search among elements:
-  - `indexOf/lastIndexOf(item, pos)` -- look for `item` starting from position `pos`, return the index or `-1` if not found.
-  - `includes(value)` -- returns `true` if the array has `value`, otherwise `false`.
-  - `find/filter(func)` -- filter elements through the function, return first/all values that make it return `true`.
-  - `findIndex` is like `find`, but returns the index instead of a value.
+- Para buscar entre elements:
+  - `indexOf/lastIndexOf(item, pos)` -- busca por `item` comenzando desde la posición `pos`, devolviendo el índice o `-1` si no se encuentra.
+  - `includes(value)` -- devuelve `true` si el array tiene `value`, sino `false`.
+  - `find/filter(func)` -- filtra elementos a través de la función, devuelve el primer/todos los valores que devuelven `true`.
+  - `findIndex` es similar a  `find` pero devuelve el índice en lugar del valor.
 
-- To iterate over elements:
-  - `forEach(func)` -- calls `func` for every element, does not return anything.
+- Para iterar sobre elementos:
+  - `forEach(func)` -- llama la `func` para cada elemento, no devuelve nada.
 
-- To transform the array:
-  - `map(func)` -- creates a new array from results of calling `func` for every element.
-  - `sort(func)` -- sorts the array in-place, then returns it.
-  - `reverse()` -- reverses the array in-place, then returns it.
-  - `split/join` -- convert a string to array and back.
-  - `reduce(func, initial)` -- calculate a single value over the array by calling `func` for each element and passing an intermediate result between the calls.
+- Para transformar el array:
+  - `map(func)` -- crea un nuevo array a partir de los resultados de llamar a la `func` para cada elemento.
+  - `sort(func)` -- ordena el array y lo devuelve.
+  - `reverse()` -- ordena el array de forma inversa y lo devuelve.
+  - `split/join` -- convierte una cadena en un array y viceversa.
+  - `reduce(func, initial)` -- calcula un solo valor para todo el array llamando a la `func` para cada elemento y pasando un resultado intermedio entre cada llamada.
 
-- Additionally:
-  - `Array.isArray(arr)` checks `arr` for being an array.
+- Adicional:
+  - `Array.isArray(arr)` comprueba que `arr` sea un array.
 
-Please note that methods `sort`, `reverse` and `splice` modify the array itself.
+Por favor tener en cuenta que `sort`, `reverse` y `splice` modifican el propio array.
 
-These methods are the most used ones, they cover 99% of use cases. But there are few others:
+Estos métodos son los más utilizados y cubren el 99% de los casos. Pero existen algunos más:
 
-- [arr.some(fn)](mdn:js/Array/some)/[arr.every(fn)](mdn:js/Array/every) checks the array.
+- [arr.some(fn)](mdn:js/Array/some)/[arr.every(fn)](mdn:js/Array/every) comprueba el array.
 
-  The function `fn` is called on each element of the array similar to `map`. If any/all results are `true`, returns `true`, otherwise `false`.
+  La función `fn` para cada elemento del array similar a `map`. Si alguno/todos los  resultados son `true`, devuelve `true`, sino `false`.
 
-- [arr.fill(value, start, end)](mdn:js/Array/fill) -- fills the array with repeating `value` from index `start` to `end`.
+- [arr.fill(value, start, end)](mdn:js/Array/fill) -- llena el array repitiendo `value` desde el índice `start` hasta `end`.
 
-- [arr.copyWithin(target, start, end)](mdn:js/Array/copyWithin) -- copies its elements from position `start` till position `end` into *itself*, at position `target` (overwrites existing).
+- [arr.copyWithin(target, start, end)](mdn:js/Array/copyWithin) -- copia sus elementos desde la posición `start` hasta la posición `end` en *si mismo*, a la posición `target` (reescribe lo existente).
 
-For the full list, see the [manual](mdn:js/Array).
+Para la lista completa, ver [manual](mdn:js/Array).
 
-From the first sight it may seem that there are so many methods, quite difficult to remember. But actually that's much easier.
+A primera vista puede parecer que hay demasiado métodos para aprender y un tanto difíciles de recordar. Pero con tiempo se vuelve más fácil.
 
-Look through the cheat sheet just to be aware of them. Then solve the tasks of this chapter to practice, so that you have experience with array methods.
+Mirá a lo largo de la cheat sheet para tener un conocimiento de ellos. Después realiza las prácticas de este capítulo, así ganas experiencia con los métodos para arrays.
 
-Afterwards whenever you need to do something with an array, and you don't know how -- come here, look at the cheat sheet and find the right method. Examples will help you to write it correctly. Soon you'll automatically remember the methods, without specific efforts from your side.
+Después si en algún momento necesitas hacer algo con un array y no sabes como -- vuelve a esta página, mira la cheat sheet y encuentra el método correcto. Los ejemplos te ayudarán a escribirlos correctamente y pronto los recordarás automáticamente, sin esfuerzo de tu parte.
