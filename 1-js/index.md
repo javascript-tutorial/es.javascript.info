@@ -1,6 +1,6 @@
 # El lenguaje JavaScript
 
-Aquí aprendemos JavaScript, empezando desde zero y pasando a conceptos avanzados como OOP (programación orientada a objetos).
+AquÃ­ aprenderemos JavaScript, empezando desde cero y llegaremos hasta conceptos avanzados como POO.
 
-Aquí nos concentramos en el lenguaje en si mismo, con el mínimo de notas específicas del entorno.
+Nos concentraremos en el lenguaje mismo con el mÃ­nimo de notas especÃ­ficas del entorno.
 
