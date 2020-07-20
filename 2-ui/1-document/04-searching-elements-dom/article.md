@@ -103,7 +103,7 @@ Aquí buscamos todos los elementos `<li>` que son los últimos hijos:
 Este método es muy poderoso, porque se puede utilizar cualquier selector de CSS.
 
 ```smart header="También se pueden usar pseudoclases"
-Las pseudoclases como `:hover` y `:active` también son soportadas. Por ejemplo, `document.querySelectorAll(':hover')` devolverá una colección de elementos sobre los que el puntero hace hover en ese momento (en orden de anidación: desde el más exterior `<html>` hasta el más anidado).
+Las pseudoclases como `:hover` y `:active` también son soportadas. Por ejemplo, `document.querySelectorAll(':hover')` devolverá una colección de elementos sobre los que el puntero hace hover (flota o sobrevuela) en ese momento (en orden de anidación: desde el más exterior `<html>` hasta el más anidado).
 ```
 
 ## querySelector [#querySelector]
