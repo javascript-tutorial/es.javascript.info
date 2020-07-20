@@ -1,6 +1,6 @@
 # Buscar: getElement*, querySelector*
 
-Las propiedades de navegación del DOM son ideales cuando los elementos están cerca unos de otros. ¿Pero y si no lo están? ¿Cómo obtener un elemento arbitrario de la página?
+Las propiedades de navegación del DOM son ideales cuando los elementos están cerca unos de otros. Pero, ¿y si no lo están? ¿Cómo obtener un elemento arbitrario de la página?
 
 Para estos casos existen métodos de búsqueda adicionales. 
 
@@ -170,38 +170,38 @@ Por ejemplo:
 
 ## getElementsBy*
 
-There are also other methods to look for nodes by a tag, class, etc.
+También hay otros métodos que permiten buscar nodos por una etiqueta, una clase, etc. 
 
-Today, they are mostly history, as `querySelector` is more powerful and shorter to write.
+Hoy en día, son en su mayoría historia, ya que `querySelector` es más poderoso y corto de escribir.
 
-So here we cover them mainly for completeness, while you can still find them in the old scripts.
+Aquí los cubrimos principalmente por completar el temario, aunque que todavía se pueden encontrar en scripts antiguos. 
 
-- `elem.getElementsByTagName(tag)` looks for elements with the given tag and returns the collection of them. The `tag` parameter can also be a star `"*"` for "any tags".
-- `elem.getElementsByClassName(className)` returns elements that have the given CSS class.
-- `document.getElementsByName(name)` returns elements with the given `name` attribute, document-wide. Very rarely used.
+- `elem.getElementsByTagName(tag)` busca elementos con la etiqueta dada y devuelve una colección de ellos. El parámetro `tag` también puede ser un asterisco `"*"` para "cualquier etiqueta".
+- `elem.getElementsByClassName(className)` devuelve elementos con la clases dada.
+- `document.getElementsByName(name)` devuelve elementos con el atributo `name` dado, en todo el documento. Muy raramente usado.
 
-For instance:
+Por ejemplo:
 ```js
-// get all divs in the document
+// obtener todos los divs del documento
 let divs = document.getElementsByTagName('div');
 ```
 
-Let's find all `input` tags inside the table:
+Para encontrar todas las etiquetas `input` dentro de una tabla:
 
 ```html run height=50
 <table id="table">
   <tr>
-    <td>Your age:</td>
+    <td>Su edad:</td>
 
     <td>
       <label>
-        <input type="radio" name="age" value="young" checked> less than 18
+        <input type="radio" name="age" value="young" checked> menos de 18
       </label>
       <label>
-        <input type="radio" name="age" value="mature"> from 18 to 50
+        <input type="radio" name="age" value="mature"> de 18 a 50
       </label>
       <label>
-        <input type="radio" name="age" value="senior"> more than 60
+        <input type="radio" name="age" value="senior"> más de 60
       </label>
     </td>
   </tr>
@@ -218,66 +218,66 @@ Let's find all `input` tags inside the table:
 </script>
 ```
 
-```warn header="Don't forget the `\"s\"` letter!"
-Novice developers sometimes forget the letter `"s"`. That is, they try to call `getElementByTagName` instead of <code>getElement<b>s</b>ByTagName</code>.
+```warn header="¡No olvides la letra `\"s\"`!"
+Los desarrolladores novatos a veces olvidan la letra `"s"`. Esto es, intentan llamar a `getElementByTagName` en vez de a <code>getElement<b>s</b>ByTagName</code>.
 
-The `"s"` letter is absent in `getElementById`, because it returns a single element. But `getElementsByTagName` returns a collection of elements, so there's `"s"` inside.
+La letra `"s"` no se encuentra en `getElementById` porque devuelve sólo un elemento. But `getElementsByTagName` devuelve una colección de elementos, de ahí que tenga la `"s"`.
 ```
 
-````warn header="It returns a collection, not an element!"
-Another widespread novice mistake is to write:
+````warn header="¡Devuelve una colección, no un elemento!"
+Otro error muy extendido entre los desarrolladores novatos es escribir:
 
 ```js
-// doesn't work
+// no funciona
 document.getElementsByTagName('input').value = 5;
 ```
 
-That won't work, because it takes a *collection* of inputs and assigns the value to it rather than to elements inside it.
+Esto no funcionará, porque toma una *collection* de inputs y le asigna el valor a ella en lugar de a los elementos dentro de ella.
 
-We should either iterate over the collection or get an element by its index, and then assign, like this:
+En dicho caso, deberíamos iterar sobre la colección o conseguir un elemento por su índice y luego asignarlo así: 
 
 ```js
-// should work (if there's an input)
+// debería funcionar (si hay un input)
 document.getElementsByTagName('input')[0].value = 5;
 ```
 ````
 
-Looking for `.article` elements:
+Buscando elementos `.article`:
 
 ```html run height=50
 <form name="my-form">
-  <div class="article">Article</div>
-  <div class="long article">Long article</div>
+  <div class="article">Artículo</div>
+  <div class="long article">Artículo largo</div>
 </form>
 
 <script>
-  // find by name attribute
+  // encontrar por atributo de nombre
   let form = document.getElementsByName('my-form')[0];
 
-  // find by class inside the form
+  // encontrar por clase dentro del formulario
   let articles = form.getElementsByClassName('article');
-  alert(articles.length); // 2, found two elements with class "article"
+  alert(articles.length); // 2, encontró dos elementos con la clase "article"
 </script>
 ```
 
-## Live collections
+## Colecciones vivas
 
-All methods `"getElementsBy*"` return a *live* collection. Such collections always reflect the current state of the document and "auto-update" when it changes.
+Todos los métodos `"getElementsBy*"` devuelve una colección *live* viva. Tales colecciones siempre reflejan el estado actual del documento y se "auto-actualizan" cuando cambia. 
 
-In the example below, there are two scripts.
+En el siguiente ejemplo, hay dos scripts.
 
-1. The first one creates a reference to the collection of `<div>`. As of now, its length is `1`.
-2. The second scripts runs after the browser meets one more `<div>`, so its length is `2`.
+1. El primero crea una referencia a la colección de `<div>`. Por ahora, su longitud es `1`.
+2. El segundo scriptse ejecuta después de que el navegador se encuentre con otro `<div>`, por lo que su longitud es de `2`.
 
 ```html run
-<div>First div</div>
+<div>Primer div</div>
 
 <script>
   let divs = document.getElementsByTagName('div');
   alert(divs.length); // 1
 </script>
 
-<div>Second div</div>
+<div>Segundo div</div>
 
 <script>
 *!*
@@ -286,20 +286,20 @@ In the example below, there are two scripts.
 </script>
 ```
 
-In contrast, `querySelectorAll` returns a *static* collection. It's like a fixed array of elements.
+Por el contrario, `querySelectorAll` devuelve una colección *estática*. Es como un array de elementos fijos.
 
-If we use it instead, then both scripts output `1`:
+Si lo utilizamos en lugar de `getElementsByTagName`, entonces ambos scripts dan como resultado `1`:
 
 
 ```html run
-<div>First div</div>
+<div>Primer div</div>
 
 <script>
   let divs = document.querySelectorAll('div');
   alert(divs.length); // 1
 </script>
 
-<div>Second div</div>
+<div>Segundo div</div>
 
 <script>
 *!*
@@ -308,31 +308,31 @@ If we use it instead, then both scripts output `1`:
 </script>
 ```
 
-Now we can easily see the difference. The static collection did not increase after the appearance of a new `div` in the document.
+Ahora podemos ver fácilmente la diferencia. La colección estática no aumentó después de la aparición de un nuevo `div` en el documento.
 
-## Summary
+## Resumen
 
-There are 6 main methods to search for nodes in DOM:
+Hay 6 métodos principales para buscar nodos en el DOM:
 
 <table>
 <thead>
 <tr>
-<td>Method</td>
-<td>Searches by...</td>
-<td>Can call on an element?</td>
-<td>Live?</td>
+<td>Método</td>
+<td>Busca por...</td>
+<td>¿Puede llamar a un elemento?</td>
+<td>¿Vivo?</td>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>querySelector</code></td>
-<td>CSS-selector</td>
+<td>selector CSS</td>
 <td>✔</td>
 <td>-</td>
 </tr>
 <tr>
 <td><code>querySelectorAll</code></td>
-<td>CSS-selector</td>
+<td>selector CSS</td>
 <td>✔</td>
 <td>-</td>
 </tr>
@@ -350,7 +350,7 @@ There are 6 main methods to search for nodes in DOM:
 </tr>
 <tr>
 <td><code>getElementsByTagName</code></td>
-<td>tag or <code>'*'</code></td>
+<td>etiqueta o <code>'*'</code></td>
 <td>✔</td>
 <td>✔</td>
 </tr>
@@ -363,12 +363,12 @@ There are 6 main methods to search for nodes in DOM:
 </tbody>
 </table>
 
-By far the most used are `querySelector` and `querySelectorAll`, but `getElementBy*` can be sporadically helpful or found in the old scripts.
+Con diferencia, los más utilizadosson `querySelector` y `querySelectorAll`, pero `getElementBy*` puede ser de ayuda esporádicamente o encontrarse en scripts antiguos.
 
-Besides that:
+Aparte de eso:
 
-- There is `elem.matches(css)` to check if `elem` matches the given CSS selector.
-- There is `elem.closest(css)` to look for the nearest ancestor that matches the given CSS-selector. The `elem` itself is also checked.
+- Existe `elem.matches(css)` para comprobar si `elem` coincide con el selector CSS dado.
+- Existe `elem.closest(css)` para buscar el ancestro más cercano que coincida con el selector CSS dado. El propio `elem` también se comprueba.
 
-And let's mention one more method here to check for the child-parent relationship, as it's sometimes useful:
--  `elemA.contains(elemB)` returns true if `elemB` is inside `elemA` (a descendant of `elemA`) or when `elemA==elemB`.
+Y mencionemos un método más para comprobar la relación hijo-padre, ya que a veces es útil: 
+-  `elemA.contains(elemB)` devuelve true si `elemB` está dentro de `elemA` (un descendiente de `elemA`) o cuando `elemA==elemB`.
