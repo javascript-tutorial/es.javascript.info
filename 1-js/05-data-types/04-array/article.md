@@ -446,7 +446,7 @@ Los arrays son una clase especial de objeto, adecuados para almacenar y manejar 
     Un llamado a `new Array(number)` crea un array con la longitud dada, pero sin elementos.
 
 - La propiedad `length` es la longitud del array o, para ser preciso, el último índice numérico más uno. Se autoajusta al usar los métodos de array.
-- Si acortamos `length` manualmente, el array es truncado.
+- Si acortamos `length` manualmente, el array se trunca.
 
 Podemos usar un array como "bicola" con las siguientes operaciones:
 
