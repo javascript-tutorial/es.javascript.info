@@ -342,7 +342,7 @@ Nota que usualmente no usamos arrays de este modo.
 
 Otra cosa interesante acerca de la propiedad `length` es que se puede sobrescribir.
 
-Si la incrementamos manualmente, nada interesante ocurre. Pero si la decrementamos, el array es truncado.  El proceso es irreversible, aquí el ejemplo:
+Si la incrementamos manualmente, nada interesante ocurre. Pero si la decrementamos, el array se trunca.  El proceso es irreversible, aquí el ejemplo:
 
 ```js run
 let arr = [1, 2, 3, 4, 5];
