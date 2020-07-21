@@ -4,7 +4,7 @@ Los arrays (arreglos) cuentan con muchos métodos. Para hacer las cosas más sen
 
 ## Agregar/remover elementos
 
-Ya conocemos métodos que agregan o extraen elementos del inicio o final de un array:
+Ya conocemos algunos métodos que agregan o extraen elementos del inicio o final de un array:
 
 - `arr.push(...items)` -- agrega elementos al final,
 - `arr.pop()` -- extrae un elemento del final,
@@ -26,13 +26,13 @@ delete arr[1]; // remueve "a"
 
 alert( arr[1] ); // undefined
 
-// now arr = ["voy",  , "casa"];
+// ahora arr = ["voy",  , "casa"];
 alert( arr.length ); // 3
 ```
 
 El elemento fue removido pero el array todavía tiene 3 elementos, podemos comprobarlo en la línea `arr.length == 3`.
 
-Esto es porque `delete obj.key` borra el valor de la `key`. Es todo lo que hace. Funciona bien para objetos pero para arrays usualmente lo que buscamos es que el resto de los elemetos se muevan y ocupen el lugar libre. Lo que esperamos obtener es un array más corto.
+Esto es porque `delete obj.key` borra el valor de `key`. Es todo lo que hace. Funciona bien para objetos pero para arrays usualmente lo que buscamos es que el resto de los elemetos se muevan y ocupen el lugar libre. Lo que esperamos es un array más corto.
 
 Por lo tanto, necesitamos utilizar métodos especiales.
 
@@ -44,7 +44,7 @@ La sintáxis es:
 arr.splice(index[, deleteCount, elem1, ..., elemN])
 ```
 
-Comienza en el `index`: remueve `deleteCount` elementos y luego inserta `elem1, ..., elemN` en su lugar devolviendo un array con los elementos removidos.
+Comienza en el índice `index`: remueve `deleteCount` elementos y luego inserta `elem1, ..., elemN` en su lugar devolviendo un array con los elementos removidos.
 
 Este método es más fácil de entender con ejemplos.
 
@@ -60,7 +60,7 @@ arr.splice(1, 1); // desde el index 1 remover 1 elemento
 alert( arr ); // ["Yo", "JavaScript"]
 ```
 
-Fácil no? Empezando desde el índice `1` removió `1` elementos
+¿Fácil no? Empezando desde el índice `1` removió `1` elementos
 
 En el próximo ejemplo removemos 3 elementos y los reemplazamos con otros 2:
 
@@ -97,7 +97,7 @@ arr.splice(2, 0,"el", "complejo", "language");
 alert( arr ); // "Yo", "estudio","el", "complejo", "language", "JavaScript"
 ```
 
-````smart header="Negative indexes allowed"
+````smart header="Los índices negativos están permitidos"
 En este y en otros métodos de arrays, los índices negativos están permitidos. Estos índices indican la posición comenzando desde el final del array, de la siguiente manera:
 
 ```js run
@@ -122,7 +122,7 @@ La sintáxis es:
 arr.slice([principio], [final])
 ```
 
-Devuelve un nuevo array copiando en el mismo todos los elementos desde `principio` hasta `final` (sin incluir `final`). Ambos `principio` y `final` pueden ser negativos en cuyo caso se incluye la posición desde el final del array.
+Devuelve un nuevo array copiando en el mismo todos los elementos desde `principio` hasta `final` (sin incluir `final`). Ambos `principio` y `final` pueden ser negativos en cuyo caso si se incluye la posición final del array.
 
 Es similar al método para strings `str.slice`, pero en lugar de substrings genera subarrays.
 
@@ -136,7 +136,7 @@ alert( arr.slice(1, 3) ); // e,s (copia desde 1 hasta 3)
 alert( arr.slice(-2) ); // s,t (copia desde -2 hasta el final)
 ```
 
-También podemos invocarlo sin argumentos: `arr.slice()` crea una copia de `arr`.Usualmente esto se utiliza para obtener una copia para futuras transformaciones sin afectar al array original.
+También podemos invocarlo sin argumentos: `arr.slice()` crea una copia de `arr`.Usualmente esto se utiliza para obtener una copia para futuras transformaciones sin afectar el array original.
 
 ### concat
 
@@ -182,7 +182,7 @@ let arrayLike = {
 alert( arr.concat(arrayLike) ); // 1,2,[object Object]
 ```
 
-...Pero si un objeto similar a un array tiene una propiedad especial `Symbol.isConcatSpreadable`, entonces es tratado como un array por `concat` y en lugar de ser añadido como un todo, solo son añadidos sus elementos.
+...Pero si un objeto similar a un array tiene la propiedad especial `Symbol.isConcatSpreadable`, entonces es tratado como un array por `concat` y en lugar de ser añadido como un todo, solo son añadidos sus elementos.
 
 ```js run
 let arr = [1, 2];
@@ -199,7 +199,7 @@ let arrayLike = {
 alert( arr.concat(arrayLike) ); // 1,2,something,else
 ```
 
-## Iterate: forEach
+## Iteración: forEach
 
 El método [arr.forEach](mdn:js/Array/forEach) permite ejecutar una función a cada elemento del array.
 
@@ -228,7 +228,7 @@ Y este caso es más detallado acerca de la posición del elemento objetivo en el
 El resultado de la función (si es que lo hay) se descarta y se ignora.
 
 
-## Buscando en un array
+## Buscar dentro de un array
 
 Ahora vamos a ver métodos que buscan elementos dentro de un array.
 
@@ -238,7 +238,7 @@ Los métodos [arr.indexOf](mdn:js/Array/indexOf), [arr.lastIndexOf](mdn:js/Array
 
 - `arr.indexOf(item, from)` -- busca `item` comenzando desde el index `from`, y devuelve el index donde fue encontrado, es decir `-1`.
 - `arr.lastIndexOf(item, from)` -- igual que el anterior, pero busca de derecha a izquierda.
-- `arr.includes(item, from)` -- busca `item` comenzando desde el index `from`, devuelve `true` en caso de ser encontrado.
+- `arr.includes(item, from)` -- busca `item` comenzando desde el índice `from`, devuelve `true` en caso de ser encontrado.
 
 Por ejemplo:
 
@@ -249,7 +249,7 @@ alert( arr.indexOf(0) ); // 1
 alert( arr.indexOf(false) ); // 2
 alert( arr.indexOf(null) ); // -1
 
-alert( arr.includes(1) ); // true (verdadero)
+alert( arr.includes(1) ); // true
 ```
 
 Tener en cuenta que el método usa comparación estricta (`===`). Por lo tanto, si buscamos `false`, encontrará exactamente `false` y no cero.
@@ -261,7 +261,7 @@ Además, una pequeña diferencia de `includes` es que puede manejar correctament
 ```js run
 const arr = [NaN];
 alert( arr.indexOf(NaN) ); // -1 (debería ser 0, pero la igualdad === no funciona para NaN)
-alert( arr.includes(NaN) );// true (verdadero)
+alert( arr.includes(NaN) );// true
 ```
 
 ### find y findIndex
@@ -310,7 +310,7 @@ El método [arr.findIndex](mdn:js/Array/findIndex) es escencialmente lo mismo, p
 
 El método `find` busca un único elemento (el primero) que haga a la función devolver `true`.
 
-Ya existieran varios, podemos usar [arr.filter(fn)](mdn:js/Array/filter).
+Si existieran varios elementos que cumplen la condición, podemos usar [arr.filter(fn)](mdn:js/Array/filter).
 
 La sintáxis es similar a `find`, pero `filter` devuelve un array con todos los elementos encontrados:
 
@@ -380,7 +380,7 @@ alert( arr );  // *!*1, 15, 2*/!*
 
 ¿Notas algo extraño en los valores de salida?
 
-Los elementos fueron reordenados a `1, 15, 2`. Pero por qué pasa esto?
+Los elementos fueron reordenados a `1, 15, 2`. ¿Pero por qué pasa esto?
 
 **Los elementos son ordenados como strings (cadenas de caracteres) por defecto**
 
@@ -388,7 +388,7 @@ Todos los elementos son literalmente convertidos a string para ser comparados. E
 
 Para usar nuestro propio criterio de reordenamiento, necesitamos proporcionar una función como argumento de `arr.sort()`.
 
-La función debe comprar dos valores arbitrarios y devolver el resultado:
+La función debe comparar dos valores arbitrarios y devolver el resultado:
 ```js
 function compare(a, b) {
   if (a > b) return 1; // si el primer valor es mayor que el segundo
@@ -522,7 +522,7 @@ alert( str.split('') ); // t,e,s,t
 ```
 ````
 
-El llamado de [arr.join(glue)](mdn:js/Array/join) hace lo opuesto a `split`. Crea una string de `arr` elementos unidos por `pegamento` entre ellos.
+El llamado de [arr.join(glue)](mdn:js/Array/join) hace lo opuesto a `split`. Crea una string de `arr` elementos unidos con `pegamento` entre ellos.
 
 Por ejemplo:
 
@@ -538,7 +538,7 @@ alert( str ); // Bilbo;Gandalf;Nazgul
 
 Cuando necesitamos iterar sobre un array -- podemos usar `forEach`, `for` or `for..of`.
 
-Cuando ncesitamos iterar y devolver un valor por cada elemento -- podemos usar `map`.
+Cuando necesitamos iterar y devolver un valor por cada elemento -- podemos usar `map`.
 
 Los métodos [arr.reduce](mdn:js/Array/reduce) y [arr.reduceRight](mdn:js/Array/reduceRight) también pertenecen a ese grupo de acciones pero son un poco más complejos. Se los utiliza para calcular un único valor a partir del array.
 
@@ -641,10 +641,9 @@ Por eso `typeof` no ayuda a distinguir un objeto de un array:
 
 ```js run
 alert(typeof {}); // object
-alert(typeof []); // lo mismo
+alert(typeof []); // object
 ```
 
-...But arrays are used so often that there's a special method for that: [Array.isArray(value)](mdn:js/Array/isArray). It returns `true` if the `value` is an array, and `false` otherwise.
 ...Pero los arrays son utilizados tan a menudo que tienen un método especial: [Array.isArray(value)](mdn:js/Array/isArray). Este devuelve `true` si el `valor` es un array y `false` si no lo es.
 
 ```js run
@@ -657,7 +656,6 @@ alert(Array.isArray([])); // true
 
 Casi todos los métodos para arrays que realizan llamados a funciones -- como `find`, `filter`, `map`, con la notable excepción de `sort`, aceptan un parámetro opcional adicional `thisArg`.
 
-That parameter is not explained in the sections above, because it's rarely used. But for completeness we have to cover it.
 Ese parámetro no está explicado en la sección anterior porque es raramente usado. Pero para ser exhaustivos necesitamos verlo.
 
 Esta es la sintáxis completa de este método:
@@ -706,7 +704,7 @@ La llamada a `users.filter(army.canJoin, army)` puede ser reemplazada con `users
 
 ## Resumen
 
-Una cheat sheet de métodos de arrays:
+Veamos la cheat sheet ("ayuda memoria") de métodos para arrays:
 
 - Para agregar/remover elementos:
   - `push(...items)` -- agrega elementos al final,
@@ -742,7 +740,7 @@ Estos métodos son los más utilizados y cubren el 99% de los casos. Pero existe
 
 - [arr.some(fn)](mdn:js/Array/some)/[arr.every(fn)](mdn:js/Array/every) comprueba el array.
 
-  La función `fn` para cada elemento del array similar a `map`. Si alguno/todos los  resultados son `true`, devuelve `true`, sino `false`.
+  La función `fn` es llamada para cada elemento del array similar a `map`. Si alguno/todos los  resultados son `true`, devuelve `true`, sino `false`.
 
 - [arr.fill(value, start, end)](mdn:js/Array/fill) -- llena el array repitiendo `value` desde el índice `start` hasta `end`.
 
@@ -750,8 +748,8 @@ Estos métodos son los más utilizados y cubren el 99% de los casos. Pero existe
 
 Para la lista completa, ver [manual](mdn:js/Array).
 
-A primera vista puede parecer que hay demasiado métodos para aprender y un tanto difíciles de recordar. Pero con tiempo se vuelve más fácil.
+A primera vista puede parecer que hay demasiado métodos para aprender y un tanto difíciles de recordar. Pero con el tiempo se vuelve más fácil.
 
-Mirá a lo largo de la cheat sheet para tener un conocimiento de ellos. Después realiza las prácticas de este capítulo, así ganas experiencia con los métodos para arrays.
+Mira a lo largo de la cheat sheet para tener un conocimiento de ellos. Después realiza las prácticas de este capítulo, así ganas experiencia con los métodos para arrays.
 
-Después si en algún momento necesitas hacer algo con un array y no sabes como -- vuelve a esta página, mira la cheat sheet y encuentra el método correcto. Los ejemplos te ayudarán a escribirlos correctamente y pronto los recordarás automáticamente, sin esfuerzo de tu parte.
+Finalmente si en algún momento necesitas hacer algo con un array y no sabes como -- vuelve a esta página, mira la cheat sheet y encuentra el método correcto. Los ejemplos te ayudarán a escribirlos correctamente y pronto los recordarás automáticamente y sin esfuerzo.
