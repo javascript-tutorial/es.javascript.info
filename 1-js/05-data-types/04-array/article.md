@@ -23,7 +23,7 @@ Casi siempre se usa la segunda. Podemos suministrar elementos iniciales entre lo
 let fruits = ["Apple", "Orange", "Plum"];
 ```
 
-Los elementoss del array están numerados, comenzando desde cero.
+Los elementos del array están numerados comenzando desde cero.
 
 Podemos obtener un elemento por su número entre corchetes:
 
