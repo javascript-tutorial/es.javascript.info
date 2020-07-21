@@ -253,7 +253,7 @@ La operación `shift` debe hacer 3 cosas:
 
 1. Remover el elemento con índice `0`.
 2. Mover todos lo elementos hacia la izquierda y renumerarlos: desde el índice `1` a `0`, de `2` a `1` y así sucesivamente.
-3. Actualizar el largo: la propiedad `length`.
+3. Actualizar la longitud: la propiedad `length`.
 
 ![](array-shift.svg)
 
