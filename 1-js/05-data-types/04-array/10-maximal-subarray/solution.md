@@ -2,7 +2,7 @@
 
 Podemos calcular todas las subsumas.
 
-La más simple forma es tomar cada elemento y calcular las sumas de todos los subarrays que comienzan con él.
+La forma más simple es tomar cada elemento y calcular las sumas de todos los subarrays que comienzan con él.
 
 Por ejemplo, para `[-1, 2, 3, -9, 11]`:
 
