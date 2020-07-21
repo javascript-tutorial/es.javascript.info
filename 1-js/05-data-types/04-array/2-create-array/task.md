@@ -8,7 +8,7 @@ Tratemos 5 operaciones de array.
 
 1. Crear un array `styles` con los items "Jazz" y "Blues".
 2. Agregar "Rock-n-Roll" al final.
-3. Reemplazar el valor en el medio por "Classics". Tu código para encontrar el valor medio debe funcionar con cualquier array de largo impar.
+3. Reemplazar el valor en el medio por "Classics". Tu código para encontrar el valor medio debe funcionar con cualquier array de longitud impar.
 4. Quitar el primer valor del array y mostrarlo.
 5. Anteponer `Rap` y `Reggae` al array.
 
@@ -21,4 +21,3 @@ Jazz, Classics, Rock-n-Roll
 Classics, Rock-n-Roll
 Rap, Reggae, Classics, Rock-n-Roll
 ```
-
