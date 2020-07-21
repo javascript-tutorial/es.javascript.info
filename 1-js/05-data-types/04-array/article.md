@@ -367,7 +367,7 @@ let arr = *!*new Array*/!*("Apple", "Pear", "etc");
 
 Es raramente usada porque con corchetes `[]` es más corto. También hay una característica peculiar con ella.
 
-Si `new Array` es llamado con un único argumento numérico, se crea un array *sin items, pero con el largo "length" dado*.
+Si `new Array` es llamado con un único argumento numérico, se crea un array *sin items, pero con la longitud "length" dada*.
 
 Veamos cómo uno puede dispararse en el pie:
 
