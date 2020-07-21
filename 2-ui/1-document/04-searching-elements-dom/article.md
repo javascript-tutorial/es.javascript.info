@@ -363,7 +363,7 @@ Hay 6 métodos principales para buscar nodos en el DOM:
 </tbody>
 </table>
 
-Los más utilizados con diferencia son `querySelector` y `querySelectorAll`, pero `getElementBy*` puede ser de ayuda esporádicamente o encontrarse en scripts antiguos.
+Los más utilizados son `querySelector` y `querySelectorAll`, pero `getElementBy*` puede ser de ayuda esporádicamente o encontrarse en scripts antiguos.
 
 Aparte de eso:
 
