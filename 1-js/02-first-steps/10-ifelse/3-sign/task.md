@@ -2,7 +2,7 @@ importance: 2
 
 ---
 
-# Show the sign
+# Muestra el signo
 
 Usando el constructor `if..else`, escribe un código que obtenga a través de un `prompt` un número y entonces muestre en un `alert`:
 
