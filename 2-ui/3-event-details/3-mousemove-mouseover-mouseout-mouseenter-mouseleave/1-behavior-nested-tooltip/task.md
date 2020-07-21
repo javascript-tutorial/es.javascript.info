@@ -2,24 +2,24 @@ importance: 5
 
 ---
 
-# Improved tooltip behavior
+# Comportamiento mejorado de un tooltip
 
-Write JavaScript that shows a tooltip over an element with the attribute `data-tooltip`. The value of this attribute should become the tooltip text.
+Escribe JavaScript que muestre un tooltip sobre un elemento con el atributo `data-tooltip`. El valor de este atributo debe convertirse en el texto del tooltip.
 
-That's like the task <info:task/behavior-tooltip>, but here the annotated elements can be nested. The most deeply nested tooltip is shown.
+Es como la tarea <info:task/behavior-tooltip>, pero aquí los elementos anotados se pueden anidar. Los tooltips más internos se muestran.
 
-Only one tooltip may show up at the same time.
+Solamente un tooltip puede aparecer a la vez.
 
-For instance:
+Por ejemplo:
 
 ```html
-<div data-tooltip="Here – is the house interior" id="house">
-  <div data-tooltip="Here – is the roof" id="roof"></div>
+<div data-tooltip="Aquí – está el interior de la casa" id="house">
+  <div data-tooltip="Aquí – está el techo" id="roof"></div>
   ...
-  <a href="https://en.wikipedia.org/wiki/The_Three_Little_Pigs" data-tooltip="Read on…">Hover over me</a>
+  <a href="https://en.wikipedia.org/wiki/The_Three_Little_Pigs" data-tooltip="Continúa leyendo…">Colócate sobre mi</a>
 </div>
 ```
 
-The result in iframe:
+El resultado en el iframe:
 
 [iframe src="solution" height=300 border=1]

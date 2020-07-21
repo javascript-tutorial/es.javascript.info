@@ -1,1 +1,1 @@
-# Prototipos, herencia
+# Prototipos y herencia
