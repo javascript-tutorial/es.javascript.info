@@ -329,7 +329,7 @@ En general, no deberíamos usar `for..in` en arrays.
 
 La propiedad `length` automáticamente se actualiza cuando se modifica el array. Para ser precisos, no es la cuenta de valores del array sino el mayor índice más uno.
 
-Por ejemplo, un elemento simple con un índice grande da un largo grande:
+Por ejemplo, un elemento simple con un índice grande da una longitud grande:
 
 ```js run
 let fruits = [];
