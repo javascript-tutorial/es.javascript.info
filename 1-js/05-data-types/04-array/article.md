@@ -191,7 +191,7 @@ alert( fruits );
 
 Un array es una clase especial de objeto. Los corchetes usados para acceder a una propiedad `arr[0]` vienen de la sintaxis de objeto. Son esencialmente lo mismo que `obj[key]`, donde `arr` es el objeto mientras los números son usados como claves.
 
-Ellos extienden los objetos proveyendo métodos especiales para trabajar con colecciones ordenadas de datos y también la propiedad `length`. Pero el corazón es aún un objeto.
+Ellos extienden los objetos proveyendo métodos especiales para trabajar con colecciones ordenadas de datos y también la propiedad `length`. Pero en el corazón es aún un objeto.
 
 Recuerda, hay solo 7 tipos basicos en JavaScript. Array es un objeto y se comporta como un objeto..
 
