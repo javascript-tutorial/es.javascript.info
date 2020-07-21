@@ -121,7 +121,7 @@ Una pila es usualmente mostrada como un mazo de cartas, donde las nuevas cartas 
 
 Para las pilas, la última introducida es la primera en ser recibida, en inglés esto es llamado principio LIFO (Last-In-First-Out, última en entrar primera en salir). Para las colas, tenemos FIFO (First-In-First-Out primera en entrar, primera en salir).
 
-Los arrays en JavaScript pueden trabajar como colas o pilas. Ellos permiten agregar o quitar elementos a y desde el principio o a y desde el final.
+Los arrays en JavaScript pueden trabajar como colas o pilas. Ellos permiten agregar/quitar elementos al/del principio o al/del final.
 
 En ciencias de la computación la estructura de datos que permite esto se denomina cola de doble extremo o [bicola](https://es.wikipedia.org/wiki/Bicola).
 
@@ -133,7 +133,7 @@ En ciencias de la computación la estructura de datos que permite esto se denomi
     ```js run
     let fruits = ["Apple", "Orange", "Pear"];
 
-    alert( fruits.pop() ); // quita "Pear" y lo muestra
+    alert( fruits.pop() ); // quita "Pear" y lo muestra en un alert
 
     alert( fruits ); // Apple, Orange
     ```
@@ -187,7 +187,7 @@ fruits.unshift("Pineapple", "Lemon");
 alert( fruits );
 ```
 
-## Internamente
+## Interiores
 
 Un array es una clase especial de objeto. Los corchetes usados para acceder a una propiedad `arr[0]` vienen de la sintaxis de objeto. Son esencialmente lo mismo que `obj[key]`, donde `arr` es el objeto mientras los números son usados como claves.
 
@@ -218,7 +218,7 @@ Por ejemplo, técnicamente podemos hacer esto:
 ```js
 let fruits = []; // crea un array
 
-fruits[99999] = 5; // asigna una propiedad con un índice mucho mayor que su largo
+fruits[99999] = 5; // asigna una propiedad con un índice mucho mayor que su longitud
 
 fruits.age = 25; // crea una propiedad con un nombre arbitrario
 ```
@@ -376,7 +376,7 @@ let arr = new Array(2); // ¿Creará un array de [2]?
 
 alert( arr[0] ); // undefined! sin elementos.
 
-alert( arr.length ); // largo 2
+alert( arr.length ); // longitud 2
 ```
 
 En el código anterior, `new Array(number)` tiene todos los elementos `undefined`.
