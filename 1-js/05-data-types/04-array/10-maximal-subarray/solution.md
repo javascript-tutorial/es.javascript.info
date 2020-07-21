@@ -72,7 +72,7 @@ function getMaxSubSum(arr) {
   let maxSum = 0;
   let partialSum = 0;
 
-  for (let item of arr) { // para cada item de arr
+  for (let item of arr) { // por cada item de arr
     partialSum += item; // se lo suma a partialSum
     maxSum = Math.max(maxSum, partialSum); // registra el máximo
     if (partialSum < 0) partialSum = 0; // cero si se vuelve negativo
