@@ -10,6 +10,6 @@ Escribe una función `sumInput()` que:
 - Termine de pedirlos cuando el usuario entre un valor no numérico, una cadena vacía, o presione "Escape".
 - Calcule y devuelva la suma de los items del array.
 
-P.D. Un cero `0` es un número válido, por favor no detenga los ingresos con el cero.
+P.D. Un cero `0` es un número válido, por favor no detengas los ingresos con el cero.
 
 [demo]
