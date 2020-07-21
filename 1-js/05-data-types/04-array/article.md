@@ -47,7 +47,7 @@ fruits[2] = 'Pear'; // ahora ["Apple", "Orange", "Pear"]
 fruits[3] = 'Lemon'; // ahora ["Apple", "Orange", "Pear", "Lemon"]
 ```
 
-La cuenta total de elementos en el array es su largo `length`:
+La cuenta total de elementos en el array es su longitud `length`:
 
 ```js run
 let fruits = ["Apple", "Orange", "Plum"];
