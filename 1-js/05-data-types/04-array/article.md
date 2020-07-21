@@ -350,7 +350,7 @@ let arr = [1, 2, 3, 4, 5];
 arr.length = 2; // truncamos a 2 elementos
 alert( arr ); // [1, 2]
 
-arr.length = 5; // reponemos el largo length 
+arr.length = 5; // reponemos la longitud length 
 alert( arr[3] ); // undefined: el valor no se recupera
 ```
 
