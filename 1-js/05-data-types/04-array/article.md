@@ -443,7 +443,7 @@ Los arrays son una clase especial de objeto, adecuados para almacenar y manejar 
     let arr = new Array(item1, item2...);
     ```
 
-    Un llamado a `new Array(number)` crea un array con el largo dado, pero sin elementos.
+    Un llamado a `new Array(number)` crea un array con la longitud dada, pero sin elementos.
 
 - La propiedad `length` es el largo del array o, para ser preciso, el último índice numérico más uno. Se autoajusta al usar los métodos de array.
 - Si acortamos `length` manualmente, el array es truncado.
