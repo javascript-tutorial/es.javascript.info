@@ -159,7 +159,7 @@ En ciencias de la computación la estructura de datos que permite esto se denomi
     ```js run
     let fruits = ["Apple", "Orange", "Pear"];
 
-    alert( fruits.shift() ); // quita Apple y lo muestra
+    alert( fruits.shift() ); // quita Apple y lo muestra en una alerta
 
     alert( fruits ); // Orange, Pear
     ```
