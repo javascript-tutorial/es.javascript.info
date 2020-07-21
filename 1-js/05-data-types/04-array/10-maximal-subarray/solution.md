@@ -57,7 +57,7 @@ alert( getMaxSubSum([1, 2, 3]) ); // 6
 alert( getMaxSubSum([100, -9, 2, -3, 5]) ); // 100
 ```
 
-La solución tiene una complejidad 2 en notación Landau (coste respecto al tiempo) [O(n<sup>2</sup>)](https://es.wikipedia.org/wiki/Notaci%C3%B3n_de_Landau). Es decir, si multiplicamos el tamaño del array por 2, el tiempo del algoritmo se multiplicará por 4.
+La solución tiene una complejidad 2 en notación Landau [O(n<sup>2</sup>)](https://es.wikipedia.org/wiki/Notaci%C3%B3n_de_Landau) (coste respecto al tiempo). Es decir, si multiplicamos el tamaño del array por 2, el tiempo del algoritmo se multiplicará por 4.
 
 Para arrays muy grandes (1000, 10000 o más items) tales algoritmos llevarán a una severa lentitud.
 
