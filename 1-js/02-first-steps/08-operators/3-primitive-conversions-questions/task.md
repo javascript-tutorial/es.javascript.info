@@ -24,4 +24,4 @@ undefined + 1
 " \t \n" - 2
 ```
 
-Piensa bien, anotalos y luego compara con la respuesta.
+Piensa bien, anótalos y luego compara con la respuesta.
