@@ -10,7 +10,7 @@ La respuesta es:
 let a = 1, b = 1;
 
 alert( ++a ); // 2, como prefijo devuelve el valor nuevo
-alert( b++ ); // 1, forma sufijo devuelve el antiguo valor
+alert( b++ ); // 1, como sufijo devuelve el antiguo valor
 
 alert( a ); // 2, incrementado una vez
 alert( b ); // 2, incrementado una vez
