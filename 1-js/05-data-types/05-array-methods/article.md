@@ -748,7 +748,7 @@ Estos métodos son los más utilizados y cubren el 99% de los casos. Pero existe
 
 Para la lista completa, ver [manual](mdn:js/Array).
 
-A primera vista puede parecer que hay demasiado métodos para aprender y un tanto difíciles de recordar. Pero con el tiempo se vuelve más fácil.
+A primera vista puede parecer que hay demasiados métodos para aprender y un tanto difíciles de recordar. Pero con el tiempo se vuelve más fácil.
 
 Mira a lo largo de la cheat sheet para tener un conocimiento de ellos. Después realiza las prácticas de este capítulo, así ganas experiencia con los métodos para arrays.
 
