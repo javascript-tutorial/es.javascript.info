@@ -215,7 +215,7 @@ Promise.race([
 ]).then(alert); // 1
 ```
 
-La primera promesa fue la más rápida, por lo que se vuelve resultado. Después de que la primera promesa se resuelve, "gana la carrera", y todos los resultados o errores posteriores son ignorados.
+La primera promesa fue la más rápida, por lo que se vuelve resultado. En cuanto una promesa responde, "gana la carrera", y todos los resultados o errores posteriores son ignorados.
 
 
 ## Promise.resolve/reject
