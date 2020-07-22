@@ -408,7 +408,7 @@ alert( n ); // 16  (lado derecho evaluado primero, lo mismo que n *= 8)
 
 ## Coma
 
-El operador coma `,` es uno de los operadores más raros e inusuales. Aveces, es utilizado para escribir código más corto, entonces tenemos que saberlo para poder entender qué está pasando.
+El operador coma `,` es uno de los operadores más raros e inusuales. A veces, es utilizado para escribir código más corto, entonces tenemos que saberlo para poder entender qué está pasando.
 
 El operador coma nos permite evaluar varias expresiones, dividiendolas con una coma `,`. Cada una de ellas es evaluada pero sólo el resultado de la última es devuelto.
 
