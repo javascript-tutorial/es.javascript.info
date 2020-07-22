@@ -183,7 +183,7 @@ La línea `var phrase = "Hello"` tiene dentro dos acciones:
 1. La declaración `var`
 2. La asignación `=`.
 
-La declaración es procesada al inicio de la ejecución de la función ("hoisted"), pero la asignación siempre se hace en el lugar donde aparece. Entonces lo que en escencia hace el código es:
+La declaración es procesada al inicio de la ejecución de la función ("hoisted"), pero la asignación siempre se hace en el lugar donde aparece. Entonces lo que en esencia hace el código es:
 
 ```js run
 function sayHi() {
