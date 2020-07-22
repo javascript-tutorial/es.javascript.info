@@ -1,6 +1,6 @@
-The call `arr[2]()` is syntactically the good old `obj[method]()`, in the role of `obj` we have `arr`, and in the role of `method` we have `2`.
+El llamado a `arr[2]()` es sintácticamente el buen y viejo `obj[method]()`, en el rol de `obj` tenemos `arr`, y en el rol de `method` tenemos `2`.
 
-So we have a call of the function `arr[2]` as an object method. Naturally, it receives `this` referencing the object `arr` and outputs the array:
+Entonces tenemos una llamada a función `arr[2]` como un método de objeto. Naturalmente, recibe `this` referenciando el objeto `arr` y su salida es el array:
 
 ```js run
 let arr = ["a", "b"];
@@ -12,4 +12,4 @@ arr.push(function() {
 arr[2](); // a,b,function(){...}
 ```
 
-The array has 3 values: initially it had two, plus the function. 
+El array tiene 3 valores: Iniciamente tenía 2 y se agregó la función. 
