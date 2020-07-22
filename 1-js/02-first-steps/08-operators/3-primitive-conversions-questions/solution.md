@@ -18,7 +18,7 @@ undefined + 1 = NaN // (6)
 ```
 
 1. La suma con una cadena `"" + 1` convierte `1` a un string: `"" + 1 = "1"`, y luego tenemos `"1" + 0`, la misma regla se aplica.
-2. La resta `-` (como la mayoría de las operaciones matemáticas) sólo funcionan con números, convierte una cadena vacía `""` a `0`.
+2. La resta `-` (como la mayoría de las operaciones matemáticas) sólo funciona con números, convierte una cadena vacía `""` a `0`.
 3. La suma con una cadena concatena el número `5` a la cadena.
 4. La resta siempre convierte a números, por lo tanto toma `"  -9  "` un número `-9` (ignorando los espacios que lo rodean).
 5. `null` se convierte en `0` después de la conversión numérica.
