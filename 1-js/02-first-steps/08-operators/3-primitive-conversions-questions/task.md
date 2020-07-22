@@ -2,7 +2,7 @@ importance: 5
 
 ---
 
-# Conversiones de Tipos
+# Conversiones de tipos
 
 ¿Cuáles son los resultados de estas expresiones?
 
@@ -24,4 +24,4 @@ undefined + 1
 " \t \n" - 2
 ```
 
-Piensa cuidadosamente, luego escribe los resultados y compáralos con la respuesta.
+Piensa bien, anotalos y luego compara con la respuesta.
