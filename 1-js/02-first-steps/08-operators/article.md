@@ -275,7 +275,7 @@ Los operadores `++` y `--` pueden ser colocados antes o después de una variable
 
 Ambas sentencias hacen la misma cosa: aumentar `counter` por `1`.
 
-Existe alguna diferencia? Si, pero solamente la podemos ver si utilizamos el valor devuelto de `++/--`.
+¿Existe alguna diferencia? Sí, pero solamente la podemos ver si utilizamos el valor devuelto de `++/--`.
 
 Aclaremos. Tal como conocemos, todos los operadores devuelven un valor. Incremento/decremento no es una excepción. La forma prefijo devuelve el nuevo valor mientras que la forma sufijo devuelve el valor anterior (antes del incremento/decremento).
 
