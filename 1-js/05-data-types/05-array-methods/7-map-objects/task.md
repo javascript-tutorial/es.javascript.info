@@ -33,5 +33,4 @@ alert( usersMapped[0].id ) // 1
 alert( usersMapped[0].fullName ) // John Smith
 ```
 
-So, actually you need to map one array of objects to another. Try using `=>` here. There's a small catch.
-Entonces, en realidad lo qie necesitas es map un array de objetos a otro. Intenta usar `=>` en este caso. Hay un pequeño truco.
+Entonces, en realidad lo que necesitas es mapear un array de objetos a otro. Intenta usar `=>` en este caso. Hay un pequeño truco.

@@ -4,7 +4,7 @@ importance: 5
 
 # Mapa a nombres
 
-Tienes un array de objetos `user`, cada uno tiene `user.name`. Escribe el códio que lo convierta en un array de nombres.
+Tienes un array de objetos `user`, cada uno tiene `user.name`. Escribe el código que lo convierta en un array de nombres.
 
 Por ejemplo:
 
