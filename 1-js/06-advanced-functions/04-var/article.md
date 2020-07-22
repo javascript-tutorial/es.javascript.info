@@ -249,7 +249,7 @@ function go() {
 
 Entonces, los paréntesis alrededor de la función es un truco para mostrarle a JavaScript que la función es creada en el contexto de otra expresión, y de allí lo de "expresión de función", que no necesita un nombre y puede ser llamada inmediatamente.
 
-Existen otra maneras de además de los paréntesis para decirle a JavaScript que queremos un expresión de función:
+Existen otras maneras además de los paréntesis para decirle a JavaScript que queremos un expresión de función:
 
 ```js run
 // Formas de crear IIFE
