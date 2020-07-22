@@ -225,7 +225,7 @@ Un IIFE se ve así:
 
 Aquí la expresión de función es creada e inmediatamente llamada. Entonces el código se ejecuta enseguida y con sus variables privadas propias.
 
-La expresión de función es encerrada en paréntesis `(function {...})`, porque cuando JavaScript se encuentra con `"function"` en el flujo de código principal lo entiende como el principio de una declaración de función. Pero una declaración de función debe tener un nombre, entonces ese código daría error:
+La expresión de función es encerrada entre paréntesis `(function {...})`, porque cuando JavaScript se encuentra con `"function"` en el flujo de código principal lo entiende como el principio de una declaración de función. Pero una declaración de función debe tener un nombre, entonces ese código daría error:
 
 ```js run
 // Trata de declarar e inmediatamente llamar una función
@@ -247,7 +247,7 @@ function go() {
 }(); // <-- no puede llamarse una declaración de función inmediatamente 
 ```
 
-Entonces, los paréntesis alrededor de la funciónen es un truco para mostrarle a JavaScript que la función es creada en el contexto de otra expresión, y de allí lo de "expresión de función": no necesita un nombre y puede ser llamada inmediatamente.
+Entonces, los paréntesis alrededor de la función es un truco para mostrarle a JavaScript que la función es creada en el contexto de otra expresión, y de allí lo de "expresión de función", que no necesita un nombre y puede ser llamada inmediatamente.
 
 Existen otra maneras de además de los paréntesis para decirle a JavaScript que queremos un expresión de función:
 
