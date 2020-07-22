@@ -1,6 +1,7 @@
-Let's walk the array items:
-- For each item we'll check if the resulting array already has that item.
+Recorramos los elementos dentro del array:
+- Para cada elemento vamos a comprobar si el array resultante ya tiene ese elemento.
 - If it is so, then ignore, otherwise add to results.
+- Si ya lo tiene ignora y continúa, sino, agrega el resultado.
 
 ```js run demo
 function unique(arr) {
@@ -22,18 +23,18 @@ let strings = ["Hare", "Krishna", "Hare", "Krishna",
 alert( unique(strings) ); // Hare, Krishna, :-O
 ```
 
-The code works, but there's a potential performance problem in it.
+El código funciona pero tiene un problema potencial de desempeño.
 
-The method `result.includes(str)` internally walks the array `result` and compares each element against `str` to find the match.
+El método `result.includes(str)` internamente recorre el array `result` y compara cada elemento con `str` para encontrar una coincidencia.
 
-So if there are `100` elements in `result` and no one matches `str`, then it will walk the whole `result` and do exactly `100` comparisons. And if `result` is large, like `10000`, then there would be `10000` comparisons.
+Por lo tanto, si hay `100` elementos en `result` y ninguno coincide con `str`, entonces habrá recorrido todo el array `result` y ejecutado `100` comparaciones. Y si `result` ies grande, como `10000`, entonces habrá `10000` comparaciones.
 
-That's not a problem by itself, because JavaScript engines are very fast, so walk `10000` array is a matter of microseconds.
+Esto no es un problema en sí mismo, porque los motores JavaScript son muy rápidos, por lo que recorrer `10000` elementos de un array solo le tomaría microsegundos.
 
-But we do such test for each element of `arr`, in the `for` loop.
+Pero ejecutamos dicha comprobación para cada elemento de `arr` en el loop `for`.
 
-So if `arr.length` is `10000` we'll have something like `10000*10000` = 100 millions of comparisons. That's a lot.
+Entonces si `arr.length` es `10000` vamos a tener algo como `10000*10000` = 100 millones de comparaciones. Esto es realmente mucho.
 
-So the solution is only good for small arrays.
+Por lo que la solución solo es buena para arrays pequeños.
 
-Further in the chapter <info:map-set> we'll see how to optimize it.
+Más adelante en el capítulo <info:map-set> vamos a ver como optimizarlo.
