@@ -63,7 +63,7 @@ Para arrays muy grandes (1000, 10000 o más items) tales algoritmos llevarán a 
 
 # Solución rápida
 
-Recorramos el array y registremos la suma parcial corriente de los elementos en la variable `s`. Si `s` se vuelve cero en algún punto, le asignamos `s=0`. El máximo entre todas las sumas parciales `s` será la respuesta.
+Recorramos el array y registremos la suma parcial actual de los elementos en la variable `s`. Si `s` se vuelve cero en algún punto, le asignamos `s=0`. El máximo entre todas las sumas parciales `s` será la respuesta.
 
 Si la descripción te resulta demasiado vaga, por favor mira el código. Es bastante corto:
 
