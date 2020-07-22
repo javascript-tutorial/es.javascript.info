@@ -427,7 +427,7 @@ Aquí, se evalúa la primera expresión `1 + 2` y se desecha su resultado. Luego
 ```smart header="Coma tiene muy baja precedencia"
 Tenga en cuenta que el operador coma tiene una precedencia muy baja, inferior a `=`, por lo que los paréntesis son importantes en el ejemplo anterior.
 
-Sin ellos: `a = 1 + 2, 3 + 4` se evalua el `+` primero, sumando los números a `a = 3, 7`, luego el operador de asignación `=` asigna `a = 3`, y el resto es ignorado. Es igual que `(a = 1 + 2), 3 + 4`.
+Sin ellos: `a = 1 + 2, 3 + 4` se evalua primero el `+`, sumando los números a `a = 3, 7`, luego el operador de asignación `=` asigna `a = 3`, y el resto es ignorado. Es igual que `(a = 1 + 2), 3 + 4`.
 ```
 
 ¿Por qué necesitamos un operador que deseche todo excepto la última expresión?
