@@ -1,6 +1,6 @@
 # Métodos con arrays 
 
-Los arrays (arreglos) cuentan con muchos métodos. Para hacer las cosas más sencillas, en este capítulo se encuentran divididos en dos partes.
+Los arrays (arreglos / matríces) cuentan con muchos métodos. Para hacer las cosas más sencillas, en este capítulo se encuentran divididos en dos partes.
 
 ## Agregar/remover elementos
 
@@ -54,7 +54,7 @@ Empecemos removiendo elementos:
 let arr = ["Yo", "estudio", "JavaScript"];
 
 *!*
-arr.splice(1, 1); // desde el index 1 remover 1 elemento
+arr.splice(1, 1); // desde el índice 1 remover 1 elemento
 */!*
 
 alert( arr ); // ["Yo", "JavaScript"]
