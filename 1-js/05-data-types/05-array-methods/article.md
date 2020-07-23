@@ -614,7 +614,7 @@ alert( result ); // 15
 
 El resultado es el mismo. Esto es porque en el caso de no haber valor inicial, `reduce` toma el primer elemento del array como valor inicial y comienza la iteración a partir del segundo elemento.
 
-La tabla de calculos es igual a la anterior menos la primer fila.
+La tabla de cálculos es igual a la anterior menos la primer fila.
 
 Pero este tipo de uso requiere tener extremo cuidado. Si el array está vacío, entonces el llamado a `reduce` sin valor inicial devuelve error.
 
