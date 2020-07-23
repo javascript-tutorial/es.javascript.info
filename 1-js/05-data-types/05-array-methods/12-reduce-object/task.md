@@ -4,7 +4,7 @@ importance: 4
 
 # Crea un objeto con claves (key / property) a partir de un array
 
-Supongamos que recibimos un array de usuaris con la forma `{id:..., name:..., age... }`.
+Supongamos que recibimos un array de usuarios con la forma `{id:..., name:..., age... }`.
 
 Crea una función `groupById(arr)` que cree un objeto, con `id` como clave (key) y los elementos del array como valores.
 
