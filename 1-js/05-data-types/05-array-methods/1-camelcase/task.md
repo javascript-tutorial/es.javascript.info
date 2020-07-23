@@ -6,7 +6,7 @@ importance: 5
 
 Escribe la función `camelize(str)` que convierta palabras separadas por guión como "mi-cadena-corta" en palabras con mayúscula "miCadenaCorta".
 
-Esto sería: remover todos los guiónes y que cada palabra después de un guión comience con mayúscula.
+Esto sería: remover todos los guiones y que cada palabra después de un guión comience con mayúscula.
 
 Ejemplos:
 
