@@ -37,7 +37,7 @@ let usersMapped = users.map(user => *!*{*/!*
 
 Como recordarás, existen dos funciones arrow: sin cuerpo `value => expr` y con cuerpo `value => {...}`.
 
-Acá JavaScript tratará `{` como el inicio de cuerpo de la función, no el inicio del objeto. La manera de resolver esto es encerrarlo dentro de parétesis "normales":
+Acá JavaScript tratará `{` como el inicio de cuerpo de la función, no el inicio del objeto. La manera de resolver esto es encerrarlo dentro de paréntesis:
 
 ```js
 let usersMapped = users.map(user => *!*({*/!*
@@ -47,5 +47,4 @@ let usersMapped = users.map(user => *!*({*/!*
 ```
 
 Ahora funciona.
-
 
