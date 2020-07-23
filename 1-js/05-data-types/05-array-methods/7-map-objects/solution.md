@@ -25,7 +25,7 @@ alert( usersMapped[0].id ); // 1
 alert( usersMapped[0].fullName ); // John Smith
 ```
 
-Ten en cuenta que para las funciones arrow necesitamos usar paréntesis adiconales.
+Ten en cuenta que para las funciones arrow necesitamos usar paréntesis adicionales.
 
 No podemos escribirlo de la siguiente manera:
 ```js
@@ -47,4 +47,3 @@ let usersMapped = users.map(user => *!*({*/!*
 ```
 
 Ahora funciona.
-
