@@ -16,4 +16,4 @@ camelize("list-style-image") == 'listStyleImage';
 camelize("-webkit-transition") == 'WebkitTransition';
 ```
 
-P.D. Pista: usa `split` para dividir el string en un array, transformalo y vuelve a unirlo (`join`).
+P.D. Pista: usa `split` para dividir el string en un array, transfórmalo y vuelve a unirlo (`join`).
