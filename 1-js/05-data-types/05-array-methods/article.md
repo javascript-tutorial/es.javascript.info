@@ -658,7 +658,7 @@ Casi todos los métodos para arrays que realizan llamados a funciones -- como `f
 
 Ese parámetro no está explicado en la sección anterior porque es raramente usado. Pero para ser exhaustivos necesitamos verlo.
 
-Esta es la sintáxis completa de este método:
+Esta es la sintaxis completa de este método:
 
 ```js
 arr.find(func, thisArg);
