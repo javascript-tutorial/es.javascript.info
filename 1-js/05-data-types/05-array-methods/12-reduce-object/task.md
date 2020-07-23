@@ -2,7 +2,7 @@ importance: 4
 
 ---
 
-# Crea un objeto con claves (key / property) a partir de un array
+# Crea un objeto a partir de un array
 
 Supongamos que recibimos un array de usuarios con la forma `{id:..., name:..., age... }`.
 
