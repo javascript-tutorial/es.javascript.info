@@ -740,7 +740,7 @@ Estos métodos son los más utilizados y cubren el 99% de los casos. Pero existe
 
 - [arr.some(fn)](mdn:js/Array/some)/[arr.every(fn)](mdn:js/Array/every) comprueba el array.
 
-  La función `fn` es llamada para cada elemento del array similar a `map`. Si alguno/todos los  resultados son `true`, devuelve `true`, sino `false`.
+  La función `fn` es llamada para cada elemento del array de manera similar a `map`. Si alguno/todos los  resultados son `true`, devuelve `true`, si no, `false`.
 
 - [arr.fill(value, start, end)](mdn:js/Array/fill) -- llena el array repitiendo `value` desde el índice `start` hasta `end`.
 
