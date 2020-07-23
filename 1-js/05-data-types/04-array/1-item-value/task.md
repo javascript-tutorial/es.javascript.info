@@ -2,18 +2,18 @@ importance: 3
 
 ---
 
-# Is array copied?
+# ¿El array es copiado?
 
-What is this code going to show?
+¿Qué va a mostrar este código?
 
 ```js
 let fruits = ["Apples", "Pear", "Orange"];
 
-// push a new value into the "copy"
+// introduce un valor nuevo dentro de una copia
 let shoppingCart = fruits;
 shoppingCart.push("Banana");
 
-// what's in fruits?
-alert( fruits.length ); // ?
+// ¿Qué hay en "fruits"?
+alert( fruits.length ); // ¿?
 ```
 
