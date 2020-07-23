@@ -312,7 +312,7 @@ El método `find` busca un único elemento (el primero) que haga a la función d
 
 Si existieran varios elementos que cumplen la condición, podemos usar [arr.filter(fn)](mdn:js/Array/filter).
 
-La sintáxis es similar a `find`, pero `filter` devuelve un array con todos los elementos encontrados:
+La sintaxis es similar a `find`, pero `filter` devuelve un array con todos los elementos encontrados:
 
 ```js
 let results = arr.filter(function(item, index, array) {
