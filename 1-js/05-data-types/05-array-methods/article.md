@@ -421,7 +421,7 @@ Demos un paso al costado un momento y pensemos que es lo que está pasando. El a
 
 El método `arr.sort(fn)` implementa un algorito genérico de orden. No necesitamos preocuparnos de cómo funciona internamente (la mayoría de las veces es una forma optimizada del algoritmo [quicksort](https://es.wikipedia.org/wiki/Quicksort)). Este método va a recorrer el array, comparar sus elementos usando la función dada y, finalmente, reordenarlos. Todo los que necesitamos hacer es proveer la `fn` que realiza la comparación.
 
-Por cierto, si alguna vez queremos saber que elementos son comparados -- nada nos impide ejecutar alert() en ellos:
+Por cierto, si alguna vez queremos saber qué elementos son comparados -- nada nos impide ejecutar alert() en ellos:
 
 ```js run
 [1, -2, 15, 2, 0, 8].sort(function(a, b) {
