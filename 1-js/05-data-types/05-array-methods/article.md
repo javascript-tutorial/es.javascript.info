@@ -522,7 +522,7 @@ alert( str.split('') ); // t,e,s,t
 ```
 ````
 
-El llamado de [arr.join(glue)](mdn:js/Array/join) hace lo opuesto a `split`. Crea una string de `arr` elementos unidos con `pegamento` entre ellos.
+El llamado de [arr.join(glue)](mdn:js/Array/join) hace lo opuesto a `split`. Crea una string de `arr` elementos unidos con `glue` entre ellos.
 
 Por ejemplo:
 
