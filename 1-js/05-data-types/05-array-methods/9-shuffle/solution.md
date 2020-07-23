@@ -123,6 +123,6 @@ La salida del ejemplo:
 321: 166316
 ```
 
-Ahora si se ve bien: todas las permutaciones aparecen con la misma probabilidad.
+Ahora sí se ve bien: todas las permutaciones aparecen con la misma probabilidad.
 
 Además, en cuanto al rendimiento el algoritmo de Fisher-Yates es mucho mejor, no hay "ordenamiento" superpuesto.
