@@ -415,7 +415,7 @@ arr.sort(compareNumeric);
 alert(arr);  // *!*1, 2, 15*/!*
 ```
 
-Ahora si funciona como esparabamos.
+Ahora sí funciona como esperábamos.
 
 Demos un paso al costado un momento y pensemos que es lo que está pasando. El array `arr` puede ser un array de cualquier cosa no? Puede contener números, strings, objetos o lo que sea. Podemos decir que tenemos un conjunto de *ciertos items*. Para ordenarlos, necesitamos una *función de orden* que sepa como comparar los elementos. El orden por defecto es hacerlo como strings.
 
