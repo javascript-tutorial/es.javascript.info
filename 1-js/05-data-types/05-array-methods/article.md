@@ -704,7 +704,7 @@ La llamada a `users.filter(army.canJoin, army)` puede ser reemplazada con `users
 
 ## Resumen
 
-Veamos la cheat sheet ("ayuda memoria") de métodos para arrays:
+Veamos el ayudamemoria de métodos para arrays:
 
 - Para agregar/remover elementos:
   - `push(...items)` -- agrega elementos al final,
