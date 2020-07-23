@@ -54,7 +54,7 @@ alert( user.name ); // John
 alert( user.age ); // 30
 ```
 
-The value can be of any type. Let's add a boolean one:
+El valor puede ser de cualquier tipo. Agreguemos uno booleano:
 
 ```js
 user.isAdmin = true;
@@ -62,7 +62,7 @@ user.isAdmin = true;
 
 ![user object 2](object-user-isadmin.svg)
 
-To remove a property, we can use `delete` operator:
+Para remover una propiedad podemos usar el operador `delete`:
 
 ```js
 delete user.age;
@@ -70,32 +70,32 @@ delete user.age;
 
 ![user object 3](object-user-delete.svg)
 
-We can also use multiword property names, but then they must be quoted:
+También podemos nombrar propiedades con más de una plabra (*multiword*). Pero, de ser así, debemos citarlos `"..."`:
 
 ```js
 let user = {
   name: "John",
   age: 30,
-  "likes birds": true  // multiword property name must be quoted
+  "likes birds": true  // Las claves multiword deben ir citadas
 };
 ```
 
 ![](object-user-props.svg)
 
 
-The last property in the list may end with a comma:
+La última propiedad en la lista puede terminar con una coma:
 ```js
 let user = {
   name: "John",
   age: 30*!*,*/!*
 }
 ```
-That is called a "trailing" or "hanging" comma. Makes it easier to add/remove/move around properties, because all lines become alike.
+Eso se llama una coma "final" o "colgante". Facilita agregar / eliminar / mover propiedades, porque todas las líneas se vuelven iguales.
 
-````smart header="Object with const can be changed"
-Please note: an object declared as `const` *can* be modified.
+````smart header="Los objetos con *const* pueden cambiarse"
+Toma en cuenta: un objeto declarado con `const` *puede* ser modificado.
 
-For instance:
+Por ejemplo:
 
 ```js run
 const user = {
@@ -109,55 +109,55 @@ user.name = "Pete"; // (*)
 alert(user.name); // Pete
 ```
 
-It might seem that the line `(*)` would cause an error, but no. The `const` fixes the value of `user`, but not its contents.
+Podría parecer que la linea `(*)` ocasiona un error, pero no. El `const` corrige el valor de `user` pero no su contenido.
 
-The `const` would give an error only if we try to set `user=...` as a whole.
+El `const` podría dar error solo si intentamos configurar `user=...` en lo absoluto.
 
-There's another way to make constant object properties, we'll cover it later in the chapter <info:property-descriptors>.
+Hay otra manera de crear propiedades de objeto constantes, las cubriremos después en el capítulo <info:property-descriptors>.
 ````
 
-## Square brackets
+## Corchetes
 
-For multiword properties, the dot access doesn't work:
+Para acceder a propiedades *multiword* la notación de punto no funciona:
 
 ```js run
-// this would give a syntax error
+// Esto nos daría un error de sintaxis
 user.likes birds = true
 ```
 
-JavaScript doesn't understand that. It thinks that we address `user.likes`, and then gives a syntax error when comes across unexpected `birds`.
+JavaScript no entiende eso. El piensa que hemos accedido a `user.likes` y entonces nos da un error de sintaxis cuando aparece el inesperado `birds`.
 
-The dot requires the key to be a valid variable identifier. That implies: contains no spaces, doesn't start with a digit and doesn't include special characters (`$` and `_` are allowed).
+El punto requiere que la clave sea un identificador de variable válido. Eso implica que: no contenga espacios, no comience con un dígito y no incluya caracteres especiales (`$` y `_` sí se permiten).
 
-There's an alternative "square bracket notation" that works with any string:
+Existe una "notación de corchetes" alternativa que funciona con cualquier string:
 
 ```js run
 let user = {};
 
-// set
+// configurando
 user["likes birds"] = true;
 
-// get
+// obteniendo
 alert(user["likes birds"]); // true
 
-// delete
+// eliminando
 delete user["likes birds"];
 ```
 
-Now everything is fine. Please note that the string inside the brackets is properly quoted (any type of quotes will do).
+Ahora todo está bien. Nota que el string dentro de los corchetes está adecuadamente citado (cualquier tipo de comillas serviría).
 
-Square brackets also provide a way to obtain the property name as the result of any expression -- as opposed to a literal string -- like from a variable as follows:
+Los corchetes también nos proveen de una forma para obtener el nombre de la propiedad como resultado de cualquier expresión como una variable -- en lugar de una cadena literal -- de la siguiente manera:
 
 ```js
 let key = "likes birds";
 
-// same as user["likes birds"] = true;
+// Tal cual: user["likes birds"] = true;
 user[key] = true;
 ```
 
-Here, the variable `key` may be calculated at run-time or depend on the user input. And then we use it to access the property. That gives us a great deal of flexibility.
+Aquí la variable `key` puede calcularse en tiempo de ejecución o depender de la entrada del usuario y luego lo usamos para acceder a la propiedad. Eso nos da mucha flexibilidad.
 
-For instance:
+Por ejemplo:
 
 ```js run
 let user = {
