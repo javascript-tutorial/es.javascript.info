@@ -33,4 +33,4 @@ La actividad consiste de dos partes.
 
 - Sin paréntesis ni expresiones complejas.
 - Los números y el operador deben estar delimitados por exactamente un espacio.
-- Puede haber manejo de errores si te gustaría agregarlo.
+- Puede haber manejo de errores si quisieras agregarlo.
