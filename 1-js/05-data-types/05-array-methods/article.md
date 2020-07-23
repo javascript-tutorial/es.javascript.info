@@ -446,7 +446,7 @@ alert(arr);  // *!*1, 2, 15*/!*
 ````
 
 ````smart header="Funciones arrow"
-Recuerdas las [arrow functions](info:arrow-functions-basics)? Podemos usarlas en este caso para un ordenamiento más prolijo:
+¿Recuerdas las [arrow functions](info:arrow-functions-basics)? Podemos usarlas en este caso para un ordenamiento más prolijo:
 
 ```js
 arr.sort( (a, b) => a - b );
