@@ -429,7 +429,7 @@ Por cierto, si alguna vez queremos saber qué elementos son comparados -- nada n
 });
 ```
 
-El algoritmo puede comparar un elemento con muchos otros en el proceso, pero trata de hacer las menos comparaciones posibles.
+El algoritmo puede comparar un elemento con muchos otros en el proceso, pero trata de hacer la menor cantidad de comparaciones posible.
 
 ````smart header="Una función de comparación puede devolver cualquier número"
 En realidad, una función de comparación solo es requerida para devolver un número positivo para "mayor" y uno negativo para "menor".
