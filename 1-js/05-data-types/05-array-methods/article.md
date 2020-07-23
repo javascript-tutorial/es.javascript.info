@@ -456,7 +456,7 @@ Esto funciona exactamente igual que la versión más larga de arriba.
 ````
 
 ````smart header="Usa `localeCompare` para strings"
-Recuerdas el algoritmo de comparación [strings](info:string#correct-comparisons)? Compara  letras por su código por defecto.
+¿Recuerdas el algoritmo de comparación [strings](info:string#correct-comparisons)? Compara  letras por su código por defecto.
 
 Para muchos alfabetos, es mejor usar el método `str.localeCompare` para ordenar correctamente letras como por ejemplo `Ö`.
 
