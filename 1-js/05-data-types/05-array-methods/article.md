@@ -419,7 +419,7 @@ Ahora sí funciona como esperábamos.
 
 Demos un paso al costado un momento y pensemos que es lo que está pasando. El array `arr` puede ser un array de cualquier cosa, ¿no? Puede contener números, strings, objetos o lo que sea. Podemos decir que tenemos un conjunto de *ciertos items*. Para ordenarlos, necesitamos una *función de orden* que sepa cómo comparar los elementos. El orden por defecto es hacerlo como strings.
 
-El método `arr.sort(fn)` implementa un algorito genérico de orden. No necesitamos preocuparnos de como funciona internamente (la mayoría de las veces es una forma optimizada del algoritmo [quicksort](https://es.wikipedia.org/wiki/Quicksort)). Este método va a recorrer el array, comparar sus elementos usando la función dada y finalmente, reordenarlos. Todo los que necesitamos hacer es proveer la `fn` que realiza la comparación.
+El método `arr.sort(fn)` implementa un algorito genérico de orden. No necesitamos preocuparnos de cómo funciona internamente (la mayoría de las veces es una forma optimizada del algoritmo [quicksort](https://es.wikipedia.org/wiki/Quicksort)). Este método va a recorrer el array, comparar sus elementos usando la función dada y, finalmente, reordenarlos. Todo los que necesitamos hacer es proveer la `fn` que realiza la comparación.
 
 Por cierto, si alguna vez queremos saber que elementos son comparados -- nada nos impide ejecutar alert() en ellos:
 
