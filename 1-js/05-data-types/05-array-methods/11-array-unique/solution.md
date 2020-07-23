@@ -1,7 +1,7 @@
 Recorramos los elementos dentro del array:
 - Para cada elemento vamos a comprobar si el array resultante ya tiene ese elemento.
 - If it is so, then ignore, otherwise add to results.
-- Si ya lo tiene ignora y continúa, sino, agrega el resultado.
+- Si ya lo tiene ignora y continúa, si no, agrega el resultado.
 
 ```js run demo
 function unique(arr) {
