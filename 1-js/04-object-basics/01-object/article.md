@@ -1,55 +1,55 @@
 
-# Objects
+# Objetos
 
-As we know from the chapter <info:types>, there are eight data types in JavaScript. Seven of them are called "primitive", because their values contain only a single thing (be it a string or a number or whatever).
+Como aprendimos desde el capítulo <info:types>, hay ocho tipos de datos en JavaScript. Siete de ellos se denominan "primitivos", porque sus valores contienen solo un dato (sea una cadena, un número o lo que sea).
 
-In contrast, objects are used to store keyed collections of various data and more complex entities. In JavaScript, objects penetrate almost every aspect of the language. So we must understand them first before going in-depth anywhere else.
+En contraste, los objetos son usados para almacenar colecciones aseguradas de varios datos y entidades más complejas. En JavaScript, los objetos penetran casi todos los aspectos del lenguaje. Por lo tanto, debemos comprenderlos primero antes de profundizar en cualquier otro lugar.
 
-An object can be created with figure brackets `{…}` with an optional list of *properties*. A property is a "key: value" pair, where `key` is a string (also called a "property name"), and `value` can be anything.
+Un objeto se puede crear usando corchetes `{…}` con una lista opcional de *propiedades*. Una propiedad es un par "clave: valor", donde `key` es una cadena (también llamada "nombre de la propiedad"), y `value` puede ser cualquier cosa.
 
-We can imagine an object as a cabinet with signed files. Every piece of data is stored in its file by the key. It's easy to find a file by its name or add/remove a file.
+Podemos imaginar un objeto como un gabinete con archivos firmados. Cada pieza de datos es almacenada en su archivo por la clave. Es fácil encontrar un archivo por su nombre o agregar / eliminar un archivo.
 
 ![](object.svg)
 
-An empty object ("empty cabinet") can be created using one of two syntaxes:
+Se puede crear un objeto vacío ("gabinete vacío") utilizando una de dos sintaxis:
 
 ```js
-let user = new Object(); // "object constructor" syntax
-let user = {};  // "object literal" syntax
+let user = new Object(); // cintaxis del "construtor de objetos"
+let user = {};  // sintaxis del "objeto literal"
 ```
 
 ![](object-user-empty.svg)
 
-Usually, the figure brackets `{...}` are used. That declaration is called an *object literal*.
+Regularmente, {...}se utilizan los corchetes. Esa declaración se llama *objeto literal*.
 
-## Literals and properties
+## Literales y propiedades
 
-We can immediately put some properties into `{...}` as "key: value" pairs:
+Podemos poner inmediatamente algunas propiedades dentro de `{...}` como pares "clave: valor":
 
 ```js
-let user = {     // an object
-  name: "John",  // by key "name" store value "John"
-  age: 30        // by key "age" store value 30
+let user = {     // un objeto
+  name: "John",  // Por la clave "name" se almacena el valor "John"
+  age: 30        // Por la clave "age" se almacena el valor 30
 };
 ```
 
-A property has a key (also known as "name" or "identifier") before the colon `":"` and a value to the right of it.
+Una propiedad tiene una clave (también conocida como "nombre" o "identificador") antes de los dos puntos `":"` y un valor a la derecha
 
-In the `user` object, there are two properties:
+En el objeto `user` hay dos propiedades:
 
-1. The first property has the name `"name"` and the value `"John"`.
-2. The second one has the name `"age"` and the value `30`.
+1. La primer propiedad tiene el nombre `"name"` y el valor `"John"`.
+2. La segunda tienen el nombre `"age"` y el valor `30`.
 
-The resulting `user` object can be imagined as a cabinet with two signed files labeled "name" and "age".
+El objeto `user` resultante puede ser imaginado como un gabinete con dos archivos firmados con las etiquetas "name" y "age".
 
 ![user object](object-user.svg)
 
-We can add, remove and read files from it any time.
+Podemos agregar, eliminar y leer archivos de ahí en cualquier momento.
 
-Property values are accessible using the dot notation:
+Se puede acceder a los valores de las propiedades utilizando la notación de punto:
 
 ```js
-// get property values of the object:
+// Obteniendo los valores de las propiedades del objeto:
 alert( user.name ); // John
 alert( user.age ); // 30
 ```
