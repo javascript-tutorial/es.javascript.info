@@ -4,7 +4,7 @@ importance: 4
 
 # Filtrar rango "en el lugar"
 
-Escrbe una función `filterRangeInPlace(arr, a, b)` que obtenga un array `arr` y remueva del mismo todos los valores excepto aquellos que se encuentran entre `a` y `b`. El test es: `a ≤ arr[i] ≤ b`.
+Escribe una función `filterRangeInPlace(arr, a, b)` que obtenga un array `arr` y remueva del mismo todos los valores excepto aquellos que se encuentran entre `a` y `b`. El test es: `a ≤ arr[i] ≤ b`.
 
 La función solo debe modificar el array. No debe devolver nada.
 
