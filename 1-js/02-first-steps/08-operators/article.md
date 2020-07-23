@@ -8,7 +8,7 @@ En este capítulo, nos vamos a concentrar en los aspectos de los operadores que 
 
 Antes de continuar, comprendamos la terminología común.
 
-- *Un operando* -- es a lo que se aplican los operadores. Por ejemplo, en la multiplicación de `5 * 2` hay dos operandos: el operando izquierdo es `5` y el operando derecho es `2`. A veces, la gente llama a estos "argumentos" en lugar de "operandos".
+- *Un operando* -- es a lo que se aplican los operadores. Por ejemplo, en la multiplicación de `5 * 2` hay dos operandos: el operando izquierdo es `5` y el operando derecho es `2`. A veces, la gente los llama "argumentos" en lugar de "operandos".
 - Un operador es *unario* si tiene un solo operando. Por ejemplo, la negación unaria `-` invierte el signo de un número:
 
     ```js run
