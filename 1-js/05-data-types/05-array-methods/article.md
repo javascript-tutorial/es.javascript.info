@@ -752,4 +752,4 @@ A primera vista puede parecer que hay demasiados métodos para aprender y un tan
 
 Mira a lo largo del ayudamemoria para tener un conocimiento de ellos. Después realiza las prácticas de este capítulo, así ganas experiencia con los métodos para arrays.
 
-Finalmente si en algún momento necesitas hacer algo con un array y no sabes como -- vuelve a esta página, mira la cheat sheet y encuentra el método correcto. Los ejemplos te ayudarán a escribirlos correctamente y pronto los recordarás automáticamente y sin esfuerzo.
+Finalmente si en algún momento necesitas hacer algo con un array y no sabes cómo -- vuelve a esta página, mira el ayudamemoria y encuentra el método correcto. Los ejemplos te ayudarán a escribirlos correctamente y pronto los recordarás automáticamente y sin esfuerzo.
