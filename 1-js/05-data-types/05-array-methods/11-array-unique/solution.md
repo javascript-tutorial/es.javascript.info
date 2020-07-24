@@ -27,7 +27,7 @@ El código funciona pero tiene un problema potencial de desempeño.
 
 El método `result.includes(str)` internamente recorre el array `result` y compara cada elemento con `str` para encontrar una coincidencia.
 
-Por lo tanto, si hay `100` elementos en `result` y ninguno coincide con `str`, entonces habrá recorrido todo el array `result` y ejecutado `100` comparaciones. Y si `result` ies grande, como `10000`, entonces habrá `10000` comparaciones.
+Por lo tanto, si hay `100` elementos en `result` y ninguno coincide con `str`, entonces habrá recorrido todo el array `result` y ejecutado `100` comparaciones. Y si `result` es tan grande como `10000`, entonces habrá `10000` comparaciones.
 
 Esto no es un problema en sí mismo, porque los motores JavaScript son muy rápidos, por lo que recorrer `10000` elementos de un array solo le tomaría microsegundos.
 
