@@ -229,7 +229,7 @@ Los corchetes son mucho más potentes que la notación de punto. Permiten cualqu
 
 Entonces, la mayoría de las veces, cuando los nombres de propiedad son conocidos y simples, se utiliza el punto. Y si necesitamos algo más complejo, entonces cambiamos a corchetes.
 
-## Taquigrafía de los valores de propiedad
+## Shorthand paraa valores de propiedad
 
 En el código real, a menudo usamos variables existentes como valores de los nombres de propiedades.
 
@@ -240,7 +240,7 @@ function makeUser(name, age) {
   return {
     name: name,
     age: age,
-    // ...other properties
+    // ...otras propiedades
   };
 }
 
@@ -248,40 +248,40 @@ let user = makeUser("John", 30);
 alert(user.name); // John
 ```
 
-In the example above, properties have the same names as variables. The use-case of making a property from a variable is so common, that there's a special *property value shorthand* to make it shorter.
+En el ejemplo anterior las propiedades tienen los mismos nombres que las variables. El uso de la creación de propiedades a partir de las variables es tan común que existe un *shorthand (abreviatura) para valores de propiedad* especial para acortarla.
 
-Instead of `name:name` we can just write `name`, like this:
+En lugar de `name:name`, simplemente podemos escribir `name`, tal cual:
 
 ```js
 function makeUser(name, age) {
 *!*
   return {
-    name, // same as name: name
-    age,  // same as age: age
+    name, // igual que name:name
+    age,  // igual que age:age
     // ...
   };
 */!*
 }
 ```
 
-We can use both normal properties and shorthands in the same object:
+Podemos usar ambos tipos de notación en un mismo objeto, la normal y el shorthand:
 
 ```js
 let user = {
-  name,  // same as name:name
+  name,  // igual que name:name
   age: 30
 };
 ```
 
 
-## Property names limitations
+## Limitaciones de nombres de propiedad
 
-As we already know, a variable cannot have a name equal to one of language-reserved words like "for", "let", "return" etc.
+Como ya sabemos, una variable no puede tener un nombre igual a una de las palabras reservadas del lenguaje como "for", "let", "return", etc.
 
-But for an object property, there's no such restriction:
+Pero para una propiedad de objeto no existe tal restricción:
 
 ```js run
-// these properties are all right
+// Estas propiedades están bien
 let obj = {
   for: 1,
   let: 2,
@@ -291,20 +291,20 @@ let obj = {
 alert( obj.for + obj.let + obj.return );  // 6
 ```
 
-In short, there are no limitations on property names. They can be any strings or symbols (a special type for identifiers, to be covered later).
+En resumen, no hay limitaciones en los nombres de propiedades. Pueden ser cadenas o símbolos (un tipo especial para identificadores que se cubrirán más adelante).
 
-Other types are automatically converted to strings.
+Otros tipos se convierten automáticamente en cadenas.
 
-For instance, a number `0` becomes a string `"0"` when used as a property key:
+Por ejemplo, un número `0` se convierte en cadena `"0"` cuando se usa como clave de propiedad:
 
 ```js run
 let obj = {
-  0: "test" // same as "0": "test"
+  0: "test" // igual que "0": "test"
 };
 
-// both alerts access the same property (the number 0 is converted to string "0")
+// ambos alerts acceden a la misma propiedad (el número 0 se convierte a una cadena "0")
 alert( obj["0"] ); // test
-alert( obj[0] ); // test (same property)
+alert( obj[0] ); // test (la misma propiedad)
 ```
 
 There's a minor gotcha with a special property named `__proto__`. We can't set it to a non-object value:
