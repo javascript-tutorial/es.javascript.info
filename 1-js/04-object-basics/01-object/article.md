@@ -194,29 +194,29 @@ let fruit = prompt("¿Qué fruta comprar?", "Manzana");
 
 let bag = {
 *!*
-  [fruit]: 5, // El nombre de la propiedad se toma de la variable fruit
+  [fruit]: 5, // El nombre de la propiedad se obtiene de la variable fruit
 */!*
 };
 
 alert( bag.apple ); // 5 si fruit es="apple"
 ```
 
-The meaning of a computed property is simple: `[fruit]` means that the property name should be taken from `fruit`.
+El significado de una propiedad calculada es simple: `[fruit]` significa que se debe tomar el nombre de la propiedad `fruit`.
 
-So, if a visitor enters `"apple"`, `bag` will become `{apple: 5}`.
+Entonces, si un visitante ingresa `"apple"`, `bag` se convertira en `{apple: 5}`.
 
-Essentially, that works the same as:
+Esencialmente esto funciona igual que:
 ```js run
-let fruit = prompt("Which fruit to buy?", "apple");
+let fruit = prompt("¿Qué fruta comprar?", "Manzana");
 let bag = {};
 
-// take property name from the fruit variable
+// Toma el nombre de la propiedad de la variable fruit
 bag[fruit] = 5;
 ```
 
-...But looks nicer.
+...Pero luce mejor.
 
-We can use more complex expressions inside square brackets:
+Podemos usar expresiones más complejas dentro de los corchetes:
 
 ```js
 let fruit = 'apple';
@@ -225,15 +225,15 @@ let bag = {
 };
 ```
 
-Square brackets are much more powerful than the dot notation. They allow any property names and variables. But they are also more cumbersome to write.
+Los corchetes son mucho más potentes que la notación de punto. Permiten cualquier nombre de propiedad y variables. Pero también son más engorrosos de escribir.
 
-So most of the time, when property names are known and simple, the dot is used. And if we need something more complex, then we switch to square brackets.
+Entonces, la mayoría de las veces, cuando los nombres de propiedad son conocidos y simples, se utiliza el punto. Y si necesitamos algo más complejo, entonces cambiamos a corchetes.
 
-## Property value shorthand
+## Taquigrafía de los valores de propiedad
 
-In real code we often use existing variables as values for property names.
+En el código real, a menudo usamos variables existentes como valores de los nombres de propiedades.
 
-For instance:
+Por ejemplo:
 
 ```js run
 function makeUser(name, age) {
