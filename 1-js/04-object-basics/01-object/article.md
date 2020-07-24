@@ -307,55 +307,55 @@ alert( obj["0"] ); // test
 alert( obj[0] ); // test (la misma propiedad)
 ```
 
-There's a minor gotcha with a special property named `__proto__`. We can't set it to a non-object value:
+Hay una pequeña sorpresa por una propiedad especial llamada `__proto__`. No podemos establecerlo dentro de un valor que no sea de objeto:
 
 ```js run
 let obj = {};
-obj.__proto__ = 5; // assign a number
-alert(obj.__proto__); // [object Object] - the value is an object, didn't work as intended
+obj.__proto__ = 5; // asignando un número
+alert(obj.__proto__); // [objeto Object] - el valor es un objeto, no funciona como se "debería"
 ```
 
-As we see from the code, the assignment to a primitive `5` is ignored.
+Como podemos ver en el código, se ignora la asignación a un primario `5`.
 
-We'll cover the special nature of `__proto__` in [subsequent chapters](info:prototype-inheritance), and suggest the [ways to fix](info:prototype-methods) such behavior.
+Veremos la naturaleza especial de `__proto__` en los [capítulos siguientes](info:prototype-inheritance), y sugeriremos las [formas de arreglar](info:prototype-methods) tal comportamiento.
 
-## Property existence test, "in" operator
+## La prueba de propiedad existente, el operador "in"
 
-A notable feature of objects in JavaScript, compared to many other languages, is that it's possible to access any property. There will be no error if the property doesn't exist!
+Una notable característica de los objetos en JavaScript, en comparación con muchos otros lenguajes, es que es posible acceder a cualquier propiedad. ¡No habrá error si la propiedad no existe!
 
-Reading a non-existing property just returns `undefined`. So we can easily test whether the property exists:
+La lectura de una propiedad no existente solo devuelve `undefined`. Así que podemos probar fácilmente si la propiedad existe:
 
 ```js run
 let user = {};
 
-alert( user.noSuchProperty === undefined ); // true means "no such property"
+alert( user.noSuchProperty === undefined ); // true significa que "no existe tal propiedad"
 ```
 
-There's also a special operator `"in"` for that.
+También existe un operador especial para ello: `"in"`.
 
-The syntax is:
+La sintaxis es:
 ```js
 "key" in object
 ```
 
-For instance:
+Por ejemplo:
 
 ```js run
 let user = { name: "John", age: 30 };
 
-alert( "age" in user ); // true, user.age exists
-alert( "blabla" in user ); // false, user.blabla doesn't exist
+alert( "age" in user ); // mostrará "true", user.age sí existe
+alert( "blabla" in user ); // mostará false, user.blabla no existe
 ```
 
-Please note that on the left side of `in` there must be a *property name*. That's usually a quoted string.
+Nota que a la izquierda de `in` debe estar el *nombre de la propiedad* que suele ser un string citado.
 
-If we omit quotes, that means a variable, it should contain the actual name to be tested. For instance:
+Si omitimos las comillas significa una variable. Esta variable debería contener el nombre real que será probado. Por ejemplo:
 
 ```js run
 let user = { age: 30 };
 
 let key = "age";
-alert( *!*key*/!* in user ); // true, property "age" exists
+alert( *!*key*/!* in user ); // true, porque su propiedad "age" si existe dentro del objeto
 ```
 
 Why does the `in` operator exist? Isn't it enough to compare against `undefined`?
