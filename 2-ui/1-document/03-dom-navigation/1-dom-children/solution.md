@@ -22,6 +22,6 @@ document.body.children[1]
 El segundo `<li>` (con Pete):
 
 ```js
-// obtener <ul>, y luego obtener su último elemento niño
+// obtener <ul>, y luego obtener su último elemento hijo
 document.body.lastElementChild.lastElementChild
 ```
