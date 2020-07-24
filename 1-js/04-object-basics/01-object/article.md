@@ -165,13 +165,13 @@ let user = {
   age: 30
 };
 
-let key = prompt("What do you want to know about the user?", "name");
+let key = prompt("¿Qué te gustaría saber acerca del usuario?", "name");
 
-// access by variable
-alert( user[key] ); // John (if enter "name")
+// acceso por medio de una variable
+alert( user[key] ); // John (si se ingresara "name")
 ```
 
-The dot notation cannot be used in a similar way:
+La notación de punto no puede ser usada de manera similar:
 
 ```js run
 let user = {
@@ -183,22 +183,22 @@ let key = "name";
 alert( user.key ) // undefined
 ```
 
-### Computed properties
+### Propiedades calculadas
 
-We can use square brackets in an object literal, when creating an object. That's called *computed properties*.
+Podemos usar corchetes en un objeto literal al crear un objeto. A esto se le llama  *propiedades calculadas*.
 
-For instance:
+Por ejemplo:
 
 ```js run
-let fruit = prompt("Which fruit to buy?", "apple");
+let fruit = prompt("¿Qué fruta comprar?", "Manzana");
 
 let bag = {
 *!*
-  [fruit]: 5, // the name of the property is taken from the variable fruit
+  [fruit]: 5, // El nombre de la propiedad se toma de la variable fruit
 */!*
 };
 
-alert( bag.apple ); // 5 if fruit="apple"
+alert( bag.apple ); // 5 si fruit es="apple"
 ```
 
 The meaning of a computed property is simple: `[fruit]` means that the property name should be taken from `fruit`.
