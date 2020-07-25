@@ -2,17 +2,17 @@ importance: 4
 
 ---
 
-# Filter range "in place"
+# Filtrar rango "en el lugar"
 
-Write a function `filterRangeInPlace(arr, a, b)` that gets an array `arr` and removes from it all values except those that are between `a` and `b`. The test is: `a ≤ arr[i] ≤ b`.
+Escribe una función `filterRangeInPlace(arr, a, b)` que obtenga un array `arr` y remueva del mismo todos los valores excepto aquellos que se encuentran entre `a` y `b`. El test es: `a ≤ arr[i] ≤ b`.
 
-The function should only modify the array. It should not return anything.
+La función solo debe modificar el array. No debe devolver nada.
 
-For instance:
+Por ejemplo:
 ```js
 let arr = [5, 3, 8, 1];
 
-filterRangeInPlace(arr, 1, 4); // removed the numbers except from 1 to 4
+filterRangeInPlace(arr, 1, 4); // remueve los números excepto aquellos entre 1 y 4
 
 alert( arr ); // [3, 1]
 ```
