@@ -1,7 +1,7 @@
 
 # La vieja "var"
 
-```smart header="Este artículo es para entender el código antiguo"
+```smart header="Este artículo es para entender código antiguo"
 La información en este artículo es útil para entender el código antiguo.
 
 Así no es como escribimos código moderno.
