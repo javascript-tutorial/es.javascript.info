@@ -162,7 +162,7 @@ Este comportamiento también se llama "hoisting" (elevamiento), porque todos los
 
 Entonces, en el ejemplo anterior, la rama `if (false)` nunca se ejecuta pero eso no tiene importancia. El `var` dentro es procesado al al iniciar la función, entonces al momento de `(*)` la variable existe.
 
-**Las declaraciones son "hoisted", pero las asignaciones no lo son.**
+**Las declaraciones son "hoisted" (elevadas), pero las asignaciones no lo son.**
 
 Es mejor demostrarlo con un ejemplo:
 
