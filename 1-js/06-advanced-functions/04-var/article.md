@@ -13,7 +13,7 @@ En el primer capítulo acerca de [variables](info:variables), mencionamos tres f
 2. `const`
 3. `var`
 
-La declaración `var` es similar a `let`. La mayoría de las veces podemos reemplazar `let` por `var` o viceversa y esperar que las cosas funcionen: 
+La declaración `var` es similar a `let`. Casi siempre podemos reemplazar `let` por `var` o viceversa y esperar que las cosas funcionen: 
 
 ```js run
 var message = "Hola";
@@ -26,9 +26,9 @@ Si no planeas encontrarte con tal código bien puedes saltar este capítulo o po
 
 Por otro lado, es importante entender las diferencias cuando se migra antiguo código de `var` a `let` para evitar extraños errores.
 
-# "var" no tiene alcance(visibilidad) de bloque.
+# "var" no tiene alcance (visibilidad) de bloque.
 
-Las variables declaradas con `var` tienen como entorno de visibilidad la función o bien son globales. Su visibilidad atraviesa los bloques.
+Las variables declaradas con `var` pueden: tener a la función como entorno de visibilidad, o bien ser globales. Su visibilidad atraviesa los bloques.
 
 Por ejemplo:
 
@@ -105,7 +105,7 @@ var user = "John"; // este "var" no hace nada (ya estaba declarado)
 alert(user); // John
 ```
 
-## Las variables "var" pueden ser declaradas debajo de su uso
+## Las variables "var" pueden ser usadas en líneas más arriba de donde son declaradas
 
 Las declaraciones `var` son procesadas cuando se inicia la función (o se inicia el script para las globales).
 
@@ -282,4 +282,4 @@ Hay dos diferencias principales entre `var` y `let/const`:
 
 Hay otra diferencia menor relacionada al objeto global que cubriremos en el siguiente capítulo.
 
-Estas diferencias hacen a `var` peor que `let` la mayoría de las veces. Las variables a nivel de bloque son mejores. Es por ello que `let` fue presentado en el estándar mucho tiempo atrás, y es ahora la forma principal (junto con `const`) de declarar una variable.
+Estas diferencias casi siempre hacen a `var` peor que `let`. Las variables a nivel de bloque son mejores. Es por ello que `let` fue presentado en el estándar mucho tiempo atrás, y es ahora la forma principal (junto con `const`) de declarar una variable.
