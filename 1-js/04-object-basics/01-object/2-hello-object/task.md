@@ -2,7 +2,7 @@ importance: 5
 
 ---
 
-# Hola objeto
+# Hola, objeto
 
 Escribe el código, una línea para cada acción:
 
