@@ -105,7 +105,7 @@ var user = "John"; // este "var" no hace nada (ya estaba declarado)
 alert(user); // John
 ```
 
-## Las variables "var" pueden ser usadas en líneas más arriba de donde son declaradas
+## Las variables "var" pueden ser usadas en líneas más arriba que el lugar en donde son declaradas
 
 Las declaraciones `var` son procesadas cuando se inicia la función (o se inicia el script para las globales).
 
