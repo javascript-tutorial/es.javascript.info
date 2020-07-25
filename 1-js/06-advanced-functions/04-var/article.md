@@ -209,7 +209,7 @@ En ambos ejemplos de arriba `alert` ejecuta sin un error, porque la variable `ph
 
 Como en el pasado solo existía `var`, y no había visibilidad a nivel de bloque, los programadores inventaron una manera de emularla. Lo que hicieron fue el llamado "expresiones de función inmediatamente invocadas (abreviado IIFE en inglés).
 
-No es algo que debiéramos usar estos días, pero puedes encontrarlas en viejo código.
+No es algo que debiéramos usar estos días, pero puedes encontrarlas en código antiguo.
 
 Un IIFE se ve así:
 
