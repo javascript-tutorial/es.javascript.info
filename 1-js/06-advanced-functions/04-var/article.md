@@ -229,7 +229,7 @@ La expresión de función es encerrada entre paréntesis `(function {...})`, por
 
 ```js run
 // Trata de declarar e inmediatamente llamar una función
-function() { // <-- Error: la intrucción de función requiere un nombre de función
+function() { // <-- Error: la instrucción de función requiere un nombre de función
 
   let message = "Hello";
 
