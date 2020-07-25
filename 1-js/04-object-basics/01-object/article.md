@@ -92,7 +92,7 @@ let user = {
 ```
 Eso se llama una coma "final" o "colgante". Facilita agregar / eliminar / mover propiedades, porque todas las líneas se vuelven iguales.
 
-````smart header="Los objetos con *const* pueden cambiarse"
+````smart header="Los objetos con const pueden cambiarse"
 Toma en cuenta: un objeto declarado con `const` *puede* ser modificado.
 
 Por ejemplo:
