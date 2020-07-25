@@ -24,7 +24,7 @@ Pero internamente `var` es una bestia diferente, originaria de muy viejas época
 
 Si no planeas encontrarte con tal código bien puedes saltear este capítulo o posponerlo, pero chances hay de que pueda morderte más tarde.
 
-Por otro lado, es importante entender las diferencias cuando se migra viejo código de `var` a `let` para evitar extraños errores.
+Por otro lado, es importante entender las diferencias cuando se migra antiguo código de `var` a `let` para evitar extraños errores.
 
 # "var" no tiene alcance(visibilidad) de bloque.
 
