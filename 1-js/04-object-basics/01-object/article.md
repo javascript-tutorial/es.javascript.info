@@ -20,7 +20,7 @@ let user = {};  // sintaxis de "objeto literal"
 
 ![](object-user-empty.svg)
 
-Regularmente, {...}se utilizan los corchetes. Esa declaración se llama *objeto literal*.
+Regularmente, {...} se utilizan los corchetes. Esa declaración se llama *objeto literal*.
 
 ## Literales y propiedades
 
