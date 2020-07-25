@@ -282,4 +282,4 @@ Hay dos diferencias principales entre `var` y `let/const`:
 
 Hay otra diferencia menor relacionada al objeto global que cubriremos en el siguiente capítulo.
 
-Estas diferencias hacen a `var` peor que `let` la mayoría de las veces. Las variables a nivel de bloque son una muy buena cosa. Es por ello que `let` fue presentado en el estándar mucho tiempo atrás, y es ahora la forma principal (junto con `const`) de declarar una variable.
+Estas diferencias hacen a `var` peor que `let` la mayoría de las veces. Las variables a nivel de bloque son mejores. Es por ello que `let` fue presentado en el estándar mucho tiempo atrás, y es ahora la forma principal (junto con `const`) de declarar una variable.
