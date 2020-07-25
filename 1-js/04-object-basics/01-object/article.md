@@ -40,7 +40,7 @@ En el objeto `user` hay dos propiedades:
 1. La primer propiedad tiene el nombre `"name"` y el valor `"John"`.
 2. La segunda tienen el nombre `"age"` y el valor `30`.
 
-El objeto `user` resultante puede ser imaginado como un gabinete con dos archivos firmados con las etiquetas "name" y "age".
+Podemos imaginar al objeto `user` resultante como un gabinete con dos archivos firmados con las etiquetas "name" y "age".
 
 ![user object](object-user.svg)
 
@@ -70,7 +70,7 @@ delete user.age;
 
 ![user object 3](object-user-delete.svg)
 
-También podemos nombrar propiedades con más de una plabra (*multiword*). Pero, de ser así, debemos citarlos `"..."`:
+También podemos nombrar propiedades con más de una plabra (*multiword*). Pero, de ser así, debemos colocarlos entre comillas `"..."`:
 
 ```js
 let user = {
@@ -90,7 +90,7 @@ let user = {
   age: 30*!*,*/!*
 }
 ```
-Eso se llama una coma "final" o "colgante". Facilita agregar / eliminar / mover propiedades, porque todas las líneas se vuelven iguales.
+Eso se llama una coma "final" o "colgante". Facilita agregar / eliminar / mover propiedades, porque todas las líneas se vuelven similares.
 
 ````smart header="Los objetos con const pueden cambiarse"
 Toma en cuenta: un objeto declarado con `const` *puede* ser modificado.
@@ -109,23 +109,23 @@ user.name = "Pete"; // (*)
 alert(user.name); // Pete
 ```
 
-Podría parecer que la linea `(*)` ocasiona un error, pero no. El `const` corrige el valor de `user` pero no su contenido.
+Puede parecer que la linea `(*)` ocasionaría un error, pero no. El `const` fija el valor de `user` pero no su contenido.
 
-El `const` podría dar error solo si intentamos configurar `user=...` en lo absoluto.
+El `const` podría dar error solo si intentamos asignar `user=...` en su totalidad.
 
-Hay otra manera de crear propiedades de objeto constantes, las cubriremos después en el capítulo <info:property-descriptors>.
+Hay otra manera de crear objetos con propiedades fijas, las veremos después en el capítulo <info:property-descriptors>.
 ````
 
 ## Corchetes
 
-Para acceder a propiedades *multiword* la notación de punto no funciona:
+Para acceder a propiedades de varias palabras la notación de punto no funciona:
 
 ```js run
 // Esto nos daría un error de sintaxis
 user.likes birds = true
 ```
 
-JavaScript no entiende eso. El piensa que hemos accedido a `user.likes` y entonces nos da un error de sintaxis cuando aparece el inesperado `birds`.
+JavaScript no entiende eso. Piensa que hemos accedido a `user.likes` y entonces nos da un error de sintaxis cuando aparece el inesperado `birds`.
 
 El punto requiere que la clave sea un identificador de variable válido. Eso implica que: no contenga espacios, no comience con un dígito y no incluya caracteres especiales (`$` y `_` sí se permiten).
 
