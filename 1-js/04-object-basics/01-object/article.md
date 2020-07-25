@@ -28,8 +28,8 @@ Podemos poner inmediatamente algunas propiedades dentro de `{...}` como pares "c
 
 ```js
 let user = {     // un objeto
-  name: "John",  // Por la clave "name" se almacena el valor "John"
-  age: 30        // Por la clave "age" se almacena el valor 30
+  name: "John",  // En la llave "name" se almacena el valor "John"
+  age: 30        // En la llave "age" se almacena el valor 30
 };
 ```
 
