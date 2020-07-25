@@ -109,7 +109,7 @@ alert(user); // John
 
 Las declaraciones `var` son procesadas cuando se inicia la función (o se inicia el script para las globales).
 
-En otras palabras, las variables `var` son definidas desde el inicio de la función, no importa dónde tal definición está (asumiendo que la definición no está en una función anidada).
+En otras palabras, las variables `var` son definidas desde el inicio de la función, no importa dónde esté tal definición (asumiendo que la definición no está en una función anidada).
 
 Entonces el código:
 
