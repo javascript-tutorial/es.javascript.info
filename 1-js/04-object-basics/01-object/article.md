@@ -76,7 +76,7 @@ También podemos nombrar propiedades con más de una plabra (*multiword*). Pero,
 let user = {
   name: "John",
   age: 30,
-  "likes birds": true  // Las claves multiword deben ir citadas
+  "likes birds": true  // Las claves multiword deben ir entre comillas
 };
 ```
 
