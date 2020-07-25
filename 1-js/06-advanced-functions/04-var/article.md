@@ -22,7 +22,7 @@ alert(message); // Hola
 
 Pero internamente `var` es una bestia diferente, originaria de muy viejas épocas. Generalmente no es usado en código moderno, pero aún habita en el antiguo.
 
-Si no planeas encontrarte con tal código bien puedes saltear este capítulo o posponerlo, pero chances hay de que pueda morderte más tarde.
+Si no planeas encontrarte con tal código bien puedes saltar este capítulo o posponerlo, pero hay posibilidades de que esta bestia pueda morderte más tarde.
 
 Por otro lado, es importante entender las diferencias cuando se migra antiguo código de `var` a `let` para evitar extraños errores.
 
