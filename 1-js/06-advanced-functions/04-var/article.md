@@ -277,7 +277,7 @@ En todos los casos de arriba declaramos una expresión de función y la ejecutam
 
 Hay dos diferencias principales entre `var` y `let/const`:
 
-1. Las variables `var` no tienen visibilidad de bloque, su mínimo de visibilidad es a nivel de función.
+1. Las variables `var` no tienen alcance de bloque, su mínimo de alcance es a nivel de función.
 2. Las declaraciones `var` son procesadas al inicio de la función (o del script para las globales) .
 
 Hay otra diferencia menor relacionada al objeto global que cubriremos en el siguiente capítulo.
