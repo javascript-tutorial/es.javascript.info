@@ -14,8 +14,8 @@ Podemos imaginar un objeto como un gabinete con archivos firmados. Cada pieza de
 Se puede crear un objeto vacío ("gabinete vacío") utilizando una de dos sintaxis:
 
 ```js
-let user = new Object(); // cintaxis del "construtor de objetos"
-let user = {};  // sintaxis del "objeto literal"
+let user = new Object(); // sintaxis de "construtor de objetos"
+let user = {};  // sintaxis de "objeto literal"
 ```
 
 ![](object-user-empty.svg)
