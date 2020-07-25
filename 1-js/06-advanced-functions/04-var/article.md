@@ -160,7 +160,7 @@ sayHi();
 
 Este comportamiento también se llama "hoisting" (elevamiento), porque todos los `var` son "hoisted" (elevados) hacia el tope de la función.
 
-Entonces, en el ejemplo anterior, la rama `if (false)` nunca se ejecuta pero eso no tiene importancia. El `var` dentro es procesado al al iniciar la función, entonces al momento de `(*)` la variable existe.
+Entonces, en el ejemplo anterior, la rama `if (false)` nunca se ejecuta pero eso no tiene importancia. El `var` dentro es procesado al iniciar la función, entonces al momento de `(*)` la variable existe.
 
 **Las declaraciones son "hoisted" (elevadas), pero las asignaciones no lo son.**
 
