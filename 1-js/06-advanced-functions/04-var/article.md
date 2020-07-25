@@ -26,7 +26,7 @@ Si no planeas encontrarte con tal código bien puedes saltear este capítulo o p
 
 Por otro lado, es importante entender las diferencias cuando se migra viejo código de `var` a `let` para evitar extraños errores.
 
-# "var" no tiene visibilidad de bloque.
+# "var" no tiene alcance(visibilidad) de bloque.
 
 Las variables declaradas con `var` tienen como entorno de visibilidad la función o bien son globales. Su visibilidad atraviesa los bloques.
 
