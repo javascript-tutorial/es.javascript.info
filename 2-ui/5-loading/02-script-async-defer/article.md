@@ -186,11 +186,11 @@ Pero hay algunas diferencias esenciales entre ellos:
 | `defer` | *Document order* (como va en el documento). |  Ejecuta después de que el documento es cargado y analizado (espera si es necesario). justo antes de el evento `DOMContentLoaded`. |
 
 ```warn header="La página sin scripts debe ser utilizable"
-Por favor ten en cuenta que si estas usando `defer` la página es vsible antes de que el script sea cargado.
+Por favor ten en cuenta que si estas usando `defer` la página es visible antes de que el script sea cargado.
 
-Por lo que el usuario tal vez pueda leer la página pero no algunos componentes gráficos problemente no esten listos.
+Por lo que el usuario tal vez pueda leer la página, pero algunos componentes gráficos problemente no esten listos.
 
-Debería haber algunos indicadores de "cargando" en lugares apropiados, y los botones deshabilitados deberian ser mostrados como tal, para que el usuario pueda ver claramente que esta listo y que no.
+Debería haber algunas señales de "cargando" en lugares apropiados y los botones deshabilitados deberían ser mostrados como tal para que el usuario pueda ver claramente que esta listo y que no.
 ```
 
-En la práctica, `defer` es usado para scripts que necesitan todo el DOM y/o el orden de ejecución es importante. Y `async` es usado para scripts independientes como contadores y anuncios, y el orden de ejecución no importa.
+En la práctica, `defer` es usado para scripts que necesitan todo el DOM y/o el orden de ejecución es importante. Y `async` es usado para scripts independientes como contadores y anuncios donde el orden de ejecución no importa.
