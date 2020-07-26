@@ -218,7 +218,7 @@ Los navegadores modernos también soportan la [API de Broadcast channel API](htt
 
 Los objetos de almacenaje web `localStorage` y `sessionStorage` permiten guardar pares de clave/valor en el navegador.
 - Tanto la `clave` como el `valor` deben ser strings, cadenas de texto.
-- El límite es de más de 2mb; depende del navegador.
+- El límite es de más de 5mb+; depende del navegador.
 - No expiran.
 - Los datos están vinculados al orígen (domínio/puerto/protocolo).
 

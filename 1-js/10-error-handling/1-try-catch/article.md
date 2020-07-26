@@ -363,7 +363,7 @@ La técnica de "rethrowing" puede explicarse con más detalle:
 
 1. Catch captura todos los errores.
 2. En el bloque `catch(err) {...}` analizamos el objeto error `err`.
-2. Si no sabemos cómo manejarlo, hacemos 'throw err`.
+3. Si no sabemos cómo manejarlo, hacemos 'throw err`.
 
 Por lo general, podemos verificar el tipo de error usando el operador `instanceof`:
 
