@@ -3,9 +3,9 @@
 
 Como aprendimos desde el capítulo <info:types>, hay ocho tipos de datos en JavaScript. Siete de ellos se denominan "primitivos", porque sus valores contienen solo un dato (sea un `string`, un número o lo que sea).
 
-En contraste, los objetos son usados para almacenar colecciones de varios datos y entidades más complejas asociados con un nombre clave. En JavaScript, los objetos penetran casi todos los aspectos del lenguaje. Por lo tanto, debemos comprenderlos primero antes de profundizar en cualquier otro lugar.
+En contraste, los objetos son usados para almacenar colecciones de varios datos y entidades más complejas asociados con un nombre clave. En JavaScript, los objetos penetran casi todos los aspectos del lenguaje. Por lo tanto, debemos comprenderlos primero antes de profundizar en cualquier otro lugar. llaves
 
-Podemos crear un objeto usando las llaves `{…}` con una lista opcional de *propiedades*. Una propiedad es un par "key:value", donde `key` es un string (también llamado "nombre clave"), y `value` puede ser cualquier cosa.
+Podemos crear un objeto usando las llaves `{…}` con una lista opcional de *propiedades*. Una propiedad es un par "key:value", donde `key` es un string (también llamado "nombre clave"), y `value` puede ser cualquier cosa. P.D. Para fines prácticos de la lección, nos referiremos a este par de conceptos como "clave:valor".
 
 Podemos imaginar un objeto como un gabinete con archivos firmados. Cada pieza de datos es almacenada en su archivo por la clave. Es fácil encontrar un archivo por su nombre o agregar / eliminar un archivo.
 
@@ -20,16 +20,16 @@ let user = {};  // sintaxis de "objeto literal"
 
 ![](object-user-empty.svg)
 
-Regularmente, {...} se utilizan los corchetes. Esa declaración se llama *objeto literal*.
+Regularmente, se utilizan las llaves `{...}`. Esa declaración se llama *objeto literal*.
 
 ## Literales y propiedades
 
-Podemos poner inmediatamente algunas propiedades dentro de `{...}` como pares "clave: valor":
+Podemos poner inmediatamente algunas propiedades dentro de `{...}` como pares "clave:valor":
 
 ```js
 let user = {     // un objeto
-  name: "John",  // En la llave "name" se almacena el valor "John"
-  age: 30        // En la llave "age" se almacena el valor 30
+  name: "John",  // En la clave "name" se almacena el valor "John"
+  age: 30        // En la clave "age" se almacena el valor 30
 };
 ```
 
@@ -37,8 +37,8 @@ Una propiedad tiene una clave (también conocida como "nombre" o "identificador"
 
 En el objeto `user` hay dos propiedades:
 
-1. La primer propiedad tiene el nombre `"name"` y el valor `"John"`.
-2. La segunda tienen el nombre `"age"` y el valor `30`.
+1. La primer propiedad tiene la clave `"name"` y el valor `"John"`.
+2. La segunda tienen la clave `"age"` y el valor `30`.
 
 Podemos imaginar al objeto `user` resultante como un gabinete con dos archivos firmados con las etiquetas "name" y "age".
 
@@ -70,13 +70,13 @@ delete user.age;
 
 ![user object 3](object-user-delete.svg)
 
-También podemos nombrar propiedades con más de una plabra (*multiword*). Pero, de ser así, debemos colocarlos entre comillas `"..."`:
+También podemos nombrar propiedades con más de una palabra. Pero, de ser así, debemos colocar la clave entre comillas `"..."`:
 
 ```js
 let user = {
   name: "John",
   age: 30,
-  "likes birds": true  // Las claves multiword deben ir entre comillas
+  "likes birds": true  // Las claves con más de una palabra deben ir entre comillas
 };
 ```
 
@@ -109,16 +109,16 @@ user.name = "Pete"; // (*)
 alert(user.name); // Pete
 ```
 
-Puede parecer que la linea `(*)` ocasionaría un error, pero no. El `const` fija el valor de `user` pero no su contenido.
+Puede parecer que la linea `(*)` ocasionaría un error, pero no. El `const` restablece el valor de `user` pero no su contenido.
 
-El `const` podría dar error solo si intentamos asignar `user=...` en su totalidad.
+El `const` podría dar error solo si intentamos asignar `user=...` en la totalidad de su contenido.
 
-Hay otra manera de crear objetos con propiedades fijas, las veremos después en el capítulo <info:property-descriptors>.
+Hay otra manera de crear objetos con propiedades constantes, las veremos después en el capítulo <info:property-descriptors>.
 ````
 
-## Corchetes
+## Llaves
 
-Para acceder a propiedades de varias palabras la notación de punto no funciona:
+La notación de punto no funciona para acceder a propiedades con claves de más de una palabra:
 
 ```js run
 // Esto nos daría un error de sintaxis
@@ -129,12 +129,12 @@ JavaScript no entiende eso. Piensa que hemos accedido a `user.likes` y entonces 
 
 El punto requiere que la clave sea un identificador de variable válido. Eso implica que: no contenga espacios, no comience con un dígito y no incluya caracteres especiales (`$` y `_` sí se permiten).
 
-Existe una "notación de corchetes" alternativa que funciona con cualquier string:
+Existe una "notación de llaves" alternativa que funciona con cualquier string:
 
 ```js run
 let user = {};
 
-// configurando
+// asignando
 user["likes birds"] = true;
 
 // obteniendo
@@ -144,9 +144,9 @@ alert(user["likes birds"]); // true
 delete user["likes birds"];
 ```
 
-Ahora todo está bien. Nota que el string dentro de los corchetes está adecuadamente citado (cualquier tipo de comillas serviría).
+Ahora todo está bien. Nota que el string dentro de las llaves está adecuadamente entre comillas (cualquier tipo de comillas servirían).
 
-Los corchetes también nos proveen de una forma para obtener el nombre de la propiedad como resultado de cualquier expresión como una variable -- en lugar de una cadena literal -- de la siguiente manera:
+Las llaves también nos proveen de una forma para obtener la clave de la propiedad como resultado de cualquier expresión como una variable -- en lugar de una cadena literal -- de la siguiente manera:
 
 ```js
 let key = "likes birds";
@@ -185,7 +185,7 @@ alert( user.key ) // undefined
 
 ### Propiedades calculadas
 
-Podemos usar corchetes en un objeto literal al crear un objeto. A esto se le llama  *propiedades calculadas*.
+Podemos usar llaves en un objeto literal al crear un objeto. A esto se le llama  *propiedades calculadas*.
 
 Por ejemplo:
 
@@ -201,7 +201,7 @@ let bag = {
 alert( bag.apple ); // 5 si fruit es="apple"
 ```
 
-El significado de una propiedad calculada es simple: `[fruit]` significa que se debe tomar el nombre de la propiedad `fruit`.
+El significado de una propiedad calculada es simple: `[fruit]` significa que se debe tomar la clave de la propiedad `fruit`.
 
 Entonces, si un visitante ingresa `"apple"`, `bag` se convertira en `{apple: 5}`.
 
@@ -216,7 +216,7 @@ bag[fruit] = 5;
 
 ...Pero luce mejor.
 
-Podemos usar expresiones más complejas dentro de los corchetes:
+Podemos usar expresiones más complejas dentro de las llaves:
 
 ```js
 let fruit = 'apple';
@@ -225,11 +225,11 @@ let bag = {
 };
 ```
 
-Los corchetes son mucho más potentes que la notación de punto. Permiten cualquier nombre de propiedad y variables. Pero también son más engorrosos de escribir.
+Las llaves son mucho más potentes que la notación de punto. Permiten cualquier nombre de propiedad y variables. Pero también son más engorrosos de escribir.
 
-Entonces, la mayoría de las veces, cuando los nombres de propiedad son conocidos y simples, se utiliza el punto. Y si necesitamos algo más complejo, entonces cambiamos a corchetes.
+Entonces, la mayoría de las veces, cuando los nombres de propiedad son conocidos y simples, se utiliza el punto. Y si necesitamos algo más complejo, entonces cambiamos a llaves.
 
-## Shorthand paraa valores de propiedad
+## Atajo para valores de propiedad
 
 En el código real, a menudo usamos variables existentes como valores de los nombres de propiedades.
 
@@ -248,7 +248,7 @@ let user = makeUser("John", 30);
 alert(user.name); // John
 ```
 
-En el ejemplo anterior las propiedades tienen los mismos nombres que las variables. El uso de la creación de propiedades a partir de las variables es tan común que existe un *shorthand (abreviatura) para valores de propiedad* especial para acortarla.
+En el ejemplo anterior las propiedades tienen los mismos nombres que las variables. El uso de variables para la creación de propiedades es tán común que existe un *atajo para valores de propiedad* especial para hacerla más corta.
 
 En lugar de `name:name`, simplemente podemos escribir `name`, tal cual:
 
@@ -264,7 +264,7 @@ function makeUser(name, age) {
 }
 ```
 
-Podemos usar ambos tipos de notación en un mismo objeto, la normal y el shorthand:
+Podemos usar ambos tipos de notación en un mismo objeto, la normal y el atajo:
 
 ```js
 let user = {
@@ -315,7 +315,7 @@ obj.__proto__ = 5; // asignando un número
 alert(obj.__proto__); // [objeto Object] - el valor es un objeto, no funciona como se "debería"
 ```
 
-Como podemos ver en el código, se ignora la asignación a un primario `5`.
+Como podemos ver en el código, se ignora la asignación de un valor primitivo `5`.
 
 Veremos la naturaleza especial de `__proto__` en los [capítulos siguientes](info:prototype-inheritance), y sugeriremos las [formas de arreglar](info:prototype-methods) tal comportamiento.
 
@@ -347,15 +347,15 @@ alert( "age" in user ); // mostrará "true", user.age sí existe
 alert( "blabla" in user ); // mostará false, user.blabla no existe
 ```
 
-Nota que a la izquierda de `in` debe estar el *nombre de la propiedad* que suele ser un string citado.
+Nota que a la izquierda de `in` debe estar el *nombre de la propiedad* que suele ser un string entre comillas.
 
-Si omitimos las comillas significa una variable. Esta variable debería almacenar el nombre real que será probado. Por ejemplo:
+Si omitimos las comillas significa una variable. Esta variable debería almacenar la clave real que será probado. Por ejemplo:
 
 ```js run
 let user = { age: 30 };
 
 let key = "age";
-alert( *!*key*/!* in user ); // true, porque su propiedad "age" si existe dentro del objeto
+alert( *!*key*/!* in user ); // true, porque su propiedad "age" sí existe dentro del objeto
 ```
 
 Pero... ¿Por qué existe el operador `in`? ¿No es suficiente comparar con `undefined`?
@@ -376,7 +376,7 @@ alert( "test" in obj ); //es true, ¡La propiedad sí existe!
 
 En el código anterior, la propiedad  `obj.test` técnicamente existe. Entonces el operador `in` funciona correctamente.
 
-Situaciones como esta suceden raramente ya que `undefined` no debe ser explícitamente asignado. Comunmente usamos `null` para valores "desconocidos" o "vacios". Por lo que el operdaor `in` es un invitado exótico en nuestro código.
+Situaciones como esta suceden raramente ya que `undefined` no debe ser explícitamente asignado. Comúnmente usamos `null` para valores "desconocidos" o "vacíos". Por lo que el operador `in` es un invitado exótico en nuestro código.
 
 
 ## El bucle "for..in" 
@@ -387,7 +387,7 @@ La sintaxis:
 
 ```js
 for (key in object) {
-  // se ejecuta e cuerpo para cada clave entre las propiedades del objeto
+  // se ejecuta el cuerpo para cada clave entre las propiedades del objeto
 }
 ```
 
@@ -410,13 +410,13 @@ for (let key in user) {
 
 Nota que todas las construcciones "for" nos permiten declarar variables para bucle dentro del bucle, como `let key` aquí.
 
-Además podriamos usar otros nombres de variables en lugar de `key`. Por ejemplo, `"for (let prop in obj)"` también se usa bastante.
+Además podríamos usar otros nombres de variables en lugar de `key`. Por ejemplo, `"for (let prop in obj)"` también se usa bastante.
 
 ### Ordenado como un objeto
 
-¿Los objetos son ordenados? Es decir, si creamos un bucle sobre un objeto, ¿obtenemos todas las propiedades en el mismo orden en el que se agregaron? ¿Podemos confiar en ello?
+¿Los objetos están ordenados? Es decir, si creamos un bucle sobre un objeto, ¿obtenemos todas las propiedades en el mismo orden en el que se agregaron? ¿Podemos confiar en ello?
 
-La respuesta corta es: "ordenados de una forma especial": las propiedades de enteros se ordenan, los demás aparecen en el orden de la creación. Entremos en detalle.
+La respuesta corta es: "ordenados de una forma especial": las propiedades de números números enteros se ordenan, los demás aparecen en el orden de la creación. Entremos en detalle.
 
 Como ejemplo, consideremos un objeto con códigos telefónicos:
 
@@ -443,15 +443,15 @@ Pero si ejecutamos el código, veremos una imagen totalmente diferente:
 - USA (1) va primero
 - Luego Switzerland (41) y así sucecivamente.
 
-Los códigos telefónicos van en orden ascendente porque son enteros. Entonces vemos  `1, 41, 44, 49`.
+Los códigos telefónicos van en orden ascendente porque son números enteros. Entonces vemos  `1, 41, 44, 49`.
 
-````smart header="¿Propiedades de enteros? ¿Qué es eso?"
-El término "propiedad de enteros" aquí significa que una cadena se puede convertir a y desde desde un entero sin nigún cambio.
+````smart header="¿Propiedades de números enteros? ¿Qué es eso?"
+El término "propiedad de números enteros" aquí significa que una cadena se puede convertir a y desde desde un entero sin nigún cambio.
 
 Entonces, "49" es un nombre de propiedad entero, porque cuando este se transforma a un entero y viceversa continua siendo el mismo. Pero "+49" y "1.2" no lo son:
 
 ```js run
-// Math.trunc es una función incorporada que elimina la parte decimal
+// Math.trunc es una función nativa que elimina la parte decimal
 alert( String(Math.trunc(Number("49"))) ); // "49", es igual, una propiedad entera
 alert( String(Math.trunc(Number("+49"))) ); // "49", no es igual "+49" ⇒ no es una propiedad entera
 alert( String(Math.trunc(Number("1.2"))) ); // "1", no es igual "1.2" ⇒ no es una propiedad entera
@@ -509,7 +509,7 @@ Para acceder a una propiedad, podemos usar:
 
 Operadores adicionales:
 - Para eliminar una propiedad: `delete obj.prop`.
--Para comprobar si existe una propiedad con la clave proporcionada: `"key" in obj`.
+- Para comprobar si existe una propiedad con la clave proporcionada: `"key" in obj`.
 - Para crear bluces sobre un objeto: bucle `for (let key in obj)`.
 
 Lo que hemos estudiado en este capítulo se llama "objeto simple", o solamente `Object`.
@@ -521,6 +521,6 @@ Hay muchos otros tipos de objetos en JavaScript:
 - `Error` para almacenar información sobre un error.
 - ...Y así.
 
-Tienen sus características especiales que estudiaremos más adelante. A veces las personas dicen algo como "Tipo de matriz" o "Tipo de fecha", pero formalmente no son tipos en sí, sino que pertenecen a un tipo de datos de "objeto" simple y lo amplian a varias maneras.
+Tienen sus características especiales que estudiaremos más adelante. A veces las personas dicen algo como "Tipo `array`" o "Tipo `date`", pero formalmente no son tipos en sí, sino que pertenecen a un tipo de datos de "objeto" simple y lo amplian a varias maneras.
 
 Los objetos en JavaScript son muy poderosos. Aquí acabamos de arañar la superficie de un tema que es realmente enorme. Trabajaremos estrechamente con los objetos y aprenderemos más sobre ellos en otras partes del tutorial.
