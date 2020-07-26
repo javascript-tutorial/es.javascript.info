@@ -10,18 +10,18 @@ Primero, hay un constructor, similar al de `Blob`:
 new File(fileParts, fileName, [options])
 ```
 
-- **`fileParts`** -- es un arary de valores Blob/BufferSource/String.
+- **`fileParts`** -- es un array de valores Blob/BufferSource/String.
 - **`fileName`** -- la cadena del nombre del archivo.
 - **`options`** -- objeto opcional:
     - **`lastModified`** -- la timestamp (fecha en enteros) de la última modificación.
 
-Segundo, a menudo obetenemos un archivo mediante un `<input type="file">` o un drag'n'drop, u otra interfaz del navegador. En este caso el archivo obtiene la información del Sistema Operativos.
+Segundo, a menudo obetenemos un archivo mediante un `<input type="file">` o un drag'n'drop, u otra interfaz del navegador. En este caso el archivo obtiene la información del Sistema Operativo.
 
 Como `File` (Archivo) hereda de `Blob`, objetos de tipo `File` tienen las mismas propiedades, mas:
 - `name` -- el nombre del archivo,
 - `lastModified` -- la timestamp de la última modificación.
 
-Así es como obtenemos un objeto `File` desde `<input type="file">`
+Así es como obtenemos un objeto `File` desde `<input type="file">` :
 
 ```html run
 <input type="file" onchange="showFile(this)">
@@ -42,9 +42,9 @@ Como un input puede seleccionar varios archivos,`input.files` es objeto parecido
 
 ## Lector de Archivos 
 
-[Lector de Archivos](https://www.w3.org/TR/FileAPI/#dfn-filereader) es un objeto con el único porpósito de leer datos desde  objetos  de tipo `Blob` (y entonces `File` también)
+[Lector de Archivos](https://www.w3.org/TR/FileAPI/#dfn-filereader) es un objeto con el único porpósito de leer datos desde  objetos  de tipo `Blob` (y entonces `File` también).
 
-El entrega los datos usando evetos, debido a que leerlos desde el disco puede tomar tiempo
+El entrega los datos usando evetos, debido a que leerlos desde el disco puede tomar tiempo.
 
 El constructor:
 
@@ -139,4 +139,4 @@ Objetos `FileReader` pueden leer desde un archivo o un blob, en uno de estos tre
 En muchos casos, no nesecitamos leer el contenido de un archivo. Como hicimos con blobs, podemos crear 
 un url corto con `URL.createObjectURL(file)` y asignárselo a un `<a>` o `<img>`. De esta manera el archivo puede ser descargado o ser mostrado como una imagen, o como parte de un canvas etc.
 
-Y si vamos a mandar un `File` por la red, es también fácil: APIs como `XMLHttpRequest` o `fetch` acceptan nativamente objetos `File`  
+Y si vamos a mandar un `File` por la red, es también fácil: APIs como `XMLHttpRequest` o `fetch` acceptan nativamente objetos `File` . 
