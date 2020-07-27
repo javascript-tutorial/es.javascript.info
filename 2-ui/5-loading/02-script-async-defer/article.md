@@ -23,7 +23,7 @@ Hay algunas soluciones para eso. Por ejemplo podemos poner el script en la parte
 
 ```html
 <body>
-  ...todo el contenido esta arriba del script...
+  ...todo el contenido está arriba del script...
 
   <script src="https://javascript.info/article/script-async-defer/long.js?speed=1"></script>
 </body>
