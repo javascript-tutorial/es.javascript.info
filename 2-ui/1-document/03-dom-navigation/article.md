@@ -282,7 +282,7 @@ Ciertos tipos de elementos del DOM pueden tener propiedades adicionales, especí
 
 Las tablas son un gran ejemplo de ello, y representan un particular caso importante:
 
-**El elemento `<table>`**  tiene de elementos de apoyo (añadidos a los que hemos dado por arriba) estas propiedades:
+**El elemento `<table>`**  soporta estas propiedades (añadidas a las que hemos dado anteriormente):
 - `table.rows` -- la colección de elementos`<tr>` de la tabla.
 - `table.caption/tHead/tFoot` -- referencias a los elementos `<caption>`, `<thead>`, `<tfoot>`.
 - `table.tBodies` -- la colección de elementos `<tbody>` (pueden ser muchos según el estándar pero siempre habrá al menos uno -- aunque no esté en el HTML el navegador lo pondrá en el DOM).
