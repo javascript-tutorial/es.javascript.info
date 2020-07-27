@@ -330,4 +330,4 @@ Hay dos conjuntos principales de ellas:
 - Para todos los nodos: `parentNode`, `childNodes`, `firstChild`, `lastChild`, `previousSibling`, `nextSibling`.
 - Para los nodos elementos: `parentElement`, `children`, `firstElementChild`, `lastElementChild`, `previousElementSibling`, `nextElementSibling`.
 
-Algunos tipos de elementos del DOM, por ejemplo las tablas, se proporciona propiedades adicionales y colecciones para acceder a su contenido.
+Algunos tipos de elementos del DOM, por ejemplo las tablas, proveen propiedades adicionales y colecciones para acceder a su contenido.
