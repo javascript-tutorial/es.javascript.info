@@ -2,19 +2,19 @@ importance: 5
 
 ---
 
-# Endless page
+# Página sin fin
 
-Create an endless page. When a visitor scrolls it to the end, it auto-appends current date-time to the text (so that a visitor can scroll more).
+Crear una página interminable. Cuando un visitante la desplace hasta el final, se va a auto-pegar la fecha y hora actual al texto (así el visitante podrá seguir desplazándose)
 
-Like this:
+Así:
 
 [iframe src="solution" height=200]
 
-Please note two important features of the scroll:
+Por favor tenga en cuenta dos características importantes del desplazamiento:
 
-1. **The scroll is "elastic".** We can scroll a little beyond the document start or end in some browsers/devices (empty space below is shown, and then the document will automatically "bounces back" to normal).
-2. **The scroll is imprecise.** When we scroll to page end, then we may be in fact like 0-50px away from the real document bottom.
+1. **El scroll es "elastico".** Podemos desplazarnos un poco más allá del inicio o final del documento en algunos navegadores/dispositivos (se muestra un espacio vacío abajo, y luego el documento "rebota" automáticamente a la normalidad).
+2. **El scroll es impreciso.** Cuando nos desplazamos hasta el final de la página, podemos estar de hecho como a 0-50px del fondo del documento real.
 
-So, "scrolling to the end" should mean that the visitor is no more than 100px away from the document end.
+Así que, "desplazarse hasta el final" debería significar que el visitante no está a más de 100px del final del documento.
 
-P.S. In real life we may want to show "more messages" or "more goods".
+P.D. En la vida real podemos querer mostrar "más mensajes" o "más mejoras".
