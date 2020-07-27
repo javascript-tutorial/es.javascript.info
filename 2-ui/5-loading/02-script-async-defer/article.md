@@ -97,7 +97,7 @@ El atributo `async` significa que el script es completamente independiente:
 - La página no espera a los scripts asincrónicos por lo que el contenido de la página se procesa y se muestra.
 - El evento `DOMContentLoaded` y los scripts asincrónicos no esperan por el otro:
     - El evento `DOMContentLoaded` puede suceder que un script asincrónico (si un script asincrónico termina de cargar una vez la página esta completa)
-    - o después de un script asincrónico (si un script asincrónico es pequeño o está en cache)
+    - o después de un script asincrónico (si tal script asincrónico es pequeño o está en cache)
 - Otros scripts no esperan a los scripts asincrónicos y los scripts asincrónicos no esperan por ellos.
 
 
