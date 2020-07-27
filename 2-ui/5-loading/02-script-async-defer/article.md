@@ -107,7 +107,7 @@ Entonces si tenemos muchos scripts asincrónicos estos pueden ser ejecutados en 
 <p>...contenido previo a los scripts...</p>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => alert("DOM listo!"));
+  document.addEventListener('DOMContentLoaded', () => alert("¡DOM listo!"));
 </script>
 
 <script async src="https://javascript.info/article/script-async-defer/long.js"></script>
