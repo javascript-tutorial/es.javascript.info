@@ -188,7 +188,7 @@ Pero hay algunas diferencias esenciales entre ellos:
 ```warn header="La página sin scripts debe ser utilizable"
 Por favor ten en cuenta que si estas usando `defer` la página es visible antes de que el script sea cargado.
 
-Por lo que el usuario tal vez pueda leer la página, pero algunos componentes gráficos problemente no esten listos.
+Por lo que el usuario tal vez pueda leer la página, pero algunos componentes gráficos probablemente no estén listos.
 
 Debería haber algunas señales de "cargando" en lugares apropiados y los botones deshabilitados deberían ser mostrados como tal para que el usuario pueda ver claramente que esta listo y que no.
 ```
