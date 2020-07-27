@@ -158,7 +158,7 @@ script.async = false;
 document.body.append(script);
 ```
 
-For ejemplo, aquí agregamos dos scripts sin el `script.async=false` por lo que deberían ejecutarse en `load-first order` (el `small.js` probablemente primero). Pero con esa bandera el orden es `document order`.
+Por ejemplo, aquí agregamos dos scripts sin el `script.async=false` por lo que deberían ejecutarse en `load-first order` (el `small.js` probablemente primero). Pero con esa bandera el orden es `document order`.
 
 ```js run
 function loadScript(src) {
