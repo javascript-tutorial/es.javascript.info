@@ -7,7 +7,7 @@ Cuando el navegador carga el HTML y se encuentra con una etiqueta `<script>...</
 
 Esto nos lleva a dos importantes problemas:
 
-1. Los scripts no pueden ver los elementos del DOM que se encuentran debajo de el por lo que no pueden agregar controladores de eventos, etc.
+1. Los scripts no pueden ver los elementos del DOM que se encuentran debajo de él por lo que no pueden agregar controladores de eventos, etc.
 2. Si hay un script muy pesado en la parte superior de la página, este "bloquea la página". Los usuarios no pueden ver el contenido de la página hasta que sea descargado y ejecutado.
 
 ```html run height=100
