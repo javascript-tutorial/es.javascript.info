@@ -129,7 +129,7 @@ JavaScript no entiende eso. Piensa que hemos accedido a `user.likes` y entonces 
 
 El punto requiere que la clave sea un identificador de variable válido. Eso implica que: no contenga espacios, no comience con un dígito y no incluya caracteres especiales (`$` y `_` sí se permiten).
 
-Existe una "notación de llaves" alternativa que funciona con cualquier string:
+Existe una "notación de corchetes" alternativa que funciona con cualquier string:
 
 ```js run
 let user = {};
