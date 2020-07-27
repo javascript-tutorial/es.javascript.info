@@ -130,7 +130,7 @@ Los scripts asincrónicos son excelentes cuando incluimos scripts de terceros (c
 
 ## Scripts dinámicos
 
-También podemos tambien agregar un script dinámicamente usando JavaScript:
+También podemos agregar un script dinámicamente usando JavaScript:
 
 ```js run
 let script = document.createElement('script');
