@@ -85,7 +85,7 @@ Los navegadores analizan la página en busca de scripts y los descarga en parale
 Pero la especificación requiere que los scripts sean ejecutados en el orden en el que están en el documento, entonces espera por `long.js` para ejecutarlo.
 ```
 
-```smart header="El attributo `defer` es solo para scripts externos"
+```smart header="El atributo `defer` es solo para scripts externos"
 El atributo `defer` es ignorado si el `<script>` no tiene el atributo `src`.
 ```
 
