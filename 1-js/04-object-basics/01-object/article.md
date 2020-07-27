@@ -185,7 +185,7 @@ alert( user.key ) // undefined
 
 ### Propiedades calculadas
 
-Podemos usar llaves en un objeto literal al crear un objeto. A esto se le llama  *propiedades calculadas*.
+Podemos usar corchetes en un objeto literal al crear un objeto. A esto se le llama  *propiedades calculadas*.
 
 Por ejemplo:
 
@@ -203,7 +203,7 @@ alert( bag.apple ); // 5 si fruit es="apple"
 
 El significado de una propiedad calculada es simple: `[fruit]` significa que se debe tomar la clave de la propiedad `fruit`.
 
-Entonces, si un visitante ingresa `"apple"`, `bag` se convertira en `{apple: 5}`.
+Entonces, si un visitante ingresa `"apple"`, `bag` se convertirá en `{apple: 5}`.
 
 Esencialmente esto funciona igual que:
 ```js run
@@ -216,7 +216,7 @@ bag[fruit] = 5;
 
 ...Pero luce mejor.
 
-Podemos usar expresiones más complejas dentro de las llaves:
+Podemos usar expresiones más complejas dentro de los corchetes:
 
 ```js
 let fruit = 'apple';
@@ -225,9 +225,9 @@ let bag = {
 };
 ```
 
-Las llaves son mucho más potentes que la notación de punto. Permiten cualquier nombre de propiedad y variables. Pero también son más engorrosos de escribir.
+Los corchetes son mucho más potentes que la notación de punto. Permiten cualquier nombre de propiedad y variables. Pero también son más engorrosos de escribir.
 
-Entonces, la mayoría de las veces, cuando los nombres de propiedad son conocidos y simples, se utiliza el punto. Y si necesitamos algo más complejo, entonces cambiamos a llaves.
+Entonces, la mayoría de las veces, cuando los nombres de propiedad son conocidos y simples, se utiliza el punto. Y si necesitamos algo más complejo, entonces cambiamos a corchetes.
 
 ## Atajo para valores de propiedad
 
@@ -344,7 +344,7 @@ Por ejemplo:
 let user = { name: "John", age: 30 };
 
 alert( "age" in user ); // mostrará "true", user.age sí existe
-alert( "blabla" in user ); // mostará false, user.blabla no existe
+alert( "blabla" in user ); // mostrará false, user.blabla no existe
 ```
 
 Nota que a la izquierda de `in` debe estar el *nombre de la propiedad* que suele ser un string entre comillas.
