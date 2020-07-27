@@ -116,7 +116,7 @@ El `const` podría dar error solo si intentamos asignar `user=...` en la totalid
 Hay otra manera de crear objetos con propiedades constantes, las veremos después en el capítulo <info:property-descriptors>.
 ````
 
-## Llaves
+## Corchetes
 
 La notación de punto no funciona para acceder a propiedades con claves de más de una palabra:
 
