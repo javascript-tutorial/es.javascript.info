@@ -146,7 +146,7 @@ Hay dos importantes consecuencias de esto:
   alert(document.body.childNodes.filter); // undefined (¡No hay método filter!)
   ```
 
-La primera consecuencia es agradable. La segunda es tolerable, porque podemos usar `Array.from` para crear un array "real" desde la colección, si queremos usar métodos del array:
+La primera consecuencia es agradable. La segunda es tolerable, porque podemos usar `Array.from` para crear un array "real" desde la colección si es que queremos usar métodos del array:
 
   ```js run
   alert( Array.from(document.body.childNodes).filter ); // función
