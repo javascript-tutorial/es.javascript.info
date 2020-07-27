@@ -59,7 +59,7 @@ Los siguientes ejemplos demuestran eso:
 <p>...contenido previo a los scripts...</p>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => alert("DOM listo después del defer!")); // (2)
+  document.addEventListener('DOMContentLoaded', () => alert("¡DOM listo después del defer!")); // (2)
 </script>
 
 <script defer src="https://javascript.info/article/script-async-defer/long.js?speed=1"></script>
