@@ -190,7 +190,7 @@ Por favor ten en cuenta que si estas usando `defer` la página es visible antes 
 
 Por lo que el usuario tal vez pueda leer la página, pero algunos componentes gráficos probablemente no estén listos.
 
-Debería haber algunas señales de "cargando" en lugares apropiados y los botones deshabilitados deberían ser mostrados como tal para que el usuario pueda ver claramente que esta listo y que no.
+Debería haber algunas señales de "cargando" en lugares apropiados y los botones deshabilitados deberían ser mostrados como tal para que el usuario pueda ver claramente qué está listo y qué no.
 ```
 
 En la práctica, `defer` es usado para scripts que necesitan todo el DOM y/o el orden de ejecución es importante. Y `async` es usado para scripts independientes como contadores y anuncios donde el orden de ejecución no importa.
