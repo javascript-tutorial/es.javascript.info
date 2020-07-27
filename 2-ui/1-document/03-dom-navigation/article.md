@@ -33,7 +33,7 @@ Los tres nodos superiores están disponibles como propiedades de `document`:
 ```warn header="Hay una trampa: `document.body` puede ser `null`"
 Un script no puede acceder a un elemento que no existe en el momento de su ejecucción.
 
-Por ejemplo, si un script está dentro `<head>`, entonces `document.body` no está disponible, porque el navegador no lo ha leído aún.
+Por ejemplo, si un script está dentro de `<head>`, entonces `document.body` no está disponible, porque el navegador no lo ha leído aún.
 
 Entonces, en el ejemplo inferior `alert` muestra `null`:
 
