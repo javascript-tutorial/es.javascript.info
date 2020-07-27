@@ -116,7 +116,7 @@ Entonces si tenemos muchos scripts asincrónicos estos pueden ser ejecutados en 
 <p>...contenido posterior a los scripts...</p>
 ```
 
-1. El contenido de la pagina se muestra inmediatamente: `async` no lo bloquea.
+1. El contenido de la página se muestra inmediatamente: `async` no lo bloquea.
 2. El evento `DOMContentLoaded` puede suceder antes o después de `async`, no hay garantías aquí.
 3. Los scripts asincrónicos no esperan por el otro. Un script pequeño `small.js` va segundo pero probablemente cargue antes que `long.js` entonces se ejecutará primero. A eso lo llamamos "load-first order".
 
