@@ -19,6 +19,6 @@ Mira esta página:
 ```
 
 Para cada una de las siguientes preguntas, dé al menos una forma de cómo acceder a ellos:
-- ¿El nodo `<div>` DOM?
-- ¿El nodo `<ul>` DOM?
+- ¿El nodo `<div>` del DOM?
+- ¿El nodo `<ul>` del DOM?
 - El segundo `<li>` (con Pete)?
