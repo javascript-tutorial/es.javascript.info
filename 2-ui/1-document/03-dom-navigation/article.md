@@ -136,7 +136,7 @@ Hay dos importantes consecuencias de esto:
 1. Podemos usar `for..of` para iterar sobre él:
   ```js
   for (let node of document.body.childNodes) {
-    alert(node); // enseña todos los nodos de 
+    alert(node); // enseña todos los nodos de la colección
   }
   ```
     Eso es porque es iterable (proporciona la propiedad `Symbol.iterator`, como se requiere).
