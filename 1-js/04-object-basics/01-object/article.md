@@ -37,7 +37,7 @@ Una propiedad tiene una clave (también conocida como "nombre" o "identificador"
 
 En el objeto `user` hay dos propiedades:
 
-1. La primer propiedad tiene la clave `"name"` y el valor `"John"`.
+1. La primera propiedad tiene la clave `"name"` y el valor `"John"`.
 2. La segunda tienen la clave `"age"` y el valor `30`.
 
 Podemos imaginar al objeto `user` resultante como un gabinete con dos archivos firmados con las etiquetas "name" y "age".
