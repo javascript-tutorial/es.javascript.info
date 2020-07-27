@@ -5,7 +5,7 @@ libs:
 ---
 
 
-# Caminando por el DOM
+# Recorriendo el DOM
 
 El DOM nos permite hacer cualquier cosa con sus elementos y contenidos, pero lo primero que tenemos que hacer es llegar al objeto correspondiente del DOM.
 
