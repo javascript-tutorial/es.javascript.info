@@ -183,7 +183,7 @@ Pero hay algunas diferencias esenciales entre ellos:
 |         | Orden | `DOMContentLoaded` |
 |---------|---------|---------|
 | `async` | *Load-first order*. El orden del documento no importa. ¿cual script carga primero? | Tal vez cargue y ejecute mientras el documento no ha sido completamente descargado, eso puede pasar si el script ese pequeño o está en cache y el documento es suficientemente extenso. |
-| `defer` | *Document order* (como va en el documento). |  Ejecuta después de que el documento es cargado y analizado (espera si es necesario). justo antes de el evento `DOMContentLoaded`. |
+| `defer` | *Document order* (como va en el documento). |  Ejecuta después de que el documento es cargado y analizado (espera si es necesario) |
 
 ```warn header="La página sin scripts debe ser utilizable"
 Por favor ten en cuenta que si estas usando `defer` la página es visible antes de que el script sea cargado.
