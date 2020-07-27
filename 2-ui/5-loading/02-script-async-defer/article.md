@@ -120,7 +120,7 @@ Entonces si tenemos muchos scripts asincrónicos estos pueden ser ejecutados en 
 2. El evento `DOMContentLoaded` puede suceder antes o después de `async`, no hay garantías aquí.
 3. Los scripts asincrónicos no esperan por el otro. Un script pequeño `small.js` va segundo pero probablemente cargue antes que `long.js` entonces se ejecutará primero. A eso lo llamamos "load-first order".
 
-Los scripts asincrónicos son excelentes cuando incluimos scripts de terceros (contadores, anuncios, etc) en la pagina debido a que ellos no dependen de nuestros scripts y nuestros scripts no deberían esperar por ellos.
+Los scripts asincrónicos son excelentes cuando incluimos scripts de terceros (contadores, anuncios, etc) en la página debido a que ellos no dependen de nuestros scripts y nuestros scripts no deberían esperar por ellos.
 
 ```html
 <!-- Google Analytics is usually added like this -->
