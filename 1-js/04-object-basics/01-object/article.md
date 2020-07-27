@@ -144,7 +144,7 @@ alert(user["likes birds"]); // true
 delete user["likes birds"];
 ```
 
-Ahora todo está bien. Nota que el string dentro de las llaves está adecuadamente entre comillas (cualquier tipo de comillas servirían).
+Ahora todo está bien. Nota que el string dentro de los corchetes está adecuadamente entre comillas (cualquier tipo de comillas servirían).
 
 Las llaves también nos proveen de una forma para obtener la clave de la propiedad como resultado de cualquier expresión como una variable -- en lugar de una cadena literal -- de la siguiente manera:
 
