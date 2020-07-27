@@ -321,7 +321,7 @@ La especificación: [tabular data](https://html.spec.whatwg.org/multipage/tables
 
 También hay propiedades de navegación adicionales para los formularios HTML. Las veremos más adelante cuando empecemos a trabajar con los formularios.
 
-## Summary
+## Resumen
 
 Dado un nodo del DOM, podemos ir a sus inmediatos vecinos utilizando las propiedades de navegación.
 
