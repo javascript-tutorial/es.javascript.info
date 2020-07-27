@@ -1,17 +1,16 @@
 let menu = {
   width: 200,
   height: 300,
-  title: "My menu"
+  title: "Mi menú"
 };
 
 
 function multiplyNumeric(obj) {
   
-  /* your code */
+  /* tu código */
 
 }
 
 multiplyNumeric(menu);
 
-alert( "menu width=" + menu.width + " height=" + menu.height + " title=" + menu.title );
-
+alert( "ancho del menú=" + menu.width + " alto=" + menu.height + " título=" + menu.title );
