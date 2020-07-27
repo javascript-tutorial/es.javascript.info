@@ -92,7 +92,7 @@ El atributo `defer` es ignorado si el `<script>` no tiene el atributo `src`.
 
 ## async
 
-El attributo `async` significa que el script es completamente independiente:
+El atributo `async` significa que el script es completamente independiente:
 
 - La página no espera a los scripts asincrónicos por lo que el contenido de la página se procesa y se muestra.
 - El evento `DOMContentLoaded` y los scripts asincrónicos no esperan por el otro:
