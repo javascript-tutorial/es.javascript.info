@@ -3,7 +3,7 @@
 
 En los sitios web modernos los scripts suelen ser más "pesados" que el HTML, el tamaño de la descarga es grande y el tiempo de procesamiento es mayor.
 
-Cuando el navegador carga el HTML y se encuentra con una etiqueta `<script>...</script>` no puede continuar construyendo el DOM ya que ahora debe ejecutar el script, lo mismo sucede con los scripts externos `<script src="..."></script>` el navegador tiene que esperar hasta que el script sea descargado para poder ejecutarlo y solo después procesa el resto de la página.   
+Cuando el navegador carga el HTML y se encuentra con una etiqueta `<script>...</script>`, no puede continuar construyendo el DOM ya que ahora debe ejecutar el script. Lo mismo sucede con los scripts externos `<script src="..."></script>`, el navegador tiene que esperar hasta que el script sea descargado para poder ejecutarlo y solo después procesa el resto de la página.   
 
 Esto nos lleva a dos importantes problemas:
 
