@@ -88,7 +88,11 @@ It provides convenient methods for search parameters:
 - **`delete(name)`** -- remove the parameter by `name`,
 - **`get(name)`** -- get the parameter by `name`,
 - **`getAll(name)`** -- get all parameters with the same `name` (that's possible, e.g. `?user=John&user=Pete`),
+<<<<<<< HEAD
 - **`has(name)`** -- check for the existance of the parameter by `name`,
+=======
+- **`has(name)`** -- check for the existence of the parameter by `name`,
+>>>>>>> b0464bb32c8efc2a98952e05f363f61eca1a99a2
 - **`set(name, value)`** -- set/replace the parameter,
 - **`sort()`** -- sort parameters by name, rarely needed,
 - ...and it's also iterable, similar to `Map`.

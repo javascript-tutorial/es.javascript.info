@@ -6,7 +6,11 @@ importance: 5
 
 La tarea tiene dos partes.
 
+<<<<<<< HEAD
 Dados los siguientes objetos:
+=======
+Given the following objects:
+>>>>>>> b0464bb32c8efc2a98952e05f363f61eca1a99a2
 
 ```js
 let head = {

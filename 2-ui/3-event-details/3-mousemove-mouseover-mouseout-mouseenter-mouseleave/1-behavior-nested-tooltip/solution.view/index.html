@@ -78,6 +78,7 @@
     }
 
     document.onmouseout = function() {
+<<<<<<< HEAD
       // Es posible que mouseout se active, pero estaremos dentro del elemento
       // (el target ocurrirá dentro y se aparecerá)
       // pero en este caso tendremos un mouse over inmediato,
@@ -85,6 +86,15 @@
       //
       // Afortunadamente, el parpadeo no es visble,
       // ya que ambos eventos ocurren casi al mismo tiempo.
+=======
+      // it is possible that mouseout triggered, but we're still inside the element
+      // (its target was inside, and it bubbled)
+      // but in this case we'll have an immediate mouseover,
+      // so the tooltip will be destroyed and shown again
+      //
+      // luckily, the "blinking" won't be visible,
+      // as both events happen almost at the same time
+>>>>>>> b0464bb32c8efc2a98952e05f363f61eca1a99a2
       if (tooltip) {
         tooltip.remove();
         tooltip = false;
