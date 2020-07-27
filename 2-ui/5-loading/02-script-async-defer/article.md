@@ -19,7 +19,7 @@ Esto nos lleva a dos importantes problemas:
 <p>...contenido posterior al script...</p>
 ```
 
-Hay algunas soluciones para eso. Por ejemplo podemos poner el script en la parte inferior de la página por lo que podrá ver los elementos sobre el y no bloqueará la visualización del contenido de la página.
+Hay algunas soluciones para eso. Por ejemplo podemos poner el script en la parte inferior de la página por lo que podrá ver los elementos sobre él y no bloqueará la visualización del contenido de la página.
 
 ```html
 <body>
