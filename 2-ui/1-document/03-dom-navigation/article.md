@@ -129,7 +129,7 @@ También hay una función especial `elem.hasChildNodes()` para comprobar si hay 
 
 ### Colecciones del DOM
 
-Como podemos ver, `childNodes` parece un array. Pero realmente no es un array, sino más bien una *colección* -- un array especial-como un objeto iterable.
+Como podemos ver, `childNodes` parece un array. Pero realmente no es un array, sino más bien una *colección* -- un objeto especial iterable, simil-array.
 
 Hay dos importantes consecuencias de esto:
 
