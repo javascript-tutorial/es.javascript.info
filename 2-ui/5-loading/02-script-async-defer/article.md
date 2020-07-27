@@ -39,7 +39,7 @@ Afortunadamente hay dos atributos de `<script>` que resuelven ese problema para 
 
 El atributo `defer` indica al navegador que debe seguir trabajando en la página y cargar el script "en segundo plano" para luego ejecutarlo cuando haya cargado.
 
-Aquí esta el mismo ejemplo de arriba pero con `defer`:
+Aquí está el mismo ejemplo de arriba pero con `defer`:
 
 ```html run height=100
 <p>...contenido previo script...</p>
