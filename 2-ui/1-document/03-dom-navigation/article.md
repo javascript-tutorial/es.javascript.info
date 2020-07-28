@@ -35,7 +35,7 @@ Un script no puede acceder a un elemento que no existe en el momento de su ejecu
 
 Por ejemplo, si un script está dentro de `<head>`, entonces `document.body` no está disponible, porque el navegador no lo ha leído aún.
 
-Entonces, en el ejemplo inferior `alert` muestra `null`:
+Entonces, en el siguiente ejemplo `alert` muestra `null`:
 
 ```html run
 <html>
