@@ -1,3 +1,3 @@
 # Formularios y controles
 
-Propiedades especiales y eventos para formularios `<form>` y los controles: `<input>`, `<select>` y otros.
+Propiedades especiales y eventos de formularios `<form>` y controles: `<input>`, `<select>` y otros.
