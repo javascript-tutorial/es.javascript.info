@@ -60,7 +60,7 @@ Entonces, en el siguiente ejemplo `alert` muestra `null`:
 ````
 
 ```smart header="En el mundo del DOM `null` significa \"no existe\""
-En el DOM, el valor `null` significa "no existe" o "no hay tal nodo".
+En el DOM, el valor `null` significa que "no existe" o "no hay tal nodo".
 ```
 
 ## Hijos: childNodes, firstChild, lastChild
@@ -115,7 +115,7 @@ El ejemplo inferior muestra todos los hijos de `document.body`:
 </html>
 ```
 
-Por favor observa un interesante detalle aquí. Si ejecutamos el ejemplo superior, el último elemento que muestra es `<script>`. De hecho, el documento tiene más cosas debajo, pero en el momento de ejecución del script el navegador todavía no lo ha leído, por lo que el script no lo ve.
+Por favor observa un interesante detalle aquí. Si ejecutamos el ejemplo anterior, el último elemento que se muestra es `<script>`. De hecho, el documento tiene más cosas debajo, pero en el momento de ejecución del script el navegador todavía no lo ha leído, por lo que el script no lo ve.
 
 **Las propiedades `firstChild` y `lastChild` dan acceso rápido al primer y al último hijo.**
 
