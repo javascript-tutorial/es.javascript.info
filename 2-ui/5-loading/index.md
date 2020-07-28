@@ -1,2 +1,2 @@
 
-# El documento y los recursos de carga
+# El documento y carga de recursos
