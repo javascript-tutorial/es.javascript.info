@@ -100,7 +100,7 @@ Como ya vimos, el `.catch` del final es similar a `try..catch`. Podemos tener ta
 
 En un `try..catch` normal, podemos analizar el error y quizá volver a lanzarlo si no se puede manejar. Lo mismo podemos hacer con las promesas.
 
-Si hacemos `throw` dentro de `.catch`, el control pasa a otro manejador de errores más cercano. Y, si manejamos el error y terminamos de forma correcta, entonces se continúa con el siguiente manejador`.then` existoso.
+Si hacemos `throw` dentro de `.catch`, el control pasa a otro manejador de errores más cercano. Y, si manejamos el error y terminamos de forma correcta, entonces se continúa con el siguiente manejador `.then` existoso.
 
 En el ejemplo de abajo, el `.catch` maneja el error de forma exitosa:
 
