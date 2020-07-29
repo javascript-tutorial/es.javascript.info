@@ -1,25 +1,25 @@
-# Archivo y Lector de Archivos (File and FileReader en inglés)
+# File y FileReader
 
-Un [Archivo](https://www.w3.org/TR/FileAPI/#dfn-file) hereda de  `Blob` y es extendido con capacidades relacionadas con el sistema de archivos.
+Un [File](https://www.w3.org/TR/FileAPI/#dfn-file) hereda de `Blob` y extiende las capacidades relacionadas con el sistema de archivos.
 
 Hay dos maneras de obtenerlo
 
 Primero, hay un constructor, similar al de `Blob`:
 
 ```js
-new File(fileParts, fileName, [options])
+new File(partesDelArchivo, nombreDelArchivo, [opciones])
 ```
 
 - **`fileParts`** -- es un array de valores Blob/BufferSource/String.
-- **`fileName`** -- la cadena del nombre del archivo.
+- **`fileName`** -- el nombre del archivo..
 - **`options`** -- objeto opcional:
-    - **`lastModified`** -- la timestamp (fecha en enteros) de la última modificación.
+    - **`lastModified`** -- la  marca de tiempo (fecha en mili-segundos) de la última modificación.
 
 Segundo, a menudo obetenemos un archivo mediante un `<input type="file">` o un drag'n'drop, u otra interfaz del navegador. En este caso el archivo obtiene la información del Sistema Operativo.
 
 Como `File` (Archivo) hereda de `Blob`, objetos de tipo `File` tienen las mismas propiedades, mas:
 - `name` -- el nombre del archivo,
-- `lastModified` -- la timestamp de la última modificación.
+- `lastModified` -- la marca de tiempo de la última modificación.
 
 Así es como obtenemos un objeto `File` desde `<input type="file">` :
 
@@ -37,7 +37,7 @@ function showFile(input) {
 ```
 
 ```smart
-Como un input puede seleccionar varios archivos,`input.files` es objeto parecido a un array, que los contiene. En este caso tenemos un solo archivo, por eso solo nesecitamos tomar `input.files[0]`.
+El input puede seleccionar varios archivos, por lo que `input.files` es una lista de dichos archivos . En este caso tenemos un solo archivo por lo que solo es necesario usar `input.files[0]`.
 ```
 
 ## Lector de Archivos 
@@ -54,25 +54,25 @@ let reader = new FileReader(); // sin argumentos
 
 Los métodos principales:
 
-- **`readAsArrayBuffer(blob)`** -- lee los datos en el formato binario `ArrayBuffer`.
-- **`readAsText(blob, [encoding])`** -- lee los datos como una cadena de texto con el formato especificado (`utf-8` por defecto).
-- **`readAsDataURL(blob)`** -- lee los datos binarios y los codifica como [Datos URIs](https://developer.mozilla.org/es/docs/Web/HTTP/Basics_of_HTTP/Datos_URIs)
+- **`readAsArrayBuffer(blob)`** -- lee los datos en formato binario `ArrayBuffer`.
+- **`readAsText(blob, [codificación])`** -- lee los datos como una cadena de texto con la codificación dada (por defecto es `utf-8`).
+- **`readAsDataURL(blob)`** -- lee los datos binarios y los codifica como [Datos URIs] en base 64 (https://developer.mozilla.org/es/docs/Web/HTTP/Basics_of_HTTP/Datos_URIs).
 
 - **`abort()`** -- cancela la operación.
 
-La opción de `read*` metodo depende de que formato preferimos, como vamos a usar los datos.
+La opción de `read*` método depende de que formato preferimos y como vamos a usar los datos.
 
-- `readAsArrayBuffer` -- para archivos binarios, para hacer operaciones binarias de bajo nivel. Para operaciones de alto nivel, como slicing, `File` hereda de `Blob`, entonces podemos llamarlas directamente, sin tener que leer.
+- `readAsArrayBuffer` -- para archivos binarios, en donde se hacen operaciones binarias de bajo nivel. Para operaciones de alto nivel, como slicing, `File` hereda de `Blob` por lo que podemos llamarlas directamente sin tener que leer.
 - `readAsText` -- para archivos de texto, cuando nesecitamos obtener una cadena.
-- `readAsDataURL` -- cuando nesecitamos usar estos datos valores de `src` en `img` o otras etiquetas html. Hay otra alternativa para leer archivos con este último fin, como es discutido en el capítulo <info:blob>: `URL.createObjectURL(file)`.
+- `readAsDataURL` -- cuando necesitamos usar estos datos como valores de `src` en `img` u otras etiquetas html. Hay otra alternativa para leer archivos para eso como discutimos en el capítulo <info:blob>: `URL.createObjectURL(file)`.
 
 En la medida que la lectura procede, suceden varios eventos:
-- `loadstart` -- lectura iniciada.
+- `loadstart` -- la carga comenzó.
 - `progress` -- ocurre mientras se lee.
 - `load` -- lectura completada, sin errores.
 - `abort` -- `abort()` ha sido llamado.
 - `error` -- ha ocurrido un error .
-- `loadend` -- lectura termindada tanto exitosa como fallidamente.
+- `loadend` -- la lectura finalizó exitosa o no .
 
 Cuando la lectura finaliza, podemos acceder al resultado como:
 - `reader.result` el resultado (si fue exitoso)
@@ -106,7 +106,7 @@ function readFile(input) {
 ```
 
 ```smart header="`FileReader` para blobs"
-Como mencionamos en el capítulo <info:blob>, `FileReader` no solo lee archivos, sino también cualquier blob.
+Como mencionamos en el capítulo <info:blob>, `FileReader` no solo lee archivos sino también cualquier blob.
 
 Podemos usarlo para convertir un blob a otro formato:
 - `readAsArrayBuffer(blob)` -- a `ArrayBuffer`,
@@ -124,19 +124,20 @@ Esto es solo dentro de un Web Worker, debido a que  demoras en  llamadas síncro
 
 ```
 
-## Sumario
+## Resumen
 
 Los objetos `File` heredan de  `Blob`.
 
 En adición a los métodos y porpiedades de `Blob`, los objetos `File` también tienen `name` and `lastModified` mas la habilidad interna de leer del sistema de archivos. Usualmente obtenemos los objetos `File` mediante la entrada por el usuario con `<input>` o un evento Drag'n'Drop (`ondragend`).
 
 
-Objetos `FileReader` pueden leer desde un archivo o un blob, en uno de estos tres formatos:
+Los objetos `FileReader` pueden leer desde un archivo o un blob en uno de estos tres formatos:
 - String (`readAsText`) .
 - `ArrayBuffer` (`readAsArrayBuffer`).
-- Datos Uri (`readAsDataURL`).
+- Datos URI codificado en base 64 (`readAsDataURL`).
 
-En muchos casos, no nesecitamos leer el contenido de un archivo. Como hicimos con blobs, podemos crear 
-un url corto con `URL.createObjectURL(file)` y asignárselo a un `<a>` o `<img>`. De esta manera el archivo puede ser descargado o ser mostrado como una imagen, o como parte de un canvas etc.
+En muchos casos no necesitamos leer el contenido de un archivo como hicimos con blobs, podemos crear un enlace corto con `URL.createObjectURL(file)` y asignárselo a un `<a>` o `<img>`. De esta manera el archivo puede ser descargado o ser mostrado como una imagen o como parte de un canvas, etc.
+
+
 
 Y si vamos a mandar un `File` por la red, es también fácil: APIs como `XMLHttpRequest` o `fetch` acceptan nativamente objetos `File` . 
