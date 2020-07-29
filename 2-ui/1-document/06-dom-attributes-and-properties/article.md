@@ -136,7 +136,7 @@ Tenga en cuenta:
 
 1. `getAttribute ('About)` - la primera letra está en mayúscula aquí, y en HTML todo está en minúscula. Pero eso no importa: los nombres de los atributos no distinguen entre mayúsculas y minúsculas.
 2. Podemos asignar cualquier cosa a un atributo, pero se convierte en un string. Así que aquí tenemos `"123"` como valor.
-3. Todos los atributos, incluidos los que configuramos, son visibles en `outsideHTML`.
+3. Todos los atributos, incluidos los que configuramos, son visibles en `outerHTML`.
 4. La colección `attributes` es iterable y tiene todos los atributos del elemento (estándar y no estándar) como objetos con propiedades `name` y `value`.
 
 ## Sincronización de propiedad y atributo
