@@ -123,7 +123,7 @@ Aquí hay una demostración extendida de cómo trabajar con atributos:
 
     elem.setAttribute('Test', 123); // (2), escribiendo
 
-    alert( elem.outerHTML ); // (3), ver si el atributo está en HTML (si)
+    alert( elem.outerHTML ); // (3), ver si el atributo está en HTML (sí)
 
     for (let attr of elem.attributes) { // (4) listar todo
       alert( `${attr.name} = ${attr.value}` );
