@@ -54,7 +54,7 @@ new Promise((resolve, reject) => {
 }).catch(alert); // Error: Whoops!
 ```
 
-... Hace exáctamente lo mismo que este:
+...Hace exactamente lo mismo que este:
 
 ```js run
 new Promise((resolve, reject) => {
