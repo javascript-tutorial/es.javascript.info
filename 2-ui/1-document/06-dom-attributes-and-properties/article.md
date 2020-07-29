@@ -40,7 +40,7 @@ Element.prototype.sayHi = function() {
   alert(`Hola, yo soy ${this.tagName}`);
 };
 
-document.documentElement.sayHi(); // Hola, yo soy
+document.documentElement.sayHi(); // Hola, yo soy HTML
 document.body.sayHi(); // Hola, yo soy BODY
 ```
 
