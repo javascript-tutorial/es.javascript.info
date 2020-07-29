@@ -2,7 +2,7 @@ importance: 5
 
 ---
 
-# Obten en atributo
+# Obtén en atributo
 
 Escribe el código para obtener el atributo `data-widget-name` del documento y leer su valor.
 
