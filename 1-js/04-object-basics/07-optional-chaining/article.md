@@ -78,7 +78,7 @@ Entonces, si `user` no está definido debido a un error, lo sabremos y lo arregl
 ```
 
 ````warn header="La variable antes de ?. debe declararse"
-Si no hay ninguna variable `usuario` en absoluto, entonces `user?.Anything` provocará un error:
+Si no hay una variable `user` declarada, entonces `user?.Anything` provocará un error:
 
 ```js run
 // ReferenceError: El usuario no está definido
