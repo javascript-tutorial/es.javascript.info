@@ -2,11 +2,11 @@ importance: 5
 
 ---
 
-# Map to names
+# Mapa a nombres
 
-You have an array of `user` objects, each one has `user.name`. Write the code that converts it into an array of names.
+Tienes un array de objetos `user`, cada uno tiene `user.name`. Escribe el código que lo convierta en un array de nombres.
 
-For instance:
+Por ejemplo:
 
 ```js no-beautify
 let john = { name: "John", age: 25 };
@@ -15,7 +15,7 @@ let mary = { name: "Mary", age: 28 };
 
 let users = [ john, pete, mary ];
 
-let names = /* ... your code */
+let names = /* ... tu código */
 
 alert( names ); // John, Pete, Mary
 ```

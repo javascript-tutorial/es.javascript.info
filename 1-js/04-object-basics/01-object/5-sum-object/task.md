@@ -2,9 +2,9 @@ importance: 5
 
 ---
 
-# Sum object properties
+# Suma de propiedades de un objeto
 
-We have an object storing salaries of our team:
+Tenemos un objeto que almacena los salarios de nuestro equipo:
 
 ```js
 let salaries = {
@@ -14,6 +14,6 @@ let salaries = {
 }
 ```
 
-Write the code to sum all salaries and store in the variable `sum`. Should be `390` in the example above.
+Escribe el código para sumar todos los salarios y almacenarl el resultado en la variable `sum`. En el ejemplo de arriba nos debería dar `390`.
 
-If `salaries` is empty, then the result must be `0`.
+Si `salaries` está vacio entonces el resultado será `0`.

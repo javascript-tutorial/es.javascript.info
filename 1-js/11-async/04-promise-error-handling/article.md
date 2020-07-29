@@ -122,7 +122,7 @@ Aqui el `.catch` termina de forma correcta. Entonces se ejecuta el siguiente man
 En el siguiente ejemplo podemos ver otra situación con `.catch`. El manejador `(*)` detecta el error y simplemente no puede manejarlo (en el ejemplo solo sabe que hacer con un `URIError`), por lo que lo lanza nuevamente:
 
 ```js run
-// Ejecución: catch -> catch -> then
+// Ejecución: catch -> catch
 new Promise((resolve, reject) => {
 
   throw new Error("Whoops!");

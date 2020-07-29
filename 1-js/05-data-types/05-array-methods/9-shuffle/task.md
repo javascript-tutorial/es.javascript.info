@@ -2,11 +2,11 @@ importance: 3
 
 ---
 
-# Shuffle an array
+# Barajar un array
 
-Write the function `shuffle(array)` that shuffles (randomly reorders) elements of the array.
+Escribe la función `shuffle(array)` que baraje (reordene de forma aleatoria) los elementos del array.
 
-Multiple runs of `shuffle` may lead to different orders of elements. For instance:
+Multiples ejecuciones de `shuffle` puede conducir a diferentes órdenes de elementos. Por ejemplo:
 
 ```js
 let arr = [1, 2, 3];
@@ -22,4 +22,4 @@ shuffle(arr);
 // ...
 ```
 
-All element orders should have an equal probability. For instance, `[1,2,3]` can be reordered as `[1,2,3]` or `[1,3,2]` or `[3,1,2]` etc, with equal probability of each case.
+Todos los reordenamientos de elementos tienen que tener la misma probabilidad. Por ejemplo, `[1,2,3]` puede ser reordenado como `[1,2,3]` o `[1,3,2]` o `[3,1,2]` etc, con igual probabilidad en cada caso.
