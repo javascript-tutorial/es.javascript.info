@@ -15,7 +15,7 @@ fetch('https://no-such-server.blabla') // Promesa rechazada
 
 Como puedes ver, el `.catch` no tiene que escribirse inmediatamente después de la promesa. Este puede aparecer después de uno o quizás varios `.then`.
 
-O, puede ocurrir, que todo en el sitio se encuentre bien, pero la respuesta no es un JSON válido. La forma más facil de detectar todos los errores es agregando `.catch` al final de la cadena de promesas:
+O, puede ocurrir, que todo en el sitio se encuentre bien, pero la respuesta no es un JSON válido. La forma más fácil de detectar todos los errores es agregando `.catch` al final de la cadena de promesas:
 
 ```js run
 fetch('/article/promise-chaining/user.json')
