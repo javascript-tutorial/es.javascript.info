@@ -40,7 +40,7 @@ Y el camino completo a la propiedad asegura que todos los componentes existen, p
 
 El encadenamiento opcional `?.` detiene la evaluación y devuelve` undefined` si la parte anterior a `?.` es` undefined` o `null`.
 
-Más adelante en este artículo, por brevedad, diremos que algo "existe" si no es `null` ni `undefined`.
+**Además en este artículo, por brevedad, diremos que algo "existe" si no es `null` o `undefined`.**
 
 
 Aquí está la forma segura de acceder a `user.address.street`:
@@ -64,7 +64,10 @@ alert( user?.address.street.anything ); // undefined
 
 Tenga en cuenta: la sintaxis `?.` funciona exactamente donde está colocada, nada más.
 
-En las últimas dos líneas, la evaluación se detiene inmediatamente después de `user?.`, sin acceder nunca a otras propiedades. Pero si `user` realmente existe, entonces las propiedades intermedias adicionales, como `user.address`deben existir.
+En el ejemplo anterior, `user?.` permite que solo `user` sea `null / undefined`.
+
+Por otro lado, si `user` existe, entonces debe tener la propiedad `user.address`, de lo contrario `user?.Address.street` da un error en el segundo punto.
+
 
 ```warn header="No abuses del encadenamiento opcional"
 Deberíamos usar `?.` solo donde está bien que algo no exista.
@@ -74,14 +77,14 @@ Por ejemplo, si de acuerdo con nuestra lógica de codificación, el objeto `user
 Entonces, si `user` no está definido debido a un error, lo sabremos y lo arreglaremos. De lo contrario, los errores de codificación pueden silenciarse donde no sea apropiado y volverse más difíciles de depurar.
 ```
 
-````warn header="La variable antes de ?. debe existir"
-Si no hay una variable `user`, entonces `user? .Anything` provocará un error:
+````warn header="La variable antes de ?. debe declararse"
+Si no hay una variable `user` declarada, entonces `user?.Anything` provocará un error:
 
 ```js run
 // ReferenceError: El usuario no está definido
 user?.address;
 ```
-El encadenamiento opcional solo prueba para `null/undefined`, no interfiere con ninguna otra mecánica del lenguaje.
+Debe haber `let / const / var user`. El encadenamiento opcional solo funciona para variables declaradas.
 ````
 
 ## Short-circuiting (Cortocircuitos)

@@ -9,7 +9,7 @@ En el primer capítulo de esta sección, mencionamos que existen métodos modern
 
 Los métodos modernos son:
 
-- [Object.create(proto[, descriptors])] (mdn:js/Object/create): crea un objeto vacío con el "proto" dado como `[[Prototype]]` y descriptores de propiedad opcionales.
+- [Object.create(proto, [descriptors])] (mdn:js/Object/create): crea un objeto vacío con el "proto" dado como `[[Prototype]]` y descriptores de propiedad opcionales.
 - [Object.getPrototypeOf(obj)](mdn:js/Object/getPrototypeOf) - devuelve el `[[Prototype]]` de `obj`.
 - [Object.setPrototypeOf(obj, proto)](mdn:js/Object/setPrototypeOf) - establece el `[[Prototype]]` de `obj` en `proto`.
 
