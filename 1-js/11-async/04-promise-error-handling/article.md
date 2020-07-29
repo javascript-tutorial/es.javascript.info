@@ -38,7 +38,7 @@ fetch('/article/promise-chaining/user.json')
 */!*
 ```
 
-Normalmente, el `.catch` no siempre se dispara. Pero si alguna de las promesas anteriores es rechazada (por un error de red, un JSON inválido or cualquier otra razón), entonces el error es capturado.
+Lo normal es que tal `.catch` no se dispare en absoluto. Pero si alguna de las promesas anteriores es rechazada (por un error de red, un JSON inválido or cualquier otra razón), entonces el error es capturado.
 
 ## try..catch implícito
 
