@@ -216,7 +216,7 @@ for (let key in user) {
 }
 ```
 
-Las bibliotecas de JavaScript también proporcionan funciones para un enlace masivo, e.j. [_.bindAll(obj)](http://lodash.com/docs#bindAll) en lodash.
+Las bibliotecas de JavaScript también proporcionan funciones para un enlace masivo, e.j. [_.bindAll(object, methodNames)](http://lodash.com/docs#bindAll) en lodash.
 ````
 
 ## Funciones parciales

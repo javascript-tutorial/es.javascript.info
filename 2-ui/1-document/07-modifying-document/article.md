@@ -57,9 +57,11 @@ Creating the message div takes 3 steps:
 ```js
 // 1. Create <div> element
 let div = document.createElement('div');
+
 // 2. Set its class to "alert"
 div.className = "alert";
-// Fill it with the content
+
+// 3. Fill it with the content
 div.innerHTML = "<strong>Hi there!</strong> You've read an important message.";
 ```
 
@@ -99,10 +101,10 @@ Here we called `append` on `document.body`, but we can call `append` method on a
 
 Here are more insertion methods, they specify different places where to insert:
 
-- `node.append(...nodes or strings)` -- append nodes or strings at the end of `node`,
-- `node.prepend(...nodes or strings)` -- insert nodes or strings at the beginning of `node`,
-- `node.before(...nodes or strings)` –- insert nodes or strings before `node`,
-- `node.after(...nodes or strings)` –- insert nodes or strings after `node`,
+- `node.append(...nodes or strings)` -- append nodes or strings *at the end* of `node`,
+- `node.prepend(...nodes or strings)` -- insert nodes or strings *at the beginning* of `node`,
+- `node.before(...nodes or strings)` –- insert nodes or strings *before* `node`,
+- `node.after(...nodes or strings)` –- insert nodes or strings *after* `node`,
 - `node.replaceWith(...nodes or strings)` –- replaces `node` with the given nodes or strings.
 
 Arguments of these methods are an arbitrary list of DOM nodes to insert, or text strings (that become text nodes automatically).

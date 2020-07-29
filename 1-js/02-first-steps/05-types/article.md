@@ -1,6 +1,10 @@
 # Tipos de datos
 
-Una variable en JavaScript puede contener cualquier dato. Una variable puede ser una cadena en un momento dado y en otro, un número:
+Un valor en JavaScript siempre es de cierto tipo. Por ejemplo, un string(cadena de caracteres) o un número.
+
+Hay ocho tipos de datos básicos en JavaScript. Aquí, los cubriremos en general y en los próximos capítulos hablaremos de cada uno de ellos en detalle.
+
+Podemos poner cualquier tipo en una variable. Por ejemplo, una variable puede en un momento ser un string y luego almacenar un número:
 
 ```js
 // no hay error
@@ -10,7 +14,6 @@ message = 123456;
 
 Los lenguajes de programación que permiten estas cosas se denominan "dinámicamente tipeados", lo que significa que hay tipos de datos, pero las variables no están vinculadas a ninguno de ellos.
 
-Hay siete tipos de datos básicos en JavaScript. Aquí, los cubriremos en general y en los próximos capítulos hablaremos de cada uno de ellos detalladamente.
 
 ## Un number
 ```js
@@ -61,6 +64,27 @@ El script nunca se detendrá con un error fatal ("morir"). En el peor de los cas
 Los valores numéricos especiales pertenecen formalmente al tipo "número". Por supuesto que no son números en el sentido estricto de la palabra.
 
 Veremos más sobre el trabajo con números en el capítulo <info:number>.
+
+## BigInt
+
+En JavaScript, el tipo "número" no puede representar valores enteros mayores que <code> (2 <sup> 53 </sup> -1) </code> (eso es `9007199254740991`), o menor que <code> - (2 <sup> 53 </sup> -1) </code> para negativos. Es una limitación técnica causada por su representación interna.
+
+Para la mayoría de los propósitos es suficiente, pero a veces necesitamos números realmente grandes, e.j. para criptografía o marcas de tiempo de precisión de microsegundos.
+
+`BigInt` se agregó recientemente al lenguaje para representar enteros de longitud arbitraria.
+
+Un valor `BigInt` se crea agregando `n` al final de un entero:
+
+```js
+// la "n" al final significa que es un BigInt
+const bigInt = 1234567890123456789012345678901234567890n;
+```
+
+Como los números `BigInt` rara vez se necesitan, no los cubrimos aquí, sino que les dedicamos un capítulo separado <info: bigint>. Léalo cuando necesite números tan grandes.
+
+```smart header="Problemas de compatibilidad"
+En este momento, `BigInt` es compatible con Firefox / Chrome / Edge, pero no con Safari / IE.
+```
 
 ## Un string
 
@@ -226,9 +250,10 @@ Las últimas tres líneas pueden necesitar una explicación adicional:
 
 ## Resumen
 
-Hay 7 tipos básicos en JavaScript.
+Hay 8 tipos básicos en JavaScript.
 
 - `number` para números de cualquier tipo: enteros o en punto flotante.
+- `bigint` para números enteros de longitud arbitraria.
 - `string` para cadenas. Una cadena puede tener uno o más caracteres, no hay un tipo especial para un único carácter.
 - `boolean` para `verdadero`/`falso`.
 - `null` para valores desconocidos -- un tipo independiente que tiene un solo valor `nulo`.

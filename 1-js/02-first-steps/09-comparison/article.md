@@ -6,7 +6,7 @@ En Javascript se escriben así:
 
 - Mayor/menor que: <code>a &gt; b</code>, <code>a &lt; b</code>.
 - Mayor/menor o igual que: <code>a &gt;= b</code>, <code>a &lt;= b</code>.
-- Igual: `a == b` (ten en cuenta el doble signo `=`. Un solo símbolo `a = b` significaría una asignación).
+- Igual: `a == b` (ten en cuenta el doble signo `==`. Un solo símbolo `a = b` significaría una asignación).
 - Distinto. En matemáticas la notación es <code>&ne;</code>, pero en JavaScript se escribe como una asignación con un signo de exclamación delante: <code>a != b</code>.
 
 En este artículo, aprenderemos más sobre los diferentes tipos de comparaciones, cómo las realiza JavaScript, incluidas las peculiaridades importantes.
