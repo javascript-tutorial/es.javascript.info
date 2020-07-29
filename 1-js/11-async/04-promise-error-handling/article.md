@@ -66,7 +66,7 @@ new Promise((resolve, reject) => {
 
 El "`try..catch` invisible" embebido en el ejecutor detecta automáticamente el error y lo convierte en una promesa rechazada.
 
-Esto sucede no solo en la función ejecutora, sino también en sus manejadores. Si hacemos `throw`dentro de una llamada a `.then`, esto devolverá una promesa rechazada, por lo que el control salta al manejador de errores más cercano.
+Esto sucede no solo en la función ejecutora, sino también en sus manejadores. Si hacemos `throw` dentro de una llamada a `.then`, esto devolverá una promesa rechazada, por lo que el control salta al manejador de errores más cercano.
 
 Por ejemplo:
 
