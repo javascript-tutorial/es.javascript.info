@@ -1,4 +1,4 @@
-# Diferentes condicionales: if, '?'
+# Ejecución condicional: if, '?'
 
 Algunas veces, necesitamos ejecutar diferentes acciones basadas en diferentes condiciones.
 
