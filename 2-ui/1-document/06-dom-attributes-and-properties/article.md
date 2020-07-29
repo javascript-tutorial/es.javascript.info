@@ -1,6 +1,6 @@
 # Atributos y propiedades
 
-Cuando el navegador carga la página, "lee" (o "parsea"(analiza")) el HTML y genera objetos DOM a partir de él. Para los nodos de elementos, la mayoría de los atributos HTML estándar se convierten automáticamente en propiedades de los objetos DOM.
+Cuando el navegador carga la página, "lee" (o "parser"(analiza en inglés")) el HTML y genera objetos DOM a partir de él. Para los nodos de elementos, la mayoría de los atributos HTML estándar se convierten automáticamente en propiedades de los objetos DOM.
 
 Por ejemplo, si la etiqueta es `<body id="page">`, entonces el objeto DOM tiene `body.id="page"`.
 
