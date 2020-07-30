@@ -1,5 +1,5 @@
 
-# Llamado async desde un no-async
+# Llamado async desde un non-async
 
 Tenemoss una función "regular". ¿Cómo llamar `async` desde ella y usar su resultado?
 
