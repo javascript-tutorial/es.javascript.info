@@ -1,5 +1,5 @@
 
-# Rescribe usando async/await
+# Rescribir usando async/await
 
 Rescriba este código de ejemplo del capítulo <info:promise-chaining> usando `async/await` en vez de `.then/catch`:
 
