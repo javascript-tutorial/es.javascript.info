@@ -20,7 +20,7 @@ loadJson('no-such-user.json')
 Notas:
 
 1. La función `loadJson` se vuelve `async`.
-2. Todo lo `.then` dentro son reemplazados por `await`.
+2. Todo lo que está dentro de `.then` es reemplazado por `await`.
 3. Podemos devolver `return response.json()` en lugar de esperar por él, como esto:
 
     ```js
