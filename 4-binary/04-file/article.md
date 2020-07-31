@@ -15,7 +15,7 @@ new File(partesDelArchivo, nombreDelArchivo, [opciones])
 - **`options`** -- objeto opcional:
     - **`lastModified`** -- la  marca de tiempo (fecha en mili-segundos) de la última modificación.
 
-Segundo, a menudo obetenemos un archivo mediante un `<input type="file">` o un drag'n'drop, u otra interfaz del navegador. En este caso el archivo obtiene la información del Sistema Operativo.
+Segundo, a menudo obtenemos un archivo mediante un `<input type="file">` o arrastrar y soltar u otras interfaces del navegador. En este caso el archivo obtiene la información del Sistema Operativo.
 
 Como `File` (Archivo) hereda de `Blob`, objetos de tipo `File` tienen las mismas propiedades, mas:
 - `name` -- el nombre del archivo,
