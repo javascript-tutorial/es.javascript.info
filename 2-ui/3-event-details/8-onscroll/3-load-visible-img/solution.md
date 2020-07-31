@@ -1,13 +1,13 @@
 El manejador `onscroll` debería comprobar qué imágenes son visibles y mostrarlas.
 
-También queremos ejecutarlo cuando se cargue la página, para detectar las imágenes inmeditamente visibles y cargarlas.
+También queremos que se ejecute cuando se cargue la página, para detectar las imágenes inmeditamente visibles y cargarlas.
 
 El código debería ejecutarse cuando se cargue el documento, para que tenga acceso a su contenido.
 
 O ponerlo en la parte inferior del `<body>`:
 
 ```js
-// ...el contenido de la página esta arriva...
+// ...el contenido de la página esta arriba...
 
 function isVisible(elem) {
 
