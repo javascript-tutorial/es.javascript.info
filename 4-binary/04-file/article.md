@@ -44,7 +44,7 @@ El input puede seleccionar varios archivos, por lo que `input.files` es una list
 
 [Lector de Archivos](https://www.w3.org/TR/FileAPI/#dfn-filereader) es un objeto con el único porpósito de leer datos desde  objetos  de tipo `Blob` (y entonces `File` también).
 
-El entrega los datos usando evetos, debido a que leerlos desde el disco puede tomar tiempo.
+El entrega los datos usando eventos debido a que leerlos desde el disco puede tomar un tiempo.
 
 El constructor:
 
