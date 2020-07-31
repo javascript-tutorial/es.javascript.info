@@ -2,29 +2,29 @@ importance: 4
 
 ---
 
-# Load visible images
+# Cargar imágenes visibles
 
-Let's say we have a slow-speed client and want to save their mobile traffic.
+Digamos que tenemos un cliente con baja velocidad de conexión y queremos cuidar su tarifa de datos.
 
-For that purpose we decide not to show images immediately, but rather replace them with placeholders, like this:
+Para ello decidimos no mostrar las imágenes inmediatemente, sino sustituirlas por marcadores de posición, como este:
 
 ```html
 <img *!*src="placeholder.svg"*/!* width="128" height="128" *!*data-src="real.jpg"*/!*>
 ```
 
-So, initially all images are `placeholder.svg`. When the page scrolls to the position where the user can see the image -- we change `src` to the one in `data-src`, and so the image loads.
+Así que, inicialmente todas las imágenes son `placeholder.svg`. Cuando la página se desplaza a la posición donde el usuario puede ver la imagen -- cambiamos `src` a `data-src`, y así la imagen se carga.
 
-Here's an example in `iframe`:
+Aquí hay un ejemplo en `iframe`:
 
 [iframe src="solution"]
 
-Scroll it to see images load "on-demand".
+Desplázate para ver las imagenes cargadas "a la carta".
 
-Requirements:
-- When the page loads, those images that are on-screen should load immediately, prior to any scrolling.
-- Some images may be regular, without `data-src`. The code should not touch them.
-- Once an image is loaded, it should not reload any more when scrolled in/out.
+Requerimientos:
+- Cuando la página se carga, las imágenes que están en pantalla deben cargarse inmediatamente, antes de cualquier desplazamiento.
+- Algunas imágenes pueden ser regulares, sin `data-src`. El código no debe tocarlas.
+- Una vez que una imagen se carga, no debe recargarse más cuando haya desplazamiento arriba/abajo.
 
-P.S. If you can, make a more advanced solution that would "preload" images that are one page below/after the current position.
+P.S. Si puedes, haz una solución más avanzada para "precargar" las imágenes que están más abajo/después de la posición actual.
 
-P.P.S. Only vertical scroll is to be handled, no horizontal scrolling.
+P.P.S. Sólo se debe manejar el desplazamiento vertical, no el horizontal.
