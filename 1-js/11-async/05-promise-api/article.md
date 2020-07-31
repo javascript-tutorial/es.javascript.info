@@ -6,7 +6,7 @@ Hay 5 métodos estáticos en la clase `Promise`. Cubrimos sus casos de uso aquí
 
 Digamos que queremos que muchas promesas se ejecuten en paralelo y esperar hasta que todas ellas estén listas.
 
-Por ejemplo, descargar varias URLs en paralelo y procesar su contenido en cuando todas ellas finalicen.
+Por ejemplo, descargar varias URLs en paralelo y procesar su contenido en cuanto todas ellas finalicen.
 
 Para ello es `Promise.all`.
 
