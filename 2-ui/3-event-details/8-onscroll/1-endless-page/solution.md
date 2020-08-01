@@ -41,7 +41,7 @@ document.documentElement.getBoundingClientRect().top = -1400
 document.documentElement.getBoundingClientRect().bottom = 600
 ```
 
-Tened en cuenta que el `fondo` del documento nunca puede ser `0`, porque nunca llega a la parte superior de la ventana. El límite más bajo de la coordenada `inferior` es la altura de la ventana(asumimos que es `600`), no podemos desplazarla más hacia arriba.
+Tened en cuenta que el fondo del documento `bottom` nunca puede ser `0`, porque nunca llega a la parte superior de la ventana. El límite más bajo de la coordenada `bottom` es la altura de la ventana (asumimos que es `600`), no podemos desplazarla más hacia arriba.
 
 Podemos obtener la altura de la ventana con `document.documentElement.clientHeight`.
 
