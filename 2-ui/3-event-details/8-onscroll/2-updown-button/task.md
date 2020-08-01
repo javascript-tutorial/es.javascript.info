@@ -2,15 +2,15 @@ importance: 5
 
 ---
 
-# Up/down button
+# Botón para subir/bajar
 
-Create a "to the top" button to help with page scrolling.
+Crea un botón "ir arriba" para ayudar con el desplazamiento de la página.
 
-It should work like this:
-- While the page is not scrolled down at least for the window height -- it's invisible.
-- When the page is scrolled down more than the window height -- there appears an "upwards" arrow in the left-top corner. If the page is scrolled back, it disappears.
-- When the arrow is clicked, the page scrolls to the top.
+Debería funcionar así:
+- Mientras que la página no se desplace hacia abajo al menos la altura de la ventana... es invisible.
+- Cuando la página se desplaza hacia abajo más que la altura de la ventana -- aparece una flecha "hacia arriba" en la esquina superior izquierda. Si la página se desplaza hacia atrás desaparece.
+- Cuando se hace click en la flecha, la página se desplaza hacia arriba hasta el tope.
 
-Like this (top-left corner, scroll to see):
+Así (esquina superior izquierda, desplácese para ver):
 
 [iframe border="1" height="200" link src="solution"]
