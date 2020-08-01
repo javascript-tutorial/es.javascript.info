@@ -4,7 +4,7 @@ importance: 5
 
 # Página sin fin
 
-Crear una página interminable. Cuando un visitante la desplace hasta el final, se va a auto-pegar la fecha y hora actual al texto (así el visitante podrá seguir desplazándose)
+Crear una página interminable. Cuando un visitante la desplace hasta el final, se auto-añadirá la fecha y hora actual al texto (así el visitante podrá seguir desplazándose)
 
 Así:
 
