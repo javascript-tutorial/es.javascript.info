@@ -1,6 +1,6 @@
 # Desplazamiento
 
-El evento `scroll` permite reaccionar en una página o elemento de desplazamiento. Hay bastantes cosas buenas que podemos hacer aquí.
+El evento `scroll` permite reaccionar al desplazamiento de una página o elemento. Hay bastantes cosas buenas que podemos hacer aquí.
 
 Por ejemplo:
 - Mostrar/ocultar controles o información adicional según el lugar del documento en el que se encuentre el/la usuario/a.
