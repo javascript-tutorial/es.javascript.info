@@ -13,7 +13,7 @@ new File(fileParts, fileName, [options])
 - **`fileParts`** -- es un array con valores de tipo Blob/BufferSource/String.
 - **`fileName`** -- el nombre del archivo..
 - **`options`** -- objeto opcional:
-    - **`lastModified`** -- la  marca de tiempo (fecha en mili-segundos) de la última modificación.
+    - **`lastModified`** -- la  marca de tiempo (fecha en mili-segundos, de tipo entero) de la última modificación.
 
 Segundo, a menudo obtenemos un archivo mediante un `<input type="file">` o arrastrar y soltar u otras interfaces del navegador. En este caso el archivo obtiene la información del Sistema Operativo.
 
