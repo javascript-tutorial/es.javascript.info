@@ -7,7 +7,7 @@ Hay dos maneras de obtenerlo
 Primero, hay un constructor, similar al de `Blob`:
 
 ```js
-new File(partesDelArchivo, nombreDelArchivo, [opciones])
+new File(fileParts, fileName, [options])
 ```
 
 - **`fileParts`** -- es un array con valores de tipo Blob/BufferSource/String.
