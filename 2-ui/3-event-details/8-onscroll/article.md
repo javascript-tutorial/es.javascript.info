@@ -26,7 +26,7 @@ El evento `scroll` funciona tanto en `window` como en los elementos desplazables
 
 ¿Qué hacemos para que algo no se pueda desplazar?
 
-No podemos evitar el desplazamiento utilizando `event.preventDefault()` en el oyente `onscroll`, porque se activa *después* de que el desplazamiento haya ocurrido.
+No podemos evitar el desplazamiento utilizando `event.preventDefault()` oyendo al evento `onscroll`, porque este se activa *después* de que el desplazamiento haya ocurrido.
 
 Pero podemos prevenir el desplazamiento con `event.preventDefault()` en un evento que cause el desplazamiento, por ejemplo en el evento `keydown` para `key:pageUp` y `key:pageDown`.
 
