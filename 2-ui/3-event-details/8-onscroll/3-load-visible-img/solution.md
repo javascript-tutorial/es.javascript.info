@@ -7,7 +7,7 @@ El código debería ejecutarse cuando se cargue el documento, para que tenga acc
 O ponerlo en la parte inferior del `<body>`:
 
 ```js
-// ...el contenido de la página esta arriba...
+// ...el contenido de la página está arriba...
 
 function isVisible(elem) {
 
