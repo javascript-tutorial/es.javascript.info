@@ -1,6 +1,6 @@
 El manejador `onscroll` debería comprobar qué imágenes son visibles y mostrarlas.
 
-También queremos que se ejecute cuando se cargue la página, para detectar las imágenes inmeditamente visibles y cargarlas.
+También queremos que se ejecute cuando se cargue la página, para detectar las imágenes visibles inmediatamente y cargarlas.
 
 El código debería ejecutarse cuando se cargue el documento, para que tenga acceso a su contenido.
 
