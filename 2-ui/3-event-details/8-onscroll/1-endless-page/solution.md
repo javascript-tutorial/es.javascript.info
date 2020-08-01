@@ -17,7 +17,7 @@ Por ejemplo, si la altura de todo el documento es `2000px`, entonces:
 //  window-relative top = 0    (relativo a la ventana,  límite superior = 0 )
 document.documentElement.getBoundingClientRect().top = 0
 
-// ventana-relativa inferior = 2000
+// window-relative bottom = 2000    (relativo a la ventana, límite inferior = 2000)
 // el documento es largo, así que probablemente esté más allá del fondo de la ventana
 document.documentElement.getBoundingClientRect().bottom = 2000
 ```
