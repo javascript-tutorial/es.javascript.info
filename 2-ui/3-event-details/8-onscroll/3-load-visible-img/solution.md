@@ -46,4 +46,4 @@ window.onscroll = showVisible;
 */!*
 ```
 
-P.S. La solución tiene una variante de `isVisible` que "precarga" imágenes que están dentro de 1 página por encima/debajo del desplazamiento del documento actual.
+P.D. La solución tiene una variante de `isVisible` que "precarga" imágenes que están dentro de 1 página por encima/debajo del desplazamiento del documento actual.
