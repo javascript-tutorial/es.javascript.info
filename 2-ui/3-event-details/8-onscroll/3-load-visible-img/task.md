@@ -25,6 +25,6 @@ Requerimientos:
 - Algunas imágenes pueden ser regulares, sin `data-src`. El código no debe tocarlas.
 - Una vez que una imagen se carga, no debe recargarse más cuando haya desplazamiento arriba/abajo.
 
-P.S. Si puedes, haz una solución más avanzada para "precargar" las imágenes que están más abajo/después de la posición actual.
+P.D. Si puedes, haz una solución más avanzada para "precargar" las imágenes que están más abajo/después de la posición actual.
 
 P.P.S. Sólo se debe manejar el desplazamiento vertical, no el horizontal.
