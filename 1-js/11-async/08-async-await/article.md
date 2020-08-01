@@ -1,10 +1,10 @@
 # Async/await
 
-There's a special syntax to work with promises in a more comfortable fashion, called "async/await". It's surprisingly easy to understand and use.
+Existe una sintaxis especial para trabajar con promesas de una forma más confortable, llamada "async/await". Es sorprendentemente fácil de entender y usar.
 
-## Async functions
+## Funciones async
 
-Let's start with the `async` keyword. It can be placed before a function, like this:
+Comencemos con la palabra clave `async`. Puede ser ubicada delante de una función como aquí:
 
 ```js
 async function f() {
@@ -12,9 +12,9 @@ async function f() {
 }
 ```
 
-The word "async" before a function means one simple thing: a function always returns a promise. Other values are wrapped in a resolved promise automatically.
+La palabra "async" ante una función significa solamente una cosa: que la función siempre devolverá una promesa. Otros valores serán envueltos y resueltos en una promesa automáticamente.
 
-For instance, this function returns a resolved promise with the result of `1`; let's test it:
+Por ejemplo, esta función devuelve una promesa resuelta con el resultado de `1`; Probémosla:
 
 ```js run
 async function f() {
@@ -24,7 +24,7 @@ async function f() {
 f().then(alert); // 1
 ```
 
-...We could explicitly return a promise, which would be the same:
+...Podríamos explícitamente devolver una promesa, lo cual sería lo mismo:
 
 ```js run
 async function f() {
@@ -34,45 +34,45 @@ async function f() {
 f().then(alert); // 1
 ```
 
-So, `async` ensures that the function returns a promise, and wraps non-promises in it. Simple enough, right? But not only that. There's another keyword, `await`, that works only inside `async` functions, and it's pretty cool.
+Entonces, `async` se asegura de que la función devuelva una promesa, o envuelve las no promesas y las transforma en una. Bastante simple, ¿correcto? Pero no solo eso. Hay otra palabra, `await`, que solo trabaja dentro de funciones `async` y es muy interesante.
 
 ## Await
 
-The syntax:
+La sintaxis:
 
 ```js
-// works only inside async functions
+// funciona solamente dentro de funciones async
 let value = await promise;
 ```
 
-The keyword `await` makes JavaScript wait until that promise settles and returns its result.
+`await` hace que JavaScript espere hasta que la promesa responda y devuelve su resultado.
 
-Here's an example with a promise that resolves in 1 second:
+Aquí hay un ejemplo con una promesa que resuelve en 1 segundo:
 ```js run
 async function f() {
 
   let promise = new Promise((resolve, reject) => {
-    setTimeout(() => resolve("done!"), 1000)
+    setTimeout(() => resolve("¡Hecho!"), 1000)
   });
 
 *!*
-  let result = await promise; // wait until the promise resolves (*)
+  let result = await promise; // espera hasta que la promesa se resuelva (*)
 */!*
 
-  alert(result); // "done!"
+  alert(result); // "¡Hecho!"
 }
 
 f();
 ```
 
-The function execution "pauses" at the line `(*)` and resumes when the promise settles, with `result` becoming its result. So the code above shows "done!" in one second.
+La ejecución de la función es pausada en la línea `(*)` y se reanuda cuando la promesa responde, con `result` volviéndose su resultado. Entonces el código arriba muestra "¡Hecho!" en un segundo.
 
-Let's emphasize: `await` literally makes JavaScript wait until the promise settles, and then go on with the result. That doesn't cost any CPU resources, because the engine can do other jobs in the meantime: execute other scripts, handle events, etc.
+Enfaticemos: `await` literalmente hace que JavaScript espere hasta que la promesa responda, entonces sigue con el resultado. No tiene costo en recursos de CPU, porque mientras tanto el motor puede hacer otros trabajos: ejecutar otros scripts, manejar eventos, etc.
 
-It's just a more elegant syntax of getting the promise result than `promise.then`, easier to read and write.
+Es simplemente una sintaxis más elegante para tener el resultado de una promesa que `promise.then`, es más facil de leer y de escribir.
 
-````warn header="Can't use `await` in regular functions"
-If we try to use `await` in non-async function, there would be a syntax error:
+````warn header="No se puede usar `await` en funciones regulares"
+Si tratamos de usar `await` en una función no async, habría un error de sintaxis:
 
 ```js run
 function f() {
@@ -83,32 +83,32 @@ function f() {
 }
 ```
 
-We will get this error if we do not put `async` before a function. As said, `await` only works inside an `async function`.
+Obtendremos este error si no ponemos `async` delante de una función. Como se dijo, `await` solo funciona dentro de una `función async`.
 ````
 
-Let's take the `showAvatar()` example from the chapter <info:promise-chaining> and rewrite it using `async/await`:
+Tomemos el ejemplo `showAvatar()` del capítulo <info:promise-chaining> y rescribámoslo usando `async/await`:
 
-1. We'll need to replace `.then` calls with `await`.
-2. Also we should make the function `async` for them to work.
+1. Necesitaremos reemplazar los llamados `.then` con `await`.
+2. También debemos hacer que la función sea `async` para que aquellos funcionen.
 
 ```js run
 async function showAvatar() {
 
-  // read our JSON
+  // leer nuestro JSON
   let response = await fetch('/article/promise-chaining/user.json');
   let user = await response.json();
 
-  // read github user
+  // leer usuario github
   let githubResponse = await fetch(`https://api.github.com/users/${user.name}`);
   let githubUser = await githubResponse.json();
 
-  // show the avatar
+  // muestra el avatar
   let img = document.createElement('img');
   img.src = githubUser.avatar_url;
   img.className = "promise-avatar-example";
   document.body.append(img);
 
-  // wait 3 seconds
+  // espera 3 segundos
   await new Promise((resolve, reject) => setTimeout(resolve, 3000));
 
   img.remove();
@@ -119,18 +119,18 @@ async function showAvatar() {
 showAvatar();
 ```
 
-Pretty clean and easy to read, right? Much better than before.
+Bien limpio y fácil de leer, ¿no es cierto? Mucho mejor que antes.
 
-````smart header="`await` won't work in the top-level code"
-People who are just starting to use `await` tend to forget the fact that we can't use `await` in top-level code. For example, this will not work:
+````smart header="`await` no funcionará en el código de nivel superior"
+La gente que empieza a usar `await` tiende a olvidar el hecho de que no podemos uar `await` en el código de nivel superior. Por ejemplo, esto no funcionará:
 
 ```js run
-// syntax error in top-level code
+// error de sintaxis en el nivel superior de código
 let response = await fetch('/article/promise-chaining/user.json');
 let user = await response.json();
 ```
 
-But we can wrap it into an anonymous async function, like this:
+Pero podemos envolverlo dentro de una función async anónima, como esto:
 
 ```js
 (async () => {
@@ -142,10 +142,10 @@ But we can wrap it into an anonymous async function, like this:
 
 
 ````
-````smart header="`await` accepts \"thenables\""
-Like `promise.then`, `await` allows us to use thenable objects (those with a callable `then` method). The idea is that a third-party object may not be a promise, but promise-compatible: if it supports `.then`, that's enough to use it with `await`.
+````smart header="`await` acepta \"thenables\""
+Tal como `promise.then`, `await` nos permite el uso de objetos "thenable" (aquellos con el método `then`). La idea es que un objeto de terceras partes pueda no ser una promesa, sino compatible con una: si soporta `.then`, es suficiente para el uso con `await`.
 
-Here's a demo `Thenable` class; the `await` below accepts its instances:
+Aquí hay una clase `Thenable` de demo; el `await` debajo acepta sus instancias:
 
 ```js run
 class Thenable {
@@ -154,13 +154,13 @@ class Thenable {
   }
   then(resolve, reject) {
     alert(resolve);
-    // resolve with this.num*2 after 1000ms
+    // resuelve con this.num*2 después de 1000ms
     setTimeout(() => resolve(this.num * 2), 1000); // (*)
   }
 };
 
 async function f() {
-  // waits for 1 second, then result becomes 2
+  // espera durante 1 segundo, entonces el resultado se vuelve 2
   let result = await new Thenable(1);
   alert(result);
 }
@@ -168,11 +168,11 @@ async function f() {
 f();
 ```
 
-If `await` gets a non-promise object with `.then`, it calls that method providing the built-in functions `resolve` and `reject` as arguments (just as it does for a regular `Promise` executor). Then `await` waits until one of them is called (in the example above it happens in the line `(*)`) and then proceeds with the result.
+Si `await` obtiene un objeto no-promesa con `.then`, llama tal método proveyéndole con las funciones incorporadas `resolve` y `reject` como argumentos (exactamente como lo hace con ejecutores `Promise` regulares). Entonce `await` espera hasta que une de ellos es llamado (en el ejemplo previo esto pasa en la línea `(*)`) y entonces procede con el resultado.
 ````
 
-````smart header="Async class methods"
-To declare an async class method, just prepend it with `async`:
+````smart header="Métodos de clase Async"
+Para declarar un método de clase async, simplemente se le antepone `async`:
 
 ```js run
 class Waiter {
@@ -187,14 +187,14 @@ new Waiter()
   .wait()
   .then(alert); // 1
 ```
-The meaning is the same: it ensures that the returned value is a promise and enables `await`.
+El significado es el mismo: Asegura que el valor devuelto es una promesa y habilita `await`.
 
 ````
-## Error handling
+## Manejo de Error
 
-If a promise resolves normally, then `await promise` returns the result. But in the case of a rejection, it throws the error, just as if there were a `throw` statement at that line.
+Si una promesa se resuelve normalmente, entonces `await promise` devuelve el resultado. Pero en caso de rechazo, dispara un error, tal como si hubiera una intrucción `throw` en aquella línea.
 
-This code:
+Este código:
 
 ```js
 async function f() {
@@ -204,7 +204,7 @@ async function f() {
 }
 ```
 
-...is the same as this:
+...es lo mismo que esto:
 
 ```js
 async function f() {
@@ -214,9 +214,9 @@ async function f() {
 }
 ```
 
-In real situations, the promise may take some time before it rejects. In that case there will be a delay before `await` throws an error.
+En situaciones reales, la promesa tomará algún tiempo antes del rechazo.  En tal caso habrá un retardo antes de que `await` dispare un error.
 
-We can catch that error using `try..catch`, the same way as a regular `throw`:
+Podemos atrapar tal error usando `try..catch`, de la misma manera que con un `throw` normal:
 
 ```js run
 async function f() {
@@ -233,7 +233,7 @@ async function f() {
 f();
 ```
 
-In the case of an error, the control jumps to the `catch` block. We can also wrap multiple lines:
+En el casso de un error, el control salta al bloque `catch`. Podemos también envolver múltiples líneas:
 
 ```js run
 async function f() {
@@ -242,7 +242,7 @@ async function f() {
     let response = await fetch('/no-user-here');
     let user = await response.json();
   } catch(err) {
-    // catches errors both in fetch and response.json
+    // atrapa errores tanto en fetch como en response.json
     alert(err);
   }
 }
@@ -250,33 +250,33 @@ async function f() {
 f();
 ```
 
-If we don't have `try..catch`, then the promise generated by the call of the async function `f()` becomes rejected. We can append `.catch` to handle it:
+Si no tenemos `try..catch`, entonces la promesa generada por el llamado de la función async `f()` se vuelve rechazada. Podemos añadir `.catch` para manejarlo:
 
 ```js run
 async function f() {
   let response = await fetch('http://no-such-url');
 }
 
-// f() becomes a rejected promise
+// f() se vuelve una promesa rechazada 
 *!*
 f().catch(alert); // TypeError: failed to fetch // (*)
 */!*
 ```
 
-If we forget to add `.catch` there, then we get an unhandled promise error (viewable in the console). We can catch such errors using a global `unhandledrejection` event handler as described in the chapter <info:promise-error-handling>.
+Si olvidamos añadir `.catch` allí, obtendrenos un error de promesa no manejado (visible en consola). Podemos atrapar tales errores usando un manejador de evento global `unhandledrejection` como está descrito en el capítulo <info:promise-error-handling>.
 
 
-```smart header="`async/await` and `promise.then/catch`"
-When we use `async/await`, we rarely need `.then`, because `await` handles the waiting for us. And we can use a regular `try..catch` instead of `.catch`. That's usually (but not always) more convenient.
+```smart header="`async/await` y `promise.then/catch`"
+Cuando usamos `async/await`, raramente necesitamos `.then`, porque `await` maneja la espera por nosotros. Y podemos usar un `try..catch` normal en lugar de `.catch`. Esto usualmente (no siempre) es más conveniente.
 
-But at the top level of the code, when we're outside any `async` function, we're syntactically unable to use `await`, so it's a normal practice to add `.then/catch` to handle the final result or falling-through error, like in the line `(*)` of the example above.
+Pero en el nivel superior del código, cuando estamos fuera de cualquier función `async`, no estamos sintácticamente habilitados para usar `await`, entonces es práctica común agregar `.then/catch` para manejar el resultado final o errores que caigan a través, como en la línea `(*)` del ejemplo arriba.
 ```
 
-````smart header="`async/await` works well with `Promise.all`"
-When we need to wait for multiple promises, we can wrap them in `Promise.all` and then `await`:
+````smart header="`async/await` funciona bien con `Promise.all`"
+Cuando necesitamos esperar por múltiples promesas, podemos envolverlas en un `Promise.all` y luego `await`:
 
 ```js
-// wait for the array of results
+// espera por el array de resultados
 let results = await Promise.all([
   fetch(url1),
   fetch(url2),
@@ -284,22 +284,22 @@ let results = await Promise.all([
 ]);
 ```
 
-In the case of an error, it propagates as usual, from the failed promise to `Promise.all`, and then becomes an exception that we can catch using `try..catch` around the call.
+En caso de error, se propaga como es usual, desde la promesa que falla a `Promise.all`, y entonces se vuelve una excepción que podemos atrapar usando `try..catch` alrededor del llamado.
 
 ````
 
-## Summary
+## Resumen
 
-The `async` keyword before a function has two effects:
+El comando `async` antes de una función tiene dos efectos:
 
-1. Makes it always return a promise.
-2. Allows `await` to be used in it.
+1. Hace que siempre devuelva una promesa.
+2. Permite que sea usado `await` dentro de ella.
 
-The `await` keyword before a promise makes JavaScript wait until that promise settles, and then:
+El comando `await` antes de una promesa hace que JavaScript espere hasta que la promesa responda, entonces:
 
-1. If it's an error, the exception is generated — same as if `throw error` were called at that very place.
-2. Otherwise, it returns the result.
+1. Si es un error, la excepción es generada — lo mismo que si `throw error` fuera llamado en ese mismo lugar.
+2. De otro modo, devuelve el resultado.
 
-Together they provide a great framework to write asynchronous code that is easy to both read and write.
+Juntos proveen un excelente marco para escribir código asincrónico que es fácil de leer y escribir.
 
-With `async/await` we rarely need to write `promise.then/catch`, but we still shouldn't forget that they are based on promises, because sometimes (e.g. in the outermost scope) we have to use these methods. Also `Promise.all` is nice when we are waiting for many tasks simultaneously.
+Con `async/await` raramente necesitamos escribir `promise.then/catch`, pero aún no deberíamos olvidar que están basados en promesas porque a veces (ej. como en el nivel superior de código) tenemos que usar esos métodos. También `Promise.all` es adecuado cuando esperamos por varias tareas simultáneas.
