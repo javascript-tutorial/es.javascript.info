@@ -18,7 +18,7 @@ Aquí hay un ejemplo en `iframe`:
 
 [iframe src="solution"]
 
-Desplázate para ver las imagenes cargadas "a la carta".
+Desplázate para ver las imagenes cargadas "bajo demanda".
 
 Requerimientos:
 - Cuando la página se carga, las imágenes que están en pantalla deben cargarse inmediatamente, antes de cualquier desplazamiento.
