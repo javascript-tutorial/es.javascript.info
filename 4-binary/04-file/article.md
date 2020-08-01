@@ -10,7 +10,7 @@ Primero, hay un constructor, similar al de `Blob`:
 new File(partesDelArchivo, nombreDelArchivo, [opciones])
 ```
 
-- **`fileParts`** -- es un array de valores Blob/BufferSource/String.
+- **`fileParts`** -- es un array con valores de tipo Blob/BufferSource/String.
 - **`fileName`** -- el nombre del archivo..
 - **`options`** -- objeto opcional:
     - **`lastModified`** -- la  marca de tiempo (fecha en mili-segundos) de la última modificación.
