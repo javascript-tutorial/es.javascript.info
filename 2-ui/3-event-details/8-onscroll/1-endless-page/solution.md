@@ -14,7 +14,7 @@ Por ejemplo, si la altura de todo el documento es `2000px`, entonces:
 
 ```js
 // cuando estamos en la parte superior de la página 
-// ventana-relativa superior = 0
+//  window-relative top = 0    (relativo a la ventana,  límite superior = 0 )
 document.documentElement.getBoundingClientRect().top = 0
 
 // ventana-relativa inferior = 2000
