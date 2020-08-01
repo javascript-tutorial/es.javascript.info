@@ -140,4 +140,4 @@ En muchos casos no necesitamos leer el contenido de un archivo como hicimos con 
 
 
 
-Y si vamos a mandar un `File` por la red, es también fácil: APIs como `XMLHttpRequest` o `fetch` acceptan nativamente objetos `File` . 
+Y si vamos a mandar un `File` por la red, es fácil utilizando APIs como `XMLHttpRequest` o `fetch` que aceptan nativamente objetos `File` . 
