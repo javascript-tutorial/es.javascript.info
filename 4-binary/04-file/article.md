@@ -40,7 +40,7 @@ function showFile(input) {
 El input puede seleccionar varios archivos, por lo que `input.files` es un array de dichos archivos . En este caso tenemos un solo archivo por lo que solo es necesario usar `input.files[0]`.
 ```
 
-## Lector de Archivos 
+## FileReader
 
 [Lector de Archivos](https://www.w3.org/TR/FileAPI/#dfn-filereader) es un objeto con el único porpósito de leer datos desde  objetos  de tipo `Blob` (y entonces `File` también).
 
