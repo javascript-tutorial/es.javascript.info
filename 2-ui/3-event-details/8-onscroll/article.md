@@ -17,7 +17,7 @@ window.addEventListener('scroll', function() {
 ```online
 In action:
 
-Desplazamiento actual = <b id="showScroll">Desplazamiento por la ventana</b>
+Desplazamiento actual = <b id="showScroll">Desplazamiento de la ventana</b>
 ```
 
 El evento `scroll` funciona tanto en `window` como en los elementos desplazables.
