@@ -17,4 +17,4 @@ Por favor tenga en cuenta dos características importantes del desplazamiento:
 
 Así que, "desplazarse hasta el final" debería significar que el visitante no está a más de 100px del final del documento.
 
-P.D. En la vida real podemos querer mostrar "más mensajes" o "más mejoras".
+P.D. En la vida real podemos querer mostrar "más mensajes" o "más bienes".
