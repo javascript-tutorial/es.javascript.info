@@ -37,7 +37,7 @@ function showFile(input) {
 ```
 
 ```smart
-El input puede seleccionar varios archivos, por lo que `input.files` es una lista de dichos archivos . En este caso tenemos un solo archivo por lo que solo es necesario usar `input.files[0]`.
+El input puede seleccionar varios archivos, por lo que `input.files` es un array de dichos archivos . En este caso tenemos un solo archivo por lo que solo es necesario usar `input.files[0]`.
 ```
 
 ## Lector de Archivos 
