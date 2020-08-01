@@ -60,7 +60,7 @@ Los métodos principales:
 
 - **`abort()`** -- cancela la operación.
 
-La opción de `read*` método depende de que formato preferimos y como vamos a usar los datos.
+La opción del método `read*` depende de qué formato preferimos y cómo vamos a usar los datos.
 
 - `readAsArrayBuffer` -- para archivos binarios, en donde se hacen operaciones binarias de bajo nivel. Para operaciones de alto nivel, como slicing, `File` hereda de `Blob` por lo que podemos llamarlas directamente sin tener que leer.
 - `readAsText` -- para archivos de texto, cuando nesecitamos obtener una cadena.
