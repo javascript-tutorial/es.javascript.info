@@ -27,4 +27,4 @@ Requerimientos:
 
 P.D. Si puedes, haz una solución más avanzada para "precargar" las imágenes que están más abajo/después de la posición actual.
 
-P.P.S. Sólo se debe manejar el desplazamiento vertical, no el horizontal.
+Post P.D. Sólo se debe manejar el desplazamiento vertical, no el horizontal.
