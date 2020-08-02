@@ -1,76 +1,76 @@
-# From the orbital height
+# Desde la altura orbital
 
-This section describes a set of modern standards for "web components".
+En esta sección se describe un conjunto de normas modernas para los "web components".
 
-As of now, these standards are under development. Some features are well-supported and integrated into the modern HTML/DOM standard, while others are yet in draft stage. You can try examples in any browser, Google Chrome is probably the most up to date with these features. Guess, that's because Google fellows are behind many of the related specifications.
+En la actualidad, estos estándares están en desarrollo. Algunas características están bien apoyadas e integradas en el standard moderno HTML/DOM, mientras que otras están aún en fase de borrador. Puedes probar algunos ejemplos en cualquier navegador, Google Chrome es probablemente el que más actualizado esté con estas características. Suponemos, que eso se debe a que los compañeros de Google están detrás de muchas de las especificaciones relacionadas.
 
-## What's common between...
+## Lo que es común entre...
 
-The whole component idea is nothing new. It's used in many frameworks and elsewhere.
+La idea del componente completo no es nada nuevo. Se usa en muchos frameworks y en otros lugares.
 
-Before we move to implementation details, take a look at this great achievement of humanity:
+Antes de pasar a los detalles de implementación, echemos un vistazo a este gran logro de la humanidad:
 
 ![](satellite.jpg)
 
-That's the International Space Station (ISS).
+Esa es la Estación Espacial Internacional (EEI).
 
-And this is how it's made inside (approximately):
+Y así es como se ha montado (aproximadamente):
 
 ![](satellite-expanded.jpg)
 
-The International Space Station:
-- Consists of many components.
-- Each component, in its turn, has many smaller details inside.
-- The components are very complex, much more complicated than most websites.
-- Components are developed internationally, by teams from different countries, speaking different languages.
+La Estación Espacial Internacional:
+- Está formada por muchos componentes.
+- Cada componente, a su vez, tiene muchos detalles más pequeños en su interior.
+- Los componentes son muy complejos, mucho más complicados que la mayoría de los sitios web.
+- Los componentes han sido desarrollados internacionalmente, por equipos de diferentes países, que hablan diferentes idiomas.
 
-...And this thing flies, keeps humans alive in space!
+...Y esta cosa vuela, ¡Mantiene a los humanos vivos en el espacio!
 
-How such complex devices are created?
+¿Cómo se crean dispositivos tan complejos?
 
-Which principles we could borrow to make our development same-level reliable and scalable? Or, at least, close to it.
+¿Qué principios podríamos tomar prestados para que nuestro desarrollo sea fiable y escalable al mismo nivel? O, por lo menos, cerca de él.
 
-## Component architecture
+## Arquitectura de componentes
 
-The well known rule for developing complex software is: don't make complex software.
+La regla más conocida para desarrollar software complejo es: no hacer software complejo.
 
-If something becomes complex -- split it into simpler parts and connect in the most obvious way.
+Si algo se vuelve complejo -- divídelo en partes más simples y conéctalas de la manera más obvia.
 
-**A good architect is the one who can make the complex simple.**
+**Un buen arquitecto es el que puede hacer lo complejo simple.**
 
-We can split user interface into visual components: each of them has own place on the page, can "do" a well-described task, and is separate from the others.
+Podemos dividir la interfaz de usuario en componentes visuales: cada uno de ellos tiene su propio lugar en la página, puede "hacer" una tarea bien descrita, y está separado de los demás.
 
-Let's take a look at a website, for example Twitter.
+Echemos un vistazo a un sitio web, por ejemplo Twitter.
 
-It naturally splits into components:
+Naturalmente está divido en componentes:
 
 ![](web-components-twitter.svg)
 
-1. Top navigation.
-2. User info.
-3. Follow suggestions.
-4. Submit form.
-5. (and also 6, 7) -- messages.
+1. Navegación superior.
+2. Información usuario.
+3. Siga las sugerencias.
+4. Envíe un formulario.
+5. (y también 6, 7) -- mensajes.
 
-Components may have subcomponents, e.g. messages may be parts of a higher-level "message list" component. A clickable user picture itself may be a component, and so on.
+Los componentes pueden tener subcomponentes, p.ej. los mensajes pueden ser parte de un componente "lista de mensajes" de nivel superior. Una imagen de usuario en sí puede ser un componente, y así sucesivamente.
 
-How do we decide, what is a component? That comes from intuition, experience and common sense. Usually it's a separate visual entity that we can describe in terms of what it does and how it interacts with the page. In the case above, the page has blocks, each of them plays its own role, it's logical to make these components.
+¿Cómo decidimos qué es un componente? Eso viene de la intuición, la experiencia y el sentido común. Normalmente es una entidad visual separada que podemos describir en términos de lo que hace y cómo interactua con la página. En el caso anterior, la página tiene bloques, cada uno de ellos juega su propio papel, es lógico crear esos componentes.
 
-A component has:
-- Its own JavaScript class.
-- DOM structure, managed solely by its class, outside code doesn't access it ("encapsulation" principle).
-- CSS styles, applied to the component.
-- API: events, class methods etc, to interact with other components.
+Un componentes tiene:
+- Su propia clase de JavaScript.
+- La estructura DOM, gestionada únicamente por su clase, el código externo no accede a ella(principio de  "encapsulación").
+- Estilos CSS, aplicados al componente.
+- API: eventos, métodos de clase etc, para interactuar con otros componentes.
 
-Once again, the whole "component" thing is nothing special.
+Una vez más, todo el asunto del "componente" no es nada especial.
 
-There exist many frameworks and development methodologies to build them, each with its own bells and whistles. Usually, special CSS classes and conventions are used to provide "component feel" -- CSS scoping and DOM encapsulation.
+Existen muchos frameworks y metodologías de desarrollos para construirlos, cada uno con sus propias características y reglas. Normalmente, se utilizan clases y convenciones CSS para proporcionar la "sensación de componente" -- alcance de CSS y encapsulación de DOM.
 
-"Web components" provide built-in browser capabilities for that, so we don't have to emulate them any more.
+"Web components" proporcionan capacidades de navegación incorporadas para eso, así que ya no tenemos que emularlos.
 
-- [Custom elements](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements) -- to define custom HTML elements.
-- [Shadow DOM](https://dom.spec.whatwg.org/#shadow-trees) -- to create an internal DOM for the component, hidden from the others.
-- [CSS Scoping](https://drafts.csswg.org/css-scoping/) -- to declare styles that only apply inside the Shadow DOM of the component.
-- [Event retargeting](https://dom.spec.whatwg.org/#retarget) and other minor stuff to make custom components better fit the development.
+- [Custom elements](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements) -- para definir elementos HTML personalizados.
+- [Shadow DOM](https://dom.spec.whatwg.org/#shadow-trees) -- para crear un DOM interno para el componente, oculto a los demás componentes.
+- [CSS Scoping](https://drafts.csswg.org/css-scoping/) -- para declarar estilos que sólo se aplican dentro del Shadow DOM del componente.
+- [Event retargeting](https://dom.spec.whatwg.org/#retarget) y otras cosas menosres para hacer que los componentes se ajusten mejor al desarrollo.
 
-In the next chapter we'll go into details of "Custom Elements" -- the fundamental and well-supported feature of web components, good on its own.
+En el próximo capítulo entraremos en detalles en los "Custom Elements" -- la característica fundamental y bien soportada de los componentes web, buena por sí misma.
