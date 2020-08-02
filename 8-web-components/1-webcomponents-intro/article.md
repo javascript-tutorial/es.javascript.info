@@ -71,6 +71,6 @@ Existen muchos frameworks y metodologías de desarrollos para construirlos, cada
 - [Custom elements](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements) -- para definir elementos HTML personalizados.
 - [Shadow DOM](https://dom.spec.whatwg.org/#shadow-trees) -- para crear un DOM interno para el componente, oculto a los demás componentes.
 - [CSS Scoping](https://drafts.csswg.org/css-scoping/) -- para declarar estilos que sólo se aplican dentro del Shadow DOM del componente.
-- [Event retargeting](https://dom.spec.whatwg.org/#retarget) y otras cosas menosres para hacer que los componentes se ajusten mejor al desarrollo.
+- [Event retargeting](https://dom.spec.whatwg.org/#retarget) y otras cosas menores para hacer que los componentes se ajusten mejor al desarrollo.
 
 En el próximo capítulo entraremos en detalles en los "Custom Elements" -- la característica fundamental y bien soportada de los componentes web, buena por sí misma.
