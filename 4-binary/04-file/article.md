@@ -66,7 +66,7 @@ La opción del método `read*` depende de qué formato preferimos y cómo vamos 
 - `readAsText` -- para archivos de texto, cuando nesecitamos obtener una cadena.
 - `readAsDataURL` -- cuando necesitamos usar estos datos como valores de `src` en `img` u otras etiquetas html. Hay otra alternativa para leer archivos de ese tipo como discutimos en el capítulo <info:blob>: `URL.createObjectURL(file)`.
 
-En la medida que la lectura procede, suceden varios eventos:
+Mientras se va realizando la lectura, suceden varios eventos:
 - `loadstart` -- la carga comenzó.
 - `progress` -- ocurre mientras se lee.
 - `load` -- lectura completada, sin errores.
