@@ -111,7 +111,7 @@ Como mencionamos en el capítulo <info:blob>, `FileReader` no solo lee archivos 
 Podemos usarlo para convertir un blob a otro formato:
 - `readAsArrayBuffer(blob)` -- a `ArrayBuffer`,
 - `readAsText(blob, [encoding])` -- a una cadena (una alternativa al `TextDecoder`),
-- `readAsDataURL(blob)` -- a Dato Uri.
+- `readAsDataURL(blob)` -- a Datos URI en base 64.
 ```
 
 
