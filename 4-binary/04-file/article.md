@@ -136,7 +136,7 @@ Los objetos `FileReader` pueden leer desde un archivo o un blob en uno de estos 
 - `ArrayBuffer` (`readAsArrayBuffer`).
 - Datos URI codificado en base 64 (`readAsDataURL`).
 
-En muchos casos no necesitamos leer el contenido de un archivo como hicimos con blobs, podemos crear un enlace corto con `URL.createObjectURL(file)` y asignárselo a un `<a>` o `<img>`. De esta manera el archivo puede ser descargado o ser mostrado como una imagen o como parte de un canvas, etc.
+En muchos casos no necesitamos leer el contenido de un archivo como hicimos con los blobs, podemos crear un enlace corto con `URL.createObjectURL(file)` y asignárselo a un `<a>` o `<img>`. De esta manera el archivo puede ser descargado, mostrado como una imagen o como parte de un canvas, etc.
 
 
 
