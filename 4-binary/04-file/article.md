@@ -57,7 +57,6 @@ Los métodos principales:
 - **`readAsArrayBuffer(blob)`** -- lee los datos en formato binario `ArrayBuffer`.
 - **`readAsText(blob, [codificación])`** -- lee los datos como una cadena de texto con la codificación dada (por defecto es `utf-8`).
 - **`readAsDataURL(blob)`** -- lee los datos binarios y los codifica como [Datos URIs] en base 64 (https://developer.mozilla.org/es/docs/Web/HTTP/Basics_of_HTTP/Datos_URIs).
-
 - **`abort()`** -- cancela la operación.
 
 La opción del método `read*` depende de qué formato preferimos y cómo vamos a usar los datos.
@@ -121,7 +120,6 @@ Para los Web Workers también existe una variante síncrona de `FileReader` llam
 Sus metodos `read*` no generan eventos sino que devuelven un resultado como las funciones regulares.
 
 Esto es solo dentro de un Web Worker, debido a que  demoras en  llamadas síncronas  mientras se lee el archivo en Web Worker no son tan importantes. No afectan la página.
-
 ```
 
 ## Resumen
