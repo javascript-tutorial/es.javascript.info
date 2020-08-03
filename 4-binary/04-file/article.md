@@ -128,7 +128,7 @@ Esto es solo dentro de un Web Worker, debido a que  demoras en  llamadas síncro
 
 Los objetos `File` heredan de  `Blob`.
 
-En adición a los métodos y porpiedades de `Blob`, los objetos `File` también tienen `name` and `lastModified` mas la habilidad interna de leer del sistema de archivos. Usualmente obtenemos los objetos `File` mediante la entrada por el usuario con `<input>` o un evento Drag'n'Drop (`ondragend`).
+Además de los métodos y propiedades de `Blob`, los objetos `File` también tienen las propiedades `name` y `lastModified` mas la habilidad interna de leer del sistema de archivos. Usualmente obtenemos los objetos `File` mediante la entrada del el usuario con `<input>` o eventos Drag'n'Drop (`ondragend`).
 
 
 Los objetos `FileReader` pueden leer desde un archivo o un blob en uno de estos tres formatos:
