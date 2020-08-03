@@ -2,15 +2,13 @@ importance: 5
 
 ---
 
+# Partial application for login
 
-# Aplicación parcial para inicio de sesión
+The task is a little more complex variant of <info:task/question-use-bind>. 
 
-La tarea es una variante un poco más compleja de <info:task/question-use-bind>. 
+The `user` object was modified. Now instead of two functions `loginOk/loginFail`, it has a single function `user.login(true/false)`.
 
-El objeto `user` fue modificado. Ahora, en lugar de dos funciones `loginOk/loginFail`, tiene una sola función `user.login(true/false) `.
-
-¿Qué deberíamos pasar a `askPassword` en el código a continuación, para que llame a `user.login(true)` como `ok` y `user.login(false)` como `fail`?
-
+What should we pass `askPassword` in the code below, so that it calls `user.login(true)` as `ok` and `user.login(false)` as `fail`?
 
 ```js
 function askPassword(ok, fail) {
@@ -32,7 +30,5 @@ askPassword(?, ?); // ?
 */!*
 ```
 
-
-Sus cambios solo deberían modificar el fragmento resaltado.
-
+Your changes should only modify the highlighted fragment.
 

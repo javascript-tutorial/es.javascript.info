@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 # Test automatizados con mocha
 
 Los tests automáticos deben ser considerados como una tarea más, y son ampliamente usasdos en proyectos reales.
 
 ## ¿Por qué necesitamos tests?
+=======
+# Automated testing with Mocha
+
+Automated testing will be used in further tasks, and it's also widely used in real projects.
+>>>>>>> cdf382de4cf3ed39ca70cb7df60c4c4886f2d22e
 
 Cuando escribimos una función, normalmente imaginamos qué debe hacer: Para ciertos parámetros, qué resultado.
 
@@ -20,15 +26,27 @@ Todo esto es muy típico. Cuando desarrollamos algo, mantenemos muchos casos de 
 
 **Los tests automatizados implican escribir los tests por separado, además del código. Ellos ejecutan nuestras funciones de varias formas y comparan los resultados con los esperados.**
 
+<<<<<<< HEAD
 ## Desarrollo guiado por comportamiento (Behavior Driven Development, BDD) 
+=======
+**Automated testing means that tests are written separately, in addition to the code. They run our functions in various ways and compare results with the expected.**
+>>>>>>> cdf382de4cf3ed39ca70cb7df60c4c4886f2d22e
 
 Vamos a usar una técnica llamada [Desarrollo guiado por comportamiento](https://es.wikipedia.org/wiki/Desarrollo_guiado_por_comportamiento) o por sus siglas en inglés, BDD. 
 
+<<<<<<< HEAD
 **BDD son tres cosas en uno: tests, documentación y ejemplos.**
+=======
+Let's start with a technique named [Behavior Driven Development](http://en.wikipedia.org/wiki/Behavior-driven_development) or, in short, BDD.
+>>>>>>> cdf382de4cf3ed39ca70cb7df60c4c4886f2d22e
 
 PAra entender BDD, examinaremos un caso de desarrollo práctico:
 
+<<<<<<< HEAD
 ## Desarrollo de potencia de un número "pow": la especificación
+=======
+To understand BDD, we'll examine a practical case of development.
+>>>>>>> cdf382de4cf3ed39ca70cb7df60c4c4886f2d22e
 
 Digamos que queremos hacer una función `pow(x, n)` que eleve `x` a la potencia de un entero `n`. Asumimos que `n≥0`.
 
@@ -36,7 +54,13 @@ Esta tarea es sólo un ejemplo: Hay un operador `**` en JavaScript que hace eso,
 
 Antes de crear el código de `pow`, podemos imaginar lo que hace la función y describirlo.
 
+<<<<<<< HEAD
 Esa descripción es llamada *especificación* o "spec" y contiene las descripciones de uso junto con los test para probarlas, como:
+=======
+Before creating the code of `pow`, we can imagine what the function should do and describe it.
+
+Such description is called a *specification* or, in short, a spec, and contains descriptions of use cases together with tests for them, like this:
+>>>>>>> cdf382de4cf3ed39ca70cb7df60c4c4886f2d22e
 
 ```js
 describe("pow", function() {
@@ -50,20 +74,34 @@ describe("pow", function() {
 
 Una spec tiene los tres bloques principales mostrados abajo:
 
+<<<<<<< HEAD
 `describe("titulo", function() { ... })`
 : Qué funcionalidad estamos describiendo. En nuestro caso estamos describiendo la función `pow`. Utilizado para agrupar los "workers" (trabajadores) -- los bloques `it`.
 
 `it("titulo", function() { ... })`
 : En el título de `it` introducimos una descripción entendible en forma humana del caso de uso. El segundo argumento es la función que testea eso.
+=======
+`describe("title", function() { ... })`
+: What functionality we're describing. In our case we're describing the function `pow`. Used to group "workers" -- the `it` blocks.
+
+`it("use case description", function() { ... })`
+: In the title of `it` we *in a human-readable way* describe the particular use case, and the second argument is a function that tests it.
+>>>>>>> cdf382de4cf3ed39ca70cb7df60c4c4886f2d22e
 
 `assert.equal(value1, value2)`
 : El código dentro del bloque `it`, si la implementación es correcta, debe ejecutar sin errores.
 
     Las funciones `assert.*` son usadas para comprobar cuando `pow` funciona como esperamos. Justo aquí utilizamos una de ellas -- `assert.equal`, que compara argumentos y produce un error si los mismos no son iguales. Arriba se está comprobando que el resultado de `pow(2, 3)` sea igual a `8`. Hay otros tipos de comparaciones y comprobaciones que veremos más adelante.
 
+<<<<<<< HEAD
 La especificación puede ser ejecutada, y hará los los test dictados en el bloque `it`.  Lo veremos luego.
 
 ## El flujo de desarrollo
+=======
+    Functions `assert.*` are used to check whether `pow` works as expected. Right here we're using one of them -- `assert.equal`, it compares arguments and yields an error if they are not equal. Here it checks that the result of `pow(2, 3)` equals `8`. There are other types of comparisons and checks, that we'll add later.
+
+The specification can be executed, and it will run the test specified in `it` block. We'll see that later.
+>>>>>>> cdf382de4cf3ed39ca70cb7df60c4c4886f2d22e
 
 El flujo de desarrollo podría asemejarse a:
 
@@ -75,11 +113,27 @@ El flujo de desarrollo podría asemejarse a:
 6. Ir a 3, actualizar la implementación hasta que los tests no den errores.
 7. Repetir pasos 3-6 hasta que la funcionalidad este lista.
 
+<<<<<<< HEAD
 De tal forma que el desarrollo es iterativo. Escribimos la especificación, la implementamos, aseguramos que los tests pasen y entonces escribimos más tests y volvemos a asegurar que pasen, etc. Al final tenemos una implementación funcionando con tests para ella.
+=======
+1. An initial spec is written, with tests for the most basic functionality.
+2. An initial implementation is created.
+3. To check whether it works, we run the testing framework [Mocha](http://mochajs.org/) (more details soon) that runs the spec. While the functionality is not complete, errors are displayed. We make corrections until everything works.
+4. Now we have a working initial implementation with tests.
+5. We add more use cases to the spec, probably not yet supported by the implementations. Tests start to fail.
+6. Go to 3, update the implementation till tests give no errors.
+7. Repeat steps 3-6 till the functionality is ready.
+>>>>>>> cdf382de4cf3ed39ca70cb7df60c4c4886f2d22e
 
 Veamos el flujo de desarrollo en nuestro caso práctico.
 
+<<<<<<< HEAD
 El primer paso esta completo: tenemos una spec inicial para `pow`. Ahora, antes de realizar la implementación, usamos algunas librería JavaScript para ejecutar los tests, solo para asegurarnos que funcionen (van a fallar todos).
+=======
+Let's see this development flow in our practical case.
+
+The first step is already complete: we have an initial spec for `pow`. Now, before making the implementation, let's use few JavaScript libraries to run the tests, just to see that they are working (they will all fail).
+>>>>>>> cdf382de4cf3ed39ca70cb7df60c4c4886f2d22e
 
 ## La spec en acción
 
@@ -110,7 +164,11 @@ El resultado:
 
 De momento, el test falla. Es lógico: tenemos el código vacío en la función `pow`, así que `pow(2,3)` devuelve `undefined` en lugar de `8`.
 
+<<<<<<< HEAD
 Para más adelante, ten en cuenta que hay avanzados test-runners (Herramientas para ejecutar los test en diferentes entornos de forma automática), como [karma](https://karma-runner.github.io/) y otros. Por lo que generalmente no es un problema configurar muchos tests diferentes.
+=======
+For the future, let's note that there are more high-level test-runners, like [karma](https://karma-runner.github.io/) and others, that make it easy to autorun many different tests.
+>>>>>>> cdf382de4cf3ed39ca70cb7df60c4c4886f2d22e
 
 ## Implementación inicial
 
@@ -132,7 +190,11 @@ Lo que hemos hecho es una trampa. La función no funciona bien: ejecutar un cál
 
 ... pero la situación es habitual, ocurre en la práctica. Los tests pasan, pero la función no funciona bien. Nuestra especificación está incompleta. Necesitamos añadir más casos de uso a la especificación.
 
+<<<<<<< HEAD
 Vamos a incluir un test para ver si `pow(3,4) = 81`.
+=======
+Let's add one more test to check that `pow(3, 4) = 81`.
+>>>>>>> cdf382de4cf3ed39ca70cb7df60c4c4886f2d22e
 
 Podemos escoger entre dos formas de organizar el test:
 
@@ -159,8 +221,13 @@ Podemos escoger entre dos formas de organizar el test:
         assert.equal(pow(2, 3), 8);
       });
 
+<<<<<<< HEAD
       it("3 elevado a la potencia de 3 es 27", function() {
         assert.equal(pow(3, 3), 27);
+=======
+      it("3 raised to power 4 is 81", function() {
+        assert.equal(pow(3, 4), 81);
+>>>>>>> cdf382de4cf3ed39ca70cb7df60c4c4886f2d22e
       });
 
     });
@@ -182,7 +249,11 @@ El resultado:
 
 [iframe height=250 src="pow-2" edit border="1"]
 
+<<<<<<< HEAD
 Como podemos esperar, el segundo falla. Nuestra función siempre devuelve `8` mientras el `assert` espera `27`.
+=======
+As we could expect, the second test failed. Sure, our function always returns `8`, while the `assert` expects `81`.
+>>>>>>> cdf382de4cf3ed39ca70cb7df60c4c4886f2d22e
 
 ## Mejoramos la implementación
 
@@ -296,7 +367,11 @@ Final testing – después de todos los tests (after)
 
 [edit src="beforeafter" title="Abre el ejemplo en un sandbox."]
 
+<<<<<<< HEAD
 Normalmente, `beforeEach/afterEach` (`before/after`) son usados para realizar la inicialización, poner contadores a cero o hacer algo entre cada test o cada grupo de tests.
+=======
+Usually, `beforeEach/afterEach` and `before/after` are used to perform initialization, zero out counters or do something else between the tests (or test groups).
+>>>>>>> cdf382de4cf3ed39ca70cb7df60c4c4886f2d22e
 ````
 
 ## Extender los spec
@@ -335,6 +410,7 @@ El resultado con los nuevos tests:
 
 El test recién creado falla, porque nuestra implementación no lo soporta. Así es como funciona la metodología BDD: primero escribimos un test que falle y luego realizamos la implementación para que pase.
 
+<<<<<<< HEAD
 ```smart header="Otras comprobaciones"
 Por favor, ten en cuenta la comprobación `assert.isNaN`: ella comprueba que el valor es `NaN`.
 
@@ -346,6 +422,19 @@ Hay otras comprobaciones en Chai también [Chai](http://chaijs.com), por ejemplo
 - `assert.isTrue(value)` -- prueba que `value === true`
 - `assert.isFalse(value)` -- prueba que `value === false`
 - ... la lista entera se puede encontrar en [docs](http://chaijs.com/api/assert/)
+=======
+```smart header="Other assertions"
+Please note the assertion `assert.isNaN`: it checks for `NaN`.
+
+There are other assertions in [Chai](http://chaijs.com) as well, for instance:
+
+- `assert.equal(value1, value2)` -- checks the equality  `value1 == value2`.
+- `assert.strictEqual(value1, value2)` -- checks the strict equality `value1 === value2`.
+- `assert.notEqual`, `assert.notStrictEqual` -- inverse checks to the ones above.
+- `assert.isTrue(value)` -- checks that `value === true`
+- `assert.isFalse(value)` -- checks that `value === false`
+- ...the full list is in the [docs](http://chaijs.com/api/assert/)
+>>>>>>> cdf382de4cf3ed39ca70cb7df60c4c4886f2d22e
 ```
 
 Así que podemos añadir un par de líneas a `pow`:
@@ -377,7 +466,13 @@ Ahora funciona y todos los tests pasan:
 
 En BDD, la especificación va primero, seguida de la implementación. Al final tenemos tanto la especificación como la implementación.
 
+<<<<<<< HEAD
 El spec puede ser usado de tres formas:
+=======
+1. As **Tests** - they guarantee that the code works correctly.
+2. As **Docs** -- the titles of `describe` and `it` tell what the function does.
+3. As **Examples** -- the tests are actually working examples showing how a function can be used.
+>>>>>>> cdf382de4cf3ed39ca70cb7df60c4c4886f2d22e
 
 1. **Tests** garantizan que el código funciona correctamente.
 2. **Docs** -- los títulos de los `describe` e `it` nos dicen que hacen la función.
@@ -387,23 +482,40 @@ Con la especificación, podemos mejorar de forma segura, cambiar, incluso reescr
 
 Esto es especialmente importante en proyectos largos cuando una función es usada en muchos sitios. Cuando cambiamos una función, no hay forma manual de comprobar si cada sitio donde se usaba sigue funcionando correctamente.
 
+<<<<<<< HEAD
 Sin tests, la gente tiene dos opciones:
 
 1. Realizar el cambio, no importa nada más. Luego nuestros usuarios encontrán errores porque probablemente fallemos en encontrarlos.
 2. Si el castigo por errores es duro, la gente tendrá miedo de hacer cambios en las funciones. Entonces el código envejecerá, nadie querrá meterse en él y eso no es bueno para el desarrollo.
 
 **¡El test automatizado ayuda a evitar estos problemas!**
+=======
+1. To perform the change, no matter what. And then our users meet bugs, as we probably fail to check something manually.
+2. Or, if the punishment for errors is harsh, as there are no tests, people become afraid to modify such functions, and then the code becomes outdated, no one wants to get into it. Not good for development.
+
+**Automatic testing helps to avoid these problems!**
+
+If the project is covered with tests, there's just no such problem. After any changes, we can run tests and see a lot of checks made in a matter of seconds.
+>>>>>>> cdf382de4cf3ed39ca70cb7df60c4c4886f2d22e
 
 Si el proyecto esta cubierto de pruebas, no tendremos ese problema. Podemos correr los tests y hacer multitud de comprobaciones en cuestión de segundos.
 
+<<<<<<< HEAD
 **Además, un código bien probado tendrá una mejor arquitectura.**
+=======
+Naturally, that's because auto-tested code is easier to modify and improve. But there's also another reason.
+>>>>>>> cdf382de4cf3ed39ca70cb7df60c4c4886f2d22e
 
 Naturalmente, porque el código será más fácil de cambiar y mejorar. Pero no sólo eso.
 
 Al escribir tests, el código debe estar organizado de tal manera que cada función tenga un propósito claro y explícito, una entrada y una salida bien definida. Eso implica una buena arquitectura desde el principio.
 
+<<<<<<< HEAD
 En la vida real a veces no es tan fácil. A veces es difícil escribir una especificación antes que el código, porque no está claro aún cómo debe comportarse dicho código. Pero en general, escribir los tests hace el desarrollo más rápido y más estable.
 
 En el tutorial encontrarás más adelante muchas tareas respaldadas con pruebas. Veremos más ejemplos prácticos de tests.
+=======
+Later in the tutorial you will meet many tasks with tests baked-in. So you'll see more practical examples.
+>>>>>>> cdf382de4cf3ed39ca70cb7df60c4c4886f2d22e
 
 Escribir tests requiere un buen conocimiento de JavaScript. Pero nosotros justo acabamos de empezar a aprenderlo. Así que para comenzar no es necesario que escribas tests, pero deberías ser capaz de leerlos incluso si son más compleos que en este capítulo.

@@ -1,4 +1,4 @@
-Guardemos los mensajes leídos en `WeakSet`:
+Let's store read messages in `WeakSet`:
 
 ```js run
 let messages = [
@@ -9,35 +9,35 @@ let messages = [
 
 let readMessages = new WeakSet();
 
-// se han leído dos mensajes
+// two messages have been read
 readMessages.add(messages[0]);
 readMessages.add(messages[1]);
-// readMessages tiene 2 elementos
+// readMessages has 2 elements
 
-// ...¡leamos nuevamente el primer mensaje!
+// ...let's read the first message again!
 readMessages.add(messages[0]);
-// readMessages todavía tiene dos únicos elementos
+// readMessages still has 2 unique elements
 
-// respuesta: ¿se leyó el mensaje [0]?
+// answer: was the message[0] read?
 alert("Read message 0: " + readMessages.has(messages[0])); // true
 
 messages.shift();
-// ahora readMessages tiene 1 elemento (técnicamente la memoria puede limpiarse más tarde)
+// now readMessages has 1 element (technically memory may be cleaned later)
 ```
 
-El `WeakEst` permite almacenar un conjunto de mensajes y verificar fácilmente la existencia de un mensaje en él.
+The `WeakSet` allows to store a set of messages and easily check for the existance of a message in it.
 
-Se limpia automáticamente. La desventaja es que no podemos iterar sobre él, no podemos obtener "todos los mensajes leídos" directamente. Pero podemos hacerlo iterando sobre todos los mensajes y filtrando los que están en el conjunto.
+It cleans up itself automatically. The tradeoff is that we can't iterate over it,  can't get "all read messages" from it directly. But we can do it by iterating over all messages and filtering those that are in the set.
 
-Otra solución diferente podría ser agregar una propiedad como `message.isRead = true` a un mensaje después de leerlo. Como los objetos de mensajes son administrados por otro código, generalmente se desaconseja, pero podemos usar una propiedad simbólica para evitar conflictos.
+Another, different solution could be to add a property like `message.isRead=true` to a message after it's read. As messages objects are managed by another code, that's generally discouraged, but we can use a symbolic property to avoid conflicts.
 
-Como esto:
+Like this:
 ```js
-// la propiedad simbólica solo es conocida por nuestro código
+// the symbolic property is only known to our code
 let isRead = Symbol("isRead");
 messages[0][isRead] = true;
 ```
 
-Ahora el código de terceros probablemente no verá nuestra propiedad adicional.
+Now third-party code probably won't see our extra property.
 
-Aunque los símbolos permiten reducir la probabilidad de problemas, usar `WeakSet` es mejor desde el punto de vista arquitectónico.
+Although symbols allow to lower the probability of problems, using `WeakSet` is better from the architectural point of view.

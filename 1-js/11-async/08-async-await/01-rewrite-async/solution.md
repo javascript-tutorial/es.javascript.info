@@ -19,9 +19,15 @@ loadJson('no-such-user.json')
 
 Notas:
 
+<<<<<<< HEAD
 1. La función `loadJson` se vuelve `async`.
 2. Todo lo que está dentro de `.then` es reemplazado por `await`.
 3. Podemos devolver `return response.json()` en lugar de esperar por él, como esto:
+=======
+1. The function `loadJson` becomes `async`.
+2. All `.then` inside are replaced with `await`.
+3. We can `return response.json()` instead of awaiting for it, like this:
+>>>>>>> cdf382de4cf3ed39ca70cb7df60c4c4886f2d22e
 
     ```js
     if (response.status == 200) {

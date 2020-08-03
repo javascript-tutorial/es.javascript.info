@@ -329,7 +329,11 @@ fetch('http://another.com', {
 });
 ```
 
+<<<<<<< HEAD
 Now `fetch` sends cookies originating from `another.com` without request to that site.
+=======
+Now `fetch` sends cookies originating from `another.com` with request to that site.
+>>>>>>> cdf382de4cf3ed39ca70cb7df60c4c4886f2d22e
 
 If the server agrees to accept the request *with credentials*, it should add a header `Access-Control-Allow-Credentials: true` to the response, in addition to `Access-Control-Allow-Origin`.
 

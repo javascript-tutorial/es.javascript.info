@@ -6,9 +6,33 @@ Para estos casos existen métodos de búsqueda adicionales.
 
 ## document.getElementById o sólo id
 
+<<<<<<< HEAD
 Si un elemento tiene el atributo `id`, podemos obtener el elemento usando el método `document.getElementById(id)`, sin importar dónde se encuentre.
 
 Por ejemplo:
+=======
+If an element has the `id` attribute, we can get the element using the method `document.getElementById(id)`, no matter where it is.
+
+For instance:
+
+```html run
+<div id="elem">
+  <div id="elem-content">Element</div>
+</div>
+
+<script>
+  // get the element
+*!*
+  let elem = document.getElementById('elem');
+*/!*
+
+  // make its background red
+  elem.style.background = 'red';
+</script>
+```
+
+Also, there's a global variable named by `id` that references the element:
+>>>>>>> cdf382de4cf3ed39ca70cb7df60c4c4886f2d22e
 
 ```html run
 <div id="elem">
@@ -16,6 +40,7 @@ Por ejemplo:
 </div>
 
 <script>
+<<<<<<< HEAD
   // obtener el elemento
 *!*
   let elem = document.getElementById('elem');
@@ -27,6 +52,17 @@ Por ejemplo:
 ```
 
 Existe además una variable global nombrada por el `id` que hace referencia al elemento:
+=======
+  // elem is a reference to DOM-element with id="elem"
+  elem.style.background = 'red';
+
+  // id="elem-content" has a hyphen inside, so it can't be a variable name
+  // ...but we can access it using square brackets: window['elem-content']
+</script>
+```
+
+...That's unless we declare a JavaScript variable with the same name, then it takes precedence:
+>>>>>>> cdf382de4cf3ed39ca70cb7df60c4c4886f2d22e
 
 ```html run
 <div id="*!*elem*/!*">
@@ -34,6 +70,7 @@ Existe además una variable global nombrada por el `id` que hace referencia al e
 </div>
 
 <script>
+<<<<<<< HEAD
   // elem es una referencia al elemento del DOM con id="elem"
   elem.style.background = 'red';
 
@@ -72,6 +109,32 @@ Si hay múltiples elementos con el mismo id, entonces el comportamiento de los m
 
 ```warn header="Sólo `document.getElementById`, no `anyElem.getElementById`"
 El método `getElementById` sólo puede ser llamado en el objeto `document`. Busca el `id` dado en todo el documento.
+=======
+  let elem = 5; // now elem is 5, not a reference to <div id="elem">
+
+  alert(elem); // 5
+</script>
+```
+
+```warn header="Please don't use id-named global variables to access elements"
+This behavior is described [in the specification](http://www.whatwg.org/specs/web-apps/current-work/#dom-window-nameditem), so it's kind of standard. But it is supported mainly for compatibility.
+
+The browser tries to help us by mixing namespaces of JS and DOM. That's fine for simple scripts, inlined into HTML, but generally isn't a good thing. There may be naming conflicts. Also, when one reads JS code and doesn't have HTML in view, it's not obvious where the variable comes from.
+
+Here in the tutorial we use `id` to directly reference an element for brevity, when it's obvious where the element comes from.
+
+In real life `document.getElementById` is the preferred method.
+```
+
+```smart header="The `id` must be unique"
+The `id` must be unique. There can be only one element in the document with the given `id`.
+
+If there are multiple elements with the same `id`, then the behavior of methods that use it is unpredictable, e.g. `document.getElementById` may return any of such elements at random. So please stick to the rule and keep `id` unique.
+```
+
+```warn header="Only `document.getElementById`, not `anyElem.getElementById`"
+The method `getElementById` that can be called only on `document` object. It looks for the given `id` in the whole document.
+>>>>>>> cdf382de4cf3ed39ca70cb7df60c4c4886f2d22e
 ```
 
 ## querySelectorAll [#querySelectorAll]
@@ -102,15 +165,24 @@ Aquí buscamos todos los elementos `<li>` que son los últimos hijos:
 
 Este método es muy poderoso, porque se puede utilizar cualquier selector de CSS.
 
+<<<<<<< HEAD
 ```smart header="También se pueden usar pseudoclases"
 Las pseudoclases como `:hover` (cuando el cursor sobrevuela el elemento) y `:active` (cuando hace clic con el botón principal) también son soportadas. Por ejemplo, `document.querySelectorAll(':hover')` devolverá una colección de elementos sobre los que el puntero hace hover en ese momento (en orden de anidación: desde el más exterior `<html>` hasta el más anidado).
+=======
+```smart header="Can use pseudo-classes as well"
+Pseudo-classes in the CSS selector like `:hover` and `:active` are also supported. For instance, `document.querySelectorAll(':hover')` will return the collection with elements that the pointer is over now (in nesting order: from the outermost `<html>` to the most nested one).
+>>>>>>> cdf382de4cf3ed39ca70cb7df60c4c4886f2d22e
 ```
 
 ## querySelector [#querySelector]
 
 La llamada a `elem.querySelector(css)` devuelve el primer elemento para el selector CSS dado. 
 
+<<<<<<< HEAD
 En otras palabras, el resultado es el mismo que `elem.querySelectorAll(css)[0]`, pero este último busca *todos* los elementos y elige uno, mientras que `elem.querySelector` sólo busca uno. Así que es más rápido y también más corto de escribir. 
+=======
+In other words, the result is the same as `elem.querySelectorAll(css)[0]`, but the latter is looking for *all* elements and picking one, while `elem.querySelector` just looks for one. So it's faster and also shorter to write.
+>>>>>>> cdf382de4cf3ed39ca70cb7df60c4c4886f2d22e
 
 ## matches
 
@@ -118,7 +190,11 @@ Los métodos anteriores consistían en buscar en el DOM.
 
 El [elem.matches(css)](http://dom.spec.whatwg.org/#dom-element-matches) no busca nada, sólo comprueba si el `elem` coincide con el selector CSS dado. Devuelve `true` o `false`.
 
+<<<<<<< HEAD
 Este método es útil cuando estamos iterando sobre elementos (como en un array) y tratando de filtrar los que nos interesan.
+=======
+The method comes in handy when we are iterating over elements (like in an array or something) and trying to filter out those that interest us.
+>>>>>>> cdf382de4cf3ed39ca70cb7df60c4c4886f2d22e
 
 Por ejemplo:
 
@@ -176,9 +252,15 @@ Hoy en día, son en su mayoría historia, ya que `querySelector` es más poderos
 
 Aquí los cubrimos principalmente por completar el temario, aunque todavía se pueden encontrar en scripts antiguos. 
 
+<<<<<<< HEAD
 - `elem.getElementsByTagName(tag)` busca elementos con la etiqueta dada y devuelve una colección con ellos. El parámetro `tag` también puede ser un asterisco `"*"` para "cualquier etiqueta".
 - `elem.getElementsByClassName(className)` devuelve elementos con la clase dada.
 - `document.getElementsByName(name)` devuelve elementos con el atributo `name` dado, en todo el documento. Muy raramente usado.
+=======
+- `elem.getElementsByTagName(tag)` looks for elements with the given tag and returns the collection of them. The `tag` parameter can also be a star `"*"` for "any tags".
+- `elem.getElementsByClassName(className)` returns elements that have the given CSS class.
+- `document.getElementsByName(name)` returns elements with the given `name` attribute, document-wide. Very rarely used.
+>>>>>>> cdf382de4cf3ed39ca70cb7df60c4c4886f2d22e
 
 Por ejemplo:
 ```js
@@ -308,9 +390,15 @@ Si lo utilizamos en lugar de `getElementsByTagName`, entonces ambos scripts dan 
 </script>
 ```
 
+<<<<<<< HEAD
 Ahora podemos ver fácilmente la diferencia. La colección estática no aumentó después de la aparición de un nuevo `div` en el documento.
 
 ## Resumen
+=======
+Now we can easily see the difference. The static collection did not increase after the appearance of a new `div` in the document.
+
+## Summary
+>>>>>>> cdf382de4cf3ed39ca70cb7df60c4c4886f2d22e
 
 Hay 6 métodos principales para buscar nodos en el DOM:
 
@@ -370,5 +458,10 @@ Aparte de eso:
 - Existe `elem.matches(css)` para comprobar si `elem` coincide con el selector CSS dado.
 - Existe `elem.closest(css)` para buscar el ancestro más cercano que coincida con el selector CSS dado. El propio `elem` también se comprueba.
 
+<<<<<<< HEAD
 Y mencionemos un método más para comprobar la relación hijo-padre, ya que a veces es útil: 
 -  `elemA.contains(elemB)` devuelve true si `elemB` está dentro de `elemA` (un descendiente de `elemA`) o cuando `elemA==elemB`.
+=======
+And let's mention one more method here to check for the child-parent relationship, as it's sometimes useful:
+-  `elemA.contains(elemB)` returns true if `elemB` is inside `elemA` (a descendant of `elemA`) or when `elemA==elemB`.
+>>>>>>> cdf382de4cf3ed39ca70cb7df60c4c4886f2d22e

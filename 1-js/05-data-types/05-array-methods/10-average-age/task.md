@@ -4,7 +4,11 @@ importance: 4
 
 # Obtener edad promedio
 
+<<<<<<< HEAD
 Escribe la función `getAverageAge(users)` que obtenga un array de objetos con la propiedad `age` y devuelva el promedio de `age`.
+=======
+Write the function `getAverageAge(users)` that gets an array of objects with property `age` and returns the average age.
+>>>>>>> cdf382de4cf3ed39ca70cb7df60c4c4886f2d22e
 
 La fórmula de promedio es `(age1 + age2 + ... + ageN) / N`.
 

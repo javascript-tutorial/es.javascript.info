@@ -162,7 +162,11 @@ Besides, the event class describes "what kind of event" it is, and if the event 
 
 ## event.preventDefault()
 
+<<<<<<< HEAD
 Many browser events have a "default action", such as nagivating to a link, starting a selection, and so on.
+=======
+Many browser events have a "default action", such as navigating to a link, starting a selection, and so on.
+>>>>>>> cdf382de4cf3ed39ca70cb7df60c4c4886f2d22e
 
 For new, custom events, there are definitely no default browser actions, but a code that dispatches such event may have its own plans what to do after triggering the event.
 

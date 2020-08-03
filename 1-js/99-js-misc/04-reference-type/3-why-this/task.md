@@ -4,7 +4,11 @@ importance: 3
 
 # Explica el valor de "this"
 
+<<<<<<< HEAD:1-js/99-js-misc/04-reference-type/3-why-this/task.md
 En el código siguiente intentamos llamar al método `obj.go()` 4 veces seguidas.
+=======
+In the code below we intend to call `obj.go()` method 4 times in a row.
+>>>>>>> cdf382de4cf3ed39ca70cb7df60c4c4886f2d22e:1-js/99-js-misc/04-reference-type/3-why-this/task.md
 
 Pero las llamadas `(1)` y `(2)` funcionan diferente a `(3)` y `(4)`. ¿Por qué?
 

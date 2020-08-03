@@ -1,7 +1,18 @@
 describe("test", function() {
+  
+   // Mocha usually waits for the tests for 2 seconds before considering them wrong
+  
+  this.timeout(200000); // With this code we increase this - in this case to 200,000 milliseconds
 
+<<<<<<< HEAD
   before(() => alert("Inicio testing – antes de todos los tests"));
   after(() => alert("Final testing – después de todos los tests"));
+=======
+  // This is because of the "alert" function, because if you delay pressing the "OK" button the tests will not pass!
+  
+  before(() => alert("Testing started – before all tests"));
+  after(() => alert("Testing finished – after all tests"));
+>>>>>>> cdf382de4cf3ed39ca70cb7df60c4c4886f2d22e
 
   beforeEach(() => alert("Antes de un test – entramos al test"));
   afterEach(() => alert("Después de un test – salimos del test"));
