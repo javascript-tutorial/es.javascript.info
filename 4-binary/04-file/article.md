@@ -116,7 +116,7 @@ Podemos usarlo para convertir un blob a otro formato:
 
 
 ```smart header="`FileReaderSync` está disponible dentro de  Web Workers"
-Para Web Workers, también existe una variante síncrona de `FileReader`, llamada [FileReaderSync](https://www.w3.org/TR/FileAPI/#FileReaderSync).
+Para los Web Workers también existe una variante síncrona de `FileReader` llamada [FileReaderSync](https://www.w3.org/TR/FileAPI/#FileReaderSync).
 
 Sus metodos`read*` no generan eventos, sino que devuelven un resultado, como las funciones regulares.
 
