@@ -128,14 +128,11 @@ Los objetos `File` heredan de  `Blob`.
 
 Además de los métodos y propiedades de `Blob`, los objetos `File` también tienen las propiedades `name` y `lastModified` mas la habilidad interna de leer del sistema de archivos. Usualmente obtenemos los objetos `File` mediante la entrada del el usuario con `<input>` o eventos Drag'n'Drop (`ondragend`).
 
-
 Los objetos `FileReader` pueden leer desde un archivo o un blob en uno de estos tres formatos:
 - String (`readAsText`) .
 - `ArrayBuffer` (`readAsArrayBuffer`).
 - Datos URI codificado en base 64 (`readAsDataURL`).
 
 En muchos casos no necesitamos leer el contenido de un archivo como hicimos con los blobs, podemos crear un enlace corto con `URL.createObjectURL(file)` y asignárselo a un `<a>` o `<img>`. De esta manera el archivo puede ser descargado, mostrado como una imagen o como parte de un canvas, etc.
-
-
 
 Y si vamos a mandar un `File` por la red, es fácil utilizando APIs como `XMLHttpRequest` o `fetch` que aceptan nativamente objetos `File` . 
