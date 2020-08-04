@@ -49,7 +49,7 @@ Naturalmente está divido en componentes:
 1. Navegación superior.
 2. Información usuario.
 3. Siga las sugerencias.
-4. Envíe un formulario.
+4. Envío de formulario.
 5. (y también 6, 7) -- mensajes.
 
 Los componentes pueden tener subcomponentes, p.ej. los mensajes pueden ser parte de un componente "lista de mensajes" de nivel superior. Una imagen de usuario en sí puede ser un componente, y así sucesivamente.
