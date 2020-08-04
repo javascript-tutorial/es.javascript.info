@@ -48,7 +48,7 @@ Naturalmente está divido en componentes:
 
 1. Navegación superior.
 2. Información usuario.
-3. Siga las sugerencias.
+3. Sugerencias de seguimiento.
 4. Envío de formulario.
 5. (y también 6, 7) -- mensajes.
 
