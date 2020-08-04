@@ -24,7 +24,7 @@ La Estación Espacial Internacional:
 - Los componentes son muy complejos, mucho más complicados que la mayoría de los sitios web.
 - Los componentes han sido desarrollados internacionalmente, por equipos de diferentes países, que hablan diferentes idiomas.
 
-...Y esta cosa vuela, ¡Mantiene a los humanos vivos en el espacio!
+...Y esta cosa vuela, ¡mantiene a los humanos vivos en el espacio!
 
 ¿Cómo se crean dispositivos tan complejos?
 
