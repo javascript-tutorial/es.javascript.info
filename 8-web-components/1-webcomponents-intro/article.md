@@ -58,7 +58,7 @@ Los componentes pueden tener subcomponentes, p.ej. los mensajes pueden ser parte
 
 Un componentes tiene:
 - Su propia clase de JavaScript.
-- La estructura DOM, gestionada únicamente por su clase, el código externo no accede a ella(principio de  "encapsulación").
+- La estructura DOM, gestionada únicamente por su clase, el código externo no accede a ella (principio de  "encapsulación").
 - Estilos CSS, aplicados al componente.
 - API: eventos, métodos de clase etc, para interactuar con otros componentes.
 
