@@ -62,7 +62,7 @@ Estos pertenecen a la clase [ClipboardEvent](https://www.w3.org/TR/clipboard-api
 
 También podemos usar `event.preventDefault()` para cancelar la acción y que nada sea copiado/pegado.
 
-Por ejemplo, el código siguiente previene tales eventos y muestra que es los que estamos intentando cortar/copiar/pegar:
+Por ejemplo, el código siguiente evita tales eventos y muestra qué es los que estamos intentando cortar/copiar/pegar:
 
 
 ```html autorun height=40 run
