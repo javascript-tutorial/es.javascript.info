@@ -90,4 +90,4 @@ Eventos de modificación de datos:
 |---------|----------|-------------|
 | `change`| Un valor fue cambiado. | Para ingreso de texto, ocurre al perderse el focus |
 | `input` | Para ingresos de texto en cada cambio | Ocurre inmediatamente a diferencia de `change`. |
-| `cut/copy/paste` | Acciones cortar/copiar/pegar | La acción uede ser cancelada. La propiedad `event.clipboardData` brinda acceso a leer/escribir del portapeles. |
+| `cut/copy/paste` | Acciones cortar/copiar/pegar | La acción puede ser cancelada. La propiedad `event.clipboardData` brinda acceso a leer/escribir del portapeles. |
