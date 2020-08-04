@@ -16,6 +16,6 @@ La fórmula es:
 ```js
 // initial: la suma inicial de dinero
 // interest: e.g. 0.05 significa 5% anual
-// years: cuantos años esperar 
+// years: cuántos años esperar 
 let result = Math.round(initial * (1 + interest * years));
 ```
