@@ -23,33 +23,33 @@
 
 <body>
 
-  Deposit calculator.
+ Calculadora de depósito.
 
   <form name="calculator">
     <table>
       <tr>
-        <td>Initial deposit</td>
+        <td>Depósito inicial</td>
         <td>
           <input name="money" type="number" value="10000" required>
         </td>
       </tr>
       <tr>
-        <td>How many months?</td>
+        <td>¿Cúantos meses?</td>
         <td>
           <select name="months">
-            <option value="3">3 (minimum)</option>
-            <option value="6">6 (half-year)</option>
-            <option value="12" selected>12 (one year)</option>
-            <option value="18">18 (1.5 years)</option>
-            <option value="24">24 (2 years)</option>
-            <option value="30">30 (2.5 years)</option>
-            <option value="36">36 (3 years)</option>
-            <option value="60">60 (5   years)</option>
+            <option value="3">3 (mínimo)</option>
+            <option value="6">6 (medio año)</option>
+            <option value="12" selected>12 (un año)</option>
+            <option value="18">18 (1.5 años)</option>
+            <option value="24">24 (2 años)</option>
+            <option value="30">30 (2.5 años)</option>
+            <option value="36">36 (3 años)</option>
+            <option value="60">60 (5 años)</option>
           </select>
         </td>
       </tr>
       <tr>
-        <td>Interest per year?</td>
+        <td>¿Interés anual?</td>
         <td>
           <input name="interest" type="number" value="5" required>
         </td>
@@ -62,8 +62,8 @@
 
   <table id="diagram">
     <tr>
-      <th>Was:</th>
-      <th>Becomes:</th>
+      <th>Inicial:</th>
+      <th>Final:</th>
     </tr>
     <tr>
       <th id="money-before"></th>
