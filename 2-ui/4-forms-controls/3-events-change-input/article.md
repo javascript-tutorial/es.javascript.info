@@ -48,7 +48,7 @@ Si queremos manejar cualquier modificación en un `<input>` entonces este evento
 
 Por otro lado, el evento `input` no ocurre con ingresos de teclado u otras acciones que no involucren modificar un valor, e.g presionar las flechas de dirección `key:⇦` `key:⇨` mientras se está en el input.
 
-```smart header="Can't prevent anything in `oninput`"
+```smart header="No se puede evitar nada en `oninput`"
 El evento `input` ocurre después de que el valor es modificado.
 
 Por lo tanto no podemos usar `event.preventDefault()` en este caso -- ya es muy tarde por lo que no habría efecto.
