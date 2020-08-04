@@ -60,7 +60,7 @@ Estos eventos ocurren al cortar/copiar/pegar un valor.
 
 Estos pertenecen a la clase [ClipboardEvent](https://www.w3.org/TR/clipboard-apis/#clipboard-event-interfaces) y proveen acceso a los datos copiados/pegados.
 
-También podemos usar `event.preventDefault()`para cancelar la acción y que nada sea copiado/pegado.
+También podemos usar `event.preventDefault()` para cancelar la acción y que nada sea copiado/pegado.
 
 Por ejemplo, el código siguiente previene tales eventos y muestra que es los que estamos intentando cortar/copiar/pegar:
 
