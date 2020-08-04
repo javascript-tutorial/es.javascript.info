@@ -4,7 +4,7 @@ importance: 5
 
 # Calculadora de depósito
 
-Crea una interfaz que permita ingresar una suma de depósito bancario y porcentaje, luego calcula cuanto será después de un periodo de tiempo determinado.
+Crea una interfaz que permita ingresar una suma de depósito bancario y porcentaje, luego calcula cuánto será después de un periodo de tiempo determinado.
 
 Acá una demostración:
 
