@@ -51,7 +51,7 @@ Por otro lado, el evento `input` no ocurre con ingresos de teclado u otras accio
 ```smart header="No se puede evitar nada en `oninput`"
 El evento `input` ocurre después de que el valor es modificado.
 
-Por lo tanto no podemos usar `event.preventDefault()` en este caso -- ya es muy tarde por lo que no habría efecto.
+Por lo tanto no podemos usar `event.preventDefault()` para evitar modificaciones en este caso -- ocurre demasiado tarde por lo que no habría efecto.
 ```
 
 ## Eventos: cut, copy, paste
