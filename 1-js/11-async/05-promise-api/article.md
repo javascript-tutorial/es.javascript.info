@@ -279,7 +279,7 @@ Existen 5 métodos estáticos de la clase `Promise`:
 2. `Promise.allSettled(promises)` (método recientemente añadido) -- espera que toda las promesas respondan y devuelve sus resultados como un array de objetos con:
     - `status`: `"fulfilled"` or `"rejected"`
     - `value` (si fulfilled) or `reason` (si rejected).
-3. `Promise.race(promises)` -- aguarda a la primera promesa que responda y aquel resultado o error se vuelve su resultado o error.
+3. `Promise.race(promises)` -- espera a la primera promesa que responda y aquel resultado o error se vuelve su resultado o error.
 4. `Promise.resolve(value)` -- crea una promesa resuelta con el "value" dado.
 5. `Promise.reject(error)` -- crea una promesa rechazada con el "error" dado.
 
