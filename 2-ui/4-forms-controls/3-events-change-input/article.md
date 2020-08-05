@@ -1,6 +1,6 @@
 # Eventos: change, input, cut, copy, paste
 
-Veamos varios eventos que acompañan la actualzación de datos.
+Veamos varios eventos que acompañan la actualización de datos.
 
 ## Evento: change
 
