@@ -46,7 +46,7 @@ Por ejemplo:
 
 Si queremos manejar cualquier modificación en un `<input>` entonces este evento es la mejor opción.
 
-Por otro lado, el evento `input` no ocurre con ingresos de teclado u otras acciones que no involucren modificar un valor, e.g presionar las flechas de dirección `key:⇦` `key:⇨` mientras se está en el input.
+Por otro lado, el evento `input` no se activa con entradas del teclado u otras acciones que no involucren modificar un valor, e.g presionar las flechas de dirección `key:⇦` `key:⇨` mientras se está en el input.
 
 ```smart header="No se puede evitar nada en `oninput`"
 El evento `input` ocurre después de que el valor es modificado.
