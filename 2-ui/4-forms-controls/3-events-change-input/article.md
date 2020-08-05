@@ -76,7 +76,7 @@ Por ejemplo, el siguiente código evita tales eventos y muestra qué es los que 
 
 Por favor ten en cuenta que no solo es posible copiar/pegar texto, sino cualquier cosa. Por ejemplo, podemos copiar un archivo en el gestor de archivos del SO y pegarlo.
 
-Hay una lista de métodos [en la especificación](https://www.w3.org/TR/clipboard-apis/#dfn-datatransfer) que puede trabajar con diferentes tipos de datos incluyendo archivos, leer/escribir del portapapeles.
+Hay una lista de métodos [en la especificación](https://www.w3.org/TR/clipboard-apis/#dfn-datatransfer) que puede funcionar con diferentes tipos de datos incluyendo archivos, leer/escribir del portapapeles.
 
 Pero ten en cuenta que el portapapeles es algo a nivel "global" del SO. La mayoría de los navegadores dan acceso a leer/escribir del portapapeles dentro del alcance del usuario por cuestiones de seguridad, e.g. al manejar eventos `onclick`.
 
