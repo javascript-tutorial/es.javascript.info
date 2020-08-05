@@ -8,7 +8,7 @@ El evento `change` se activa cuando el elemento finaliza un cambio.
 
 Para ingreso de texto significa que el evento ocurre cuando se pierde foco en el elemento.
 
-Por ejemplo, mientras estamos escribiendo en el siguiente cuadro de texto -- no hay evento. Pero cuando movemos el focus a otro lado, por ejemplo hacemos click en un botón, entonces ocurre el evento `change`:
+Por ejemplo, mientras estamos escribiendo en el siguiente cuadro de texto -- no hay evento. Pero cuando movemos el focus (enfoque) a otro lado, por ejemplo hacemos click en un botón, entonces ocurre el evento `change`:
 
 ```html autorun height=40 run
 <input type="text" onchange="alert(this.value)">
