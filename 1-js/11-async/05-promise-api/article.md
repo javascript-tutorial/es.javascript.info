@@ -20,7 +20,7 @@ let promise = Promise.all([...promises...]);
 
 Esta nueva promesa es resuelta en cuanto todas las promesas listadas se resuelven y el array de aquellos resultados se vuelve su resultado.
 
-Por ejemplo, el `Promise.all` debajo se dirime después de 3 segundos, y su resultado es un array `[1, 2, 3]`:
+Por ejemplo, el `Promise.all` debajo se resuelve después de 3 segundos, y su resultado es un array `[1, 2, 3]`:
 
 ```js run
 Promise.all([
