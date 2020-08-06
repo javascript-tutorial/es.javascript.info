@@ -96,7 +96,7 @@ Si una promesa se rechaza, `Promise.all` se rechaza inmediatamente, olvidando co
 
 Por ejemplo, si hay múltiples llamados `fetch`, como en el ejemplo arriba, y uno falla, los demás aún continuarán en ejecución, pero `Promise.all` no las observará más. Ellas probablemente respondan pero sus resultados serán ignorados.
 
-`Promise.all` No hace nada para cancelarlas, no existe un concepto de "cancelación" en las promesas. En [otro capítulo](info:fetch-abort) cubriremos `AbortController` que puede ayudar con ello pero no es parte de la API de las promesas.
+`Promise.all` no hace nada para cancelarlas, no existe un concepto de "cancelación" en las promesas. En [otro capítulo](info:fetch-abort) veremos `AbortController` que puede ayudar con ello pero no es parte de la API de las promesas.
 ```
 
 ````smart header="`Promise.all(iterable)` permite valores \"comunes\" que no sean promesas en `iterable` "
