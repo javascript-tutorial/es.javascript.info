@@ -1,31 +1,31 @@
 
 # FormData
 
-This chapter is about sending HTML forms: with or without files, with additional fields and so on.
+Éste capítulo se trata del envío de formularios HTML: con o sin archivos, con campos adicionales y cosas similares.
 
-[FormData](https://xhr.spec.whatwg.org/#interface-formdata) objects can help with that. As you might have guessed, it's the object to represent HTML form data.
+Los objetos [FormData](https://xhr.spec.whatwg.org/#interface-formdata) pueden ser de ayuda en esta tarea. Tal como habrás supuesto, éste es el objeto encargado de representar los datos de los formularios HTML.
 
-The constructor is:
+El constructor es:
 ```js
 let formData = new FormData([form]);
 ```
 
-If HTML `form` element is provided, it automatically captures its fields.
+Si se le brinda un elemento HTML `form`, el objeto automáticamente capturará sus campos.
 
-The special thing about `FormData` is that network methods, such as `fetch`, can accept a `FormData` object as a body. It's encoded and sent out with `Content-Type: multipart/form-data`.
+Lo que hace especial al objeto `FormData` es que los métodos de red, tales como `fetch`, pueden aceptar un objeto `FormData` como el cuerpo. Es codificado y enviado como `Content-Type: multipart/form-data`.
 
-From the server point of view, that looks like a usual form submission.
+Desde el punto de vista del servidor, se vé como una entrega normal.
 
-## Sending a simple form
+## Enviando un simple formulario
 
-Let's send a simple form first.
+Enviemos un formulario simple.
 
-As you can see, that's almost one-liner:
+Tal como se puede ver, es prácticamente una línea:
 
 ```html run autorun
 <form id="formElem">
-  <input type="text" name="name" value="John">
-  <input type="text" name="surname" value="Smith">
+  <input type="text" name="nombre" value="John">
+  <input type="text" name="apellido" value="Smith">
   <input type="submit">
 </form>
 
@@ -47,48 +47,48 @@ As you can see, that's almost one-liner:
 </script>
 ```
 
-In this example, the server code is not presented, as it's beyound our scope. The server accepts the POST request and replies "User saved".
+En este ejemplo, el código del servidor no es representado ya que está fuera de nuestro alcance. El servidor acepta le solicitud POST y responde "Usuario registrado".
 
-## FormData Methods
+## Métodos de FormData
 
-We can modify fields in `FormData` with methods:
+Contamos con métodos para poder modificar los campos del `FormData`:
 
-- `formData.append(name, value)` - add a form field with the given `name` and `value`,
-- `formData.append(name, blob, fileName)` - add a field as if it were `<input type="file">`, the third argument `fileName` sets file name (not form field name), as it were a name of the file in user's filesystem,
-- `formData.delete(name)` - remove the field with the given `name`,
-- `formData.get(name)` - get the value of the field with the given `name`,
-- `formData.has(name)` - if there exists a field with the given `name`, returns `true`, otherwise `false`
+- `formData.append(name, value)` - agrega un campo al formulario con el nombre `name` y el valor `value`,
+- `formData.append(name, blob, fileName)` - agrega un campo tal como si se tratara de un `<input type="file">`, el tercer argumento `fileName` establece el nombre del archivo (no el nombre del campo), tal como si se tratara del nombre del archivo en el sistema de archivos del usuario,
+- `formData.delete(name)` - remove el campo de nombre `name`,
+- `formData.get(name)` - obtiene el valor del campo con el nombre `name`,
+- `formData.has(name)` - en caso de que exista el campo con el nombre `name`, retorna `true`, de lo contrario `false`
 
-A form is technically allowed to have many fields with the same `name`, so multiple calls to `append` add more same-named fields.
+Un formulario técnicamente tiene permitido contar con muchos campos con el mismo atributo `name`, por lo que múltiples llamadas a `append` agregarán más campos con el mismo nombre.
 
-There's also method `set`, with the same syntax as `append`. The difference is that `.set` removes all fields with the given `name`, and then appends a new field. So it makes sure there's only one field with such `name`, the rest is just like `append`:
+Por otra parte existe un método `set`, con la misma sintáxis que `append`. La diferencia está en que `.set` remueve todos los campos con el `name` que se le ha pasado, y luego agrega el nuevo campo. De este modo nos aseguramos de que sólo un campo éxiste con determinado `name`, el resto es tal cómo en `append`:
 
 - `formData.set(name, value)`,
 - `formData.set(name, blob, fileName)`.
 
-Also we can iterate over formData fields using `for..of` loop:
+También es posible iterar por los campos del objeto formData utilizando un bucle `for..of`:
 
 ```js run
 let formData = new FormData();
 formData.append('key1', 'value1');
 formData.append('key2', 'value2');
 
-// List key/value pairs
+// Se listan los pares clave/valor
 for(let [name, value] of formData) {
-  alert(`${name} = ${value}`); // key1=value1, then key2=value2
+  alert(`${name} = ${value}`); // key1=value1, luego key2=value2
 }
 ```
 
-## Sending a form with a file
+## Enviando un formulario con un archivo
 
-The form is always sent as `Content-Type: multipart/form-data`, this encoding allows to send files. So, `<input type="file">` fields are sent also, similar to a usual form submission.
+El formulario siempre es enviado como `Content-Type: multipart/form-data`, Esta codificación permite enviar archivos. Por lo tanto campos, `<input type="file">` también son enviados, tal como sucede en un envío normal.
 
-Here's an example with such form:
+Aquí un ejemplo con un formulario de éste tipo:
 
 ```html run autorun
 <form id="formElem">
   <input type="text" name="firstName" value="John">
-  Picture: <input type="file" name="picture" accept="image/*">
+  Imágen: <input type="file" name="picture" accept="image/*">
   <input type="submit">
 </form>
 
@@ -110,15 +110,15 @@ Here's an example with such form:
 </script>
 ```
 
-## Sending a form with Blob data
+## Enviando un formulario con datos Blob
 
-As we've seen in the chapter <info:fetch>, it's easy to send dynamically generated binary data e.g. an image, as `Blob`. We can supply it directly as `fetch` parameter `body`.
+Tal como pudimos ver en el capítulo <info:fetch>, es fácil enviar datos binarios generados dinámicamente ej. una imagen, como `Blob`. Podemos  simplemente proporcionarla a `fetch` como un parametro en el `body`.
 
-In practice though, it's often convenient to send an image not separately, but as a part of the form, with additional fields, such as "name" and other metadata.
+De todos modos en la práctica, suele ser conveniente enviar la imagen como parte del formulario junto a otra meta data tal como el nombre y no de forma separada.
 
-Also, servers are usually more suited to accept multipart-encoded forms, rather than raw binary data.
+Además los servidores suelen ser más propensos a aceptar formularios multipart-encoded, en lugar de datos binarios sin procesar.
 
-This example submits an image from `<canvas>`, along with some other fields, as a form, using `FormData`:
+Este ejemplo envía una imagen desde un `<canvas>`, junto con algunos campos más, como un formulario utilizando `FormData`:
 
 ```html run autorun height="90"
 <body style="margin:0">
@@ -154,36 +154,36 @@ This example submits an image from `<canvas>`, along with some other fields, as 
 </body>
 ```
 
-Please note how the image `Blob` is added:
+Note como la imagen `Blob` es agregada:
 
 ```js
 formData.append("image", imageBlob, "image.png");
 ```
 
-That's same as if there were `<input type="file" name="image">` in the form, and the visitor submitted a file named `"image.png"` (3rd argument) with the data `imageBlob` (2nd argument) from their filesystem.
+Se obtiene el mismo resultado tal como si se tuviese un campo `<input type="file" name="image">` en el formulario, y el usuario enviara un archivo con nombre `"image.png"` (3er argumento) con los datos `imageBlob` (2do argumento) desde su sistema de archivos.
 
-The server reads form data and the file, as if it were a regular form submission.
+El servidor lee el formulario `form-data` y el archivo tal como si de un formulario regular se tratara.
 
-## Summary
+## Resumen
 
-[FormData](https://xhr.spec.whatwg.org/#interface-formdata) objects are used to capture HTML form and submit it using `fetch` or another network method.
+[FormData](https://xhr.spec.whatwg.org/#interface-formdata) objetos utilizados para capturar un formulario HTML y enviarlo utilizando `fetch` u otro método de red.
 
-We can either create `new FormData(form)` from an HTML form, or create a object without a form at all, and then append fields with methods:
+Podemos de este modo utilizar `new FormData(form)` tal que from es un elemento formulario HTML, o crear un objeto sin un formulario en absoluto, y agregar los campos con los siguientes métodos:
 
-- `formData.append(name, value)`
-- `formData.append(name, blob, fileName)`
-- `formData.set(name, value)`
-- `formData.set(name, blob, fileName)`
+- `formData.append(nombre, valor)`
+- `formData.append(nombre, blob, nombreDeArchivo)`
+- `formData.set(nombre, valor)`
+- `formData.set(nombre, blob, nombreDeArchivo)`
 
-Let's note two peculiarities here:
+Nótese aquí dos particularidades:
 
-1. The `set` method removes fields with the same name, `append` doesn't. That's the only difference between them.
-2. To send a file, 3-argument syntax is needed, the last argument is a file name, that normally is taken from user filesystem for `<input type="file">`.
+1. El método `set` remueve campos con el mismo nombre, mientras que `append` no. Esta es la única diferencia entre estos dos metodos.
+2. Para enviar un archivo, se requiere de tres argumentos, el último argumento es el nombre del archivo, el cual normalmente es tomado desde el sistema de archivos del usuario por el `<input type="file">`.
 
-Other methods are:
+Otros métodos son:
 
-- `formData.delete(name)`
-- `formData.get(name)`
-- `formData.has(name)`
+- `formData.delete(nombre)`
+- `formData.get(nombre)`
+- `formData.has(nombre)`
 
-That's it!
+¡Esto es todo!
