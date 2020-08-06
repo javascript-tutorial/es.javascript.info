@@ -220,7 +220,7 @@ La primera promesa fue la más rápida, por lo que se vuelve resultado. En cuant
 
 ## Promise.resolve/reject
 
-Los métodos `Promise.resolve` y `Promise.reject` son raramente necesitados en código moderno porque la sintaxis `async/await` (que cubriremos [luego](info:async-await)) las hace algo obsoletas.
+Los métodos `Promise.resolve` y `Promise.reject` son raramente necesitados en código moderno porque la sintaxis `async/await` (que veremos [luego](info:async-await)) las hace algo obsoletas.
 
 Las tratamos aquí para completar la cobertura y por aquellos casos que por algún motivo no puedan usar `async/await`.
 
