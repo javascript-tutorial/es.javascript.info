@@ -1,6 +1,6 @@
 # Promise API
 
-Hay 5 métodos estáticos en la clase `Promise`. Cubrimos sus casos de uso aquí.
+Hay 5 métodos estáticos en la clase `Promise`. Veremos sus casos de uso aquí.
 
 ## Promise.all
 
