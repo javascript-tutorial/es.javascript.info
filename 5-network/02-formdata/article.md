@@ -1,7 +1,7 @@
 
 # FormData
 
-Éste capítulo se trata del envío de formularios HTML: con o sin archivos, con campos adicionales y cosas similares.
+Éste capítulo trata sobre el envío de formularios HTML: con o sin archivos, con campos adicionales y cosas similares.
 
 Los objetos [FormData](https://xhr.spec.whatwg.org/#interface-formdata) pueden ser de ayuda en esta tarea. Tal como habrás supuesto, éste es el objeto encargado de representar los datos de los formularios HTML.
 
@@ -14,9 +14,9 @@ Si se le brinda un elemento HTML `form`, el objeto automáticamente capturará s
 
 Lo que hace especial al objeto `FormData` es que los métodos de red, tales como `fetch`, pueden aceptar un objeto `FormData` como el cuerpo. Es codificado y enviado como `Content-Type: multipart/form-data`.
 
-Desde el punto de vista del servidor, se vé como una entrega normal.
+Desde el punto de vista del servidor, se ve como una entrega normal.
 
-## Enviando un simple formulario
+## Enviando un formulario simple
 
 Enviemos un formulario simple.
 
@@ -24,8 +24,8 @@ Tal como se puede ver, es prácticamente una línea:
 
 ```html run autorun
 <form id="formElem">
-  <input type="text" name="nombre" value="John">
-  <input type="text" name="apellido" value="Smith">
+  <input type="text" name="name" value="John">
+  <input type="text" name="surname" value="Smith">
   <input type="submit">
 </form>
 
@@ -55,13 +55,13 @@ Contamos con métodos para poder modificar los campos del `FormData`:
 
 - `formData.append(name, value)` - agrega un campo al formulario con el nombre `name` y el valor `value`,
 - `formData.append(name, blob, fileName)` - agrega un campo tal como si se tratara de un `<input type="file">`, el tercer argumento `fileName` establece el nombre del archivo (no el nombre del campo), tal como si se tratara del nombre del archivo en el sistema de archivos del usuario,
-- `formData.delete(name)` - remove el campo de nombre `name`,
+- `formData.delete(name)` - elimina el campo de nombre `name`,
 - `formData.get(name)` - obtiene el valor del campo con el nombre `name`,
-- `formData.has(name)` - en caso de que exista el campo con el nombre `name`, retorna `true`, de lo contrario `false`
+- `formData.has(name)` - en caso de que exista el campo con el nombre `name`, devuelve `true`, de lo contrario `false`
 
 Un formulario técnicamente tiene permitido contar con muchos campos con el mismo atributo `name`, por lo que múltiples llamadas a `append` agregarán más campos con el mismo nombre.
 
-Por otra parte existe un método `set`, con la misma sintáxis que `append`. La diferencia está en que `.set` remueve todos los campos con el `name` que se le ha pasado, y luego agrega el nuevo campo. De este modo nos aseguramos de que sólo un campo éxiste con determinado `name`, el resto es tal cómo en `append`:
+Por otra parte existe un método `set`, con la misma sintáxis que `append`. La diferencia está en que `.set` remueve todos los campos con el `name` que se le ha pasado, y luego agrega el nuevo campo. De este modo nos aseguramos de que sólo un campo éxiste con determinado `name`, el resto es tal como en `append`:
 
 - `formData.set(name, value)`,
 - `formData.set(name, blob, fileName)`.
@@ -112,7 +112,7 @@ Aquí un ejemplo con un formulario de éste tipo:
 
 ## Enviando un formulario con datos Blob
 
-Tal como pudimos ver en el capítulo <info:fetch>, es fácil enviar datos binarios generados dinámicamente ej. una imagen, como `Blob`. Podemos  simplemente proporcionarla a `fetch` como un parametro en el `body`.
+Tal como pudimos ver en el capítulo <info:fetch>, es fácil enviar datos binarios generados dinámicamente (por ejemplo una imagen) como `Blob`. Podemos proporcionarlos directamente en un `fetch` con el parámetro `body`.
 
 De todos modos en la práctica, suele ser conveniente enviar la imagen como parte del formulario junto a otra meta data tal como el nombre y no de forma separada.
 
@@ -154,21 +154,21 @@ Este ejemplo envía una imagen desde un `<canvas>`, junto con algunos campos má
 </body>
 ```
 
-Note como la imagen `Blob` es agregada:
+Nota como la imagen `Blob` es agregada:
 
 ```js
 formData.append("image", imageBlob, "image.png");
 ```
 
-Se obtiene el mismo resultado tal como si se tuviese un campo `<input type="file" name="image">` en el formulario, y el usuario enviara un archivo con nombre `"image.png"` (3er argumento) con los datos `imageBlob` (2do argumento) desde su sistema de archivos.
+Es lo mismo que si hubiera un campo `<input type="file" name="image">` en el formulario, y el usuario enviara un archivo con nombre `"image.png"` (3er argumento) con los datos `imageBlob` (2do argumento) desde su sistema de archivos.
 
 El servidor lee el formulario `form-data` y el archivo tal como si de un formulario regular se tratara.
 
 ## Resumen
 
-[FormData](https://xhr.spec.whatwg.org/#interface-formdata) objetos utilizados para capturar un formulario HTML y enviarlo utilizando `fetch` u otro método de red.
+Los objetos [FormData](https://xhr.spec.whatwg.org/#interface-formdata) son utilizados para capturar un formulario HTML y enviarlo utilizando `fetch` u otro método de red.
 
-Podemos de este modo utilizar `new FormData(form)` tal que from es un elemento formulario HTML, o crear un objeto sin un formulario en absoluto, y agregar los campos con los siguientes métodos:
+Podemos crear el objeto con `new FormData(form)` desde un formulario HTML, o crearlo sin un formulario en absoluto, y agregar los campos con los siguientes métodos:
 
 - `formData.append(nombre, valor)`
 - `formData.append(nombre, blob, nombreDeArchivo)`
