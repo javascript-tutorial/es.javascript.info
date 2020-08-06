@@ -197,7 +197,7 @@ Ahora podemos usar `Promise.allSettled` para obtener el resultado de *todas* las
 
 ## Promise.race
 
-Similar a `Promise.all`, pero espera solamente por la primera respuesta y obtiene su resultado (o error).
+Similar a `Promise.all` pero espera solamente por la primera respuesta y obtiene su resultado (o error).
 
 Su sintaxis es:
 
