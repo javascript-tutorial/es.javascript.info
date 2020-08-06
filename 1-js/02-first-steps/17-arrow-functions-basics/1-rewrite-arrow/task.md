@@ -1,7 +1,7 @@
 
-# Rewrite with arrow functions
+# Reescribe con funciones de flecha
 
-Replace Function Expressions with arrow functions in the code below:
+Reemplace las expresiones de función con funciones de flecha en el código a continuación:
 
 ```js run
 function ask(question, yes, no) {
