@@ -69,7 +69,7 @@ Promise.all(requests)
 
     return responses;
   })
-  // map el array de resultados dentro de un array de response.json() para leer sus contenidos
+  // mapea el array de resultados dentro de un array de response.json() para leer sus contenidos
   .then(responses => Promise.all(responses.map(r => r.json())))
   // todas las respuestas JSON son analizadas: "users" es el array de ellas
   .then(users => users.forEach(user => alert(user.name)));
