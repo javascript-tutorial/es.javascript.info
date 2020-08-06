@@ -34,7 +34,7 @@ Ten en cuenta que el orden de los miembros del array es el mismo que el de las p
 
 Un truco común es mapear un array de datos de trabajo dentro de un array de promesas, y entonces envolverlos dentro de un `Promise.all`.
 
-Por ejemplo, si tenemos un array de URLs, podemos usar "fetch" en todos ellos así:
+Por ejemplo, si tenemos un array de URLs, podemos usar `fetch` en todos ellos así:
 
 ```js run
 let urls = [
