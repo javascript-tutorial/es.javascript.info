@@ -81,14 +81,14 @@ for(let [name, value] of formData) {
 
 ## Enviando un formulario con un archivo
 
-El formulario siempre es enviado como `Content-Type: multipart/form-data`, Esta codificación permite enviar archivos. Por lo tanto campos, `<input type="file">` también son enviados, tal como sucede en un envío normal.
+El formulario siempre es enviado como `Content-Type: multipart/form-data`, esta codificación permite enviar archivos. Por lo tanto los campos `<input type="file">` también son enviados, tal como sucede en un envío normal.
 
-Aquí un ejemplo con un formulario de éste tipo:
+Aquí un ejemplo con un formulario de este tipo:
 
 ```html run autorun
 <form id="formElem">
   <input type="text" name="firstName" value="John">
-  Imágen: <input type="file" name="picture" accept="image/*">
+  Imagen: <input type="file" name="picture" accept="image/*">
   <input type="submit">
 </form>
 
@@ -114,11 +114,11 @@ Aquí un ejemplo con un formulario de éste tipo:
 
 Tal como pudimos ver en el capítulo <info:fetch>, es fácil enviar datos binarios generados dinámicamente (por ejemplo una imagen) como `Blob`. Podemos proporcionarlos directamente en un `fetch` con el parámetro `body`.
 
-De todos modos en la práctica, suele ser conveniente enviar la imagen como parte del formulario junto a otra meta data tal como el nombre y no de forma separada.
+De todos modos, en la práctica suele ser conveniente enviar la imagen como parte del formulario junto a otra metadata tal como el nombre y no de forma separada.
 
-Además los servidores suelen ser más propensos a aceptar formularios multipart-encoded, en lugar de datos binarios sin procesar.
+Además los servidores suelen ser más propensos a aceptar formularios multipart, en lugar de datos binarios sin procesar.
 
-Este ejemplo envía una imagen desde un `<canvas>`, junto con algunos campos más, como un formulario utilizando `FormData`:
+Este ejemplo envía una imagen desde un `<canvas>` junto con algunos campos más, como un formulario utilizando `FormData`:
 
 ```html run autorun height="90"
 <body style="margin:0">
@@ -177,7 +177,7 @@ Podemos crear el objeto con `new FormData(form)` desde un formulario HTML, o cre
 
 Nótese aquí dos particularidades:
 
-1. El método `set` remueve campos con el mismo nombre, mientras que `append` no. Esta es la única diferencia entre estos dos metodos.
+1. El método `set` remueve campos con el mismo nombre, mientras que `append` no. Esta es la única diferencia entre estos dos métodos.
 2. Para enviar un archivo, se requiere de tres argumentos, el último argumento es el nombre del archivo, el cual normalmente es tomado desde el sistema de archivos del usuario por el `<input type="file">`.
 
 Otros métodos son:
