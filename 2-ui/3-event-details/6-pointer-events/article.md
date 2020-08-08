@@ -226,4 +226,4 @@ Las habilidades adicionales de los eventos Pointer son:
 - Propiedades específicas del dispositivo, como `pressure`, `width/height` y otras.
 - Captura de puntero: podemos redirigir todos los eventos de puntero a un elemento específico hasta `pointerup`/`pointercancel`.
 
-A partir de ahora, los eventos de puntero son compatibles con todos los navegadores principales, por lo que podemos cambiarlos de forma segura, si no se necesitan IE10 y Safari 12. E incluso con esos navegadores, existen polyfills que permiten la compatibilidad con eventos de puntero.
+Al momento los eventos de puntero son compatibles con todos los navegadores principales, por lo que podemos cambiarlos de forma segura si no se necesitan IE10 y Safari 12. E incluso con esos navegadores, existen polyfills que permiten la compatibilidad con eventos de puntero.
