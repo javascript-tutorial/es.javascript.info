@@ -133,7 +133,7 @@ Nos gustaría implementar nuestro propio arrastrar y soltar, así que digámosle
 
 Necesitaremos dos cosas:
 
-1. Evitar que suceda la función de arrastrar y soltar nativa:
+1. Evitar que suceda la función nativa de arrastrar y soltar:
     - Puede hacerlo configurando `ball.ondragstart = () => false`, tal como se describe en el artículo <info:mouse-drag-and-drop>.
     - Eso funciona bien para eventos de mouse.
 2. Para los dispositivos táctiles, también existen acciones del navegador relacionadas con el tacto. También tendremos problemas con ellos.
