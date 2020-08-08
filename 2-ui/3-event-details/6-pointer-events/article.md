@@ -127,7 +127,7 @@ Aquí está la demostración con eventos de puntero (solo `arriba / abajo`, `mov
 [iframe src="ball" height=240 edit]
 ```
 
-Nos gustaría implementar nuestro propio arrastrar y soltar, así que digamos al navegador que no se haga cargo.
+Nos gustaría implementar nuestro propio arrastrar y soltar, así que digámosle al navegador que no se haga cargo.
 
 **Evitar las acciones predeterminadas del navegador para evitar `pointercancel`.**
 
