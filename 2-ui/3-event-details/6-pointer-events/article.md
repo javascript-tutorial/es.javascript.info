@@ -59,7 +59,7 @@ Los eventos de puntero tienen las mismas propiedades que los eventos del mouse, 
 
 Para punteros que miden un área de contacto y presión, p. Ej. un dedo en la pantalla táctil, las propiedades adicionales pueden ser útiles:
 
-- `width` - el ancho del área donde el puntero toca el dispositivo. Donde no sea compatible, p. Ej. para el mouse siempre es `1`. 
+- `width` - el ancho del área donde el puntero toca el dispositivo. Donde no sea compatible, como en el mouse, siempre es `1`. 
 - `height` - el alto del área donde el puntero toca el dispositivo. Donde no sea compatible, siempre es `1`.
 - `pressure` - la presión de la punta del puntero, en el rango de 0 a 1. Para dispositivos que no soportan presión, debe ser `0.5` (presionada) o `0`.
 - `tangentialPressure` - la presión tangencial normalizada.
