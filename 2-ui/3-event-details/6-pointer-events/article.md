@@ -47,7 +47,7 @@ El soporte para dispositivos táctiles también mejorará "mágicamente", pero p
 
 ## Propiedades de los eventos de puntero
 
-Los eventos de puntero tienen las mismas propiedades que los eventos del mouse, como `clientX / Y`, `target`, etc., más algunos adicionales:
+Los eventos de puntero tienen las mismas propiedades que los eventos del mouse, como `clientX/Y`, `target`, etc., más algunos adicionales:
 
 - `pointerId` - el identificador único del puntero que causa el evento.
     
