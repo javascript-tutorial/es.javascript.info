@@ -12,7 +12,7 @@ Hagamos una pequeña descripción general para que comprenda la imagen general y
 
 - Por lo tanto, se introdujeron eventos táctiles, como `touchstart`,`touchend`, `touchmove`, que tienen propiedades específicas de toque (no los cubrimos en detalle aquí, porque los eventos de puntero son aún mejores).
 
-    Aún así, no fue suficiente, ya que hay muchos otros dispositivos, como lápices, que tienen sus propias funciones. Además, escribir un código que escuchara eventos táctiles y del mouse fue engorroso.
+    Aún así no fue suficiente, ya que hay muchos otros dispositivos, como los lápices, que tienen sus propias funciones. Además, escribir un código que escuchara ambos eventos, los táctiles y los del mouse era engorroso.
 
 - Para resolver estos problemas, se introdujo el nuevo *Pointer Events* estándar. Proporciona un conjunto único de eventos para todo tipo de dispositivos señaladores.
 
