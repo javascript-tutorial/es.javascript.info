@@ -205,7 +205,7 @@ La demostración completa:
 [iframe src="slider" height=100 edit]
 ```
 
-**Como resumen: el código se vuelve más limpio ya que ya no necesitamos agregar / eliminar controladores en todo el `document`. Eso es lo que hace la captura de punteros.**
+**Como resumen: el código se vuelve más limpio ya que ya no necesitamos agregar o eliminar controladores en todo el `document`. Eso es lo que hace la captura de punteros.**
 
 Hay dos eventos de puntero asociados:
 
