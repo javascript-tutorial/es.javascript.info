@@ -91,7 +91,7 @@ Aquí está la demostración que registra los eventos `pointerdown` y `pointerup
 
 [iframe src="multitouch" edit height=200]
 
-Tenga en cuenta: debe utilizar un dispositivo con pantalla táctil, como un teléfono o una tableta, para ver realmente la diferencia. Para dispositivos de un solo toque, como un mouse, siempre habrá el mismo `pointerId` con `isPrimary=true`, para todos los eventos de puntero.
+Tenga en cuenta que debe utilizar un dispositivo con pantalla táctil, como un teléfono o una tableta, para ver realmente la diferencia. Para dispositivos de un solo toque, como el de un mouse, siempre será el mismo `pointerId` con `isPrimary=true` para todos los eventos de puntero.
 ```
 
 ## Evento: pointercancel
