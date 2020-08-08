@@ -175,7 +175,7 @@ Recordemos el problema que encontramos al hacer un control deslizante personaliz
 
 Pero continuamos rastreando los eventos de la pista `pointermove` y movemos el pulgar hasta `pointerup`, aunque el puntero ya no esté en el control deslizante.
 
-[Anteriormente] (info: mouse-drag-and-drop), para manejar los eventos `pointermove` que ocurrían fuera del control deslizante, escuchabamos los eventos `pointermove` en todo el `document`. 
+[Anteriormente](info: mouse-drag-and-drop), para manejar los eventos `pointermove` que ocurrían fuera del control deslizante, escuchábamos los eventos `pointermove` en todo el `document`. 
 
 La captura de puntero proporciona una solución alternativa: podemos llamar a `thumb.setPointerCapture(event.pointerId)` en el controlador `pointerdown`, y luego a todos los eventos de puntero futuros hasta que `pointerup` se redireccione a `thumb`.
 
