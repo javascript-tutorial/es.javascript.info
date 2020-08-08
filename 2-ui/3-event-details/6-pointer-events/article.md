@@ -168,7 +168,7 @@ Ahora, ¿cuándo necesitamos esto?
 
 **La captura de puntero se utiliza para simplificar el tipo de interacciones de arrastrar y soltar.**
 
-Recordemos el problema que encontramos al hacer un control deslizante personalizado en el artículo. <info:mouse-drag-and-drop>.
+Recordemos el problema que encontramos al hacer un control deslizante personalizado en el artículo <info:mouse-drag-and-drop>.
 
 1) Primero, el usuario presiona `pointerdown` en el control deslizante para comenzar a arrastrarlo.
 2) ...Pero luego, a medida que mueven el puntero, puede salirse del control deslizante: que vaya por debajo o por encima de él.
