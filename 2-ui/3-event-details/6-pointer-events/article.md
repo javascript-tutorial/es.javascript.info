@@ -100,7 +100,7 @@ Ya hemos mencionado la importancia de `touch-action: none`. Ahora expliquemos po
 
 El evento `pointercancel` se dispara cuando hay una interacción de puntero en curso, y luego sucede algo que hace que se anule, de modo que no se generan más eventos de puntero.
 
-Algunos casos son:
+Algunos causas son:
 - Se deshabilitó el hardware del dispositivo de puntero.
 - La orientación del dispositivo cambió (tableta rotada).
 - El navegador decidió manejar la interacción por sí solo, considerándolo un gesto del mouse o una acción de zoom y panorámica u otra cosa.
