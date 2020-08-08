@@ -40,7 +40,7 @@ Los eventos de puntero se llaman de forma similar a los eventos del mouse:
 Como podemos ver, para cada `mouse<event>`, hay un `pointer<event>` que juega un papel similar. También hay 3 eventos de puntero adicionales que no tienen una contraparte correspondiente de `mouse ...`, pronto hablaremos sobre ellos.
 
 ```smart header="Remplazando *mouse<event>* con *pointer<event>* en nuestro código"
-Podemos reemplazar los eventos `mouse <event>` con `pointer <event>` en nuestro código y esperar que las cosas sigan funcionando bien con el mouse.
+Podemos reemplazar los eventos `mouse<event>` con `pointer<event>` en nuestro código y esperar que las cosas sigan funcionando bien con el mouse.
 
 El soporte para dispositivos táctiles también mejorará "mágicamente", pero probablemente necesitemos agregar la regla `touch-action: none` en CSS. Vea los detalles a continuación en la sección sobre `pointercancel`.
 ```
