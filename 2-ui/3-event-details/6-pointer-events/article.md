@@ -84,7 +84,7 @@ Tenga en cuenta: el `pointerId` no se asigna a todo el dispositivo, sino a cada 
 
 Los eventos asociados con el primer dedo siempre tienen `isPrimary = true`.
 
-Podemos rastrear múltiples toques de dedos usando su `pointerId`. Cuando el usuario se mueve y luego toca un dedo, obtenemos eventos `pointermove` y `pointerup` con el mismo `pointerId` que teníamos en `pointerdown`.
+Podemos rastrear el toque de varios dedos usando sus `pointerId`. Cuando el usuario mueve y luego levanta un dedo, obtenemos los eventos `pointermove` y `pointerup` con el mismo `pointerId` que teníamos en `pointerdown`.
 
 ```online
 Aquí está la demostración que registra los eventos `pointerdown` y `pointerup`:
