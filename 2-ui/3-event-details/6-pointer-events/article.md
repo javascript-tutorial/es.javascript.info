@@ -137,7 +137,7 @@ Necesitaremos dos cosas:
     - Puede hacerlo configurando `ball.ondragstart = () => false`, tal como se describe en el artículo <info:mouse-drag-and-drop>.
     - Eso funciona bien para eventos de mouse.
 2. Para los dispositivos táctiles, también existen acciones del navegador relacionadas con el tacto. También tendremos problemas con ellos.
-    -Podemos prevenirlos configurando `#ball{touch-action: none}` en CSS.
+    - Podemos prevenirlos configurando `#ball{touch-action: none}` en CSS.
     - Entonces nuestro código comenzará a funcionar en dispositivos táctiles.
 
 Después de hacer eso, los eventos funcionarán según lo previsto, el navegador no secuestrará el proceso y no emitirá ningún `pointercancel`.
