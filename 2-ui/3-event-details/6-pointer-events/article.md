@@ -196,7 +196,7 @@ thumb.onpointermove = function(event) {
 };
 
 // nota: no es necesario llamar a thumb.releasePointerCapture,
-// sucede en el puntero automáticamente
+// esto sucede con el pointerup automáticamente
 ```
 
 ```online
