@@ -63,7 +63,7 @@ Para punteros que miden un área de contacto y presión, p. Ej. un dedo en la pa
 - `height` - el alto del área donde el puntero toca el dispositivo. Donde no sea compatible, siempre es `1`.
 - `pressure` - la presión de la punta del puntero, en el rango de 0 a 1. Para dispositivos que no soportan presión, debe ser `0.5` (presionada) o `0`.
 - `tangentialPressure` - la presión tangencial normalizada.
-- `tiltX`, `tiltY`, `twist` - propiedades específicas de el lápiz que describen cómo se coloca el lápiz en relación con la superficie.
+- `tiltX`, `tiltY`, `twist` - propiedades específicas del lápiz que describen cómo se lo coloca en relación con la superficie.
 
 Estas propiedades no son muy compatibles en todos los dispositivos, por lo que rara vez se utilizan. Puede encontrar los detalles en la [especificación](https://w3c.github.io/pointerevents/#pointerevent-interface) si lo necesita.
 
