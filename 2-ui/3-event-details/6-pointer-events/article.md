@@ -8,7 +8,7 @@ Hagamos una pequeña descripción general para que comprenda la imagen general y
 
 - Hace mucho tiempo, en el pasado, solo existían eventos de mouse.
 
-    Luego aparecieron los dispositivos táctiles. Para que el código antiguo funcione, también generan eventos de mouse. Por ejemplo, tocar genera `mousedown`. Pero los eventos del mouse no fueron lo suficientemente buenos, ya que los dispositivos táctiles son más poderosos en muchos aspectos. Por ejemplo, es posible tocar varios puntos a la vez, y los eventos del mouse no tienen propiedades para eso.
+    Luego aparecieron los dispositivos táctiles. Para que el código antiguo funcione, también generan eventos de mouse. Por ejemplo, tocar genera `mousedown`. Pero los eventos del mouse no eran adecuados porque los dispositivos táctiles son más poderosos en muchos aspectos. Por ejemplo, es posible tocar varios puntos a la vez, y los eventos del mouse no tienen propiedades para eso.
 
 - Por lo tanto, se introdujeron eventos táctiles, como `touchstart`,`touchend`, `touchmove`, que tienen propiedades específicas de toque (no los cubrimos en detalle aquí, porque los eventos de puntero son aún mejores).
 
