@@ -111,7 +111,7 @@ Digamos que estamos implementando arrastrar y soltar (drag'n'drop) en una pelota
 
 A continuación, se muestra el flujo de acciones del usuario y los eventos correspondientes:
 
-1) El usuario presiona el botón del mouse sobre una imagen, para comenzar a arrastrar
+1) El usuario presiona el botón del mouse sobre una imagen para comenzar a arrastrar
     - `pointerdown` el evento se dispara
 2) Luego comienzan a arrastrar la imagen
     - `pointermove` se dispara, tal vez varias veces
