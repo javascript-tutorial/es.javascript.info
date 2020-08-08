@@ -171,7 +171,7 @@ Ahora, ¿cuándo necesitamos esto?
 Recordemos el problema que encontramos al hacer un control deslizante personalizado en el artículo. <info:mouse-drag-and-drop>.
 
 1) Primero, el usuario presiona `pointerdown` en el control deslizante para comenzar a arrastrarlo.
-2) ... Pero luego, a medida que mueven el puntero, puede salir del control deslizante: vaya por debajo o por encima de él.
+2) ...Pero luego, a medida que mueven el puntero, puede salirse del control deslizante: que vaya por debajo o por encima de él.
 
 Pero continuamos rastreando los eventos de la pista `pointermove` y movemos el pulgar hasta `pointerup`, aunque el puntero ya no esté en el control deslizante.
 
