@@ -150,7 +150,7 @@ Esta demostración agrega estas líneas:
 Como puede ver, ya no hay `pointercancel`.
 ```
 
-Ahora podemos agregar el código para mover realmente la bola, y nuestro método de arrastrar y soltar funcionará para dispositivos de mouse y dispositivos táctiles.
+Ahora podemos agregar el código para mover realmente la bola, y nuestro método de arrastrar y soltar funcionará en dispositivos de mouse y dispositivos táctiles.
 
 ## Captura del puntero
 
