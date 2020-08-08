@@ -1,6 +1,6 @@
 # Eventos de puntero
 
-Los eventos de puntero son una forma moderna de manejar la entrada de una variedad de dispositivos señaladores, como un mouse, un lápiz / lápiz, una pantalla táctil, etc.
+Los eventos de puntero son una forma moderna de manejar la entrada de una variedad de dispositivos señaladores, como un mouse, un lápiz, una pantalla táctil, etc.
 
 ## Una breve historia
 
