@@ -139,7 +139,7 @@ document.querySelectorAll('pre[class*="language"]').forEach(Prism.highlightElem)
 
 Todo es simple hasta ahora, ¿verdad? Hay fragmentos de código `<pre>` en HTML y los resaltamos.
 
-Continuemos. Digamos que vamos a buscar dinámicamente material desde un servidor. Estudiaremos métodos para ello [luego en el tutorial](info:fetch). Por ahora solamente importa que buscamos un artículo HTML desde un servidor web y lo mostramos bajo demanda:
+Continuemos. Digamos que vamos a buscar dinámicamente material desde un servidor. Estudiaremos métodos para ello [más adelante](info:fetch) en el tutorial. Por ahora solamente importa que buscamos un artículo HTML desde un servidor web y lo mostramos bajo demanda:
 
 ```js
 let article = /* busca contenido nuevo desde un servidor */
