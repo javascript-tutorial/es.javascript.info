@@ -185,7 +185,7 @@ let observer = new MutationObserver(mutations => {
     // examine nodos nuevos, ¿hay algo para resaltar?
 
     for(let node of mutation.addedNodes) {
-      // seguimos elementos solamente, salteamos los otros nodos (es decir nodos de texto)
+      // seguimos elementos solamente, saltamos los otros nodos (es decir nodos de texto)
       if (!(node instanceof HTMLElement)) continue;
 
       // verificamos que el elemento insertado sea un fragmento de código
