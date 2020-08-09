@@ -150,7 +150,7 @@ El nuevo elemento HTML `article` puede contener fragmentos de código. Necesitam
 
 **¿Dónde y cuándo llamar `Prism.highlightElem` en un artículo cargado dinámicamente?**
 
-Podríamos agregar el llamado al código que llama un "article", como esto:
+Podríamos agregar el llamado al código que carga un "article", como esto:
 
 ```js
 let article = /* busca contenido nuevo desde un servidor */
