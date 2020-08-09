@@ -130,7 +130,7 @@ Tal fragmento en un markup HTML se ve como esto:
 
 También usaremos una librería JavaScript de "highlighting" para resaltar elementos en nuestro sitio, por ejemplo [Prism.js](https://prismjs.com/). Una llamada a `Prism.highlightElem(pre)` examina el contenido de tales elementos `pre` y les agrega tags y styles especiales para obtener sintaxis resaltada con color, similares a los que ves en esta página.
 
-¿Exactamente cuándo ejecutar tal método de highlighting? Podemos hacerlo en el evento `DOMContentLoaded`, o al final de la página. En el momento en que tenemos nuestro DOM listo, buscamos los elementos `pre[class*="language"]` y llamamos `Prism.highlightElem` en ellos:
+¿Exactamente cuándo ejecutar tal método de highlighting? Podemos hacerlo en el evento `DOMContentLoaded`, o al final de la página. En el momento en que tenemos nuestro DOM listo buscamos los elementos `pre[class*="language"]` y llamamos `Prism.highlightElem` en ellos:
 
 ```js
 // resaltar todos los fragmentos de código en la página
