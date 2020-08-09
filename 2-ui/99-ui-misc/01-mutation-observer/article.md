@@ -164,7 +164,7 @@ snippets.forEach(Prism.highlightElem);
 
 ...Pero imagina que tenemos muchos lugares en el código donde cargamos contenido: artículos, cuestionarios, entradas de foros. ¿Necesitamos poner el llamado al "highlighting" en todos lugares? No es muy conveniente, y es fácil de olvidar además.
 
-¿Y si el contenido es cargado por un módulo de terceras partes? Por ejemplo tenemos un foro escrito por algún otro que carga contenido dinámicamente y quisiéramos añadirle sintaxis de highlighting. A nadie le gusta emparchar scripts de terceras partes.
+¿Y si el contenido es cargado por un módulo de terceras partes? Por ejemplo tenemos un foro, escrito por algún otro, que carga contenido dinámicamente y quisiéramos añadirle sintaxis de highlighting. A nadie le gusta emparchar scripts de terceras partes.
 
 Afortunadamente hay otra opción.
 
