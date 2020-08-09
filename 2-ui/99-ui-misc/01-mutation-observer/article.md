@@ -25,7 +25,7 @@ observer.observe(node, config);
 - `childList` -- cambios en los hijos directos de `node`,
 - `subtree` -- en todos los descendientes de `node`,
 - `attributes` -- atributos de `node`,
-- `attributeFilter` -- un array de nombres de atributos, para observar solamente a los seleccionados.
+- `attributeFilter` -- un array de nombres de atributos, para observar solamente a los seleccionados,
 - `characterData` -- establece si debe observar cambios de texto en `node.data` o no,
 
 Algunas otras opciones:
