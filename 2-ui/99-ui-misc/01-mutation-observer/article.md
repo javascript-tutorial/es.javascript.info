@@ -263,4 +263,4 @@ El mero hecho de que un nodo DOM sea observado no evita la recolección de basur
 
 Podemos usarlo para rastrear cambios introducidos por otras partes de nuestro código o bien para integrarlo con scripts de terceras partes.
 
-`MutationObserver` puede rastrear cualquier cambio. Las opciones para `config` permiten establecer qué se va a observar y se usa para optimización y no desperdiciar recursos en llamados al callback innecesarios.
+`MutationObserver` puede rastrear cualquier cambio. Las opciones de `config` permiten establecer qué se va a observar, se usa para optimización y no desperdiciar recursos en llamados al callback innecesarios.
