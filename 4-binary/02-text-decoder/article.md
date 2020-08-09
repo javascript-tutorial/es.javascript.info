@@ -2,7 +2,7 @@
 
 ¿Qué pasa si los datos binarios son en realidad un string? Por ejemplo, recibimos un archivo con datos textuales.
 
-Al proporcionar el búfer y la codificación, el objeto [TextDecoder](https://encoding.spec.whatwg.org/#interface-textdecoder) nos permite leer el texto de un conjunto de datos binarios y convertirlo en un dato de tipo string de JavaScript.
+El objeto [TextDecoder](https://encoding.spec.whatwg.org/#interface-textdecoder) nos permite leer el texto de un conjunto de datos binarios y convertirlo en un dato de tipo string de JavaScript, dados el búfer y la codificación.
 
 Primero necesitamos crearlo:
 ```js
@@ -54,7 +54,7 @@ alert( new TextDecoder().decode(binaryString) ); // Hola
 
 ## TextEncoder
 
-[TextEncoder](https://encoding.spec.whatwg.org/#interface-textencoder) hace lo contrario -- convierte un string en bytes.
+[TextEncoder](https://encoding.spec.whatwg.org/#interface-textencoder) hace lo contrario: convierte un string en bytes.
 
 La sintaxis es:
 
