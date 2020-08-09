@@ -26,7 +26,7 @@ observer.observe(node, config);
 - `subtree` -- en todos los descendientes de `node`,
 - `attributes` -- atributos de `node`,
 - `attributeFilter` -- un array de nombres de atributos, para observar solamente a los seleccionados.
-- `characterData` -- si observar o no a `node.data` (text content),
+- `characterData` -- establece si debe observar cambios de texto en `node.data` o no,
 
 Algunas otras opciones:
 - `attributeOldValue` -- si es `true`, tanto el valor viejo como el nuevo del atributo son pasados al callback (ver abajo), de otro modo pasa solamente el nuevo (necesita la opción `attributes`),
