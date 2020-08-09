@@ -1,6 +1,6 @@
 # TextDecoder y TextEncoder
 
-Que tal si los datos binarios representan un string? Por ejemplo, recibimos un archivo con datos textuales.
+¿Qué pasa si los datos binarios son en realidad un string? Por ejemplo, recibimos un archivo con datos textuales.
 
 Al proporcionar el búfer y la codificación, el objeto [TextDecoder](https://encoding.spec.whatwg.org/#interface-textdecoder) nos permite leer el texto de un conjunto de datos binarios y convertirlo en un dato de tipo string de JavaScript.
 
