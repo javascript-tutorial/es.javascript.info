@@ -228,7 +228,7 @@ demoElem.innerHTML = `A code snippet is below:
 `;
 ```
 
-Ahora tenemos un `MutationObserver` que puede rastrear todo "highlighting" en los elementos observados del `document` entero. Podemos agregar o quitar fragmentos de código en el HTML sin siquiera pensar en ello.
+Ahora tenemos un `MutationObserver` que puede rastrear todo el "highlighting" en los elementos observados del `document` entero. Podemos agregar o quitar fragmentos de código en el HTML sin siquiera pensar en ello.
 
 ## Métodos adicionales
 
