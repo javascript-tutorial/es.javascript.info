@@ -46,7 +46,11 @@ There are three variants of type conversion, so-called "hints", described in the
 `"default"`
 : Occurs in rare cases when the operator is "not sure" what type to expect.
 
+<<<<<<< HEAD
     For instance, binary plus `+` can work both with strings (concatenates them) and numbers (adds them), so both strings and numbers would do. So if the a binary plus gets an object as an argument, it uses the `"default"` hint to convert it.
+=======
+    For instance, binary plus `+` can work both with strings (concatenates them) and numbers (adds them), so both strings and numbers would do. So if a binary plus gets an object as an argument, it uses the `"default"` hint to convert it.
+>>>>>>> fbf443e414097e5a3a41dd1273ef9a4a3230e72c
 
     Also, if an object is compared using `==` with a string, number or a symbol, it's also unclear which conversion should be done, so the `"default"` hint is used.
 

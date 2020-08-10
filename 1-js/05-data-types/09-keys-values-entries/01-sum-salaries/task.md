@@ -2,15 +2,15 @@ importance: 5
 
 ---
 
-# Suma las propiedades
+# Sum the properties
 
-Hay un objeto `salaries` con un número arbitrario de salarios. 
+There is a `salaries` object with arbitrary number of salaries. 
 
-Escriba la función `sumSalaries(salaries)` que devuelva la suma de todos los salarios utilizando `Object.values` y el bucle `for..of`.
+Write the function `sumSalaries(salaries)` that returns the sum of all salaries using `Object.values` and the `for..of` loop.
 
-Si `salaries` está vacío, entonces el resultado debe ser `0`.
+If `salaries` is empty, then the result must be `0`.
 
-Por ejemplo:
+For instance:
 
 ```js
 let salaries = {

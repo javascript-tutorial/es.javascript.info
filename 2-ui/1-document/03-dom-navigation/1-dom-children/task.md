@@ -4,7 +4,11 @@ importance: 5
 
 # DOM children
 
+<<<<<<< HEAD
 Mira esta página:
+=======
+Look at this page:
+>>>>>>> fbf443e414097e5a3a41dd1273ef9a4a3230e72c
 
 ```html
 <html>
@@ -18,7 +22,14 @@ Mira esta página:
 </html>
 ```
 
+<<<<<<< HEAD
 Para cada una de las siguientes preguntas, da al menos una forma de cómo acceder a ellos:
 - ¿El nodo `<div>` del DOM?
 - ¿El nodo `<ul>` del DOM?
 - El segundo `<li>` (con Pete)?
+=======
+For each of the following, give at least one way of how to access them:
+- The `<div>` DOM node?
+- The `<ul>` DOM node?
+- The second `<li>` (with Pete)?
+>>>>>>> fbf443e414097e5a3a41dd1273ef9a4a3230e72c

@@ -2,17 +2,27 @@
 
 Volvamos a revisar las funciones de flecha.
 
+<<<<<<< HEAD
 
 Las funciones de flecha no son solo una "taquigrafía" para escribir pequeñas cosas. Tienen algunas características muy específicas y útiles.
+=======
+Arrow functions are not just a "shorthand" for writing small stuff. They have some very specific and useful features.
+
+JavaScript is full of situations where we need to write a small function that's executed somewhere else.
+>>>>>>> fbf443e414097e5a3a41dd1273ef9a4a3230e72c
 
 JavaScript está lleno de situaciones en las que necesitamos escribir una pequeña función que se ejecuta en otro lugar.
 
 
 Por ejemplo
 
+<<<<<<< HEAD
 - `arr.forEach(func)` -- `func` es ejecutado por `forEach` para cada elemento del array.
 - `setTimeout(func)` -- `func` es ejecutado por el planificador incorporado.
 - ...y muchas más.
+=======
+And in such functions we usually don't want to leave the current context. That's where arrow functions come in handy.
+>>>>>>> fbf443e414097e5a3a41dd1273ef9a4a3230e72c
 
 Está en el espíritu de JavaScript crear una función y pasarla a algún otro lugar.
 
@@ -128,5 +138,14 @@ Funciones de flecha:
 - No se pueden llamar con `new`
 - Tampoco tienen `super`, que aún no hemos estudiado. Lo veremos en el capítulo <info:class-inheritance>
 
+<<<<<<< HEAD
 Esto se debe a que están diseñadas para piezas cortas de código que no tienen su propio "contexto", sino que funcionan en el actual. Y realmente brillan en ese caso de uso.
 
+=======
+- Do not have `this`
+- Do not have `arguments`
+- Can't be called with `new`
+- They also don't have `super`, but we didn't study it yet. We will on the chapter <info:class-inheritance>
+
+That's because they are meant for short pieces of code that do not have their own "context", but rather work in the current one. And they really shine in that use case.
+>>>>>>> fbf443e414097e5a3a41dd1273ef9a4a3230e72c

@@ -177,12 +177,16 @@ A call `socket.send(body)` allows `body` in string or a binary format, including
 
 **When we receive the data, text always comes as string. And for binary data, we can choose between `Blob` and `ArrayBuffer` formats.**
 
+<<<<<<< HEAD:5-network/11-websocket/article.md
 That's set by `socket.bufferType` property, it's `"blob"` by default, so binary data comes as `Blob` objects.
+=======
+That's set by `socket.binaryType` property, it's `"blob"` by default, so binary data comes as `Blob` objects.
+>>>>>>> fbf443e414097e5a3a41dd1273ef9a4a3230e72c:5-network/11-websocket/article.md
 
 [Blob](info:blob) is a high-level binary object, it directly integrates with `<a>`, `<img>` and other tags, so that's a sane default. But for binary processing, to access individual data bytes, we can change it to `"arraybuffer"`:
 
 ```js
-socket.bufferType = "arraybuffer";
+socket.binaryType = "arraybuffer";
 socket.onmessage = (event) => {
   // event.data is either a string (if text) or arraybuffer (if binary)
 };

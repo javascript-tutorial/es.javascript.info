@@ -1,6 +1,10 @@
 # Desplazamiento
 
+<<<<<<< HEAD
 El evento `scroll` permite reaccionar al desplazamiento de una página o elemento. Hay bastantes cosas buenas que podemos hacer aquí.
+=======
+The `scroll` event allows to react on a page or element scrolling. There are quite a few good things we can do here.
+>>>>>>> fbf443e414097e5a3a41dd1273ef9a4a3230e72c
 
 Por ejemplo:
 - Mostrar/ocultar controles o información adicional según el lugar del documento en el que se encuentre el/la usuario/a.
@@ -24,6 +28,7 @@ El evento `scroll` funciona tanto en `window` como en los elementos desplazables
 
 ## Evitar el desplazamiento
 
+<<<<<<< HEAD
 ¿Qué hacemos para que algo no se pueda desplazar?
 
 No podemos evitar el desplazamiento utilizando `event.preventDefault()` oyendo al evento `onscroll`, porque este se activa *después* de que el desplazamiento haya ocurrido.
@@ -31,6 +36,17 @@ No podemos evitar el desplazamiento utilizando `event.preventDefault()` oyendo a
 Pero podemos prevenir el desplazamiento con `event.preventDefault()` en un evento que cause el desplazamiento, por ejemplo en el evento `keydown` para `key:pageUp` y `key:pageDown`.
 
 Si añadimos un manejador de eventos a estos eventos y un `event.preventDefault()` en el manejador, entonces el desplazamiento no se iniciará.
+=======
+How do we make something unscrollable?
+
+We can't prevent scrolling by using `event.preventDefault()` in `onscroll` listener, because it triggers *after* the scroll has already happened.
+
+But we can prevent scrolling by `event.preventDefault()` on an event that causes the scroll, for instance `keydown` event for `key:pageUp` and `key:pageDown`.
+
+If we add an event handler to these events and `event.preventDefault()` in it, then the scroll won't start.
+
+There are many ways to initiate a scroll, so it's more reliable to use CSS, `overflow` property.
+>>>>>>> fbf443e414097e5a3a41dd1273ef9a4a3230e72c
 
 Hay muchas maneras de iniciar un desplazamiento, la más fiable es usar CSS, la propiedad `overflow`.
 

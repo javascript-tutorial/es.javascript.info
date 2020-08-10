@@ -1,15 +1,14 @@
 
-Examinemos lo que se hace dentro de `makeArmy`, y la solución será obvia.
+Let's examine what's done inside `makeArmy`, and the solution will become obvious.
 
-1. Crea un array vacío. `shooters`:
+1. It creates an empty array `shooters`:
 
     ```js
     let shooters = [];
     ```
+2. Fills it in the loop via `shooters.push(function...)`.
 
-2. Lo llena en el bucle a través de `shooters.push(function...)`.
-
-  Cada elemento es una función, por lo que el array resultante se ve así:
+    Every element is a function, so the resulting array looks like this:
 
     ```js no-beautify
     shooters = [
@@ -25,18 +24,18 @@ Examinemos lo que se hace dentro de `makeArmy`, y la solución será obvia.
       function () { alert(i); }
     ];
     ```
-    
-3. El array se devuelve desde la función.
 
-Luego, más tarde, la llamada a `army[5] ()` obtendrá el elemento `army[5]` de el array (será una función) y lo llamará.
+3. The array is returned from the function.
 
-Ahora, ¿por qué todas esas funciones muestran lo mismo?
+Then, later, the call to `army[5]()` will get the element `army[5]` from the array (it will be a function) and call it.
 
-Esto se debe a que no hay una variable local `i` dentro de las funciones `shooter`. Cuando se llama a tal función, toma `i` de su entorno léxico externo.
+Now why all such functions show the same?
 
-¿Cuál será el valor de 'i'?
+That's because there's no local variable `i` inside `shooter` functions. When such a function is called, it takes `i` from its outer lexical environment.
 
-Si miramos la fuente:
+What will be the value of `i`?
+
+If we look at the source:
 
 ```js
 function makeArmy() {
@@ -44,7 +43,7 @@ function makeArmy() {
   let i = 0;
   while (i < 10) {
     let shooter = function() { // shooter function
-      alert( i ); // debería mostrar su número
+      alert( i ); // should show its number
     };
     ...
   }
@@ -52,11 +51,11 @@ function makeArmy() {
 }
 ```
 
-... Podemos ver que vive en el entorno léxico asociado con la ejecución actual de `makeArmy()`. Pero cuando se llama a `army[5]()`, `makeArmy` ya ha terminado su trabajo, y `i` tiene el último valor: `10` (el final de `while`).
+...We can see that it lives in the lexical environment associated with the current `makeArmy()` run. But when `army[5]()` is called, `makeArmy` has already finished its job, and `i` has the last value: `10` (the end of `while`).
 
-Como resultado, todas las funciones `shooter` obtienen del mismo entorno léxico externo, el último valor `i = 10`.
+As a result, all `shooter` functions get from the outer lexical envrironment the same, last value `i=10`.
 
-Podemos arreglarlo moviendo la definición de variable al bucle:
+We can fix it by moving the variable definition into the loop:
 
 ```js run demo
 function makeArmy() {
@@ -67,7 +66,7 @@ function makeArmy() {
   for(let i = 0; i < 10; i++) {
 */!*
     let shooter = function() { // shooter function
-      alert( i ); // debería mostrar su número
+      alert( i ); // should show its number
     };
     shooters.push(shooter);
   }
@@ -81,15 +80,15 @@ army[0](); // 0
 army[5](); // 5
 ```
 
-Ahora funciona correctamente, porque cada vez que se ejecuta el bloque de código en `for (let i = 0 ...) {...}`, se crea un nuevo entorno léxico para él, con la variable correspondiente `i`.
+Now it works correctly, because every time the code block in `for (let i=0...) {...}` is executed, a new Lexical Environment is created for it, with the corresponding variable `i`.
 
-Entonces, el valor de `i` ahora vive un poco más cerca. No en el entorno léxico `makeArmy()`, sino en el entorno léxico que corresponde a la iteración del bucle actual. Por eso ahora funciona.
+So, the value of `i` now lives a little bit closer. Not in `makeArmy()` Lexical Environment, but in the Lexical Environment that corresponds the current loop iteration. That's why now it works.
 
 ![](lexenv-makearmy.svg)
 
-Aquí reescribimos `while` en `for`.
+Here we rewrote `while` into `for`.
 
-Podría usarse otro truco, veámoslo para comprender mejor el tema:
+Another trick could be possible, let's see it for better understanding of the subject:
 
 ```js run
 function makeArmy() {
@@ -101,7 +100,7 @@ function makeArmy() {
     let j = i;
 */!*
     let shooter = function() { // shooter function
-      alert( *!*j*/!* ); // debería verse el núemero
+      alert( *!*j*/!* ); // should show its number
     };
     shooters.push(shooter);
     i++;
@@ -116,7 +115,6 @@ army[0](); // 0
 army[5](); // 5
 ```
 
-El bucle `while`, al igual que `for`, crea un nuevo entorno léxico para cada ejecución. Así que aquí nos aseguramos de que obtenga el valor correcto para un `shooter`.
+The `while` loop, just like `for`, makes a new Lexical Environment for each run. So here we make sure that it gets the right value for a `shooter`.
 
-Copiamos `let j = i`. Esto hace que el cuerpo del bucle sea `j` local y copia el valor de `i` en él. Los primitivos se copian "por valor", por lo que en realidad obtenemos una copia independiente completa de `i`, que pertenece a la iteración del bucle actual.
-
+We copy `let j = i`. This makes a loop body local `j` and copies the value of `i` to it. Primitives are copied "by value", so we actually get a complete independent copy of `i`, belonging to the current loop iteration.

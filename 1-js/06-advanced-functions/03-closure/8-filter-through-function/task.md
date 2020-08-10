@@ -2,28 +2,28 @@ importance: 5
 
 ---
 
-# Filtrar a través de una función
+# Filter through function
 
-Tenemos un método incorporado `arr.filter(f)` para arrays. Filtra todos los elementos a través de la función `f`. Si devuelve `true`, entonces ese elemento se devuelve en el array resultante.
+We have a built-in method `arr.filter(f)` for arrays. It filters all elements through the function `f`. If it returns `true`, then that element is returned in the resulting array.
 
-Haga un conjunto de filtros "listos para usar":
+Make a set of "ready to use" filters:
 
-- `inBetween(a, b)` -- entre `a` y `b` o igual a ellos (inclusive).
-- `inArray([...])` -- en el array dado
+- `inBetween(a, b)` -- between `a` and `b` or equal to them (inclusively).
+- `inArray([...])` -- in the given array.
 
-El uso debe ser así:
+The usage must be like this:
 
-- `arr.filter(inBetween(3,6))` -- selecciona solo valores entre 3 y 6.
-- `arr.filter(inArray([1,2,3]))` -- selecciona solo elementos que coinciden con uno de los miembros de `[1,2,3]`.
+- `arr.filter(inBetween(3,6))` -- selects only values between 3 and 6.
+- `arr.filter(inArray([1,2,3]))` -- selects only elements matching with one of the members of `[1,2,3]`.
 
-Por ejemplo:
+For instance:
 
 ```js
-/* .. tu código para inBetween y inArray */
-
+/* .. your code for inBetween and inArray */
 let arr = [1, 2, 3, 4, 5, 6, 7];
 
 alert( arr.filter(inBetween(3, 6)) ); // 3,4,5,6
 
 alert( arr.filter(inArray([1, 2, 10])) ); // 1,2
 ```
+

@@ -6,9 +6,15 @@ importance: 5
 
 Modifique el código de `makeCounter()` para que el contador también pueda disminuir y establecer el número:
 
+<<<<<<< HEAD
 - `counter()` debería devolver el siguiente número (como antes).
 - `counter.set(value)` debería establecer el contador a `value`.
 - `counter.decrease()` debería disminuir el contador en 1.
+=======
+- `counter()` should return the next number (as before).
+- `counter.set(value)` should set the counter to `value`.
+- `counter.decrease()` should decrease the counter by 1.
+>>>>>>> fbf443e414097e5a3a41dd1273ef9a4a3230e72c
 
 Consulte el código en el entorno de pruebas para ver el ejemplo de uso completo.
 

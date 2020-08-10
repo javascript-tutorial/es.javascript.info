@@ -44,8 +44,13 @@ class HoverIntent {
 
 
   destroy() {
+<<<<<<< HEAD
     /* Tu código para "deshabilitar" la funcionalidad, remueve los controladores */
     /* Es necesario para que las pruebas funcionen*/
+=======
+    /* your code to "disable" the functionality, remove all handlers */
+    /* it's needed for the tests to work */
+>>>>>>> fbf443e414097e5a3a41dd1273ef9a4a3230e72c
   }
 
 }

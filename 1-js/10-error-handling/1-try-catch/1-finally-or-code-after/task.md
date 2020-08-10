@@ -33,6 +33,10 @@ Compara los dos fragmentos de código.
     */!*
     ```
 
+<<<<<<< HEAD
 Definitivamente necesitamos la limpieza después del trabajo, no importa si hubo un error o no.
+=======
+We definitely need the cleanup after the work, doesn't matter if there was an error or not.
+>>>>>>> fbf443e414097e5a3a41dd1273ef9a4a3230e72c
 
 ¿Hay alguna ventaja aquí en usar `finally` o ambos fragmentos de código son iguales? Si existe tal ventaja, entonces da un ejemplo cuando sea importante.
