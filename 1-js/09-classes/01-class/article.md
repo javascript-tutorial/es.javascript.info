@@ -317,7 +317,7 @@ new User().sayHi(); // Hello, John!
 
 Así, simplemente escribimos "<property name> = <value>" en la declaración, y eso es todo.
 
-La diferencia importante de las propiedades así definidas es que ellas son establecidas en los objetos individuales, no compartidas en `User.prototype`:
+La diferencia importante de las propiedades definidas por "campos de clase" es que ellas son establecidas en los objetos individuales, no compartidas en `User.prototype`:
 
 ```js run
 class User {
