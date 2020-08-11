@@ -12,10 +12,8 @@ Un IDE carga el proyecto (el cual puede ser de varios archivos), permite navegar
 
 Si aún no has seleccionado un IDE, considera las siguientes opciones:
 
-- [WebStorm](http://www.jetbrains.com/webstorm/) para desarrollo frontend. La misma compañía ofrece otros editores para otros lenguajes (de paga).
-- [Netbeans](http://netbeans.org/) (gratuito).
-
-Todos estos IDEs son multiplataforma ( cross-platform).
+- [Visual Studio Code](https://code.visualstudio.com/) (Multiplataforma, gratuito).
+- [WebStorm](https://www.jetbrains.com/webstorm/) (Multiplataforma, de pago).
 
 Para Windows, también está "Visual Studio", no lo confundamos con "Visual Studio Code". "Visual Studio" es un poderoso editor pagado sólo para Windows, idóneo para la plataforma .NET. Una versión gratuita es de este editor se llama [Visual Studio Community](https://www.visualstudio.com/vs/community/).
 
@@ -33,20 +31,11 @@ En la práctica, los editores livianos pueden tener montones de plugins incluyen
 
 Las siguientes opciones merecen tu atención:
 
-- [Visual Studio Code](https://code.visualstudio.com/) (multiplataforma, gratuito) además tiene varias características similar a un IDE.
+- [Visual Studio Code](https://code.visualstudio.com/) (multiplataforma, gratuito) 
 - [Atom](https://atom.io/) (multiplataforma, gratuito).
 - [Sublime Text](http://www.sublimetext.com) (multiplataforma, shareware).
 - [Notepad++](https://notepad-plus-plus.org/) (Windows, gratuito).
 - [Vim](http://www.vim.org/) y [Emacs](https://www.gnu.org/software/emacs/) son geniales también si sabes como usarlos.
-
-## Mis favoritos
-
-La preferencia personal del autor es tener ambos, un IDE para proyectos y un editor liviano para editar un archivo de manera rápido y sencilla.
-
-Estoy usando:
-
-- Como IDE para JS -- [WebStorm](http://www.jetbrains.com/webstorm/) (Uso alguno de los que ofrece JetBrains cuando uso otros lenguajes)
-- Como un editor liviano -- [Sublime Text](http://www.sublimetext.com) o [Atom](https://atom.io/).
 
 ## No discutamos
 
