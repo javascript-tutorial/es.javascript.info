@@ -103,7 +103,7 @@ La sintaxis de JavaScript no se adapta a las necesidades de todos. Personas dife
 
 Esto es algo obvio, porque los proyectos y requerimientos son diferentes para cada persona.
 
-Así que recientemente a aparecido una gran cantidad de nuevos lenguajes, los cuales son _Convertidos_ / _Transpilados_ (transpiled) a JavaScript antes de ser ejecutados en el navegador.
+Así que recientemente ha aparecido una gran cantidad de nuevos lenguajes, los cuales son _Convertidos_/_Transpilados_ a JavaScript antes de ser ejecutados en el navegador.
 
 Las herramientas modernas hacen la conversión (Transpilation) muy rápida y transparente, permitiendo a los desarrolladores codificar en otros lenguajes y convertirlo automáticamente detrás de escena.
 
