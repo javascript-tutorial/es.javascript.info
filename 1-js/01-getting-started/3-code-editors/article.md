@@ -2,7 +2,7 @@
 
 Un editor de código es el lugar donde los programadores pasan la mayor parte de su tiempo.
 
-Hay dos principales tipos de editores de código: IDEs y editores ligeros. Muchas personas usan una herramienta de cada tipo.
+Hay dos principales tipos de editores de código: IDEs y editores livianos. Muchas personas usan una herramienta de cada tipo.
 
 ## IDE
 
@@ -19,15 +19,15 @@ Para Windows, también está "Visual Studio", no lo confundamos con "Visual Stud
 
 Muchos IDEs son de paga pero tienen un periodo de prueba. Su costo usualmente es pequeño si lo comparamos al salario de un desarrollador calificado, así que sólo escoge el mejor para ti.
 
-## Editores ligeros
+## Editores livianos
 
-"Editores ligeros" no son tan poderosos como los IDEs, pero son rápidos, elegantes y simples.
+"Editores livianos" no son tan poderosos como los IDEs, pero son rápidos, elegantes y simples.
 
 Son usados principalmente para abrir y editar un archivo al instante.
 
-La diferencia principal entre un "editor ligero" y un "IDE" es que un IDE trabaja a nivel de proyecto, por lo que carga mucha más información desde el inicio, analiza la estructura del proyecto si así lo requiere y continua. Un editor ligero es mucho más rápido si solo necesitamos un archivo.
+La diferencia principal entre un "editor liviano" y un "IDE" es que un IDE trabaja a nivel de proyecto, por lo que carga mucha más información desde el inicio, analiza la estructura del proyecto si así lo requiere y continua. Un editor liviano es mucho más rápido si solo necesitamos un archivo.
 
-En la práctica, los editores ligeros pueden tener montones de plugins incluyendo analizadores de sintaxis a nivel de directorio y autocompletado, por lo que no hay un límite estricto entre un editor ligero y un IDE.
+En la práctica, los editores livianos pueden tener montones de plugins incluyendo analizadores de sintaxis a nivel de directorio y autocompletado, por lo que no hay un límite estricto entre un editor liviano y un IDE.
 
 Las siguientes opciones merecen tu atención:
 
