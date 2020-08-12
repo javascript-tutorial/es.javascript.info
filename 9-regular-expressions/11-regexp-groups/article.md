@@ -229,7 +229,7 @@ for(let result of results) {
 let [tag1, tag2] = '<h1> <h2>'.matchAll(/<(.*?)>/gi);
 ```
 
-Cada coincidencia, devuelta por `matchAll`, tiene el mismo formato al que es devuelto por `match` sin el flag `pattern:g`: es un array con propiedades adicionales `index` (coincide índice en el string) e `input` (fuente string):
+Cada coincidencia devuelta por `matchAll` tiene el mismo formato que el devuelto por `match` sin el flag `pattern:g`: es un array con propiedades adicionales `index` (coincide índice en el string) e `input` (fuente string):
 
 ```js run
 let results = '<h1> <h2>'.matchAll(/<(.*?)>/gi);
