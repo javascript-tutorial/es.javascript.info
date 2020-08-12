@@ -245,11 +245,11 @@ alert( tag1.input ); // <h1> <h2>
 ```smart header="¿Por qué el resultado de `matchAll` es un objeto iterable y no un array?"
 ¿Por qué el método está diseñado de esa manera? La razón es simple - por la optimización.
 
-El llamado a `matchAll` no realiza la búsqueda. En cambio, devuelve un objeto iterable, en un principio sin los resultados. La búsqueda es realizada cada vez que iteramos sobre ella, es decir, en el bucle.
+El llamado a `matchAll` no realiza la búsqueda. En cambio devuelve un objeto iterable, en un principio sin los resultados. La búsqueda es realizada cada vez que iteramos sobre ella, es decir, en el bucle.
 
 Por lo tanto, se encontrará tantos resultados como sea necesario, no más.
 
-Por ejemplo, posiblemente hay 100 coincidencias en el texto, pero en un bucle `for..of` encontramos 5 de ellos, entonces decidimos que era suficiente y realizamos un `break`. Luego el buscador no gastará tiempo buscando otras 95 coincidencias.
+Por ejemplo, posiblemente hay 100 coincidencias en el texto, pero en un bucle `for..of` encontramos 5 de ellas: entonces decidimos que es suficiente y realizamos un `break`.  Así el buscador no gastará tiempo buscando otras 95 coincidencias.
 ```
 
 ## Grupos con nombre
@@ -329,7 +329,7 @@ Se puede excluir un grupo agregando `pattern:?:` al inicio.
 
 Por ejemplo, si queremos encontrar `pattern:(go)+`, pero no queremos el contenido del paréntesis (`go`) como un ítem separado del array, podemos escribir: `pattern:(?:go)+`.
 
-En el ejemplo de arriba sólamente obtenemos el nombre `match:John` como un miembro separado de la coincidencia:
+En el ejemplo de arriba solamente obtenemos el nombre `match:John` como un miembro separado de la coincidencia:
 
 ```js run
 let str = "Gogogo John!";
