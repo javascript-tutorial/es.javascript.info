@@ -191,7 +191,7 @@ Al igual que `match`, busca coincidencias, pero hay 3 diferencias:
 
 1. No devuelve un array sino un objeto iterable.
 2. Cuando está presente el indicador `pattern:g`, devuelve todas las coincidencias como un array con grupos.
-3. Si no hay coincidencias, no devuelve `null`, pero un objeto iterable vacío.
+3. Si no hay coincidencias, no devuelve `null` sino un objeto iterable vacío.
 
 Por ejemplo:
 
