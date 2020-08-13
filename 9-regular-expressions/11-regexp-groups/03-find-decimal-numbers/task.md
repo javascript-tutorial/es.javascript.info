@@ -1,8 +1,8 @@
-# Find all numbers
+# Encuentre todos los números
 
-Write a regexp that looks for all decimal numbers including integer ones, with the floating point and negative ones.
+Escribe una expresión regular que busque todos los números decimales, incluidos los enteros, con el punto flotante y los negativos.
 
-An example of use:
+Un ejemplo de uso:
 
 ```js
 let regexp = /your regexp/g;
