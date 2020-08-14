@@ -1,4 +1,4 @@
-# Métodos de objeto, "this"
+# Métodos del objeto, "this"
 
 Los objetos son creados usualmente para representar entidades del mundo real, como usuarios, órdenes, etc.:
 
