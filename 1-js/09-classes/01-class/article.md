@@ -198,7 +198,7 @@ Si una expresión de clase tiene un nombre, este es visible solamente dentro de 
 
 ```js run
 // Expresiones de clase con nombre
-// ("Named Class Expression" no figura así en el spec, pero es equivalente a "Named Function Expression")
+// ("Named Class Expression" no figura así en la especificación, pero es equivalente a "Named Function Expression")
 let User = class *!*MyClass*/!* {
   sayHi() {
     alert(MyClass); // El nombre de MyClass solo es visible dentro de la clase
