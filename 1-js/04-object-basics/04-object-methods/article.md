@@ -141,7 +141,7 @@ let user = {
 
 ...Pero tal código no es confiable. Si decidimos copiar `user` a otra variable, por ejemplo `admin = user` y sobrescribir `user` con otra cosa, entonces accederá al objeto incorrecto.
 
-Eso queda demostrado aquí:
+Eso queda demostrado en las siguientes lineas:
 
 ```js run
 let user = {
