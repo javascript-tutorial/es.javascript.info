@@ -231,7 +231,7 @@ new User().sayHi(); // Hello
 
 ## Getters/setters
 
-Al igual que lo objetos literales, las clases pueden incluir getters/setters, propiedades calculadas, etc.
+Al igual que los objetos literales, las clases pueden incluir getters/setters, propiedades calculadas, etc.
 
 Aquí hay un ejemplo de `user.name`, implementado usando `get/set`:
 
