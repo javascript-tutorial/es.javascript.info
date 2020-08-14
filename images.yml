@@ -1,32 +1,32 @@
 code-style.svg:
   "No space":
-    text: "Без пробелов"
+    text: "Sin espacio"
     position: "center"
   "between the function name and parentheses":
     position: "center"
-    text: "между именем функции и скобками"
+    text: "entre el nombre de función y paréntesis"
   "between the parentheses and the parameter":
     position: "center"
-    text: "между скобками и параметрами"
+    text: "entre el paréntesis y el parámetro"
   "Indentation":
     position: "center"
-    text: "Отступ"
+    text: "Sangría"
   "2 spaces":
     position: "center"
-    text: "2 пробела"
+    text: "2 espacios"
   "A space ":
     position: "center"
-    text: "Пробел"
+    text: "Un espacio"
   "after for/if/while…":
     position: "center"
-    text: "после for/if/while…"
-  "} else { without a line break": "} else { без перевода строки"
+    text: "después de for/if/while…"
+  "} else { without a line break": "} else { sin salto de línea"
   "Spaces around a nested call":
     position: "center"
-    text: "Пробелы вокруг вложенного вызова"
+    text: "Espacios alrededor de llamada anidada"
   "An empty line":
     position: "center"
-    text: "Пустая строка"
+    text: "Una línea vacía"
   "between logical blocks":
     position: "center"
     text: "Между логическими блоками"
