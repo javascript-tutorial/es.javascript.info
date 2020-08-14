@@ -1,4 +1,4 @@
-The solution is actually pretty simple:
+La solución actualmente es muy simple:
 
-- Use `position:absolute` in CSS instead of `position:fixed` for `.note`.
-- Use the function [getCoords()](info:coordinates#getCoords) from the chapter <info:coordinates> to get document-relative coordinates.
+- Usa `position:absolute` con CSS en lugar de `position:fixed` para `.note`.
+- Usa la función [getCoords()](info:coordinates#getCoords) de el capítulo <info:coordinates> para obtener las coordenadas relativas al documento.
