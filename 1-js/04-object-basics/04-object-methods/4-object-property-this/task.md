@@ -2,7 +2,7 @@ importance: 5
 
 ---
 
-# Uso de "this" en un objeto literal
+# Usando el "this" en un objeto literal
 
 Aquí la función `makeUser` devuelve un objeto.
 
@@ -20,4 +20,3 @@ let user = makeUser();
 
 alert( user.ref.name ); // ¿Cuál es el resultado?
 ```
-
