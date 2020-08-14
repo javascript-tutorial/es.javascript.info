@@ -50,7 +50,7 @@ user.sayHi();
 ```
 
 Cuando se llama a `new User("John")`:
-1. Un objeto nuevo es llamado.
+1. Un objeto nuevo es creado.
 2. El `constructor` se ejecuta con el argumento dado y lo asigna `this.name`.
 
 ...Entonces podemos llamar a sus métodos, como `user.sayHi()`.
