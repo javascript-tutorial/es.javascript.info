@@ -287,7 +287,7 @@ class User {
 new User().sayHi();
 ```
 
-Es una característica fácil de recordar porque recuerda a la de los objetos literales.
+Es una característica fácil de recordar porque se asemeja a la de los objetos literales.
 
 ## Campos de clase (Class fields) 
 
