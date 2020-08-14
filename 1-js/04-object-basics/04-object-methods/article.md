@@ -78,7 +78,7 @@ user = {
   }
 };
 
-// abreviado se ve mejor, ¿verdad?
+// la forma abreviada se ve mejor, ¿verdad?
 user = {
 *!*
   sayHi() { // igual que "sayHi: function()"
