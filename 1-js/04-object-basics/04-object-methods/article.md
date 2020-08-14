@@ -98,7 +98,7 @@ Es común que in método de objeto necesite acceder a la información almacenada
 
 Por ejemplo, el código dentro de `user.sayHi()` puede necesitar el nombre del usuario `user`.
 
-**Para acceder al objeto, un método usa la palabra clave `this`.**
+**Para acceder al objeto un método puede usar la palabra clave `this`.**
 
 El valor de `this` es el objeto "delante del punto", el usado para llamar al método.
 
