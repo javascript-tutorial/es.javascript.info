@@ -40,7 +40,7 @@ Una función que es la propiedad de un objeto es denominado su *método*.
 
 Así, aquí tenemos un método `sayHi` del objeto `user`.
 
-Por supuesto, podríamos usar una función pre-declarada como un método, como esto:
+Por supuesto, podríamos usar una función pre-declarada como un método, parecido a esto:
 
 ```js run
 let user = {
