@@ -4,7 +4,7 @@ importance: 2
 
 # Encadenamiento
 
-Hay un objeto escalera `ladder` que permite subir y bajar:
+Hay un objeto `ladder` que permite subir y bajar:
 
 ```js
 let ladder = {
