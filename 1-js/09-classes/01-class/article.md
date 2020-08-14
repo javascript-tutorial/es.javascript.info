@@ -57,7 +57,7 @@ Cuando se llama a `new User("John")`:
 
 
 ```warn header="No va una coma entre métodos de clase"
-Un tropiezo común en desarrolladores novicios es poner una coma entre los métodos de clase, lo que resulta en un error de sintaxis.
+Un tropiezo común en desarrolladores principiantes es poner una coma entre los métodos de clase, lo que resulta en un error de sintaxis.
 
 La notación aquí no debe ser confundida con la sintaxis de objeto literal. Dentro de la clase no se requieren comas.
 ```
