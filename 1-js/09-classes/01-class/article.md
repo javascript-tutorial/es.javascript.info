@@ -210,7 +210,7 @@ new User().sayHi(); // Funciona, muestra la definición de MyClass
 alert(MyClass); // error, el nombre de MyClass no es visible fuera de la clase
 ```
 
-Podemos inclusive crear clases dinámicamente "on-demand", como esto:
+Podemos inclusive crear clases dinámicamente "a pedido", como esto:
 
 ```js run
 function makeClass(phrase) {
