@@ -128,7 +128,7 @@ function User(name) {
   this.name = name;
 }
 // un prototipo de función tiene la propiedad "constructor" por defecto,
-// así que no necesitamoss crearla
+// así que no necesitamos crearla
 
 // 2. Agregar el método al prototipo
 User.prototype.sayHi = function() {
