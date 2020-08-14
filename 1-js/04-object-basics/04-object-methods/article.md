@@ -235,7 +235,7 @@ Nuestra posición no es juzgar si la decisión del diseño de lenguaje es buena 
 
 ## Las funciones de flecha no tienen "this"
 
-Las funciones de flecha son especiales: ellas no tienen su "propio" `this`. Si nosotros hacemos referencia a `this` desde tales funciones, esta será tomada desde afuera función "normal".
+Las funciones de flecha son especiales: ellas no tienen su "propio" `this`. Si nosotros hacemos referencia a `this` desde tales funciones, esta será tomada desde afuera de la función "normal".
 
 Por ejemplo, aquí `arrow()` usa `this` desde fuera del método `user.sayHi()`:
 
