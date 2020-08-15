@@ -18,7 +18,7 @@ Esto es porque las reglas que establecen el `this` no buscan en la definición d
 
 Aquí el valor de `this` dentro de `makeUser()` es `undefined`, porque es llamado como una función, no como un método con sintaxis de punto.
 
-El valor de `this` es uno para la función entera, bloques de código y objetos literales no lo afectan.
+El valor de `this` es uno para la función entera. Bloques de código y objetos literales no lo afectan.
 
 Entonces `ref: this` en realidad toma el `this` actual de la función.
 

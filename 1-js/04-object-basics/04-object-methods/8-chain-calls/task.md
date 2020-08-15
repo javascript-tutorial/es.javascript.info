@@ -21,7 +21,7 @@ let ladder = {
 };
 ```
 
-Ahora, si necesitamos hace varios llamados en secuencia, podemos hacer algo como esto:
+Ahora, si necesitamos hacer varios llamados en secuencia podemos hacer algo como esto:
 
 ```js
 ladder.up();

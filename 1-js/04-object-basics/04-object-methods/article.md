@@ -9,7 +9,7 @@ let user = {
 };
 ```
 
-Y, en el mundo real, un usuario puede *actuar*: seleccionar algo del carrito de compras, hacer login, logout, etc.
+Y en el mundo real un usuario puede *actuar*: seleccionar algo del carrito de compras, hacer login, logout, etc.
 
 Las acciones son representadas en JavaScript por funciones en las propiedades.
 
@@ -36,7 +36,7 @@ Aquí simplemente usamos una expresión de función para crear la función y asi
 
 Entonces la llamamos. ¡El usuario ahora puede hablar!
 
-Una función que es la propiedad de un objeto es denominado su *método*.
+Una función que es la propiedad de un objeto es denominada su *método*.
 
 Así, aquí tenemos un método `sayHi` del objeto `user`.
 
@@ -61,7 +61,7 @@ user.sayHi(); // ¡Hola!
 ```
 
 ```smart header="Programación orientada a objetos"
-Cuando escribimos nuestro código usando objetos que representan entidades, eso es llamado [Programación orientada a objetos](https://es.wikipedia.org/wiki/Programaci%C3%B3n_orientada_a_objetos), abreviado: "POO".
+Cuando escribimos nuestro código usando objetos que representan entidades, eso es llamado [Programación Orientada a Objetos](https://es.wikipedia.org/wiki/Programaci%C3%B3n_orientada_a_objetos), abreviado: "POO".
 
 POO (OOP sus siglas en inglés) es una cosa grande, un ciencia interesante en sí misma. ¿Cómo elegir las entidades correctas? ¿Cómo organizar la interacción entre ellas? Eso es arquitectura, y hay muy buenos libros del tópico como "Patrones de diseño: Elementos de software orientado a objetos reutilizable" de E. Gamma, R. Helm, R. Johnson, J. Vissides o "Análisis y Diseño Orientado a Objetos" de G. Booch, y otros.
 ```
@@ -94,7 +94,7 @@ A decir verdad, las notaciones no son completamente idénticas. Hay diferencias 
 
 ## "this" en métodos
 
-Es común que in método de objeto necesite acceder a la información almacenada en el objeto para cumplir su tarea.
+Es común que un método de objeto necesite acceder a la información almacenada en el objeto para cumplir su tarea.
 
 Por ejemplo, el código dentro de `user.sayHi()` puede necesitar el nombre del usuario `user`.
 
@@ -123,7 +123,7 @@ user.sayHi(); // John
 
 Aquí durante la ejecución de `user.sayHi()`, el valor de `this` será `user`.
 
-Técnicamente, es también posible acceder al objeto sin `this`, haciendo referencia a él por medio de la variable externa:
+Técnicamente, también es posible acceder al objeto sin `this`, haciendo referencia a él por medio de la variable externa:
 
 ```js
 let user = {
@@ -132,7 +132,7 @@ let user = {
 
   sayHi() {
 *!*
-    alert(user.name); // "user" en vez de"this"
+    alert(user.name); // "user" en vez de "this"
 */!*
   }
 
@@ -220,7 +220,7 @@ En este caso `this` es `undefined` en el modo estricto. Si tratamos de acceder a
 
 En modo no estricto el valor de `this` en tal caso será el *objeto global* (`window` en un navegador, llegaremos a ello en el capítulo [](info:global-object)). Este es un comportamiento histórico que `"use strict"` corrije.
 
-Usualmente tal llamado en un error de programa. Si hay `this` dentro de una función, se espera que sea llamada en un contexto de objeto.
+Usualmente tal llamado es un error de programa. Si hay `this` dentro de una función, se espera que sea llamada en un contexto de objeto.
 ````
 
 ```smart header="Las consecuencias de un `this` desvinculado"
