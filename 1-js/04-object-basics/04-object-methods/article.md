@@ -100,7 +100,7 @@ Por ejemplo, el código dentro de `user.sayHi()` puede necesitar el nombre del u
 
 **Para acceder al objeto, un método puede usar la palabra clave `this`.**
 
-El valor de `this` es el objeto "delante del punto", el usado para llamar al método.
+El valor de `this` es el objeto "antes del punto", el usado para llamar al método.
 
 Por ejemplo:
 
@@ -160,7 +160,7 @@ let user = {
 let admin = user;
 user = null; // sobrescribimos para hacer las cosas evidentes
 
-admin.sayHi(); // ¡oops! dentro de sayHi(), ¡el nombre viejo es usado! ¡Error!
+admin.sayHi(); // ¡oops! dentro de sayHi(), ¡usa el nombre viejo! ¡Error!
 ```
 
 Si usamos `this.name` en vez de `user.name` dentro de `alert`, entonces el código funciona.
@@ -196,7 +196,7 @@ admin.f = sayHi;
 */!*
 
 // estos llamados tienen diferente "this"
-// "this" dentro de la función es el objeto "delante del punto"
+// "this" dentro de la función es el objeto "antes del punto"
 user.f(); // John  (this == user)
 admin.f(); // Admin  (this == admin)
 
