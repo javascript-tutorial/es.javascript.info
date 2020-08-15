@@ -8,8 +8,8 @@ Aunado a la tarea anterior <info:task/position-at-absolute>: enséñale a la fun
 
 Los nuevos valores para posición son `position`:
 
-- `top-out`, `right-out`, `bottom-out`: funciona ingual que antes, inserta el `elem` encima, a la derecha o debajo de `anchor`.
-- `top-in`, `right-in`, `bottom-in`: inserta el `elem` dentro del `anchor`: lo fija en la parte superior, derecha o inferior del borde.
+- `top-out`, `right-out`, `bottom-out` -- funciona ingual que antes, inserta el `elem` encima, a la derecha o debajo de `anchor`.
+- `top-in`, `right-in`, `bottom-in` -- inserta el `elem` dentro del `anchor`: lo fija en la parte superior, derecha o inferior del borde.
 
 Por ejemplo:
 
