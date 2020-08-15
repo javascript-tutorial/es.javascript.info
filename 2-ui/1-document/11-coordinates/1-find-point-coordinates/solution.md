@@ -13,7 +13,7 @@ let answer2 = [coords.right, coords.bottom];
 
 # Esquina superior izquierda interna
 
-Está es diferente a la esquina externa por el ancho del borde. Una manera confiable de obtener su distancia es usando `clientLeft/clientTop`:
+Esta es diferente a la esquina externa por el ancho del borde. Una manera confiable de obtener su distancia es usando `clientLeft/clientTop`:
 
 ```js
 let answer3 = [coords.left + field.clientLeft, coords.top + field.clientTop];
