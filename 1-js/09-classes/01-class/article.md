@@ -1,5 +1,5 @@
 
-# Sintaxis básica de clase
+# Sintaxis básica de `class`
 
 ```quote author="Wikipedia"
 En informática, una clase es una plantilla para la creación de objetos de datos según un modelo predefinido. Las clases se utilizan para representar entidades o conceptos, como los sustantivos en el lenguaje. Cada clase es un modelo que define un conjunto de variables —el estado—, y métodos apropiados para operar con dichos datos —el comportamiento—.
@@ -269,7 +269,7 @@ user = new User(""); // Nombre demasiado corto.
 
 Técnicamente, la declaración de clase funciona creando getters y setters en `User.prototype`.
 
-## Nombre calculados [...]
+## Nombres calculados [...]
 
 Aquí hay un ejemplo con un nombre de método calculado usando corchetes `[...]`:
 
@@ -317,7 +317,7 @@ new User().sayHi(); // Hello, John!
 
 Así, simplemente escribimos "<property name> = <value>" en la declaración, y eso es todo.
 
-La diferencia importante de las propiedades definidas como "campos de clase" es que ellas son establecidas en los objetos individuales, no compartidas en `User.prototype`:
+La diferencia importante de las propiedades definidas como "campos de clase" es que estas son establecidas en los objetos individuales, no compartidas en `User.prototype`:
 
 ```js run
 class User {
@@ -343,7 +343,6 @@ class User {
 let user = new User();
 alert(user.name); // John
 ```
-
 
 ### Vinculación de métodos (binding) usando campos de clase
 
@@ -423,6 +422,6 @@ class MyClass {
 }
 ```
 
-`MyClass` es técnicamente una función (la que proveemos como `constructor`), mientras que lo métodos, getters y setters son escritos en `MyClass.prototype`.
+`MyClass` es técnicamente una función (la que proveemos como `constructor`), mientras que los métodos, getters y setters son escritos en `MyClass.prototype`.
 
 En los siguientes capítulos aprenderemos más acerca de clases, incluyendo herencia y otras características.
