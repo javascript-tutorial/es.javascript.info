@@ -14,7 +14,7 @@ let user = makeUser();
 alert( user.ref.name ); // Error: No se puede leer la propiedad 'name' de undefined
 ```
 
-Esto es porque porque las reglas que establecen el `this` no buscan en la definición del objeto. Solamente importa el momento en que se llama.
+Esto es porque las reglas que establecen el `this` no buscan en la definición del objeto. Solamente importa el momento en que se llama.
 
 Aquí el valor de `this` dentro de `makeUser()` es `undefined`, porque es llamado como una función, no como un método con sintaxis de punto.
 
