@@ -4,7 +4,7 @@ importance: 5
 
 # Posiciona la nota adentro (absolute)
 
-Aunado a la tarea anterior <info:task/position-at-absolute>: enseñale a la función  `positionAt(anchor, position, elem)` a insertar `elem` dentro de `anchor`.
+Aunado a la tarea anterior <info:task/position-at-absolute>: enséñale a la función `positionAt(anchor, position, elem)` a insertar `elem` dentro de `anchor`.
 
 Los nuevos valores para posición son `position`:
 
