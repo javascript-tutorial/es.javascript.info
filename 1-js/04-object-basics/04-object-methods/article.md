@@ -160,7 +160,7 @@ let user = {
 let admin = user;
 user = null; // sobrescribimos para hacer las cosas evidentes
 
-admin.sayHi(); // ¡oops! dentro de sayHi(), ¡usa el nombre viejo! ¡Error!
+admin.sayHi(); // ¡oops! dentro de sayHi(), ¡Se usa el nombre viejo! ¡Error!
 ```
 
 Si usamos `this.name` en vez de `user.name` dentro de `alert`, entonces el código funciona.
