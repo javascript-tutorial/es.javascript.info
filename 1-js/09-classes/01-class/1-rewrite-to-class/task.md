@@ -2,8 +2,8 @@ importance: 5
 
 ---
 
-# Rewrite to class
+# Reescribir como class
 
-The `Clock` class is written in functional style. Rewrite it the "class" syntax.
+La clase `Clock` está escrita en estilo funcional. Reescríbela en sintaxis de clase.
 
-P.S. The clock ticks in the console, open it to see.
+P.D. El reloj anda en la consola, ábrela para verlo.
