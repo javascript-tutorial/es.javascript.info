@@ -36,7 +36,7 @@ Hay tres variantes de conversión de tipos, denominadas "hints", que se describe
     let num = Number(obj);
 
     // matemáticas (excepto + binario)
-    let n = +obj; // + unitario
+    let n = +obj; // + unario
     let delta = date1 - date2;
 
     // comparación menor que / mayor que
