@@ -71,9 +71,9 @@ No hay ninguna sugerencia "boolean" (todos los objetos son `true` en el contexto
 **Para realizar la conversión, JavaScript intenta buscar y llamar a tres métodos del objeto:**
 
 1. Llamar a `obj[Symbol.toPrimitive](hint)` : el método con la clave simbólica `Symbol.toPrimitive` (símbolo del sistema), si tal método existe,
-2. De lo contrario, si la sugerencia es `"string"`
+2. En caso contrario, si la sugerencia es `"string"`
     - intentar `obj.toString()` y `obj.valueOf()`, lo que exista.
-3. De lo contrario, si la sugerencia es `"number"` o `"default"`
+3. En caso contrario, si la sugerencia es `"number"` o `"default"`
     - intentar `obj.valueOf()` y `obj.toString()`, lo que exista.
 
 ## Symbol.toPrimitive
@@ -194,7 +194,7 @@ Lo único obligatorio: estos métodos deben devolver un valor primitivo, no un o
 ```smart header="Notas históricas"
 Por razones históricas, si `toString` o `valueOf` devuelve un objeto, no hay ningún error, pero dicho valor se ignora (como si el método no existiera). Esto se debe a que en la antigüedad no existía un buen concepto de "error" en JavaScript.
 
-Por el contrario, `Symbol.toPrimitive` *debe* devolver un valor primitivo, de lo contrario habrá un error.
+Por el contrario, `Symbol.toPrimitive` *debe* devolver un valor primitivo, en caso contrario habrá un error.
 ```
 
 ## Más conversiones
@@ -247,9 +247,9 @@ La especificación describe explícitamente qué operador utiliza qué sugerenci
 El algoritmo de conversión es:
 
 1. Llamar a `obj[Symbol.toPrimitive](hint)` si el método existe,
-2. De lo contrario, si la sugerencia es `"string"`
+2. En caso contrario, si la sugerencia es `"string"`
     - intentar `obj.toString()` y `obj.valueOf()`, lo que exista.
-3. De lo contrario, si la sugerencia es `"number"` o `"default"`
+3. En caso contrario, si la sugerencia es `"number"` o `"default"`
     - intentar `obj.valueOf()` y `obj.toString()`, lo que exista.
 
 En la práctica, a menudo es suficiente implementar solo `obj.toString()` como un método "general" para todas las conversiones que devuelven una representación "legible por humanos" de un objeto, con fines de registro o depuración.
