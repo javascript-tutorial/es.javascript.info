@@ -29,7 +29,7 @@ Hay tres variantes de conversión de tipos, denominadas "hints", que se describe
     ```
 
 `"number"`
-: Para una conversión de objeto a numérico, como cuando hacemos operaciones matemáticas:
+: Para una conversión de objeto a número, como cuando hacemos operaciones matemáticas:
 
     ```js
     // conversión explícita
