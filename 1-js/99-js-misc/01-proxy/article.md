@@ -1,109 +1,109 @@
 # Proxy and Reflect
 
-A `Proxy` object wraps another object and intercepts operations, like reading/writing properties and others, optionally handling them on its own, or transparently allowing the object to handle them.
+Un `Proxy` es un objeto con la capacidad de envolver a otro e interceptar operaciones, como lectura y escritura de propiedades, entre otras, manejándolos opcionalmente por su cuenta o permitiendole al objeto manejarlas de forma transparente.
 
-Proxies are used in many libraries and some browser frameworks. We'll see many practical applications in this article.
+Los proxies son usados en muchas librerías y algunos frameworks frontend. En este artículo vamos a ver muchas formas prácticas de aplicarlos.
 
 ## Proxy
 
-The syntax:
+La sintaxis:
 
 ```js
 let proxy = new Proxy(target, handler)
 ```
 
-- `target` -- is an object to wrap, can be anything, including functions.
-- `handler` -- proxy configuration: an object with "traps", methods that intercept operations. - e.g. `get` trap for reading a property of `target`, `set` trap for writing a property into `target`, and so on.
+- `target` -- es el objeto a envolver, puede ser cualquier cosa, incluyendo funciones.
+- `handler` -- la configuración del proxy: un objeto con "embudos", métodos que interceptan operaciones. Por ejemplo, el embudo `get` para leer una propiedad de `target`, el embudo `set` para escribir una propiedad dentro de `target`, y así.
 
-For operations on `proxy`, if there's a corresponding trap in `handler`, then it runs, and the proxy has a chance to handle it, otherwise the operation is performed on `target`.
+Si hay embudos correspondientes en `handler` entonces el proxy los ejecuta y tiene oportunidad de manejarlos, de lo contrario la operación es ejecutada sobre `target`.
 
-As a starting example, let's create a proxy without any traps:
+Como ejemplo inicial, vamos a crear un proxy sin embudos:
 
 ```js run
 let target = {};
-let proxy = new Proxy(target, {}); // empty handler
+let proxy = new Proxy(target, {}); // handler vacío
 
-proxy.test = 5; // writing to proxy (1)
-alert(target.test); // 5, the property appeared in target!
+proxy.test = 5; // escribiendo al proxy (1)
+alert(target.test); // 5, ¡La propiedad apareció en target!
 
-alert(proxy.test); // 5, we can read it from proxy too (2)
+alert(proxy.test); // 5, podemos leerla en el proxy también (2)
 
-for(let key in proxy) alert(key); // test, iteration works (3)
+for(let key in proxy) alert(key); // test, la iteración funciona (3)
 ```
 
-As there are no traps, all operations on `proxy` are forwarded to `target`.
+Como no hay embudos, todas las operaciones en `proxy` son reenviadas a `target`.
 
-1. A writing operation `proxy.test=` sets the value on `target`.
-2. A reading operation `proxy.test` returns the value from `target`.
-3. Iteration over `proxy` returns values from `target`.
+1. Una operación de escritura `proxy.test=` establece el valor en `target`.
+2. Una operación de lectura `proxy.test` devuelve el valor de `target`.
+3. La iteración sobre `proxy` devuelve los valores de `target`.
 
-As we can see, without any traps, `proxy` is a transparent wrapper around `target`.
+Como podemos ver, si ningún embudo, `proxy` es un wrapper transparente alrededor de `target`.
 
 ![](proxy.svg)  
 
-`Proxy` is a special "exotic object". It doesn't have own properties. With an empty `handler` it transparently forwards operations to `target`.
+`Proxy` es un "objecto exótico" especial. No tienes propiedades propias. Con un `handler` vacío, reenvía las operaciones de forma transparente a `target`.
 
-To activate more capabilities, let's add traps.
+Para activar más capacidades agreguemos embudos.
 
-What can we intercept with them?
+¿Qué podemos interceptar con ellos?
 
-For most operations on objects, there's a so-called "internal method" in the JavaScript specification that describes how it works at the lowest level. For instance `[[Get]]`, the internal method to read a property, `[[Set]]`, the internal method to write a property, and so on. These methods are only used in the specification, we can't call them directly by name.
+Para la mayoría de las operaciones sobre el objeto hay algo llamado "método interno" en la especificación de JavaScript que describe cómo funciona en el nivel más bajo. Por ejemplo: `[[Get]]`, el método interno para leer una propiedad, `[[Set]]`, el método interno para leer una propiedad, y así. Estos métodos son solamente usados en la especificación, no podemos llamarlos directamente por el nombre.
 
-Proxy traps intercept invocations of these methods. They are listed in the [Proxy specification](https://tc39.es/ecma262/#sec-proxy-object-internal-methods-and-internal-slots) and in the table below.
+Los embudos del proxy interceptan invocaciones de estos métodos. Están listados en la [especificación de Proxy](https://tc39.es/ecma262/#sec-proxy-object-internal-methods-and-internal-slots) y en la tabla siguiente.
 
-For every internal method, there's a trap in this table: the name of the method that we can add to the `handler` parameter of `new Proxy` to intercept the operation:
+Para cada método interno hay un embudo en esta tabla: el nombre del método que queremos agregar al parámetro `handler` del `new Proxy` para interceptar la operación:
 
-| Internal Method | Handler Method | Triggers when... |
+| Método Interno | Método Handler | Se activa para... |
 |-----------------|----------------|-------------|
-| `[[Get]]` | `get` | reading a property |
-| `[[Set]]` | `set` | writing to a property |
-| `[[HasProperty]]` | `has` | `in` operator |
-| `[[Delete]]` | `deleteProperty` | `delete` operator |
-| `[[Call]]` | `apply` | function call |
-| `[[Construct]]` | `construct` | `new` operator |
-| `[[GetPrototypeOf]]` | `getPrototypeOf` | [Object.getPrototypeOf](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf) |
-| `[[SetPrototypeOf]]` | `setPrototypeOf` | [Object.setPrototypeOf](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf) |
-| `[[IsExtensible]]` | `isExtensible` | [Object.isExtensible](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isExtensible) |
-| `[[PreventExtensions]]` | `preventExtensions` | [Object.preventExtensions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/preventExtensions) |
-| `[[DefineOwnProperty]]` | `defineProperty` | [Object.defineProperty](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty), [Object.defineProperties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperties) |
-| `[[GetOwnProperty]]` | `getOwnPropertyDescriptor` | [Object.getOwnPropertyDescriptor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor), `for..in`, `Object.keys/values/entries` |
-| `[[OwnPropertyKeys]]` | `ownKeys` | [Object.getOwnPropertyNames](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames), [Object.getOwnPropertySymbols](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertySymbols), `for..in`, `Object/keys/values/entries` |
+| `[[Get]]` | `get` | lectura de una propiedad |
+| `[[Set]]` | `set` | escritura a una propiedad |
+| `[[HasProperty]]` | `has` | operador `in` |
+| `[[Delete]]` | `deleteProperty` | operador `delete` |
+| `[[Call]]` | `apply` | llamada de función |
+| `[[Construct]]` | `construct` | operador `new` |
+| `[[GetPrototypeOf]]` | `getPrototypeOf` | [Object.getPrototypeOf](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/getPrototypeOf) |
+| `[[SetPrototypeOf]]` | `setPrototypeOf` | [Object.setPrototypeOf](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/setPrototypeOf) |
+| `[[IsExtensible]]` | `isExtensible` | [Object.isExtensible](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/isExtensible) |
+| `[[PreventExtensions]]` | `preventExtensions` | [Object.preventExtensions](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/preventExtensions) |
+| `[[DefineOwnProperty]]` | `defineProperty` | [Object.defineProperty](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/defineProperty), [Object.defineProperties](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/defineProperties) |
+| `[[GetOwnProperty]]` | `getOwnPropertyDescriptor` | [Object.getOwnPropertyDescriptor](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/getOwnPropertyDescriptor), `for..in`, `Object.keys/values/entries` |
+| `[[OwnPropertyKeys]]` | `ownKeys` | [Object.getOwnPropertyNames](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/getOwnPropertyNames), [Object.getOwnPropertySymbols](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/getOwnPropertySymbols), `for..in`, `Object/keys/values/entries` |
 
-```warn header="Invariants"
-JavaScript enforces some invariants -- conditions that must be fulfilled by internal methods and traps.
+```warn header="Invariantes"
+JavaScript aplica algunas invariantes: condiciones que deben cumplirse mediante métodos internos y embudos.
 
-Most of them are for return values:
-- `[[Set]]` must return `true` if the value was written successfully, otherwise `false`.
-- `[[Delete]]` must return `true` if the value was deleted successfully, otherwise `false`.
-- ...and so on, we'll see more in examples below.
+La mayoría de ellos son para los valores devueltos:
+- `[[Set]]` devolverá `true` si el valor fue escrito exitosamente, de lo contrario `false`.
+- `[[Delete]]` devolverá `true` si el valor fue eliminado exitosamente, de lo contrario `false`.
+- ...y así. Veremos más en los ejemplos siguientes.
 
-There are some other invariants, like:
-- `[[GetPrototypeOf]]`, applied to the proxy object must return the same value as `[[GetPrototypeOf]]` applied to the proxy object's target object. In other words, reading prototype of a proxy must always return the prototype of the target object.
+Hay algunas invariantes más, como:
+- `[[GetPrototypeOf]]`, aplicado al objeto proxy debe devolver el mismo valor que `[[GetPrototypeOf]]` aplicado al objeto destino del proxy. Es decir, la lectura del prototipo de un proxy siempre debe devolver el prototipo del objeto `target`.
 
-Traps can intercept these operations, but they must follow these rules.
+Los embudos pueden interceptar estas operaciones pero deben seguir estas reglas.
 
-Invariants ensure correct and consistent behavior of language features. The full invariants list is in [the specification](https://tc39.es/ecma262/#sec-proxy-object-internal-methods-and-internal-slots). You probably won't violate them if you're not doing something weird.
+Las invariantes aseguran el correcto y consistente funcionamiento de las características del lenguaje. La lista completa de las invariantes se encuentran en [la especificación](https://tc39.es/ecma262/#sec-proxy-object-internal-methods-and-internal-slots). Probablemente no las violaras si no haces algo extraño.
 ```
 
-Let's see how that works in practical examples.
+Veamos cómo funciona esto en ejemplos prácticos.
 
-## Default value with "get" trap
+## Valor por defecto del embudo "get"
 
-The most common traps are for reading/writing properties.
+Los embudos más comúnes que hay son para lectura y escritura de propiedades.
 
-To intercept reading, the `handler` should have a method `get(target, property, receiver)`.
+Para interceptar lecturas el `handler` debe tener un método `get(target, property, receiver)`.
 
-It triggers when a property is read, with following arguments:
+Se activa cuando una propiedad es leída con los siguientes argumentos:
 
-- `target` -- is the target object, the one passed as the first argument to `new Proxy`,
-- `property` -- property name,
-- `receiver` -- if the target property is a getter, then `receiver` is the object that's going to be used as `this` in its call. Usually that's the `proxy` object itself (or an object that inherits from it, if we inherit from proxy). Right now we don't need this argument, so it will be explained in more detail later.
+- `target` -- es el objeto de destino, el que es pasado como nuevo argumento al `new Proxy`,
+- `property` -- nombre de la propiedad,
+- `receiver` -- si la propiedad es un getter entonces `receiver` es el objeto que será usado como `this` en su llamada. Usualmente es el objeto `proxy` en sí o un objeto heredado de él, si es que heredamos de proxy). En este momento no necesitamos este argumento, por lo que lo explicaremos en más detalle después.
 
-Let's use `get` to implement default values for an object.
+Usemos `get` para implementar valores por default en un objeto.
 
-We'll make a numeric array that returns `0` for nonexistent values.
+Vamos a crear un array numérico para que devuelva `0` en valores inexistentes.
 
-Usually when one tries to get a non-existing array item, they get `undefined`, but we'll wrap a regular array into the proxy that traps reading and returns `0` if there's no such property:
+Usualmente cuando uno trata de obtener un elemento inexistente de un array, lo obtenemos `undefined`, pero envolveremos un array dentro  del proxy que intercepta la lectura y devuelve `0` si no existe tal propiedad:
 
 ```js run
 let numbers = [0, 1, 2];
