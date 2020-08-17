@@ -15,7 +15,7 @@ En el capítulo <info:type-conversions>, hemos visto las reglas para las convers
 
 Podemos ajustar la conversión de tipo string y numérica, utilizando métodos especiales del objeto.
 
-Hay tres variantes de conversión de tipos, denominadas "hints", que se describen en la [especificación](https://tc39.github.io/ecma262/#sec-toprimitive):
+Hay tres variantes de conversión de tipos, denominadas "sugerencias", que se describen en la [especificación](https://tc39.github.io/ecma262/#sec-toprimitive):
 
 `"string"`
 : Para una conversión de objeto a string, cuando hacemos una operación que espera un string en un objeto, como `alert`:
@@ -46,34 +46,34 @@ Hay tres variantes de conversión de tipos, denominadas "hints", que se describe
 `"default"`
 : Ocurre en casos raros cuando el operador "no está seguro" de qué tipo esperar.
 
-    Por ejemplo, el operador binario `+` puede funcionar con strings (los concatena) y números (los suma), por lo que tanto los strings como los números servirían. Entonces, si el + binario obtiene un objeto como argumento, utiliza el hint `"default"` para convertirlo.
+    Por ejemplo, el operador binario `+` puede funcionar con strings (los concatena) y números (los suma), por lo que tanto los strings como los números servirían. Entonces, si el + binario obtiene un objeto como argumento, utiliza la sugerencia `"default"` para convertirlo.
 
-    También, si un objeto es comparado utilizando `==` con un string, un número o un símbolo, tampoco está claro qué conversión se debe realizar, por lo que se utiliza el hint `"default"`.
+    También, si un objeto es comparado utilizando `==` con un string, un número o un símbolo, tampoco está claro qué conversión se debe realizar, por lo que se utiliza la sugerencia `"default"`.
 
     ```js
-    // + binario utiliza el hint "default"
+    // + binario utiliza la sugerencia "default"
     let total = obj1 + obj2;
 
-    // obj == número utiliza el hint "default"
+    // obj == número utiliza la sugerencia "default"
     if (user == 1) { ... };
     ```
 
-    Los operadores de comparación mayor que y menor que, como `<` `>`, también pueden funcionar con strings y números. Aún así, utilizan el hint `"number"`, y no `"default"`. Eso es por razones históricas.
+    Los operadores de comparación mayor que y menor que, como `<` `>`, también pueden funcionar con strings y números. Aún así, utilizan la sugerencia `"number"`, y no `"default"`. Eso es por razones históricas.
 
     Sin embargo, en la práctica, no necesitamos recordar estos detalles peculiares, porque todos los objetos incorporados excepto un caso (el objeto `Date`, lo aprenderemos más adelante) implementan la conversión `"default"` de la misma manera que `"number"`. Y podemos hacer lo mismo.
 
-```smart header="No hay hint `\"boolean\"`"
-Tenga en cuenta : Solo hay tres hints. Es así de simple.
+```smart header="No hay sugerencia `\"boolean\"`"
+Tenga en cuenta : Solo hay tres sugerencias. Es así de simple.
 
-No hay ningún hint "boolean" (todos los objetos son `true` en el contexto booleano) ni nada más. Y si tratamos `"default"` y `"number"` de la misma manera, como lo hacen la mayoría de las funciones incorporadas, entonces solo hay dos conversiones.
+No hay ninguna sugerencia "boolean" (todos los objetos son `true` en el contexto booleano) ni nada más. Y si tratamos `"default"` y `"number"` de la misma manera, como lo hacen la mayoría de las funciones incorporadas, entonces solo hay dos conversiones.
 ```
 
 **Para realizar la conversión, JavaScript intenta buscar y llamar a tres métodos del objeto:**
 
 1. Llamar a `obj[Symbol.toPrimitive](hint)` : el método con la clave simbólica `Symbol.toPrimitive` (símbolo del sistema), si tal método existe,
-2. De lo contrario, si el hint es `"string"`
+2. De lo contrario, si la sugerencia es `"string"`
     - intentar `obj.toString()` y `obj.valueOf()`, lo que exista.
-3. De lo contrario, si el hint es `"number"` o `"default"`
+3. De lo contrario, si la sugerencia es `"number"` o `"default"`
     - intentar `obj.valueOf()` y `obj.toString()`, lo que exista.
 
 ## Symbol.toPrimitive
@@ -95,15 +95,15 @@ let user = {
   money: 1000,
 
   [Symbol.toPrimitive](hint) {
-    alert(`hint: ${hint}`);
+    alert(`sugerencia: ${hint}`);
     return hint == "string" ? `{name: "${this.name}"}` : this.money;
   }
 };
 
 // demostración de conversiones:
-alert(user); // hint: string -> {name: "John"}
-alert(+user); // hint: number -> 1000
-alert(user + 500); // hint: default -> 1500
+alert(user); // sugerencia: string -> {name: "John"}
+alert(+user); // sugerencia: number -> 1000
+alert(user + 500); // sugerencia: default -> 1500
 ```
 
 Como podemos ver en el código, `user` se convierte en un string autodescriptivo o en una cantidad de dinero dependiendo de la conversión. Un único método `user[Symbol.toPrimitive]` maneja todos los casos de conversión.
@@ -113,9 +113,9 @@ Como podemos ver en el código, `user` se convierte en un string autodescriptivo
 
 Los métodos `toString` y `valueOf` provienen de la antigüedad. No son símbolos (los símbolos no existían en aquel tiempo), sino métodos "regulares" nombrados con string. Proporcionan una forma alternativa "al viejo estilo" de implementar la conversión.
 
-Si no hay `Symbol.toPrimitive`, JavaScript intenta encontrar los hints e intenta en este orden:
+Si no hay `Symbol.toPrimitive`, JavaScript intenta encontrar las sugerencias e intenta en este orden:
 
-- `toString -> valueOf` para el hint "string".
+- `toString -> valueOf` para la sugerencia "string".
 - `valueOf -> toString` en caso contrario.
 
 Estos métodos deben devolver un valor primitivo. Si `toString` o `valueOf` devuelve un objeto, entonces se ignora (lo mismo que si no hubiera un método).
@@ -147,12 +147,12 @@ let user = {
   name: "John",
   money: 1000,
 
-  // para hint="string"
+  // para sugerencia="string"
   toString() {
     return `{name: "${this.name}"}`;
   },
 
-  // para hint="number" o "default"
+  // para sugerencia="number" o "default"
   valueOf() {
     return this.money;
   }
@@ -187,7 +187,7 @@ En ausencia de `Symbol.toPrimitive` y `valueOf`, `toString` manejará todas las 
 
 Lo importante que debe saber acerca de todos los métodos de conversión primitiva es que no necesariamente devuelven la primitiva "sugerida".
 
-No hay control sobre si `toString` devuelve exactamente un string, o si el método `Symbol.toPrimitive` devuelve un número para un hint `"number"`.
+No hay control sobre si `toString` devuelve exactamente un string, o si el método `Symbol.toPrimitive` devuelve un número para una sugerencia `"number"`.
 
 Lo único obligatorio: estos métodos deben devolver un valor primitivo, no un objeto.
 
@@ -237,19 +237,19 @@ alert(obj + 2); // 22 ("2" + 2), la conversión a valor primitivo devolvió un s
 
 La conversión de objeto a valor primitivo es llamada automáticamente por muchas funciones y operadores incorporados que esperan un valor primitivo.
 
-Hay 3 tipos (hints) de esto:
+Hay 3 tipos (sugerencias) de esto:
 - `"string"` (para `alert` y otras operaciones que necesitan un string)
 - `"number"` (para matemáticas)
 - `"default"` (pocos operadores)
 
-La especificación describe explícitamente qué operador utiliza qué hint. Hay muy pocos operadores que "no saben qué esperar" y utilizan el hint `"default"`. Por lo general, para los objetos incorporados, el hint `"default"` se maneja de la misma manera que `"number"`, por lo que en la práctica los dos últimos a menudo se combinan.
+La especificación describe explícitamente qué operador utiliza qué sugerencia. Hay muy pocos operadores que "no saben qué esperar" y utilizan la sugerencia `"default"`. Por lo general, para los objetos incorporados, la sugerencia `"default"` se maneja de la misma manera que `"number"`, por lo que en la práctica los dos últimos a menudo se combinan.
 
 El algoritmo de conversión es:
 
 1. Llamar a `obj[Symbol.toPrimitive](hint)` si el método existe,
-2. De lo contrario, si el hint es `"string"`
+2. De lo contrario, si la sugerencia es `"string"`
     - intentar `obj.toString()` y `obj.valueOf()`, lo que exista.
-3. De lo contrario, si el hint es `"number"` o `"default"`
+3. De lo contrario, si la sugerencia es `"number"` o `"default"`
     - intentar `obj.valueOf()` y `obj.toString()`, lo que exista.
 
 En la práctica, a menudo es suficiente implementar solo `obj.toString()` como un método "general" para todas las conversiones que devuelven una representación "legible por humanos" de un objeto, con fines de registro o depuración.
