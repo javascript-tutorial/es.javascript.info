@@ -10,15 +10,26 @@ La tarea es: encuentra el subarray contiguo de items de `arr` con la suma máxim
 
 Escribe la función `getMaxSubSum(arr)` que devuelva tal sumo.
 
+<<<<<<< HEAD
 Por ejemplo:
 
 ```js
 getMaxSubSum([-1, *!*2, 3*/!*, -9]) == 5 (la suma de items resaltados)
+=======
+For instance:
+
+```js
+getMaxSubSum([-1, *!*2, 3*/!*, -9]) == 5 (the sum of highlighted items)
+>>>>>>> fe571b36ed9e225f29239e82947005b08d74ac05
 getMaxSubSum([*!*2, -1, 2, 3*/!*, -9]) == 6
 getMaxSubSum([-1, 2, 3, -9, *!*11*/!*]) == 11
 getMaxSubSum([-2, -1, *!*1, 2*/!*]) == 3
 getMaxSubSum([*!*100*/!*, -9, 2, -3, 5]) == 100
+<<<<<<< HEAD
 getMaxSubSum([*!*1, 2, 3*/!*]) == 6 (toma todo)
+=======
+getMaxSubSum([*!*1, 2, 3*/!*]) == 6 (take all)
+>>>>>>> fe571b36ed9e225f29239e82947005b08d74ac05
 ```
 
 Si todos los elementos son negativos, significa que que no tomamos ninguno (el subarray está vacío), entonces la suma es cero:

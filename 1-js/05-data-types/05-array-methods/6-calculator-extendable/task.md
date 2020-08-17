@@ -31,6 +31,12 @@ La actividad consiste de dos partes.
     alert( result ); // 8
     ```
 
+<<<<<<< HEAD
 - Sin paréntesis ni expresiones complejas.
 - Los números y el operador deben estar delimitados por exactamente un espacio.
 - Puede haber manejo de errores si quisieras agregarlo.
+=======
+- No parentheses or complex expressions in this task.
+- The numbers and the operator are delimited with exactly one space.
+- There may be error handling if you'd like to add it.
+>>>>>>> fe571b36ed9e225f29239e82947005b08d74ac05

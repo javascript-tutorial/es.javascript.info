@@ -13,6 +13,12 @@ Demo:
 
 [iframe border="1" src="solution" height=180]
 
+<<<<<<< HEAD
 PD: Para esta tarea, podemos suponer que los elementos de la lista son solo de texto. No hay etiquetas anidadas.
 
 PPD: Evita la selección nativa del navegador del texto en los clics.
+=======
+P.S. For this task we can assume that list items are text-only. No nested tags.
+
+P.P.S. Prevent the native browser selection of the text on clicks.
+>>>>>>> fe571b36ed9e225f29239e82947005b08d74ac05

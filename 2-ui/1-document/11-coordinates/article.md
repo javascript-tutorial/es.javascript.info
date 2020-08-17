@@ -88,8 +88,13 @@ As you can see, `left/top` do not equal `x/y` in such case.
 In practice though, `elem.getBoundingClientRect()` always returns positive width/height, here we mention negative `width/height` only for you to understand why these seemingly duplicate properties are not actually duplicates.
 ```
 
+<<<<<<< HEAD
 ```warn header="Internet Explorer and Edge: no support for `x/y`"
 Internet Explorer and Edge don't support `x/y` properties for historical reasons.
+=======
+```warn header="Internet Explorer: no support for `x/y`"
+Internet Explorer doesn't support `x/y` properties for historical reasons.
+>>>>>>> fe571b36ed9e225f29239e82947005b08d74ac05
 
 So we can either make a polyfill (add getters in `DomRect.prototype`) or just use `top/left`, as they are always the same as `x/y` for positive `width/height`, in particular in the result of `elem.getBoundingClientRect()`.
 ```

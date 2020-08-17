@@ -27,7 +27,11 @@ alert(user.name); // Jack
 alert(user.isAdmin); // false
 ```
 
+<<<<<<< HEAD
 Cuando una función es ejecutada con `new`, realiza los siguientes pasos:
+=======
+When a function is executed with `new`, it does the following steps:
+>>>>>>> fe571b36ed9e225f29239e82947005b08d74ac05
 
 1. Se crea un nuevo objeto vacío y se asigna a `this`.
 2. Se ejecuta el cuerpo de la función. Normalmente se modifica `this` y se le agrega nuevas propiedades.
@@ -51,7 +55,11 @@ function User(name) {
 }
 ```
 
+<<<<<<< HEAD
 Entonces `let user = new User("Jack")` da el mismo resultado que:
+=======
+So `let user = new User("Jack")` gives the same result as:
+>>>>>>> fe571b36ed9e225f29239e82947005b08d74ac05
 
 ```js
 let user = {
@@ -83,7 +91,11 @@ let user = new function() {
 El constructor no puede ser llamado de nuevo porque no es guardado en ninguna parte, sólo es creado y llamado. Por lo tanto este truco apunta a encapsular el código que construye el objeto individual, sin reutilización futura.
 ````
 
+<<<<<<< HEAD
 ## Constructor modo test: new.target
+=======
+## Constructor mode test: new.target
+>>>>>>> fe571b36ed9e225f29239e82947005b08d74ac05
 
 ```smart header="Temas avanzados"
 La sintaxis a partir de esta sección es raramente utilizada, puedes omitirla a menos que quieras saber todo.
@@ -109,9 +121,15 @@ new User(); // function User { ... }
 */!*
 ```
 
+<<<<<<< HEAD
 Esto puede ser utilizado dentro de la función para conocer si ha sido llamada con `new`, "en modo constructor ", o sin él, "en modo regular".
 
 También podemos realizar ambas llamadas `new` y regular para que realicen lo mismo, de esta manera:
+=======
+That can be used inside the function to know whether it was called with `new`, "in constructor mode", or without it, "in regular mode".
+
+We can also make both `new` and regular calls to do the same, like this:
+>>>>>>> fe571b36ed9e225f29239e82947005b08d74ac05
 
 ```js run
 function User(name) {
@@ -136,8 +154,13 @@ Normalmente, los constructores no tienen una sentencia `return`. Su tarea es esc
 
 Pero si hay una sentencia `return`, entonces la regla es simple:
 
+<<<<<<< HEAD
 - Si `return` es llamado con un objeto, entonces se devuelve el objeto en vez de `this`.
 - Si `return` es llamado con un tipo de dato primitivo, es ignorado.
+=======
+- If `return` is called with an object, then the object is returned instead of `this`.
+- If `return` is called with a primitive, it's ignored.
+>>>>>>> fe571b36ed9e225f29239e82947005b08d74ac05
 
 En otras palabras, `return` con un objeto devuelve ese objeto, en todos los demás casos se devuelve `this`.
 
@@ -148,10 +171,17 @@ function BigUser() {
 
   this.name = "John";
 
+<<<<<<< HEAD
   return { name: "Godzilla" };  // <-- devuelve este objeto
 }
 
 alert( new BigUser().name );  // Godzilla, recibió ese objeto
+=======
+  return { name: "Godzilla" };  // <-- returns this object
+}
+
+alert( new BigUser().name );  // Godzilla, got that object
+>>>>>>> fe571b36ed9e225f29239e82947005b08d74ac05
 ```
 
 Y aquí un ejemplo con un `return` vacío (o podemos colocar un primitivo después de él, no importa):
@@ -161,7 +191,11 @@ function SmallUser() {
 
   this.name = "John";
 
+<<<<<<< HEAD
   return; // <-- devuelve this
+=======
+  return; // <-- returns this
+>>>>>>> fe571b36ed9e225f29239e82947005b08d74ac05
 }
 
 alert( new SmallUser().name );  // John
@@ -212,9 +246,15 @@ john = {
 */
 ```
 
+<<<<<<< HEAD
 Para crear objetos complejos, existe una sintaxis más compleja, [classes](info:classes), que cubriremos más adelante.
 
 ## Resumen
+=======
+To create complex objects, there's a more advanced syntax, [classes](info:classes), that we'll cover later.
+
+## Summary
+>>>>>>> fe571b36ed9e225f29239e82947005b08d74ac05
 
 - Las funciones Constructoras o, más corto, constructores, son funciones normales, pero existe un común acuerdo para nombrarlas con la primera letra en mayúscula.
 - Las funciones Constructoras sólo deben ser llamadas utilizando `new`. Tal llamado implica la creación de un `this` vacío al comienzo y devolver el `this` rellenado al final.
