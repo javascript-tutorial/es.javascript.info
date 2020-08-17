@@ -70,7 +70,7 @@ No hay ningún hint "boolean" (todos los objetos son `true` en el contexto boole
 
 **Para realizar la conversión, JavaScript intenta buscar y llamar a tres métodos del objeto:**
 
-1. Llamar a `obj[Symbol.toPrimitive](hint)` : el método con el key simbólico `Symbol.toPrimitive` (símbolo del sistema), si tal método existe,
+1. Llamar a `obj[Symbol.toPrimitive](hint)` : el método con la clave simbólica `Symbol.toPrimitive` (símbolo del sistema), si tal método existe,
 2. De lo contrario, si el hint es `"string"`
     - intentar `obj.toString()` y `obj.valueOf()`, lo que exista.
 3. De lo contrario, si el hint es `"number"` o `"default"`
