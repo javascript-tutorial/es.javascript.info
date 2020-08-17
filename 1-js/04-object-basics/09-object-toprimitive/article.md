@@ -185,7 +185,7 @@ En ausencia de `Symbol.toPrimitive` y `valueOf`, `toString` manejará todas las 
 
 ## Tipos de devolución
 
-Lo importante que debe saber acerca de todos los métodos de conversión primitiva es que no necesariamente devuelven la primitiva "insinuada".
+Lo importante que debe saber acerca de todos los métodos de conversión primitiva es que no necesariamente devuelven la primitiva "sugerida".
 
 No hay control sobre si `toString` devuelve exactamente un string, o si el método `Symbol.toPrimitive` devuelve un número para un hint `"number"`.
 
