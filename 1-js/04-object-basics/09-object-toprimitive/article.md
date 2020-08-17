@@ -24,7 +24,7 @@ Hay tres variantes de conversión de tipos, denominadas "sugerencias", que se de
     // salida
     alert(obj);
 
-    // utilizando un objeto como key
+    // utilizando un objeto como clave
     anotherObj[obj] = 123;
     ```
 
