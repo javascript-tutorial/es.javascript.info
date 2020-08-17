@@ -116,7 +116,7 @@ Los métodos `toString` y `valueOf` provienen de la antigüedad. No son símbolo
 Si no hay `Symbol.toPrimitive`, JavaScript intenta encontrar los hints e intenta en este orden:
 
 - `toString -> valueOf` para el hint "string".
-- `valueOf -> toString` de lo contrario.
+- `valueOf -> toString` en caso contrario.
 
 Estos métodos deben devolver un valor primitivo. Si `toString` o `valueOf` devuelve un objeto, entonces se ignora (lo mismo que si no hubiera un método).
 
