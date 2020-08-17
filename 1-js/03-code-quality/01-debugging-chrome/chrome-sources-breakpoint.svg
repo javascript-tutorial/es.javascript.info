@@ -11,7 +11,7 @@
                 <tspan x="337" y="106">Aquí esta la lista de brakpoints</tspan>
             </text>
             <text id="breakpoints" font-family="OpenSans-Bold, Open Sans" font-size="18" font-weight="bold" fill="#EE6B47">
-                <tspan x="135" y="98">breakpoints</tspan>
+                <tspan x="135" y="98">puntos de quiebre</tspan>
             </text>
             <path id="Line-2" d="M486.475267,141.548183 L445.935375,116.487159 L447.512841,113.935375 L488.052734,138.996399 L492.25931,132.191643 L503.425297,150.262911 L482.268691,148.35294 L486.475267,141.548183 Z" fill="#EE6B47" fill-rule="nonzero"></path>
             <path id="Line-2" d="M64.8432162,115.388431 L127.520904,97.1404961 L128.359504,100.020904 L65.681816,118.268839 L67.9180822,125.949927 L47.019932,122.139767 L62.6069501,107.707342 L64.8432162,115.388431 Z" fill="#EE6B47" fill-rule="nonzero"></path>
