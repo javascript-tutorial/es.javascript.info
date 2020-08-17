@@ -29,34 +29,34 @@ code-style.svg:
     text: "Una línea vacía"
   "between logical blocks":
     position: "center"
-    text: "Между логическими блоками"
-  "Lines are not very long": "Строки не очень длинные"
-  "A semicolon ;": "Точка с запятой ;"
-  "is mandatory": "обязательна"
+    text: "entre bloques lógicos"
+  "Lines are not very long": "Las líneas no son muy largas"
+  "A semicolon ;": "Un punto y coma ;"
+  "is mandatory": "es obligatorio"
   "Spaces":
     position: "center"
-    text: "Пробелы"
+    text: "Espacios"
   "around operators":
     position: "center"
-    text: "вокруг операторов"
+    text: "Alrededor de los operadores"
   "Curly brace {":
     position: "center"
-    text: "Фигурная скобка {"
+    text: "Llaves {"
   "on the same line, after a space":
     position: "center"
-    text: "на той же строке, после пробела"
+    text: "en la misma línea, después de un espacio"
   "A space":
     position: "center"
-    text: "Пробел"
+    text: "Un espacio"
   "between":
     position: "center"
-    text: "между"
+    text: "entre"
   "parameters":
     position: "center"
-    text: "параметрами"
+    text: "parámetros"
   "A space between parameters":
     position: "center"
-    text: "Пробел между параметрами"
+    text: "Un espacio entre parámetros"
 
 try-catch-flow.svg:
   "Begin":
