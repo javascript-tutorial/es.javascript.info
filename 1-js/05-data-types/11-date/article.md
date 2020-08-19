@@ -92,7 +92,7 @@ Existen métodos que sirven para obtener el año, el mes, y los demás component
 [getHours()](mdn:js/Date/getHours), [getMinutes()](mdn:js/Date/getMinutes), [getSeconds()](mdn:js/Date/getSeconds), [getMilliseconds()](mdn:js/Date/getMilliseconds)
 : Devuelve los componentes del horario correspondientes.
 
-```warn header="Not `getYear()`, but `getFullYear()`"
+```warn header="No `getYear()`, sino `getFullYear()`"
 Algunos motores de JavaScript poseen implementado un método no estándar llamado `getYear()`. Este método actualmente está obsoleto. A veces devuelve un año de 2 digitos. Por favor, nunca lo uses. Usa `getFullYear()` para obtener el año.
 
 Además, podemos obtener un día de la semana:
