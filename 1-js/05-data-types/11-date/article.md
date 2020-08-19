@@ -174,7 +174,7 @@ alert(date); // ¡Se autocorrigió al 1° de Febrero de 2013!
 
 Los componentes de la fecha que están fuera de rango se distribuyen automáticamente.
 
-Por ejemplo, supongamos que necesitamos incrementar la fecha "28 Feb 2016" en 2 días. El resultado puede ser "2 Mar" o "1 Mar" dependiendo de si es año biciesto. Afortunadamente, no tenemos de qué preocuparnos. Sólo debemos agregarle los 2 días y el objeto `Date` se encargará del resto:
+Por ejemplo, supongamos que necesitamos incrementar la fecha "28 Feb 2016" en 2 días. El resultado puede ser "2 Mar" o "1 Mar" dependiendo de si es año bisiesto. Afortunadamente, no tenemos de qué preocuparnos. Sólo debemos agregarle los 2 días y el objeto `Date` se encargará del resto:
 
 ```js run
 let date = new Date(2016, 1, 28);
