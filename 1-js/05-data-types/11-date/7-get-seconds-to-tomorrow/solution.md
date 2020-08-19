@@ -29,4 +29,4 @@ function getSecondsToTomorrow() {
 }
 ```
 
-Ten en cuenta que algunos paíees tienen horarios de verano (DST), así que es posible que existan días con 23 o 25 horas. Podríamos querer tratar estos días por separado.
+Ten en cuenta que algunos países tienen horarios de verano (DST), así que es posible que existan días con 23 o 25 horas. Podríamos querer tratar estos días por separado.
