@@ -238,7 +238,7 @@ Si lo único que queremos es medir el tiempo transcurrido, no es necesario utili
 
 Podemos utilizar el método especial `Date.now()` que nos devuelve el _timestamp_ actual.
 
-Es el equivalente semántico a `new Date().getTime()`, pero no crea una instancia intermediaria del objeto `Date`. De esta manera, el proceso es mas rápido y, por consiguiente, no afecta a la recolección de basura o _garbage collection_.
+Es el equivalente semántico a `new Date().getTime()`, pero no crea una instancia intermediaria del objeto `Date`. De esta manera, el proceso es mas rápido y, por consiguiente, no afecta a la recolección de basura.
 
 Mayormente se utiliza por conveniencia o cuando la performance del código es fundamental, como por ejemplo en juegos de JavaScript u otras aplicaciones específicas.
 
