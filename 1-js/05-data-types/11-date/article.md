@@ -59,7 +59,7 @@ Para crear un nuevo objeto `Date` se lo instancia con `new Date()` junto con uno
 
     - El `año` debe tener 4 dígitos: `2013` es correcto, `98` no.
     - La cuenta del `mes` comienza desde el `0` (enero), y termina en el `11` (diciembre).
-    - El parámetro `fecha` es en realidad el día del mes, si está ausente se asume su valor en `1`.
+    - El parámetro `fecha` efectivamente es el día del mes, si está ausente se asume su valor en `1`.
     - Si los parámetros `hours/minutes/seconds/ms` están ausentes, se asumen sus valores iguales a `0`.
 
     Por ejemplo:
@@ -92,7 +92,7 @@ Existen métodos que sirven para obtener el año, el mes, y los demás component
 [getHours()](mdn:js/Date/getHours), [getMinutes()](mdn:js/Date/getMinutes), [getSeconds()](mdn:js/Date/getSeconds), [getMilliseconds()](mdn:js/Date/getMilliseconds)
 : Devuelve los componentes del horario correspondientes.
 
-```warn header="Not `getYear()`, but `getFullYear()`"
+```warn header="No `getYear()`, sino `getFullYear()`"
 Algunos motores de JavaScript poseen implementado un método no estándar llamado `getYear()`. Este método actualmente está obsoleto. A veces devuelve un año de 2 digitos. Por favor, nunca lo uses. Usa `getFullYear()` para obtener el año.
 ```
 
@@ -175,7 +175,7 @@ alert(date); // ¡Se autocorrigió al 1° de Febrero de 2013!
 
 Los componentes de la fecha que están fuera de rango se distribuyen automáticamente.
 
-Por ejemplo, supongamos que necesitamos incrementar la fecha "28 Feb 2016" en 2 días. El resultado puede ser "2 Mar" o "1 Mar" dependiendo de si es año biciesto. Afortunadamente, no tenemos de qué preocuparnos. Sólo debemos agregarle los 2 días y el objeto `Date` se encargará del resto:
+Por ejemplo, supongamos que necesitamos incrementar la fecha "28 Feb 2016" en 2 días. El resultado puede ser "2 Mar" o "1 Mar" dependiendo de si es año bisiesto. Afortunadamente, no tenemos de qué preocuparnos. Sólo debemos agregarle los 2 días y el objeto `Date` se encargará del resto:
 
 ```js run
 let date = new Date(2016, 1, 28);
@@ -239,7 +239,7 @@ Si lo único que queremos es medir el tiempo transcurrido, no es necesario utili
 
 Podemos utilizar el método especial `Date.now()` que nos devuelve el _timestamp_ actual.
 
-Es el equivalente semántico a `new Date().getTime()`, pero no crea una instancia intermediaria del objeto `Date`. De esta manera, el proceso es mas rápido y, por consiguiente, no afecta a la recolección de basura o _garbage collection_.
+Es el equivalente semántico a `new Date().getTime()`, pero no crea una instancia intermediaria del objeto `Date`. De esta manera, el proceso es mas rápido y, por consiguiente, no afecta a la recolección de basura.
 
 Mayormente se utiliza por conveniencia o cuando la performance del código es fundamental, como por ejemplo en juegos de JavaScript u otras aplicaciones específicas.
 
@@ -359,7 +359,7 @@ alert( 'Tiempo total de diffSubtract: ' + time1 );
 alert( 'Tiempo total de diffGetTime: ' + time2 );
 ```
 
-Los motores modernos de JavaScript realizan una optimización avanzada únicamente a los bloques de código que se ejecutan varias veces (no es necesario optimizar código que no raramente se ejecuta). En el ejemplo de abajo, las primeras ejecuciones no están bien optimizadas, por lo que quizás querríamos agregar ejecuciones antes de realizar el _benchmark_, a modo de "precalentamiento":
+Los motores modernos de JavaScript realizan una optimización avanzada únicamente a los bloques de código que se ejecutan varias veces (no es necesario optimizar código que raramente se ejecuta). En el ejemplo de abajo, las primeras ejecuciones no están bien optimizadas, por lo que quizás querríamos agregar ejecuciones antes de realizar el _benchmark_, a modo de "precalentamiento":
 
 ```js
 // Agregamos las funciones, antes de realizar el *benchmark*, a modo de "precalentamiento"
@@ -373,8 +373,8 @@ for (let i = 0; i < 10; i++) {
 }
 ```
 
-```warn header="Be careful doing microbenchmarking"
-Los motores Modernos de Javascript Modern JavaScript engines realizan varias optimizaciones al ejecutar código. Esto podría alterar los resultados de las "pruebas artificiales" respecto del "uso normal", especialmente cuando hacemos un *benchmark* tan pequeño, como por ejemplo: el funcionamiento de un operador o una funcion incorporada de JavaScript. Por esta razón, si se quiere entender más en profundidad cómo funciona la performance, se recomienda estudiar el funcionamiento del motor de JavaScript. Probablemente no necesites realizar *microbenchmarks* en absoluto.
+```warn header="Cuidado con los micro-benchmarks"
+Los motores Modernos de JavaScript realizan varias optimizaciones al ejecutar código. Esto podría alterar los resultados de las "pruebas artificiales" respecto del "uso normal", especialmente cuando hacemos un *benchmark* tan pequeño, como por ejemplo: el funcionamiento de un operador o una funcion incorporada de JavaScript. Por esta razón, si se quiere entender más en profundidad cómo funciona la performance, se recomienda estudiar el funcionamiento del motor de JavaScript. Probablemente no necesites realizar *microbenchmarks* en absoluto.
 
 Se pueden encontrar una gran cantidad de artículos acerca del motor V8 en <http://mrale.ph>.
 ```
@@ -392,7 +392,7 @@ El formato del string debe ser: `YYYY-MM-DDTHH:mm:ss.sssZ`, donde:
 
 Tambien es posible pasar como string variantes abreviadas, tales como `YYYY-MM-DD` o `YYYY-MM` o incluso `YYYY`.
 
-La llamada del método `Date.parse(str)` convierte el string en el formato especificado y nos devuelve el _timestamp_ (cantidad de milisegundos transcurridos desde el 1° de Enero de 1970 UTC+0). Si el formato del string no es válido, devuelve es `NaN`.
+La llamada del método `Date.parse(str)` convierte el string en el formato especificado y nos devuelve un "registro de hora" _timestamp_ (cantidad de milisegundos transcurridos desde el 1° de Enero de 1970 UTC+0). Si el formato del string no es válido, devuelve es `NaN`.
 
 Por ejemplo:
 
@@ -402,7 +402,7 @@ let ms = Date.parse("2012-01-26T13:51:50.417-07:00");
 alert(ms); // 1327611110417  (timestamp)
 ```
 
-We can instantly create a `new Date` object from the timestamp:
+Podemos crear un objeto  `new Date` instantáneamente dede el timestamp:
 
 ```js run
 let date = new Date(Date.parse("2012-01-26T13:51:50.417-07:00"));

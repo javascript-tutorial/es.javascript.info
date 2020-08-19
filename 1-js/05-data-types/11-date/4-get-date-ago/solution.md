@@ -7,7 +7,7 @@ function getDateAgo(date, days) {
 }
 ```
 
-...Pero la funcion no debería modificar la fecha `date`. Esto es importante, ya que no se espera que cambie la variable externa que contiene la fecha.
+...Pero la función no debería modificar la fecha `date`. Esto es importante, ya que no se espera que cambie la variable externa que contiene la fecha.
 
 Para hacerlo, clonemos la fecha de esta manera:
 
