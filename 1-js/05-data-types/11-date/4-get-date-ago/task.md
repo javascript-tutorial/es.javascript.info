@@ -4,7 +4,7 @@ importance: 4
 
 # ¿Qué día del mes era hace algunos días atrás?
 
-Crea una funcion `getDateAgo(date, days)` que devuelva el día del mes que corresponde, contando la cantidad de días `days` respecto de la fecha `date`.
+Crea una función `getDateAgo(date, days)` que devuelva el día del mes que corresponde, contando la cantidad de días `days` respecto de la fecha `date`.
 
 Por ejemplo, si hoy es 20, entonces `getDateAgo(new Date(), 1)` debería ser 19 y `getDateAgo(new Date(), 2)` debería ser 18.
 
