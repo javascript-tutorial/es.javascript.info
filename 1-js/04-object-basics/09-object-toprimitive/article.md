@@ -111,7 +111,7 @@ Como podemos ver en el código, `user` se convierte en un string autodescriptivo
 
 ## toString/valueOf
 
-Los métodos `toString` y `valueOf` provienen de la antigüedad. No son símbolos (los símbolos no existían en aquel tiempo), sino métodos "regulares" nombrados con string. Proporcionan una forma alternativa "al viejo estilo" de implementar la conversión.
+Los métodos `toString` y `valueOf` provienen de la antigüedad. No son símbolos (los símbolos no existían en aquel tiempo), sino métodos "regulares" nombrados con strings. Proporcionan una forma alternativa "al viejo estilo" de implementar la conversión.
 
 Si no hay `Symbol.toPrimitive`, JavaScript intenta encontrar las sugerencias e intenta en este orden:
 
