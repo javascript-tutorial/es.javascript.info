@@ -59,7 +59,7 @@ Para crear un nuevo objeto `Date` se lo instancia con `new Date()` junto con uno
 
     - El `año` debe tener 4 dígitos: `2013` es correcto, `98` no.
     - La cuenta del `mes` comienza desde el `0` (enero), y termina en el `11` (diciembre).
-    - El parámetro `fecha` es en realidad el día del mes, si está ausente se asume su valor en `1`.
+    - El parámetro `fecha` efectivamente es el día del mes, si está ausente se asume su valor en `1`.
     - Si los parámetros `hours/minutes/seconds/ms` están ausentes, se asumen sus valores iguales a `0`.
 
     Por ejemplo:
