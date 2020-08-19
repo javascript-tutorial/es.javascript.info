@@ -94,6 +94,7 @@ Existen métodos que sirven para obtener el año, el mes, y los demás component
 
 ```warn header="Not `getYear()`, but `getFullYear()`"
 Algunos motores de JavaScript poseen implementado un método no estándar llamado `getYear()`. Este método actualmente está obsoleto. A veces devuelve un año de 2 digitos. Por favor, nunca lo uses. Usa `getFullYear()` para obtener el año.
+```
 
 Además, podemos obtener un día de la semana:
 
