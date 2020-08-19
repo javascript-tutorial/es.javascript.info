@@ -11,4 +11,4 @@ Parámetros:
 - `year` -- el año en formato de cuatro dígitos, por ejemplo 2012.
 - `month` -- el mes, de 0 a 11.
 
-Por ejemplo, `getLastDayOfMonth(2012, 1) = 29` (febrero, año biciesto).
+Por ejemplo, `getLastDayOfMonth(2012, 1) = 29` (febrero, año bisiesto).
