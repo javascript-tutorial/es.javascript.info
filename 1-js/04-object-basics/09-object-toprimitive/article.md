@@ -221,7 +221,7 @@ alert(obj * 2); // 4, objeto convertido a valor primitivo "2", luego la multipli
 1. La multiplicación `obj * 2` primero convierte el objeto en valor primitivo (que es un string `"2"`).
 2. Luego `"2" * 2` se convierte en `2 * 2` (el string se convierte en número).
 
-`+` binario concatenará los strings en la misma situación, ya que acepta con gusto un string:
+El `+` binario concatenará los strings en la misma situación, ya que acepta con gusto un string:
 
 ```js run
 let obj = {
