@@ -1,4 +1,4 @@
-El constructor `new Date` utiliza la zona horaria local, por lo que lo único que es importante de recordar es que los meses se cuentan desde el 0.
+El constructor `new Date` utiliza la zona horaria local. Lo único importante por recordar es que los meses se cuentan desde el 0.
 
 Por ejemplo, febrero es el mes 1.
 
