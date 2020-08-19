@@ -392,7 +392,7 @@ El formato del string debe ser: `YYYY-MM-DDTHH:mm:ss.sssZ`, donde:
 
 Tambien es posible pasar como string variantes abreviadas, tales como `YYYY-MM-DD` o `YYYY-MM` o incluso `YYYY`.
 
-La llamada del método `Date.parse(str)` convierte el string en el formato especificado y nos devuelve un "registro de hora" _timestamp_ (cantidad de milisegundos transcurridos desde el 1° de Enero de 1970 UTC+0). Si el formato del string no es válido, devuelve es `NaN`.
+La llamada del método `Date.parse(str)` convierte el string en el formato especificado y nos devuelve un _timestamp_ (cantidad de milisegundos transcurridos desde el 1° de Enero de 1970 UTC+0). Si el formato del string no es válido, devuelve es `NaN`.
 
 Por ejemplo:
 
