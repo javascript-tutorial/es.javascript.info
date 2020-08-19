@@ -4,7 +4,7 @@ importance: 5
 
 # ¿Cuál es el último día del mes?
 
-Escribe una funcion `getLastDayOfMonth(year, month)` que devuelva el último día del mes dado. A veces es 30, 31 o incluso 28/29 para febrero.
+Escribe una función `getLastDayOfMonth(year, month)` que devuelva el último día del mes dado. A veces es 30, 31 o incluso 28/29 para febrero.
 
 Parámetros:
 
