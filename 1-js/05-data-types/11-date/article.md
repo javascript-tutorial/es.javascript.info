@@ -358,7 +358,7 @@ alert( 'Tiempo total de diffSubtract: ' + time1 );
 alert( 'Tiempo total de diffGetTime: ' + time2 );
 ```
 
-Los motores modernos de JavaScript realizan una optimización avanzada únicamente a los bloques de código que se ejecutan varias veces (no es necesario optimizar código que no raramente se ejecuta). En el ejemplo de abajo, las primeras ejecuciones no están bien optimizadas, por lo que quizás querríamos agregar ejecuciones antes de realizar el _benchmark_, a modo de "precalentamiento":
+Los motores modernos de JavaScript realizan una optimización avanzada únicamente a los bloques de código que se ejecutan varias veces (no es necesario optimizar código que raramente se ejecuta). En el ejemplo de abajo, las primeras ejecuciones no están bien optimizadas, por lo que quizás querríamos agregar ejecuciones antes de realizar el _benchmark_, a modo de "precalentamiento":
 
 ```js
 // Agregamos las funciones, antes de realizar el *benchmark*, a modo de "precalentamiento"
