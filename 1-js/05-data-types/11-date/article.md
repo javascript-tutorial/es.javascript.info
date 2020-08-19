@@ -401,7 +401,7 @@ let ms = Date.parse("2012-01-26T13:51:50.417-07:00");
 alert(ms); // 1327611110417  (timestamp)
 ```
 
-We can instantly create a `new Date` object from the timestamp:
+Podemos crear un objeto  `new Date` instantáneamente dede el timestamp:
 
 ```js run
 let date = new Date(Date.parse("2012-01-26T13:51:50.417-07:00"));
