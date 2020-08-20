@@ -139,7 +139,7 @@ alert('Mundo');
 En la mayoría de los editores, se puede comentar una línea de código presionando `key:Ctrl+/` para un comentario de una sola línea y algo como `key:Ctrl+Shift+/` - para comentarios de varias líneas (selecciona una parte del código y pulsa la tecla de acceso rápido). Para Mac, intenta `key: Cmd` en lugar de `key: Ctrl`.
 ```
 
-````warn header="¡Los comentarios anidados no son soportados!"
+````warn header="¡Los comentarios anidados no son admitidos!"
 No puede haber `/*...*/` dentro de otro `/*...*/`.
 
 Dicho código terminará con un error:
