@@ -78,7 +78,7 @@ La pregunta podría parecer obvia, pero no lo es.
 
 Uno podría recomentar que se comiencen los script con `"use strict"`... ¿Pero sabes lo que es interesante?
 
-El JavaScript moderno soporta "clases" y "módulos", estructuras de lenguaje avanzadas (que seguramente alcanzaremos), que habilitan `use strict` automáticamente. Entoncess no necesitamos agregar la directiva `"use strict"` si las usamos.
+El JavaScript moderno admite "clases" y "módulos", estructuras de lenguaje avanzadas (que seguramente llegaremos a ver), que automáticamente habilitan `use strict`. Entoncess no necesitamos agregar la directiva `"use strict"` si las usamos.
 
 **Entonces, por ahora `"use strict";` es un invitado bienvenido al tope de tus scripts. Luego, cuando tu código sea todo clases y módulos, puedes omitirlo.**
 
