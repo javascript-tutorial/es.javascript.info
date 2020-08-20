@@ -84,6 +84,6 @@ El JavaScript moderno admite "clases" y "módulos", estructuras de lenguaje avan
 
 A partir de ahora tenemos que sasber acerca de `use strict` en general.
 
-En los siguientes capítulos, como aprendamos características del lenguaje, veremos las diferencias entre el modo estricto y el antiguo. Afortunadamente no hay muchas y realmente hacen nuestra vida mejor.
+En los siguientes capítulos, a medida que aprendamos características del lenguaje, veremos las diferencias entre el modo estricto y el antiguo. Afortunadamente no hay muchas y realmente hacen nuestra vida mejor.
 
 Todos los ejemplos en este tutorial asumen modo estricto salvo que (muy raramente) se especifique lo contrario.
