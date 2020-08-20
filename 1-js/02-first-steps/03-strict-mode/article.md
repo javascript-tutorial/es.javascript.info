@@ -50,7 +50,7 @@ Cuando utilices la [consola del navegador](info:devtools) para ejecutar código,
 
 En ocasiones, donde `use strict` cause diferencia, obtendrás resultados incorrectos.
 
-Entonces, ¿como activo `use strict` en la consola? 
+Entonces, ¿como utilizar `use strict` en la consola? 
 
 Primero puedes intentar pulsando `key:Shift+Enter` para ingresar múltiples líneas y poner `use strict` al principio, como aquí:
 
@@ -72,17 +72,17 @@ Si esto no funciona, como en los viejos navegadores, hay una fea pero confiable 
 })()
 ```
 
-## ¿Deberíamos poner "use strict"?
+## ¿Deberíamos utilizar "use strict"?
 
 La pregunta podría parecer obvia, pero no lo es.
 
 Uno podría recomentar que se comiencen los script con `"use strict"`... ¿Pero sabes lo que es interesante?
 
-El JavaScript moderno admite "clases" y "módulos", estructuras de lenguaje avanzadas (que seguramente llegaremos a ver), que automáticamente habilitan `use strict`. Entoncess no necesitamos agregar la directiva `"use strict"` si las usamos.
+El JavaScript moderno admite "clases" y "módulos", estructuras de lenguaje avanzadas (que seguramente llegaremos a ver), que automáticamente habilitan `use strict`. Entonces no necesitamos agregar la directiva `"use strict"` si las usamos.
 
 **Entonces, por ahora `"use strict";` es un invitado bienvenido al tope de tus scripts. Luego, cuando tu código sea todo clases y módulos, puedes omitirlo.**
 
-A partir de ahora tenemos que sasber acerca de `use strict` en general.
+A partir de ahora tenemos que saber acerca de `use strict` en general.
 
 En los siguientes capítulos, a medida que aprendamos características del lenguaje, veremos las diferencias entre el modo estricto y el antiguo. Afortunadamente no hay muchas y realmente hacen nuestra vida mejor.
 
