@@ -2,37 +2,37 @@ importance: 5
 
 ---
 
-# Tooltip behavior
+# Comportamiento Tooltip
 
-Create JS-code for the tooltip behavior.
+Crea código JS para el comportamiento "tooltip".
 
-When a mouse comes over an element with `data-tooltip`, the tooltip should appear over it, and when it's gone then hide.
+Cuando un mouse pasa sobre un elemento con `data-tooltip`, el tooltip debe aparecer sobre él, y ocultarse cuando se va.
 
-An example of annotated HTML:
+Un ejemplo en HTML anotado:
 ```html
 <button data-tooltip="the tooltip is longer than the element">Short button</button>
 <button data-tooltip="HTML<br>tooltip">One more button</button>
 ```
 
-Should work like this:
+Debe funcionar así:
 
 [iframe src="solution" height=200 border=1]
 
-In this task we assume that all elements with `data-tooltip` have only text inside. No nested tags (yet).
+En esta tarea asumimos que todos los elementos con `data-tooltip` solo tienen texto dentro. Sin tags anidados (todavía).
 
-Details:
+Detalles:
 
-- The distance between the element and the tooltip should be `5px`.
-- The tooltip should be centered relative to the element, if possible.
-- The tooltip should not cross window edges. Normally it should be above the element, but if the element is at the page top and there's no space for the tooltip, then below it.
-- The tooltip content is given in the `data-tooltip` attribute. It can be arbitrary HTML.
+- La distancia entre el elemento y el tooltip debe sesr `5px`.
+- El tooltip debe ser centrado relativo al elemento si es posible.
+- El tooltip no debe cruzar los bordes de la ventana. Normalmente debería etar sobre el elemento, pero si el elemento está en la parte superior de la págino y no hay espacio para el tooltip, entonces debajo de él.
+- El contenido del tooltip está dado en el atributo `data-tooltip`. Este puede ser HTML arbitrario.
 
-You'll need two events here:
-- `mouseover` triggers when a pointer comes over an element.
-- `mouseout` triggers when a pointer leaves an element.
+Necesitarás dos eventos aquí:
+- `mouseover` se dispara cuanto el puntero pasa sobre el elemento.
+- `mouseout` se dispara cuando el puntero deja el elemento.
 
-Please use event delegation: set up two handlers on `document` to track all "overs" and "outs" from elements with `data-tooltip` and manage tooltips from there.
+Usa delegación de eventos: establede hasta dos manejadores sobre `document` para rastrear todos los "overs" y "outs" de los elementos con `data-tooltip` y administra los tooltips desde allí.
 
-After the behavior is implemented, even people unfamiliar with JavaScript can add annotated elements.
+Después de implementar el comportamiento, hasta gente no familiarizada con JavaScript puede agregar elementos anotados.
 
-P.S. Only one tooltip may show up at a time.
+P.D. Solamente un tooltip puede mostrarse a la vez.
