@@ -13,11 +13,11 @@ let proxy = new Proxy(target, handler)
 ```
 
 - `target` -- es el objeto a envolver, puede ser cualquier cosa, incluyendo funciones.
-- `handler` -- la configuración del proxy: un objeto con "embudos", métodos que interceptan operaciones. Por ejemplo, el embudo `get` para leer una propiedad de `target`, el embudo `set` para escribir una propiedad dentro de `target`, y así.
+- `handler` -- la configuración del proxy: un objeto con "trampas", métodos que interceptan operaciones. Por ejemplo, la trampa `get` para leer una propiedad de `target`, la trampa `set` para escribir una propiedad dentro de `target`, y así.
 
-Si hay embudos correspondientes en `handler` entonces el proxy los ejecuta y tiene oportunidad de manejarlos, de lo contrario la operación es ejecutada sobre `target`.
+Si hay trampas correspondientes en `handler` entonces el proxy los ejecuta y tiene oportunidad de manejarlos, de lo contrario la operación es ejecutada sobre `target`.
 
-Como ejemplo inicial, vamos a crear un proxy sin embudos:
+Como ejemplo inicial, vamos a crear un proxy sin trampas:
 
 ```js run
 let target = {};
@@ -31,27 +31,27 @@ alert(proxy.test); // 5, podemos leerla en el proxy también (2)
 for(let key in proxy) alert(key); // test, la iteración funciona (3)
 ```
 
-Como no hay embudos, todas las operaciones en `proxy` son reenviadas a `target`.
+Como no hay trampas, todas las operaciones en `proxy` son reenviadas a `target`.
 
 1. Una operación de escritura `proxy.test=` establece el valor en `target`.
 2. Una operación de lectura `proxy.test` devuelve el valor de `target`.
 3. La iteración sobre `proxy` devuelve los valores de `target`.
 
-Como podemos ver, si ningún embudo, `proxy` es un wrapper transparente alrededor de `target`.
+Como podemos ver, si ningún trampa, `proxy` es un wrapper transparente alrededor de `target`.
 
 ![](proxy.svg)  
 
 `Proxy` es un "objecto exótico" especial. No tienes propiedades propias. Con un `handler` vacío, reenvía las operaciones de forma transparente a `target`.
 
-Para activar más capacidades agreguemos embudos.
+Para activar más capacidades agreguemos trampas.
 
 ¿Qué podemos interceptar con ellos?
 
 Para la mayoría de las operaciones sobre el objeto hay algo llamado "método interno" en la especificación de JavaScript que describe cómo funciona en el nivel más bajo. Por ejemplo: `[[Get]]`, el método interno para leer una propiedad, `[[Set]]`, el método interno para leer una propiedad, y así. Estos métodos son solamente usados en la especificación, no podemos llamarlos directamente por el nombre.
 
-Los embudos del proxy interceptan invocaciones de estos métodos. Están listados en la [especificación de Proxy](https://tc39.es/ecma262/#sec-proxy-object-internal-methods-and-internal-slots) y en la tabla siguiente.
+Las trampas del proxy interceptan invocaciones de estos métodos. Están listados en la [especificación de Proxy](https://tc39.es/ecma262/#sec-proxy-object-internal-methods-and-internal-slots) y en la tabla siguiente.
 
-Para cada método interno hay un embudo en esta tabla: el nombre del método que queremos agregar al parámetro `handler` del `new Proxy` para interceptar la operación:
+Para cada método interno hay un trampa en esta tabla: el nombre del método que queremos agregar al parámetro `handler` del `new Proxy` para interceptar la operación:
 
 | Método Interno | Método Handler | Se activa para... |
 |-----------------|----------------|-------------|
@@ -70,7 +70,7 @@ Para cada método interno hay un embudo en esta tabla: el nombre del método que
 | `[[OwnPropertyKeys]]` | `ownKeys` | [Object.getOwnPropertyNames](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/getOwnPropertyNames), [Object.getOwnPropertySymbols](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/getOwnPropertySymbols), `for..in`, `Object/keys/values/entries` |
 
 ```warn header="Invariantes"
-JavaScript aplica algunas invariantes: condiciones que deben cumplirse mediante métodos internos y embudos.
+JavaScript aplica algunas invariantes: condiciones que deben cumplirse mediante métodos internos y trampas.
 
 La mayoría de ellos son para los valores devueltos:
 - `[[Set]]` devolverá `true` si el valor fue escrito exitosamente, de lo contrario `false`.
@@ -80,16 +80,16 @@ La mayoría de ellos son para los valores devueltos:
 Hay algunas invariantes más, como:
 - `[[GetPrototypeOf]]`, aplicado al objeto proxy debe devolver el mismo valor que `[[GetPrototypeOf]]` aplicado al objeto destino del proxy. Es decir, la lectura del prototipo de un proxy siempre debe devolver el prototipo del objeto `target`.
 
-Los embudos pueden interceptar estas operaciones pero deben seguir estas reglas.
+Las trampas pueden interceptar estas operaciones pero deben seguir estas reglas.
 
 Las invariantes aseguran el correcto y consistente funcionamiento de las características del lenguaje. La lista completa de las invariantes se encuentran en [la especificación](https://tc39.es/ecma262/#sec-proxy-object-internal-methods-and-internal-slots). Probablemente no las violaras si no haces algo extraño.
 ```
 
 Veamos cómo funciona esto en ejemplos prácticos.
 
-## Valor por defecto del embudo "get"
+## Valor por defecto la trampa "get"
 
-Los embudos más comúnes que hay son para lectura y escritura de propiedades.
+Las trampas más comúnes que hay son para lectura y escritura de propiedades.
 
 Para interceptar lecturas el `handler` debe tener un método `get(target, property, receiver)`.
 
