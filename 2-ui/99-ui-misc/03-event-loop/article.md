@@ -159,11 +159,11 @@ Finalmente hemos dividido una tarea con un alto consumo de CPU en partes y ahora
 
 Otro beneficio de dividir tareas pesadas para scripts de navegadores es que podemos indicar el progreso.
 
-Usually the browser renders after the currently running code is complete. Doesn't matter if the task takes a long time. Changes to DOM are painted only after the task is finished.
+Usualmente el navegador renderiza al terminar la ejecución del código que actualmente se está ejecutando. No importa si la tarea conlleva demasiado tiempo. Los cambios a DOM serán aplicados solo cuando la tarea termine.
 
-On one hand, that's great, because our function may create many elements, add them one-by-one to the document and change their styles -- the visitor won't see any "intermediate", unfinished state. An important thing, right?
+Por un lado eso es genial porque nuestra función puede crear muchos elementos, agregarlos de a uno al documento y cambiar sus estilos... el visitante no verá ningún estado intermedio, sin finalizar. Lo cuál es importante no?
 
-Here's the demo, the changes to `i` won't show up until the function finishes, so we'll see only the last value:
+Acá hay una demostración, los cambios a `i` no se mostrarán hasta que la función finalice, por lo que veremos solo el úlimo valor:
 
 
 ```html run
@@ -182,11 +182,11 @@ Here's the demo, the changes to `i` won't show up until the function finishes, s
 </script>
 ```
 
-...But we also may want to show something during the task, e.g. a progress bar.
+... Pero puede que queramos mostrar algo durante la tarea, e.g. una barra de progreso.
 
-If we split the heavy task into pieces using `setTimeout`, then changes are painted out in-between them.
+Si dividimos la tarea más pesada en piezas pequeñas usando `setTimeout`, entonces los cambios son aplicados entre ellos.
 
-This looks prettier:
+Esto se ve mejor:
 
 ```html run
 <div id="progress"></div>
@@ -196,7 +196,7 @@ This looks prettier:
 
   function count() {
 
-    // do a piece of the heavy job (*)
+    // realiza una pieza del trabajo pesado (*)
     do {
       i++;
       progress.innerHTML = i;
@@ -212,7 +212,7 @@ This looks prettier:
 </script>
 ```
 
-Now the `<div>` shows increasing values of `i`, a kind of a progress bar.
+Ahora el `<div>` muestra el incremento en el valor `i`, una especie de barra de progreso.
 
 
 ## Use case 3: doing something after the event
