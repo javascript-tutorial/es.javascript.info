@@ -1,64 +1,63 @@
+# Evento ciclo: microtareas y macrotareas
 
-# Event loop: microtasks and macrotasks
+El flujo de ejecución de JavaScript en el navegador, así como en Node.js, está basado en un *event loop* (evento ciclo).
 
-Browser JavaScript execution flow, as well as in Node.js, is based on an *event loop*.
+Entender como este evento ciclo funciona es importante para optimizaciones y en algunos casos para la arquitecura correcta.
 
-Understanding how event loop works is important for optimizations, and sometimes for the right architecture.
+En este capítulo primero vamos a ver detalles teóricos acerca de como funcionan las cosas y luego veremos aplicaciones prácticas de ese conocimiento.
 
-In this chapter we first cover theoretical details about how things work, and then see practical applications of that knowledge.
+## Evento Ciclo
 
-## Event Loop
+El concepto de *evento ciclo* es muy simple. Existe un ciclo infinito en el que el motor de JavaScript aguarda por una tarea, luego ejecuta la tarea requerida y finalmente vuelve a dormir esperando por una nueva tarea.
 
-The concept of *event loop* is very simple. There's an endless loop, when JavaScript engine waits for tasks, executes them and then sleeps waiting for more tasks.
+EL algoritmo general del motor:
 
-The general algorithm of the engine:
+1. Mientras haya tareas:
+    - ejecutarlas comenzando por la más antigua.
+2. Dormir hasta que aparezca una tarea, luego volver a 1.
 
-1. While there are tasks:
-    - execute them, starting with the oldest task.
-2. Sleep until a task appears, then go to 1.
+Eso es una formalización de lo que vemos cuando navegamos por una página. El motor JavaScript no hace nada la mayoría del tiempo y solo corre cuando un script/handler/evento se activa.
 
-That's a formalization for what we see when browsing a page. JavaScript engine does nothing most of the time, only runs if a script/handler/event activates.
+Ejemplos de tareas:
 
-Examples of tasks:
+- Cuando un script externo `<script src="...">` se carga, la tarea es ejecutarlo.
+- Cuando un usuario mueve el mouse, la tarea es enviar el evento `mousemove` y ejecutar handlers.
+- Cuando llega el momento de un `setTimeout` progrmamado, la tarea es ejecutar su callback.
+- ... y así sucesivamente.
 
-- When an external script `<script src="...">` loads, the task is to execute it.
-- When a user moves their mouse, the task is to dispatch `mousemove` event and execute handlers.
-- When the time is due for a scheduled `setTimeout`, the task is to run its callback.
-- ...and so on.
+Las tareas son programadas --> el motor las ejecuta --> aguarda por más tareas (mientras duerme y prácticamente no consume CPU).
 
-Tasks are set -- the engine handles them -- then waits for more tasks (while sleeping and consuming close to zero CPU).
+Puede ocurrir que una tarea llegue mientras el motor está ocupado, entonces es puesta en lista.
 
-It may happen that a task comes while the engine is busy, then it's enqueued.
-
-The tasks form a queue, so-called "macrotask queue" (v8 term):
+Las tareas de una lista, también llamada "Lista de macrotarea" (Término de v8):
 
 ![](eventLoop.svg)
 
-For instance, while the engine is busy executing a `script`, a user may move their mouse causing `mousemove`, and `setTimeout` may be due and so on, these tasks form a queue, as illustrated on the picture above.
+Por ejemplo, mientras el motor está ocupado ejecutando un `script`, un usuario podría mover su mouse causando `mousemove` o también podría ser `setTimeout`, etc. Todas estas tareas forman una fila como se observa en la imagen arriba.
 
-Tasks from the queue are processed on "first come – first served" basis. When the engine browser is done with the `script`, it handles `mousemove` event, then `setTimeout` handler, and so on.
+Las tareas de la fila son ejecutadas según la base "El que primero llega primero se atiende". Cuando el motor del navegador termina con el `script`, se encarga del evento `mousemove`, continúa con `setTimeout`, etc.
 
-So far, quite simple, right?
+Hasta ahora bastante simple no?
 
-Two more details:
-1. Rendering never happens while the engine executes a task. Doesn't matter if the task takes a long time. Changes to DOM are painted only after the task is complete.
-2. If a task takes too long, the browser can't do other tasks, process user events, so after a time it raises an alert like "Page Unresponsive" suggesting to kill the task with the whole page. That happens when there are a lot of complex calculations or a programming error leading to infinite loop.
+Dos detalles más:
+1. El renderizado nunca ocurre mientras el motor ejecuta una tarea. No importa si la tarea ocupa mucho tiempo. Solo se realizan cambios a DOM una vez que la tarea finaliza.
+2. Si una tarea consume demasiado tiempo, el navegador puede hacer otras tareas, procesos o eventos por lo que después de un tiempo muestra una alerta "La página no responde" sugiriendo detener la tarea con la página completa. Esto ocurre cuando hay muchos calculos complejos o un error en la programación que lleva a un bucle infinito.
 
-That was a theory. Now let's see how we can apply that knowledge.
+Esa fue la teoría. Ahora veamos como podemos aplicar ese conocimiento.
 
-## Use-case 1: splitting CPU-hungry tasks
+## Caso de uso 1: dividiendo tareas que demandan alto consumo de CPU
 
-Let's say we have a CPU-hungry task.
+Digamos que tenemos una tarea con un alto consumo de CPU.
 
-For example, syntax-highlighting (used to colorize code examples on this page) is quite CPU-heavy. To highlight the code, it performs the analysis, creates many colored elements, adds them to the document -- for a large amount of text that takes a lot of time.
+Por ejemplo, el resaltado de sintaxis (usado para colorear ejemplos de código en esta página) demanda un alto consumo de CPU. Para resaltar el código, realiza el análisis, crea muchos elementos coloreados, los agrega al documento... para una gran cantidad de texto esto lleva mucho tiempo.
 
-While the engine is busy with syntax highlighting, it can't do other DOM-related stuff, process user events, etc. It may even cause the browser to "hiccup" or even "hang" for a bit, which is unacceptable.
+Mientras el motor está ocupado con el resaltado de sintaxis, no puede hacer otras cosas relacionadas a DOM, procesar eventos de usuario, etc. Podría incluso provocar que el navegador se "congele" por un momento, lo que es inaceptable.
 
-We can avoid problems by splitting the big task into pieces. Highlight first 100 lines, then schedule `setTimeout` (with zero-delay) for the next 100 lines, and so on.
+Podemos evitar problemas dividiendo la tarea en piezas más pequeñas. Resaltar primero 100 líneas, después programar `setTimeout` (con cero delay) para las próximas 100 líneas y así sucesivamente.
 
-To demonstrate this approach, for the sake of simplicity, instead of text-highlighting, let's take a function that counts from `1` to `1000000000`.
+Para demostrar este enfoque y en pos de una mayor simplicidad, en lugar de resaltado de texto tomemos una función que cuenta desde `1` hasta `1000000000`.
 
-If you run the code below, the engine will "hang" for some time. For server-side JS that's clearly noticeable, and if you are running it in-browser, then try to click other buttons on the page -- you'll see that no other events get handled until the counting finishes.
+Si ejecutas el código siguiente, el navegador se va a "congelar" por un instante. Para JS desde el lado del servidor esto es claramente notable y si lo ejecutas en el navegador intenta hacer click en otros botones de la página. Verás que ningún otro evento es procesado hasta que termine el conteo.
 
 ```js run
 let i = 0;
@@ -67,7 +66,7 @@ let start = Date.now();
 
 function count() {
 
-  // do a heavy job
+  // realiza una tarea pesada
   for (let j = 0; j < 1e9; j++) {
     i++;
   }
@@ -78,9 +77,9 @@ function count() {
 count();
 ```
 
-The browser may even show a "the script takes too long" warning.
+Puede que incluso se muestre una alerta "Un script en esta página está provocando que el navegador se ejecute con lentitud".
 
-Let's split the job using nested `setTimeout` calls:
+Dividamos la tarea usando llamadas anidadas a `setTimeout`:
 
 ```js run
 let i = 0;
@@ -89,7 +88,7 @@ let start = Date.now();
 
 function count() {
 
-  // do a piece of the heavy job (*)
+  // realiza una parte de la tarea pesada(*)
   do {
     i++;
   } while (i % 1e6 != 0);
@@ -97,7 +96,7 @@ function count() {
   if (i == 1e9) {
     alert("Done in " + (Date.now() - start) + 'ms');
   } else {
-    setTimeout(count); // schedule the new call (**)
+    setTimeout(count); // programa una nueva llamada (**)
   }
 
 }
@@ -105,21 +104,21 @@ function count() {
 count();
 ```
 
-Now the browser interface is fully functional during the "counting" process.
+Ahora la interfaz del navegador es completamente funcional durante el conteo.
 
-A single run of `count` does a part of the job `(*)`, and then re-schedules itself `(**)` if needed:
+Una solo ejecución de `count` realiza parte del trabajo `(*)` y luego se reprograma a sí misma `(**)` si lo necesita:
 
-1. First run counts: `i=1...1000000`.
-2. Second run counts: `i=1000001..2000000`.
-3. ...and so on.
+1. La primer ejecución cuenta: `i=1...1000000`.
+2. La segunda cuenta: `i=1000001..2000000`.
+3. ...y así sucesivamente.
 
-Now, if a new side task (e.g. `onclick` event) appears while the engine is busy executing part 1, it gets queued and then executes when part 1 finished, before the next part. Periodic returns to the event loop between `count` executions provide just enough "air" for the JavaScript engine to do something else, to react to other user actions.
+Ahora, si una tarea secundaria (e.g. el evento `onclick`) aparece mientras el motor está ocupado ejecutando la parte 1, entonces es puesta en lista y ejecutada cuando la parte 1 termina, antes de la siguiente parte. Retornos periodicos al evento ciclo entre ejecuciones de `count` brinda suficiente "aire" al motor de JavaScript para hacer algo más, para reaccionar  a otras acciones del usuario.
 
-The notable thing is that both variants -- with and without splitting the job by `setTimeout` -- are comparable in speed. There's not much difference in the overall counting time.
+Lo notable es que ambas variantes, con y sin división de la tarea haciendo uso de `setTimeout`, son comparables en velocidad. No hay mucha diferencia en el tiempo de conteo general.
 
-To make them closer, let's make an improvement.
+Para acercar aún más los tiempos, hagamos una mejora.
 
-We'll move the scheduling to the beginning of the `count()`:
+Movamos la programación de `setTimeout` al inicio de `count()`:
 
 ```js run
 let i = 0;
@@ -128,9 +127,9 @@ let start = Date.now();
 
 function count() {
 
-  // move the scheduling to the beginning
+  // movemos la programación al principio
   if (i < 1e9 - 1e6) {
-    setTimeout(count); // schedule the new call
+    setTimeout(count); // programamos la nueva llamada
   }
 
   do {
@@ -146,19 +145,19 @@ function count() {
 count();
 ```
 
-Now when we start to `count()` and see that we'll need to `count()` more, we schedule that immediately, before doing the job.
+Ahora cuando iniciamos `count()` y vemos que necesitaremos más `count()`, lo programamos inmediatamente, antes de hacer el trabajo.
 
-If you run it, it's easy to notice that it takes significantly less time.
+Si lo ejecutas, es fácil notar que lleva bastante menos tiempo.
 
-Why?  
+¿Por qué pasa esto?  
 
-That's simple: as you remember, there's the in-browser minimal delay of 4ms for many nested `setTimeout` calls. Even if we set `0`, it's `4ms` (or a bit more). So the earlier we schedule it - the faster it runs.
+Es simple: como recordarás existe un delay mínimo en el navegador de 4ms para varias llamadas anidadas a `setTimeout`. Si configuramos `0`, es `4ms` (o un poco más). Por lo que mientras antes lo programemos más rápido se ejecutará.
 
-Finally, we've split a CPU-hungry task into parts - now it doesn't block the user interface. And its overall execution time isn't much longer.
+Finalmente hemos dividido una tarea con un alto consumo de CPU en partes y ahora no bloquea la interfaz de usuario. Y el tiempo general de ejecución no es mucho mayor.
 
-## Use case 2: progress indication
+## Caso de uso 2: indicación de progreso
 
-Another benefit of splitting heavy tasks for browser scripts is that we can show progress indication.
+Otro beneficio de dividir tareas pesadas para scripts de navegadores es que podemos indicar el progreso.
 
 Usually the browser renders after the currently running code is complete. Doesn't matter if the task takes a long time. Changes to DOM are painted only after the task is finished.
 
