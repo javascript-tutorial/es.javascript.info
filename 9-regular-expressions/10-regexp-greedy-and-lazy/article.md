@@ -6,7 +6,7 @@ Debemos entender muy bien cómo funciona la búsqueda si planeamos buscar algo m
 
 Tomemos la siguiente tarea como ejemplo.
 
-Tenemos un texto y necesitamos reemplazar todas las comillas `"..."` con marcas de guillemet: `«...»`. En muchos paises los tipógrafos las prefieren.
+Tenemos un texto y necesitamos reemplazar todas las comillas `"..."` con comillas latinas: `«...»`. En muchos paises los tipógrafos las prefieren.
 
 Por ejemplo: `"Hola, mundo"` debe ser `«Hola, mundo»`. Existen otras commillas, como `„Witam, świat!”` (Polaco) o `「你好，世界」` (Chino), pero para nuestra tarea elegimos `«...»`.
 
