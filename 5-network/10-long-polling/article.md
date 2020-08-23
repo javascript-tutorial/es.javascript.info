@@ -6,7 +6,7 @@ Al ser muy fácil de implementar, también es suficientemente bueno en muchos ca
 
 ## Sondeo regular
 
-La forma más sencilla de obtener nueva información del servidor es un sondeo periódico. Es decir, solicitudes regulares al servidor: "Hola, estoy aquí, ¿tienes información para mí?". Por ejemplo, una vez en 10 segundos.
+La forma más sencilla de obtener nueva información del servidor es un sondeo periódico. Es decir, solicitudes regulares al servidor: "Hola, estoy aquí, ¿tienes información para mí?". Por ejemplo, una vez cada 10 segundos.
 
 En respuesta, el servidor primero se da cuenta de que el cliente está en línea, y segundo, envía un paquete de mensajes que recibió hasta ese momento.
 
