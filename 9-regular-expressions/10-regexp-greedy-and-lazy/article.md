@@ -90,7 +90,7 @@ Probablemente no es lo que esperabamos, pero así es como funciona.
 
 **En el modo codicioso (por defecto) un cuantificador se repite tantas veces como sea posible.**
 
-El motor de regexp agrega a la coincidencia tantos caracateres como pueda abarcar el patrón `pattern:.+`, y luego los abrevia uno por uno, si el resto del patrón no coincide.
+El motor de regexp agrega a la coincidencia tantos caracteres como pueda abarcar el patrón `pattern:.+`, y luego los abrevia uno por uno si el resto del patrón no coincide.
 
 En nuestro caso queremos otra cosa. Es entonces donde el modo perezoso puede ayudar.
 
