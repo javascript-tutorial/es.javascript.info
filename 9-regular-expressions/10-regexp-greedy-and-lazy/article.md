@@ -293,7 +293,7 @@ alert( str2.match(regexp) ); // <a href="link1" class="doc">, <a href="link2" cl
 Los cuantfiadores tienen dos modos de funcionamiento:
 
 Codiciosa
-: Por defecto el motor de expresión regular prueba repetir el cualntificador tantas veces como sea posible. Por ejemplo, `pattern:\d+` consume todos los posibles dígitos. Cuando es imposible consumir más (no hay más dígitos o es el fin de la cadena), entonces continua hasta coincidir con el resto del patrón. Si no hay coincidencia entonces se decrementa el número de repeticiones (reinicios) y prueba de nuevo.
+: Por defecto el motor de expresión regular prueba repetir el cualntificador tantas veces como sea posible. Por ejemplo, `pattern:\d+` consume todos los posibles dígitos. Cuando es imposible consumir más (no hay más dígitos o es el fin de la cadena), entonces continúa hasta coincidir con el resto del patrón. Si no hay coincidencia entonces se decrementa el número de repeticiones (reinicios) y prueba de nuevo.
 
 Perezoso
 : Habilitado por el signo de interrogación `pattern:?` después de un cuantificador. El motor de regexp prueba la coincidencia para el resto del patrón antes de cada repetición del cuantificador.
