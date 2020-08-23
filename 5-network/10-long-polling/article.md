@@ -70,7 +70,7 @@ Como puedes ver, la función `subscribe` realiza una búsqueda, luego espera la 
 ```warn header="El servidor debería estar bien aún con muchas conexiones pendientes"
 La arquitectura del servidor debe poder funcionar con muchas conexiones pendientes.
 
-Algunas arquitecturas de servidor ejecutan un proceso por conexión. Para muchas conexiones, habrá tantos procesos y cada proceso requiere mucha memoria. Tantas conexiones lo consumen todo.
+Algunas arquitecturas de servidor ejecutan un proceso por conexión. Habrá tantos procesos como conexiones y cada proceso requiere mucha memoria. Demasiadas conexiones la consumirán toda.
 
 Este suele ser el caso de los backends escritos en PHP, lenguajes Ruby, pero técnicamente no es un lenguaje, sino un problema de implementación. La mayoría de los lenguajes modernos permiten implementar un backend adecuado, pero algunos lo hacen más fácil que el otro.
 
