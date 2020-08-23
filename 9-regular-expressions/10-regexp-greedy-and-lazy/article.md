@@ -255,7 +255,7 @@ alert( str.match(regexp) ); // <a href="link1" class="wrong">... <p style="" cla
 
 Ahora falla. La coincidencia no solo incluye el enlace, sino también mucho texto después, incluyendo `<p...>`.
 
-¿Porqué?
+¿Por qué?
 
 Eso es lo que está pasando:
 
