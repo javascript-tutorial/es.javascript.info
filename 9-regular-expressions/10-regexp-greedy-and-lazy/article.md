@@ -84,7 +84,7 @@ Estas palabras comunes no son tan obvias para determinar por qué la regexp fall
 
 7. La coincidencia está completa.
 
-8. Entonces la primer coincidencia es `match:"bruja" y su "escoba"`. Si la expresión regular tiene la bandera `pattern:g`, entonces la búsqueda continuará desde donde termina la primera coincidencia. No hay más comillas dobles en el resto de la cadena `subject:son una`, entonces no hay más resultados.
+8. Entonces la primera coincidencia es `match:"bruja" y su "escoba"`. Si la expresión regular tiene la bandera `pattern:g`, entonces la búsqueda continuará desde donde termina la primera coincidencia. No hay más comillas dobles en el resto de la cadena `subject:son una`, entonces no hay más resultados.
 
 Probablemente no es lo que esperabamos, pero así es como funciona.
 
