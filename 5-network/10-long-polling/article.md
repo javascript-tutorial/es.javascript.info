@@ -12,7 +12,7 @@ En respuesta, el servidor primero se da cuenta de que el cliente está en línea
 
 Eso funciona, pero hay desventajas:
 1. Los mensajes se transmiten con un retraso de hasta 10 segundos (entre solicitudes).
-2. Incluso si no hay mensajes, el servidor se bombardea con solicitudes cada 10 segundos, aunque el usuario haya cambiado a otro lugar o este dormido. Eso es bastante difícil de manejar, hablando en términos de rendimiento.
+2. Incluso si no hay mensajes, el servidor se bombardea con solicitudes cada 10 segundos, aunque el usuario haya cambiado a otro lugar o esté dormido. Eso es bastante difícil de manejar, hablando en términos de rendimiento.
 
 Entonces, si hablamos de un servicio muy pequeño, el enfoque puede ser viable, pero en general, necesita una mejora.
 
