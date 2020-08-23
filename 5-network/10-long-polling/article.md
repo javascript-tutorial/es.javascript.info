@@ -67,7 +67,7 @@ subscribe();
 
 Como puedes ver, la función `subscribe` realiza una búsqueda, luego espera la respuesta, la maneja y se llama a sí misma nuevamente.
 
-```warn header="El servidor debería estar bien con muchas conexiones pendientes"
+```warn header="El servidor debería estar bien aún con muchas conexiones pendientes"
 La arquitectura del servidor debe poder funcionar con muchas conexiones pendientes.
 
 Algunas arquitecturas de servidor ejecutan un proceso por conexión. Para muchas conexiones, habrá tantos procesos y cada proceso requiere mucha memoria. Tantas conexiones lo consumen todo.
