@@ -44,7 +44,7 @@ async function subscribe() {
   if (response.status == 502) {
     // El estado 502 es un error de "tiempo de espera agotado" en la conexión,
     // puede suceder cuando la conexión estuvo pendiente durante demasiado tiempo,
-    // y el servidor remoto o un proxy lo cerró
+    // y el servidor remoto o un proxy la cerró
     // vamos a reconectarnos
     await subscribe();
   } else if (response.status != 200) {
