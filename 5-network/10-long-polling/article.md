@@ -72,7 +72,7 @@ La arquitectura del servidor debe poder funcionar con muchas conexiones pendient
 
 Algunas arquitecturas de servidor ejecutan un proceso por conexión. Habrá tantos procesos como conexiones y cada proceso requiere mucha memoria. Demasiadas conexiones la consumirán toda.
 
-Este suele ser el caso de los backends escritos en PHP, lenguajes Ruby, pero técnicamente no es un lenguaje, sino un problema de implementación. La mayoría de los lenguajes modernos permiten implementar un backend adecuado, pero algunos lo hacen más fácil que el otro.
+Este suele ser el caso de los backends escritos en lenguajes PHP, Ruby, pero técnicamente no es un problema del lenguaje sino de implementación. La mayoría de los lenguajes modernos permiten implementar un backend adecuado, pero algunos lo hacen más fácil que otros.
 
 Los backends escritos con Node.js generalmente no tienen estos problemas.
 ```
