@@ -48,7 +48,7 @@ function accept(req, res) {
     req.on('data', function(chunk) {
       message += chunk;
     }).on('end', function() {
-      publish(message); // publicarlo a todos
+      publish(message); // publicarlo para todos
       res.end("ok");
     });
 
