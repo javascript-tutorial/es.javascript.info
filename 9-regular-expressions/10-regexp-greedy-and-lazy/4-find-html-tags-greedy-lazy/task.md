@@ -7,7 +7,7 @@ Un ejemplo de uso:
 ```js run
 let regexp = /tu regexp/g;
 
-let str = '<> <a href="/"> <input type="radio" comprobado> <b>';
+let str = '<> <a href="/"> <input type="radio" checked > <b>';
 
 alert( str.match(regexp) ); // '<a href="/">', '<input type="radio" comprobado>', '<b>'
 ```
