@@ -41,7 +41,7 @@ alert( str.match(regexp) ); // "She's the one!"
 
 ¡Ahora funciona! El motor de expresiones regulares encuentra la primera comilla `pattern:(['"])` y memoriza su contenido. Este es el primer grupo de captura.
 
-continuando en el patrón, `pattern:\1` significa "encuentra el mismo texto que en el primer grupo", en nuestro caso exactamente la misma comilla.
+Continuando en el patrón, `pattern:\1` significa "encuentra el mismo texto que en el primer grupo", en nuestro caso exactamente la misma comilla.
 
 Similar a esto, `pattern:\2` debería significar: el contenido del segundo grupo, `pattern:\3` - del tercer grupo, y así sucesivamente.
 
