@@ -31,7 +31,7 @@ function SubscribePane(elem, url) {
     let response = await fetch(url);
 
     if (response.status == 502) {
-      // El tiempo de conexión expiro
+      // El tiempo de conexión expiró
       // sucede cuando la conexión estuvo pendiente durante demasiado tiempo
       // vamos a reconectarnos
       await subscribe();
