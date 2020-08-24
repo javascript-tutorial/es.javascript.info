@@ -183,7 +183,7 @@ Acá hay una demostración, los cambios a `i` no se mostrarán hasta que la func
 </script>
 ```
 
-... Pero puede que queramos mostrar algo durante la tarea, e.g. una barra de progreso.
+... Pero puede que queramos mostrar algo durante la tarea, por ejemplo una barra de progreso.
 
 Si dividimos la tarea más pesada en partes más pequeñas usando `setTimeout`, entonces los cambios son aplicados entre ellos.
 
