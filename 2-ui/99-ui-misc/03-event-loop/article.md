@@ -333,7 +333,7 @@ Para cálculos largos y pesados que no deberían bloquear el ciclo de eventos, p
 
 Esa es una forma de ejecutar código en otro hilo paralelo.
 
-Los Web Workers pueden intercambiar mensajes con el proceso principal, pero tienen sus propias variables y su propio loop de eventos.
+Los Web Workers pueden intercambiar mensajes con el proceso principal, pero tienen sus propias variables y su propio ciclo de eventos.
 
 Los Web Workers no tienen acceso a DOM, por lo que son útiles principalmente para cálculos, para utilizar varios núcleos de CPU simultáneamente.
 ```
