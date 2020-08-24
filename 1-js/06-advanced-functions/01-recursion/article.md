@@ -70,7 +70,11 @@ pow(x, n) =
 
 También podemos decir que `pow` * recursivamente se llama a sí mismo * hasta que` n == 1`.
 
+<<<<<<< HEAD
 ![diagrama recursivo de pow](recursion-pow.svg)
+=======
+![recursive diagram of pow](recursion-pow.svg)
+>>>>>>> b85413d0bdd6f4f468fcadeacb4c4056e3671ce1
 
 
 Por ejemplo, para calcular `pow (2, 4)` la variante recursiva realiza estos pasos:
@@ -85,7 +89,11 @@ Por lo tanto, la recursión reduce una llamada de función a una más simple y l
 ````smart header="La recursión suele ser más corta"
 Una solución recursiva suele ser más corta que una iterativa.
 
+<<<<<<< HEAD
 Aquí podemos reescribir lo mismo usando el operador condicional `?` En lugar de `if` para hacer que `pow (x, n)`sea más conciso y aún bastante legible:
+=======
+Here we can rewrite the same using the conditional operator `?` instead of `if` to make `pow(x, n)` more terse and still very readable:
+>>>>>>> b85413d0bdd6f4f468fcadeacb4c4056e3671ce1
 
 ```js run
 función pow (x, n) {
@@ -96,15 +104,27 @@ función pow (x, n) {
 
 El número máximo de llamadas anidadas (incluida la primera) se llama *profundidad de recursión*. En nuestro caso, será exactamente `n`.
 
+<<<<<<< HEAD
 La profundidad máxima de recursión está limitada por el motor de JavaScript. Podemos confiar en que sea 10000, algunos motores permiten más, pero 100000 probablemente esté fuera del límite para la mayoría de ellos. Hay optimizaciones automáticas que ayudan a aliviar esto ("optimizaciones de llamadas de cola"), pero aún no son compatibles en todas partes y funcionan solo en casos simples.
+=======
+The maximal recursion depth is limited by JavaScript engine. We can rely on it being 10000, some engines allow more, but 100000 is probably out of limit for the majority of them. There are automatic optimizations that help alleviate this ("tail calls optimizations"), but they are not yet supported everywhere and work only in simple cases.
+>>>>>>> b85413d0bdd6f4f468fcadeacb4c4056e3671ce1
 
 Eso limita la aplicación de la recursividad, pero sigue siendo muy amplia. Hay muchas tareas donde la forma recursiva de pensar proporciona un código más simple, más fácil de mantener.
 
+<<<<<<< HEAD
 ## El contexto de ejecución y pila
+=======
+## The execution context and stack
+>>>>>>> b85413d0bdd6f4f468fcadeacb4c4056e3671ce1
 
 Ahora examinemos cómo funcionan las llamadas recursivas. Para eso observaremos lo que sucede debajo del sombrero en las funciones.
 
+<<<<<<< HEAD
 La información sobre el proceso de ejecución de una función en ejecución se almacena en su *contexto de ejecución*.
+=======
+The information about the process of execution of a running function is stored in its *execution context*.
+>>>>>>> b85413d0bdd6f4f468fcadeacb4c4056e3671ce1
 
 El [contexto de ejecución](https://tc39.github.io/ecma262/#sec-execution-contexts) es una estructura de datos interna que contiene detalles sobre la ejecución de una función: dónde está el flujo de control ahora, las variables actuales, el valor de `this` (no lo usamos aquí) y algunos otros detalles internos.
 
@@ -187,10 +207,19 @@ El nuevo contexto de ejecución actual está en la parte superior (y en negrita)
 
 Cuando terminamos la subllamada -- es fácil reanudar el contexto anterior, ya que mantiene ambas variables y el lugar exacto del código donde se detuvo. Aquí en la imagen usamos la palabra "línea", pero por supuesto es más precisa.
 
+<<<<<<< HEAD
 ```smart
 En la figura usamos la palabra línea "line" porque en nuestro ejemplo hay solo una subllamada en línea, pero generalmente una simple línea de código puede contener múltiples subllamadas, como `pow(…) + pow(…) + otraCosa(…)`.
 
 Entonces sería más preciso decir que la ejecución se reanuda "inmediatamente después de la subllamada".
+=======
+When we finish the subcall -- it is easy to resume the previous context, because it keeps both variables and the exact place of the code where it stopped.
+
+```smart
+Here in the picture we use the word "line", as our example there's only one subcall in line, but generally a single line of code may contain multiple subcalls, like `pow(…) + pow(…) + somethingElse(…)`.
+
+So it would be more precise to say that the execution resumes "immediately after the subcall".
+>>>>>>> b85413d0bdd6f4f468fcadeacb4c4056e3671ce1
 ```
 
 ### pow(2, 1)
@@ -324,33 +353,57 @@ let company = {
 
 En otras palabras, una empresa tiene departamentos.
 
+<<<<<<< HEAD
 - Un departamento puede tener una gran variedad de personal. Por ejemplo, el departamento de ventas `sales` tiene 2 empleados: John y Alice.
 - O un departamento puede dividirse en subdepartamentos, como `development` tiene dos ramas: `sites` e `internals`. Cada uno de ellos tiene su propio personal.
 - También es posible que cuando un subdepartamento crece, se divida en subdepartamentos (o equipos).
+=======
+- A department may have an array of staff. For instance, `sales` department has 2 employees: John and Alice.
+- Or a department may split into subdepartments, like `development` has two branches: `sites` and `internals`. Each of them has their own staff.
+- It is also possible that when a subdepartment grows, it divides into subsubdepartments (or teams).
+>>>>>>> b85413d0bdd6f4f468fcadeacb4c4056e3671ce1
 
     Por ejemplo, el departamento `sites` en el futuro puede dividirse en equipos para `siteA` y `siteB`. Y ellos, potencialmente, pueden dividirse aún más. Eso no está en la imagen, solo algo a tener en cuenta.
 
 Ahora digamos que queremos una función para obtener la suma de todos los salarios. ¿Cómo podemos hacer eso?
 
+<<<<<<< HEAD
 Un enfoque iterativo no es fácil, porque la estructura no es simple. La primera idea puede ser hacer un bucle `for` sobre `company` con un sub-bucle anidado sobre departamentos de primer nivel. Pero luego necesitamos más sub-bucles anidados para iterar sobre el personal en los departamentos de segundo nivel como `sites`. ...¿Y luego otro sub-bucle dentro de los de los departamentos de tercer nivel que podrían aparecer en el futuro? ¿Deberíamos parar en el nivel 3 o hacer 4 niveles de bucles? Si ponemos 3-4 bucles anidados en el código para atravesar un solo objeto, se vuelve bastante feo.
+=======
+An iterative approach is not easy, because the structure is not simple. The first idea may be to make a `for` loop over `company` with nested subloop over 1st level departments. But then we need more nested subloops to iterate over the staff in 2nd level departments like `sites`... And then another subloop inside those for 3rd level departments that might appear in the future? If we put 3-4 nested subloops in the code to traverse a single object, it becomes rather ugly.
+>>>>>>> b85413d0bdd6f4f468fcadeacb4c4056e3671ce1
 
 Probemos la recursividad.
 
 Como podemos ver, cuando nuestra función hace que un departamento sume, hay dos casos posibles:
 
+<<<<<<< HEAD
 1. O bien es un departamento "simple" con una *array de personas* -- entonces podemos sumar los salarios en un bucle simple.
 2. O es *un objeto con subdepartamentos `N`*, entonces podemos hacer llamadas recursivas `N` para obtener la suma de cada uno de los subdepartamentos y combinar los resultados.
 
 El primer caso es la base de la recursividad, el caso trivial, cuando obtenemos un "array"
 
 El segundo caso, cuando obtenemos un objeto, es el paso recursivo. Una tarea compleja se divide en subtareas para departamentos más pequeños. A su vez, pueden dividirse nuevamente, pero tarde o temprano la división terminará en (1).
+=======
+1. Either it's a "simple" department with an *array* of people -- then we can sum the salaries in a simple loop.
+2. Or it's *an object* with `N` subdepartments -- then we can make `N` recursive calls to get the sum for each of the subdeps and combine the results.
+
+The 1st case is the base of recursion, the trivial case, when we get an array.
+
+The 2nd case when we get an object is the recursive step. A complex task is split into subtasks for smaller departments. They may in turn split again, but sooner or later the split will finish at (1).
+>>>>>>> b85413d0bdd6f4f468fcadeacb4c4056e3671ce1
 
 El algoritmo es probablemente aún más fácil de leer desde el código:
 
 
 ```js run
+<<<<<<< HEAD
 let company = { // el mismo objeto, comprimido por brevedad
   sales: [{name: 'John', salary: 1000}, {name: 'Alice', salary: 600 }],
+=======
+let company = { // the same object, compressed for brevity
+  sales: [{name: 'John', salary: 1000}, {name: 'Alice', salary: 1600 }],
+>>>>>>> b85413d0bdd6f4f468fcadeacb4c4056e3671ce1
   development: {
     sites: [{name: 'Peter', salary: 2000}, {name: 'Alex', salary: 1800 }],
     internals: [{name: 'Jack', salary: 1300}]
@@ -379,7 +432,11 @@ El código es corto y fácil de entender (¿Quizás?). Ese es el poder de la rec
 
 Aquí está el diagrama de llamadas:
 
+<<<<<<< HEAD
 ![salarios recursivos](recursive-salaries.svg)
+=======
+![recursive salaries](recursive-salaries.svg)
+>>>>>>> b85413d0bdd6f4f468fcadeacb4c4056e3671ce1
 
 Podemos ver fácilmente el principio: para un objeto `{...}` se realizan subllamadas, mientras que los Arrays `[...]` son las "hojas" del árbol recursivo, dan un resultado inmediato.
 
@@ -422,7 +479,11 @@ let arr = [obj1, obj2, obj3];
 
 ...Pero hay un problema con los Arrays. Las operaciones "eliminar elemento" e "insertar elemento" son costosas. Por ejemplo, la operación `arr.unshift(obj)` debe renumerar todos los elementos para dejar espacio para un nuevo `obj`, y si la matriz es grande, lleva tiempo. Lo mismo con `arr.shift ()`.
 
+<<<<<<< HEAD
 Las únicas modificaciones estructurales que no requieren renumeración masiva son aquellas que operan con el final del Array: `arr.push/pop`. Por lo tanto, una matriz puede ser bastante lenta para grandes colas.
+=======
+The only structural modifications that do not require mass-renumbering are those that operate with the end of array: `arr.push/pop`. So an array can be quite slow for big queues, when we have to work with the beginning.
+>>>>>>> b85413d0bdd6f4f468fcadeacb4c4056e3671ce1
 
 Alternativamente, si realmente necesitamos una inserción/eliminación rápida, podemos elegir otra estructura de datos llamada [lista enlazada](https://es.wikipedia.org/wiki/Lista_enlazada).
 
@@ -450,7 +511,11 @@ let list = {
 
 Representación gráfica de la lista:
 
+<<<<<<< HEAD
 ![lista enlazada](linked-list.svg)
+=======
+![linked list](linked-list.svg)
+>>>>>>> b85413d0bdd6f4f468fcadeacb4c4056e3671ce1
 
 Un código alternativo para la creación:
 
@@ -462,7 +527,11 @@ list.next.next.next = { value: 4 };
 list.next.next.next.next = null;
 ```
 
+<<<<<<< HEAD
 Aquí podemos ver aún más claramente que hay varios objetos, cada uno tiene el `value` y el `next` apuntando al vecino. La variable `list` es el primer objeto en la cadena, por lo que siguiendo los punteros` next` de ella podemos alcanzar cualquier elemento.
+=======
+Here we can even more clearly see that there are multiple objects, each one has the `value` and `next` pointing to the neighbour. The `list` variable is the first object in the chain, so following `next` pointers from it we can reach any element.
+>>>>>>> b85413d0bdd6f4f468fcadeacb4c4056e3671ce1
 
 La lista se puede dividir fácilmente en varias partes y luego volver a unir:
 
@@ -504,8 +573,11 @@ list.next = list.next.next;
 ```
 
 ![linked list](linked-list-remove-1.svg)
+<<<<<<< HEAD
 
 Hicimos que `list.next` salte sobre `1` al valor `2`. El valor `1` ahora está excluido de la cadena. Si no se almacena en ningún otro lugar, se eliminará automáticamente de la memoria.
+=======
+>>>>>>> b85413d0bdd6f4f468fcadeacb4c4056e3671ce1
 
 A diferencia de los Arrays, no hay renumeración en masa, podemos reorganizar fácilmente los elementos.
 
@@ -515,16 +587,30 @@ El principal inconveniente es que no podemos acceder fácilmente a un elemento p
 
 ... Pero no siempre necesitamos tales operaciones. Por ejemplo, cuando necesitamos una cola o incluso un [deque](https://es.wikipedia.org/wiki/Cola_doblemente_terminada) -- la estructura ordenada que debe permitir agregar/eliminar elementos muy rápidamente desde ambos extremos.
 
+<<<<<<< HEAD
 Las "listas" pueden ser mejoradas:
 - Podemos agregar la propiedad `prev` (previo) junto a `next` (siguiente) para referenciar el elemento previo para mover hacia atrás fácilmente.
 - Podemos también agregar una variable llamada `tail` (cola) referenciando el último elemento de la lista (y actualizarla cuando se agregan/remueven elementos del final).
 - ...La estructura de datos puede variar de acuerdo a nuestras necesidades.
 
+=======
+...But we don't always need such operations. For instance, when we need a queue or even a [deque](https://en.wikipedia.org/wiki/Double-ended_queue) -- the ordered structure that must allow very fast adding/removing elements from both ends, but access to its middle is not needed.
+
+Lists can be enhanced:
+- We can add property `prev` in addition to `next` to reference the previous element, to move back easily.
+- We can also add a variable named `tail` referencing the last element of the list (and update it when adding/removing elements from the end).
+- ...The data structure may vary according to our needs.
+>>>>>>> b85413d0bdd6f4f468fcadeacb4c4056e3671ce1
 
 ## Resumen
 
+<<<<<<< HEAD
 Glosario:
 - *Recursion* es concepto de programación que significa una función "auto-llamada". Dichas funciones se pueden utilizar para resolver ciertas tareas de manera elegante.
+=======
+Terms:
+- *Recursion*  is a programming term that means calling a function from itself. Recursive functions can be used to solve tasks in elegant ways.
+>>>>>>> b85413d0bdd6f4f468fcadeacb4c4056e3671ce1
 
     Cuando una función se llama a sí misma, eso se llama *paso de recursión*. La *base* de la recursividad son los argumentos de la función que hacen que la tarea sea tan simple que la función no realiza más llamadas.
 

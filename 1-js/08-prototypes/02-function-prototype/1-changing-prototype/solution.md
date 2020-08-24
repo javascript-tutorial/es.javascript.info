@@ -7,7 +7,11 @@ Respuestas:
 
 2. `falso`. 
 
+<<<<<<< HEAD
     Los objetos se asignan por referencia. El objeto de `Rabbit.prototype` no está duplicado, sigue siendo un solo objeto referenciado tanto por `Rabbit.prototype` como por el `[[Prototype]]` de `rabbit`. 
+=======
+    Objects are assigned by reference. The object from `Rabbit.prototype` is not duplicated, it's still a single object referenced both by `Rabbit.prototype` and by the `[[Prototype]]` of `rabbit`. 
+>>>>>>> b85413d0bdd6f4f468fcadeacb4c4056e3671ce1
 
     Entonces, cuando cambiamos su contenido a través de una referencia, es visible a través de la otra.
 

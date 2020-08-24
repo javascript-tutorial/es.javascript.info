@@ -2,18 +2,18 @@ importance: 4
 
 ---
 
-# ¿Qué valores serán mostrados por el bucle "for"?
+# Which values get shown by the "for" loop?
 
-Para cada bucle, anota qué valores mostrará y luego compara las respuestas.
+For each loop write down which values it is going to show. Then compare with the answer.
 
-Ambos bucles ¿`alertan` los mismos valores?
+Both loops `alert` same values or not?
 
-1. La forma del sufijo:
+1. The postfix form:
 
     ```js
     for (let i = 0; i < 5; i++) alert( i );
     ```
-2. La forma del prefijo:
+2. The prefix form:
 
     ```js
     for (let i = 0; i < 5; ++i) alert( i );

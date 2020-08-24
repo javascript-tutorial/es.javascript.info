@@ -7,9 +7,15 @@ libs:
 
 # Recorriendo el DOM
 
+<<<<<<< HEAD
 El DOM nos permite hacer cualquier cosa con sus elementos y contenidos, pero lo primero que tenemos que hacer es llegar al objeto correspondiente del DOM.
 
 Todas las operaciones en el DOM comienzan con el objeto `document`. Este es el principal "punto de entrada" al DOM. Desde ahí podremos acceder a cualquier nodo.
+=======
+The DOM allows us to do anything with elements and their contents, but first we need to reach the corresponding DOM object.
+
+All operations on the DOM start with the `document` object. That's the main "entry point" to DOM. From it we can access any node.
+>>>>>>> b85413d0bdd6f4f468fcadeacb4c4056e3671ce1
 
 Esta imagen representa los enlaces que nos permiten viajar a través de los nodos del DOM:
 
@@ -22,7 +28,11 @@ Vamos a analizarlos con más detalle.
 Los tres nodos superiores están disponibles como propiedades de `document`:
 
 `<html>` = `document.documentElement`
+<<<<<<< HEAD
 : El nodo superior del documento es `document.documentElement`. Este es el nodo del DOM para la etiqueta `<html>`.
+=======
+: The topmost document node is `document.documentElement`. That's the DOM node of the `<html>` tag.
+>>>>>>> b85413d0bdd6f4f468fcadeacb4c4056e3671ce1
 
 `<body>` = `document.body`
 : Otro nodo muy utilizado es el elemento `<body>` -- `document.body`.
@@ -86,9 +96,15 @@ Por ejemplo, aquí `<body>` tiene de hijos `<div>` y `<ul>` (y unos pocos nodos 
 </html>
 ```
 
+<<<<<<< HEAD
 ...Y los descendientes de `<body>` no son solo los hijos `<div>`, `<ul>` sino también elementos anidados más profundamente, como `<li>` (un hijo de `<ul>`) o `<b>` (un hijo de `<li>`) -- el subárbol entero.
 
 **La colección `childNodes` enumera todos los nodos hijos, incluidos los nodos de texto.**
+=======
+...And descendants of `<body>` are not only direct children `<div>`, `<ul>` but also more deeply nested elements, such as `<li>` (a child of `<ul>`) and `<b>` (a child of `<li>`) -- the entire subtree.
+
+**The `childNodes` collection lists all child nodes, including text nodes.**
+>>>>>>> b85413d0bdd6f4f468fcadeacb4c4056e3671ce1
 
 El ejemplo inferior muestra todos los hijos de `document.body`:
 
@@ -149,7 +165,11 @@ Hay dos importantes consecuencias de esto:
 La primera consecuencia es agradable. La segunda es tolerable, porque podemos usar `Array.from` para crear un array "real" desde la colección si es que queremos usar métodos del array:
 
   ```js run
+<<<<<<< HEAD
   alert( Array.from(document.body.childNodes).filter ); // función
+=======
+  alert( Array.from(document.body.childNodes).filter ); // function
+>>>>>>> b85413d0bdd6f4f468fcadeacb4c4056e3671ce1
   ```
 
 ```warn header="Las colecciones DOM son solo de lectura"
@@ -182,10 +202,23 @@ Por favor, no lo hagas. El bucle `for..in` itera sobre todas las propiedades enu
 
 ## Hermanos y el padre
 
+<<<<<<< HEAD
 *Los hermanos* son nodos que son hijos del mismo padre.
+=======
+*Siblings* are nodes that are children of the same parent.
+
+For instance, here `<head>` and `<body>` are siblings:
+
+```html
+<html>
+  <head>...</head><body>...</body>
+</html>
+```
+>>>>>>> b85413d0bdd6f4f468fcadeacb4c4056e3671ce1
 
 Por ejemplo, aquí `<head>` y `<body>` son hermanos:
 
+<<<<<<< HEAD
 ```html
 <html>
   <head>...</head><body>...</body>
@@ -209,6 +242,22 @@ alert( document.body.parentNode === document.documentElement ); // verdadero
 alert( document.head.nextSibling ); // HTMLBodyElement
 
 // antes de <body> va <head>
+=======
+The next sibling is in `nextSibling` property, and the previous one - in `previousSibling`.
+
+The parent is available as `parentNode`.
+
+For example:
+
+```js run
+// parent of <body> is <html>
+alert( document.body.parentNode === document.documentElement ); // true
+
+// after <head> goes <body>
+alert( document.head.nextSibling ); // HTMLBodyElement
+
+// before <body> goes <head>
+>>>>>>> b85413d0bdd6f4f468fcadeacb4c4056e3671ce1
 alert( document.body.previousSibling ); // HTMLHeadElement
 ```
 
@@ -224,10 +273,17 @@ Así que vamos a ver más enlaces de navegación que solo tienen en cuenta los *
 
 Los enlaces son similares a los de arriba, solo que tienen dentro la palabra `Element`:
 
+<<<<<<< HEAD
 - `children` -- solo esos hijos que tienen el elemento nodo.
 - `firstElementChild`, `lastElementChild` -- el primer y el último elemento hijo.
 - `previousElementSibling`, `nextElementSibling` -- elementos vecinos.
 - `parentElement` -- elemento padre.
+=======
+- `children` -- only those children that are element nodes.
+- `firstElementChild`, `lastElementChild` -- first and last element children.
+- `previousElementSibling`, `nextElementSibling` -- neighbor elements.
+- `parentElement` -- parent element.
+>>>>>>> b85413d0bdd6f4f468fcadeacb4c4056e3671ce1
 
 ````smart header="¿Por qué `parentElement`? ¿Puede el padre *no* ser un elemento?"
 La propiedad `parentElement` devuelve el "elemento" padre, mientras `parentNode` devuelve "cualquier nodo" padre. Estas propiedades son normalmente las mismas: ambas seleccionan el padre.
@@ -239,11 +295,19 @@ alert( document.documentElement.parentNode ); // documento
 alert( document.documentElement.parentElement ); // null
 ```
 
+<<<<<<< HEAD
 La razón es que el nodo raíz `document.documentElement` (`<html>`) tiene a `document` como su padre. Pero `document` no es un elemento nodo, por lo que `parentNode` lo devuelve y `parentElement` no lo hace.
 
 Este detalle puede ser útil cuando queramos navegar hacia arriba desde cualquier elemento `elem` al `<html>`, pero no hacia el `document`:
 ```js
 while(elem = elem.parentElement) { // sube hasta <html>
+=======
+The reason is that the root node `document.documentElement` (`<html>`) has `document` as its parent. But `document` is not an element node, so `parentNode` returns it and `parentElement` does not.
+
+This detail may be useful when we want to travel up from an arbitrary element `elem` to `<html>`, but not to the `document`:
+```js
+while(elem = elem.parentElement) { // go up till <html>
+>>>>>>> b85413d0bdd6f4f468fcadeacb4c4056e3671ce1
   alert( elem );
 }
 ```
@@ -280,12 +344,21 @@ Hasta ahora hemos descrito las propiedades de navegación básicas.
 
 Ciertos tipos de elementos del DOM pueden tener propiedades adicionales, específicas de su tipo, por conveniencia.
 
+<<<<<<< HEAD
 Las tablas son un gran ejemplo de ello, y representan un particular caso importante:
 
 **El elemento `<table>`**  soporta estas propiedades (añadidas a las que hemos dado anteriormente):
 - `table.rows` -- la colección de elementos`<tr>` de la tabla.
 - `table.caption/tHead/tFoot` -- referencias a los elementos `<caption>`, `<thead>`, `<tfoot>`.
 - `table.tBodies` -- la colección de elementos `<tbody>` (pueden ser muchos según el estándar pero siempre habrá al menos uno -- aunque no esté en el HTML el navegador lo pondrá en el DOM).
+=======
+Tables are a great example of that, and represent a particularly important case:
+
+**The `<table>`** element supports (in addition to the given above) these properties:
+- `table.rows` -- the collection of `<tr>` elements of the table.
+- `table.caption/tHead/tFoot` -- references to elements `<caption>`, `<thead>`, `<tfoot>`.
+- `table.tBodies` -- the collection of `<tbody>` elements (can be many according to the standard, but there will always be at least one -- even if it is not in the source HTML, the browser will put it in the DOM).
+>>>>>>> b85413d0bdd6f4f468fcadeacb4c4056e3671ce1
 
 **`<thead>`, `<tfoot>`, `<tbody>`** estos elementos proporcionan las propiedades de las `filas`.
 - `tbody.rows` -- la colección dentro de `<tr>`.
@@ -311,9 +384,15 @@ Un ejemplo de uso:
 </table>
 
 <script>
+<<<<<<< HEAD
   // seleccionar td con "dos" (primera fila, segunda columna)
   let td = table.*!*rows[0].cells[1]*/!*;
   td.style.backgroundColor = "red"; // destacarlo
+=======
+  // get td with "two" (first row, second column)
+  let td = table.*!*rows[0].cells[1]*/!*;
+  td.style.backgroundColor = "red"; // highlight it
+>>>>>>> b85413d0bdd6f4f468fcadeacb4c4056e3671ce1
 </script>
 ```
 
@@ -321,9 +400,15 @@ La especificación: [tabular data](https://html.spec.whatwg.org/multipage/tables
 
 También hay propiedades de navegación adicionales para los formularios HTML. Las veremos más adelante cuando empecemos a trabajar con los formularios.
 
+<<<<<<< HEAD
 ## Resumen
 
 Dado un nodo del DOM, podemos ir a sus inmediatos vecinos utilizando las propiedades de navegación.
+=======
+## Summary
+
+Given a DOM node, we can go to its immediate neighbors using navigation properties.
+>>>>>>> b85413d0bdd6f4f468fcadeacb4c4056e3671ce1
 
 Hay dos conjuntos principales de ellas:
 
