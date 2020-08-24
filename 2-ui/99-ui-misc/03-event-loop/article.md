@@ -314,7 +314,7 @@ El algoritmo más detallado del loop de eventos (aunque aún simplificado en com
 5. Ejecutar el paso 1.
 
 Para programar una nueva *macrotarea*:
-- Usar `setTimeout(f)` con cero delay.
+- Usar `setTimeout(f)` con un retraso de cero.
 
 Eso puede usarse para dividir una gran tarea de cálculo en partes, para que el navegador pueda reaccionar a los eventos del usuario y mostrar el progreso entre ellos.
 
