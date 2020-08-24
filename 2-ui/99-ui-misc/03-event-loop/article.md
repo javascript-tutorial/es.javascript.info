@@ -322,7 +322,7 @@ Además, se utiliza en los controladores de eventos para programar una acción d
 
 Para programar una nueva *microtarea*
 - Usar `queueMicrotask(f)`.
-- También realizar una promesa para que los controladores pasen por la cola de microtask.
+- También se usan promesas para que los controladores pasen por la cola de microtareas.
 
 No hay gestión de eventos de red o de UI entre las microtareas: se ejecutan inmediatamente una tras otra.
 
