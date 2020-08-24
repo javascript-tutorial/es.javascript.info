@@ -5,7 +5,7 @@ El flujo de ejecución de JavaScript en el navegador, así como en Node.js, est�
 
 Entender como este loop de eventos funciona es importante para optimizaciones y en algunos casos para utilizar la arquitectura correcta.
 
-En este capítulo primero vamos a ver detalles teóricos acerca de como funcionan las cosas y luego veremos aplicaciones prácticas de ese conocimiento.
+En este capítulo primero vamos a ver detalles teóricos acerca de cómo funcionan las cosas y luego veremos aplicaciones prácticas de ese conocimiento.
 
 ## Loop de eventos
 
