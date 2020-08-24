@@ -1,3 +1,4 @@
+
 # Loop de eventos: microtareas y macrotareas
 
 El flujo de ejecución de JavaScript en el navegador, así como en Node.js, está basado en un *event loop* (loop de eventos).
