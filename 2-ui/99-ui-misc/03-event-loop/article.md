@@ -265,7 +265,6 @@ alert("code");
 
 La imagen del loop de eventos completa se ve así (el orden es de arriba a abajo, es decir: primero el script, luego las microtareas, el renderizado, etc.):
 
-
 ![](eventLoop-full.svg)
 
 Todas las microtareas se completan antes de que se lleve a cabo cualquier otro manejo o renderizado o cualquier otra macrotarea.
