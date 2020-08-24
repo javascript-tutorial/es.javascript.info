@@ -78,7 +78,7 @@ function count() {
 count();
 ```
 
-Puede que incluso se muestre una alerta "Un script en esta página está provocando que el navegador se ejecute con lentitud".
+Puede que incluso se muestre una advertencia: "Un script en esta página está provocando que el navegador se ejecute con lentitud".
 
 Dividamos la tarea usando llamadas anidadas a `setTimeout`:
 
