@@ -30,7 +30,7 @@ Las tareas son programadas --> el motor las ejecuta --> aguarda por más tareas 
 
 Puede ocurrir que una tarea llegue mientras el motor está ocupado, entonces es puesta en cola.
 
-Las tareas de una cola, también llamada "Cola de macrotarea" (Término de v8):
+Las tareas forman una cola, también llamada "Cola de macrotarea" (Término de v8):
 
 ![](eventLoop.svg)
 
