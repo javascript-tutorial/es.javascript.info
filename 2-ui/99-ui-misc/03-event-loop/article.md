@@ -242,7 +242,7 @@ Junto con las *macrotareas* descriptas en este capítulo, existen *microtareas* 
 
 Las microtareas provienen únicamente de nuestro código. Por lo general, se crean mediante promesas: una ejecución del controlador `.then / catch / finally` se convierte en una microtarea. Las microtareas también se utilizan "bajo la cubierta" de "await", ya que es otra forma de manejo de promesas.
 
-Existe también una función especial `queueMicrotask(func)` que pone en fila `func` para ejecutarla en la cola.
+Existe también una función especial `queueMicrotask(func)` que pone a `func` en la cola de microtareas.
 
 **Inmediatamente después de cada *macrotarea*, el motor ejecuta todas las tareas desde la cola de *microtareas*, antes de ejecutar cualquier otra macrotarea o renderización o cualquier otra cosa.**
 
