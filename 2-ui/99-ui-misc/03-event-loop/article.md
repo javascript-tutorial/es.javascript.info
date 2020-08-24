@@ -38,7 +38,7 @@ Por ejemplo, mientras el motor está ocupado ejecutando un `script`, un usuario 
 
 Las tareas de la cola son ejecutadas según la base "El que primero llega primero se atiende". Cuando el motor del navegador termina con el `script`, se encarga del evento `mousemove`, continúa con `setTimeout`, etc.
 
-Hasta ahora bastante simple no?
+Hasta ahora bastante simple, ¿no?
 
 Dos detalles más:
 1. El renderizado nunca ocurre mientras el motor ejecuta una tarea. No importa si la tarea ocupa mucho tiempo. Solo se realizan cambios a DOM una vez que la tarea finaliza.
