@@ -218,7 +218,7 @@ Ahora el `<div>` muestra el incremento en el valor `i`, una especie de barra de 
 
 ## Caso de uso 3: hacer algo después del evento
 
-En un controlador de evento nosotros podemos decidir posponer alguna acción hasta que el evento aparezca y sea controlado en todos los niveles. Podemos hacer esto envolviendo el código en delay cero `setTimeout`.
+En un controlador de evento nosotros podemos decidir posponer alguna acción hasta que el evento aparezca y sea controlado en todos los niveles. Podemos hacer esto envolviendo el código en un `setTimeout` con retraso cero.
 
 En el capítulo <info:dispatch-events> vimos un ejemplo: el evento personalizado `menu-open` es distribuído en `setTimeout`, de modo que ocurre después de que el evento "click" se maneja por completo.
 
