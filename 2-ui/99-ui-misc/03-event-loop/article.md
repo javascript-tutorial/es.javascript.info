@@ -306,7 +306,7 @@ Aquí hay un ejemplo con la "barra de progreso de conteo", similar al que se mos
 El algoritmo más detallado del loop de eventos (aunque aún simplificado en comparación con el [specification](https://html.spec.whatwg.org/multipage/webappapis.html#event-loop-processing-model)):
 
 1. Retirar de la cola y ejecutar la tarea más antigua de la cola *macrotareas* (por ejemplo, "script").
-2. Ejecutar todas las *microtasks*:
+2. Ejecutar todas las *microtareas*:
      - Mientras la cola de microtareas no esté vacía:
          - Retirar de la cola y ejecutar la microtarea más antigua.
 3. Rendericar los cambios si los hubiera.
