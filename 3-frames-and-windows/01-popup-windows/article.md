@@ -3,7 +3,6 @@
 Un popup window es uno de los métodos más antiguos para mostrar documentos adicionales al usuario.
 
 Básicamente, solo ejecutas :
-
 ```js
 window.open("https://javascript.info/");
 ```
