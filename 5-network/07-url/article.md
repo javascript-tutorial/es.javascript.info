@@ -1,5 +1,5 @@
 
-# URL objects
+# Objetos URL
 
 The built-in [URL](https://url.spec.whatwg.org/#api) class provides a convenient interface for creating and parsing URLs.
 
