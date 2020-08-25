@@ -26,7 +26,6 @@ En el pasado, sitios malvados abusaron mucho de las ventanas emergentes. Una pá
 **La mayoría de los navegadores bloquean las ventanas emergentes si se llaman fuera de los controladores de eventos activados por el usuario, como `onclick`.**
 
 Por ejemplo:
-
 ```js
 // popup blocked
 window.open("https://javascript.info");
