@@ -84,6 +84,7 @@ Configuración para params `params`:
   - `redimensionable` (si/no) -- permite deshabilitar el cambio de tamaño para la nueva ventana. No recomendado.
   - `barras de desplazamiento` (si/no) -- permite deshabilitar las barras de desplazamiento para la nueva ventana. No recomendado.
 
+
 También hay una serie de características específicas del navegador menos compatibles, que generalmente no se usan. Check <a href="https://developer.mozilla.org/en/DOM/window.open">window.open in MDN</a> for examples.
 
 ## Ejemplo: Minimalizar una ventana
