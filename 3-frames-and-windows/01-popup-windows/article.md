@@ -215,8 +215,6 @@ Para evitar abusos, el navegador suele bloquear estos métodos. Solo funcionan d
 ```
 
 ```warn header="No minification/maximization"
-Para prevenir el abuso, el navegador suele bloquear estos métodos. Sólo funcionan de forma fiable en los popups que hemos abierto, que no tienen pestañas adicionales.
-
 JavaScript no tiene forma de minimizar o maximizar una ventana. Estas funciones de nivel de sistema operativo están ocultas para los desarrolladores de frontend.
 Los métodos de movimiento / cambio de tamaño no funcionan para ventanas maximizadas / minimizadas.
 ```
