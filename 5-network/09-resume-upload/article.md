@@ -1,36 +1,36 @@
-# Resumable file upload
+# Carga de archivos reanudable
 
-With `fetch` method it's fairly easy to upload a file.
+Con el metodo `fetch` es bastante facil cargar un archivo.
 
-How to resume the upload after lost connection? There's no built-in option for that, but we have the pieces to implement it.
+¿Como reanudar la carga de un archivo despues de perder la conección? No hay una opcion incorporada para eso, pero tenemos las piezas para implementarlo.
 
-Resumable uploads should come with upload progress indication, as we expect big files (if we may need to resume). So, as `fetch` doesn't allow to track upload progress, we'll use [XMLHttpRequest](info:xmlhttprequest).
+Las cargas reanudables deberian venir con indicacion de progreso, ya que esperamos archivos grandes (Si necesitamos reanudar). Entonces, ya que `fetch` no permite rastrear el progreso de carga, usaremos [XMLHttpRequest](info:xmlhttprequest).
 
-## Not-so-useful progress event
+## Evento de progreso poco util
 
-To resume upload, we need to know how much was uploaded till the connection was lost.
+Para reanudar la carga, necesitamos saber cuanto fue cargado hasta la perdida de la coneccion.
 
-There's `xhr.upload.onprogress` to track upload progress.
+Disponemos de `xhr.upload.onprogress` para rastrear el progreso de carga.
 
-Unfortunately, it won't help us to resume the upload here, as it triggers when the data is *sent*, but was it received by the server? The browser doesn't know.
+Desafortunadamente, esto no nos ayudara a reanudar la descarga, Ya que se origina cuando los datos son *enviados*, ¿pero fue recivida por el servidor? el navegador no lo sabe.
 
-Maybe it was buffered by a local network proxy, or maybe the remote server process just died and couldn't process them, or it was just lost in the middle and didn't reach the receiver.
+Tal vez fue almacenada por un proxy de la red local, o quizá el proceso del servidor remoto solo murio y no pudo procesarla, o solo fue perdida en el medio y no alcanzo al receptor.
 
-That's why this event is only useful to show a nice progress bar.
+Es por eso que este evento solo es útil para mostrar una barra de progreso bonita.
 
-To resume upload, we need to know *exactly* the number of bytes received by the server. And only the server can tell that, so we'll make an additional request.
+Para resumir una carga, necesitamos saber *exactamente* el numero de bytes recibidos por el servidor. Y eso solo lo sabe el servidor, por lo tanto haremos una solicitud adicional.
 
-## Algorithm
+## Algoritmos
 
-1. First, create a file id, to uniquely identify the file we're going to upload:
+1. Primero, crear un archivo id, para unicamente identificar el archivo que vamos a subir:
     ```js
     let fileId = file.name + '-' + file.size + '-' + +file.lastModifiedDate;
     ```
-    That's needed for resume upload, to tell the server what we're resuming.
+    Eso es necesario para reanudar la carga, para decirle al servidor lo que estamos reanudando.
 
-    If the name or the size or the last modification date changes, then there'll be another `fileId`.
+    Si el nombre o tamaño de la ultima fecha de modificacion cambia, entonces habrá otro `fileId`.
 
-2. Send a request to the server, asking how many bytes it already has, like this:
+2. Envia una solicitud al servidor, preguntando cuantos bytes tiene, asi:
     ```js
     let response = await fetch('status', {
       headers: {
@@ -38,13 +38,13 @@ To resume upload, we need to know *exactly* the number of bytes received by the 
       }
     });
 
-    // The server has that many bytes
+    // El servidor tiene tanta cantidad de bytes
     let startByte = +await response.text();
     ```
 
-    This assumes that the server tracks file uploads by `X-File-Id` header. Should be implemented at server-side.
+    Esto asume que el servidor rastrea archivos cargados por el encabezado `X-File-Id`. Debe ser implementado en server-side.
 
-    If the file doesn't yet exist at the server, then the server response should be `0`
+    Si el archivo no existe aun en el servidor, entonces su respuesta debe ser `0`.
 
 3. Then, we can use `Blob` method `slice` to send the file from `startByte`:
     ```js
