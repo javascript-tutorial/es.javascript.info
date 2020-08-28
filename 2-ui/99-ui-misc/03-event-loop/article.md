@@ -238,7 +238,7 @@ menu.onclick = function() {
 
 ## Macrotareas y Microtareas
 
-Junto con las *macrotareas* descriptas en este capítulo, existen *microtareas* mencionadas en el capítulo <info:microtask-queue>.
+Junto con las *macrotareas* descritas en este capítulo, existen *microtareas* mencionadas en el capítulo <info:microtask-queue>.
 
 Las microtareas provienen únicamente de nuestro código. Por lo general, se crean mediante promesas: una ejecución del controlador `.then / catch / finally` se convierte en una microtarea. Las microtareas también se utilizan "bajo la cubierta" de "await", ya que es otra forma de manejo de promesas.
 
