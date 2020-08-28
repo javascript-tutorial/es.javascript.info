@@ -47,7 +47,7 @@ Intenta este código:
 setTimeout(() => window.open("http://google.com"), 3000);
 ```
 
-Las ventanas emergentes están abiertas en Chrome , pero se bloquea en Firefox.
+Las ventanas emergentes se abren en Chrome , pero se bloquean en Firefox.
 
 ...Si disminuimos el retraso, la ventana emergente también funciona en Firefox:
 
