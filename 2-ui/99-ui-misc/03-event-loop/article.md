@@ -26,7 +26,7 @@ Ejemplos de tareas:
 - Cuando llega el momento de un `setTimeout` programado, la tarea es ejecutar su callback.
 - ... y así sucesivamente.
 
-Las tareas son programadas --> el motor las ejecuta --> aguarda por más tareas (mientras duerme y prácticamente no consume CPU).
+Las tareas son programadas --&gt; el motor las ejecuta --&gt; <span class="x x-first x-last">espera</span> por más tareas (mientras duerme y prácticamente no consume CPU).
 
 Puede ocurrir que una tarea llegue mientras el motor está ocupado, entonces es puesta en cola.
 
