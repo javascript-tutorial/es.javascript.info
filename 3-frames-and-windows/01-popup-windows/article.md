@@ -17,7 +17,7 @@ Todavía, hay tareas donde popups es usado, por ejemplo. para autorización o au
 
 1. Un popup es una ventana separada con su propio entorno JavaScript independiente. Por lo tanto abriendo un popup con un sitio de terceros no confiable es seguro.
 2. Es muy fácil abrir un popup.
-3. Una ventana emergente o popup puede navegar (cambiar URL) y enviar mensajes a la ventana de abierta.
+3. Un popup puede navegar (cambiar URL) y enviar mensajes a la ventana que lo abrió.
 
 ## Bloqueo de ventanas emergentes (Popup)
 
