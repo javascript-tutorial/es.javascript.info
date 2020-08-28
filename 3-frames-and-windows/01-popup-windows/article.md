@@ -66,7 +66,7 @@ url
 : Una URL para cargar en la nueva ventana.
 
 name
-: Un nombre de la nueva ventana. Cada ventana tiene un `window.name`, y hay podemos especificar cual ventana usar para la ventana emergente. Si hay una ventana con ese nombre -- la URL dada se abre en ella, de lo contrario se abre una nueva ventana.
+: Un nombre de la nueva ventana. Cada ventana tiene un `window.name`, y aquí podemos especificar cuál ventana usar para la ventana emergente. Si hay una ventana con ese nombre, la URL dada se abre en ella, de lo contrario abre una nueva ventana.
 
 params
 : La cadena de configuración para nueva ventana. contiene configuraciones, delimitado por una coma. No debe haber espacios en los parámetros, por ejemplo: `width:200,height=100`.
