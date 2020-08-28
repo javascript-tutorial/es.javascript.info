@@ -51,15 +51,15 @@ Así que aquí está la función:
 
 ```js
 function populate() {
-  while(true) {
+  while(true)
+  {
     // final del documento
     let windowRelativeBottom = document.documentElement.getBoundingClientRect().bottom;
 
-    // si el usuario se desplaza lo suficiente (<100px hasta el final)
-    if (windowRelativeBottom < document.documentElement.clientHeight + 100) {
+    // si el usuario no se ha desplazado lo suficiente (> 100px hasta el final)
+    if (windowRelativeBottom > document.documentElement.clientHeight + 100) break;
       // vamos añadir más datos
       document.body.insertAdjacentHTML("beforeend", `<p>Date: ${new Date()}</p>`);
-    }
   }
 }
 ```
