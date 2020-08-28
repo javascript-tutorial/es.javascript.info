@@ -1,6 +1,6 @@
 # Ventanas emergentes y métodos de ventana
 
-Un popup window es uno de los métodos más antiguos para mostrar documentos adicionales al usuario.
+Una ventana emergente (popup window) es uno de los métodos más antiguos para mostrar documentos adicionales al usuario.
 
 Básicamente, solo ejecutas :
 ```js
