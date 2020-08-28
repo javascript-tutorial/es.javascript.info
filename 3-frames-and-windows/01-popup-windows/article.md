@@ -71,7 +71,7 @@ name
 params
 : La cadena de configuración para nueva ventana. Contiene configuraciones, delimitado por una coma. No debe haber espacios en los parámetros, por ejemplo: `width:200,height=100`.
 
-Configuración para params `params`:
+Configuración de `params`:
 
 - Posición:
   - `Izquierda / superior` (numérico) -- coordenadas de la esquina superior izquierda de la ventana en la pantalla.Hay una limitación: no se puede colocar una nueva ventana fuera de la pantalla.
