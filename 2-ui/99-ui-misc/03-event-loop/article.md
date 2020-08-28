@@ -9,7 +9,7 @@ En este capítulo primero vamos a ver detalles teóricos acerca de cómo funcion
 
 ## Loop de eventos
 
-El concepto de *loop de eventos* es muy simple. Existe un ciclo infinito en el que el motor de JavaScript aguarda por una tarea, luego ejecuta la tarea requerida y finalmente vuelve a dormir esperando por una nueva tarea.
+El concepto de *loop de eventos* es muy simple. Existe un ciclo infinito en el que el motor de JavaScript espera por una tarea, luego ejecuta la tarea requerida y finalmente vuelve a dormir esperando por una nueva tarea.
 
 EL algoritmo general del motor:
 
