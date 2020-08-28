@@ -1,4 +1,4 @@
-# Métodos Popups y windows (Ventanas emergentes y ventanas)
+# Ventanas emergentes y métodos de ventana
 
 Un popup window es uno de los métodos más antiguos para mostrar documentos adicionales al usuario.
 
