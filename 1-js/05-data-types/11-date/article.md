@@ -47,7 +47,7 @@ Para crear un nuevo objeto `Date` se lo instancia con `new Date()` junto con uno
     let date = new Date("2017-01-26");
     alert(date);
     // La hora no está definida, por lo que se asume que es la medianoche GMT (0 hs. de la fecha) y
-    // se ajusta de acuerdo al huso horario de la zona geográfica en la que estáejecutándose el código.
+    // se ajusta de acuerdo al huso horario de la zona geográfica en la que está ejecutándose el código.
     // Por consiguiente, el resultado podría ser
     // Thu Jan 26 2017 11:00:00 GMT+1100 (Hora Estándar del Este de Australia)
     // o
