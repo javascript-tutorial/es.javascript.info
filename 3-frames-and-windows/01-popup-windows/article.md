@@ -251,7 +251,7 @@ Entonces, hay limitaciones que prohíben el código así. Existen muchas limitac
 
 Por ejemplo, un navegador móvil generalmente ignora esa llamada por completo. Además, el enfoque no funciona cuando se abre una ventana emergente en una pestaña separada en lugar de en una nueva ventana.
 
-Todavía, hay algunas cosas que se pueden hacer.
+Aún así hay algunas cosas que se pueden hacer.
 
 Por ejemplo:
 
