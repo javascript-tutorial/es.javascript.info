@@ -66,7 +66,7 @@ Para crear un nuevo objeto `Date` se lo instancia con `new Date()` junto con uno
 
     ```js run
     new Date(2011, 0, 1, 0, 0, 0, 0); // 1 Jan 2011, 00:00:00
-    new Date(2011, 0, 1); // Igual que la linea de arriba, sólo que a los ultimos 4 parámetros se les asigna '0' por default.
+    new Date(2011, 0, 1); // Igual que la línea de arriba, sólo que a los ultimos 4 parámetros se les asigna '0' por default.
     ```
 
     La precisión mínima es de 1 ms (1/1000 de segundo):
