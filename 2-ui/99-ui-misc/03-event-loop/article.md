@@ -23,7 +23,7 @@ Ejemplos de tareas:
 
 - Cuando un script externo `<script src="...">` se carga, la tarea es ejecutarlo.
 - Cuando un usuario mueve el mouse, la tarea es enviar el evento `mousemove` y ejecutar el controlador.
-- Cuando llega el momento de un `setTimeout` progrmamado, la tarea es ejecutar su callback.
+- Cuando llega el momento de un `setTimeout` programado, la tarea es ejecutar su callback.
 - ... y así sucesivamente.
 
 Las tareas son programadas --> el motor las ejecuta --> aguarda por más tareas (mientras duerme y prácticamente no consume CPU).
