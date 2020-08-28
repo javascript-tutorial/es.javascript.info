@@ -58,7 +58,7 @@ setTimeout(() => window.open("http://google.com"), 1000);
 
 La diferencia es que Firefox trata un timeout de 2000ms o menos es aceptable, pero después -- elimina la "confianza", asumiendo que ahora esta "fuera de la acción del usuario". Entonces el primero está bloqueado, y el segundo no lo esta.
 
-## ventana.abierta
+## window.open
 
 La sintaxis para abrir una ventana emergente es: `window.open(url, name, params)`:
 
