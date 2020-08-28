@@ -2,18 +2,19 @@ El constructor `new Date` utiliza la zona horaria local. Lo único importante po
 
 Por ejemplo, febrero es el mes 1.
 
-El objeto de fecha se puede crear en dos formatos:
-
-1. new Date(año, mes, fecha, hora, minuto, segundo, milisegundo)
+Aquí hay un ejemplo con números como componentes de fecha:
 
 ```js run
+//new Date(año, mes, día, hora, minuto, segundo, milisegundo)
 let d1 = new Date(2012, 1, 20, 3, 12);
 alert( d1 );
 ```
 
-2. new Date("fecha-en-string")
+También podríamos crear una fecha a partir de un string, así:
 
 ```js run
+//new Date(datastring)
 let d2 = new Date("February 20, 2012 03:12:00");
-alert(d2);
+alert( d2 );
 ```
+
