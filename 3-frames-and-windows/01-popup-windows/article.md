@@ -7,7 +7,7 @@ Básicamente, solo ejecutas :
 window.open("https://javascript.info/");
 ```
 
-...Y eso abrirá una nueva ventana con una URL. El navegador más moderno está configurado para abrir pestañas nuevas en vez de ventanas separadas.
+...Y eso abrirá una nueva ventana con una URL. La mayoría de los navegadores modernos están configurados para abrir pestañas nuevas en vez de ventanas separadas.
 
 Popups existe realmente desde tiempos antiguos. La idea inicial fue mostrar otro contenido sin cerrar la ventana principal. A partir de ahora, hay otras formas de hacerlo: podemos cargar contenido dinámicamente con fetch y mostrarlo de forma dinámica con `<div>`. Entonces, popups no es algo que usamos todos los días.
 
