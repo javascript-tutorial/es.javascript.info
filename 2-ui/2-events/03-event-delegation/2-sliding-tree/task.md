@@ -10,5 +10,5 @@ Crea un árbol que muestre y oculte nodos hijos con clics:
 
 Requerimientos:
 
-- Solamente un manejador de elementos (usa delegación)
+- Solamente un manejador de eventos (usa delegación)
 - Un clic fuera de los nodos de títulos (en un espacio vacío) no debe hacer nada.
