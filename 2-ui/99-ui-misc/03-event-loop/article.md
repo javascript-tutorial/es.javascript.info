@@ -309,7 +309,7 @@ El algoritmo más detallado del loop de eventos (aunque aún simplificado en com
 2. Ejecutar todas las *microtareas*:
      - Mientras la cola de microtareas no esté vacía:
          - Retirar de la cola y ejecutar la microtarea más antigua.
-3. Rendericar los cambios si los hubiera.
+3. Renderizar los cambios si los hubiera.
 4. Si la cola de macrotareas está vacía, esperar hasta que aparezca una macrotarea.
 5. Ejecutar el paso 1.
 
