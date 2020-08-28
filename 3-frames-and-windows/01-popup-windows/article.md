@@ -265,7 +265,7 @@ Las ventanas emergentes se utilizan con poca frecuencia, ya que existen alternat
 Si vamos a abrir una ventana emergente, una buena práctica es informar al usuario al respecto. Un icono de "ventana que se abre" cerca de un enlace o botón permitiría al visitante sobrevivir al cambio de enfoque y tener en cuenta ambas ventanas.
 
 - Se puede abrir una ventana emergente con la llamada `open (url, name, params)`. Devuelve la referencia a la ventana recién abierta.
-- Los navegadores bloquean las llamadas "abiertas" desde el código fuera de las acciones del usuario. Por lo general, aparece una notificación para que un usuario pueda permitirlos.
+- Los navegadores bloquean las llamadas `open` desde el código fuera de las acciones del usuario. Por lo general aparece una notificación para que un usuario pueda permitirlos.
 - Los navegadores abren una nueva pestaña de forma predeterminada, pero si se proporcionan tamaños, será una ventana emergente.
 - La ventana emergente puede acceder a la ventana del abridor usando la propiedad `window.opener`.
 - La ventana principal y la ventana emergente pueden leerse y modificarse libremente entre sí si tienen el mismo origen. De lo contrario, pueden cambiar de ubicación e [intercambiar mensajes](info:cross-window-communication).
