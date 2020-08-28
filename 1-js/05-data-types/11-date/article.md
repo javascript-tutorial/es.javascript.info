@@ -87,7 +87,7 @@ Existen métodos que sirven para obtener el año, el mes, y los demás component
 : Devuelve el mes, **de 0 a 11**.
 
 [getDate()](mdn:js/Date/getDate)
-: Devuelve el dia del mes desde 1 a 31. Nótese que el nombre del método no es muy intuitivo.
+: Devuelve el día del mes desde 1 a 31. Nótese que el nombre del método no es muy intuitivo.
 
 [getHours()](mdn:js/Date/getHours), [getMinutes()](mdn:js/Date/getMinutes), [getSeconds()](mdn:js/Date/getSeconds), [getMilliseconds()](mdn:js/Date/getMilliseconds)
 : Devuelve los componentes del horario correspondientes.
