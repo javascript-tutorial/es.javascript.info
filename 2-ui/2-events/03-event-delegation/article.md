@@ -7,7 +7,7 @@ La idea es que si tenemos montones de elementos manejados de manera similar pode
 
 Del manejador obtenemos `event.target`, vemos dónde ocurrió realmente el evento y lo manejamos.
 
-Veamos un ejemplo: El [diagrama Ba-Gua](https://es.wikipedia.org/wiki/Pa_kua) que refleja la antigua filosofía china.
+Veamos un ejemplo: El [diagrama Pa kua](https://es.wikipedia.org/wiki/Pa_kua) que refleja la antigua filosofía china.
 
 Aquí está:
 
