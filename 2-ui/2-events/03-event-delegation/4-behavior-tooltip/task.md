@@ -8,7 +8,7 @@ Crea código JS para el comportamiento "tooltip".
 
 Cuando un mouse pasa sobre un elemento con `data-tooltip`, el tooltip debe aparecer sobre él, y ocultarse cuando se va.
 
-Un ejemplo en HTML anotado:
+Un ejemplo en HTML comentado:
 ```html
 <button data-tooltip="the tooltip is longer than the element">Short button</button>
 <button data-tooltip="HTML<br>tooltip">One more button</button>
