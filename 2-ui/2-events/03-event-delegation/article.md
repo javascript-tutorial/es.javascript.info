@@ -209,7 +209,7 @@ Cuando asignamos un manejador de evento al objeto `document`, debemos usar siemp
 En proyectos reales es normal que haya muchos manejadores en `document`, asignados en diferentes partes del código.
 ```
 
-### Comportamiento: Alternador (toggle)
+### Comportamiento: Conmutador (toggle)
 
 Un ejemplo más de comportamiento. Un clic en un elemento con el atributo `data-toggle-id` mostrará/ocultará el elemento con el `id` recibido:
 
@@ -236,7 +236,7 @@ Un ejemplo más de comportamiento. Un clic en un elemento con el atributo `data-
 </script>
 ```
 
-Veamos una vez más lo que hicimos aquí: ahora, para agregar la funcionalidad de alternancia a un elemento, no hay necesidad de conocer JavaScript, simplemente usamos el atributo `data-toggle-id`.
+Veamos una vez más lo que hicimos aquí: ahora, para agregar la funcionalidad de conmutación a un elemento, no hay necesidad de conocer JavaScript, simplemente usamos el atributo `data-toggle-id`.
 
 Esto puede ser muy conveniente: no hay necesidad de escribir JavaScript para cada elemento. Simplemente usamos el comportamiento. El manejador a nivel de documento hace el trabajo para cualquier elemento de la página.
 
