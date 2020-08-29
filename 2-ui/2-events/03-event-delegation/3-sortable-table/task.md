@@ -32,7 +32,7 @@ Cada `<th>` tiene su tipo en el atributo, como esto:
 </table>
 ```
 
-En el ejemplo anterior la primera columna tiene números y la segunda cadenas. La función de ordenamiento debe manejar el orden de acuerdo al tipo.
+En el ejemplo anterior la primera columna tiene números y la segunda cadenas. La función de ordenamiento debe manejar el orden de acuerdo al tipo de dato.
 
 Solamente los tipos `"string"` y `"number"` deben ser soportados.
 
