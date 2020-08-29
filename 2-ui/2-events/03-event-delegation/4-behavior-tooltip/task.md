@@ -24,7 +24,7 @@ Detalles:
 
 - La distancia entre el elemento y el tooltip debe sesr `5px`.
 - El tooltip debe ser centrado relativo al elemento si es posible.
-- El tooltip no debe cruzar los bordes de la ventana. Normalmente debería etar sobre el elemento, pero si el elemento está en la parte superior de la págino y no hay espacio para el tooltip, entonces debajo de él.
+- El tooltip no debe cruzar los bordes de la ventana. Normalmente debería estar sobre el elemento, pero si el elemento está en la parte superior de la págino y no hay espacio para el tooltip, entonces debajo de él.
 - El contenido del tooltip está dado en el atributo `data-tooltip`. Este puede ser HTML arbitrario.
 
 Necesitarás dos eventos aquí:
