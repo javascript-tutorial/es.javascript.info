@@ -31,7 +31,7 @@ Necesitarás dos eventos aquí:
 - `mouseover` se dispara cuanto el puntero pasa sobre el elemento.
 - `mouseout` se dispara cuando el puntero deja el elemento.
 
-Usa delegación de eventos: establede hasta dos manejadores sobre `document` para rastrear todos los "overs" y "outs" de los elementos con `data-tooltip` y administra los tooltips desde allí.
+Usa delegación de eventos:  prepare dos manejadores en el `document` para rastrear todos los "overs" y "outs" de los elementos con `data-tooltip` y administra los tooltips desde allí.
 
 Después de implementar el comportamiento, hasta gente no familiarizada con JavaScript puede agregar elementos anotados.
 
