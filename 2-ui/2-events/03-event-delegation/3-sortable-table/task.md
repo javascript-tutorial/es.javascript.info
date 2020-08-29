@@ -6,7 +6,7 @@ importance: 4
 
 Haz que la tabla se pueda ordenar: los clics en elementos `<th>` deberían ordenarla por la columna correspondiente.
 
-Cada `<th>` tiene su tipo en el atributo, como esto:
+Cada `<th>` tiene su tipo de datos en el atributo, como esto:
 
 ```html
 <table id="grid">
