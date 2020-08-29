@@ -2,7 +2,7 @@ importance: 5
 
 ---
 
-# Comportamiento Tooltip
+# Comportamiento: Tooltip
 
 Crea código JS para el comportamiento "tooltip".
 
