@@ -18,7 +18,7 @@ Debe funcionar así:
 
 [iframe src="solution" height=200 border=1]
 
-En esta tarea asumimos que todos los elementos con `data-tooltip` solo tienen texto dentro. Sin tags anidados (todavía).
+En esta tarea suponemos que todos los elementos con `data-tooltip` solo tienen texto dentro. Sin tags anidados (todavía).
 
 Detalles:
 
