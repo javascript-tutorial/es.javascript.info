@@ -27,7 +27,7 @@ Argumentos:
 
 ## dispatchEvent
 
-Después de que se crea un objeto de evento, debemos "ejecutarlo" en un elemento usando la llamada `elem.dispatchEvent (event)`.
+Después de que se crea un objeto de evento, debemos "ejecutarlo" en un elemento usando la llamada `elem.dispatchEvent(event)`.
 
 Luego, los controladores reaccionan como si fuera un evento normal del navegador. Si el evento fue creado con la bandera `bubbles`, entonces se propaga.
 
