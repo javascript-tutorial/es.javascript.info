@@ -31,7 +31,7 @@ Después de que se crea un objeto de evento, debemos "ejecutarlo" en un elemento
 
 Luego, los controladores reaccionan como si fuera un evento normal del navegador. Si el evento fue creado con la bandera `bubbles`, entonces se propaga.
 
-En el siguiente ejemplo, el evento "click" se inicia en JavaScript. El controlador funciona de la misma manera que si se hiciera clic en el botón:
+En el siguiente ejemplo, el evento `click` se inicia en JavaScript. El controlador funciona de la misma manera que si se hiciera clic en el botón:
 
 ```html run no-beautify
 <button id="elem" onclick="alert('Clic!');">Click automático</button>
