@@ -281,7 +281,7 @@ El constructor genérico `Event(name, options)` acepta un nombre de evento arbit
 
 Otros constructores de eventos nativos como `MouseEvent`, `KeyboardEvent`, y similares, aceptan propiedades específicas para ese tipo de evento. Por ejemplo, `clientX` para eventos de mouse.
 
-Para eventos personalizados deberíamos usar el constructor `CustomEvent`. Tiene una opción adicional llamada `detail`, debemos asignarle los datos específicos del evento. Entonces todos los controladores pueden acceder a él como `event.detail`.
+Para eventos personalizados deberíamos usar el constructor `CustomEvent`. Este tiene una opción adicional llamada `detail` a la que podemos asignarle los datos específicos del evento. De esta forma, todos los controladores pueden accederlos como `event.detail`.
 
 A pesar de la posibilidad técnica de generar eventos del navegador como `click` o `keydown`, debemos usarlo con mucho cuidado.
 
