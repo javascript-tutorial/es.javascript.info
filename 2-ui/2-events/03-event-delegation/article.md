@@ -5,7 +5,7 @@ La captura y el propagación nos permiten implementar uno de los más poderosos 
 
 La idea es que si tenemos muchos elementos manejados de manera similar podemos, en lugar de asignar un manejador a cada uno de ellos, poner un único manejador a su ancestro común.
 
-Del manejador obtenemos `event.target`, vemos dónde ocurrió realmente el evento y lo manejamos.
+Del controlador obtenemos `event.target`, vemos dónde ocurrió realmente el evento y lo controlamos.
 
 Veamos un ejemplo: El [diagrama Pa kua](https://es.wikipedia.org/wiki/Pa_kua) que refleja la antigua filosofía china.
 
