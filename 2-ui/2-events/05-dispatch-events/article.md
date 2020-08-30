@@ -4,7 +4,7 @@ No solo podemos asignar controladores, sino también generar eventos desde JavaS
 
 Los eventos personalizados se pueden utilizar para crear "componentes gráficos". Por ejemplo, un elemento raíz de nuestro propio menú basado en JS puede desencadenar eventos que indiquen lo que sucede con el menú: `abrir` (menú abierto),` seleccionar` (se selecciona un elemento) y así sucesivamente. Otro código puede escuchar los eventos y observar lo que sucede con el menú.
 
-No solo podemos generar eventos completamente nuevos, que inventamos para nuestros propios fines, sino también eventos integrados, como `click`,` mousedown`, etc. Eso puede ser útil para las pruebas automatizadas.
+No solo podemos generar eventos completamente nuevos, que inventamos para nuestros propios fines, sino también eventos integrados, como `click`, `mousedown`, etc. Eso puede ser útil para las pruebas automatizadas.
 
 ## Constructor de eventos
 
