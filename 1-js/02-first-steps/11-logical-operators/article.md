@@ -119,7 +119,7 @@ Si todas las variables fueran falsas, aparecería Anónimo.
 
 2. **Evaluación de cortocircuito.**
 
-Otra característica de OR || operador es la evaluación de "cortocircuito".
+Otra característica de OR || operador es la evaluación de "el camino más corto".
 
 Esto significa que `||` procesa sus argumentos hasta que se alcanza el primer valor verdadero, y luego el valor se devuelve inmediatamente, sin siquiera tocar el otro argumento.
 
