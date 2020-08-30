@@ -268,5 +268,5 @@ La delegación tiene sus limitaciones por supuesto:
 
 ```compare 
 - Primero, el evento debe "propagarse". Algunos eventos no lo hacen. Además manejadores de bajo nivel no deben usar `event.stopPropagation()`.
-- Segundo, la delegación puede agregar carga a la CPU, porque el manejador a nivel de contenedor reacciona a eventos en cualquier lugar del mismo, no importa si nos interesan o no. Pero usualmente la carga es imperceptible y no la tomamos en cuenta.
+- Segundo, la delegación puede agregar carga a la CPU, porque el controlador a nivel de contenedor reacciona a eventos en cualquier lugar del mismo, no importa si nos interesan o no. Pero usualmente la carga es imperceptible y no la tomamos en cuenta.
 ```
