@@ -113,7 +113,7 @@ Hay otros usos para la delegación de eventos.
 
 Digamos que queremos hacer un menú con los botones "Save", "Load", "Search" y así. Y hay objetos con los métodos `save`, `load`, `search`... ¿Cómo asociarlos?
 
-La primera idea podría ser asignar un manejador separado para cada botón. Pero hay una solución más elegante. Podemos agregar un manejador para el menú completo y un atributo `data-action` a los botones con el método a llamar:
+La primera idea podría ser asignar un controlador separado para cada botón. Pero hay una solución más elegante. Podemos agregar un controlador para el menú completo y un atributo `data-action` a los botones con el método a llamar:
 
 ```html
 <button *!*data-action="save"*/!*>Click to Save</button>
