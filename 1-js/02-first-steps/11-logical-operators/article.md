@@ -117,7 +117,7 @@ Esto brinda varios usos interesantes comparados al "OR puro, clásico, de solo b
 
 Si todas las variables fueran falsas, aparecería Anónimo. 
 
-2. **Evaluación de cortocircuito.**
+2. **Evaluación del camino más corto.**
 
 Otra característica de OR || operador es la evaluación de "el camino más corto".
 
