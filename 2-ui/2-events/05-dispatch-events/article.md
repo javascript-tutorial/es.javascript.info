@@ -156,7 +156,7 @@ Por ejemplo:
 </script>
 ```
 
-La propiedad `detail` puede tener cualquier dato. Técnicamente podríamos vivir sin él, porque podemos asignar cualquier propiedad a un objeto `new Event` regular después de su creación. Pero `CustomEvent` proporciona el campo especial` detail` para evitar conflictos con otras propiedades del evento.
+La propiedad `detail` puede tener cualquier dato. Técnicamente podríamos vivir sin él, porque podemos asignar cualquier propiedad a un objeto `new Event` regular después de su creación. Pero `CustomEvent` proporciona el campo especial `detail` para evitar conflictos con otras propiedades del evento.
 
 Además, la clase de evento describe "qué tipo de evento" es, y si el evento es personalizado, entonces deberíamos usar `CustomEvent` solo para tener claro qué es.
 
@@ -243,7 +243,7 @@ El orden de salida es: 1 -> anidado -> 2.
 
 Tenga en cuenta que el evento anidado `menu-open` se captura en `document`. La propagación y el manejo del evento anidado finaliza antes de que el procesamiento vuelva al código externo (`onclick`).
 
-No se trata solo de `dispatchEvent`, hay otros casos. Si un controlador de eventos llama a métodos que desencadenan otros eventos, se procesan demasiado sincrónicamente, de forma anidada.
+No se trata solo de `dispatchEvent`, hay otros casos. Si un controlador de eventos llama a métodos que desencadenan otros eventos, también se procesan sincrónicamente, de forma anidada.
 
 Digamos que no nos gusta. Querríamos que `onclick` se procesara por completo primero, independientemente de `menu-open` o cualquier otro evento anidado.
 
@@ -281,7 +281,7 @@ El constructor genérico `Event(name, options)` acepta un nombre de evento arbit
 
 Otros constructores de eventos nativos como `MouseEvent`, `KeyboardEvent`, y similares, aceptan propiedades específicas para ese tipo de evento. Por ejemplo, `clientX` para eventos de mouse.
 
-Para eventos personalizados deberíamos usar el constructor `CustomEvent`. Tiene una opción adicional llamada `detail`, debemos asignarle los datos específicos del evento. Entonces todos los controladores pueden acceder a él como `event.detail`.
+Para eventos personalizados deberíamos usar el constructor `CustomEvent`. Este tiene una opción adicional llamada `detail` a la que podemos asignarle los datos específicos del evento. De esta forma, todos los controladores pueden accederlos como `event.detail`.
 
 A pesar de la posibilidad técnica de generar eventos del navegador como `click` o `keydown`, debemos usarlo con mucho cuidado.
 
@@ -289,7 +289,7 @@ No deberíamos generar eventos de navegador, ya que es una forma trillada de eje
 
 Se pueden generar eventos nativos:
 
-- Como un truco sucio para hacer que las bibliotecas de terceros funcionen de la manera necesaria, si no proporcionan otros medios de interacción.
-- Para pruebas automatizadas, "haga clic en el botón" en el script y vea si la interfaz reacciona correctamente.
+- Como un truco sucio para hacer que las bibliotecas de terceros funcionen de la manera necesaria, si  es que ellas no proporcionan otros medios de interacción.
+- Para pruebas automatizadas, que el script "haga clic en el botón" y vea si la interfaz reacciona correctamente.
 
 Los eventos personalizados con nuestros propios nombres a menudo se generan con fines arquitectónicos, para señalar lo que sucede dentro de nuestros menús, controles deslizantes, carruseles, etc.
