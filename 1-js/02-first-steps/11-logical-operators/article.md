@@ -144,7 +144,7 @@ El operador AND es representado con dos ampersands `&&`:
 result = a && b;
 ```
 
-En la programación clasica, AND retorna `true` si ambos operandos son valores verdaderos y `falso` en cualquier otro caso.
+En la programación clasica, AND retorna `true` si ambos operandos son valores verdaderos y `false` en cualquier otro caso.
 
 ```js run
 alert(true && true); // true
@@ -288,4 +288,3 @@ alert(Boolean(null)); // false
 ```
 
 La precedencia de NOT `!` es la mayor de todos los operadores lógicos, así que siempre se ejecuta primero, antes que `&&` o `||`.
-
