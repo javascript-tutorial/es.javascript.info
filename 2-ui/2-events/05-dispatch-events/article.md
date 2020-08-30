@@ -45,7 +45,7 @@ En el siguiente ejemplo, el evento "click" se inicia en JavaScript. El controlad
 ```smart header="event.isTrusted"
 Hay una forma de diferenciar un evento de usuario "real" de uno generado por script.
 
-La propiedad `event.isTrusted` es` true` para eventos que provienen de acciones de usuarios reales y `false` para eventos generados por script.
+La propiedad `event.isTrusted` es `true` para eventos que provienen de acciones de usuarios reales y `false` para eventos generados por script.
 ```
 
 ## Ejemplo Bubbling
