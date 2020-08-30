@@ -182,7 +182,7 @@ El patrón tiene dos partes:
 
 ### Comportamiento: Contador
 
-Por ejemplo, aquí el atributo `data-counter` agrega un comportamiento: "incrementa el valor con un clic" a los botones:
+Por ejemplo, aquí el atributo `data-counter` agrega un comportamiento: "incrementar el valor con un clic" a los botones:
 
 ```html run autorun height=60
 Counter: <input type="button" value="1" data-counter>
