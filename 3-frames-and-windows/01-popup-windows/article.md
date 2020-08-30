@@ -13,7 +13,7 @@ Popups existe realmente desde tiempos antiguos. La idea inicial fue mostrar otro
 
 Además, los popups son complicados en dispositivos móviles, que no muestran varias ventanas simultáneamente.
 
-Todavía, hay tareas donde popups es usado, por ejemplo. para autorización o autenticación (Ingreso con Google/Facebook/...), porque:
+Aún así, hay tareas donde los popups todavía son usados, por ejemplo para autorización o autenticación (Ingreso con Google/Facebook/...), porque:
 
 1. Un popup es una ventana separada con su propio entorno JavaScript independiente. Por lo tanto abriendo un popup con un sitio de terceros no confiable es seguro.
 2. Es muy fácil abrir un popup.
