@@ -1,7 +1,7 @@
 
 # Delegación de eventos
 
-La captura y el burbujeo nos permiten implementar uno de los más poderosos patrones de manejo de eventos llamado *delegación de eventos*.
+La captura y el propagación nos permiten implementar uno de los más poderosos patrones de manejo de eventos llamado *delegación de eventos*.
 
 La idea es que si tenemos muchos elementos manejados de manera similar podemos, en lugar de asignar un manejador a cada uno de ellos, poner un único manejador a su ancestro común.
 
@@ -267,6 +267,6 @@ Beneficios:
 La delegación tiene sus limitaciones por supuesto:
 
 ```compare 
-- Primero, el evento debe "burbujear". Algunos eventos no lo hacen. Además manejadores de bajo nivel no deben usar `event.stopPropagation()`.
+- Primero, el evento debe "propagarse". Algunos eventos no lo hacen. Además manejadores de bajo nivel no deben usar `event.stopPropagation()`.
 - Segundo, la delegación puede agregar carga a la CPU, porque el manejador a nivel de contenedor reacciona a eventos en cualquier lugar del mismo, no importa si nos interesan o no. Pero usualmente la carga es imperceptible y no la tomamos en cuenta.
 ```
