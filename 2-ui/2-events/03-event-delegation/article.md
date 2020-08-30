@@ -58,7 +58,7 @@ function highlight(td) {
     selectedTd.classList.remove('highlight');
   }
   selectedTd = td;
-  selectedTd.classList.add('highlight'); // y realzar el nuevo td
+  selectedTd.classList.add('highlight'); // y destacar el nuevo td
 }
 ```
 
