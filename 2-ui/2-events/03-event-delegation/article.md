@@ -259,7 +259,7 @@ El algoritmo:
 Beneficios:
 
 ```compare 
-+ Simplifica la inicialización y ahorra memoria: no hay necesidad de agregar muchos manejadores.
++ Simplifica la inicialización y ahorra memoria: no hay necesidad de agregar muchos controladores.
 + Menos código: cuando agregamos o quitamos elementos, no hay necesidad de agregar y quitar controladores.
 + Modificaciones del DOM: podemos agregar y quitar elementos en masa con `innerHTML` y similares.
 ```
