@@ -289,7 +289,7 @@ No deberíamos generar eventos de navegador, ya que es una forma trillada de eje
 
 Se pueden generar eventos nativos:
 
-- Como un truco sucio para hacer que las bibliotecas de terceros funcionen de la manera necesaria, si no proporcionan otros medios de interacción.
+- Como un truco sucio para hacer que las bibliotecas de terceros funcionen de la manera necesaria, si  es que ellas no proporcionan otros medios de interacción.
 - Para pruebas automatizadas, "haga clic en el botón" en el script y vea si la interfaz reacciona correctamente.
 
 Los eventos personalizados con nuestros propios nombres a menudo se generan con fines arquitectónicos, para señalar lo que sucede dentro de nuestros menús, controles deslizantes, carruseles, etc.
