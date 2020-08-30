@@ -32,11 +32,11 @@ El HTML es este:
 
 La tabla tiene 9 celdas, pero puede haber 99 o 999, eso no importa.
 
-**Nuestra tarea es realzar (highlight) una celda `<td>` al hacer clic en ella.**
+**Nuestra tarea es destacar una celda `<td>` al hacer clic en ella.**
 
 En lugar de asignar un manejador `onclick` a cada `<td>` (puede haber muchos), configuramos un manejador "atrapa-todo" en el elemento `<table>`.
 
-Este usará `event.target` para obtener el elemento del clic y realzarlo .
+Este usará `event.target` para obtener el elemento del clic y destacarlo.
 
 El código:
 
@@ -49,12 +49,12 @@ table.onclick = function(event) {
 
   if (target.tagName != 'TD') return; // ¿no es un TD? No nos interesa
 
-  highlight(target); // realzarlo
+  highlight(target); // destacarlo
 };
 */!*
 
 function highlight(td) {
-  if (selectedTd) { // quitar cualquier realzado que hubiera antes
+  if (selectedTd) { // quitar cualquier celda destacada que hubiera antes
     selectedTd.classList.remove('highlight');
   }
   selectedTd = td;
@@ -68,7 +68,7 @@ Pero hay una contra.
 
 El clic puede ocurrir no sobre `<td>`, sino dentro de él.
 
-En nuetro caso, si miramos dentro del HTML, podemos ver tags anidados dentro de `<td>`, como `<strong>`:
+En nuestro caso, si miramos dentro del HTML, podemos ver tags anidados dentro de `<td>`, como `<strong>`:
 
 ```html
 <td>
@@ -103,9 +103,9 @@ Explicación:
 1. El método `elem.closest(selector)` devuelve el ancestro más cercano que coincide con el selector. En nuestro caso buscamos `<td>` hacia arriba desde el elemento de origen.
 2. Si `event.target` no ocurrió dentro de algún `<td>`, el llamado retorna inmediatamente pues no hay nada que hacer.
 3. En caso de tablas anidadas, `event.target` podría ser un `<td>` pero fuera de la tabla actual. Entonces verificamos que sea realmente un `<td>` de *nuestra tabla*.
-4. Y, si es así, realzarlo.
+4. Y, si es así, destacarla.
 
-Como resultado, tenemos un código de realzado rápido y eficiente al que no le afecta la cantidad total de `<td>` en le tabla.
+Como resultado, tenemos un código de realzado rápido y eficiente al que no le afecta la cantidad total de `<td>` en la tabla.
 
 ## Ejemplo de delegación: acciones en markup
 
