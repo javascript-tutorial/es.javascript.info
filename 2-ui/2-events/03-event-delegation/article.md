@@ -3,7 +3,7 @@
 
 La captura y el burbujeo nos permiten implementar uno de los más poderosos patrones de manejo de eventos llamado *delegación de eventos*.
 
-La idea es que si tenemos montones de elementos manejados de manera similar podemos, en lugar de asignar un manejador a cada uno de ellos, poner un único manejador a su ancestro común.
+La idea es que si tenemos muchos elementos manejados de manera similar podemos, en lugar de asignar un manejador a cada uno de ellos, poner un único manejador a su ancestro común.
 
 Del manejador obtenemos `event.target`, vemos dónde ocurrió realmente el evento y lo manejamos.
 
