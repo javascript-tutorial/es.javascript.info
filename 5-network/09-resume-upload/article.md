@@ -46,37 +46,37 @@ Para resumir una carga, necesitamos saber *exactamente* el numero de bytes recib
 
     Si el archivo no existe aun en el servidor, entonces su respuesta debe ser `0`.
 
-3. Then, we can use `Blob` method `slice` to send the file from `startByte`:
+3. Entonces, podemos usar el metodo `Blob` `slice` para enviar el archivo desde `startByte`:
     ```js
     xhr.open("POST", "upload", true);
 
-    // File id, so that the server knows which file we upload
+    // Archivo, de modo que el servidor sepa que archivo subimos
     xhr.setRequestHeader('X-File-Id', fileId);
 
-    // The byte we're resuming from, so the server knows we're resuming
+    // El byte desde el que estamos reanudando, asi el servidor sabe que estamos reanudando
     xhr.setRequestHeader('X-Start-Byte', startByte);
 
     xhr.upload.onprogress = (e) => {
       console.log(`Uploaded ${startByte + e.loaded} of ${startByte + e.total}`);
     };
 
-    // file can be from input.files[0] or another source
+    // El archivo puede ser de input.files[0] u otra fuente
     xhr.send(file.slice(startByte));
     ```
 
-    Here we send the server both file id as `X-File-Id`, so it knows which file we're uploading, and the starting byte as `X-Start-Byte`, so it knows we're not uploading it initially, but resuming.
+    Aqui enviamos al server ambos archivos id como `X-File-Id`, de modo que sepa que archivos estamos cargando, y el byte inicial como `X-Start-Byte`, de modo que sepa que no lo estamos cargando inicialmente, si no que reanudandolo.
 
-    The server should check its records, and if there was an upload of that file, and the current uploaded size is exactly `X-Start-Byte`, then append the data to it.
+    El server deberia verificar sus registros, y en el caso de haber una carga de ese archivo, y el tamaño actual de la carga es exactamente  The server should check its records, and if there was an upload of that file, and the current uploaded size is exactly `X-Start-Byte`, then append the data to it.
 
 
-Here's the demo with both client and server code, written on Node.js.
+Aqui esta la demo con el codigo tento del cliente como del servidor, escrito en Node.js.
 
-It works only partially on this site, as Node.js is behind another server named Nginx, that buffers uploads, passing them to Node.js when fully complete.
+Esto funciona solo parcialmente en este sitio, ya que Node.js esta detras de otro servidor llamado Nginx, que almacena cargas, pasandolas a Node.js cuando esta completamente lleno.
 
-But you can download it and run locally for the full demonstration:
+Pero puedes cargarlo y ejecutarlo localmente para la demostracion completa:
 
 [codetabs src="upload-resume" height=200]
 
-As we can see, modern networking methods are close to file managers in their capabilities -- control over headers, progress indicator, sending file parts, etc.
+Como podemos ver, los metodos de networking modernos estan cerca de los gestores de archivos en sus capacidades -- control sobre header, indicador de progreso, enviar partes de archivos, etc.
 
-We can implement resumable upload and much more.
+Podemos implemetar la carga reanudable y mucho mas.
