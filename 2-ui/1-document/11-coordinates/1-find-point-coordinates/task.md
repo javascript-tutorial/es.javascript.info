@@ -21,4 +21,4 @@ Tu código debe usar el DOM para obtener las coordenadas en la ventana de:
 
 Las coordenadas que tú calcules deben ser iguales a las devueltas por el click del mouse.
 
-P.D. El código también debe funcionar si el elemento tiene otro tamaño o borde, no está atado a ningún valor fijo.
+P.D. El código también debe funcionar si el elemento tiene otro tamaño o borde, no está ligado a ningún valor fijo.
