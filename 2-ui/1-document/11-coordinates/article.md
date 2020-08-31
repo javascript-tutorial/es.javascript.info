@@ -144,7 +144,7 @@ elem.style.background = ''; // ¡Error!
 
 ## Usándolas para posicionamiento "fijo"
 
-La mayoría del tiempo necesitamos coordenadas en orden para posicionar algo.
+La mayoría del tiempo necesitamos coordenadas para posicionar algo.
 
 Para mostrar algo cercano a un elemento podemos usar `getBoundingClientRect` para obtener sus coordenadas y entonces CSS `position` junto con `left/top` (o `right/bottom`).
 
