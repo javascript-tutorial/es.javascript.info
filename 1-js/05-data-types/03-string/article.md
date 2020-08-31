@@ -17,7 +17,7 @@ let double = "comillas dobles";
 let backticks = `backticks`;
 ```
 
-Comillas simples y dobles son escencialmente lo mismo. Sin embargo los "backticks" nos permiten ingresar expresiones dentro del string, incluso llamados a funciones:
+Comillas simples y dobles son escencialmente lo mismo. Sin embargo los "backticks" nos permiten ingresar expresiones dentro del string, envolviéndolos en `${…}`:
 
 ```js run
 function sum(a, b) {
@@ -62,7 +62,7 @@ let guestList = 'Invitados:\n * Juan\n * Pedro\n * Maria';
 alert(guestList); // una lista de invitados en múltiples líneas
 ```
 
-Por ejemplo, estas dos líneas son iguales, solo que escritas en forma diferente:
+Por ejemplo, estas dos líneas son iguales, pero escritas en forma diferente:
 
 ```js run
 let str1 = "Hello\nWorld"; // dos líneas usando el "símbolo de nueva línea"
@@ -126,7 +126,7 @@ Es posible, pero debemos duplicarlo como sigue `\\`:
 alert(`El carácter de escape: \\`); // El carácter de escape: \
 ```
 
-## Largo del string (String length)
+## Largo del string
 
 La propiedad 'length' entrega el largo del string:
 
@@ -371,13 +371,8 @@ alert('Midget'.includes('id', 3)); // false, desde la posición 3 no hay "id"
 Los métodos [str.startsWith](mdn:js/String/startsWith) (comienza con) y [str.endsWith](mdn:js/String/endsWith) (termina con) hacen exactamente lo que dicen:
 
 ```js run
-alert('Widget'.startsWith('Wid')); // true, "Widget" comienza con "Wid"
 alert('Widget'.endsWith('get')); // true, "Widget" termina con "get"
 ```
-
-## Obteniendo un substring
-
-Existen 3 métodos en JavaScript para obtener un substring: `substring`, `substr` y `slice`.
 
 `str.slice(comienzo [, final])`
 : Retorna la parte del string desde `comienzo` hasta (pero sin incluir) `final`.

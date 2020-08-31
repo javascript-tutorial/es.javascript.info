@@ -6,7 +6,7 @@ Para hacer esto, nosotros utilizaremos la sentencia `if` y el operador condicion
 
 ## La sentencia "if"
 
-La sentencia `if` evalúa una condición y, si esta condición obtiene un booleano de tipo `true`, ejecuta un bloque de código.
+La sentencia `if(...)` evalúa la condición en los paréntesis, y si el resultado es `true` ejecuta un bloque de código.
 
 Por ejemplo:
 
@@ -127,7 +127,7 @@ alert(accessAllowed);
 
 Entonces el operador "ternario" también llamado  "signo de interrogación" nos permite ejecutar esto en una forma más corta y simple.
 
-El operador está representado por un signo de interrogación de cierre `?`.  El término formal "ternario" significa que el operador tiene tres operandos. Este es actualmente el primer y único operador de JavaScript que tiene esta cantidad.
+El operador está representado por un signo de interrogación de cierre `?`.  A veces es llamado "ternario" porque el operador tiene tres operandos. Es el único operador de JavaScript que tiene esta cantidad de ellos.
 
 La Sintaxis es:
 ```js
@@ -142,7 +142,7 @@ Por ejemplo:
 let accessAllowed = (age > 18) ? true : false;
 ```
 
-Técnicamente, podemos omitir el paréntesis alrededor de  `age > 18`. El operador de signo de interrogación tiene una precedencia baja, por lo que se ejecuta después del signo de comparación `>`. 
+Técnicamente, podemos omitir el paréntesis alrededor de  `age > 18`. El operador de signo de interrogación tiene una precedencia baja, por lo que se ejecuta después de la comparación `>`. 
 
 En este ejemplo realizaremos lo mismo que en el anterior:
 
@@ -216,7 +216,7 @@ Dependiendo de la condición `company == 'Netscape'`, se ejecutará la primera o
 
 Aquí no asignamos el resultado de una variable. En vez de esto, ejecutamos diferentes códigos dependiendo de la condición.
 
-**Nosotros no recomendamos el uso del operador de signo de interrogación en estos casos.**
+**No se recomienda el uso del operador de signo de interrogación de esta forma.**
 
 La notacion es mas corta que la sentencia equivalente con `if`, lo cual seduce a algunos programadores. Pero es menos legible.
 

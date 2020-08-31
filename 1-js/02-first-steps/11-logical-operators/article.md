@@ -64,7 +64,7 @@ if (hour < 10 || hour > 18 || isWeekend) {
 }
 ```
 
-## OR encuentra el primer valor verdadero
+## OR "||" encuentra el primer valor verdadero
 
 La lógica descrita arriba es algo clásica. Ahora, mostremos las características "extra" de JavaScript.
 
@@ -84,16 +84,16 @@ El operador OR `||` realiza lo siguiente:
 
 Un valor es retornado en su forma original, sin la conversión.
 
-En otras palabras, una cadena de OR `"||"` retorna el primer valor verdadero o el último valor en caso de que ningún verdadero sea encontrado.
+En otras palabras, una cadena de OR `"||"` devuelve el primer valor verdadero o el último si ningún verdadero sea encontrado.
 
 Por ejemplo:
 
 ```js run
 alert(1 || 0); // 1 (1 es un valor verdado)
-alert(true || "cualquier valor"); // (true es un valor verdadero)
 
 alert(null || 1); // 1 (1 es el primer valor verdadero)
 alert(null || 0 || 1); // 1 (el primer valor verdadero)
+
 alert(undefined || null || 0); // 0 (todos son valores falsos, retorna el último valor)
 ```
 
@@ -237,14 +237,15 @@ La precedencia del operador AND `&&` es mayor que la de OR `||`.
 Así que el código `a && b || c && d` es básicamente el mismo que si la expresiones `&&` estuvieran entre paréntesis: `(a && b) || (c && d)`
 ```
 
-Justo como en OR, el operador AND `&&` puede reemplazar en ocasiones al `if`.
+````warn header="No reemplace `if` con || o &&"
+A veces se usa el operador AND `&&` como "forma abreviada de `if`".
 
 Por ejemplo:
 
 ```js run
 let x = 1;
 
-(x > 0) && alert("Mayor que cero!");
+(x > 0) && alert("¡Mayor que cero!");
 ````
 
 La acción en la parte derecha de `&&` sería ejecutada sólo si la evaluación la alcanza. Eso es, solo si `(x > 0)` es verdadero.
@@ -254,14 +255,11 @@ Así que básicamente tenemos un análogo para:
 ```js run
 let x = 1;
 
-if (x > 0) {
-	alert("Mayor que cero!");
-}
+if (x > 0) alert("Mayor que cero!");
 ```
 
-La variante con `&&` parece más corta. Pero `if` es más obvio y tiende a ser un poco más legible.
-
-Así que recomendamos usar cada construcción para su propósito: usar `if` si queremos if y usar `&&` si queremos AND.
+Aunque la variante con `&&` parece más corta, `if` es más obvio y tiende a ser un poco más legible. Así que recomendamos usar cada construcción para su propósito: usar `if` si queremos if y usar `&&` si queremos AND.
+````
 
 ## ! (NOT)
 

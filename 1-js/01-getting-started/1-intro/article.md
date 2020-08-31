@@ -12,7 +12,7 @@ Los scripts se proporcionan y ejecutan como texto plano. No necesitan preparaci�
 
 En este aspecto, JavaScript es muy diferente a otro lenguaje llamado [Java](<https://es.wikipedia.org/wiki/Java_(lenguaje_de_programaci%C3%B3n)>).
 
-```smart header="¿Por qué <u>Java</u>Script?"
+```smart header="¿Por qué se llama <u>Java</u>Script?"
 Cuando JavaScript fue creado, inicialmente tenía otro nombre: "LiveScript". Pero Java era muy popular en ese momento, así que se decidió que el posicionamiento de un nuevo lenguaje como un "Hermano menor" de Java ayudaría.
 
 Pero a medida que evolucionaba, JavaScript se convirtió en un lenguaje completamente independiente con su propia especificación llamada [ECMAScript] (https://es.wikipedia.org/wiki/ECMAScript), y ahora no tiene ninguna relación con Java.
@@ -38,7 +38,7 @@ Los motores son complicados, pero los fundamentos son fáciles.
 2.- Entonces convierte ("compila") el script a lenguaje máquina.
 3.- y por último el código maquina se ejecuta muy rápido.
 
-El motor aplica optimizaciones en cada paso del proceso. Incluso observa como el script compilado se ejecuta, analiza los datos que fluyen a través de él y aplica optimizaciones al código maquina basadas en ese conocimiento. Cuando está terminado, los scripts se ejecutan bastante rápido.
+El motor aplica optimizaciones en cada paso del proceso. Incluso observa como el script compilado se ejecuta, analiza los datos que fluyen a través de él y aplica optimizaciones al código maquina basadas en ese conocimiento.
 ```
 
 ## ¿Qué puede hacer JavaScript en el navegador?

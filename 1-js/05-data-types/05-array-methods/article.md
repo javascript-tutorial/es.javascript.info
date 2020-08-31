@@ -268,21 +268,11 @@ alert( arr.includes(NaN) );// true
 
 Imaginemos que tenemos un array de objetos. ¿Cómo podríamos encontrar un objeto con una condición específica?
 
-Para este tipo de casos es útil el método [arr.find(fn)](mdn:js/Array/find) 
-
-La sintáxis es:
-```js
-let result = arr.find(function(item, index, array) {
   // si true es devuelto, se devuelve el item y la iteración se detiene
   // para el caso en que sea false devuelve undefined
 });
 ```
 
-La función es llamada para cada elemento del array, uno después del otro:
-
-- `item` es el elemento.
-- `index` es su índice.
-- `array` es el array mismo.
 
 Si devuelve `true`, la búsqueda se detiene y el `item` es devuelto. Si no encuentra nada, entonces devuelve `undefined`.
 

@@ -139,8 +139,6 @@ Pero podemos envolverlo dentro de una función async anónima, como esto:
   ...
 })();
 ```
-
-
 ````
 ````smart header="`await` acepta \"thenables\""
 Tal como `promise.then`, `await` nos permite el uso de objetos "thenable" (aquellos con el método `then`). La idea es que un objeto de terceras partes pueda no ser una promesa, sino compatible con una: si soporta `.then`, es suficiente para el uso con `await`.

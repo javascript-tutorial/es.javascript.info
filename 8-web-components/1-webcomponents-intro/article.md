@@ -56,15 +56,11 @@ Los componentes pueden tener subcomponentes, p.ej. los mensajes pueden ser parte
 
 ¿Cómo decidimos qué es un componente? Eso viene de la intuición, la experiencia y el sentido común. Normalmente es una entidad visual separada que podemos describir en términos de lo que hace y cómo interactua con la página. En el caso anterior, la página tiene bloques, cada uno de ellos juega su propio papel, es lógico crear esos componentes.
 
-Un componentes tiene:
 - Su propia clase de JavaScript.
 - La estructura DOM, gestionada únicamente por su clase, el código externo no accede a ella (principio de  "encapsulación").
 - Estilos CSS, aplicados al componente.
 - API: eventos, métodos de clase etc, para interactuar con otros componentes.
 
-Una vez más, todo el asunto del "componente" no es nada especial.
-
-Existen muchos frameworks y metodologías de desarrollos para construirlos, cada uno con sus propias características y reglas. Normalmente, se utilizan clases y convenciones CSS para proporcionar la "sensación de componente" -- alcance de CSS y encapsulación de DOM.
 
 "Web components" proporcionan capacidades de navegación incorporadas para eso, así que ya no tenemos que emularlos.
 

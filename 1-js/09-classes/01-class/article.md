@@ -361,6 +361,11 @@ class Button {
   click() {
     alert(this.value);
   }
+*!*
+  click = () => {
+    alert(this.value);
+  }
+*/!*
 }
 
 let button = new Button("hello");

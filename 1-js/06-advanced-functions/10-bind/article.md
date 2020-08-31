@@ -91,14 +91,11 @@ setTimeout(() => user.sayHi(), 1000);
 
 
 // ...el valor de user cambia en 1 segundo
-
 user = {
   sayHi() { alert("Another user in setTimeout!"); }
 };
 
-
 // Otro user en setTimeout!
-
 ```
 
 La siguiente solución garantiza que tal cosa no sucederá.

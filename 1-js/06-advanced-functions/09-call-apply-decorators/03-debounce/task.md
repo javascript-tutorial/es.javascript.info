@@ -6,6 +6,8 @@ importance: 5
 
 El resultado del decorador `debounce(f, ms)` es un contenedor que suspende las llamadas a `f` hasta que haya `ms` milisegundos de inactividad (sin llamadas, "período de enfriamiento"), luego invoca `f` una vez con los últimos argumentos.
 
+En otras palabras, `debounce` es como un secretario que acepta "llamadas telefónicas", y espera hasta que haya `ms` milisegundos de silencio. Y solo entonces transfiere la última información de llamados a "el jefe" (llama a `f`).
+
 Por ejemplo, teníamos una función `f` y la reemplazamos con `f = debounce(f, 1000)`.
 
 Entonces, si la función contenedora se llama a 0ms, 200ms y 500ms, y luego no hay llamadas, entonces la 'f' real solo se llamará una vez, a 1500ms. Es decir: después del período de enfriamiento de 1000 ms desde la última llamada.

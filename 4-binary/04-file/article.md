@@ -1,6 +1,6 @@
 # File y FileReader
 
-Un [File](https://www.w3.org/TR/FileAPI/#dfn-file) hereda de `Blob` y extiende las capacidades relacionadas con el sistema de archivos.
+Un objeto [File](https://www.w3.org/TR/FileAPI/#dfn-file) hereda de `Blob` y extiende las capacidades relacionadas con el sistema de archivos.
 
 Hay dos maneras de obtenerlo
 
