@@ -97,7 +97,6 @@ alert(i); // ¡Error, no hay tal variable!
 
 Visualmente, `let i` está fuera de `{...} `. Pero la construcción `for` es especial aquí: la variable, declarada dentro de ella, se considera parte del bloque.
 
-Visually, `let i` is outside of `{...}`. But the `for` construct is special here: the variable, declared inside it, is considered a part of the block.
 
 ## Funciones anidadas
 
