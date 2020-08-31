@@ -73,7 +73,7 @@ Toma en cuenta:
 - Las coordenadas pueden ser negativas. Por ejemplo, si la página se desplaza hasta que `elem` rebase el borde superior de la ventana, entonces `elem.getBoundingClientRect().top` será negativo.
 
 ```smart header="¿Por qué se necesitan propiedades derivadas? ¿Por qué `top/left` si existe `x/y`?"
-Matemáticamente un rectángulo se define de únicamente con su punto de partida `(x,y)` los vectores de dirección `(width,height)`. Por lo tanto, las propiedades derivadas adicionales son por conveniencia.
+Matemáticamente un rectángulo se define de únicamente con su punto de partida `(x,y)`  y el vector de dirección `(width,height)`. Por lo tanto, las propiedades derivadas adicionales son por conveniencia.
 
 Técnicamente es posible que `width/height` sean negativos, lo que permite un rectángulo "dirigido". Por ejemplo, para representar la selección del mouse con su inicio y final debidamente marcados.
 
