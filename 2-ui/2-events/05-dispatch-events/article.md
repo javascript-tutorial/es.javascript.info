@@ -48,7 +48,7 @@ Hay una forma de diferenciar un evento de usuario "real" de uno generado por scr
 La propiedad `event.isTrusted` es `true` para eventos que provienen de acciones de usuarios reales y `false` para eventos generados por script.
 ```
 
-## Ejemplo Bubbling
+## Ejemplo de Bubbling
 
 Podemos crear un evento bubbling con el nombre `"hello"` y capturarlo en `document`.
 
