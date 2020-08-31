@@ -84,7 +84,7 @@ El operador OR `||` realiza lo siguiente:
 
 Un valor es retornado en su forma original, sin la conversión.
 
-En otras palabras, una cadena de OR `"||"` devuelve el primer valor verdadero o el último si ningún verdadero sea encontrado.
+En otras palabras, una cadena de OR `"||"` devuelve el primer valor verdadero o el último si ningún verdadero es encontrado.
 
 Por ejemplo:
 
