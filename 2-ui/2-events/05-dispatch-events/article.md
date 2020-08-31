@@ -78,7 +78,7 @@ Notas:
 1. Debemos usar `addEventListener` para nuestros eventos personalizados, porque `on<event>` solo existe para eventos incorporados, `document.onhello` no funciona.
 2. Debes poner `bubbles:true`, de otra manera el evento no se propagará.
 
-La mecánica de bubbling es la misma para los eventos integrados (`click`) y personalizados (` hello`). También hay etapas de captura y propagación.
+La mecánica de bubbling es la misma para los eventos integrados (`click`) y personalizados (`hello`). También hay etapas de captura y propagación.
 
 ## MouseEvent, KeyboardEvent y otros
 
