@@ -6,7 +6,7 @@ importance: 5
 
 En el siguiente iframe puedes ver un documento con el "campo" verde.
 
-Usa JavaScript para encontrar las coordenadas en la ventana de las esquinas señaladas con las flechas.
+Usa JavaScript para encontrar las coordenadas de las esquinas de la ventana señaladas con las flechas.
 
 Hay una pequeña característica implementada en el documento para conveniencia. Un click en cualquier lugar mostrará las coordenadas ahí.
 
