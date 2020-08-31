@@ -199,7 +199,7 @@ Las coordenadas relativas al documento comienzan en la esquina superior izquierd
 
 En CSS las coordenadas de la ventana corresponden a `position:fixed` mientras que las del documento son similares a `position:absolute` en la parte superior.
 
-Podemos usar `position:absolute` y `top/left` para colocar algo en cierto lugar del documento, esto lo reubicará ahí mismo durante un desplazamiento de página. Pero primero necesitamos las coordenadas correctas.
+Podemos usar `position:absolute` y `top/left` para colocar algo en un lugar determinado del documento, esto lo reubicará ahí mismo durante un desplazamiento de página. Pero primero necesitamos las coordenadas correctas.
 
 No existe un estándar para obtener las coordenadas de un elemento en un documento. Pero es fácil de codificarlo.
 
