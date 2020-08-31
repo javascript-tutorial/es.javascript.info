@@ -1,8 +1,8 @@
-# Outer corners
+# Esquinas externas
 
-Outer corners are basically what we get from [elem.getBoundingClientRect()](https://developer.mozilla.org/en-US/docs/DOM/element.getBoundingClientRect).
+Las esquinas externas son básicamente las que obtenemos de [elem.getBoundingClientRect()](https://developer.mozilla.org/es/docs/Web/API/Element/element.getBoundingClientRect).
 
-Coordinates of the upper-left corner `answer1` and the bottom-right corner `answer2`:
+Las coordenadas de la esquina superior izquierda `answer1` y la esquina inferior derecha `answer2`:
 
 ```js
 let coords = elem.getBoundingClientRect();
@@ -11,19 +11,19 @@ let answer1 = [coords.left, coords.top];
 let answer2 = [coords.right, coords.bottom];
 ```
 
-# Left-upper inner corner
+# Esquina interna y superior izquierda
 
-That differs from the outer corner by the border width. A reliable way to get the distance is `clientLeft/clientTop`:
+Esta es diferente a la esquina externa por el ancho del borde. Una manera confiable de obtener la distancia es usando `clientLeft/clientTop`:
 
 ```js
 let answer3 = [coords.left + field.clientLeft, coords.top + field.clientTop];
 ```
 
-# Right-bottom inner corner
+# Esquina interna e inferior derecha
 
-In our case we need to substract the border size from the outer coordinates.
+En nuestro caso necesitamos sustraer la medida del borde de las coordenadas externas.
 
-We could use CSS way:
+Podemos usar la forma de CSS:
 
 ```js
 let answer4 = [
@@ -32,7 +32,7 @@ let answer4 = [
 ];
 ```
 
-An alternative way would be to add `clientWidth/clientHeight` to coordinates of the left-upper corner. That's probably even better:
+Una forma alternativa puede ser agregando `clientWidth/clientHeight` a las coordenadas de la esquina superior izquierda. Probablemente sea incluso mejor:
 
 ```js
 let answer4 = [
