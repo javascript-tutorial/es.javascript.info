@@ -19,9 +19,7 @@ Por ejemplo:
 ...
 ```
 
-Aprenderemos funciones (una manera de agrupar comandos) en breve.
-
-De cara al futuro, tengamos en cuenta que `"use strict"` se puede poner al inicio de la mayoría de los tipos de funciones en lugar del script entero. De esta manera, se activa el modo estricto únicamente en esa función. Pero, normalmente, la gente lo utiliza para el script entero.
+Aprenderemos funciones (una manera de agrupar comandos) en breve, pero adelantemos que `"use strict"` se puede poner al inicio de una función. De esta manera, se activa el modo estricto únicamente en esa función. Pero normalmente se utiliza para el script entero.
 
 ````warn header="Asegúrate de que \"use strict\" está al inicio"
 Por favor, asegúrate de que `"use strict"` está al principio de tus scripts. Si no, el modo estricto podría no estar activado.
@@ -40,21 +38,31 @@ alert("algo de código");
 Únicamente pueden aparecer comentarios por encima de `"use strict"`.
 ````
 
-````warn header="No hay manera de cancelar `use strict`"
+```warn header="No hay manera de cancelar `use strict`"
 No hay ninguna directiva del tipo `"no use strict"` que haga al motor volver al comportamiento anterior.
 
 Una vez entramos en modo estricto, no hay vuelta atrás.
-````
+```
 
 ## Consola del navegador
 
-A partir de ahora, cuando utilices la consola del navegador para probar características, ten en cuenta que no utiliza `use strict` por defecto.
+Cuando utilices la [consola del navegador](info:devtools) para ejecutar código, ten en cuenta que no utiliza `use strict` por defecto.
 
-En ocasiones, cuando `use strict` causa una diferencia, obtendrás resultados incorrectos.
+En ocasiones, donde `use strict` cause diferencia, obtendrás resultados incorrectos.
 
-Incluso si pulsamos `key:Shift+Enter` para ingresar múltiples líneas y ponemos `use strict` al principio, no funciona. Esto es por cómo la consola ejecuta el código internamente.
+Entonces, ¿como utilizar `use strict` en la consola? 
 
-La única manera confiable de asegurar que `use strict` funcionará sería escribir el código en la consola de la siguiente forma:
+Primero puedes intentar pulsando `key:Shift+Enter` para ingresar múltiples líneas y poner `use strict` al principio, como aquí:
+
+```js
+'use strict'; <Shift+Enter para una nueva línea>
+//  ...tu código
+<Intro para ejecutar>
+```
+
+Esto funciona para la mayoría de los navegadores, específicamente Firefox y Chrome.
+
+Si esto no funciona, como en los viejos navegadores, hay una fea pero confiable manera de asegurar `use strict`. Ponlo dentro de esta especie de envoltura:
 
 ```js
 (function() {
@@ -64,15 +72,18 @@ La única manera confiable de asegurar que `use strict` funcionará sería escri
 })()
 ```
 
-## Utiliza siempre "use strict"
+## ¿Deberíamos utilizar "use strict"?
 
-Aún tenemos que comentar las diferencias entre el modo estricto y el modo "por defecto".
+La pregunta podría parecer obvia, pero no lo es.
 
-En los siguientes capítulos, según aprendamos características del lenguaje, veremos las diferencias entre los modos estricto y por defecto. Afortunadamente, no hay tantas y, de hecho, nos hacen la vida más fácil.
+Uno podría recomentar que se comiencen los script con `"use strict"`... ¿Pero sabes lo que es interesante?
 
-De momento, es suficiente saber lo general:
+El JavaScript moderno admite "clases" y "módulos", estructuras de lenguaje avanzadas (que seguramente llegaremos a ver), que automáticamente habilitan `use strict`. Entonces no necesitamos agregar la directiva `"use strict"` si las usamos.
 
-1. La directiva `"use strict"` cambia el motor de ejecución al modo "moderno", modificando el comportamiento de algunas características incluídas en el lenguaje. Veremos los detalles más adelante.
-2. El modo estricto se habilita poniendo `"use strict"` al principio de una función o del script. Varias características del lenguaje, como las "clases" y los "módulos", activan el modo estricto automáticamente.
-3. El modo estricto funciona en todos los navegadores modernos.
-4. Recomendamos empezar todos los scripts siempre con `"use strict"`. Todos los ejemplos de este tutorial asumen que el modo estricto está activado excepto cuando (muy raramente) se especifica lo contrario.
+**Entonces, por ahora `"use strict";` es un invitado bienvenido al tope de tus scripts. Luego, cuando tu código sea todo clases y módulos, puedes omitirlo.**
+
+A partir de ahora tenemos que saber acerca de `use strict` en general.
+
+En los siguientes capítulos, a medida que aprendamos características del lenguaje, veremos las diferencias entre el modo estricto y el antiguo. Afortunadamente no hay muchas y realmente hacen nuestra vida mejor.
+
+Todos los ejemplos en este tutorial asumen modo estricto salvo que (muy raramente) se especifique lo contrario.

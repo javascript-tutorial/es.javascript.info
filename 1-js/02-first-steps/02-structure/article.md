@@ -100,7 +100,6 @@ A medida que pasa el tiempo, los programas se vuelven cada vez más complejos. S
 
 Los comentarios se pueden poner en cualquier lugar de un script. No afectan su ejecución porque el motor simplemente los ignora.
 
-
 **Los comentarios de una línea comienzan con dos caracteres de barra diagonal `//`.**
 
 El resto de la línea es un comentario. Puede ocupar una línea completa propia o seguir una sentencia.
@@ -140,7 +139,7 @@ alert('Mundo');
 En la mayoría de los editores, se puede comentar una línea de código presionando `key:Ctrl+/` para un comentario de una sola línea y algo como `key:Ctrl+Shift+/` - para comentarios de varias líneas (selecciona una parte del código y pulsa la tecla de acceso rápido). Para Mac, intenta `key: Cmd` en lugar de `key: Ctrl`.
 ```
 
-````warn header="¡Los comentarios anidados no son compatibles!"
+````warn header="¡Los comentarios anidados no son admitidos!"
 No puede haber `/*...*/` dentro de otro `/*...*/`.
 
 Dicho código terminará con un error:

@@ -1,0 +1,400 @@
+code-style.svg:
+  "No space":
+    text: "Sin espacio"
+    position: "center"
+  "between the function name and parentheses":
+    position: "center"
+    text: "entre el nombre de función y paréntesis"
+  "between the parentheses and the parameter":
+    position: "center"
+    text: "entre el paréntesis y el parámetro"
+  "Indentation":
+    position: "center"
+    text: "Sangría"
+  "2 spaces":
+    position: "center"
+    text: "2 espacios"
+  "A space ":
+    position: "center"
+    text: "Un espacio"
+  "after for/if/while…":
+    position: "center"
+    text: "después de for/if/while…"
+  "} else { without a line break": "} else { sin salto de línea"
+  "Spaces around a nested call":
+    position: "center"
+    text: "Espacios alrededor de llamada anidada"
+  "An empty line":
+    position: "center"
+    text: "Una línea vacía"
+  "between logical blocks":
+    position: "center"
+    text: "entre bloques lógicos"
+  "Lines are not very long": "Las líneas no son muy largas"
+  "A semicolon ;": "Un punto y coma ;"
+  "is mandatory": "es obligatorio"
+  "Spaces":
+    position: "center"
+    text: "Espacios"
+  "around operators":
+    position: "center"
+    text: "Alrededor de los operadores"
+  "Curly brace {":
+    position: "center"
+    text: "Llaves {"
+  "on the same line, after a space":
+    position: "center"
+    text: "en la misma línea, después de un espacio"
+  "A space":
+    position: "center"
+    text: "Un espacio"
+  "between":
+    position: "center"
+    text: "entre"
+  "parameters":
+    position: "center"
+    text: "parámetros"
+  "A space between parameters":
+    position: "center"
+    text: "Un espacio entre parámetros"
+
+try-catch-flow.svg:
+  "Begin":
+    text: "Comienzo"
+    position: "center"
+  "No Errors":
+    text: "Sin errores"
+    position: "center"
+  "An error occured in the code":
+    text: "Occurió un error en el código"
+    position: "center"
+  "// code...": "// código..."
+  "Ignore catch block":
+    text: "Ignora bloque catch"
+    position: "center"
+  "Ignore the rest of try":
+    text: "Ignora el resto de try"
+    position: "center"
+  "Execute catch block":
+    text: "Ejecuta bloque catch"
+    position: "center"
+
+recursion-pow.svg:
+  "Yes":
+    text: "Si"
+    position: "center"
+  "No":
+    text: "No"
+  "recursive call until n==1": "llamada recursiva hasta n==1"
+
+hello-world-render.svg:
+  "1. The browser shows this part": "1. El navegador muestra esta parte"
+  "2. Then runs the script": "2. Luego ejecuta el script"
+  "3. Then shows the rest": "3. Luego muestra el resto"
+
+ifelse_task2.svg:
+  "Begin":
+    text: "Comienzo"
+    position: "center"
+  "Other":
+    text: "Otro"
+    position: "center"
+  "You don't know?":
+    text: "No sabes?"
+    position: "center"
+  "Right!":
+    text: "Correcto!"
+    position: "center"
+  "What's the ":
+    text: "Cúal es el "
+    position: "center"
+  "“official” name of":
+    text: "nombre \"oficial\" de"
+    position: "center"
+  "De otra manera": ""
+
+ifelse_task.svg:
+  "Begin": "Comienzo"
+  "Canceled":
+    position: "center"
+    text: "Cancelado"
+  "Welcome!":
+    text: "Bienvenido!"
+    position: "center"
+  "I don't know you": "No te conozco"
+  "Wrong password":
+    position: "center"
+    text: "Contraseña incorrecta"
+  "Who's there?":
+    position: "center"
+    text: "Quíen es?"
+  "Password?": "Contraseña?"
+  "Cancel": "Cancelar"
+  "Admin": "Administrador"
+  "TheMaster": "ElMejor"
+  "Other": "Otro"
+
+chrome-sources-breakpoint.svg:
+  "here's the list":
+    text: "Aquí está la lista"
+    position: "right"
+  "breakpoints":
+    text: "puntos de quiebre"
+
+chrome-sources-debugger-pause.svg:
+  "see the outer call details":
+    text: "ver los detalles de la llamada externa"
+    position: "right"
+  "watch expressions":
+    text: "ver expresiones"
+    position: "right"
+  "current variables":
+    text: "variables actuales"
+    position: "right"
+
+chrome-sources-debugger-trace-1.svg:
+  "nested calls":
+    text: "llamadas anidadas"
+    position: "right"
+
+chrome-open-sources.svg:
+  open sources: 'archivos de código abierto'
+
+object-user-empty.svg:
+  empty:
+    text: vacío
+    position: "center"
+
+garbage-collection-5.svg:
+  unreachables:
+    text: inalcanzables
+
+array-shift.svg:
+  clear:
+    text: limpiar
+    position: "center"
+  move: mover
+  elements: elementos
+  to the left: a la izquierda
+
+array-pop.svg:
+  clear:
+    text: limpiar
+    position: "center"
+
+decorator-makecaching-wrapper.svg:
+  wrapper: 'Contenedor'
+  around the function: 'alrededor de la función'
+
+xhr-another-domain.svg:
+  _defaults:
+    position: "center"
+  Browser: 'Navegador'
+  Server: 'Servidor'
+  HTTP-request: 'Solicitud HTTP'
+  HTTP-response: 'Respuesta HTTP'
+  '* OR https://javascript.info': '* O https://javascript.info'
+  'if the header allows, then success,': 'si el encabezado lo permite, entonces éxito'
+  otherwise fail: 'de lo contrario fallo'
+
+xhr-preflight.svg:
+  _defaults:
+    position: "center"
+  Browser: 'Navegador'
+  Server: 'Servidor'
+  Main HTTP-response: 'Principal respuesta HTTP'
+  otherwise error: 'de lo contrario error'
+  'if allowed: success,': 'si está permitido: éxito,'
+  Main HTTP-request: 'Principal solicitud HTTP'
+  preflight:
+    text: 'antes del lanzamiento'
+    position: 'right'
+  if allowed:
+    text: 'si es permitido'
+    position: 'right'
+
+cors-gmail-messages.svg:
+  _defaults:
+    position: "center"
+  got the cookie?: 'tiene la cookie?'
+  okay!: 'Ok!'
+
+websocket-handshake.svg:
+  _defaults:
+    position: "center"
+  Browser: 'Navegador'
+  Server: 'Servidor'
+  HTTP-request: 'Solicitud HTTP'
+  '"Hey, server, let''s talk WebSocket?"': '"Hola servidor, hablamos WebSocket?"'
+  HTTP-response: 'Respuesta HTTP'
+  '"Okay!"': 'Ok!'
+  WebSocket protocol: 'Protocolo WebSocket'
+
+long-polling.svg:
+  _defaults:
+    position: "center"
+  Browser: 'Navegador'
+  Server: 'Servidor'
+  request: 'solicitud'
+  connection: 'conexión'
+  hangs: 'se cuelga'
+  connection breaks: 'se rompe la conexión'
+  end of request: 'fin de la solicitud'
+  data: 'información'
+
+genYield2-2.svg:
+  _defaults:
+    position: "center"
+  Generator: 'Generador'
+  Calling code: 'Código de llamada'
+
+genYield2.svg:
+  _defaults:
+    position: "center"
+  Generator: 'Generador'
+  Calling code: 'Código de llamada'
+
+promise-handler-variants.svg:
+  _defaults:
+    position: "center"
+  ...with the result: '...con el resultado'
+  of the new promise...: 'de la nueva promesa...'
+  'the call of .then(handler) always returns a promise:': 'la llamada .then (controlador) siempre devuelve una promesa:'
+  if handler ends with…: 'si el controlador termina con…'
+  return value: 'devolver valor'
+  return promise: 'devolver promesa'
+  throw error: 'lanzar error'
+  'that promise settles with:': 'esa promesa se asienta con:'
+
+promiseQueue.svg:
+  '"code finished"': '"código terminado"'
+  handler enqueued: 'controlador en cola'
+  queued handler runs: 'se ejecuta el controlador en cola'
+  script execution finished: 'terminada la ejecución del script'
+
+eventLoop-full.svg:
+  script: 'script'
+  event:
+    text: 'evento'
+    position: 'center'
+  loop:
+    text: 'bucle'
+    position: 'center'
+  microtasks: 'microtareas'
+  render: 'mostrar'
+
+eventLoop.svg:
+  script: 'script'
+  event:
+    text: 'evento'
+    position: 'center'
+  loop:
+    text: 'bucle'
+    position: 'center'
+  macrotask:
+    text: 'tarea macro'
+    position: 'center'
+  queue:
+    text: 'cola'
+    position: 'center'
+
+cookie-xsrf.svg:
+  _defaults:
+    position: "center"
+  got the cookie?: 'obtuvo la cookie?'
+  okay!: 'Ok!'
+
+lexical-environment-global-3.svg:
+  execution start: 'comienzo de la ejecución'
+
+lexenv-nested-makecounter-5.svg:
+  '&lt;empty&gt;':
+    text: '&lt;vacío&gt;'
+    position: 'center'
+
+lexical-environment-global-2.svg:
+  execution start: 'comienzo de la ejecución'
+  '&lt;empty&gt;': '&lt;vacío&gt;'
+
+lexenv-makearmy.svg:
+  for block: 'bloque for'
+
+lexical-environment-simple.svg:
+  'LexicalEnvironment for the call': 'LexicalEnvironment para la llamada'
+
+lexenv-nested-makecounter-2.svg:
+  global LexicalEnvironment: 'LexicalEnvironment global'
+  'of makeCounter() call': 'del llamado a makeCounter()'
+
+lexenv-nested-makecounter-6.svg:
+  modified here: 'modoficado aquí'
+
+proxy-inherit.svg:
+  '_name: &quot;Guest&quot;': '_name: "Invitado"'
+  user (proxied):
+    text: 'user (con proxy)'
+    position: "center"
+  original user:
+    text: 'user original'
+    position: "center"
+
+
+proxy-inherit-admin.svg:
+  '_name: &quot;Guest&quot;': '_name: "Invitado"'
+  '_name: &quot;Admin&quot;': '_name: "Administrador"'
+  user (proxied):
+    text: 'user (con proxy)'
+    position: "center"
+  original user:
+    text: 'user original'
+    position: "center"
+
+
+selection-firefox.svg:
+  selection: 'selección'
+
+selection-direction-backward.svg:
+  focus: 'enfoque'
+  anchor: 'ancla'
+
+selection-direction-forward.svg:
+  focus: 'enfoque'
+  anchor: 'ancla'
+
+object-prototype-empty.svg:
+  'prototype object': 'objeto prototype'
+
+rabbit-prototype-constructor.svg:
+  'default "prototype"': '"prototype" por defecto'
+
+function-prototype-constructor.svg:
+  'default "prototype"': '"prototype" por defecto'
+
+rabbit-animal-independent-animal.svg:
+  'name: "My animal"': 'nombre: "Mi animal"'
+
+rabbit-animal-independent-rabbit.svg:
+  'name: "My rabbit"': 'nombre: "Mi conejo"'
+
+animal-rabbit-extends.svg:
+  'name: "White Rabbit"': 'nombre: "Conejo Blanco"'
+
+animal-rabbit-static.svg:
+  'name: "White Rabbit"': 'nombre: "Conejo Blanco"'
+
+class-inheritance-rabbit-animal.svg:
+  'methods of Animal': 'métodos de Animal'
+  'methods of Rabbit': 'métodos de Rabbit'
+  'properties of rabbit': 'propiedades de rabbit'
+
+proto-animal-rabbit-walk-3.svg:
+  'name: "White Rabbit"': 'nombre: "Conejo Blanco"'
+
+class-inheritance-rabbit-animal-2.svg:
+  'name: "White Rabbit"': 'name: "Белый кролик"'
+
+event-order-bubbling.svg:
+  _defaults:
+    position: "center"
+  'Most deeply': 'Más profundo'
+  'nested element': 'elemento anidado'

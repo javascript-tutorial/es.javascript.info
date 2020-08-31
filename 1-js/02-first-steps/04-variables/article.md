@@ -14,7 +14,6 @@ Una [variable](https://es.wikipedia.org/wiki/Variable_(programaci%C3%B3n))) es u
 Para generar una variable en JavaScript, se usa la palabra clave `let`.
 
 La siguiente declaración genera (en otras palabras: *declara* o *define*) una variable con el nombre "message":
-
 ```js
 let message;
 ```
@@ -64,14 +63,14 @@ let age = 25;
 let message = 'Hola';
 ```
 
-Algunas personas también definen variables múltiples en es estilo multilínea (multiline):
+Algunas personas también definen variables múltiples en estilo multilínea:
 ```js no-beautify
 let user = 'John',
   age = 25,
   message = 'Hola';
 ```
 
-...Incluso en este estilo "comma-first":
+...Incluso en este estilo "coma primero":
 
 ```js no-beautify
 let user = 'John'
@@ -81,9 +80,8 @@ let user = 'John'
 
 Técnicamente, todas estas variantes hacen lo mismo. Así que, es cuestión de gusto personal y preferencia estética.
 
-
 ````smart header="`var` en vez de `let`"
-En 'scripts' mas viejos, a veces se encuentra la palabra clave `let`:
+En scripts más viejos, a veces se encuentra otra palabra clave: `var` en lugar de `let`:
 
 ```js
 *!*var*/!* mensaje = 'Hola';
@@ -96,7 +94,7 @@ Existen sutiles diferencias entre `let` y `var`, pero no nos constan en este mom
 
 ## Una analogía de la vida real
 
-Podemos comprender fácilmente el concepto de una "variable" si nos la imaginamos como una "caja" con una etiqueta de nombre único, pegada en ella.
+Podemos comprender fácilmente el concepto de una "variable" si nos la imaginamos como una "caja" con una etiqueta de nombre único pegada en ella.
 
 Por ejemplo, podemos imaginar la variable `message` como una caja etiquetada `"message"` con el valor `"Hola!"` adentro:
 
@@ -136,20 +134,34 @@ alert(hello); // Hola mundo!
 alert(message); // Hola mundo!
 ```
 
+````warn header="Declarar dos veces lanza un error"
+Una variable debería ser declarada solamente una vez.
+
+Una declaración repetida de la misma variable es un error:
+
+```js run
+let message = "This";
+
+// 'let' repetidos lleva a un error
+let message = "That"; // SyntaxError: 'message' ya fue declarado
+```
+Debermos declarar una variable una sola vez y desde entonces referirnos a ella sin `let`.
+````
+
 ```smart header="Lenguajes funcionales"
 Es interesante notar el hecho que lenguajes de programación [funcional](https://es.wikipedia.org/wiki/Programaci%C3%B3n_funcional), como [Scala](http://www.scala-lang.org/) o [Erlang](http://www.erlang.org) prohíben cambiar el valor de variables.
 
 En tales lenguajes, una vez la variable ha sido almacenada "en la caja", permanece allí por siempre. Si necesitamos almacenar algo más, el lenguaje nos obliga a crear una nueva caja (generar una nueva variable). No podemos reusar la antigua.
 
-Aunque puede parecer un poco extraño a primera vista, estos lenguajes tienen seria capacidad de desarrollar. Más aún, existen áreas como computación en paralelo en las cuales esta limitación otorga ciertos beneficios. Estudiar tales lenguajes (incluso sin la intención de usarlo en el futuro cercano) es recomendable para ampliar la mente.
+Aunque puede parecer un poco extraño a primera vista, estos lenguajes son muy capaces de desarrollo serio. Más aún, existen áreas como computación en paralelo en las cuales esta limitación otorga ciertos beneficios. Estudiar tales lenguajes (incluso sin la intención de usarlo en el futuro cercano) es recomendable para ampliar la mente.
 ```
 
 ## Nombramiento de variables [#variable-naming]
 
 Existen dos limitaciones de nombre de variables en JavaScript:
 
-1. El nombre únicamente puede incluir letras, dígitos numerales, o los símbolos `$` y `_`.
-2. El primer carácter no puede ser un dígito numeral.
+1. El nombre únicamente puede incluir letras, dígitos, o los símbolos `$` y `_`.
+2. El primer carácter no puede ser un dígito.
 
 Ejemplos de nombres válidos:
 
@@ -174,7 +186,7 @@ alert($ + _); // 3
 Ejemplos de nombres incorrectos:
 
 ```js no-beautify
-let 1a; // no puede iniciar con un dígito numeral
+let 1a; // no puede iniciar con un dígito
 
 let my-name; // los guiones '-' no son permitidos en nombres
 ```
@@ -324,8 +336,8 @@ Los minificadores de JavaScript moderno, y los navegadores optimizan el código 
 
 Podemos declarar variables para almacenar datos al utilizar las palabra clave `var`, `let`, o `const`.
 
-- `let` -- es una declaración de variable moderna. El código debe estar en 'strict mode' para utilizar `let` en Chrome (V8).
-- `var` -- es una declaración de variable más vieja-escuela. Normalmente no lo utilizamos para nada, aunque cubriremos sus sutiles diferencias con `let` en el capítulo <info:var>, en caso de que sea necesario.
+- `let` -- es una declaración de variable moderna.
+- `var` -- es una declaración de variable más vieja-escuela. Normalmente no lo utilizamos en absoluto, aunque cubriremos sus sutiles diferencias con `let` en el capítulo <info:var>, en caso de que sea necesario.
 - `const` -- es como `let`, pero el valor de la variable no puede ser alterado.
 
 Las variables deben ser nombradas de tal manera que entendamos fácilmente lo que está en su interior.
