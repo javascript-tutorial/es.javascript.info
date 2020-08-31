@@ -2,7 +2,7 @@
 
 Las esquinas externas son básicamente las que obtenemos de [elem.getBoundingClientRect()](https://developer.mozilla.org/es/docs/Web/API/Element/element.getBoundingClientRect).
 
-Coordenadas de la esquina superior izquierda `answer1` y la esquina inferior derecha `answer2`:
+Las coordenadas de la esquina superior izquierda `answer1` y la esquina inferior derecha `answer2`:
 
 ```js
 let coords = elem.getBoundingClientRect();
