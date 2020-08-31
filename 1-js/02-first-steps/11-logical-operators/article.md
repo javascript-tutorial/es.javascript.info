@@ -233,7 +233,7 @@ Por ejemplo:
 let x = 1;
 
 (x > 0) && alert("¡Mayor que cero!");
-````
+```
 
 La acción en la parte derecha de `&&` sería ejecutada sólo si la evaluación la alcanza. Eso es, solo si `(x > 0)` es verdadero.
 
