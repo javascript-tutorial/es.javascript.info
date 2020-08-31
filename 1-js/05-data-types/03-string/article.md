@@ -371,8 +371,13 @@ alert('Midget'.includes('id', 3)); // false, desde la posición 3 no hay "id"
 Los métodos [str.startsWith](mdn:js/String/startsWith) (comienza con) y [str.endsWith](mdn:js/String/endsWith) (termina con) hacen exactamente lo que dicen:
 
 ```js run
+alert('Widget'.startsWith('Wid')); // true, "Widget" comienza con "Wid"
 alert('Widget'.endsWith('get')); // true, "Widget" termina con "get"
 ```
+
+## Obteniendo un substring
+
+Existen 3 métodos en JavaScript para obtener un substring: `substring`, `substr` y `slice`.
 
 `str.slice(comienzo [, final])`
 : Retorna la parte del string desde `comienzo` hasta (pero sin incluir) `final`.
