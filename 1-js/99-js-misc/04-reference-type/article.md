@@ -107,8 +107,3 @@ Para todas las demás operaciones, el tipo de referencia se convierte automátic
 
 Toda la mecánica está oculta a nuestros ojos. Solo importa en casos sutiles, como cuando un método se obtiene dinámicamente del objeto, usando una expresión.
 
-
-
-
-
-El resultado del punto `.` no es en realidad un método, pero un valor de `` necesita una manera de pasar la información sobre `obj`.

@@ -34,28 +34,28 @@ function publish(message) {
 function accept(req, res) {
   let urlParsed = url.parse(req.url, true);
 
-  // new client wants messages
+  // El nuevo cliente quiere mensajes
   if (urlParsed.pathname == '/subscribe') {
     onSubscribe(req, res);
     return;
   }
 
-  // sending a message
+  // enviando un mensaje
   if (urlParsed.pathname == '/publish' && req.method == 'POST') {
-    // accept POST
+    // aceptar POST
     req.setEncoding('utf8');
     let message = '';
     req.on('data', function(chunk) {
       message += chunk;
     }).on('end', function() {
-      publish(message); // publish it to everyone
+      publish(message); // publicarlo para todos
       res.end("ok");
     });
 
     return;
   }
 
-  // the rest is static
+  // el resto es estático
   fileServer.serve(req, res);
 
 }
@@ -71,7 +71,7 @@ function close() {
 
 if (!module.parent) {
   http.createServer(accept).listen(8080);
-  console.log('Server running on port 8080');
+  console.log('Servidor que se ejecuta en el puerto 8080');
 } else {
   exports.accept = accept;
 

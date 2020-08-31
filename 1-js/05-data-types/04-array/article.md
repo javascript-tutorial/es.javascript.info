@@ -193,7 +193,7 @@ Un array es una clase especial de objeto. Los corchetes usados para acceder a un
 
 Ellos extienden los objetos proveyendo métodos especiales para trabajar con colecciones ordenadas de datos y también la propiedad `length`. Pero en el corazón es aún un objeto.
 
-Recuerda, hay solo 7 tipos basicos en JavaScript. Array es un objeto y se comporta como un objeto..
+Recuerde, solo hay ocho tipos de datos básicos en JavaScript (consulte el capítulo [Tipos de datos] (https://javascript.info/types) para obtener más información). Array es un objeto y, por tanto, se comporta como un objeto.
 
 Por ejemplo, es copiado por referencia:
 

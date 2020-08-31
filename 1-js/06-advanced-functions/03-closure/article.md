@@ -1,11 +1,15 @@
 
-# Ámbito de Variable
+# Ámbito de Variable y el concepto "closure" 
 
-JavaScript es un lenguaje muy orientado a funciones. Nos da mucha libertad. Se puede crear una función dinámicamente, pasarla como argumento a otra función y llamarla desde un lugar de código totalmente diferente más adelante.
+JavaScript es un lenguaje muy orientado a funciones. Nos da mucha libertad. Una función se puede crear en cualquier momento, pasar como argumento a otra función y luego llamar desde un lugar de código totalmente diferente más tarde.
 
 Ya sabemos que una función puede acceder a variables fuera de ella.
 
-Ahora ampliemos nuestro conocimiento para incluir escenarios más complejos.
+Pero, ¿qué sucede si estas variables "externas" cambian desde que se crea una función? ¿La función verá los valores nuevos o los antiguos?
+
+Y si una función se pasa como parámetro y se llama desde otro lugar del código, ¿tendrá acceso a las variables externas en el nuevo lugar?
+
+Ampliemos nuestro conocimiento para comprender estos escenarios y otros más complejos.
 
 ```smart header="Hablaremos de las variables let / const aquí"
 En JavaScript, hay 3 formas de declarar una variable: `let`, `const` (las modernas) y `var` (más antigua).
