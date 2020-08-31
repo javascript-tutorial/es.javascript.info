@@ -19,7 +19,7 @@ Esta es diferente a la esquina externa por el ancho del borde. Una manera confia
 let answer3 = [coords.left + field.clientLeft, coords.top + field.clientTop];
 ```
 
-# Esquina inferior derecha interna
+# Esquina interna e inferior derecha
 
 En nuestro caso necesitamos sustraer la medida del borde de las coordenadas externas.
 
