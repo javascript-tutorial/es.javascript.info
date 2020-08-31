@@ -1,6 +1,6 @@
-¡**Error**!
+**Error**!
 
-Inténtalo:
+Try it:
 
 ```js run
 let user = {
@@ -8,22 +8,22 @@ let user = {
   go: function() { alert(this.name) }
 }
 
-(user.go)() // ¡Error!
+(user.go)() // error!
 ```
 
-El mensaje de error en la mayoría de los navegadores no nos da una pista sobre lo que salió mal.
+The error message in most browsers does not give us much of a clue about what went wrong.
 
-**El error aparece porque falta un punto y coma después de `user = {...}`.**
+**The error appears because a semicolon is missing after `user = {...}`.**
 
-JavaScript no inserta automáticamente un punto y coma antes de un paréntesis `(user.go)()`, por lo que lee el código así:
+JavaScript does not auto-insert a semicolon before a bracket `(user.go)()`, so it reads the code like:
 
 ```js no-beautify
 let user = { go:... }(user.go)()
 ```
 
-Entonces también podemos ver que tal expresión conjunta es sintácticamente una llamada del objeto `{ go: ... }` como una función con el argumento `(user.go)`. Y eso también ocurre en la misma línea con `let user`, por lo que el objeto `user` aún no se ha definido y de ahí el error.
+Then we can also see that such a joint expression is syntactically a call of the object `{ go: ... }` as a function with the argument `(user.go)`. And that also happens on the same line with `let user`, so the `user` object has not yet even been defined, hence the error.
 
-Si insertamos el punto y coma todo está bien:
+If we insert the semicolon, all is fine:
 
 ```js run
 let user = {
@@ -34,4 +34,4 @@ let user = {
 (user.go)() // John
 ```
 
-Tenga en cuenta que los paréntesis alrededor de `(user.go)` no hacen nada aquí. Usualmente son configurados para ordenar las operaciones, pero aquí el punto `.` funciona primero de todas formas, por lo que no tienen ningún efecto en él. Solamente el punto y coma importa.
+Please note that parentheses around `(user.go)` do nothing here. Usually they setup the order of operations, but here the dot `.` works first anyway, so there's no effect. Only the semicolon thing matters.

@@ -162,7 +162,11 @@ Besides, the event class describes "what kind of event" it is, and if the event 
 
 ## event.preventDefault()
 
+<<<<<<< HEAD
 Many browser events have a "default action", such as nagivating to a link, starting a selection, and so on.
+=======
+Many browser events have a "default action", such as navigating to a link, starting a selection, and so on.
+>>>>>>> 0bfebb4b46b4b5f9c221915ab8b1e2de9bdc013d
 
 For new, custom events, there are definitely no default browser actions, but a code that dispatches such event may have its own plans what to do after triggering the event.
 
@@ -187,7 +191,6 @@ Any handler can listen for that event with `rabbit.addEventListener('hide',...)`
 <button onclick="hide()">Hide()</button>
 
 <script>
-  // hide() will be called automatically in 2 seconds
   function hide() {
     let event = new CustomEvent("hide", {
       cancelable: true // without that flag preventDefault doesn't work
@@ -211,13 +214,21 @@ Please note: the event must have the flag `cancelable: true`, otherwise the call
 
 ## Events-in-events are synchronous
 
+<<<<<<< HEAD
 Usually events are processed in a queue. That is: if the browser is processing `onclick` and a new event occurs, e.g. mouse moved, then it's handing is queued up, corresponding `mousemove` handlers will be called after `onclick` processing is finished.
+=======
+Usually events are processed in a queue. That is: if the browser is processing `onclick` and a new event occurs, e.g. mouse moved, then it's handling is queued up, corresponding `mousemove` handlers will be called after `onclick` processing is finished.
+>>>>>>> 0bfebb4b46b4b5f9c221915ab8b1e2de9bdc013d
 
 The notable exception is when one event is initiated from within another one, e.g. using `dispatchEvent`. Such events are processed immediately: the new event handlers are called, and then the current event handling is resumed.
 
 For instance, in the code below the `menu-open` event is triggered during the `onclick`.
 
+<<<<<<< HEAD
 It's processed immediately, without waiting for `onlick` handler to end:
+=======
+It's processed immediately, without waiting for `onclick` handler to end:
+>>>>>>> 0bfebb4b46b4b5f9c221915ab8b1e2de9bdc013d
 
 
 ```html run autorun
@@ -243,7 +254,11 @@ The output order is: 1 -> nested -> 2.
 
 Please note that the nested event `menu-open` is caught on the `document`. The propagation and handling of the nested event is finished before the processing gets back to the outer code (`onclick`).
 
+<<<<<<< HEAD
 That's not only about `dispatchEvent`, there are other cases. If an event handler calls methods that trigger to other events -- they are too processed synchronously, in a nested fashion.
+=======
+That's not only about `dispatchEvent`, there are other cases. If an event handler calls methods that trigger other events -- they too are processed synchronously, in a nested fashion.
+>>>>>>> 0bfebb4b46b4b5f9c221915ab8b1e2de9bdc013d
 
 Let's say we don't like it. We'd want `onclick` to be fully processed first, independently from `menu-open` or any other nested events.
 
@@ -283,9 +298,9 @@ Other constructors of native events like `MouseEvent`, `KeyboardEvent` and so on
 
 For custom events we should use `CustomEvent` constructor. It has an additional option named `detail`, we should assign the event-specific data to it. Then all handlers can access it as `event.detail`.
 
-Despite the technical possibility to generate browser events like `click` or `keydown`, we should use with the great care.
+Despite the technical possibility of generating browser events like `click` or `keydown`, we should use them with great care.
 
-We shouldn't generate browser events as it's a hacky way to run handlers. That's a bad architecture most of the time.
+We shouldn't generate browser events as it's a hacky way to run handlers. That's bad architecture most of the time.
 
 Native events might be generated:
 

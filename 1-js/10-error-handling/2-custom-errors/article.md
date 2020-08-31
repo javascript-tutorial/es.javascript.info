@@ -2,11 +2,19 @@
 
 Cuando desarrollamos algo, a menudo necesitamos nuestras propias clases de error para reflejar cosas específicas que pueden salir mal en nuestras tareas. Para errores en las operaciones de red, podemos necesitar `HttpError`, para las operaciones de la base de datos `DbError`, para las operaciones de búsqueda `NotFoundError`, etc.
 
+<<<<<<< HEAD
 Nuestros errores deben admitir propiedades de error básicas como `message`, `name` y, preferiblemente, `stack`. Pero también pueden tener otras propiedades propias, por ejemplo, los objetos `HttpError` pueden tener una propiedad `statusCode` con un valor como `404` o `403` o `500`.
+=======
+Our errors should support basic error properties like `message`, `name` and, preferably, `stack`. But they also may have other properties of their own, e.g. `HttpError` objects may have a `statusCode` property with a value like `404` or `403` or `500`.
+>>>>>>> 0bfebb4b46b4b5f9c221915ab8b1e2de9bdc013d
 
 JavaScript permite usar `throw` con cualquier argumento, por lo que técnicamente nuestras clases de error personalizadas no necesitan heredarse de `Error`. Pero si heredamos, entonces es posible usar `obj instanceof Error` para identificar objetos error. Entonces es mejor heredar de él.
 
+<<<<<<< HEAD
 A medida que la aplicación crece, nuestros propios errores forman naturalmente una jerarquía. Por ejemplo, `HttpTimeoutError` puede heredar de `HttpError`, y así sucesivamente.
+=======
+As the application grows, our own errors naturally form a hierarchy. For instance, `HttpTimeoutError` may inherit from `HttpError`, and so on.
+>>>>>>> 0bfebb4b46b4b5f9c221915ab8b1e2de9bdc013d
 
 ## Extendiendo Error
 
@@ -17,26 +25,45 @@ Aquí hay un ejemplo de cómo puede verse un `json` válido:
 let json = `{ "name": "John", "age": 30 }`;
 ```
 
+<<<<<<< HEAD
 Internamente, usaremos `JSON.parse`. Si recibe `json` mal formado, entonces arroja `SyntaxError`. Pero incluso si `json` es sintácticamente correcto, eso no significa que sea un usuario válido, ¿verdad? Puede perder los datos necesarios. Por ejemplo, puede no tener propiedades de nombre y edad que son esenciales para nuestros usuarios.
 
 Nuestra función `readUser(json)` no solo leerá JSON, sino que verificará ("validará") los datos. Si no hay campos obligatorios, o el formato es incorrecto, entonces es un error. Y eso no es un "SyntaxError", porque los datos son sintácticamente correctos, sino otro tipo de error. Lo llamaremos `ValidationError` y crearemos una clase para ello. Un error de ese tipo también debe llevar la información sobre el campo infractor.
+=======
+Internally, we'll use `JSON.parse`. If it receives malformed `json`, then it throws `SyntaxError`. But even if `json` is syntactically correct, that doesn't mean that it's a valid user, right? It may miss the necessary data. For instance, it may not have `name` and `age` properties that are essential for our users.
+>>>>>>> 0bfebb4b46b4b5f9c221915ab8b1e2de9bdc013d
 
 Nuestra clase `ValidationError` debería heredar de la clase incorporada `Error`.
 
+<<<<<<< HEAD
 Esa clase está incorporada, pero aquí está su código aproximado para que podamos entender lo que estamos extendiendo:
+=======
+Our `ValidationError` class should inherit from the built-in `Error` class.
+
+That class is built-in, but here's its approximate code so we can understand what we're extending:
+>>>>>>> 0bfebb4b46b4b5f9c221915ab8b1e2de9bdc013d
 
 ```js
 // El "pseudocódigo" para la clase Error incorporada definida por el propio JavaScript
 class Error {
   constructor(message) {
     this.message = message;
+<<<<<<< HEAD
     this.name = "Error"; // (diferentes nombres para diferentes clases error incorporadas)
     this.stack = <call stack>; // no estándar, pero la mayoría de los entornos lo admiten
+=======
+    this.name = "Error"; // (different names for different built-in error classes)
+    this.stack = <call stack>; // non-standard, but most environments support it
+>>>>>>> 0bfebb4b46b4b5f9c221915ab8b1e2de9bdc013d
   }
 }
 ```
 
+<<<<<<< HEAD
 Ahora heredemos `ValidationError` y probémoslo en acción:
+=======
+Now let's inherit `ValidationError` from it and try it in action:
+>>>>>>> 0bfebb4b46b4b5f9c221915ab8b1e2de9bdc013d
 
 ```js run untrusted
 *!*
@@ -61,9 +88,15 @@ try {
 }
 ```
 
+<<<<<<< HEAD
 Tenga en cuenta: en la línea `(1)` llamamos al constructor padre. JavaScript requiere que llamemos `super` en el constructor hijo, por lo que es obligatorio. El constructor padre establece la propiedad `message`.
 
 El constructor principal también establece la propiedad `name` en `"Error"`, por lo que en la línea `(2)` la restablecemos al valor correcto.
+=======
+Please note: in the line `(1)` we call the parent constructor. JavaScript requires us to call `super` in the child constructor, so that's obligatory. The parent constructor sets the `message` property.
+
+The parent constructor also sets the `name` property to `"Error"`, so in the line `(2)` we reset it to the right value.
+>>>>>>> 0bfebb4b46b4b5f9c221915ab8b1e2de9bdc013d
 
 Intentemos usarlo en `readUser(json)`:
 
@@ -121,7 +154,11 @@ También podríamos mirar `err.name`, así:
 
 La versión `instanceof` es mucho mejor, porque en el futuro vamos a extender `ValidationError`, haremos subtipos de ella, como `PropertyRequiredError`. Y el control `instanceof` continuará funcionando para las nuevas clases heredadas. Entonces eso es a prueba de futuro.
 
+<<<<<<< HEAD
 También es importante que si `catch` encuentra un error desconocido, entonces lo vuelve a lanzar en la línea `(**)`. El bloque `catch` solo sabe cómo manejar los errores de validación y sintaxis, otros tipos (debido a un error tipográfico en el código u otros desconocidos) deben fallar.
+=======
+Also it's important that if `catch` meets an unknown error, then it rethrows it in the line `(**)`. The `catch` block only knows how to handle validation and syntax errors, other kinds (due to a typo in the code or other unknown ones) should fall through.
+>>>>>>> 0bfebb4b46b4b5f9c221915ab8b1e2de9bdc013d
 
 ## Herencia adicional
 
@@ -180,7 +217,11 @@ try {
 
 La nueva clase `PropertyRequiredError` es fácil de usar: solo necesitamos pasar el nombre de la propiedad: `new PropertyRequiredError(property)`. El `message` legible para humanos es generado por el constructor.
 
+<<<<<<< HEAD
 Tenga en cuenta que `this.name` en el constructor `PropertyRequiredError` se asigna de nuevo manualmente. Eso puede volverse un poco tedioso: asignar `this.name = <class name>` en cada clase de error personalizada. Podemos evitarlo haciendo nuestra propia clase "error básico" que asigna `this.name = this.constructor.name`. Y luego herede todos nuestros errores personalizados.
+=======
+Please note that `this.name` in `PropertyRequiredError` constructor is again assigned manually. That may become a bit tedious -- to assign `this.name = <class name>` in every custom error class. We can avoid it by making our own "basic error" class that assigns `this.name = this.constructor.name`. And then inherit all our custom errors from it.
+>>>>>>> 0bfebb4b46b4b5f9c221915ab8b1e2de9bdc013d
 
 Llamémosla `MyError`.
 
@@ -239,6 +280,7 @@ En el código anterior podemos ver dos tipos de errores, pero puede haber más.
 
 Si la función `readUser` genera varios tipos de errores, entonces debemos preguntarnos: ¿realmente queremos verificar todos los tipos de error uno por uno cada vez?
 
+<<<<<<< HEAD
 A menudo, la respuesta es "No": nos gustaría estar "un nivel por encima de todo eso". Solo queremos saber si hubo un "error de lectura de datos": el por qué ocurrió exactamente es a menudo irrelevante (el mensaje de error lo describe). O, mejor aún, nos gustaría tener una forma de obtener los detalles del error, pero solo si es necesario.
 
 La técnica que describimos aquí se llama "empacado de excepciones".
@@ -248,6 +290,43 @@ La técnica que describimos aquí se llama "empacado de excepciones".
 3. El objeto `ReadError` mantendrá la referencia al error original en su propiedad `cause`.
 
 Entonces, el código que llama a `readUser` solo tendrá que verificar `ReadError`, no todos los tipos de errores de lectura de datos. Y si necesita más detalles de un error, puede verificar su propiedad `cause`.
+=======
+The purpose of the function `readUser` in the code above is "to read the user data". There may occur different kinds of errors in the process. Right now we have `SyntaxError` and `ValidationError`, but in the future `readUser` function may grow and probably generate other kinds of errors.
+
+The code which calls `readUser` should handle these errors. Right now it uses multiple `if`s in the `catch` block, that check the class and handle known errors and rethrow the unknown ones.
+
+The scheme is like this:
+
+```js
+try {
+  ...
+  readUser()  // the potential error source
+  ...
+} catch (err) {
+  if (err instanceof ValidationError) {
+    // handle validation errors
+  } else if (err instanceof SyntaxError) {
+    // handle syntax errors
+  } else {
+    throw err; // unknown error, rethrow it
+  }
+}
+```
+
+In the code above we can see two types of errors, but there can be more.
+
+If the `readUser` function generates several kinds of errors, then we should ask ourselves: do we really want to check for all error types one-by-one every time?
+
+Often the answer is "No": we'd like to be "one level above all that". We just want to know if there was a "data reading error" -- why exactly it happened is often irrelevant (the error message describes it). Or, even better, we'd like to have a way to get the error details, but only if we need to.
+
+The technique that we describe here is called "wrapping exceptions".
+
+1. We'll make a new class `ReadError` to represent a generic "data reading" error.
+2. The function `readUser` will catch data reading errors that occur inside it, such as `ValidationError` and `SyntaxError`, and generate a `ReadError` instead.
+3. The `ReadError` object will keep the reference to the original error in its `cause` property.
+
+Then the code that calls `readUser` will only have to check for `ReadError`, not for every kind of data reading errors. And if it needs more details of an error, it can check its `cause` property.
+>>>>>>> 0bfebb4b46b4b5f9c221915ab8b1e2de9bdc013d
 
 Aquí está el código que define `ReadError` y demuestra su uso en `readUser` y `try..catch`:
 
@@ -319,12 +398,24 @@ try {
 
 En el código anterior, `readUser` funciona exactamente como se describe: detecta los errores de sintaxis y validación y arroja los errores `ReadError` en su lugar (los errores desconocidos se vuelven a generar como de costumbre).
 
+<<<<<<< HEAD
 Entonces, el código externo verifica `instanceof ReadError` y eso es todo. No es necesario enumerar todos los tipos de error posibles.
 
 El enfoque se llama "empacado de excepciones", porque tomamos excepciones de "bajo nivel" y las "ajustamos" en `ReadError` que es más abstracto. Es ampliamente utilizado en la programación orientada a objetos.
+=======
+So the outer code checks `instanceof ReadError` and that's it. No need to list all possible error types.
+
+The approach is called "wrapping exceptions", because we take "low level" exceptions and "wrap" them into `ReadError` that is more abstract. It is widely used in object-oriented programming.
+>>>>>>> 0bfebb4b46b4b5f9c221915ab8b1e2de9bdc013d
 
 ## Resumen
 
+<<<<<<< HEAD
 - Podemos heredar de `Error` y otras clases de error incorporadas normalmente. Solo necesitamos cuidar la propiedad `name` y no olvidemos llamar `super`.
 - Podemos usar `instanceof` para verificar errores particulares. También funciona con herencia. Pero a veces tenemos un objeto error que proviene de una biblioteca de terceros y no hay una manera fácil de obtener su clase. Entonces la propiedad `name` puede usarse para tales controles.
 - Empacado de excepciones es una técnica generalizada: una función maneja excepciones de bajo nivel y crea errores de alto nivel en lugar de varios errores de bajo nivel. Las excepciones de bajo nivel a veces se convierten en propiedades de ese objeto como `err.cause` en los ejemplos anteriores, pero eso no es estrictamente necesario.
+=======
+- We can inherit from `Error` and other built-in error classes normally. We just need to take care of the `name` property and don't forget to call `super`.
+- We can use `instanceof` to check for particular errors. It also works with inheritance. But sometimes we have an error object coming from a 3rd-party library and there's no easy way to get its class. Then `name` property can be used for such checks.
+- Wrapping exceptions is a widespread technique: a function handles low-level exceptions and creates higher-level errors instead of various low-level ones. Low-level exceptions sometimes become properties of that object like `err.cause` in the examples above, but that's not strictly required.
+>>>>>>> 0bfebb4b46b4b5f9c221915ab8b1e2de9bdc013d

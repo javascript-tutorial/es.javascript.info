@@ -37,4 +37,8 @@ Entonces si `arr.length` es `10000` vamos a tener algo como `10000*10000` = 100 
 
 Por lo que la solución solo es buena para arrays pequeños.
 
+<<<<<<< HEAD
 Más adelante en el capítulo <info:map-set> vamos a ver como optimizarlo.
+=======
+Further in the chapter <info:map-set> we'll see how to optimize it.
+>>>>>>> 0bfebb4b46b4b5f9c221915ab8b1e2de9bdc013d

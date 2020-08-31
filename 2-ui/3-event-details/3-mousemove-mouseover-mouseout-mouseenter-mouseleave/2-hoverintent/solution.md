@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 El algorítmo luce simple:
 1. Coloca los controladores `onmouseover/out` en el elemento. Aquí también podemos usar `onmouseenter/leave` pero son menos universales, no funcionan si introducimos delegaciones.
 2. Cuando el cursor ingrese al elemento debes medir la velocidad en `mousemove`.
@@ -8,11 +9,28 @@ El algorítmo luce simple:
 ¿Pero cómo mediremos la velocidad?
 
 La primera idea puede ser: correr una función cada `100ms` y medir la distancia entre la coordenada anterior y la actual. Si es pequeña entonces la velocidad fue rápida.
+=======
+The algorithm looks simple:
+1. Put `onmouseover/out` handlers on the element. Also can use `onmouseenter/leave` here, but they are less universal, won't work if we introduce delegation.
+2. When a mouse cursor entered the element, start measuring the speed on `mousemove`.
+3. If the speed is slow, then run `over`.
+4. When we're going out of the element, and `over` was executed, run `out`.
+
+But how to measure the speed?
+
+The first idea can be: run a function every `100ms` and measure the distance between previous and new coordinates. If it's small, then the speed is small.
+>>>>>>> 0bfebb4b46b4b5f9c221915ab8b1e2de9bdc013d
 
 Desafortunadamente no hay manera para obtener las coordenadas actuales del mouse en JavaScript. No existe algo así como `getCurrentMouseCoordinates()`.
 
+<<<<<<< HEAD
 La única manera es registrando los eventos del mouse, como `mousemove`, y tomar las coordenadas del objeto del evento.
 
 Entonces configuremos un `mousemove` para registrar las coordenadas y recordarlas. Y entonces las comparamos, una por cada `100ms`.
+=======
+The only way to get coordinates is to listen for mouse events, like `mousemove`, and take coordinates from the event object.
+
+So let's set a handler on `mousemove` to track coordinates and remember them. And then compare them, once per `100ms`.
+>>>>>>> 0bfebb4b46b4b5f9c221915ab8b1e2de9bdc013d
 
 PD. Toma nota: El test de la solución usa `dispatchEvent` para ver si el tooltip funciona bien.

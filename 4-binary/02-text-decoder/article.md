@@ -2,7 +2,11 @@
 
 ¿Qué pasa si los datos binarios son en realidad un string? Por ejemplo, recibimos un archivo con datos textuales.
 
+<<<<<<< HEAD
 El objeto [TextDecoder](https://encoding.spec.whatwg.org/#interface-textdecoder) nos permite leer el texto de un conjunto de datos binarios y convertirlo en un dato de tipo string de JavaScript, dados el búfer y la codificación.
+=======
+The build-in [TextDecoder](https://encoding.spec.whatwg.org/#interface-textdecoder) object allows to read the value into an actual JavaScript string, given the buffer and the encoding.
+>>>>>>> 0bfebb4b46b4b5f9c221915ab8b1e2de9bdc013d
 
 Primero necesitamos crearlo:
 ```js

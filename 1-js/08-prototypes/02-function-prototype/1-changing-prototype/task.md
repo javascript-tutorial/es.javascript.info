@@ -20,7 +20,11 @@ alert( rabbit.eats ); // verdadero
 ```
 
 
+<<<<<<< HEAD
 1. Agregamos una cadena más (enfatizada). ¿Qué mostrará `alert` ahora?
+=======
+1. We added one more string (emphasized). What will `alert` show now?
+>>>>>>> 0bfebb4b46b4b5f9c221915ab8b1e2de9bdc013d
 
     ```js
     function Rabbit() {}
@@ -54,7 +58,11 @@ alert( rabbit.eats ); // verdadero
     alert( rabbit.eats ); // ?
     ```
 
+<<<<<<< HEAD
 3. ¿Y así (se reemplazó una línea)?
+=======
+3. And like this (replaced one line)?
+>>>>>>> 0bfebb4b46b4b5f9c221915ab8b1e2de9bdc013d
 
     ```js
     function Rabbit() {}

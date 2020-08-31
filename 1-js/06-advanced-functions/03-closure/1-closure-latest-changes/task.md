@@ -2,9 +2,15 @@ importance: 5
 
 ---
 
+<<<<<<< HEAD
 # ¿Una función recoge los últimos cambios?
 
 La función sayHi usa un nombre de variable externo. Cuando se ejecuta la función, ¿qué valor va a utilizar?
+=======
+# Does a function pickup latest changes?
+
+The function sayHi uses an external variable name. When the function runs, which value is it going to use?
+>>>>>>> 0bfebb4b46b4b5f9c221915ab8b1e2de9bdc013d
 
 ```js
 let name = "John";
@@ -15,6 +21,7 @@ function sayHi() {
 
 name = "Pete";
 
+<<<<<<< HEAD
 sayHi(); // ¿qué mostrará: "John" o "Pete"?
 
 ```
@@ -22,3 +29,11 @@ Tales situaciones son comunes tanto en el desarrollo del navegador como del lado
 
 Entonces, la pregunta es: ¿recoge los últimos cambios?
 
+=======
+sayHi(); // what will it show: "John" or "Pete"?
+```
+
+Such situations are common both in browser and server-side development. A function may be scheduled to execute later than it is created, for instance after a user action or a network request.
+
+So, the question is: does it pick up the latest changes?
+>>>>>>> 0bfebb4b46b4b5f9c221915ab8b1e2de9bdc013d

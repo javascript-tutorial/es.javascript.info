@@ -1,4 +1,4 @@
-Creemos una fecha utilizando el mes próximo, pero pasando 0 como número de día:
+Let's create a date using the next month, but pass zero as the day:
 ```js run demo
 function getLastDayOfMonth(year, month) {
   let date = new Date(year, month + 1, 0);
@@ -10,4 +10,4 @@ alert( getLastDayOfMonth(2012, 1) ); // 29
 alert( getLastDayOfMonth(2013, 1) ); // 28
 ```
 
-Normalmente, las fechas comienzan a partir del 1, sin embargo podemos pasar como argumento cualquier número, ya que se corregirá automáticamente. De esta manera, si pasamos el número 0 como día, se interpreta como "el día anterior al primer día del mes", o en otras palabras: "el último día del mes anterior".
+Normally, dates start from 1, but technically we can pass any number, the date will autoadjust itself. So when we pass 0, then it means "one day before 1st day of the month", in other words: "the last day of the previous month".

@@ -10,11 +10,19 @@ function pow(x,n)  // <- sin espacio entre argumentos
   return result;
 }
 
+<<<<<<< HEAD
 let x=prompt("x?",''), n=prompt("n?",'') // <-- técnicamente posible,
 // pero mejor que sea 2 líneas, también no hay espacios y falta ;
 if (n<0)  // <- sin espacios dentro (n < 0), y debe haber una línea extra por encima
 {   // <- llave en una línea separada
   // debajo - las líneas largas se pueden dividir en varias líneas para mejorar la legibilidad
+=======
+let x=prompt("x?",''), n=prompt("n?",'') // <-- technically possible,
+// but better make it 2 lines, also there's no spaces and missing ;
+if (n<=0)  // <- no spaces inside (n <= 0), and should be extra line above it
+{   // <- figure bracket on a separate line
+  // below - long lines can be split into multiple lines for improved readability
+>>>>>>> 0bfebb4b46b4b5f9c221915ab8b1e2de9bdc013d
   alert(`Power ${n} is not supported, please enter an integer number greater than zero`);
 }
 else // <- podría escribirlo en una sola línea como "} else {"
@@ -39,7 +47,7 @@ function pow(x, n) {
 let x = prompt("x?", "");
 let n = prompt("n?", "");
 
-if (n < 0) {
+if (n <= 0) {
   alert(`Power ${n} is not supported,
     please enter an integer number greater than zero`);
 } else {

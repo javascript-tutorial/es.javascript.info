@@ -2,11 +2,19 @@ importance: 5
 
 ---
 
+<<<<<<< HEAD
 # ¿Por qué están llenos los dos hámsters?
+=======
+# Why are both hamsters full?
+>>>>>>> 0bfebb4b46b4b5f9c221915ab8b1e2de9bdc013d
 
 Tenemos dos hámsters: `speedy` y `lazy` heredando del objeto `hamster` general.
 
+<<<<<<< HEAD
 Cuando alimentamos a uno de ellos, el otro también está lleno. ¿Por qué? ¿Cómo podemos arreglarlo?
+=======
+When we feed one of them, the other one is also full. Why? How can we fix it?
+>>>>>>> 0bfebb4b46b4b5f9c221915ab8b1e2de9bdc013d
 
 ```js run
 let hamster = {

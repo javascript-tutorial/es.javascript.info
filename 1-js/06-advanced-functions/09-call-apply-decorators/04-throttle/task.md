@@ -4,9 +4,21 @@ importance: 5
 
 # Decorador throttle
 
+<<<<<<< HEAD
 Crea un decorador "throttling" `throttle(f, ms)` -- que devuelve un contenedor.
 
 Cuando se llama varias veces, pasa la llamada a `f` como máximo una vez por `ms` milisegundos.
+=======
+Create a "throttling" decorator `throttle(f, ms)` -- that returns a wrapper.
+
+When it's called multiple times, it passes the call to `f` at maximum once per `ms` milliseconds.
+
+The difference with debounce is that it's completely different decorator:
+- `debounce` runs the function once after the "cooldown" period. Good for processing the final result.
+- `throttle` runs it not more often than given `ms` time. Good for regular updates that shouldn't be very often.
+
+In other words, `throttle` is like a secretary that accepts phone calls, but bothers the boss (calls the actual `f`) not more often than once per `ms` milliseconds.
+>>>>>>> 0bfebb4b46b4b5f9c221915ab8b1e2de9bdc013d
 
 La diferencia con *debounce* es que es un decorador completamente diferente:
 - `debounce` ejecuta la función una vez después del período de `enfriamiento`. Es bueno para procesar el resultado final.
@@ -14,6 +26,7 @@ La diferencia con *debounce* es que es un decorador completamente diferente:
 
 En otras palabras, "throttle" es como una secretaria que acepta llamadas telefónicas, pero molesta al jefe (llama a la "f" real) no más de una vez por milisegundos `ms`.
 
+<<<<<<< HEAD
 Revisemos una aplicación de la vida real para comprender mejor ese requisito y ver de dónde proviene.
 
 **Por ejemplo, queremos rastrear los movimientos del mouse.**
@@ -22,10 +35,25 @@ En un navegador, podemos configurar una función para que se ejecute en cada mov
 **Nos gustaría actualizar cierta información en la página web cuando se mueve el puntero.**
 
 ...Pero la función de actualización `update()` es demasiado pesada para hacerlo en cada micro-movimiento. Tampoco tiene sentido actualizar más de una vez cada 100 ms.
+=======
+In a browser we can setup a function to run at every mouse movement and get the pointer location as it moves. During an active mouse usage, this function usually runs very frequently, can be something like 100 times per second (every 10 ms).
+**We'd like to update some information on the web-page when the pointer moves.**
+
+...But updating function `update()` is too heavy to do it on every micro-movement. There is also no sense in updating more often than once per 100ms.
+
+So we'll wrap it into the decorator: use `throttle(update, 100)` as the function to run on each mouse move instead of the original `update()`. The decorator will be called often, but forward the call to `update()` at maximum once per 100ms.
+>>>>>>> 0bfebb4b46b4b5f9c221915ab8b1e2de9bdc013d
 
 Entonces lo envolveremos en el decorador: use `throttle(update, 100)` como la función para ejecutar en cada movimiento del mouse en lugar del original `update()`. Se llamará al decorador con frecuencia, pero reenviará la llamada a `update()` como máximo una vez cada 100 ms.
 
+<<<<<<< HEAD
 Visualmente, se verá así:
+=======
+1. For the first mouse movement the decorated variant immediately passes the call to `update`. That's important, the user sees our reaction to their move immediately.
+2. Then as the mouse moves on, until `100ms` nothing happens. The decorated variant ignores calls.
+3. At the end of `100ms` -- one more `update` happens with the last coordinates.
+4. Then, finally, the mouse stops somewhere. The decorated variant waits until `100ms` expire and then runs `update` with last coordinates. So, quite important, the final mouse coordinates are processed.
+>>>>>>> 0bfebb4b46b4b5f9c221915ab8b1e2de9bdc013d
 
 1. Para el primer movimiento del mouse, el variante decorador pasa inmediatamente la llamada a `update`. Eso es importante, el usuario ve nuestra reacción a su movimiento de inmediato
 2. Luego, a medida que el mouse avanza, hasta `100ms` no sucede nada. La variante decorador ignora las llamadas.
