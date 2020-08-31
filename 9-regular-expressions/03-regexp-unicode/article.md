@@ -33,12 +33,6 @@ A diferencia de las cadenas, las expresiones regulares tienen la bandera `patter
 
 ## Propiedades Unicode \p{...}
 
-```warn header="No es compatible con Firefox y Edge"
-A pesar de ser parte del estándar desde 2018, las propiedades unicode no son compatibles con Firefox ([bug](https://bugzilla.mozilla.org/show_bug.cgi?id=1361876)) y Edge ([bug](https://github.com/Microsoft/ChakraCore/issues/2969)).
-
-La libreria [XRegExp](http://xregexp.com) proporciona expresiones regulares "extendidas" con soporte de propiedades unicode en diferentes navegadores.
-```
-
 Cada carácter en Unicode tiene varias propiedades. Describen a qué "categoría" pertenece el carácter, contienen información diversa al respecto.
 
 Por ejemplo, si un carácter tiene la propiedad `Letter`, significa que pertenece a un alfabeto (de cualquier idioma). Y la propiedad `Number` significa que es un dígito: tal vez árabe o chino, y así sucesivamente.

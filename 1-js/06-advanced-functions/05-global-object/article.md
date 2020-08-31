@@ -5,7 +5,7 @@ El objeto global proporciona variables y funciones que están disponibles en cua
 
 En un navegador se denomina `window`, para Node.js es` global`, para otros entornos puede tener otro nombre.
 
-Recientemente, `globalThis` se agregó al lenguaje, como un nombre estandarizado para un objeto global, que debería ser compatible con todos los entornos. En algunos navegadores, como Chromium Edge, `globalThis` aún no es compatible, pero se puede usar mediante *polyfill*.
+Recientemente, se agregó `globalThis` al lenguaje, como un nombre estandarizado para un objeto global, que debería ser compatible con todos los entornos al igual que con los principales navegadores.
 
 Aquí usaremos `window`, suponiendo que nuestro entorno sea un navegador. Si su script puede ejecutarse en otros entornos, es mejor usar `globalThis` en su lugar.
 
@@ -83,7 +83,7 @@ if (!window.Promise) {
 
 - El objeto global tiene un nombre universal: `globalThis`.
 
-    ... Pero con mayor frecuencia se hace referencia a nombres específicos del entorno de la "vieja escuela", como `window` (navegador) y `global` (Node.js). Como `globalThis` es una propuesta reciente, no es compatible con Chromium Edge (pero sí mediante *polyfill*).
+    ... Pero con mayor frecuencia se hace referencia a nombres específicos del entorno de la "vieja escuela", como `window` (navegador) y `global` (Node.js). 
 
 - Deberíamos almacenar valores en el objeto global solo si son verdaderamente globales para nuestro proyecto. Y manteniendo  su uso al mínimo.
 - En el navegador, a menos que estemos utilizando [módulos](info:modules), las funciones globales y las variables declaradas con `var` se convierten en una propiedad del objeto global.
