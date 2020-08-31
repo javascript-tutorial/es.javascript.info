@@ -82,7 +82,7 @@ La mecánica de bubbling es la misma para los eventos integrados (`click`) y per
 
 ## MouseEvent, KeyboardEvent y otros
 
-Aquí hay una breve lista de clases para eventos de interfaz de usuario de la [especificación de eventos de interfaz de usuario](https://www.w3.org/TR/uievents):
+Aquí hay una breve lista de clases para eventos UI (interfaz de usuario) de la [especificación de eventos UI](https://www.w3.org/TR/uievents):
 
 - `UIEvent`
 - `FocusEvent`
