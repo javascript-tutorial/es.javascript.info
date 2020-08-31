@@ -357,10 +357,6 @@ class Button {
   constructor(value) {
     this.value = value;
   }
-
-  click() {
-    alert(this.value);
-  }
 *!*
   click = () => {
     alert(this.value);
