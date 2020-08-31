@@ -21,7 +21,7 @@ Cuando el documento se desplazó:
 
 ## Coordenadas de elemento: getBoundingClientRect
 
-El método `elem.getBoundingClientRect()` devuelve las coordenadas de la ventana para un rectángulo mínimo que encasilla a `elem` como un objeto de la clase incorporada[DOMRect](https://www.w3.org/TR/geometry-1/#domrect).
+El método `elem.getBoundingClientRect()` devuelve las coordenadas de la ventana para un rectángulo mínimo que encasilla a `elem` como un objeto de la clase interna [DOMRect](https://www.w3.org/TR/geometry-1/#domrect).
 
 Propiedades principales de `DOMRect`:
 
