@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 # Error on reading non-existant property
 
 Usually, an attempt to read a non-existant property returns `undefined`.
 
 Create a proxy that throws an error for an attempt to read of a non-existant property instead.
+=======
+# Error on reading non-existent property
+
+Usually, an attempt to read a non-existent property returns `undefined`.
+
+Create a proxy that throws an error for an attempt to read of a non-existent property instead.
+>>>>>>> f830bc5d9454d85829e011d914f215eb5896579a
 
 That can help to detect programming mistakes early.
 

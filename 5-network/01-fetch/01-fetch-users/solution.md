@@ -3,7 +3,11 @@ To fetch a user we need: `fetch('https://api.github.com/users/USERNAME')`.
 
 If the response has status `200`, call `.json()` to read the JS object.
 
+<<<<<<< HEAD
 Otherwise, if a `fetch` fails, or the response has non-200 status, we just return `null` in the resulting arrray.
+=======
+Otherwise, if a `fetch` fails, or the response has non-200 status, we just return `null` in the resulting array.
+>>>>>>> f830bc5d9454d85829e011d914f215eb5896579a
 
 So here's the code:
 

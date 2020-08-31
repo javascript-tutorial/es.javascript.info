@@ -16,12 +16,21 @@ En otras palabras, la propiedad `value` es la suma de todos los valores ingresad
 Aquí está la demostración del código:
 
 ```js
+<<<<<<< HEAD
 let accumulator = new Accumulator(1); // valor inicial 1
 
 accumulator.read(); // agrega el valor introducido por el usuario
 accumulator.read(); // agrega el valor introducido por el usuario
 
 alert(accumulator.value); // muestra la suma de estos valores
+=======
+let accumulator = new Accumulator(1); // initial value 1
+
+accumulator.read(); // adds the user-entered value
+accumulator.read(); // adds the user-entered value
+
+alert(accumulator.value); // shows the sum of these values
+>>>>>>> f830bc5d9454d85829e011d914f215eb5896579a
 ```
 
 [demo]

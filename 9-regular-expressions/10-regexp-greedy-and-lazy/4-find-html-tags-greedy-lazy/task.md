@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Encontrar las etiquetas HTML
 
 Crear una expresión regular para encontrar todas las etiquetas HTML (de apertura y cierre) con sus atributos.
@@ -13,3 +14,20 @@ alert( str.match(regexp) ); // '<a href="/">', '<input type="radio" checked >', 
 ```
 
 Asumimos que los atributos de etiqueta no deben contener `<` ni `>` (dentro de comillas dobles también), esto simplifica un poco las cosas. 
+=======
+# Find HTML tags
+
+Create a regular expression to find all (opening and closing) HTML tags with their attributes.
+
+An example of use:
+
+```js run
+let regexp = /your regexp/g;
+
+let str = '<> <a href="/"> <input type="radio" checked> <b>';
+
+alert( str.match(regexp) ); // '<a href="/">', '<input type="radio" checked>', '<b>'
+```
+
+Here we assume that tag attributes may not contain `<` and `>` (inside squotes too), that simplifies things a bit. 
+>>>>>>> f830bc5d9454d85829e011d914f215eb5896579a

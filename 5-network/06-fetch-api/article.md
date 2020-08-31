@@ -215,6 +215,7 @@ window.onunload = function() {
 
 Normally, when a document is unloaded, all associated network requests are aborted. But `keepalive` option tells the browser to perform the request in background, even after it leaves the page. So this option is essential for our request to succeed.
 
+<<<<<<< HEAD
 It has few limitations:
 
 - We can't send megabytes: the body limit for `keepalive` requests is 64kb.
@@ -222,3 +223,12 @@ It has few limitations:
     - The limit is for all currently ongoing requests. So we can't cheat it by creating 100 requests, each 64kb.
 - We can't handle the server response if the request is made in `onunload`, because the document is already unloaded at that time, functions won't work.
     - Usually, the server sends empty response to such requests, so it's not a problem.
+=======
+It has a few limitations:
+
+- We can't send megabytes: the body limit for `keepalive` requests is 64kb.
+    - If we need to gather a lot of statistics about the visit, we should send it out regularly in packets, so that there won't be a lot left for the last `onunload` request.
+    - This limit applies to all `keepalive` requests together. In other words, we can perform multiple `keepalive` requests in parallel, but the sum of their body lengths should not exceed 64kb.
+- We can't handle the server response if the document is unloaded. So in our example `fetch` will succeed due to `keepalive`, but subsequent functions  won't work.
+    - In most cases, such as sending out statistics, it's not a problem, as server just accepts the data and usually sends an empty response to such requests.
+>>>>>>> f830bc5d9454d85829e011d914f215eb5896579a

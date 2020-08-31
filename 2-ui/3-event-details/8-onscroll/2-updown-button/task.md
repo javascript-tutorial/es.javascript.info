@@ -11,6 +11,10 @@ Debería funcionar así:
 - Cuando la página se desplaza hacia abajo más que la altura de la ventana -- aparece una flecha "hacia arriba" en la esquina superior izquierda. Si la página se desplaza hacia atrás desaparece.
 - Cuando se hace click en la flecha, la página se desplaza hacia arriba hasta el tope.
 
+<<<<<<< HEAD
 Así (esquina superior izquierda, desplácese para ver):
+=======
+Like this (top-left corner, scroll to see):
+>>>>>>> f830bc5d9454d85829e011d914f215eb5896579a
 
 [iframe border="1" height="200" link src="solution"]

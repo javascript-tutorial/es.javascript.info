@@ -15,7 +15,11 @@ Also, popups are tricky on mobile devices, that don't show multiple windows simu
 
 Still, there are tasks where popups are still used, e.g. for OAuth authorization (login with Google/Facebook/...), because:
 
+<<<<<<< HEAD
 1. A popup is a separate window with its own independent JavaScript environment. So opening a popup with a third-party non-trusted site is safe.
+=======
+1. A popup is a separate window with its own independent JavaScript environment. So opening a popup from a third-party non-trusted site is safe.
+>>>>>>> f830bc5d9454d85829e011d914f215eb5896579a
 2. It's very easy to open a popup.
 3. A popup can navigate (change URL) and send messages to the opener window.
 
@@ -147,6 +151,7 @@ newWindow.onload = function() {
 ```
 
 Please note: immediately after `window.open`, the new window isn't loaded yet. That's demonstrated by `alert` in line `(*)`. So we wait for `onload` to modify it. We could also use `DOMContentLoaded` handler for `newWin.document`.
+<<<<<<< HEAD
 
 ```warn header="Same origin policy"
 Windows may freely access content of each other only if they come from the same origin (the same protocol://domain:port).
@@ -168,16 +173,47 @@ newWin.document.write(
 );
 ```
 
+=======
+
+```warn header="Same origin policy"
+Windows may freely access content of each other only if they come from the same origin (the same protocol://domain:port).
+
+Otherwise, e.g. if the main window is from `site.com`, and the popup from `gmail.com`, that's impossible for user safety reasons. For the details, see chapter <info:cross-window-communication>.
+```
+
+## Accessing window from popup
+
+A popup may access the "opener" window as well using `window.opener` reference. It is `null` for all windows except popups.
+
+If you run the code below, it replaces the opener (current) window content with "Test":
+
+```js run
+let newWin = window.open("about:blank", "hello", "width=200,height=200");
+
+newWin.document.write(
+  "<script>window.opener.document.body.innerHTML = 'Test'<\/script>"
+);
+```
+
+>>>>>>> f830bc5d9454d85829e011d914f215eb5896579a
 So the connection between the windows is bidirectional: the main window and the popup have a reference to each other.
 
 ## Closing a popup
 
 To close a window: `win.close()`.
+<<<<<<< HEAD
 
 To check if a window is closed: `win.closed`.
 
 Technically, the `close()` method is available for any `window`, but `window.close()` is ignored by most browsers if `window` is not created with `window.open()`. So it'll only work on a popup.
 
+=======
+
+To check if a window is closed: `win.closed`.
+
+Technically, the `close()` method is available for any `window`, but `window.close()` is ignored by most browsers if `window` is not created with `window.open()`. So it'll only work on a popup.
+
+>>>>>>> f830bc5d9454d85829e011d914f215eb5896579a
 The `closed` property is `true` if the window is closed. That's useful to check if the popup (or the main window) is still open or not. A user can close it anytime, and our code should take that possibility into account.
 
 This code loads and then closes the window:
@@ -191,6 +227,54 @@ newWindow.onload = function() {
 };
 ```
 
+<<<<<<< HEAD
+
+## Scrolling and resizing
+
+There are methods to move/resize a window:
+
+`win.moveBy(x,y)`
+: Move the window relative to current position `x` pixels to the right and `y` pixels down. Negative values are allowed (to move left/up).
+
+`win.moveTo(x,y)`
+: Move the window to coordinates `(x,y)` on the screen.
+
+`win.resizeBy(width,height)`
+: Resize the window by given `width/height` relative to the current size. Negative values are allowed.
+
+`win.resizeTo(width,height)`
+: Resize the window to the given size.
+
+There's also `window.onresize` event.
+
+```warn header="Only popups"
+To prevent abuse, the browser usually blocks these methods. They only work reliably on popups that we opened, that have no additional tabs.
+```
+
+```warn header="No minification/maximization"
+JavaScript has no way to minify or maximize a window. These OS-level functions are hidden from Frontend-developers.
+
+Move/resize methods do not work for maximized/minimized windows.
+```
+
+## Scrolling a window
+
+We already talked about scrolling a window in the chapter <info:size-and-scroll-window>.
+
+`win.scrollBy(x,y)`
+: Scroll the window `x` pixels right and `y` down relative the current scroll. Negative values are allowed.
+
+`win.scrollTo(x,y)`
+: Scroll the window to the given coordinates `(x,y)`.
+
+`elem.scrollIntoView(top = true)`
+: Scroll the window to make `elem` show up at the top (the default) or at the bottom for `elem.scrollIntoView(false)`.
+
+There's also `window.onscroll` event.
+
+## Focus/blur on a window
+=======
+>>>>>>> f830bc5d9454d85829e011d914f215eb5896579a
 
 ## Scrolling and resizing
 
@@ -237,21 +321,23 @@ There's also `window.onscroll` event.
 
 ## Focus/blur on a window
 
-Theoretically, there are `window.focus()` and `window.blur()` methods to focus/unfocus on a window.  Also there are `focus/blur` events that allow to focus a window and catch the moment when the visitor switches elsewhere.
+Theoretically, there are `window.focus()` and `window.blur()` methods to focus/unfocus on a window. And there are also `focus/blur` events that allow to catch the moment when the visitor focuses on a window and switches elsewhere.
 
-In the past evil pages abused those. For instance, look at this code:
+Although, in practice they are severely limited, because in the past evil pages abused them. 
+
+For instance, look at this code:
 
 ```js run
 window.onblur = () => window.focus();
 ```
 
-When a user attempts to switch out of the window (`blur`), it brings it back to focus. The intention is to "lock" the user within the `window`.
+When a user attempts to switch out of the window (`window.onblur`), it brings the window back into focus. The intention is to "lock" the user within the `window`.
 
-So, there are limitations that forbid the code like that. There are many limitations to protect the user from ads and evils pages. They depend on the browser.
+So browsers had to introduce many limitations to forbid the code like that and protect the user from ads and evils pages. They depend on the browser.
 
-For instance, a mobile browser usually ignores that call completely. Also focusing doesn't work when a popup opens in a separate tab rather than a new window.
+For instance, a mobile browser usually ignores `window.focus()` completely. Also focusing doesn't work when a popup opens in a separate tab rather than a new window.
 
-Still, there are some things that can be done.
+Still, there are some use cases when such calls do work and can be useful.
 
 For instance:
 
