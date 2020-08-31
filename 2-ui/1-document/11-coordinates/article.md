@@ -203,7 +203,7 @@ Podemos usar `position:absolute` y `top/left` para colocar algo en un lugar dete
 
 No existe un estándar para obtener las coordenadas de un elemento en un documento. Pero es fácil de codificarlo.
 
-Los dos sistemas de coordenadas son conectados mediante la siguiente fórmula:
+Los dos sistemas de coordenadas están relacionados mediante la siguiente fórmula:
 - `pageY` = `clientY` + el alto de la parte vertical desplazada del documento.
 - `pageX` = `clientX` + el ancho de la parte horizontal desplazada del documento.
 
