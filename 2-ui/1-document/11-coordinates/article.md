@@ -124,7 +124,7 @@ elem.style.background = "red";
 alert(elem.tagName);
 ```
 
-Tal como hemos las coordenadas de la ventana, el elemento puede ser diferente dependiendo de la posición actual del scroll.
+Debido a que utiliza las coordenadas de la ventana, el elemento puede ser diferente dependiendo de la posición actual del scroll.
 
 ````warn header="Para coordenadas fuera de la ventana, el `elementFromPoint` devuelve `null`"
 El método `document.elementFromPoint(x,y)` solo funciona si `(x,y)` se encuentra dentro del área visible.
