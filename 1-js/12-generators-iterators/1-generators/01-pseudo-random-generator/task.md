@@ -1,29 +1,29 @@
 
-# Pseudo-random generator
+# Generador pseudoaleatorio
 
-There are many areas where we need random data.
+Hay muchas áreas en las que necesitamos datos aleatorios.
 
-One of them is testing. We may need random data: text, numbers, etc. to test things out well.
+Uno de ellos está probando. Es posible que necesitemos datos aleatorios: texto, números, etc. para probar bien las cosas.
 
-In JavaScript, we could use `Math.random()`. But if something goes wrong, we'd like to be able to repeat the test, using exactly the same data.
+En JavaScript, podríamos usar `Math.random()`. Pero si algo sale mal, nos gustaría poder repetir la prueba utilizando exactamente los mismos datos.
 
-For that, so called "seeded pseudo-random generators" are used. They take a "seed", the first value, and then generate the next ones using a formula so that the same seed yields the same sequence, and hence the whole flow is easily reproducible. We only need to remember the seed to repeat it.
+Para eso, se utilizan los denominados "generadores pseudoaleatorios sembrados". Toman una "semilla", el primer valor, y luego generan los siguientes utilizando una fórmula para que la misma semilla produzca la misma secuencia y, por lo tanto, todo el flujo sea fácilmente reproducible. Solo necesitamos recordar la semilla para repetirla.
 
-An example of such formula, that generates somewhat uniformly distributed values:
+Un ejemplo de dicha fórmula, que genera valores distribuidos de manera algo uniforme:
 
 ```
 next = previous * 16807 % 2147483647
 ```
 
-If we use `1` as the seed, the values will be:
+Si nosotros usamos `1` como semilla, los valores serán:
 1. `16807`
 2. `282475249`
 3. `1622650073`
-4. ...and so on...
+4. ...y así...
 
-The task is to create a generator function `pseudoRandom(seed)` that takes `seed` and creates the generator with this formula.
+La tarea es crear una función generadora `pseudoRandom (seed)` que toma `seed` y crea el generador con esta fórmula.
 
-Usage example:
+Ejemplo de uso
 
 ```js
 let generator = pseudoRandom(1);
