@@ -227,7 +227,7 @@ Aquí hay una lista de limitaciones:
 : Permite que el `iframe` cambie `parent.location`.
 
 `allow-forms`
-: Permite enviar formularios desde "iframe".
+: Permite enviar formularios desde `iframe`.
 
 `allow-scripts`
 : Permite ejecutar scripts desde el `iframe`.
