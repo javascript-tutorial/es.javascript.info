@@ -210,7 +210,7 @@ if (window == top) { // current window == window.top?
 }
 ```
 
-## El atributo de iframe "sandbox"
+## El atributo "sandbox" de iframe
 
 El atributo `sandbox` permite la exclusión de ciertas acciones dentro de un `<iframe>` para evitar que ejecute código no confiable. Realiza una "caja de arena" del iframe tratándolo como si procediera de otro origen y/o aplicando otras limitaciones.
 
