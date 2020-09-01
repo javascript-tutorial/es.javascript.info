@@ -237,7 +237,7 @@ Aquí hay una lista de limitaciones:
 
 Consulta [el manual](mdn:/HTML/Element/iframe) para obtener más información.
 
-El siguiente ejemplo muestra un iframe de espacio aislado con el conjunto de restricciones predeterminado: `<iframe sandbox src="...">`. Tiene algo de JavaScript y un formulario.
+El siguiente ejemplo muestra un iframe dentro de un entorno controlado con el conjunto de restricciones predeterminado: `<iframe sandbox src="...">`. Tiene algo de JavaScript y un formulario.
 
 Tenga en cuenta que nada funciona. Entonces, el conjunto predeterminado es realmente duro:
 
