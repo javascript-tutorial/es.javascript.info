@@ -18,7 +18,7 @@ Aquí un ejemplo más detallado.
 
 Pensemos que tenemos un `firstName`, `lastName` o `nickName`, todos ellos pueden ser undefined  si el usuario decide no ingresar ningún nombre.
 
-Quermos mostra un nombre, una de las tres variables, o "Anonymous" si ninguno está definido:
+Queremos mostrar un nombre, una de las tres variables, o "Anonymous" si ninguno está definido:
 
 ```js run
 let firstName = null;
