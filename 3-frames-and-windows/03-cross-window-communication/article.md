@@ -21,7 +21,7 @@ Estas no:
 - <code><b>https://</b>site.com</code> (otro protocolo: `https`)
 - <code>http://site.com:<b>8080</b></code> (otro puerto: `8080`)
 
-La política de "Mismo origen" establece que:
+La política "Mismo Origen" establece que:
 
 - si tenemos una referencia a otra ventana, por ejemplo, una ventana emergente creada por `window.open` o una ventana dentro de `<iframe>`, y esa ventana viene del mismo origen, entonces tenemos acceso completo a esa ventana.
 - en caso contrario, si viene de otro origen, entonces no podemos acceder al contenido de esa ventana: variables, documento, nada. La única excepción es `location`: podemos cambiarla (redirigiendo así al usuario). Pero no podemos *leer* location (por lo que no podemos ver dónde está el usuario ahora, no hay fuga de información).
