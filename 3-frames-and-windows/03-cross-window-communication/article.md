@@ -118,7 +118,7 @@ Eso es todo. Ahora pueden interactuar sin limitaciones. Nuevamente, eso solo es 
 
 ## Iframe: trampa del documento incorrecto
 
-Cuando un iframe proviene del mismo origen y podemos acceder a su `documento`, existe una trampa. No está relacionado con cross-origin, pero es importante saberlo.
+Cuando un iframe proviene del mismo origen y podemos acceder a su `document`, existe una trampa. No está relacionado con cross-origin, pero es importante saberlo.
 
 Tras su creación, un iframe tiene inmediatamente un documento. ¡Pero ese documento es diferente del que se carga en él!
 
