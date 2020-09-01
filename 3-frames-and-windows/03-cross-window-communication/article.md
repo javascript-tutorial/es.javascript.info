@@ -2,7 +2,7 @@
 
 La política de "Mismo origen" (mismo sitio) limita el acceso de ventanas y marcos entre sí.
 
-La idea es que si un usuario tiene dos páginas abiertas: una de `john-smith.com`, y otra es` gmail.com`, entonces no querrán que un script de `john-smith.com` lea nuestro correo de `gmail.com`. Por lo tanto, el propósito de la política de "Mismo origen" es proteger a los usuarios del robo de información.
+La idea es que si un usuario tiene dos páginas abiertas: una de `john-smith.com`, y otra es `gmail.com`, entonces no querrán que un script de `john-smith.com` lea nuestro correo de `gmail.com`. Por lo tanto, el propósito de la política de "Mismo origen" es proteger a los usuarios del robo de información.
 
 ## Mismo origen [#same-origin]
 
