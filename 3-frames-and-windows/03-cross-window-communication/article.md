@@ -263,7 +263,7 @@ La ventana que quiere enviar un mensaje llama al método [postMessage](mdn:api/W
 Argumentos:
 
 `data`
-: Los datos a enviar. Puede ser cualquier objeto, los datos se clonan mediante el "algoritmo de clonación estructurada". IE solo admite cadenas, por lo que debemos usar `JSON.stringify` en objetos complejos para admitir ese navegador.
+: Los datos a enviar. Puede ser cualquier objeto, los datos se clonan mediante el "algoritmo de clonación estructurada". IE solo admite strings, por lo que debemos usar `JSON.stringify` en objetos complejos para admitir ese navegador.
 
 `targetOrigin`
 : Especifica el origen de la ventana de destino, de modo que solo una ventana del origen dado recibirá el mensaje.
