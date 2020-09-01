@@ -82,7 +82,7 @@ El código anterior muestra errores para cualquier operación excepto:
 - Obtener la referencia a la ventana interna `iframe.contentWindow` - eso está permitido.
 - Escribir a `location`.
 
-Al contrario, si el `<iframe>` tiene el mismo origen, podemos hacer cualquier cosa con él:
+Por el contrario, si el `<iframe>` tiene el mismo origen, podemos hacer cualquier cosa con él:
 
 ```html run
 <!-- iframe from the same site -->
