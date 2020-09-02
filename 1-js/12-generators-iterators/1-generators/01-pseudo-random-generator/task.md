@@ -7,7 +7,7 @@ Uno de ellos es para testeo. Es posible que necesitemos datos aleatorios: texto,
 
 En JavaScript, podríamos usar `Math.random()`. Pero si algo sale mal, nos gustaría poder repetir la prueba utilizando exactamente los mismos datos.
 
-Para eso, se utilizan los denominados "generadores pseudoaleatorios sembrados". Toman una "semilla", el primer valor, y luego generan los siguientes utilizando una fórmula para que la misma semilla produzca la misma secuencia y, por lo tanto, todo el flujo sea fácilmente reproducible. Solo necesitamos recordar la semilla para repetirla.
+Para eso, se utilizan los denominados "generadores pseudoaleatorios con semilla". Toman una "semilla" como primer valor, y luego generan los siguientes utilizando una fórmula; a partir de la misma semilla se produce la misma secuencia y así todo el flujo es fácilmente reproducible. Solo necesitamos recordar la semilla para repetirla.
 
 Un ejemplo de dicha fórmula, que genera valores distribuidos de manera algo uniforme:
 
