@@ -158,7 +158,7 @@ En el código anterior, `... generateSequence ()` convierte el objeto generador 
 
 ## Usando generadores para iterables
 
-Hace algún tiempo, en el capítulo [] (info: iterable) creamos un objeto iterable `range` que devuelve valores `from..to`.
+Hace algún tiempo, en el capítulo [](info:iterable) creamos un objeto iterable `range` que devuelve valores `from..to`.
 
 Recordemos el código aquí:
 
