@@ -255,7 +255,7 @@ El ejemplo práctico está [en el sandbox](sandbox:readystate).
 
 La salida típica:
 1. [1] readyState incial: loading
-2. [2] readyState: interactivo
+2. [2] readyState: interactive
 3. [2] DOMContentLoaded
 4. [3] iframe onload
 5. [4] img onload
