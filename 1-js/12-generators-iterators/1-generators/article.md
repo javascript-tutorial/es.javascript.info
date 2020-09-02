@@ -2,7 +2,7 @@
 
 Las funciones regulares devuelven solo un valor único (o nada).
 
-Los generadores pueden devolver ("yield") múltiples valores, uno tras otro, a pedido. Funcionan muy bien con [iterables](info:iterable), permitiendo crear flujos de datos con facilidad.
+Los generadores pueden producir ("yield") múltiples valores, uno tras otro, a pedido. Funcionan muy bien con los [iterables](info:iterable), permitiendo crear flujos de datos con facilidad.
 
 ## Funciones Generadoras
 
