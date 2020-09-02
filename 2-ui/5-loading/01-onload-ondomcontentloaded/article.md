@@ -260,7 +260,7 @@ La salida típica:
 4. [3] iframe onload
 5. [4] img onload
 6. [4] readyState: complete
-7. [4] window cargado
+7. [4] window onload
 
 Los números entre corchetes denotan el tiempo aproximado en el que ocurre. Los eventos etiquetados con el mismo dígito ocurren aproximadamente al mismo tiempo (+ - unos pocos ms).
 
