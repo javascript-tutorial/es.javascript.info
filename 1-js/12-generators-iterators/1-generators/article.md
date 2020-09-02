@@ -100,7 +100,7 @@ Pero generalmente se prefiere la primera sintaxis, ya que la estrella `*` denota
 
 ## Los Generadores son iterables
 
-Como probablemente ya adivinó mirando el método `next()`, los generadores son [iterable](info:iterable).
+Como probablemente ya adivinó mirando el método `next()`, los generadores son [iterables](info:iterable).
 
 Podemos recorrer sus valores usando `for..of`:
 
