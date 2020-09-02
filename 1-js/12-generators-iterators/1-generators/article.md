@@ -92,7 +92,7 @@ Ahora el generador está listo. Deberíamos verlo desde `done: true` y procesar 
 
 Las nuevas llamadas a `generator.next()` ya no tienen sentido. Si las hacemos, devuelven el mismo objeto: `{done: true}`.
 
-```smart header="¿`function* f(…)` or `function *f(…)`?"
+```smart header="¿`function* f(…)` o `function *f(…)`?"
 Ambas sintaxis son correctas.
 
 Pero generalmente se prefiere la primera sintaxis, ya que la estrella `*` denota que es una función generadora, describe el tipo, no el nombre, por lo que debería seguir a la palabra clave `function`.
