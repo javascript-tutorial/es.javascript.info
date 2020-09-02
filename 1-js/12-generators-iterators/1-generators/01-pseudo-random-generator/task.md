@@ -3,7 +3,7 @@
 
 Hay muchas áreas en las que necesitamos datos aleatorios.
 
-Uno de ellos está probando. Es posible que necesitemos datos aleatorios: texto, números, etc. para probar bien las cosas.
+Uno de ellos es para testeo. Es posible que necesitemos datos aleatorios: texto, números, etc. para probar bien las cosas.
 
 En JavaScript, podríamos usar `Math.random()`. Pero si algo sale mal, nos gustaría poder repetir la prueba utilizando exactamente los mismos datos.
 
