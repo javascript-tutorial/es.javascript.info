@@ -247,7 +247,7 @@ Por ejemplo, mira este código:
 window.onblur = () => window.focus();
 ```
 
-Cuando un usuario intenta salir de la ventana (`blur`), lo vuelve a enfocar. La intención es "bloquear" al usuario dentro de la `window`.
+Cuando un usuario intenta salir de la ventana (`window.onblur`), lo vuelve a enfocar. La intención es "bloquear" al usuario dentro de la `window`.
 
 Entonces, hay limitaciones que prohíben el código así. Existen muchas limitaciones para proteger al usuario de anuncios y páginas malignas. Ellos dependen del navegador.
 
