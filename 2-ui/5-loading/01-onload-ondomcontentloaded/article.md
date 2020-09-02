@@ -258,7 +258,7 @@ La salida típica:
 2. [2] readyState: interactivo
 3. [2] DOMContentLoaded
 4. [3] iframe onload
-5. [4] img cargado
+5. [4] img onload
 6. [4] readyState: completo
 7. [4] window cargado
 
