@@ -239,7 +239,9 @@ También existe el evento `window.onscroll`.
 
 Teóricamente, están los métodos `window.focus()` y `window.blur()` para poner/sacar el foco de una ventana. Y los eventos `focus/blur` que permiten captar el momento en el que el visitante enfoca una ventana y en el que cambia a otro lugar.
 
-En el pasado las páginas malignas abusaron de ellos. Por ejemplo, mira este código:
+En el pasado las páginas malignas abusaron de ellos. 
+
+Por ejemplo, mira este código:
 
 ```js run
 window.onblur = () => window.focus();
