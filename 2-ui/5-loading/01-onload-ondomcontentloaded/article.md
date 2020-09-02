@@ -47,7 +47,7 @@ Por ejemplo:
 
 En el ejemplo, el controlador `DOMContentLoaded` se ejecuta cuando se carga el documento, por lo que puede ver todos los elementos, incluido `<img>` a continuación.
 
-Pero no espera a que se cargue la imagen. Entonces, `alert` muestra cero tamaños.
+Pero no espera a que se cargue la imagen. Entonces, `alert` muestra los tamaños en cero.
 
 A primera vista, el evento `DOMContentLoaded` es muy simple. El árbol DOM está listo -- aquí está el evento. Sin embargo, hay algunas peculiaridades.
 
