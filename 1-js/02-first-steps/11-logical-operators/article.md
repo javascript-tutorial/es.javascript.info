@@ -216,13 +216,12 @@ Cuando todos los valores son verdaderos, el último valor es retornado:
 alert(1 && 2 && 3); // 3, el último.
 ```
 
-```smart header="La precedencia de AND `&&` es mayor que la de OR `||`"
+````smart header="La precedencia de AND `&&` es mayor que la de OR `||`"
 
 La precedencia del operador AND `&&` es mayor que la de OR `||`.
 
 Así que el código `a && b || c && d` es básicamente el mismo que si la expresiones `&&` estuvieran entre paréntesis: `(a && b) || (c && d)`
-```
-```
+````
 
 ````warn header="No remplace *if* con || or &&"
 A veces, la gente usa el operador AND `&&` como una "forma más corta de escribir `if`".
