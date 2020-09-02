@@ -254,7 +254,7 @@ Aquí hay un documento con `<iframe>`, `<img>` y controladores que registran eve
 El ejemplo práctico está [en el sandbox](sandbox:readystate).
 
 La salida típica:
-1. [1] readyState incial: cargando
+1. [1] readyState incial: loading
 2. [2] readyState: interactivo
 3. [2] DOMContentLoaded
 4. [3] iframe cargado
