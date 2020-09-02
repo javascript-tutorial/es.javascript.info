@@ -9,13 +9,13 @@ window.open("https://javascript.info/");
 
 ...Y eso abrirá una nueva ventana con una URL. La mayoría de los navegadores modernos están configurados para abrir pestañas nuevas en vez de ventanas separadas.
 
-Popups existe realmente desde tiempos antiguos. La idea inicial fue mostrar otro contenido sin cerrar la ventana principal. A partir de ahora, hay otras formas de hacerlo: podemos cargar contenido dinámicamente con fetch y mostrarlo de forma dinámica con `<div>`. Entonces, popups no es algo que usamos todos los días.
+Los popups existen desde tiempos realmente antiguos. La idea inicial fue mostrar otro contenido sin cerrar la ventana principal. Ahora hay otras formas de hacerlo: podemos cargar contenido dinámicamente con [fetch](info:fetch) y mostrarlo de forma dinámica con `<div>`. Entonces, los popups no son algo que usamos todos los días.
 
 Además, los popups son complicados en dispositivos móviles, que no muestran varias ventanas simultáneamente.
 
 Aún así, hay tareas donde los popups todavía son usados, por ejemplo para autorización o autenticación (Ingreso con Google/Facebook/...), porque:
 
-1. Un popup es una ventana separada con su propio entorno JavaScript independiente. Por lo tanto abriendo un popup con un sitio de terceros no confiable es seguro.
+1. Un popup es una ventana separada con su propio entorno JavaScript independiente. Por lo tanto es seguro abrir un popup propio desde un sitio de terceros no confiable.
 2. Es muy fácil abrir un popup.
 3. Un popup puede navegar (cambiar URL) y enviar mensajes a la ventana que lo abrió.
 
@@ -56,7 +56,7 @@ Las ventanas emergentes se abren en Chrome , pero se bloquean en Firefox.
 setTimeout(() => window.open("http://google.com"), 1000);
 ```
 
-La diferencia es que Firefox trata un timeout de 2000ms o menos es aceptable, pero después -- elimina la "confianza", asumiendo que ahora esta "fuera de la acción del usuario". Entonces el primero está bloqueado, y el segundo no lo esta.
+La diferencia es que Firefox trata al timeout de 2000ms o menos como aceptable, pero después elimina la "confianza" asumiendo que ahora está "fuera de la acción del usuario". Entonces el primero está bloqueado, y el segundo no lo está.
 
 ## window.open
 
@@ -85,7 +85,7 @@ Configuración de `params`:
   - `barras de desplazamiento` (si/no) -- permite deshabilitar las barras de desplazamiento para la nueva ventana. No recomendado.
 
 
-También hay una serie de características específicas del navegador menos compatibles, que generalmente no se usan. Check <a href="https://developer.mozilla.org/en/DOM/window.open">window.open in MDN</a> for examples.
+También hay una serie de características específicas del navegador menos compatibles, que generalmente no se usan. Revisa <a href="https://developer.mozilla.org/es/docs/Web/API/Window/open">window.open en MDN</a> para ejemplos.
 
 ## Ejemplo: Minimalizar una ventana
 
@@ -113,14 +113,14 @@ La mayoría de los navegadores muestran el ejemplo anterior según sea necesario
 
 Reglas para configuraciones omitidas:
 
-- Si no hay un tercer argumento en la llamada `abierta`, o está vacío, entonces se usan los parámetros de ventana predeterminados.
-- Si hay una serie de params, pero se omiten `sí / no` algunas características , entonces las características omitidas suponen que `no` tienen valor . Entonces, si especificas parámetros, asegúrese de establecer explícitamente todas las funciones requeridas en sí.
+- Si no hay un tercer argumento en la llamada a `open` o está vacío, se usan los parámetros de ventana predeterminados.
+- Si hay una cadena de params, pero se omiten algunas características sí / no (`yes/no`), las características omitidas se asumen con valor `no` . Entonces, si especifica parámetros, asegúrese de establecer explícitamente todas las funciones requeridas en `yes`.
 - Si no hay `izquierda/arriba` en params, entonces el navegador intenta abrir una nueva ventana cerca de la última ventana abierta.
 - Si no hay `ancho/altura`, entonces la nueva ventana tendrá el mismo tamaño que la última abierta.
 
 ## Acceder a la ventana emergente desde la ventana
 
-La llamada `abierta` devuelve una referencia a la nueva ventana. Se puede usar para manipular sus propiedades, cambiar de ubicación y aún más.
+La llamada `open` devuelve una referencia a la nueva ventana. Se puede usar para manipular sus propiedades, cambiar de ubicación y aún más.
 
 En este ejemplo, generamos contenido emergente a partir de JavaScript:
 
@@ -146,17 +146,17 @@ newWindow.onload = function() {
 };
 ```
 
-por favor, tenga en cuenta: inmediatamente después `window.open`, la nueva ventana no esta cargada aun. Que se muestra por `alert` en linea `(*)`. Así que esperamos a que `onload` lo modifique. También podríamos usar `DOMContentLoaded` de los manejadores de `newWin.document`.
+Por favor, tenga en cuenta: inmediatamente después de `window.open` la nueva ventana no está cargada aún. Esto queda demostrado por el `alert` en la linea `(*)`. Así que esperamos a que `onload` lo modifique. También podríamos usar `DOMContentLoaded` de los manejadores de `newWin.document`.
 
 ```warn header="Same origin policy"
-Windows puede acceder libremente a los contenidos de los demás sólo si provienen del mismo origen (el mismo protocolo://domain:port).
+Las ventanas pueden acceder libremente a los contenidos de las demás sólo si provienen del mismo origen (el mismo protocolo://domain:port).
 
-De lo contrario, por ejemplo . Si la ventana principal es de `site.com`, y la ventana emergente (popup) es de  `gmail.com`, que es imposible por razones de seguridad del usuario. Para los detalles, ver capitulo <info:cross-window-communication>.
+De lo contrario es imposible por razones de seguridad del usuario, por ejemplo si la ventana principal es de `site.com` y la ventana emergente (popup) es de  `gmail.com`. Para los detalles, ver capitulo <info:cross-window-communication>.
 ```
 
 ## Acceder a la ventana desde el popup
 
-Una popup puede acceder la ventana del "opener" también usando la referencia `window.opener` . Es `null` para todas las ventanas excepto los popups.
+Un popup también puede acceder la ventana que lo abrió usando la referencia `window.opener`. Es `null` para todas las ventanas excepto los popups.
 
 Si ejecutas el código de abajo, reemplaza el contenido de la ventana del opener (actual) con "Test":
 
@@ -164,7 +164,7 @@ Si ejecutas el código de abajo, reemplaza el contenido de la ventana del opener
 let newWin = window.open("about:blank", "hello", "width=200,height=200");
 
 newWin.document.write(
-  "<script>window.opener.document.body.innerHTML = 'Test'</script>"
+  "<script>window.opener.document.body.innerHTML = 'Test'<\/script>"
 );
 ```
 
@@ -203,12 +203,12 @@ Hay métodos para mover/redimensionar una ventana:
 : Mover la ventana por coordenadas `(x,y)` en la pantalla.
 
 `win.resizeBy(width,height)`
-: Cambie el tamaño de la ventana según el `width/height` dado en relación con el tamaño actual. Se permiten valores negativos.
+: Cambiar el tamaño de la ventana según el `width/height` dado en relación con el tamaño actual. Se permiten valores negativos.
 
 `win.resizeTo(width,height)`
 : Redimensionar la ventana al tamaño dado.
 
-Hay también evento `window.onresize`.
+También existe el evento `window.onresize`.
 
 ```warn header = "Solo Popup"
 Para evitar abusos, el navegador suele bloquear estos métodos. Solo funcionan de manera confiable en las ventanas emergentes que abrimos, que no tienen pestañas adicionales.
@@ -230,13 +230,13 @@ Ya hemos hablado sobre el desplazamiento de una ventana en el capítulo <info:si
 : Desplaza la ventana a las coordenadas dadas `(x,y)`.
 
 `elem.scrollIntoView(top = true)`
-: Desplaza la ventana para hacer `elem` aparecen en la parte superior (la predeterminada) o en la parte inferior para `elem.scrollIntoView(false)`.
+: Desplaza la ventana para hacer que `elem` aparezca en la parte superior (la predeterminada) o en la parte inferior para `elem.scrollIntoView(false)`.
 
-Hay también evento`window.onscroll`.
+También existe el evento `window.onscroll`.
 
 ## Enfocar/desenfocar una ventana
 
-Teóricamente, hay `window.focus()` y `window.blur()` métodos para enfocar/desenfocar una ventana. También hay `focus/blur` eventos que permiten enfocar una ventana y captar el momento en que el visitante se cambia a otro lugar.
+Teóricamente, están los métodos `window.focus()` y `window.blur()` para poner/sacar el foco de una ventana. Y los eventos `focus/blur` que permiten captar el momento en el que el visitante enfoca una ventana y en el que cambia a otro lugar.
 
 En el pasado las páginas malignas abusaron de ellos. Por ejemplo, mira este código:
 
