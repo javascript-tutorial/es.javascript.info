@@ -265,7 +265,7 @@ La salida típica:
 Los números entre corchetes denotan el tiempo aproximado en el que ocurre. Los eventos etiquetados con el mismo dígito ocurren aproximadamente al mismo tiempo (+ - unos pocos ms).
 
 - `document.readyState` se convierte en `interactive` justo antes de `DOMContentLoaded`. Estas dos cosas realmente significan lo mismo.
-- `document.readyState` se convierte en `completo` cuando se cargan todos los recursos (`iframe` e `img`). Aquí podemos ver que ocurre aproximadamente al mismo tiempo que `img.onload` (`img` es el último recurso) y `window.onload`. Cambiar al estado `completo` significa lo mismo que "window.onload". La diferencia es que `window.onload` siempre funciona después de todos los demás controladores `load`.
+- `document.readyState` se convierte en `complete` cuando se cargan todos los recursos (`iframe` e `img`). Aquí podemos ver que ocurre aproximadamente al mismo tiempo que `img.onload` (`img` es el último recurso) y `window.onload`. Cambiar al estado `complete` significa lo mismo que "window.onload". La diferencia es que `window.onload` siempre funciona después de todos los demás controladores `load`.
 
 
 ## Resumen
