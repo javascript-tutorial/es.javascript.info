@@ -222,7 +222,6 @@ La precedencia del operador AND `&&` es mayor que la de OR `||`.
 
 Así que el código `a && b || c && d` es básicamente el mismo que si la expresiones `&&` estuvieran entre paréntesis: `(a && b) || (c && d)`
 ```
-```
 
 ````warn header="No remplace *if* con || or &&"
 A veces, la gente usa el operador AND `&&` como una "forma más corta de escribir `if`".
