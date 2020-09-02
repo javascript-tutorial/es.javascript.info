@@ -103,7 +103,7 @@ Firefox, Chrome y Opera autocompletan formularios en `DOMContentLoaded`.
 
 Por ejemplo, si la página tiene un formulario con nombre de usuario y contraseña, y el navegador recuerda los valores, entonces en `DOMContentLoaded` puede intentar completarlos automáticamente (si el usuario lo aprueba).
 
-Entonces, si `DOMContentLoaded` es pospuesto por scripts de larga carga, el autocompletado también espera. Probablemente haya visto eso en algunos sitios (si usa la función de autocompletar del navegador): los campos de inicio de sesión / contraseña no se autocompletan inmediatamente, pero hay un retraso hasta que la página se carga por completo. En realidad, ese es el retraso hasta el evento `DOMContentLoaded`.
+Entonces, si `DOMContentLoaded` es pospuesto por scripts de largo tiempo de carga, el autocompletado también espera. Probablemente haya visto eso en algunos sitios (si usa la función de autocompletar del navegador): los campos de inicio de sesión/contraseña no se autocompletan inmediatamente, sino con retraso hasta que la página se carga por completo. En realidad es el retraso hasta el evento `DOMContentLoaded`.
 
 
 ## window.onload [#window-onload]
