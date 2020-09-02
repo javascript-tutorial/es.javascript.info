@@ -74,7 +74,7 @@ params
 Configuración de `params`:
 
 - Posición:
-  - `Izquierda / superior` (numérico) -- coordenadas de la esquina superior izquierda de la ventana en la pantalla.Hay una limitación: no se puede colocar una nueva ventana fuera de la pantalla.
+  - `left/top` (numérico) -- coordenadas de la esquina superior izquierda de la ventana en la pantalla.Hay una limitación: no se puede colocar una nueva ventana fuera de la pantalla.
   - `ancho / alto` (numérico) -- ancho y alto de una nueva ventana. Hay un límite mínimo de ancho / alto , así que es imposible crear una ventana invisible.
 - Características de la ventana:
   - `Barra de menús` (si/no) -- muestra u oculta el menú del navegador en la nueva ventana.
