@@ -15,7 +15,7 @@ Además, los popups son complicados en dispositivos móviles, que no muestran va
 
 Aún así, hay tareas donde los popups todavía son usados, por ejemplo para autorización o autenticación (Ingreso con Google/Facebook/...), porque:
 
-1. Un popup es una ventana separada con su propio entorno JavaScript independiente. Por lo tanto es seguro abrir un popup propio desde un sitio de terceros no confiable.
+1. Un popup es una ventana separada con su propio entorno JavaScript independiente. Por lo tanto es seguro abrir un popup desde un sitio de terceros no confiable.
 2. Es muy fácil abrir un popup.
 3. Un popup puede navegar (cambiar URL) y enviar mensajes a la ventana que lo abrió.
 
