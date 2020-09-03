@@ -67,11 +67,11 @@ f();
 
 La ejecución de la función es pausada en la línea `(*)` y se reanuda cuando la promesa responde, con `result` volviéndose su resultado. Entonces el código arriba muestra "¡Hecho!" en un segundo.
 
-Enfaticemos: `await` literalmente hace que JavaScript espere hasta que la promesa responda, entonces sigue con el resultado. No tiene costo en recursos de CPU, porque mientras tanto el motor puede hacer otros trabajos: ejecutar otros scripts, manejar eventos, etc.
+Enfaticemos: `await` literalmente suspende la ejecución de la función hasta que se establezca la promesa, y luego la reanuda con el resultado de la promesa. Eso no cuesta ningún recurso de CPU, porque el motor de JavaScript puede hacer otros trabajos mientras tanto: ejecutar otros scripts, manejar eventos, etc.
 
 Es simplemente una sintaxis más elegante para tener el resultado de una promesa que `promise.then`, es más facil de leer y de escribir.
 
-````warn header="No se puede usar `await` en funciones regulares"
+````warn header="No se puede usar *await* en funciones regulares"
 Si tratamos de usar `await` en una función no async, habría un error de sintaxis:
 
 ```js run
@@ -83,7 +83,7 @@ function f() {
 }
 ```
 
-Obtendremos este error si no ponemos `async` delante de una función. Como se dijo, `await` solo funciona dentro de una `función async`.
+Es posible que obtengamos este error si olvidamos poner `async` antes de una función. Como se dijo, "await" solo funciona dentro de una función `async`.
 ````
 
 Tomemos el ejemplo `showAvatar()` del capítulo <info:promise-chaining> y rescribámoslo usando `async/await`:
@@ -139,13 +139,12 @@ Pero podemos envolverlo dentro de una función async anónima, como esto:
   ...
 })();
 ```
-
-
 ````
-````smart header="`await` acepta \"thenables\""
+
+````smart header="*await* acepta \"thenables\""
 Tal como `promise.then`, `await` nos permite el uso de objetos "thenable" (aquellos con el método `then`). La idea es que un objeto de terceras partes pueda no ser una promesa, sino compatible con una: si soporta `.then`, es suficiente para el uso con `await`.
 
-Aquí hay una clase `Thenable` de demo; el `await` debajo acepta sus instancias:
+Aquí hay una demostración de la clase `Thenable`; el `await` debajo acepta sus instancias:
 
 ```js run
 class Thenable {
