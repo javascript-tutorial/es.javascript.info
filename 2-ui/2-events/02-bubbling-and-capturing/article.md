@@ -194,7 +194,7 @@ Si nosotros `addEventListener(..., true)`, entonces deberíamos mencionar la mis
 Si tenemos multiples manejadores de eventos en la misma fase, asignados al mismo elemento con `addEventListener`, se ejecutarán en el orden que fueron creados:
 
 ```js
-elem.addEventListener("click", e => alert(1)); // garantizado que se ejecutara primero
+elem.addEventListener("click", e => alert(1)); // garantizado que se ejecutará primero
 elem.addEventListener("click", e => alert(2));
 ```
 ````
