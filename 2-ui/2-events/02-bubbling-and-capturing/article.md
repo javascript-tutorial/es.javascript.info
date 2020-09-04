@@ -76,7 +76,7 @@ Mira esto:
 
 [codetabs height=220 src="bubble-target"]
 
-Es posible que `event.target` sea igual a `this` -- ocurre cuando el clic se hace directamente en el elemento `<form>`.
+Es posible que `event.target` sea igual a `this`: ocurre cuando el clic se hace directamente en el elemento `<form>`.
 
 ## Detener la propagación
 
