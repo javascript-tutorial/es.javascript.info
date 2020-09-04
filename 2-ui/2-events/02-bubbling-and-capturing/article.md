@@ -110,7 +110,7 @@ A veces `event.stopPropagation()` crea trampas ocultas que luego se convierten e
 Por ejemplo:
 
 1. Creamos un menú anidado. Cada submenú maneja los clics en sus elementos y ejecuta `stopPropagation` para que el menu de arriba no se desencadene.
-2.  Luego decidimos atrapar los clic en toda la ventana, para seguir el rastro del comportamiento del usuario (dónde hacen clic). Algunos sistemas de análisis hacen eso. Usualmente el código usa `document.addEventListener('click'…)` para atrapar todos los clics.
+2.  Luego decidimos atrapar los clic en toda la ventana, para seguir el rastro del comportamiento del usuario (donde hacen clic). Algunos sistemas de análisis hacen eso. Usualmente el código usa `document.addEventListener('click'…)` para atrapar todos los clics.
 3. Nuestro análisis no funcionará sobre el área dónde los clics son detenidos por `stopPropagation`. Tristemente, tenemos una "zona muerta".
 
 Usualmente no hay una necesidad real para prevenir la propagación. Una tarea que aparentemente requiere que sea resuelto por otros medios. Uno de ellas es usar eventos personalizados, cubriremos eso más tarde. También podemos escribir nuestros datos en el objeto `event` en un manejador y leerlo en otro, para así poder pasar información sobre el proceso de abajo a los manejadores en los padres.
