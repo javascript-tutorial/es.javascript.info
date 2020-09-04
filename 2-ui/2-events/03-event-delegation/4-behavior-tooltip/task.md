@@ -33,6 +33,6 @@ Necesitarás dos eventos aquí:
 
 Usa delegación de eventos:  prepare dos manejadores en el `document` para rastrear todos los "overs" y "outs" de los elementos con `data-tooltip` y administra los tooltips desde allí.
 
-Después de implementar el comportamiento, hasta gente no familiarizada con JavaScript puede agregar elementos anotados.
+Después de implementar el comportamiento, incluso gente no familiarizada con JavaScript puede agregar elementos anotados.
 
 P.D. Solamente un tooltip puede mostrarse a la vez.
