@@ -64,7 +64,7 @@ function highlight(td) {
 
 A tal código no le interesa cuántas celdas hay en la tabla. Podemos agregar y quitar `<td>` dinámicamente en cualquier momento y el realzado aún funcionará.
 
-Pero hay una contra.
+Pero hay un inconveniente.
 
 El clic puede ocurrir no sobre `<td>`, sino dentro de él.
 
