@@ -95,7 +95,7 @@ Por ejemplo, aquí `body.onclick` no funciona si haces clic en `<button>`:
 ```
 
 ```smart header="event.stopImmediatePropagation()"
-Si un elemento tiene multiples manejadores para un solo evento, aunque uno de ellos detenga la propagación, los demás aún se ejecutarán.
+Si un elemento tiene múltiples manejadores para un solo evento, aunque uno de ellos detenga la propagación, los demás aún se ejecutarán.
 
 En otras palabras, `event.stopPropagation()` detiene la propagación hacia arriba, pero todos los manejadores en el elemento actual se ejecutarán.
 
