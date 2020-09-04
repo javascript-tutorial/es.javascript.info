@@ -149,6 +149,7 @@ Hay dos posibles valores para la opción `capture`:
 - Si es `false` (por defecto), entonces el manejador es preparado para la fase de propagación.
 - Si es `true`, entonces el manejador es preparado para la fase de captura.
 
+
 Es de notar que mientras formalmente hay 3 fases, la 2da fase ("la fase de objetivo": el evento alcanzó el elemento) no es manejada de forma separada; los manejadores en ambas fases, la de captura y propagación, se disparan en esa fase.
 
 Veamos ambas fases, captura y propagación, en acción:
