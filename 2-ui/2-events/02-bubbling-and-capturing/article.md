@@ -130,7 +130,7 @@ Aquí está la imagen de un clic en `<td>` dentro de una tabla, tomada desde la 
 
 ![](eventflow.svg)
 
-Se explica así: por un clic en `<td>` el evento va primero a través de la cadena de ancestros hacia el elemento (fase de captura), luego alcanza el objetivo y se desendena ahí (fase de objetivo), y por último va hacia arriba (fase de propagación), ejecutando los manejadores en su camino.
+Se explica así: por un clic en `<td>` el evento va primero a través de la cadena de ancestros hacia el elemento (fase de captura), luego alcanza el objetivo y se desencadena ahí (fase de objetivo), y por último va hacia arriba (fase de propagación), ejecutando los manejadores en su camino.
 
 **Antes solo hablamos de la propagación porque la fase de captura es raramente usada. Normalmente es invisible a nosotros.**
 
