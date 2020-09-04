@@ -134,7 +134,7 @@ Se explica así: por un clic en `<td>` el evento va primero a través de la cade
 
 **Antes solo hablamos de la propagación porque la fase de captura es raramente usada. Normalmente es invisible a nosotros.**
 
-Los manejadores agregados usando `on<event>`-propiedad ó usando atributos HTML ó `addEventListener(event, handler)` con dos argumentos no ejecutarán la fase de captura, únicamente ejecutarán la 2da y 3ra fase.
+Los manejadores agregados usando la propiedad `on<event>` ó usando atributos HTML ó `addEventListener(event, handler)` con dos argumentos no ejecutarán la fase de captura, únicamente ejecutarán la 2da y 3ra fase.
 
 Para atrapar un evento en la fase de captura, necesitamos preparar la opción `capture` como `true` en el manejador:
 
