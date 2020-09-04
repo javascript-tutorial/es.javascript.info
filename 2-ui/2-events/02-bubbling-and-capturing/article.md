@@ -45,7 +45,7 @@ Un clic en el elemento del interior `<p>` primero ejecuta `onclick`:
 
 Así si hacemos clic en `<p>`, entonces veremos 3 alertas: `p` -> `div` -> `form`.
 
-Este proceso se conoce como "propagación" porqué los eventos "se propagan" desde el elemento más al interior, a través de los padres, como una burbujas en el agua.
+Este proceso se conoce como "propagación" porque los eventos "se propagan" desde el elemento más al interior, a través de los padres, como una burbuja en el agua.
 
 ```warn header="*Casi* todos los elementos se propagan."
 La palabra clave en esta frase es "casi".
