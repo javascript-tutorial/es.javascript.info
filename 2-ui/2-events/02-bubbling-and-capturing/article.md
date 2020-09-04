@@ -99,7 +99,7 @@ Si un elemento tiene múltiples manejadores para un solo evento, aunque uno de e
 
 En otras palabras, `event.stopPropagation()` detiene la propagación hacia arriba, pero todos los manejadores en el elemento actual se ejecutarán.
 
-Para detener la propagación y prevenir que los manejadores de el elemento actual se ejecuten, hay un método `event.stopImmediatePropagation()`. Después de él, ningún otro manejador será ejecutado.
+Para detener la propagación y prevenir que los manejadores del elemento actual se ejecuten, hay un método `event.stopImmediatePropagation()`. Después de él, ningún otro manejador será ejecutado.
 ```
 
 ```warn header="¡No detengas la propagación sino es necesario!"
