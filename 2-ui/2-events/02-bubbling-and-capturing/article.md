@@ -102,7 +102,7 @@ En otras palabras, `event.stopPropagation()` detiene la propagación hacia arrib
 Para detener la propagación y prevenir que los manejadores del elemento actual se ejecuten, hay un método `event.stopImmediatePropagation()`. Después de él, ningún otro manejador será ejecutado.
 ```
 
-```warn header="¡No detengas la propagación sino es necesario!"
+```warn header="¡No detengas la propagación si no es necesario!"
 La propagación es conveniente. No la detengas sin una necesidad real, obvia y arquitectónicamente bien pensada.
 
 A veces `event.stopPropagation()` crea trampas ocultas que luego se convierten en problemas.
@@ -221,4 +221,4 @@ En el mundo real, cuando un accidente ocurre, las autoridades locales reaccionan
 
 Lo mismo para los manejadores de eventos. El código que se prepara en el manejador de un elemento en particular conoce el máximo de detalles sobre el elemento y qué hace. Un manejador en un `<td>` particular puede ser adecuado para ese exacto `<td>`, conocer todo sobre él, entonces debe tener su oportunidad primero. Luego su padre inmediato también conoce sobre el contexto, pero un poco menos, y así sucesivamente hasta el elemento de arriba que maneja conceptos generales y se ejecuta al final.
 
-La propagación y captura ponen los cimientos para "delegación de eventos" -- un extremadamente poderoso patrón de manejo de eventos que se estudia en el siguiente capítulo.
+La propagación y captura ponen los cimientos para "delegación de eventos": un extremadamente poderoso patrón de manejo de eventos que se estudia en el siguiente capítulo.
