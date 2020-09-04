@@ -200,7 +200,7 @@ elem.addEventListener("click", e => alert(2));
 
 ## Resumen
 
-Cuando un evento ocurre -- el más anidado elemento dónde ocurrió se reconoce como el "elemento objetivo" (`event.target`).
+Cuando ocurre un evento, el elemento más anidado dónde ocurrió se reconoce como el "elemento objetivo" (`event.target`).
 
 - Luego el evento se mueve hacia abajo desde el documento raíz hacia `event.target`, llamando a los manejadores en el camino asignados con `addEventListener(..., true)` (`true` es una abreviación para `{captura: true}`).
 - Luego los manejadores son llamados en el elemento objetivo mismo.
