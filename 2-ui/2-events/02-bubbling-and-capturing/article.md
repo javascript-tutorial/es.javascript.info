@@ -80,7 +80,7 @@ Es posible que `event.target` sea igual a `this`: ocurre cuando el clic se hace 
 
 ## Detener la propagación
 
-Una propagación de evento empieza desde el elemento objetivo hacia arriba. Normalmente este continua hasta `<html>` y luego hacia el objeto `document`, algunos eventos incluso alcanzan `window`, llamando a todos los manejadores en el camino.
+Una propagación de evento empieza desde el elemento objetivo hacia arriba. Normalmente este continúa hasta `<html>` y luego hacia el objeto `document`, algunos eventos incluso alcanzan `window`, llamando a todos los manejadores en el camino.
 
 Pero cualquier manejador podría decidir que el evento se ha procesado por completo y detener su propagación.
 
@@ -89,7 +89,7 @@ El método para esto es `event.stopPropagation()`.
 Por ejemplo, aquí `body.onclick` no funciona si haces clic en `<button>`:
 
 ```html run autorun height=60
-<body onclick="alert(`No se propago hasta aquí`)">
+<body onclick="alert(`No se propagó hasta aquí`)">
   <button onclick="event.stopPropagation()">Haz clic</button>
 </body>
 ```
