@@ -210,7 +210,7 @@ Cuando ocurre un evento, el elemento más anidado dónde ocurrió se reconoce co
 Cada manejador puede acceder a las propiedades del objeto `event`:
 
 - `event.target` -- el elemento más profundo que originó el evento.
-- `event.currentTarget` (=`this`) -- el elemento actual que maneja el evento (el qué tiene al manejador en él)
+- `event.currentTarget` (=`this`) -- el elemento actual que maneja el evento (el que tiene al manejador en él)
 - `event.eventPhase` -- la fase actual (captura=1, objetivo=2, propagación=3).
 
 Cualquier manejador de evento puede detener el evento al llamar `event.stopPropagation()`, pero no es recomendado porque no podemos realmente asegurar que no lo necesitaremos más adelante, quizá para completar diferentes cosas.
