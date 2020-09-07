@@ -17,7 +17,11 @@ function Calculator() {
     }
 
     return this.methods[op](a, b);
+<<<<<<< HEAD
   }
+=======
+  };
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
 
   this.addMethod = function(name, func) {
     this.methods[name] = func;

@@ -9,7 +9,11 @@ let router = new Router();
 
 router.post('/user', async (ctx) => {
   ctx.body = {
+<<<<<<< HEAD
     message: "Usuario registrado"
+=======
+    message: "User saved"
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
   };
 });
 
@@ -18,7 +22,11 @@ router.post('/image-form', async (ctx) => {
   let files = [];
   const { fields } = await busboy(ctx.req, {
     onFile(fieldname, file, filename, encoding, mimetype) {
+<<<<<<< HEAD
       // se lee todo el flujo del archivo para continuar
+=======
+      // read all file stream to continue
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
       let length = 0;
       file.on('data', function(data) {
         length += data.length;
@@ -34,7 +42,11 @@ router.post('/image-form', async (ctx) => {
   });
 
   ctx.body = {
+<<<<<<< HEAD
     message: `Imagen guardada, nombre: ${fields.firstName}, tamaño del archivo:${files[0].length}, nombre del archivo: ${files[0].filename}`
+=======
+    message: `Image saved, firstName: ${fields.firstName}, Image size:${files[0].length}, fileName: ${files[0].filename}`
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
   };
 });
 
@@ -44,7 +56,11 @@ router.post('/user-avatar', async (ctx) => {
   let files = [];
   const { fields } = await busboy(ctx.req, {
     onFile(fieldname, file, filename, encoding, mimetype) {
+<<<<<<< HEAD
       // se lee todo el flujo del archivo para continuar
+=======
+      // read all file stream to continue
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
       let length = 0;
       file.on('data', function(data) {
         length += data.length;
@@ -61,7 +77,11 @@ router.post('/user-avatar', async (ctx) => {
   });
 
   ctx.body = {
+<<<<<<< HEAD
     message: `Usuario con imagen, nombre: ${fields.firstName}, tamaño de la imagen:${files[0].length}`
+=======
+    message: `User with picture, firstName: ${fields.firstName}, picture size:${files[0].length}`
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
   };
 });
 

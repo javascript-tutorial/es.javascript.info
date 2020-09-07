@@ -1,6 +1,10 @@
 # Esquinas externas
 
+<<<<<<< HEAD
 Las esquinas externas son básicamente las que obtenemos de [elem.getBoundingClientRect()](https://developer.mozilla.org/es/docs/Web/API/Element/element.getBoundingClientRect).
+=======
+Outer corners are basically what we get from [elem.getBoundingClientRect()](https://developer.mozilla.org/en-US/docs/DOM/element.getBoundingClientRect).
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
 
 Las coordenadas de la esquina superior izquierda `answer1` y la esquina inferior derecha `answer2`:
 

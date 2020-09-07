@@ -1,7 +1,11 @@
 
 # Objetos
 
+<<<<<<< HEAD
 Como aprendimos desde el capítulo <info:types>, hay ocho tipos de datos en JavaScript. Siete de ellos se denominan "primitivos", porque sus valores contienen solo un dato (sea un `string`, un número o lo que sea).
+=======
+As we know from the chapter <info:types>, there are eight data types in JavaScript. Seven of them are called "primitive", because their values contain only a single thing (be it a string or a number or whatever).
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
 
 En contraste, los objetos son usados para almacenar colecciones de varios datos y entidades más complejas asociados con un nombre clave. En JavaScript, los objetos penetran casi todos los aspectos del lenguaje. Por lo tanto, debemos comprenderlos primero antes de profundizar en cualquier otro lugar. 
 
@@ -49,7 +53,11 @@ Podemos agregar, eliminar y leer archivos de ahí en cualquier momento.
 Se puede acceder a los valores de las propiedades utilizando la notación de punto:
 
 ```js
+<<<<<<< HEAD
 // Obteniendo los valores de las propiedades del objeto:
+=======
+// get property values of the object:
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
 alert( user.name ); // John
 alert( user.age ); // 30
 ```
@@ -92,8 +100,36 @@ let user = {
 ```
 Eso se llama una coma "final" o "colgante".  Facilita agregar, eliminar y mover propiedades, porque todas las líneas se vuelven similares.
 
+<<<<<<< HEAD
 ````smart header="Los objetos con const pueden cambiarse"
 Toma en cuenta: un objeto declarado con `const` *puede* ser modificado.
+=======
+````smart header="Object with const can be changed"
+Please note: an object declared as `const` *can* be modified.
+
+For instance:
+
+```js run
+const user = {
+  name: "John"
+};
+
+*!*
+user.name = "Pete"; // (*)
+*/!*
+
+alert(user.name); // Pete
+```
+
+It might seem that the line `(*)` would cause an error, but no. The `const` fixes the value of `user`, but not its contents.
+
+The `const` would give an error only if we try to set `user=...` as a whole.
+
+There's another way to make constant object properties, we'll cover it later in the chapter <info:property-descriptors>.
+````
+
+## Square brackets
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
 
 Por ejemplo:
 
@@ -125,11 +161,19 @@ La notación de punto no funciona para acceder a propiedades con claves de más 
 user.likes birds = true
 ```
 
+<<<<<<< HEAD
 JavaScript no entiende eso. Piensa que hemos accedido a `user.likes` y entonces nos da un error de sintaxis cuando aparece el inesperado `birds`.
 
 El punto requiere que la clave sea un identificador de variable válido. Eso implica que: no contenga espacios, no comience con un dígito y no incluya caracteres especiales (`$` y `_` sí se permiten).
 
 Existe una "notación de corchetes" alternativa que funciona con cualquier string:
+=======
+JavaScript doesn't understand that. It thinks that we address `user.likes`, and then gives a syntax error when comes across unexpected `birds`.
+
+The dot requires the key to be a valid variable identifier. That implies: contains no spaces, doesn't start with a digit and doesn't include special characters (`$` and `_` are allowed).
+
+There's an alternative "square bracket notation" that works with any string:
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
 
 ```js run
 let user = {};
@@ -155,7 +199,11 @@ let key = "likes birds";
 user[key] = true;
 ```
 
+<<<<<<< HEAD
 Aquí la variable `key` puede calcularse en tiempo de ejecución o depender de la entrada del usuario y luego lo usamos para acceder a la propiedad. Eso nos da mucha flexibilidad.
+=======
+Here, the variable `key` may be calculated at run-time or depend on the user input. And then we use it to access the property. That gives us a great deal of flexibility.
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
 
 Por ejemplo:
 
@@ -171,19 +219,34 @@ let key = prompt("¿Qué te gustaría saber acerca del usuario?", "name");
 alert( user[key] ); // John (si se ingresara "name")
 ```
 
+<<<<<<< HEAD
 La notación de punto no puede ser usada de manera similar:
+=======
+The dot notation cannot be used in a similar way:
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
 
 ```js run
 let user = {
   name: "John",
   age: 30
 };
+<<<<<<< HEAD
+=======
+
+let key = "name";
+alert( user.key ) // undefined
+```
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
 
 let key = "name";
 alert( user.key ) // undefined
 ```
 
+<<<<<<< HEAD
 ### Propiedades calculadas
+=======
+We can use square brackets in an object literal, when creating an object. That's called *computed properties*.
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
 
 Podemos usar corchetes en un objeto literal al crear un objeto. A esto se le llama  *propiedades calculadas*.
 
@@ -225,6 +288,7 @@ let bag = {
 };
 ```
 
+<<<<<<< HEAD
 Los corchetes son mucho más potentes que la notación de punto. Permiten cualquier nombre de propiedad y variables. Pero también son más engorrosos de escribir.
 
 Entonces, la mayoría de las veces, cuando los nombres de propiedad son conocidos y simples, se utiliza el punto. Y si necesitamos algo más complejo, entonces cambiamos a corchetes.
@@ -232,6 +296,15 @@ Entonces, la mayoría de las veces, cuando los nombres de propiedad son conocido
 ## Atajo para valores de propiedad
 
 En el código real, a menudo usamos variables existentes como valores de los nombres de propiedades.
+=======
+Square brackets are much more powerful than the dot notation. They allow any property names and variables. But they are also more cumbersome to write.
+
+So most of the time, when property names are known and simple, the dot is used. And if we need something more complex, then we switch to square brackets.
+
+## Property value shorthand
+
+In real code we often use existing variables as values for property names.
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
 
 Por ejemplo:
 
@@ -240,7 +313,11 @@ function makeUser(name, age) {
   return {
     name: name,
     age: age,
+<<<<<<< HEAD
     // ...otras propiedades
+=======
+    // ...other properties
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
   };
 }
 
@@ -256,8 +333,13 @@ En lugar de `name:name`, simplemente podemos escribir `name`, tal cual:
 function makeUser(name, age) {
 *!*
   return {
+<<<<<<< HEAD
     name, // igual que name:name
     age,  // igual que age:age
+=======
+    name, // same as name: name
+    age,  // same as age: age
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
     // ...
   };
 */!*
@@ -274,6 +356,7 @@ let user = {
 ```
 
 
+<<<<<<< HEAD
 ## Limitaciones de nombres de propiedad
 
 Como ya sabemos, una variable no puede tener un nombre igual a una de las palabras reservadas del lenguaje como "for", "let", "return", etc.
@@ -282,6 +365,16 @@ Pero para una propiedad de objeto no existe tal restricción:
 
 ```js run
 // Estas propiedades están bien
+=======
+## Property names limitations
+
+As we already know, a variable cannot have a name equal to one of language-reserved words like "for", "let", "return" etc.
+
+But for an object property, there's no such restriction:
+
+```js run
+// these properties are all right
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
 let obj = {
   for: 1,
   let: 2,
@@ -291,6 +384,7 @@ let obj = {
 alert( obj.for + obj.let + obj.return );  // 6
 ```
 
+<<<<<<< HEAD
 En resumen, no hay limitaciones en los nombres de propiedades. Pueden ser cadenas o símbolos (un tipo especial para identificadores que se cubrirán más adelante).
 
 Otros tipos se convierten automáticamente en cadenas.
@@ -324,6 +418,41 @@ Veremos la naturaleza especial de `__proto__` en los [capítulos siguientes](inf
 Una notable característica de los objetos en JavaScript, en comparación con muchos otros lenguajes, es que es posible acceder a cualquier propiedad. ¡No habrá error si la propiedad no existe!
 
 La lectura de una propiedad no existente solo devuelve `undefined`. Así que podemos probar fácilmente si la propiedad existe:
+=======
+In short, there are no limitations on property names. They can be any strings or symbols (a special type for identifiers, to be covered later).
+
+Other types are automatically converted to strings.
+
+For instance, a number `0` becomes a string `"0"` when used as a property key:
+
+```js run
+let obj = {
+  0: "test" // same as "0": "test"
+};
+
+// both alerts access the same property (the number 0 is converted to string "0")
+alert( obj["0"] ); // test
+alert( obj[0] ); // test (same property)
+```
+
+There's a minor gotcha with a special property named `__proto__`. We can't set it to a non-object value:
+
+```js run
+let obj = {};
+obj.__proto__ = 5; // assign a number
+alert(obj.__proto__); // [object Object] - the value is an object, didn't work as intended
+```
+
+As we see from the code, the assignment to a primitive `5` is ignored.
+
+We'll cover the special nature of `__proto__` in [subsequent chapters](info:prototype-inheritance), and suggest the [ways to fix](info:prototype-methods) such behavior.
+
+## Property existence test, "in" operator
+
+A notable feature of objects in JavaScript, compared to many other languages, is that it's possible to access any property. There will be no error if the property doesn't exist!
+
+Reading a non-existing property just returns `undefined`. So we can easily test whether the property exists:
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
 
 ```js run
 let user = {};
@@ -331,7 +460,11 @@ let user = {};
 alert( user.noSuchProperty === undefined ); // true significa que "no existe tal propiedad"
 ```
 
+<<<<<<< HEAD
 También existe un operador especial para ello: `"in"`.
+=======
+There's also a special operator `"in"` for that.
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
 
 La sintaxis es:
 ```js
@@ -349,18 +482,31 @@ alert( "blabla" in user ); // mostrará false, user.blabla no existe
 
 Nota que a la izquierda de `in` debe estar el *nombre de la propiedad* que suele ser un string entre comillas.
 
+<<<<<<< HEAD
 Si omitimos las comillas significa una variable. Esta variable debería almacenar la clave real que será probado. Por ejemplo:
+=======
+If we omit quotes, that means a variable, it should contain the actual name to be tested. For instance:
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
 
 ```js run
 let user = { age: 30 };
 
 let key = "age";
+<<<<<<< HEAD
 alert( *!*key*/!* in user ); // true, porque su propiedad "age" sí existe dentro del objeto
 ```
 
 Pero... ¿Por qué existe el operador `in`? ¿No es suficiente comparar con `undefined`?
 
 La mayoría de las veces las comparaciones con `undefined` funcionan bien. Pero hay un caso especial donde esto falla y aún así `"in"` funciona correctamente.
+=======
+alert( *!*key*/!* in user ); // true, property "age" exists
+```
+
+Why does the `in` operator exist? Isn't it enough to compare against `undefined`?
+
+Well, most of the time the comparison with `undefined` works fine. But there's a special case when it fails, but `"in"` works correctly.
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
 
 Es cuando existe una propiedad de objeto, pero almacena  `undefined`:
 
@@ -374,9 +520,15 @@ alert( obj.test ); // es undefined, entonces... ¿Quiere decir realmente existe 
 alert( "test" in obj ); //es true, ¡La propiedad sí existe!
 ```
 
+<<<<<<< HEAD
 En el código anterior, la propiedad  `obj.test` técnicamente existe. Entonces el operador `in` funciona correctamente.
 
 Situaciones como esta suceden raramente ya que `undefined` no debe ser explícitamente asignado. Comúnmente usamos `null` para valores "desconocidos" o "vacíos". Por lo que el operador `in` es un invitado exótico en nuestro código.
+=======
+In the code above, the property `obj.test` technically exists. So the `in` operator works right.
+
+Situations like this happen very rarely, because `undefined` should not be explicitly assigned. We mostly use `null` for "unknown" or "empty" values. So the `in` operator is an exotic guest in the code.
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
 
 
 ## El bucle "for..in" 
@@ -412,9 +564,13 @@ Nota que todas las construcciones "for" nos permiten declarar variables para buc
 
 Además podríamos usar otros nombres de variables en lugar de `key`. Por ejemplo, `"for (let prop in obj)"` también se usa bastante.
 
+<<<<<<< HEAD
 ### Ordenado como un objeto
 
 ¿Los objetos están ordenados? Es decir, si creamos un bucle sobre un objeto, ¿obtenemos todas las propiedades en el mismo orden en el que se agregaron? ¿Podemos confiar en ello?
+=======
+### Ordered like an object
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
 
 La respuesta corta es: "ordenados de una forma especial": las propiedades de números números enteros se ordenan, los demás aparecen en el orden de la creación. Entremos en detalle.
 
@@ -493,7 +649,15 @@ for (let code in codes) {
 }
 ```
 
+<<<<<<< HEAD
 Ahora sí funciona como debería.
+=======
+Now it works as intended.
+
+## Summary
+
+Objects are associative arrays with several special features.
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
 
 ## Resumen
 
@@ -503,6 +667,7 @@ Almacenan propiedades (pares de clave-valor), donde:
 - Las claves de propiedad deben ser cadenas o símbolos (generalmente strings).
 - Los valores pueden ser de cualquier tipo.
 
+<<<<<<< HEAD
 Para acceder a una propiedad, podemos usar:
 - La notación de punto: `obj.property`.
 - Notación de corchetes `obj["property"]`. Los corchetes permiten tomar la clave de una variable, como `obj[varWithKey]`.
@@ -513,6 +678,9 @@ Operadores adicionales:
 - Para crear bluces sobre un objeto: bucle `for (let key in obj)`.
 
 Lo que hemos estudiado en este capítulo se llama "objeto simple", o solamente `Object`.
+=======
+What we've studied in this chapter is called a "plain object", or just `Object`.
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
 
 Hay muchos otros tipos de objetos en JavaScript:
 

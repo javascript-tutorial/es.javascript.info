@@ -620,7 +620,11 @@ The second API is very simple, as it works with text.
 The most used recipes are probably:
 
 1. Getting the selection:
+<<<<<<< HEAD
     ```js run
+=======
+    ```js
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
     let selection = document.getSelection();
 
     let cloned = /* element to clone the selected nodes to */;
@@ -632,7 +636,11 @@ The most used recipes are probably:
     }
     ```
 2. Setting the selection:
+<<<<<<< HEAD
     ```js run
+=======
+    ```js
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
     let selection = document.getSelection();
 
     // directly:

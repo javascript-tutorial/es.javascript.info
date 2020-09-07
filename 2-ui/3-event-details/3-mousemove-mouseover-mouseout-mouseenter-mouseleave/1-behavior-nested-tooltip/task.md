@@ -4,13 +4,23 @@ importance: 5
 
 # Comportamiento mejorado de un tooltip
 
+<<<<<<< HEAD
 Escribe JavaScript que muestre un tooltip sobre un elemento con el atributo `data-tooltip`. El valor de este atributo debe convertirse en el texto del tooltip.
+=======
+Write JavaScript that shows a tooltip over an element with the attribute `data-tooltip`. The value of this attribute should become the tooltip text.
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
 
 Es como la tarea <info:task/behavior-tooltip>, pero aquí los elementos anotados se pueden anidar. Los tooltips más internos se muestran.
 
+<<<<<<< HEAD
 Solamente un tooltip puede aparecer a la vez.
 
 Por ejemplo:
+=======
+Only one tooltip may show up at the same time.
+
+For instance:
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
 
 ```html
 <div data-tooltip="Aquí – está el interior de la casa" id="house">

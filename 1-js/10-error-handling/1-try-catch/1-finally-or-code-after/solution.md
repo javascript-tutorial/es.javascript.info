@@ -44,4 +44,8 @@ function f() {
 f(); // limpieza!
 ```
 
+<<<<<<< HEAD
 Es "finally" el que garantiza la limpieza aquí. Si acabamos de poner el código al final de `f`, no se ejecutará en estas situaciones.
+=======
+It's `finally` that guarantees the cleanup here. If we just put the code at the end of `f`, it wouldn't run in these situations.
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017

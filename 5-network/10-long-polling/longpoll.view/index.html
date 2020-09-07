@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <script src="browser.js"></script>
 
+<<<<<<< HEAD
 Todos los visitantes de esta página verán mensajes entre ellos.
 
 <form name="publish">
   <input type="text" name="message" />
   <input type="submit" value="Enviar" />
+=======
+All visitors of this page will see messages of each other.
+
+<form name="publish">
+  <input type="text" name="message" />
+  <input type="submit" value="Send" />
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
 </form>
 
 <div id="subscribe">
@@ -13,6 +21,10 @@ Todos los visitantes de esta página verán mensajes entre ellos.
 
 <script>
   new PublishForm(document.forms.publish, 'publish');
+<<<<<<< HEAD
   // parámetro de url aleatorio para evitar problemas de almacenamiento en caché
+=======
+  // random url parameter to avoid any caching issues
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
   new SubscribePane(document.getElementById('subscribe'), 'subscribe?random=' + Math.random());
 </script>

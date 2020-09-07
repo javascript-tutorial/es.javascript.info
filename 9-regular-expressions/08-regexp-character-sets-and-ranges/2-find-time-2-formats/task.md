@@ -1,12 +1,12 @@
-# Encuetra la hora como hh:mm o hh-mm
+# Find the time as hh:mm or hh-mm
 
-La hora puede estar en el formato `horas:minutos` u `horas-minutos`. Tanto las horas como los minutos tienen 2 dígitos: `09:00` ó `21-30`.
+The time can be in the format `hours:minutes` or `hours-minutes`. Both hours and minutes have 2 digits:  `09:00` or `21-30`.
 
-Escribe una regexp que encuentre la hora:
+Write a regexp to find time:
 
 ```js
-let regexp = /tu regexp/g;
-alert( "El desayuno es a las 09:00. La cena es a las 21-30".match(regexp) ); // 09:00, 21-30
+let regexp = /your regexp/g;
+alert( "Breakfast at 09:00. Dinner at 21-30".match(regexp) ); // 09:00, 21-30
 ```
 
-En esta tarea asumimos que el tiempo siempre es correcto, no hay necesidad de filtrar cadenas malas como "45:67". Más tarde nos ocuparemos de eso también.
+P.S. In this task we assume that the time is always correct, there's no need to filter out bad strings like "45:67". Later we'll deal with that too.

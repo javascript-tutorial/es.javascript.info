@@ -4,18 +4,33 @@ Importance: 5
 
 # Tooltip "inteligente"
 
+<<<<<<< HEAD
 Escribe una función que muestre un tooltip sobre un elemento solamente si el visitante mueve el mouse *hacia él*, pero no *a través de él*.
 
 En otras palabras, si el visitante mueve el mouse hacia el elemento y para ahí -- muestra el tooltip. Y si solamente mueve el mouse a través, entonces no lo necesitamos. ¿Quién quiere parpadeos extra?
+=======
+Write a function that shows a tooltip over an element only if the visitor moves the mouse *to it*, but not *through it*.
+
+In other words, if the visitor moves the mouse to the element and stops there -- show the tooltip. And if they just moved the mouse through, then no need, who wants extra blinking?
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
 
 Tecnicamente, podemos medir la velocidad del mouse sobre el elemento, y si es lenta podemos asumir que el mouse viene "sobre el elemento" y mostramos el tooltip, si es rápida -- entonces lo ignoramos.
 
+<<<<<<< HEAD
 Hay que crear un objeto universal `new HoverIntent(options)` para ello.
 
 Sus `options`:
 - `elem` -- elemento a seguir.
 - `over` -- una función a llamar si el el mouse viene hacia el elemento: o sea, si viene lentamente o para sobre él.
 - `out` -- una función a llmar cuando el mouse abandona el lemento (si `over` fue llamado).
+=======
+Make a universal object `new HoverIntent(options)` for it.
+
+Its `options`:
+- `elem` -- element to track.
+- `over` -- a function to call if the mouse came to the element: that is, it moves slowly or stopped over it.
+- `out` -- a function to call when the mouse leaves the element (if `over` was called).
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
 
 Un ejemplo de dicho objeto siendo usado para el tooltip:
 

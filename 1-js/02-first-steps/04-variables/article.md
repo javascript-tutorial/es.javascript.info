@@ -11,7 +11,11 @@ Utilizamos las variables para almacenar esta información.
 Una [variable](https://es.wikipedia.org/wiki/Variable_(programaci%C3%B3n))) es un "almacenaje nombrado" para datos. Podemos usar variables para almacenar golosinas, visitantes, y otros datos.
 
 
+<<<<<<< HEAD
 Para generar una variable en JavaScript, se usa la palabra clave `let`.
+=======
+The statement below creates (in other words: *declares*) a variable with the name "message":
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
 
 La siguiente declaración genera (en otras palabras: *declara* o *define*) una variable con el nombre "message":
 ```js
@@ -80,8 +84,13 @@ let user = 'John'
 
 Técnicamente, todas estas variantes hacen lo mismo. Así que, es cuestión de gusto personal y preferencia estética.
 
+<<<<<<< HEAD
 ````smart header="`var` en vez de `let`"
 En scripts más viejos, a veces se encuentra otra palabra clave: `var` en lugar de `let`:
+=======
+````smart header="`var` instead of `let`"
+In older scripts, you may also find another keyword: `var` instead of `let`:
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
 
 ```js
 *!*var*/!* mensaje = 'Hola';
@@ -148,8 +157,27 @@ let message = "That"; // SyntaxError: 'message' ya fue declarado
 Debermos declarar una variable una sola vez y desde entonces referirnos a ella sin `let`.
 ````
 
+<<<<<<< HEAD
 ```smart header="Lenguajes funcionales"
 Es interesante notar el hecho que lenguajes de programación [funcional](https://es.wikipedia.org/wiki/Programaci%C3%B3n_funcional), como [Scala](http://www.scala-lang.org/) o [Erlang](http://www.erlang.org) prohíben cambiar el valor de variables.
+=======
+````warn header="Declaring twice triggers an error"
+A variable should be declared only once.
+
+A repeated declaration of the same variable is an error:
+
+```js run
+let message = "This";
+
+// repeated 'let' leads to an error
+let message = "That"; // SyntaxError: 'message' has already been declared
+```
+So, we should declare a variable once and then refer to it without `let`.
+````
+
+```smart header="Functional languages"
+It's interesting to note that there exist [functional](https://en.wikipedia.org/wiki/Functional_programming) programming languages, like [Scala](http://www.scala-lang.org/) or [Erlang](http://www.erlang.org/) that forbid changing variable values.
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
 
 En tales lenguajes, una vez la variable ha sido almacenada "en la caja", permanece allí por siempre. Si necesitamos almacenar algo más, el lenguaje nos obliga a crear una nueva caja (generar una nueva variable). No podemos reusar la antigua.
 
@@ -170,7 +198,11 @@ let userName;
 let test123;
 ```
 
+<<<<<<< HEAD
 Cuando el nombre contiene varias palabras, comúnmente se utiliza [camelCase](https://es.wikipedia.org/wiki/Camel_case). Es decir: palabras van una detrás de otra, con cada palabra iniciando con letra mayúscula: `miNombreMuyLargo`.
+=======
+When the name contains multiple words, [camelCase](https://en.wikipedia.org/wiki/CamelCase) is commonly used. That is: words go one after another, each word except first starting with a capital letter: `myVeryLongName`.
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
 
 Es interesante notar -- el símbolo del dólar `'$'` y el guión bajo `'_'` también se utilizan en nombres. Son símbolos comunes, tal como las letras, sin ningún significado especial.
 
@@ -195,15 +227,24 @@ let my-name; // los guiones '-' no son permitidos en nombres
 Variables con el nombre `manzana` y `manzANA` son distintas.
 ```
 
+<<<<<<< HEAD
 ````smart header="Letras que no son del alfabeto inglés están permitidas, pero no se recomiendan"
 Es posible utilizar letras de cualquier alfabeto, incluyendo el cirílico e incluso jeroglíficos, por ejemplo:
+=======
+````smart header="Non-Latin letters are allowed, but not recommended"
+It is possible to use any language, including cyrillic letters or even hieroglyphs, like this:
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
 
 ```js
 let имя = '...';
 let 我 = '...';
 ```
 
+<<<<<<< HEAD
 Técnicamente, no existe ningún error aquí, tales nombres están permitidos, pero existe una tradición internacional de utilizar inglés en el nombramiento de variables. Incluso si estamos escribiendo un script pequeño, este puede tener una larga vida por delante. Puede ser necesario que gente de otros países deba leerlo en algún momento.
+=======
+Technically, there is no error here. Such names are allowed, but there is an international convention to use English in variable names. Even if we're writing a small script, it may have a long life ahead. People from other countries may need to read it some time.
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
 ````
 
 ````warn header="Nombres reservados"
@@ -250,7 +291,11 @@ Para declarar una variable constante (inmutable) use `const` en vez de `let`:
 const myBirthday = '18.04.1982';
 ```
 
+<<<<<<< HEAD
 Las variables declaradas utilizando `const` se llaman "constantes". No pueden ser alteradas. Al intentarlo causaría un error:
+=======
+Variables declared using `const` are called "constants". They cannot be reassigned. An attempt to do so would cause an error:
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
 
 ```js run
 const myBirthday = '18.04.1982';
@@ -267,7 +312,11 @@ Existe una práctica utilizada ampliamente de utilizar constantes como aliases d
 
 Tales constantes se nombran utilizando letras mayúsculas y guiones bajos.
 
+<<<<<<< HEAD
 Por ejemplo:
+=======
+For instance, let's make constants for colors in so-called "web" (hexadecimal) format:
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
 
 ```js run
 const COLOR_RED = "#F00";
@@ -303,7 +352,11 @@ En otras palabras, las constantes nombradas con mayúscula son utilizadas como �
 
 Estando en el tema de las variables, existe una cosa de mucha importancia.
 
+<<<<<<< HEAD
 Por favor se sensato al nombrar tus variables. Pensémolo por un momento.
+=======
+A variable name should have a clean, obvious meaning, describing the data that it stores.
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
 
 Nombrar variables es una de las habilidades más importantes y complejas en la programación. Un vistazo rápido a el nombre de las variables nos revela cuál código fue escrito por un principiante o por un desarrollador experimentado.
 
@@ -336,8 +389,14 @@ Los minificadores de JavaScript moderno, y los navegadores optimizan el código 
 
 Podemos declarar variables para almacenar datos al utilizar las palabra clave `var`, `let`, o `const`.
 
+<<<<<<< HEAD
 - `let` -- es una declaración de variable moderna.
 - `var` -- es una declaración de variable más vieja-escuela. Normalmente no lo utilizamos en absoluto, aunque cubriremos sus sutiles diferencias con `let` en el capítulo <info:var>, en caso de que sea necesario.
 - `const` -- es como `let`, pero el valor de la variable no puede ser alterado.
+=======
+- `let` -- is a modern variable declaration.
+- `var` -- is an old-school variable declaration. Normally we don't use it at all, but we'll cover subtle differences from `let` in the chapter <info:var>, just in case you need them.
+- `const` -- is like `let`, but the value of the variable can't be changed.
+>>>>>>> 58f6599df71b8d50417bb0a52b1ebdc995614017
 
 Las variables deben ser nombradas de tal manera que entendamos fácilmente lo que está en su interior.
