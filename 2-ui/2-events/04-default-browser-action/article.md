@@ -102,7 +102,7 @@ Hay algunos eventos como `touchmove` en dispositivos móviles (cuando el usuario
 
 Entonces, cuando el navegador detecta tal evento, primero tiene que procesar todos los controladores, y luego, si no se llama a `preventDefault` en ninguna parte, puede continuar con el desplazamiento. Eso puede causar retrasos innecesarios y "movimientos de salto repentinos" en la interfaz de usuario.
 
-Las opciones `passive: true` le dicen al navegador que el controlador no va a cancelar el desplazamiento. Luego, el navegador se desplaza de inmediato para brindar una experiencia con la máxima fluidez, y el evento se maneja por cierto.
+Las opciones `passive: true` le dicen al navegador que el controlador no va a cancelar el desplazamiento. Entonces el navegador se desplaza de inmediato para brindar una experiencia con la máxima fluidez, y el evento se maneja de inmediato.
 
 Para algunos navegadores (Firefox, Chrome), `passive` es `true` por defecto para los eventos `touchstart` y `touchmove`.
 
