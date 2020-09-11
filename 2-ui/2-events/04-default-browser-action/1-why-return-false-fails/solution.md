@@ -1,4 +1,4 @@
-Cuando el navegador lee el atributo `on*` como `onclick`, crea el controlador a partir de su contenido.
+Cuando el navegador lee un atributo `on*` como `onclick`, crea el controlador a partir de su contenido.
 
 Para `onclick="handler()"` la función será:
 

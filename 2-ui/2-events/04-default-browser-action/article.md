@@ -234,11 +234,11 @@ La opción `passive: true` de `addEventListener` le dice al navegador que la acc
 Si se evitó la acción predeterminada, el valor de `event.defaultPrevented` se convierte en `true`, de lo contrario, es `false`.
 
 ```warn header="Mantente semántico, no abuses"
-Técnicamente, al evitar acciones predeterminadas y agregar JavaScript, podemos personalizar el comportamiento de cualquier elemento. Por ejemplo, podemos hacer que un enlace `<a>` funcione como un botón, y un botón `<button>` se comporte como un enlace (redirigir a otra URL más o menos).
+Técnicamente, al evitar acciones predeterminadas y agregar JavaScript, podemos personalizar el comportamiento de cualquier elemento. Por ejemplo, podemos hacer que un enlace `<a>` funcione como un botón, y un botón `<button>` se comporte como un enlace (redirigir a otra URL o algo así).
 
 Pero, en general, deberíamos mantener el significado semántico de los elementos HTML. Por ejemplo, `<a>` debe realizar la navegación, no un botón.
 
 Además de ser "algo bueno", hace que su HTML sea mejor en términos de accesibilidad.
 
-Además, si consideramos el ejemplo con `<a>`, ten en cuenta: un navegador nos permite abrir dichos enlaces en una nueva ventana (haciendo clic con el botón derecho en ellos y por otros medios). Y a la gente le gusta. Pero si hacemos que un botón se comporte como un enlace usando JavaScript e incluso parezca un enlace usando CSS, entonces las características específicas del navegador `<a>` no funcionarán para él.
+Además, si consideramos el ejemplo con `<a>`, ten en cuenta: un navegador nos permite abrir dichos enlaces en una nueva ventana (usando el botón derecho u otros medios). Y a la gente le gusta. Pero si hacemos que un botón se comporte como un enlace usando JavaScript e incluso parezca un enlace usando CSS, las características específicas de `<a>` no funcionarán en él.
 ```

@@ -1,4 +1,4 @@
-Ese es un gran uso del patrón de delegación de eventos.
+Ese es un gran uso para el patrón de delegación de eventos.
 
 En la vida real, en lugar de preguntar, podemos enviar una solicitud de "logging" al servidor que guarda la información sobre dónde se fue el visitante. O podemos cargar el contenido y mostrarlo directamente en la página (si está permitido).
 
