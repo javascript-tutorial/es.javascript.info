@@ -2,15 +2,15 @@ importance: 5
 
 ---
 
-# Catch links in the element
+# Captura enlaces en el elemento
 
-Make all links inside the element with `id="contents"` ask the user if they really want to leave. And if they don't then don't follow.
+Haz que todos los enlaces dentro del elemento con `id="contents"` pregunten al usuario si realmente quiere irse. Y si no lo hacen, no sigas.
 
-Like this:
+Así:
 
 [iframe height=100 border=1 src="solution"]
 
-Details:
+Detalles:
 
-- HTML inside the element may be loaded or regenerated dynamically at any time, so we can't find all links and put handlers on them. Use event delegation.
-- The content may have nested tags. Inside links too, like `<a href=".."><i>...</i></a>`.
+- El HTML dentro del elemento puede cargarse o regenerarse dinámicamente en cualquier momento, por lo que no podemos encontrar todos los enlaces y ponerles controladores. Utilice la delegación de eventos.
+- El contenido puede tener etiquetas anidadas. Dentro de los enlaces también, como `<a href=".."><i>...</i></a>`.
