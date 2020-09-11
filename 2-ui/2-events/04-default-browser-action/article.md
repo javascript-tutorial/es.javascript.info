@@ -240,5 +240,5 @@ Pero, en general, deberíamos mantener el significado semántico de los elemento
 
 Además de ser "algo bueno", hace que su HTML sea mejor en términos de accesibilidad.
 
-Además, si consideramos el ejemplo con `<a>`, ten en cuenta: un navegador nos permite abrir dichos enlaces en una nueva ventana (haciendo clic con el botón derecho en ellos y por otros medios). Y a la gente le gusta. Pero si hacemos que un botón se comporte como un enlace usando JavaScript e incluso parezca un enlace usando CSS, entonces las características específicas del navegador `<a>` no funcionarán para él.
+Además, si consideramos el ejemplo con `<a>`, ten en cuenta: un navegador nos permite abrir dichos enlaces en una nueva ventana (usando el botón derecho u otros medios). Y a la gente le gusta. Pero si hacemos que un botón se comporte como un enlace usando JavaScript e incluso parezca un enlace usando CSS, las características específicas de `<a>` no funcionarán en él.
 ```
