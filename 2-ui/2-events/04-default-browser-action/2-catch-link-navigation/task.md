@@ -4,7 +4,7 @@ importance: 5
 
 # Captura enlaces en el elemento
 
-Haz que todos los enlaces dentro del elemento con `id="contents"` pregunten al usuario si realmente quiere irse. Y si no lo hacen, no sigas.
+Haz que todos los enlaces dentro del elemento con `id="contents"` pregunten al usuario si realmente quiere irse. Y si no quiere, no sigas.
 
 Así:
 
