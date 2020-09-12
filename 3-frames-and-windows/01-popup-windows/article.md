@@ -210,7 +210,7 @@ Hay métodos para mover/redimensionar una ventana:
 
 También existe el evento `window.onresize`.
 
-```warn header = "Solo Popup"
+```warn header="Solo Popup"
 Para evitar abusos, el navegador suele bloquear estos métodos. Solo funcionan de manera confiable en las ventanas emergentes que abrimos, que no tienen pestañas adicionales.
 ```
 
