@@ -73,7 +73,7 @@ menu.onclick = function(event) {
 };
 ```
 
-Si omitimos `return false`, luego de que nuestro código se ejecute, el navegador realizará su "acción predeterminada": navegar a la URL en `href`. Y no lo necesitamos aquí, ya que estamos manejando el clic nosotros mismos.
+Si omitimos `return false`, luego de ejecutar nuestro código el navegador realizará su "acción predeterminada": navegar a la URL en `href`. Y no lo necesitamos aquí, ya que estamos manejando el clic nosotros mismos.
 
 Por cierto, usar la delegación de eventos aquí hace que nuestro menú sea muy flexible. Podemos agregar listas anidadas y diseñarlas usando CSS para "deslizarlas hacia abajo".
 
