@@ -8,7 +8,7 @@ Por ejemplo:
 - Un clic en el botón de envío de un formulario inicia su envío al servidor.
 - Al presionar un botón del ratón sobre un texto y moverlo, se selecciona el texto.
 
-Si manejamos un evento en JavaScript, es posible que no queramos que suceda la acción correspondiente del navegador y queramos implementar otro comportamiento en su lugar.
+Si manejamos un evento en JavaScript, es posible que no queramos que suceda la acción correspondiente del navegador e implementar en cambio otro comportamiento.
 
 ## Evitar las acciones del navegador
 
