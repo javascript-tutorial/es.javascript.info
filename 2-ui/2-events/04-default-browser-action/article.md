@@ -86,7 +86,7 @@ Intenta hacer clic en el primer `<input>` a continuación: se produce el evento 
 
 ```html run autorun
 <input value="Enfoque funciona" onfocus="this.value=''">
-<input *!*onmousedown="return false"*/!* onfocus="this.value=''" value="Haz clic en mi">
+<input *!*onmousedown="return false"*/!* onfocus="this.value=''" value="Haz clic en mí">
 ```
 
 Eso es porque la acción del navegador se cancela en `mousedown`. El enfoque aún es posible si usamos otra forma de ingresar la entrada. Por ejemplo, la tecla `key:Tab` para cambiar de la primera entrada a la segunda. Pero ya no con el clic del ratón.
