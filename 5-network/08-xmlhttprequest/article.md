@@ -28,7 +28,7 @@ Para hacer la petición, necesitamos seguir 3 pasos:
     ```
     El constructor no tiene argumentos.
 
-2. Inicializarlo, usualmente justo despu&eacute;s de `new XMLHttpRequest`:
+2. Inicializarlo, usualmente justo después de `new XMLHttpRequest`:
     ```js
     xhr.open(method, URL, [async, user, password])
     ```
