@@ -409,8 +409,8 @@ Hay otro objeto, sin m&eacute;todos, exclusivamente para rastrear los eventos de
 - `abort` -- carga abortada.
 - `error` -- error no HTTP.
 - `load` -- carga finalizada con exito.
-- `timeout` -- carga caducada (si la propiedad `timeout` esta asignada).
-- `loadend` -- carga finalizada con exito o error.
+- `timeout` -- carga caducada (si la propiedad `timeout` está asignada).
+- `loadend` -- carga finalizada con éxito o error.
 
 Ejemplos de manejadores:
 
@@ -428,7 +428,7 @@ xhr.upload.onerror = function() {
 };
 ```
 
-Aqu&iacute; un ejemplo de la vida real: indicaci&oacute;n del progreso de subida de un archivo:
+Aquí un ejemplo de la vida real: indicación del progreso de subida de un archivo:
 
 ```html run
 <input type="file" onchange="upload(this.files[0])">
@@ -461,9 +461,9 @@ function upload(file) {
 
 ## Solicitudes de origen cruzado (Cross-origin)
 
-`XMLHttpRequest` puede hacer solicitudes de origen cruzado, utilizando la misma pol&iacute;tica CORS que se [solicita](info:fetch-crossorigin).
+`XMLHttpRequest` puede hacer solicitudes de origen cruzado, utilizando la misma política CORS que se [solicita](info:fetch-crossorigin).
 
-Tal como `fetch`, no env&iacute;a cookies ni autorizaci&oacute;n HTTP a otro origen por omisi&oacute;n. Para activarlas, asigna `xhr.withCredentials` como `true`:
+Tal como `fetch`, no envía cookies ni autorización HTTP a otro origen por omisión. Para activarlas, asigna `xhr.withCredentials` como `true`:
 
 ```js
 let xhr = new XMLHttpRequest();
@@ -475,12 +475,12 @@ xhr.open('POST', 'http://anywhere.com/request');
 ...
 ```
 
-Ve el cap&iacute;tulo <info:fetch-crossorigin> para detalles sobre las cabeceras de origen cruzado.
+Ve el capítulo <info:fetch-crossorigin> para detalles sobre las cabeceras de origen cruzado.
 
 
 ## Resumen
 
-Codificaci&oacute;n t&iacute;pica de la solicitud GET con `XMLHttpRequest`:
+Codificación típica de la solicitud GET con `XMLHttpRequest`:
 
 ```js
 let xhr = new XMLHttpRequest();
@@ -509,12 +509,12 @@ xhr.onerror = function() {
 };
 ```
 
-De hecho hay m&aacute;s eventos, la [especificaci&oacute;n moderna](http://www.w3.org/TR/XMLHttpRequest/#events) los lista (en el orden del ciclo de vida):
+De hecho hay más eventos, la [especificación moderna](http://www.w3.org/TR/XMLHttpRequest/#events) los lista (en el orden del ciclo de vida):
 
 - `loadstart` -- la solicitud ha empezado.
-- `progress` -- un paquete de datos de la respuesta ha llegado, el cuerpo completo de la respuesta al momento est&aacute; en `response`.
+- `progress` -- un paquete de datos de la respuesta ha llegado, el cuerpo completo de la respuesta al momento está en `response`.
 - `abort` -- la solicitud ha sido cancelada por la llamada de `xhr.abort()`.
-- `error` -- un error de conecci&oacute;n ha ocurrido, ej. nombre de dominio incorrecto. No pasa con errores HTTP como 404.
+- `error` -- un error de conexión ha ocurrido, ej. nombre de dominio incorrecto. No pasa con errores HTTP como 404.
 - `load` -- la solicitud se ha completado satisfactoriamente.
 - `timeout` -- la solicitud fue cancelada debido a que caducó (solo pasa si fue configurado).
 - `loadend` -- se dispara después de `load`, `error`, `timeout` o `abort`.
