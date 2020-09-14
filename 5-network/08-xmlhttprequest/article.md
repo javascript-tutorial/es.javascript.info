@@ -525,4 +525,4 @@ Los eventos más usados son la carga terminada (`load`), falla de carga (`error`
 
 Ya hemos visto otro evento: `readystatechange`. Históricamente, apareció hace mucho tiempo, antes de que la especificación fuera publicada. Hoy en día no es necesario usarlo, podemos reemplazarlo con eventos más nuevos pero puede ser encontrado a menudo en scripts viejos.
 
-Si necesitamos rastrear espec&iacute;ficamente, entonces debemos escuchar a los mismos eventos en el objeto `xhr.upload`.
+Si necesitamos rastrear específicamente, entonces debemos escuchar a los mismos eventos en el objeto `xhr.upload`.
