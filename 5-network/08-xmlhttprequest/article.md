@@ -402,13 +402,13 @@ Si estamos subiendo algo grande, entonces seguramente estaremos interesados en r
 
 Hay otro objeto, sin métodos, exclusivamente para rastrear los eventos de subida: `xhr.upload`.
 
-&Eacute;ste genera eventos, similares a `xhr`, pero `xhr.upload` se dispara solo en las subidas:
+Este genera eventos similares a `xhr`, pero `xhr.upload` se dispara solo en las subidas:
 
 - `loadstart` -- carga iniciada.
 - `progress` -- se dispara periodicamente durante la subida.
 - `abort` -- carga abortada.
 - `error` -- error no HTTP.
-- `load` -- carga finalizada con exito.
+- `load` -- carga finalizada con éxito.
 - `timeout` -- carga caducada (si la propiedad `timeout` está asignada).
 - `loadend` -- carga finalizada con éxito o error.
 
