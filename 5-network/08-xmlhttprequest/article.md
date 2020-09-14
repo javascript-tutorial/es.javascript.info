@@ -130,7 +130,7 @@ xhr.timeout = 10000; // límite de tiempo en milisegundos, 10 segundos
 
 Si la solicitud no es realizada con éxito dentro del tiempo dado, se cancela y el evento `timeout` se activa.
 
-````smart header="Par&aacute;metros de búsqueda URL"
+````smart header="Parámetros de búsqueda URL"
 Para agregar los parámetros a la URL, como `?nombre=valor`, y asegurar la codificación adecuada, podemos utilizar un objeto [URL](info:url):
 
 ```js
