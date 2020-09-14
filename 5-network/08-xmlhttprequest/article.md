@@ -33,7 +33,7 @@ Para hacer la petición, necesitamos seguir 3 pasos:
     xhr.open(method, URL, [async, user, password])
     ```
 
-    Este m&eacute;todo esp&eacute;cifica los par&aacute;metros principales para la petici&oacute;n:
+    Este método especifica los parámetros principales para la petición:
 
     - `method` -- m&eacute;todo HTTP. Usualmente `"GET"` o `"POST"`.
     - `URL` -- la URL a solicitar, una cadena, puede ser un objeto [URL](info:url).
