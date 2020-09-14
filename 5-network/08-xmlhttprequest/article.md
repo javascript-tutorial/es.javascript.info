@@ -516,7 +516,7 @@ De hecho hay m&aacute;s eventos, la [especificaci&oacute;n moderna](http://www.w
 - `abort` -- la solicitud ha sido cancelada por la llamada de `xhr.abort()`.
 - `error` -- un error de conecci&oacute;n ha ocurrido, ej. nombre de dominio incorrecto. No pasa con errores HTTP como 404.
 - `load` -- la solicitud se ha completado satisfactoriamente.
-- `timeout` -- la solicitud fue cancelada debido a que caduc&oacute; (solo pasa si se hab&iacute;a configurado).
+- `timeout` -- la solicitud fue cancelada debido a que caducó (solo pasa si fue configurado).
 - `loadend` -- se dispara despu&eacute;s de `load`, `error`, `timeout` o `abort`.
 
 Los eventos `error`, `abort`, `timeout`, y `load` son mutuamente exclusivos. Solo uno de ellos puede pasar.
