@@ -12,7 +12,7 @@ En el desarrollo web moderno `XMLHttpRequest` se usa por tres razones:
 2. Necesitamos soportar navegadores viejos, y no queremos `polyfills` (p.ej. para mantener los scripts pequeños).
 3. Necesitamos hacer algo que `fetch` no puede todavía, ej. rastrear el progreso de subida.
 
-&iquest;Te suena familiar? Si as&iacute; es, entonces todo est&aacute; bien, adelante con `XMLHttpRequest`. De otra forma, por favor, dir&iacute;gete a <info:fetch>.
+¿Te suena familiar? Si es así, está bien, adelante con `XMLHttpRequest`. De otra forma, por favor, dirígete a <info:fetch>.
 
 ## Lo b&aacute;sico
 
