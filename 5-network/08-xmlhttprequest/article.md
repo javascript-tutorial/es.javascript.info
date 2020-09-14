@@ -523,6 +523,6 @@ Los eventos `error`, `abort`, `timeout`, y `load` son mutuamente exclusivos. Sol
 
 Los eventos más usados son la carga terminada (`load`), falla de carga (`error`), o podemos usar un solo manejador `loadend` y comprobar las propiedades del objeto solicitado `xhr` para ver qué ha pasado.
 
-Ya hemos visto otro evento: `readystatechange`. Hist&oacute;ricamente, apareci&oacute; hace mucho tiempo, antes de que la especificaci&oaucte;n fuera colocada. Hoy en d&iacute;a, no es necesario usarlo, podemos reemplazarlo con eventos m&aacute;s nuevos, pero puede ser encontrado a menudo en scripts viejos.
+Ya hemos visto otro evento: `readystatechange`. Históricamente, apareció hace mucho tiempo, antes de que la especificación fuera publicada. Hoy en día no es necesario usarlo, podemos reemplazarlo con eventos más nuevos pero puede ser encontrado a menudo en scripts viejos.
 
 Si necesitamos rastrear espec&iacute;ficamente, entonces debemos escuchar a los mismos eventos en el objeto `xhr.upload`.
