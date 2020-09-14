@@ -1,20 +1,20 @@
-# Parámetros Rest y operador Spread
+# Rest parameters and spread syntax
 
-Muchas funciones nativas de JavaScript soportan un número arbitrario de argumentos.
+Many JavaScript built-in functions support an arbitrary number of arguments.
 
-Por ejemplo:
+For instance:
 
-- `Math.max(arg1, arg2, ..., argN)` -- devuelve el argumento más grande.
-- `Object.assign(dest, src1, ..., srcN)` -- copia las propiedades de `src1..N` en `dest`.
-- ...y otros más
+- `Math.max(arg1, arg2, ..., argN)` -- returns the greatest of the arguments.
+- `Object.assign(dest, src1, ..., srcN)` -- copies properties from `src1..N` into `dest`.
+- ...and so on.
 
-En este capítulo aprenderemos como hacer lo mismo. Y, además, cómo trabajar cómodamente con dichas funciones y arrays.
+In this chapter we'll learn how to do the same. And also, how to pass arrays to such functions as parameters.
 
-## Parámetros Rest `...`
+## Rest parameters `...`
 
-Una función puede ser llamada con cualquier número de argumentos sin importar cómo sea definida.
+A function can be called with any number of arguments, no matter how it is defined.
 
-Por ejemplo::
+Like here:
 ```js run
 function sum(a, b) {
   return a + b;
@@ -23,14 +23,14 @@ function sum(a, b) {
 alert( sum(1, 2, 3, 4, 5) );
 ```
 
-Aquí no habrá ningún error por "exceso" de argumentos. Pero, por supuesto, en el resultado solo los dos primeros serán tomados en cuenta.
+There will be no error because of "excessive" arguments. But of course in the result only the first two will be counted.
 
-El resto de los parámetros pueden ser referenciados en la definición de una función con 3 puntos `...` seguidos por el nombre del array que los contendrá. Literalmente significan "Reunir los parámetros restantes en un array".
+The rest of the parameters can be included in the function definition by using three dots `...` followed by the name of the array that will contain them. The dots literally mean "gather the remaining parameters into an array".
 
-Por ejemplo, para reunir todos los parámetros en un array `args`:
+For instance, to gather all arguments into array `args`:
 
 ```js run
-function sumAll(...args) { // args es el nombre del array
+function sumAll(...args) { // args is the name for the array
   let sum = 0;
 
   for (let arg of args) sum += arg;
@@ -43,41 +43,41 @@ alert( sumAll(1, 2) ); // 3
 alert( sumAll(1, 2, 3) ); // 6
 ```
 
-Podermos elegir obtener los primeros parámetros como variables, y juntar solo el resto.
+We can choose to get the first parameters as variables, and gather only the rest.
 
-Aquí los primeros dos argumentos van a variables y el resto va al array `titles`:
+Here the first two arguments go into variables and the rest go into `titles` array:
 
 ```js run
 function showName(firstName, lastName, ...titles) {
-  alert( firstName + ' ' + lastName ); // Julio Cesar
+  alert( firstName + ' ' + lastName ); // Julius Caesar
 
-  // el resto va en el array titles
-  // por ejemplo titles = ["Cónsul", "Emperador"]
-  alert( titles[0] ); // Cónsul
-  alert( titles[1] ); // Emperador
+  // the rest go into titles array
+  // i.e. titles = ["Consul", "Imperator"]
+  alert( titles[0] ); // Consul
+  alert( titles[1] ); // Imperator
   alert( titles.length ); // 2
 }
 
-showName("Julio", "Cesar", "Cónsul", "Emperador");
+showName("Julius", "Caesar", "Consul", "Imperator");
 ```
 
-````warn header="Los parámetros rest deben ir al final"
-Los parámetros rest recogen todos los argumentos sobrantes, por lo que el siguiente código no tiene sentido y causa un error:
+````warn header="The rest parameters must be at the end"
+The rest parameters gather all remaining arguments, so the following does not make sense and causes an error:
 
 ```js
-function f(arg1, ...rest, arg2) { // arg2 despues de ...rest ?!
+function f(arg1, ...rest, arg2) { // arg2 after ...rest ?!
   // error
 }
 ```
 
-`...rest` debe ir siempre último.
+The `...rest` must always be last.
 ````
 
-## La variable "arguments"
+## The "arguments" variable
 
-También existe un objeto símil-array especial llamado `arguments` que contiene todos los argumentos indexados.
+There is also a special array-like object named `arguments` that contains all arguments by their index.
 
-Por ejemplo:
+For instance:
 
 ```js run
 function showName() {
@@ -85,29 +85,29 @@ function showName() {
   alert( arguments[0] );
   alert( arguments[1] );
 
-  // arguments es iterable
+  // it's iterable
   // for(let arg of arguments) alert(arg);
 }
 
-// muestra: 2, Julio, Cesar
-showName("Julio", "Cesar");
+// shows: 2, Julius, Caesar
+showName("Julius", "Caesar");
 
-// muestra: 1, Ilya, undefined (no hay segundo argumento)
+// shows: 1, Ilya, undefined (no second argument)
 showName("Ilya");
 ```
 
-Antiguamente, los parámetros rest no existían en el lenguaje, y usar `arguments` era la única manera de obtener todos los argumentos de una función. Y aún funciona, podemos encontrarlo en código antiguo.
+In old times, rest parameters did not exist in the language, and using `arguments` was the only way to get all arguments of the function. And it still works, we can find it in the old code.
 
-Pero la desventaja es que a pesar de que `arguments` es símil-array e iterable, no es un array. No soporta los métodos de array, no podemos ejecutar `arguments.map(...)` por ejemplo.
+But the downside is that although `arguments` is both array-like and iterable, it's not an array. It does not support array methods, so we can't call `arguments.map(...)` for example.
 
-Además, siempre contiene todos los argumentos. No podemos capturarlos parcialmente como hicimos con los parámetros rest.
+Also, it always contains all arguments. We can't capture them partially, like we did with rest parameters.
 
-Por lo tanto, cuando necesitemos estas funcionalidades, los parámetros rest son preferidos.
+So when we need these features, then rest parameters are preferred.
 
-````smart header="Las funciones flecha no poseen `\"arguments\"`"
-Si accedemos el objeto `arguments` desde una función flecha, toma su valor dela función "normal" externa.
+````smart header="Arrow functions do not have `\"arguments\"`"
+If we access the `arguments` object from an arrow function, it takes them from the outer "normal" function.
 
-Aquí hay un ejemplo:
+Here's an example:
 
 ```js run
 function f() {
@@ -118,25 +118,25 @@ function f() {
 f(1); // 1
 ```
 
-Como recordamos, las funciones flecha no tienen su propio `this`. Ahora sabemos que tampoco tienen el objeto especial `arguments`.
+As we remember, arrow functions don't have their own `this`. Now we know they don't have the special `arguments` object either.
 ````
 
 
-## Operador Spread [#spread-operator]
+## Spread syntax [#spread-syntax]
 
-Acabamos de ver cómo obtener un array de la lista de parámetros.
+We've just seen how to get an array from the list of parameters.
 
-Pero a veces necesitamos hacer exactamente lo opuesto.
+But sometimes we need to do exactly the reverse.
 
-Por ejemplo, existe una función nativa [Math.max](mdn:js/Math/max) que devuelve el número más grande de una lista:
+For instance, there's a built-in function [Math.max](mdn:js/Math/max) that returns the greatest number from a list:
 
 ```js run
 alert( Math.max(3, 5, 1) ); // 5
 ```
 
-Ahora bien, supongamos que tenemos un array `[3, 5, 1]`. ¿Cómo ejecutamos `Math.max` con él?
+Now let's say we have an array `[3, 5, 1]`. How do we call `Math.max` with it?
 
-Pasando la variable no funcionará, porque `Math.max` espera una lista de argumentos numéricos, no un único array:
+Passing it "as is" won't work, because `Math.max` expects a list of numeric arguments, not a single array:
 
 ```js run
 let arr = [3, 5, 1];
@@ -146,21 +146,21 @@ alert( Math.max(arr) ); // NaN
 */!*
 ```
 
-Y seguramente no podremos listar manualmente los ítems en el código `Math.max(arr[0], arr[1], arr[2])`, porque tal vez no sepamos cuántos son. A medida que nuestro script se ejecuta, podría haber muchos elementos, o podría no haber ninguno. Y eso podría ponerse feo.
+And surely we can't manually list items in the code `Math.max(arr[0], arr[1], arr[2])`, because we may be unsure how many there are. As our script executes, there could be a lot, or there could be none. And that would get ugly.
 
-¡*Operador Spread* al rescate!  Es similar a los parámetros rest, también usa `...`, pero hace exactamente lo opuesto.
+*Spread syntax* to the rescue! It looks similar to rest parameters, also using `...`, but does quite the opposite.
 
-Cuando `...arr` es usado en el llamado de una función, "expande" el objeto iterable `arr` en una lista de argumentos.
+When `...arr` is used in the function call, it "expands" an iterable object `arr` into the list of arguments.
 
-Para `Math.max`:
+For `Math.max`:
 
 ```js run
 let arr = [3, 5, 1];
 
-alert( Math.max(...arr) ); // 5 (spread convierte el array en una lista de argumentos)
+alert( Math.max(...arr) ); // 5 (spread turns array into a list of arguments)
 ```
 
-También podemos pasar múltiples iterables de esta manera:
+We also can pass multiple iterables this way:
 
 ```js run
 let arr1 = [1, -2, 3, 4];
@@ -169,7 +169,7 @@ let arr2 = [8, 3, -8, 1];
 alert( Math.max(...arr1, ...arr2) ); // 8
 ```
 
-Incluso podemos combinar el operador spread con valores normales:
+We can even combine the spread syntax with normal values:
 
 
 ```js run
@@ -179,7 +179,7 @@ let arr2 = [8, 3, -8, 1];
 alert( Math.max(1, ...arr1, 2, ...arr2, 25) ); // 25
 ```
 
-Además, el operador spread puede ser usado para combinar arrays:
+Also, the spread syntax can be used to merge arrays:
 
 ```js run
 let arr = [3, 5, 1];
@@ -189,101 +189,101 @@ let arr2 = [8, 9, 15];
 let merged = [0, ...arr, 2, ...arr2];
 */!*
 
-alert(merged); // 0,3,5,1,2,8,9,15 (0, luego arr, después 2, después arr2)
+alert(merged); // 0,3,5,1,2,8,9,15 (0, then arr, then 2, then arr2)
 ```
 
-En los ejemplos de arriba utilizamos un array para demostrar el operador spread, pero cualquier iterable funcionará también.
+In the examples above we used an array to demonstrate the spread syntax, but any iterable will do.
 
-Por ejemplo, aquí usamos el operador spread para convertir la cadena en un array de caracteres:
+For instance, here we use the spread syntax to turn the string into array of characters:
 
 ```js run
-let str = "Hola";
+let str = "Hello";
 
-alert( [...str] ); // H,o,l,a
+alert( [...str] ); // H,e,l,l,o
 ```
 
-El operador spread utiliza internamente iteradores para iterar los elementos, de la misma manera que `for..of` hace.
+The spread syntax internally uses iterators to gather elements, the same way as `for..of` does.
 
-Entones, para una cadena `for..of` retorna characters y `...str` se convierte en `"H","o","l","a"`. La lista de caracteres es pasada a la inicialización del array `[...str]`.
+So, for a string, `for..of` returns characters and `...str` becomes `"H","e","l","l","o"`. The list of characters is passed to array initializer `[...str]`.
 
-Para esta tarea en particular también podríamos haber usado `Array.from`, ya que convierte un iterable (como una cadena de caracteres) en un array:
+For this particular task we could also use `Array.from`, because it converts an iterable (like a string) into an array:
 
 ```js run
-let str = "Hola";
+let str = "Hello";
 
-// Array.from convierte un iterable en un array
-alert( Array.from(str) ); // H,o,l,a
+// Array.from converts an iterable into an array
+alert( Array.from(str) ); // H,e,l,l,o
 ```
 
-El resultado es el mismo que `[...str]`.
+The result is the same as `[...str]`.
 
-Pero hay una sutil diferencia entre `Array.from(obj)` y `[...obj]`:
+But there's a subtle difference between `Array.from(obj)` and `[...obj]`:
 
-- `Array.from` opera con símil-arrays e iterables.
-- El operador spread solo opera con iterables.
+- `Array.from` operates on both array-likes and iterables.
+- The spread syntax works only with iterables.
 
-Por lo tanto, para la tarea de convertir algo en un array, `Array.from` tiende a ser mas universal.
+So, for the task of turning something into an array, `Array.from` tends to be more universal.
 
 
-## Obtener una copia de un objeto array
+## Get a new copy of an array/object
 
-¿Recuerdas cuando hablamos acerca de `Object.assign()` [anteriormente](https://javascript.info/object#cloning-and-merging-object-assign)?
+Remember when we talked about `Object.assign()` [in the past](info:object-copy#cloning-and-merging-object-assign)?
 
-Es posible hacer lo mismo con la sintaxis de spread
+It is possible to do the same thing with the spread syntax.
 
 ```js run
 let arr = [1, 2, 3];
-let arrCopy = [...arr]; // separa el array en una lista de parameters
-                        // luego pone el resultado en un nuevo array
+let arrCopy = [...arr]; // spread the array into a list of parameters
+                        // then put the result into a new array
 
-// ¿los arrays tienen el mismo contenido?
+// do the arrays have the same contents?
 alert(JSON.stringify(arr) === JSON.stringify(arrCopy)); // true
 
-// ¿los arrays son iguales?
-alert(arr === arrCopy); // false (no es la misma referencia)
+// are the arrays equal?
+alert(arr === arrCopy); // false (not same reference)
 
-// modificando nuestro array inicial no modifica la copia:
+// modifying our initial array does not modify the copy:
 arr.push(4);
 alert(arr); // 1, 2, 3, 4
 alert(arrCopy); // 1, 2, 3
 ```
 
-Nota que es posible hacer lo mismo para hacer una copia de un objeto:
+Note that it is possible to do the same thing to make a copy of an object:
 
 ```js run
 let obj = { a: 1, b: 2, c: 3 };
-let objCopy = { ...obj }; // separa el objeto en una lista de parámetros
-                          // luego devuelve el resultado en un nuevo objeto
+let objCopy = { ...obj }; // spread the object into a list of parameters
+                          // then return the result in a new object
 
-// ¿tienen los objetos el mismo contenido?
+// do the objects have the same contents?
 alert(JSON.stringify(obj) === JSON.stringify(objCopy)); // true
 
-// ¿son iguales los objetos?
-alert(obj === objCopy); // false (no es la misma referencia)
+// are the objects equal?
+alert(obj === objCopy); // false (not same reference)
 
-// modificando el objeto inicial no modifica la copia:
+// modifying our initial object does not modify the copy:
 obj.d = 4;
 alert(JSON.stringify(obj)); // {"a":1,"b":2,"c":3,"d":4}
 alert(JSON.stringify(objCopy)); // {"a":1,"b":2,"c":3}
 ```
 
-Esta manera de copiar un objeto es mucho más corta que `let objCopy = Object.assign({}, obj);` o para un array `let arrCopy = Object.assign([], arr);` por lo que preferimos usarla siempre que podemos.
+This way of copying an object is much shorter than `let objCopy = Object.assign({}, obj);` or for an array `let arrCopy = Object.assign([], arr);` so we prefer to use it whenever we can.
 
 
-## Resumen
+## Summary
 
-Cuando veamos `"..."` en el código, son los parámetros rest o el operador spread.
+When we see `"..."` in the code, it is either rest parameters or the spread syntax.
 
-Hay una manera fácil de distinguir entre ellos:
+There's an easy way to distinguish between them:
 
-- Cuando `...` se encuentra al final de los parámetros de una función, son los "parámetros rest" y recogen el resto de la lista de argumentos en un array.
-- Cuando `...` está en el llamado de una función o similar, se llama "operador spread" y expande un array en una lista.
+- When `...` is at the end of function parameters, it's "rest parameters" and gathers the rest of the list of arguments into an array.
+- When `...` occurs in a function call or alike, it's called a "spread syntax" and expands an array into a list.
 
-Patrones de uso:
+Use patterns:
 
-- Los parámetros rest son usados para crear funciones que acepten cualquier número de argumentos.
-- El operador spread es usado para pasar un array a funciones que normalmente requieren una lista de muchos argumentos.
+- Rest parameters are used to create functions that accept any number of arguments.
+- The spread syntax is used to pass an array to functions that normally require a list of many arguments.
 
-Ambos ayudan a ir entre una lista y un array de parámetros con facilidad.
+Together they help to travel between a list and an array of parameters with ease.
 
-Todos los argumentos de un llamado a una función están también disponibles en el "viejo" `arguments`: un objeto símil-array iterable.
+All arguments of a function call are also available in "old-style" `arguments`: array-like iterable object.

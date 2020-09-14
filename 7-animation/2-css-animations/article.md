@@ -307,7 +307,11 @@ Entonces el proceso sería así:
 - ...
 - `9s` -- `-90%`
 
+<<<<<<< HEAD
 Aquí está el `step(9, end)` en acción (observa la pausa entre el primer cambio de dígitos):
+=======
+Here's `steps(9, end)` in action (note the pause between the first digit change):
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 [codetabs src="step-end"]
 

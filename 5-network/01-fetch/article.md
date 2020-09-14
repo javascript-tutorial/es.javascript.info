@@ -65,7 +65,11 @@ if (response.ok) { // if HTTP-status is 200-299
 - **`response.json()`** -- parse the response as JSON,
 - **`response.formData()`** -- return the response as `FormData` object (explained in the [next chapter](info:formdata)),
 - **`response.blob()`** -- return the response as [Blob](info:blob) (binary data with type),
+<<<<<<< HEAD
 - **`response.arrayBuffer()`** -- return the response as [ArrayBuffer](info:arraybuffer-binary-arrays) (low-level representaion of binary data),
+=======
+- **`response.arrayBuffer()`** -- return the response as [ArrayBuffer](info:arraybuffer-binary-arrays) (low-level representation of binary data),
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 - additionally, `response.body` is a [ReadableStream](https://streams.spec.whatwg.org/#rs-class) object, it allows you to read the body chunk-by-chunk, we'll see an example later.
 
 For instance, let's get a JSON-object with latest commits from GitHub:

@@ -94,7 +94,11 @@ Pero deberían ser dos sentencias separadas, no una. Tal unión en este caso es 
 
 Recomendamos colocar puntos y coma entre las sentencias, incluso si están separadas por saltos de línea. Esta regla está ampliamente adoptada por la comunidad. Notemos una vez más que es posible omitir los puntos y coma la mayoría del tiempo. Pero es más seguro, especialmente para un principiante, usarlos.
 
+<<<<<<< HEAD
 ## Comentarios
+=======
+## Comments [#code-comments]
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 A medida que pasa el tiempo, los programas se vuelven cada vez más complejos. Se hace necesario agregar *comentarios* que describan lo que hace el código y por qué.
 
@@ -135,8 +139,13 @@ alert('Hola');
 alert('Mundo');
 ```
 
+<<<<<<< HEAD
 ```smart header="¡Usa accesos rápidos del teclado!"
 En la mayoría de los editores, se puede comentar una línea de código presionando `key:Ctrl+/` para un comentario de una sola línea y algo como `key:Ctrl+Shift+/` - para comentarios de varias líneas (selecciona una parte del código y pulsa la tecla de acceso rápido). Para Mac, intenta `key: Cmd` en lugar de `key: Ctrl`.
+=======
+```smart header="Use hotkeys!"
+In most editors, a line of code can be commented out by pressing the `key:Ctrl+/` hotkey for a single-line comment and something like `key:Ctrl+Shift+/` -- for multiline comments (select a piece of code and press the hotkey). For Mac, try `key:Cmd` instead of `key:Ctrl` and `key:Option` instead of `key:Shift`.
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 ```
 
 ````warn header="¡Los comentarios anidados no son admitidos!"

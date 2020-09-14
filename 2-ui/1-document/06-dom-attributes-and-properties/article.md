@@ -8,7 +8,11 @@ Por ejemplo, si la etiqueta es `<body id="page">`, entonces el objeto DOM tiene 
 
 ## Propiedades DOM
 
+<<<<<<< HEAD
 Ya hemos visto propiedades DOM integradas. Hay muchas. Pero técnicamente nadie nos limita, y si no hay suficientes, podemos agregar las nuestras.
+=======
+We've already seen built-in DOM properties. There are a lot. But technically no one limits us, and if there aren't enough, we can add our own.
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 Los nodos DOM son objetos JavaScript normales. Podemos alterarlos.
 
@@ -123,7 +127,11 @@ Aquí hay una demostración extendida de cómo trabajar con atributos:
 
     elem.setAttribute('Test', 123); // (2), escribiendo
 
+<<<<<<< HEAD
     alert( elem.outerHTML ); // (3), ver si el atributo está en HTML (sí)
+=======
+    alert( elem.outerHTML ); // (3), see if the attribute is in HTML (yes)
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
     for (let attr of elem.attributes) { // (4) listar todo
       alert( `${attr.name} = ${attr.value}` );
@@ -185,7 +193,11 @@ En el ejemplo anterior:
 - Cambiar el atributo `value` actualiza la propiedad.
 - Pero el cambio de propiedad no afecta al atributo.
 
+<<<<<<< HEAD
 Esa "característica" en realidad puede ser útil, porque las acciones del usuario pueden conducir a cambios de `value`, y luego, si queremos recuperar el valor "original" de HTML, está en el atributo.
+=======
+That "feature" may actually come in handy, because the user actions may lead to `value` changes, and then after them, if we want to recover the "original" value from HTML, it's in the attribute.
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 ## Las propiedades DOM tienen tipo
 
@@ -215,9 +227,15 @@ Hay otros ejemplos. El atributo `style` es un string, pero la propiedad `style` 
 </script>
 ```
 
+<<<<<<< HEAD
 Sin embargo, la mayoría de las propiedades son strings.
 
 Muy raramente, incluso si un tipo de propiedad DOM es un string, puede diferir del atributo. Por ejemplo, la propiedad DOM `href` siempre es una URL *completa*, incluso si el atributo contiene una URL relativa o solo un `#hash`.
+=======
+Most properties are strings though.
+
+Quite rarely, even if a DOM property type is a string, it may differ from the attribute. For instance, the `href` DOM property is always a *full* URL, even if the attribute contains a relative URL or just a `#hash`.
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 Aquí hay un ejemplo:
 
@@ -259,7 +277,11 @@ Como esto:
   for(let div of document.querySelectorAll('[show-info]')) {
     // inserta la información correspondiente en el campo
     let field = div.getAttribute('show-info');
+<<<<<<< HEAD
     div.innerHTML = user[field]; // primero Pete en "nombre", luego 25 en "edad"
+=======
+    div.innerHTML = user[field]; // first Pete into "name", then 25 into "age"
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
   }
 </script>
 ```
@@ -297,16 +319,26 @@ Por ejemplo, aquí para el estado del pedido se usa el atributo `order-state`:
 </div>
 ```
 
+<<<<<<< HEAD
 ¿Por qué sería preferible usar un atributo a tener clases como `.order-state-new`, `.order-state-pending`, `order-state-canceled`?
 
 Porque un atributo es más conveniente de administrar. El estado se puede cambiar tan fácil como:
+=======
+Why would using an attribute be preferable to having classes like `.order-state-new`, `.order-state-pending`, `order-state-canceled`?
+
+Because an attribute is more convenient to manage. The state can be changed as easy as:
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 ```js
 // un poco más simple que eliminar antiguos / agregar una nueva clase
 div.setAttribute('order-state', 'canceled');
 ```
 
+<<<<<<< HEAD
 Pero puede haber un posible problema con los atributos personalizados. ¿Qué sucede si usamos un atributo no estándar para nuestros propósitos y luego el estándar lo introduce y hace que haga algo? El lenguaje HTML está vivo, crece y cada vez hay más atributos que aparecen para satisfacer las necesidades de los desarrolladores. Puede haber efectos inesperados en tal caso.
+=======
+But there may be a possible problem with custom attributes. What if we use a non-standard attribute for our purposes and later the standard introduces it and makes it do something? The HTML language is alive, it grows, and more attributes appear to suit the needs of developers. There may be unexpected effects in such case.
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 Para evitar conflictos, existen atributos [data-*](https://html.spec.whatwg.org/#embedding-custom-non-visible-data-with-the-data-*-attributes).
 
@@ -379,7 +411,11 @@ Los métodos para trabajar con atributos son:
 - `elem.removeAttribute(nombre)` -- para eliminar el atributo.
 - `elem.attributes` es una colección de todos los atributos.
 
+<<<<<<< HEAD
 Para la mayoría de las situaciones, es preferible usar las propiedades DOM. Deberíamos referirnos a los atributos solo cuando las propiedades DOM no nos convienen, cuando necesitamos exactamente atributos, por ejemplo:
+=======
+For most situations using DOM properties is preferable. We should refer to attributes only when DOM properties do not suit us, when we need exactly attributes, for instance:
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 - Necesitamos un atributo no estándar. Pero si comienza con `data-`, entonces deberíamos usar `dataset`.
 - Queremos leer el valor "como está escrito" en HTML. El valor de la propiedad DOM puede ser diferente, por ejemplo, la propiedad `href` siempre es una URL completa, y es posible que queramos obtener el valor "original ".

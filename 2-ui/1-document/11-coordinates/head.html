@@ -3,7 +3,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
   let elem = document.getElementById('coords-show-mark');
 
+<<<<<<< HEAD
   // no hay elem en la versión ebook (pdf/epub)
+=======
+  // no elem in ebook (pdf/epub) mode
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
   if (elem) {
     elem.onclick = function() {
 
@@ -20,7 +24,11 @@ document.addEventListener('DOMContentLoaded', function() {
         return message;
       }
 
+<<<<<<< HEAD
       let message = createMessageUnder(elem, 'Hola, mundo!');
+=======
+      let message = createMessageUnder(elem, 'Hello, world!');
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
       document.body.append(message);
       setTimeout(() => message.remove(), 5000);
     }

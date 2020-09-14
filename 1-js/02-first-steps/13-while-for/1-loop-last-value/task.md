@@ -2,9 +2,9 @@ importance: 3
 
 ---
 
-# Último valor del bucle
+# Last loop value
 
-¿Cuál es el último valor alertado/mostrado por este código? ¿Por qué?
+What is the last value alerted by this code? Why?
 
 ```js
 let i = 3;

@@ -1,12 +1,24 @@
+<<<<<<< HEAD
 # Ejecución condicional: if, '?'
+=======
+# Conditional branching: if, '?'
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 Algunas veces, necesitamos ejecutar diferentes acciones basadas en diferentes condiciones.
 
+<<<<<<< HEAD
 Para hacer esto, nosotros utilizaremos la sentencia `if` y el operador condicional (ternario) al cual nos referiremos de aqui en adelante como operador de “signo de interrogación” `?` por simplicidad.
+=======
+To do that, we can use the `if` statement and the conditional operator `?`, that's also called a "question mark" operator.
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 ## La sentencia "if"
 
+<<<<<<< HEAD
 La sentencia `if` evalúa una condición y, si esta condición obtiene un booleano de tipo `true`, ejecuta un bloque de código.
+=======
+The `if(...)` statement evaluates a condition in parentheses and, if the result is `true`, executes a block of code.
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 Por ejemplo:
 
@@ -104,7 +116,11 @@ En el código de arriba, JavaScript primero revisa si `year < 2015`. Si esto es 
 
 Podría haber más bloques `else if`.  Y el último  `else` es opcional.
 
+<<<<<<< HEAD
 ## Operador ternario '?'
+=======
+## Conditional operator '?'
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 A veces necesitamos asignar una variable dependiendo de alguna condición.
 
@@ -125,9 +141,15 @@ if (age > 18) {
 alert(accessAllowed);
 ```
 
+<<<<<<< HEAD
 Entonces el operador "ternario" también llamado  "signo de interrogación" nos permite ejecutar esto en una forma más corta y simple.
 
 El operador está representado por un signo de interrogación de cierre `?`.  El término formal "ternario" significa que el operador tiene tres operandos. Este es actualmente el primer y único operador de JavaScript que tiene esta cantidad.
+=======
+The so-called "conditional" or "question mark" operator lets us do that in a shorter and simpler way.
+
+The operator is represented by a question mark `?`. Sometimes it's called "ternary", because the operator has three operands. It is actually the one and only operator in JavaScript which has that many.
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 La Sintaxis es:
 ```js
@@ -142,7 +164,11 @@ Por ejemplo:
 let accessAllowed = (age > 18) ? true : false;
 ```
 
+<<<<<<< HEAD
 Técnicamente, podemos omitir el paréntesis alrededor de  `age > 18`. El operador de signo de interrogación tiene una precedencia baja, por lo que se ejecuta después del signo de comparación `>`. 
+=======
+Technically, we can omit the parentheses around `age > 18`. The question mark operator has a low precedence, so it executes after the comparison `>`.
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 En este ejemplo realizaremos lo mismo que en el anterior:
 
@@ -216,7 +242,11 @@ Dependiendo de la condición `company == 'Netscape'`, se ejecutará la primera o
 
 Aquí no asignamos el resultado de una variable. En vez de esto, ejecutamos diferentes códigos dependiendo de la condición.
 
+<<<<<<< HEAD
 **Nosotros no recomendamos el uso del operador de signo de interrogación en estos casos.**
+=======
+**It's not recommended to use the question mark operator in this way.**
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 La notacion es mas corta que la sentencia equivalente con `if`, lo cual seduce a algunos programadores. Pero es menos legible.
 

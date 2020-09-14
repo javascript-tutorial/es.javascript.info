@@ -10,7 +10,11 @@ Echemos un vistazo a lo que sucede en la llamada `speedy.eat("manzana")`.
 
 ¡Así que todos los hámsters comparten un solo estómago!
 
+<<<<<<< HEAD
 Tanto para `lazy.stomach.push(...)` como para `speedy.stomach.push ()`, la propiedad `stomach` se encuentra en el prototipo (ya que no está en el objeto mismo), entonces los nuevos datos son empujado hacia dentro.
+=======
+Both for `lazy.stomach.push(...)` and `speedy.stomach.push()`, the property `stomach` is found in the prototype (as it's not in the object itself), then the new data is pushed into it.
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 Tenga en cuenta que tal cosa no sucede en caso de una asignación simple `this.stomach=`:
 
@@ -44,7 +48,11 @@ alert( lazy.stomach ); // <nada>
 
 Ahora todo funciona bien, porque `this.stomach =` no realiza una búsqueda de `stomach`. El valor se escribe directamente en el objeto `this`.
 
+<<<<<<< HEAD
 También podemos evitar totalmente el problema asegurándonos de que cada hámster tenga su propio estómago:
+=======
+Also we can totally avoid the problem by making sure that each hamster has their own stomach:
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 ```js run
 let hamster = {
@@ -76,4 +84,9 @@ alert( speedy.stomach ); // manzana
 // El estómago de Lazy está vacio
 alert( lazy.stomach ); // <nada>
 ```
+<<<<<<< HEAD
 Como solución común, todas las propiedades que describen el estado de un objeto en particular, como el "stomach" anterior, deben escribirse en ese objeto. Eso evita tales problemas.
+=======
+
+As a common solution, all properties that describe the state of a particular object, like `stomach` above, should be written into that object. That prevents such problems.
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187

@@ -2,13 +2,13 @@ importance: 5
 
 ---
 
-#  ¿Cómo encontrar puntos suspensivos "..."?
+#  How to find an ellipsis "..." ?
 
-Escriba una regexp para encontrar puntos suspensivos: 3 (¿o más?) puntos en una fila.
+Create a regexp to find ellipsis: 3 (or more?) dots in a row.
 
-Revísalo:
+Check it:
 
 ```js
-let regexp = /tu regexp/g;
-alert( "Hola!... ¿Cómo vas?.....".match(regexp) ); // ..., .....
+let regexp = /your regexp/g;
+alert( "Hello!... How goes?.....".match(regexp) ); // ..., .....
 ```

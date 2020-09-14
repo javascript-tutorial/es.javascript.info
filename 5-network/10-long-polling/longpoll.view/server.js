@@ -34,28 +34,46 @@ function publish(message) {
 function accept(req, res) {
   let urlParsed = url.parse(req.url, true);
 
+<<<<<<< HEAD
   // El nuevo cliente quiere mensajes
+=======
+  // new client wants messages
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
   if (urlParsed.pathname == '/subscribe') {
     onSubscribe(req, res);
     return;
   }
 
+<<<<<<< HEAD
   // enviando un mensaje
   if (urlParsed.pathname == '/publish' && req.method == 'POST') {
     // aceptar POST
+=======
+  // sending a message
+  if (urlParsed.pathname == '/publish' && req.method == 'POST') {
+    // accept POST
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
     req.setEncoding('utf8');
     let message = '';
     req.on('data', function(chunk) {
       message += chunk;
     }).on('end', function() {
+<<<<<<< HEAD
       publish(message); // publicarlo para todos
+=======
+      publish(message); // publish it to everyone
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
       res.end("ok");
     });
 
     return;
   }
 
+<<<<<<< HEAD
   // el resto es estático
+=======
+  // the rest is static
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
   fileServer.serve(req, res);
 
 }
@@ -71,7 +89,11 @@ function close() {
 
 if (!module.parent) {
   http.createServer(accept).listen(8080);
+<<<<<<< HEAD
   console.log('Servidor que se ejecuta en el puerto 8080');
+=======
+  console.log('Server running on port 8080');
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 } else {
   exports.accept = accept;
 

@@ -57,12 +57,21 @@ Este es el mismo ejemplo, pero más cercano a la realidad, con `opacity:0` para 
 
 [codetabs src="clickjacking" height=160]
 
+<<<<<<< HEAD
 Todo lo que necesitamos para atacar es colocar el `<iframe>` en la página maligna de tal manera que el botón esté justo sobre el enlace. De modo que cuando un usuario hace clic en el enlace, en realidad hace clic en el botón. Eso suele ser posible con CSS.
 
 ```smart header="Clickjacking es para clics, no para teclado"
 El ataque solo afecta las acciones del mouse (o similares, como los toques en el móvil).
 
 La entrada del teclado es muy difícil de redirigir. Técnicamente, si tenemos un campo de texto para piratear, entonces podemos colocar un iframe de tal manera que los campos de texto se superpongan entre sí. Entonces, cuando un visitante intenta concentrarse en la entrada que ve en la página, en realidad se enfoca en la entrada dentro del iframe.
+=======
+All we need to attack -- is to position the `<iframe>` on the evil page in such a way that the button is right over the link. So that when a user clicks the link, they actually click the button. That's usually doable with CSS.
+
+```smart header="Clickjacking is for clicks, not for keyboard"
+The attack only affects mouse actions (or similar, like taps on mobile).
+
+Keyboard input is much difficult to redirect. Technically, if we have a text field to hack, then we can position an iframe in such a way that text fields overlap each other. So when a visitor tries to focus on the input they see on the page, they actually focus on the input inside the iframe.
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 Pero luego hay un problema. Todo lo que escriba el visitante estará oculto, porque el iframe no es visible.
 
@@ -87,9 +96,15 @@ Esta no es una defensa confiable, porque hay muchas formas de esquivarla. Cubram
 
 ### Bloquear la navegación superior
 
+<<<<<<< HEAD
 Podemos bloquear la transición causada por cambiar `top.location` en el controlador de eventos [beforeunload](info:onload-ondomcontentloaded#window.onbeforeunload).
 
 La página superior (adjuntando una, que pertenece al pirata informático) establece un controlador de prevención, como este:
+=======
+We can block the transition caused by changing `top.location` in  [beforeunload](info:onload-ondomcontentloaded#window.onbeforeunload) event handler.
+
+The top page (enclosing one, belonging to the hacker) sets a preventing handler to it, like this:
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 ```js
 window.onbeforeunload = function() {
@@ -97,7 +112,13 @@ window.onbeforeunload = function() {
 };
 ```
 
+<<<<<<< HEAD
 Cuando el `iframe` intenta cambiar `top.location`, el visitante recibe un mensaje preguntándole si quiere irse.
+=======
+When the `iframe` tries to change `top.location`, the visitor gets a message asking them whether they want to leave.
+
+In most cases the visitor would answer negatively because they don't know about the iframe - all they can see is the top page, there's no reason to leave. So `top.location` won't change!
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 En la mayoría de los casos, el visitante respondería negativamente porque no conocen el iframe; todo lo que pueden ver es la página superior, no hay razón para irse. ¡Así que `top.location` no cambiará!
 
@@ -123,7 +144,11 @@ También hay otras formas de evitar esa simple protección.
 
 El encabezado del lado del servidor `X-Frame-Options` puede permitir o prohibir mostrar la página dentro de un marco.
 
+<<<<<<< HEAD
 Debe enviarse exactamente como encabezado HTTP: el navegador lo ignorará si se encuentra en la etiqueta HTML `<meta>`. Entonces, `<meta http-equiv="X-Frame-Options"...>` no hará nada.
+=======
+It must be sent exactly as HTTP-header: the browser will ignore it if found in HTML `<meta>` tag. So, `<meta http-equiv="X-Frame-Options"...>` won't do anything.
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 El encabezado puede tener 3 valores:
 
@@ -156,7 +181,11 @@ Dependiendo de su navegador, el `iframe` anterior está vacío o le advierte que
 
 El encabezado `X-Frame-Options` tiene un efecto secundario. Otros sitios no podrán mostrar nuestra página en un marco, incluso si tienen buenas razones para hacerlo.
 
+<<<<<<< HEAD
 Así que hay otras soluciones... Por ejemplo, podemos "cubrir" la página con un `<div>` con estilos `height: 100%; width: 100%;`, de modo que interceptará todos los clics. Ese `<div>` debe eliminarse si `window == top` o si descubrimos que no necesitamos la protección.
+=======
+So there are other solutions... For instance, we can "cover" the page with a `<div>` with styles `height: 100%; width: 100%;`, so that it will intercept all clicks. That `<div>` is to be removed if `window == top` or if we figure out that we don't need the protection.
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 Algo como esto:
 
@@ -189,6 +218,7 @@ La demostración:
 
 [codetabs src="protector"]
 
+<<<<<<< HEAD
 ## Atributo Samesite cookie
 
 El atributo `samesite` cookie también puede prevenir ataques de secuestro de clics.
@@ -196,20 +226,41 @@ El atributo `samesite` cookie también puede prevenir ataques de secuestro de cl
 Una cookie con dicho atributo solo se envía a un sitio web si se abre directamente, no a través de un marco o de otra manera. Más información en el capítulo <info:cookie#samesite>.
 
 Si el sitio, como Facebook, tenía el atributo `samesite` en su cookie de autenticación, así:
+=======
+## Samesite cookie attribute
+
+The `samesite` cookie attribute can also prevent clickjacking attacks.
+
+A cookie with such attribute is only sent to a website if it's opened directly, not via a frame, or otherwise. More information in the chapter <info:cookie#samesite>.
+
+If the site, such as Facebook, had `samesite` attribute on its authentication cookie, like this:
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 ```
 Set-Cookie: authorization=secret; samesite
 ```
 
+<<<<<<< HEAD
 ...Entonces dicha cookie no se enviaría cuando Facebook esté abierto en iframe desde otro sitio. Entonces el ataque fracasaría.
 
 El atributo `samesite` cookie no tendrá efecto cuando no se utilicen cookies. Esto puede permitir que otros sitios web muestren fácilmente nuestras páginas públicas no autenticadas en iframes.
 
 Sin embargo, esto también puede permitir que los ataques de secuestro de clics funcionen en algunos casos limitados. Un sitio web de sondeo anónimo que evita la duplicación de votaciones al verificar las direcciones IP, por ejemplo, aún sería vulnerable al secuestro de clics porque no autentica a los usuarios que usan cookies.
+=======
+...Then such cookie wouldn't be sent when Facebook is open in iframe from another site. So the attack would fail.
+
+The `samesite` cookie attribute will not have an effect when cookies are not used. This may allow other websites to easily show our public, unauthenticated pages in iframes.
+
+However, this may also allow clickjacking attacks to work in a few limited cases. An anonymous polling website that prevents duplicate voting by checking IP addresses, for example, would still be vulnerable to clickjacking because it does not authenticate users using cookies.
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 ## Resumen
 
+<<<<<<< HEAD
 El secuestro de clics es una forma de "engañar" a los usuarios para que hagan clic en el sitio de una víctima sin siquiera saber qué está sucediendo. Eso es peligroso si hay acciones importantes activadas por clic.
+=======
+Clickjacking is a way to "trick" users into clicking on a victim site without even knowing what's happening. That's dangerous if there are important click-activated actions.
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 Un pirata informático puede publicar un enlace a su página maligna en un mensaje o atraer visitantes a su página por otros medios. Hay muchas variaciones.
 

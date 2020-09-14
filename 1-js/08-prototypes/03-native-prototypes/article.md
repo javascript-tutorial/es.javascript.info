@@ -2,7 +2,11 @@
 
 La propiedad `"prototipo"` es ampliamente utilizada por el núcleo de JavaScript mismo. Todas las funciones de constructor integradas lo usan.
 
+<<<<<<< HEAD
 Primero veremos los detalles y luego cómo usarlo para agregar nuevas capacidades a los objetos integrados.
+=======
+First we'll see at the details, and then how to use it for adding new capabilities to built-in objects.
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 ## Object.prototype
 
@@ -32,11 +36,21 @@ Lo podemos comprobar así:
 ```js run
 let obj = {};
 
+<<<<<<< HEAD
 alert(obj.__proto__ === Object.prototype); // verdadero
 // obj.toString === obj.__proto__.toString == Object.prototype.toString
 ```
 
 Tenga en cuenta que no hay más `[[Prototype]]` en la cadena sobre `Object.prototype`:
+=======
+alert(obj.__proto__ === Object.prototype); // true
+
+alert(obj.toString === obj.__proto__.toString); //true
+alert(obj.toString === Object.prototype.toString); //true
+```
+
+Please note that there is no more `[[Prototype]]` in the chain above `Object.prototype`:
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 ```js run
 alert(Object.prototype.__proto__); // null
@@ -46,9 +60,15 @@ alert(Object.prototype.__proto__); // null
 
 Otros objetos integrados como `Array`, `Date` , `Function` y otros también mantienen métodos en prototipos.
 
+<<<<<<< HEAD
 Por ejemplo, cuando creamos una matriz `[1, 2, 3]`, el constructor predeterminado `new Array()` se usa internamente. Entonces `Array.prototype` se convierte en su prototipo y proporciona métodos. Eso es muy eficiente en memoria.
 
 Por especificación, todos los prototipos integrados tienen `Object.prototype` en la parte superior. Es por eso que algunas personas dicen que "todo hereda de los objetos".
+=======
+For instance, when we create an array `[1, 2, 3]`, the default `new Array()` constructor is used internally. So `Array.prototype` becomes its prototype and provides methods. That's very memory-efficient.
+
+By specification, all of the built-in prototypes have `Object.prototype` on the top. That's why some people say that "everything inherits from objects".
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 Aquí está la imagen general (para que encajen 3 integrados):
 
@@ -99,12 +119,21 @@ alert(f.__proto__.__proto__ == Object.prototype); // verdadero, hereda de objeto
 
 Lo más intrincado sucede con cadenas, números y booleanos.
 
+<<<<<<< HEAD
 Como recordamos, no son objetos. Pero si tratamos de acceder a sus propiedades, se crean los objetos contenedores temporales utilizando los constructores integrados `String`, `Number` y `Boolean`. Proporcionan los métodos y desaparecen.
+=======
+As we remember, they are not objects. But if we try to access their properties, temporary wrapper objects are created using built-in constructors `String`, `Number` and `Boolean`. They provide the methods and disappear.
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 Estos objetos se crean de manera invisible para nosotros y la mayoría de los motores los optimizan, pero la especificación lo describe exactamente de esta manera. Los métodos de estos objetos también residen en prototipos, disponibles como `String.prototype`, `Number.prototype` y `Boolean.prototype`.
 
+<<<<<<< HEAD
 ```warn header="Los valores `null` y `undefined` no tienen objetos contenedores"
 Los valores especiales `null` y `undefined` se distinguen. No tienen objetos contenedores, por lo que los métodos y propiedades no están disponibles para ellos. Y tampoco hay prototipos correspondientes.
+=======
+```warn header="Values `null` and `undefined` have no object wrappers"
+Special values `null` and `undefined` stand apart. They have no object wrappers, so methods and properties are not available for them. And there are no corresponding prototypes either.
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 ```
 
 ## Cambiando prototipos nativos [#native-prototype-change]
@@ -122,6 +151,10 @@ String.prototype.show = function() {
 Durante el proceso de desarrollo, podemos tener ideas para nuevos métodos integrados que nos gustaría tener, y podemos sentir la tentación de agregarlos a los prototipos nativos. Pero eso es generalmente una mala idea.
 
 ```warn
+<<<<<<< HEAD
+=======
+Prototypes are global, so it's easy to get a conflict. If two libraries add a method `String.prototype.show`, then one of them will be overwriting the method of the other.
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 Los prototipos son globales, por lo que es fácil generar un conflicto. Si dos bibliotecas agregan un método `String.prototype.show`, entonces una de ellas sobrescribirá el método de la otra.
 
@@ -130,9 +163,15 @@ Por lo tanto, en general, modificar un prototipo nativo se considera una mala id
 
 **En la programación moderna, solo hay un caso en el que se aprueba la modificación de prototipos nativos. Eso es polyfilling (polirelleno).**
 
+<<<<<<< HEAD
 Polyfilling (polirellenado) es un término para sustituir un método que existe en la especificación de JavaScript, pero que aún no es compatible con un motor de JavaScript en particular.
 
 Luego podemos implementarlo manualmente y llenar el prototipo integrado con él.
+=======
+Polyfilling is a term for making a substitute for a method that exists in the JavaScript specification, but is not yet supported by a particular JavaScript engine.
+
+We may then implement it manually and populate the built-in prototype with it.
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 Por ejemplo:
 
@@ -162,7 +201,11 @@ Es entonces cuando tomamos un método de un objeto y lo copiamos en otro.
 
 A menudo se toman prestados algunos métodos de prototipos nativos.
 
+<<<<<<< HEAD
 Por ejemplo, si estamos haciendo un objeto tipo array, es posible que queramos copiar algunos métodos de 'Array'.
+=======
+For instance, if we're making an array-like object, we may want to copy some `Array` methods to it.
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 P. ej..
 
@@ -180,18 +223,34 @@ obj.join = Array.prototype.join;
 alert( obj.join(',') ); // Hola,mundo!
 ```
 
+<<<<<<< HEAD
 Funciona porque el algoritmo interno del método integrado `join` solo se preocupa por los índices correctos y la propiedad `length`. No comprueba si el objeto es realmente un arreglo. Muchos métodos integrados son así.
+=======
+It works because the internal algorithm of the built-in `join` method only cares about the correct indexes and the `length` property. It doesn't check if the object is indeed an array. Many built-in methods are like that.
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 Otra posibilidad es heredar estableciendo `obj.__proto__` en `Array.prototype`, de modo que todos los métodos `Array` estén disponibles automáticamente en `obj`.
 
 Pero eso es imposible si `obj` ya hereda de otro objeto. Recuerde, solo podemos heredar de un objeto a la vez.
 
+<<<<<<< HEAD
 Los métodos de préstamo son flexibles, permiten mezclar funcionalidades de diferentes objetos si es necesario.
+=======
+Borrowing methods is flexible, it allows to mix functionalities from different objects if needed.
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 ## Resumen
 
+<<<<<<< HEAD
 - Todos los objetos integrados siguen el mismo patrón:
     - Los métodos se almacenan en el prototipo (`Array.prototype`, `Object.prototype`, `Date.prototype`, etc.)
     - El objeto en sí solo almacena los datos (elementos de arreglo, propiedades de objeto, la fecha)
 - Los primitivos también almacenan métodos en prototipos de objetos contenedores: `Number.prototype`, `String.prototype` y `Boolean.prototype`. Solo `undefined` y `null` no tienen objetos contenedores
 - Los prototipos integrados se pueden modificar o completar con nuevos métodos. Pero no se recomienda cambiarlos. El único caso permitido es probablemente cuando agregamos un nuevo estándar, pero aún no es compatible con el motor de JavaScript
+=======
+- All built-in objects follow the same pattern:
+    - The methods are stored in the prototype (`Array.prototype`, `Object.prototype`, `Date.prototype`, etc.)
+    - The object itself stores only the data (array items, object properties, the date)
+- Primitives also store methods in prototypes of wrapper objects: `Number.prototype`, `String.prototype` and `Boolean.prototype`. Only `undefined` and `null` do not have wrapper objects
+- Built-in prototypes can be modified or populated with new methods. But it's not recommended to change them. The only allowable case is probably when we add-in a new standard, but it's not yet supported by the JavaScript engine
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187

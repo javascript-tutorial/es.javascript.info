@@ -1,13 +1,13 @@
-# Encuentra el comentario HTML
+# Find HTML comments
 
-Encuentra todos los comentarios HTML en el texto:
+Find all HTML comments in the text:
 
 ```js
 let regexp = /your regexp/g;
 
-let str = `... <!-- Mi -- comentario
- prueba --> ..  <!----> .. 
+let str = `... <!-- My -- comment
+ test --> ..  <!----> .. 
 `;
 
-alert( str.match(regexp) ); // '<!-- Mi -- comentario \n prueba -->', '<!---->'
+alert( str.match(regexp) ); // '<!-- My -- comment \n test -->', '<!---->'
 ```

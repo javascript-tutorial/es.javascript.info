@@ -15,7 +15,11 @@ Las acciones son representadas en JavaScript por funciones en las propiedades.
 
 ## Ejemplos de métodos
 
+<<<<<<< HEAD
 Para empezar, enseñemos al usuario `user` a decir hola:
+=======
+For a start, let's teach the `user` to say hello:
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 ```js run
 let user = {
@@ -60,10 +64,17 @@ user.sayHi = sayHi;
 user.sayHi(); // ¡Hola!
 ```
 
+<<<<<<< HEAD
 ```smart header="Programación orientada a objetos"
 Cuando escribimos nuestro código usando objetos que representan entidades, eso es llamado [Programación Orientada a Objetos](https://es.wikipedia.org/wiki/Programaci%C3%B3n_orientada_a_objetos), abreviado: "POO".
 
 POO (OOP sus siglas en inglés) es una cosa grande, un ciencia interesante en sí misma. ¿Cómo elegir las entidades correctas? ¿Cómo organizar la interacción entre ellas? Eso es arquitectura, y hay muy buenos libros del tópico como "Patrones de diseño: Elementos de software orientado a objetos reutilizable" de E. Gamma, R. Helm, R. Johnson, J. Vissides o "Análisis y Diseño Orientado a Objetos" de G. Booch, y otros.
+=======
+```smart header="Object-oriented programming"
+When we write our code using objects to represent entities, that's called [object-oriented programming](https://en.wikipedia.org/wiki/Object-oriented_programming), in short: "OOP".
+
+OOP is a big thing, an interesting science of its own. How to choose the right entities? How to organize the interaction between them? That's architecture, and there are great books on that topic, like "Design Patterns: Elements of Reusable Object-Oriented Software" by E. Gamma, R. Helm, R. Johnson, J. Vissides or "Object-Oriented Analysis and Design with Applications" by G. Booch, and more.
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 ```
 ### Formas abreviadas para los métodos
 
@@ -78,7 +89,11 @@ user = {
   }
 };
 
+<<<<<<< HEAD
 // la forma abreviada se ve mejor, ¿verdad?
+=======
+// method shorthand looks better, right?
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 user = {
 *!*
   sayHi() { // igual que "sayHi: function()"
@@ -111,7 +126,11 @@ let user = {
 
   sayHi() {
 *!*
+<<<<<<< HEAD
     // "this" es el "objeto actual"
+=======
+    // "this" is the "current object"
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
     alert(this.name);
 */!*
   }
@@ -167,9 +186,15 @@ Si usamos `this.name` en vez de `user.name` dentro de `alert`, entonces el códi
 
 ## "this" no es vinculado
 
+<<<<<<< HEAD
 En JavaScript, la palabra clave `this` se comporta de manera distinta a la mayoría de otros lenguajes de programación. Puede ser usado en cualquier función.
 
 No hay error de sintaxis en el siguiente ejemplo:
+=======
+In JavaScript, keyword `this` behaves unlike most other programming languages. It can be used in any function.
+
+There's no syntax error in the following example:
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 ```js
 function sayHi() {
@@ -177,9 +202,15 @@ function sayHi() {
 }
 ```
 
+<<<<<<< HEAD
 El valor de `this` es evaluado durante el tiempo de ejecución, dependiendo del contexto.
 
 Por ejemplo, aquí la función es asignada a dos objetos diferentes y tiene diferentes "this" en sus llamados:
+=======
+The value of `this` is evaluated during the run-time, depending on the context.
+
+For instance, here the same function is assigned to two different objects and has different "this" in the calls:
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 ```js run
 let user = { name: "John" };
@@ -190,7 +221,11 @@ function sayHi() {
 }
 
 *!*
+<<<<<<< HEAD
 // usa la misma función en dos objetos
+=======
+// use the same function in two objects
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 user.f = sayHi;
 admin.f = sayHi;
 */!*
@@ -203,10 +238,17 @@ admin.f(); // Admin  (this == admin)
 admin['f'](); // Admin (punto o corchetes para acceder al método, no importa)
 ```
 
+<<<<<<< HEAD
 La regla es simple: si `obj.f()` es llamado, entonces `this` es `obj` durante el llamado de `f`. Entonces es tanto `user` o `admin` en el ejemplo anterior.
 
 ````smart header="Llamado sin un objeto: `this == undefined`"
 Podemos incluso llamar la función sin un objeto en absoluto:
+=======
+The rule is simple: if `obj.f()` is called, then `this` is `obj` during the call of `f`. So it's either `user` or `admin` in the example above.
+
+````smart header="Calling without an object: `this == undefined`"
+We can even call the function without an object at all:
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 ```js run
 function sayHi() {
@@ -216,6 +258,7 @@ function sayHi() {
 sayHi(); // undefined
 ```
 
+<<<<<<< HEAD
 En este caso `this` es `undefined` en el modo estricto. Si tratamos de acceder a `this.name`, habrá un error.
 
 En modo no estricto el valor de `this` en tal caso será el *objeto global* (`window` en un navegador, llegaremos a ello en el capítulo [](info:global-object)). Este es un comportamiento histórico que `"use strict"` corrije.
@@ -234,6 +277,26 @@ Nuestra posición no es juzgar si la decisión del diseño de lenguaje es buena 
 ```
 
 ## Las funciones de flecha no tienen "this"
+=======
+In this case `this` is `undefined` in strict mode. If we try to access `this.name`, there will be an error.
+
+In non-strict mode the value of `this` in such case will be the *global object* (`window` in a browser, we'll get to it later in the chapter [](info:global-object)). This is a historical behavior that `"use strict"` fixes.
+
+Usually such call is a programming error. If there's `this` inside a function, it expects to be called in an object context.
+````
+
+```smart header="The consequences of unbound `this`"
+If you come from another programming language, then you are probably used to the idea of a "bound `this`", where methods defined in an object always have `this` referencing that object.
+
+In JavaScript `this` is "free", its value is evaluated at call-time and does not depend on where the method was declared, but rather on what object is "before the dot".
+
+The concept of run-time evaluated `this` has both pluses and minuses. On the one hand, a function can be reused for different objects. On the other hand, the greater flexibility creates more possibilities for mistakes.
+
+Here our position is not to judge whether this language design decision is good or bad. We'll understand how to work with it, how to get benefits and avoid problems.
+```
+
+## Arrow functions have no "this"
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 Las funciones de flecha son especiales: ellas no tienen su "propio" `this`. Si nosotros hacemos referencia a `this` desde tales funciones, esta será tomada desde afuera de la función "normal".
 
@@ -260,9 +323,16 @@ Esto es una característica especial de las funciones de flecha, útil cuando no
 - Los método permiten a los objetos "actuar", como `object.doSomething()`.
 - Los métodos pueden hacer referencia al objeto con `this`.
 
+<<<<<<< HEAD
 El valor de `this` es definido en tiempo de ejecución.
 - Cuando una función es declarada, puede usar `this`, pero ese `this` no tiene valor hasta que la función es llamada.
 - Una función puede ser copiada entre objetos.
 - Cuando una función es llamada en la sintaxis de método: `object.method()`, el valor de `this` durante el llamado es `object`.
+=======
+The value of `this` is defined at run-time.
+- When a function is declared, it may use `this`, but that `this` has no value until the function is called.
+- A function can be copied between objects.
+- When a function is called in the "method" syntax: `object.method()`, the value of `this` during the call is `object`.
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 Ten en cuenta que las funciones de flecha son especiales: ellas no tienen `this`. Cuando `this` es accedido dentro de una función de flecha, su valor es tomado desde el exterior.

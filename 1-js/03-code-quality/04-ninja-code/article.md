@@ -1,8 +1,13 @@
 # Código ninja
 
 
+<<<<<<< HEAD
 ```quote author="Confucio"
 Aprender sin pensar es inútil. Pensar sin aprender peligroso.
+=======
+```quote author="Confucius (Analects)"
+Learning without thought is labor lost; thought without learning is perilous.
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 ```
 
 Los programadores ninjas del pasado usaron estos trucos para afilar la mente de los mantenedores de código.
@@ -42,7 +47,11 @@ El Dao se esconde sin palabras. Solo el Dao está bien comenzado y bien
 terminado.
 ```
 
+<<<<<<< HEAD
 Otra forma de programar más rápido es usando variables de una sola letra en todas partes. Como `a`, `b` o `c`.
+=======
+Another way to code shorter is to use single-letter variable names everywhere. Like `a`, `b` or `c`.
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 Una variable corta desaparece en el código como lo hace un ninja en un bosque. Nadie será capaz de encontrarla usando "buscar" en el editor. E incluso si alguien lo hace, no será capaz de "descifrar" el significado de `a` o `b`.
 
@@ -104,8 +113,13 @@ Una lectura rápida de dicho código se hace imposible. Y cuando hay un error de
 
 ## Sinónimos inteligentes
 
+<<<<<<< HEAD
 ```quote author="Confucius"
 Es difícil encontrar un gato negro en una habitación oscura, sobre todo cuando no está.
+=======
+```quote author="Laozi (Tao Te Ching)"
+The Tao that can be told is not the eternal Tao. The name that can be named is not the eternal name.
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 ```
 
 Usando nombres *similares* para las mismas cosas hace tu vida mas interesante y le muestra al público tu creatividad.
@@ -137,7 +151,11 @@ En lugar, reutiliza nombres que ya existen. Simplemente escribe nuevo valores en
 
 En una función intenta sólo usar las variables pasadas como parámetros.
 
+<<<<<<< HEAD
 Eso hará que sea realmente difícil identificar qué es exactamente la variable *ahora*. Y además de donde viene. El propósito es desarrollar la intuición y memoria de la persona que lee el código. Una persona con intuición débil tendrá que analizar el código línea por línea y seguir los cambios en cada rama de código.
+=======
+That would make it really hard to identify what's exactly in the variable *now*. And also where it comes from. The purpose is to develop the intuition and memory of a person reading the code. A person with weak intuition would have to analyze the code line-by-line and track the changes through every code branch.
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 **Una variante avanzada del enfoque es reemplazar los valores de forma encubierta con algo parecido en la mitad de un bucle o una función.**
 
@@ -153,7 +171,13 @@ function ninjaFunction(elem) {
 }
 ```
 
+<<<<<<< HEAD
 Un colega programador que quiera trabajar con `elem` en la segunda mitad de la función será sorprendido... ¡Solo durante la depuración, después de examinar el código encontrara que está trabajando con un clon!
+=======
+A fellow programmer who wants to work with `elem` in the second half of the function will be surprised... Only during the debugging, after examining the code they will find out that they're working with a clone!
+
+Seen in code regularly. Deadly effective even against an experienced ninja.
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 Visto regularmente en códigos. Letalmente efectivo, incluso contra ninjas experimentados. 
 
@@ -167,9 +191,13 @@ Un ninja inteligente coloca los guiones bajos en un solo lugar del código y los
 
 ## Muestra tu amor
 
+<<<<<<< HEAD
 ¡Deja que todos vean cuán magníficas son tus entidades! Nombres como `superElement`, `megaFrame` and `niceItem` iluminaran sin duda al lector.
 
 En efecto, por una parte, algo es escrito: `super..`, `mega..`, `nice..`, pero por otra parte -- no da ningún detalle. Un lector podría decidir mirar por un significado oculto y meditar por una hora o dos.
+=======
+Indeed, from one hand, something is written: `super..`, `mega..`, `nice..` But from the other hand -- that brings no details. A reader may decide to look for a hidden meaning and meditate for an hour or two of their paid working time.
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 
 ## Superpón variables externas
@@ -179,7 +207,11 @@ Cuando está a la luz, no puede ver nada en la oscuridad. <br>
 Cuando está en la oscuridad, puede ver todo a la luz.
 ```
 
+<<<<<<< HEAD
 Usa los mismos nombres para variables dentro y fuera de una función. Así de simple. Sin el esfuerzo de inventar nuevos nombres.
+=======
+Use same names for variables inside and outside a function. As simple. No efforts to invent new names.
+>>>>>>> ff152b126ec70a9de919bfdc1913215539d37187
 
 ```js
 let *!*user*/!* = authenticateUser();
