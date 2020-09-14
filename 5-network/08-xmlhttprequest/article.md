@@ -16,7 +16,7 @@ En el desarrollo web moderno `XMLHttpRequest` se usa por tres razones:
 
 ## Lo básico
 
-XMLHttpRequest tiene dos modos de operaci&oacute;n: sincr&oacute;nica y as&iacute;ncrona.
+XMLHttpRequest tiene dos modos de operación: sincrónica y asíncrona.
 
 Veamos primero la as&iacute;ncrona, ya que es utilizada en la mayor&iacute;a de los casos.
 
