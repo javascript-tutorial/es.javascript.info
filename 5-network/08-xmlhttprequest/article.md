@@ -20,7 +20,7 @@ XMLHttpRequest tiene dos modos de operación: sincrónica y asíncrona.
 
 Veamos primero la asíncrona, ya que es utilizada en la mayoría de los casos.
 
-Para hacer la petici&oacute;n, necesitamos seguir 3 pasos:
+Para hacer la petición, necesitamos seguir 3 pasos:
 
 1. Crear el objeto `XMLHttpRequest`:
     ```js
