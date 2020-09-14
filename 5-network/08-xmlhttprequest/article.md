@@ -149,7 +149,7 @@ Podemos usar la propiedad `xhr.responseType` para asignar el formato de la respu
 
 - `""` (default) -- obtiene una cadena,
 - `"text"` -- obtiene una cadena,
-- `"arraybuffer"` -- obtiene un `ArrayBuffer` (para datos binarios, vee el capítulo <info:arraybuffer-binary-arrays>),
+- `"arraybuffer"` -- obtiene un `ArrayBuffer` (para datos binarios, ve el capítulo <info:arraybuffer-binary-arrays>),
 - `"blob"` -- obtiene un `Blob` (para datos binarios, ver el capítulo <info:blob>),
 - `"document"` -- obtiene un documento XML (puede usar XPath y otros métodos XML),
 - `"json"` -- obtiene un JSON (automáticamente analizado).
