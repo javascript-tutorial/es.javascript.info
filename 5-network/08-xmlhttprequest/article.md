@@ -14,7 +14,7 @@ En el desarrollo web moderno `XMLHttpRequest` se usa por tres razones:
 
 ¿Te suena familiar? Si es así, está bien, adelante con `XMLHttpRequest`. De otra forma, por favor, dirígete a <info:fetch>.
 
-## Lo b&aacute;sico
+## Lo básico
 
 XMLHttpRequest tiene dos modos de operaci&oacute;n: sincr&oacute;nica y as&iacute;ncrona.
 
