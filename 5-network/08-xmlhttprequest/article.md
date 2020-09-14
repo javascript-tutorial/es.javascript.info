@@ -521,7 +521,7 @@ De hecho hay m&aacute;s eventos, la [especificaci&oacute;n moderna](http://www.w
 
 Los eventos `error`, `abort`, `timeout`, y `load` son mutuamente exclusivos. Solo uno de ellos puede pasar.
 
-Los eventos m&aacute;s usados son la carga terminada (`load`), falla de carga (`error`), o podemos usar un solo `loadend` manejador y comprobar las propiedades del objeto solicitado `xhr` para ver qu&eacute; ha pasado.
+Los eventos más usados son la carga terminada (`load`), falla de carga (`error`), o podemos usar un solo manejador `loadend` y comprobar las propiedades del objeto solicitado `xhr` para ver qué ha pasado.
 
 Ya hemos visto otro evento: `readystatechange`. Hist&oacute;ricamente, apareci&oacute; hace mucho tiempo, antes de que la especificaci&oaucte;n fuera colocada. Hoy en d&iacute;a, no es necesario usarlo, podemos reemplazarlo con eventos m&aacute;s nuevos, pero puede ser encontrado a menudo en scripts viejos.
 
