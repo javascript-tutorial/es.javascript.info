@@ -35,7 +35,7 @@ Para hacer la petición, necesitamos seguir 3 pasos:
 
     Este método especifica los parámetros principales para la petición:
 
-    - `method` -- m&eacute;todo HTTP. Usualmente `"GET"` o `"POST"`.
+    - `method` -- método HTTP. Usualmente `"GET"` o `"POST"`.
     - `URL` -- la URL a solicitar, una cadena, puede ser un objeto [URL](info:url).
     - `async` -- si se asigna explic&iacute;tamente a `false`, entonces la petici&oacute;n ser&aacute; asincr&oacute;nica, Cubriremos esto un poco m&aacute;s adelante.
     - `user`, `password` -- usuario y contrase&ntilde;a para autenticaci&oacute;n HTTP b&aacute;sica (si se requiere).
