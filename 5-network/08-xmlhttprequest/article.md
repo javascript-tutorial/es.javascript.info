@@ -4,7 +4,7 @@
 
 A pesar de tener la palabra "XML" en su nombre, se puede operar sobre cualquier dato, no solo en formato XML. Podemos cargar/descargar archivos, dar seguimiento y mucho más.
 
-Justo ahora, hay otro m&eacute;todo m&aacute;s moderno, `fetch`, &eacute;ste, en alg&uacute;n sentido hace obsoleto a `XMLHttpRequest`.
+Ahora hay un método más moderno `fetch` que en algún sentido hace obsoleto a `XMLHttpRequest`.
 
 En el desarrollo web moderno `XMLHttpRequest` se usa por tres razones:
 
