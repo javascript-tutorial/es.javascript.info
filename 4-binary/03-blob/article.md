@@ -4,7 +4,7 @@ Los `ArrayBuffer` y las vistas son parte del estándar ECMA, una parte de JavaSc
 
 En el navegador, hay objetos de alto nivel adicionales, descritas en la [API de Archivo](https://www.w3.org/TR/FileAPI/), en particular `Blob`.
 
-`Blob` consta de un `tipo` especial de cadena (usualmente de tipo MIME), más `blobParts` (Partes Blob) -- una secuencia de otros objetos `Blob`, cadenas y `BufferSource`.
+`Blob` consta de un tipo especial de cadena (usualmente de tipo MIME), más partes Blob: una secuencia de otros objetos `Blob`, cadenas y `BufferSource`.
 
 ![](blob.svg)
 
@@ -57,7 +57,7 @@ Este comportamiento es similar a las cadenas de JavaScript: no podemos cambiar u
 
 Un Blob puede ser utilizado fácilmente como una URL para `<a>`, `<img>` u otras etiquetas, para mostrar su contenido.
 
-Gracias al `tipo`, también podemos descargar/cargar objetos `Blob`, y el `tipo` naturalmente se convierte en `Content-Type` en solicitudes de red.
+Gracias al `tipo`, también podemos descargar/cargar objetos `Blob`, y el `tipo` se convierte naturalmente en `Content-Type` en solicitudes de red.
 
 Empecemos con un ejemplo simple. Al hacer click en un link, descargas un `Blob` dinámicamente generado con contenido `hello world` en forma de archivo:
 
@@ -72,7 +72,7 @@ link.href = URL.createObjectURL(blob);
 </script>
 ```
 
-También podemos crear un link dinámicamente en JavaScript y simular un lick con `link.click()`, y la descarga inicia automáticamente.
+También podemos crear un link dinámicamente en JavaScript y simular un click con `link.click()`, y la descarga inicia automáticamente.
 
 Este es un código similar que permite al usuario descargar el `Blob` creado dinámicamente, sin HTML:
 
@@ -117,7 +117,7 @@ En el ejemplo anterior con el link HTML clickeable, no llamamos `URL.revokeObjec
 
 Una alternativa a `URL.createObjectURL` es convertir un `Blob` en una cadena codificada en base64.
 
-Esa codificación representa datos binarios como una cadena ultra segura de caractéres "legibles" con códigos ASCII desde el 0 al 64. Y qué es más importante -- podemos utilizar codificación en las "URLs de datos".
+Esa codificación representa datos binarios como una cadena ultra segura de caractéres "legibles" con códigos ASCII desde el 0 al 64. Y lo que es más importante, podemos utilizar codificación en las "URLs de datos".
 
 Un [URL de datos](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs) tiene la forma `data:[<mediatype>][;base64],<data>`. Podemos usar suficientes URLs por doquier, junto a URLs "regulares".
 
@@ -127,7 +127,7 @@ Por ejemplo, aquí hay una sonrisa:
 <img src="data:image/png;base64,R0lGODlhDAAMAKIFAF5LAP/zxAAAANyuAP/gaP///wAAAAAAACH5BAEAAAUALAAAAAAMAAwAAAMlWLPcGjDKFYi9lxKBOaGcF35DhWHamZUW0K4mAbiwWtuf0uxFAgA7">
 ```
 
-El navegador decodificará la cadena y mostrará la imágen: <img src="data:image/png;base64,R0lGODlhDAAMAKIFAF5LAP/zxAAAANyuAP/gaP///wAAAAAAACH5BAEAAAUALAAAAAAMAAwAAAMlWLPcGjDKFYi9lxKBOaGcF35DhWHamZUW0K4mAbiwWtuf0uxFAgA7">
+El navegador decodificará la cadena y mostrará la imagen: <img src="data:image/png;base64,R0lGODlhDAAMAKIFAF5LAP/zxAAAANyuAP/gaP///wAAAAAAACH5BAEAAAUALAAAAAAMAAwAAAMlWLPcGjDKFYi9lxKBOaGcF35DhWHamZUW0K4mAbiwWtuf0uxFAgA7">
 
 
 Para transformar un `Blob` a base64, usaremos el objeto nativo `FileReader`. Puede leer datos de Blobs en múltiples formatos. En el [siguiente capítulo](info:file) lo cubriremos en profundidad.
@@ -151,7 +151,7 @@ reader.onload = function() {
 };
 ```
 
-Ambas maneras de hacer una URL de un `Blob` se pueden utilizar. Pero usualmente `URL.createObjectURL(blob)` es más simple y rápido.
+Se pueden utilizar ambas maneras para hacer una URL de un `Blob` . Pero usualmente `URL.createObjectURL(blob)` es más simple y rápido.
 
 ```compare title-plus="URL.createObjectURL(blob)" title-minus="Blob a URL de datos"
 + Necesitamos revocarlos para cuidar la memoria.
@@ -160,19 +160,19 @@ Ambas maneras de hacer una URL de un `Blob` se pueden utilizar. Pero usualmente 
 - Se pierde rendimiento y memoria en grandes objetos `Blob` al codificar.
 ```
 
-## Imágen a blob
+## imagen a blob
 
-Podemos crear un `Blob` de una imágen, una parte de una imágen, o incluso hacer una captura de la página. Es práctico para subirlo a algún lugar.
+Podemos crear un `Blob` de una imagen, una parte de una imagen, o incluso hacer una captura de la página. Es práctico para subirlo a algún lugar.
 
 Las operaciones de imágenes se hacen a través del elemento `<canvas>`:
 
-1. Dibuja una imágen (o una parte) en el canvas utilizando [canvas.drawImage](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage).
+1. Dibuja una imagen (o una parte) en el canvas utilizando [canvas.drawImage](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage).
 2. Llama el método de canvas [.toBlob(callback, format, quality)](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toBlob) que crea un `Blob` y llama el `callback` cuando termina.
 
-En el ejemplo siguiente, un imágen se copia, pero no podemos cortarla o transformarla en el canvas hasta convertirla en blob:
+En el ejemplo siguiente, un imagen se copia, pero no podemos cortarla o transformarla en el canvas hasta convertirla en blob:
 
 ```js run
-// tomar cualquier imágen
+// tomar cualquier imagen
 let img = document.querySelector('img');
 
 // hacer el <canvas> del mismo tamaño
@@ -182,9 +182,9 @@ canvas.height = img.clientHeight;
 
 let context = canvas.getContext('2d');
 
-// copiar la imágen en él (este método permite cortar la imágen)
+// copiar la imagen en él (este método permite cortar la imagen)
 context.drawImage(img, 0, 0);
-// podemos hacer un context.rotate(), y muchas otras consas en canvas
+// podemos hacer un context.rotate(), y muchas otras cosas en canvas
 
 // toBlob es una operación sincrónica, callback es llamada al terminar
 canvas.toBlob(function(blob) {
@@ -211,7 +211,7 @@ Para capturar la página, podemos utilizar una librería como <https://github.co
 
 El constructor de `Blob` permite crear un blob de casi cualquier cosa, incluyendo cualquier `BufferSource`.
 
-PEro si queremos ejecutar un procesamiento de bajo nivel, podemos obtener el nivel más bajo de un `ArrayBuffer` utilizando `FileReader`:
+Pero si queremos ejecutar un procesamiento de bajo nivel, podemos obtener el nivel más bajo de un `ArrayBuffer` utilizando `FileReader`:
 
 ```js
 // obtener un arrayBuffer desde un blob
@@ -231,7 +231,7 @@ fileReader.onload = function(event) {
 
 Mientras `ArrayBuffer`, `Uint8Array` y otros `BufferSource` son "datos binarios", un [Blob](https://www.w3.org/TR/FileAPI/#dfn-Blob) representa "datos binarios con tipo".
 
-Esto hace a los Blobs convenientes para operaciones de carga/descarga, estos son muy comúnes en el navegador.
+Esto hace a los Blobs convenientes para operaciones de carga/descarga, estos son muy comunes en el navegador.
 
 Los métodos que ejecutan solicitudes web, como [XMLHttpRequest](info:xmlhttprequest), [fetch](info:fetch) y otros, pueden trabajar nativamente con `Blob`, como con otros tipos binarios.
 
