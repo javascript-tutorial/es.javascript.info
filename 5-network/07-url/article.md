@@ -62,7 +62,7 @@ Aquí está la hoja de trucos para los componentes URL:
 - También puede haber propiedades `user` y `password` si la autenticación HTTP esta presente: `http://login:password@site.com` (no mostrados arriba, raramente usados)
 
 
-```smart header="Podemos pasar objetos `URL` a métodos de networking (y la mayoría de los demás) en lugar de a un string"
+```smart header="Podemos pasar objetos `URL` a métodos de red (y la mayoría de los demás) en lugar de un string"
 Podemos usar un objeto `URL` en `fetch` o `XMLHttpRequest`, casi en todas partes donde se espera un URL-string.
 
 Generalmente, un objeto `URL` puede pasarse a cualquier método en lugar de a un string, ya que la mayoría de métodos llevarán a cabo la conversión del string, eso convierte un objeto `URL` en un string con URL completa.
