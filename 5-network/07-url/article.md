@@ -183,7 +183,7 @@ let url = `https://google.com/search?q=${music}`;
 alert(url); // https://google.com/search?q=Rock%26Roll
 ```
 
-Comparalo con `encodeURI`:
+Compáralo con `encodeURI`:
 
 ```js run
 let music = encodeURI('Rock&Roll');
