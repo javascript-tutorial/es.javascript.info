@@ -32,7 +32,7 @@ alert(url1); // https://javascript.info/profile/admin
 alert(url2); // https://javascript.info/profile/admin
 ```
 
-Fácilmente podemos crear una nueva URL basada en el path relativo a una URL existente:
+Fácilmente podemos crear una nueva URL basada en la ruta relativa a una URL existente:
 
 ```js run
 let url = new URL('https://javascript.info/profile/admin');
