@@ -3,7 +3,7 @@
 
 La clase [URL](https://url.spec.whatwg.org/#api) incorporada brinda una interfaz conveniente para crear y analizar URLs.
 
-No hay métodos de networking que requieran exactamente un objeto `URL`, los strings son lo suficientemente buenos. Así que técnicamente no tenemos que usar `URL`. Pero a veces  puede ser realmente útil.
+No hay métodos de networking que requieran exactamente un objeto `URL`, los strings son suficientemente buenos para eso. Así que técnicamente no tenemos que usar `URL`. Pero a veces puede ser realmente útil.
 
 ## Creando una URL
 
