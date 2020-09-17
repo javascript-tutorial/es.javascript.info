@@ -70,7 +70,7 @@ Generalmente, un objeto `URL` puede pasarse a cualquier método en lugar de un s
 
 ## Parámetros de búsqueda "?..."
 
-Digamos que queremos crear una url con determinados parámetros de busqueda, por ejemplo, `https://google.com/search?query=JavaScript`.
+Digamos que queremos crear una url con determinados parámetros de búsqueda, por ejemplo, `https://google.com/search?query=JavaScript`.
 
 Podemos proporcionarlos en el string URL:
 
