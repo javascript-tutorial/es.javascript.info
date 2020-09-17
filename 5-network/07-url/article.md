@@ -131,7 +131,7 @@ url.searchParams.set('key', 'ъ');
 alert(url); //https://ru.wikipedia.org/wiki/%D0%A2%D0%B5%D1%81%D1%82?key=%D1%8A
 ```
 
-Como puedes ver, ambos `Тест` en el path url y `ъ` en el parámetro están codificados.
+Como puedes ver, ambos `Тест` en la ruta url y `ъ` en el parámetro están codificados.
 
 La URL se alarga, ya que cada letra cirílica es representada con dos bytes en UTF-8, por lo que hay dos entidades `%..`.
 
