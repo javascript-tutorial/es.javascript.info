@@ -59,7 +59,7 @@ Aquí está la hoja de trucos para los componentes URL:
 - `protocol` acaba con el carácter dos puntos `:` 
 - `search` - un string de parámetros, comienza con el signo de interrogación `?` 
 - `hash` comienza con el carácter de hash `#`  
-- También puede haber propiedades `user` y `password` si la autenticación HTTP esta presente: `http://login:password@site.com` (not painted above, raramente usado)
+- También puede haber propiedades `user` y `password` si la autenticación HTTP esta presente: `http://login:password@site.com` (no mostrados arriba, raramente usados)
 
 
 ```smart header="Podemos pasar objetos `URL` a métodos de networking (y la mayoría de los demás) en lugar de a un string"
