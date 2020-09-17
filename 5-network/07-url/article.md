@@ -14,7 +14,7 @@ new URL(url, [base])
 ```
 
 - **`url`** -- La URL completa o ruta única (si se establece base, mira a continuación),
-- **`base`** -- una URL base opcional: si set y el argumento `url` tiene un único path, entonces la URL es generada relativa a `base`.
+- **`base`** - una URL base opcional: si se establece y el argumento `url` solo tiene una ruta, entonces la URL se genera relativa a `base`.
 
 Por ejemplo:
 
