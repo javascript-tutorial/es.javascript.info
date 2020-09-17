@@ -116,7 +116,7 @@ for(let [name, value] of url.searchParams) {
 
 ## Codificación
 
-Existe un estándar [RFC3986](https://tools.ietf.org/html/rfc3986) que define cuales caracteres son permitidos en URLs y cuáles no.
+Existe un estándar [RFC3986](https://tools.ietf.org/html/rfc3986) que define cuales caracteres son permitidos en URLs y cuales no.
 
 Esos que no son permitidos, deben ser codificados, por ejemplo letras no latinas y espacios - reemplazados con sus códigos UTF-8, con el prefijo `%`, tal como `%20` (un espacio puede ser codificado con `+`, por razones históricas, pero esa es una excepción).
 
