@@ -31,6 +31,6 @@ La actividad consiste de dos partes.
     alert( result ); // 8
     ```
 
-- Sin paréntesis ni expresiones complejas.
+- Sin paréntesis ni expresiones complejas en esta tarea.
 - Los números y el operador deben estar delimitados por exactamente un espacio.
 - Puede haber manejo de errores si quisieras agregarlo.

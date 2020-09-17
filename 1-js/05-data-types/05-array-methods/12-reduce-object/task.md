@@ -34,4 +34,4 @@ Dicha función es realmente útil cuando trabajamos con información del servido
 
 Para esta actividad asumimos que cada `id` es único. No existen dos elementos del array con el mismo `id`.
 
-Usa el método `array.reduce` en la solución.
+Usa el método de array `.reduce` en la solución.

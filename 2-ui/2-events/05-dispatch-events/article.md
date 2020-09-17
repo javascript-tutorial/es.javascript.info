@@ -219,7 +219,6 @@ Por ejemplo, en el código siguiente, el evento `menu-open` se activa durante el
 
 Se procesa inmediatamente, sin esperar a que termine el controlador `onclick`:
 
-
 ```html run autorun
 <button id="menu">Menu (dame clic)</button>
 
@@ -244,6 +243,7 @@ El orden de salida es: 1 -> anidado -> 2.
 Tenga en cuenta que el evento anidado `menu-open` se captura en `document`. La propagación y el manejo del evento anidado finaliza antes de que el procesamiento vuelva al código externo (`onclick`).
 
 No se trata solo de `dispatchEvent`, hay otros casos. Si un controlador de eventos llama a métodos que desencadenan otros eventos, también se procesan sincrónicamente, de forma anidada.
+
 
 Digamos que no nos gusta. Querríamos que `onclick` se procesara por completo primero, independientemente de `menu-open` o cualquier otro evento anidado.
 

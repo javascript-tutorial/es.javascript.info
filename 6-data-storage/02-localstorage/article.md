@@ -7,7 +7,7 @@ Lo que es interesante sobre ellos es que los datos sobreviven a una recarga de p
 Ya tenemos cookies. ¿Por qué tener objetos adicionales?
 
 - Al contrario que las cookies, los objetos de almacenaje web no se envian al servidor en cada petición. Debido a esto, podemos almacenar mucha más información. La mayoría de navegadores permiten almacenar, como mínimo, 2 megabytes de datos (o más) y tienen opciones para configurar éstos límites.
-- El servidor no puede manipular los objetos de almacenaje via cabezeras HTTP, todo se hace via JavaScript.
+- El servidor no puede manipular los objetos de almacenaje via cabeceras HTTP, todo se hace via JavaScript.
 - El almacenaje está vinculado al orígen (al triplete dominio/protocolo/puerto). Esto significa que distintos protocolos o subdominios tienen distintos objetos de almacenaje, no pueden acceder a otros datos que no sean los suyos.
 
 Ámbos objetos de almacenaje proveen los mismos métodos y propiedades:
@@ -18,6 +18,8 @@ Ya tenemos cookies. ¿Por qué tener objetos adicionales?
 - `clear()` -- borrar todo.
 - `key(índice)` -- obtener la clave de una posición dada.
 - `length` -- el número de ítems almacenados.
+
+Como puedes ver, es como una colección `Map` (`setItem/getItem/removeItem`), pero también permite el accesso a través de index con `key(index)`.
 
 Vamos a ver cómo funciona.
 
@@ -41,7 +43,7 @@ alert( localStorage.getItem('test') ); // 1
 
 Solo tenemos que estar en el mismo dominio/puerto/protocolo, la url puede ser distinta.
 
-`localStorage` es compartido, de modo que si guardamos datos en una ventana, el cambio es visible en la otra.
+`localStorage` es compartido por toda las ventanas del mismo origen, de modo que si guardamos datos en una ventana, el cambio es visible en la otra.
 
 ## Acceso tipo Objeto
 
@@ -70,11 +72,11 @@ Esto se permite por razones históricas, y principalmente funciona, pero en gene
 
 ## Iterando sobre las claves
 
-Los métodos proporcionan la funcionalidad get / set / remove. ¿Pero cómo conseguimos todas las claves?
+Los métodos proporcionan la funcionalidad get / set / remove. ¿Pero cómo conseguimos todas las claves o valores guardados?
 
 Desafortunadamente, los objetos de almacenaje no son iterables.
 
-Una opción es utilizar iteración "tipo array":
+Una opción es utilizar iteración sobre un array:
 
 ```js run
 for(let i=0; i<localStorage.length; i++) {
@@ -83,9 +85,9 @@ for(let i=0; i<localStorage.length; i++) {
 }
 ```
 
-Otra opción es utilizar el loop específico para objetos `for key in localStorage`.
+Otra opción es utilizar el loop específico para objetos `for key in localStorage` tal como hacemos en objetos comunes.
 
-Ésta opción itera sobre las claves, pero también devuelve campos propios de `localStorage` que no necesitamos:
+Esta opción itera sobre las claves, pero también devuelve campos propios de `localStorage` que no necesitamos:
 
 ```js run
 // mal intento
@@ -151,7 +153,7 @@ El objeto `sessionStorage` se utiliza mucho menos que `localStorage`.
 
 Las propiedades y métodos son los mismos, pero es mucho más limitado:
 
-- `sessionStorage` solo existe dentro de la pestaña actual.
+- `sessionStorage` solo existe dentro de la pestaña actual del navegador.
   - Otra pestaña con la misma página tendrá un almacenaje distinto.
   - Pero se comparte entre iframes en la pestaña (asumiendo que tengan el mismo orígen).
 - Los datos sobreviven un refresco de página, pero no cerrar/abrir la pestaña.
@@ -198,7 +200,7 @@ Si ambas ventanas están escuchando el evento `window.onstorage`, cada una reacc
 
 ```js run
 // se dispara en actualizaciones hechas en el mismo almacenaje, desde otros documentos
-window.onstorage = event => {
+window.onstorage = event => {  // igual que en window.addEventListener('storage', () => {
   if (event.key != 'now') return;
   alert(event.key + ':' + event.newValue + " at " + event.url);
 };
@@ -208,7 +210,7 @@ localStorage.setItem('now', Date.now());
 
 Hay que tener en cuenta que el evento también contiene: `event.url` -- la url del documento en que se actualizaron los datos.
 
-También que `event.storageArea` contiene el objeto de almacenaje -- el evento es el mismo para `sessionStorage` y `localStorage`, de modo que `storageArea` referencia el que se modificó. Podemos hasta querer cambiar datos en él, para "responder" a un cambio.
+También que `event.storageArea` contiene el objeto de almacenaje -- el evento es el mismo para `sessionStorage` y `localStorage` --, de modo que `storageArea` referencia el que se modificó. Podemos hasta querer cambiar datos en él, para "responder" a un cambio.
 
 **Esto permite que distintas ventanas del mismo orígen puedan intercambiar mensajes.**
 
@@ -232,7 +234,7 @@ API:
 - `setItem(clave, valor)` -- guarda pares clave/valor.
 - `getItem(clave)` -- coje el valor de una clave.
 - `removeItem(clave)` -- borra una clave con su valor.
-- `clear()` -- bórralo todo.
+- `clear()` -- borra todo.
 - `key(índice)` -- coje la clave en una posición determinada.
 - `length` -- el número de ítems almacenados.
 - Utiliza `Object.keys` para conseguir todas las claves.
@@ -241,5 +243,5 @@ API:
 Evento storage:
 
 - Se dispara en las llamadas a `setItem`, `removeItem`, `clear`.
-- Contiene todos los datos relativos a la operación, la `url` del documento y el objeto de almacenaje.
+- Contiene todos los datos relativos a la operación (`key/oldValue/newValue`), la `url` del documento y el objeto de almacenaje.
 - Se dispara en todos los objetos `window` que tienen acceso al almacenaje excepto el que ha generado el evento (en una pestaña en el caso de `sessionStorage` o globalmente en el caso de `localStorage`).

@@ -4,7 +4,7 @@ importance: 5
 
 # Decorador throttle
 
-Crea un decorador "throttling" `throttle(f, ms)` -- que devuelve un contenedor.
+Crea un decorador "throttling" `throttle(f, ms)` que devuelve un contenedor.
 
 Cuando se llama varias veces, pasa la llamada a `f` como máximo una vez por `ms` milisegundos.
 
