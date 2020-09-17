@@ -1,7 +1,7 @@
 
 # FormData
 
-Éste capítulo trata sobre el envío de formularios HTML: con o sin archivos, con campos adicionales y cosas similares.
+Este capítulo trata sobre el envío de formularios HTML: con o sin archivos, con campos adicionales y cosas similares.
 
 Los objetos [FormData](https://xhr.spec.whatwg.org/#interface-formdata) pueden ser de ayuda en esta tarea. Tal como habrás supuesto, éste es el objeto encargado de representar los datos de los formularios HTML.
 
