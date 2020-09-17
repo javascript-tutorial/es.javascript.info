@@ -65,7 +65,7 @@ Aquí está la hoja de trucos para los componentes URL:
 ```smart header="Podemos pasar objetos `URL` a métodos de red (y la mayoría de los demás) en lugar de un string"
 Podemos usar un objeto `URL` en `fetch` o `XMLHttpRequest`, casi en todas partes donde se espera un URL-string.
 
-Generalmente, un objeto `URL` puede pasarse a cualquier método en lugar de a un string, ya que la mayoría de métodos llevarán a cabo la conversión del string, eso convierte un objeto `URL` en un string con URL completa.
+Generalmente, un objeto `URL` puede pasarse a cualquier método en lugar de un string, ya que la mayoría de métodos llevarán a cabo la conversión del string, eso convierte un objeto `URL` en un string con URL completa.
 ```
 
 ## Parametros de busqueda "?..."
