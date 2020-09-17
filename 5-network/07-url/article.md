@@ -85,7 +85,7 @@ Por lo que existe una propiedad URL para eso: `url.searchParams`, un objeto de t
 Esta proporciona métodos convenientes para los parámetros de búsqueda:
 
 - **`append(name, value)`** -- añade el parámetro por `name`, 
-- **`delete(name)`** -- remueve el parámetro por `name`, 
+- **`delete(name)`** -- elimina el parámetro por `name`, 
 - **`get(name)`** -- obtiene el parámetro por `name`, 
 - **`getAll(name)`** -- obtiene todos los parámetros con el mismo `name` (Eso es posible, por ej. `?user=John&user=Pete`), 
 - **`has(name)`** -- comprueba la existencia del parámetro por `name`,  
