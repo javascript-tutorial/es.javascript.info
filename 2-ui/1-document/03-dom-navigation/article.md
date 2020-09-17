@@ -30,7 +30,7 @@ Los tres nodos superiores están disponibles como propiedades de `document`:
 `<head>` = `document.head`
 : La etiqueta `<head>` está disponible como `document.head`.
 
-```warn header="Hay una trampa: `document.body` puede ser `null`"
+````warn header="Hay una trampa: `document.body` puede ser `null`"
 Un script no puede acceder a un elemento que no existe en el momento de su ejecucción.
 
 Por ejemplo, si un script está dentro de `<head>`, entonces `document.body` no está disponible, porque el navegador no lo ha leído aún.
