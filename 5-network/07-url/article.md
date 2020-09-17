@@ -104,7 +104,7 @@ alert(url); // https://google.com/search?q=test+me%21
 
 url.searchParams.set('tbs', 'qdr:y'); // Parámetro añadido con dos puntos :
 
-// Los parámetros son automaticamente codificados
+// Los parámetros son automáticamente codificados
 alert(url); // https://google.com/search?q=test+me%21&tbs=qdr%3Ay
 
 // Iterar sobre los parametros de busqueda (Decodificados)
