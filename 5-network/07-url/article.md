@@ -13,7 +13,7 @@ La sintaxis para crear un nuevo objeto `URL` es:
 new URL(url, [base])
 ```
 
-- **`url`** -- La URL completa o único path (si base está establecido, mira debajo),
+- **`url`** -- La URL completa o ruta única (si se establece base, mira a continuación),
 - **`base`** -- una URL base opcional: si set y el argumento `url` tiene un único path, entonces la URL es generada relativa a `base`.
 
 Por ejemplo:
