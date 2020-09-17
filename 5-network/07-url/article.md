@@ -68,7 +68,7 @@ Podemos usar un objeto `URL` en `fetch` o `XMLHttpRequest`, casi en todas partes
 Generalmente, un objeto `URL` puede pasarse a cualquier método en lugar de un string, ya que la mayoría de métodos llevarán a cabo la conversión del string, eso convierte un objeto `URL` en un string con URL completa.
 ```
 
-## Parametros de busqueda "?..."
+## Parámetros de búsqueda "?..."
 
 Digamos que queremos crear una url con determinados parámetros de busqueda, por ejemplo, `https://google.com/search?query=JavaScript`.
 
