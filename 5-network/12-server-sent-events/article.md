@@ -46,7 +46,7 @@ En la práctica, los mensajes complejos generalmente se envían codificados en J
 Por ejemplo:
 
 ```js
-data: {"user":"John","message":"Primera línea*!*\n*/!* Segundo línea"}
+data: {"user":"John","message":"Primera línea*!*\n*/!* Segunda línea"}
 ```
 
 ... Entonces podemos asumir que un `data:` contiene exactamente un mensaje.
