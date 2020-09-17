@@ -7,6 +7,8 @@ importance: 5
 Reescriba esta condición `if` usando el operador ternario `'?'`:
 
 ```js
+let result;
+
 if (a + b < 4) {
   result = 'Debajo';
 } else {

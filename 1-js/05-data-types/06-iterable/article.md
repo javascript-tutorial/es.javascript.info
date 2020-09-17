@@ -198,7 +198,7 @@ Tanto los iterables como los array-like generalmente no son *matrices*, no tiene
 
 ## Array.from
 
-Existe un método universal [Array.from](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/from) que toma un valor iterable o similar a una matriz y crea un `Array` ¨real¨ a partir de él. De esta manera podemos llamar y usar métodos que pertenecen a una matriz.
+Existe un método universal [Array.from](mdn:js/Array/from) que toma un valor iterable o similar a una matriz y crea un `Array` ¨real¨ a partir de él. De esta manera podemos llamar y usar métodos que pertenecen a una matriz.
 
 Por ejemplo:
 

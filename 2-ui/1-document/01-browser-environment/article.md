@@ -22,7 +22,7 @@ function sayHi() {
   alert("Hola");
 }
 
-// Las funciones globales son accesibles como propiedades de window
+// Las funciones globales son métodos del objeto global:
 window.sayHi();
 ```
 

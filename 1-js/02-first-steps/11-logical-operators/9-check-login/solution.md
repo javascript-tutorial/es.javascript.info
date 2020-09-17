@@ -5,7 +5,7 @@ let userName = prompt("Quién está ahí?", "");
 
 if (userName == "Admin") {
     
-    let pass = prompt("Contraseña?", "");
+    let pass = prompt("¿Contraseña?", "");
 
     if (pass == "TheMaster") {
 	alert( "Bienvenido!" );

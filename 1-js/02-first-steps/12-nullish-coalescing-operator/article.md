@@ -2,7 +2,7 @@
 
 [recent browser="new"]
 
-El _nullish coalescing operator_ `??` brinda una sintáxis corta para seleccionar la primera variable "definida" de una lista.
+El _nullish coalescing operator_ `??` brinda una sintaxis corta para seleccionar la primera variable "definida" de una lista.
 
 El resultado de `a ?? b` es:
 - `a` si esta no es `null` o `undefined`,
@@ -16,9 +16,9 @@ x = (a !== null && a !== undefined) ? a : b;
 
 Aquí un ejemplo más detallado.
 
-Pensemos que tenemos un `firstName`, `lastName` o `nickName`, todos ellos opcionales.
+Pensemos que tenemos un `firstName`, `lastName` o `nickName`, todos ellos pueden ser undefined  si el usuario decide no ingresar ningún nombre.
 
-Escojamos el que esté definido y mostrémoslo (o mostremos "Anonymous" si ninguno está definido):
+Queremos mostrar un nombre, una de las tres variables, o "Anonymous" si ninguno está definido:
 
 ```js run
 let firstName = null;
@@ -26,16 +26,18 @@ let lastName = null;
 let nickName = "Supercoder";
 
 // Muestra la primera variable que no sea null/undefined
+*!*
 alert(firstName ?? lastName ?? nickName ?? "Anonymous"); // Supercoder
+*/!*
 ```
 
 ## Comparación con ||
 
-Esto es muy similiar al operador OR `||`. De hecho, podemos reemplazar `??` con `||` en el código anterior y obtener el mismo resultado.
+El operador OR `||` puede ser usado de la misma manera que `??`. De hecho, podemos reemplazar `??` con `||` en el código anterior y obtener el mismo resultado tal como está explicado en el [capítulo previo](info:logical-operators#or-finds-the-first-truthy-value)
 
 La gran diferencia es que:
-- `||` retorna el primer valor _*truthy*_.
-- `??` retorna el primer valor _*defined*_.
+- `||` retorna el primer valor *truthy*.
+- `??` retorna el primer valor *defined*.
 
 Esto es de suma importancia cuando queremos tratar `null/undefined` diferente de `0`.
 
@@ -45,7 +47,7 @@ Por ejemplo:
 height = height ?? 100;
 ```
 
-Esto le asigna `100` a `height` si esta no está definida. En cambio si `height` es `0`, esta se mantiene "tal cual".
+Esto le asigna `100` a `height` si esta no está definida.
 
 Comparémoslo con `||`:
 

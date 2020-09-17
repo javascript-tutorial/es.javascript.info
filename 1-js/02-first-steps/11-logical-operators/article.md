@@ -84,7 +84,7 @@ El operador OR `||` realiza lo siguiente:
 
 Un valor es retornado en su forma original, sin la conversión.
 
-En otras palabras, una cadena de OR `"||"` retorna el primer valor verdadero o el último valor en caso de que ningún verdadero sea encontrado.
+En otras palabras, una cadena de OR `"||"` devuelve el primer valor verdadero o el último si ningún verdadero es encontrado.
 
 Por ejemplo:
 
@@ -216,12 +216,12 @@ Cuando todos los valores son verdaderos, el último valor es retornado:
 alert(1 && 2 && 3); // 3, el último.
 ```
 
-```smart header="La precedencia de AND `&&` es mayor que la de OR `||`"
+````smart header="La precedencia de AND `&&` es mayor que la de OR `||`"
 
 La precedencia del operador AND `&&` es mayor que la de OR `||`.
 
 Así que el código `a && b || c && d` es básicamente el mismo que si la expresiones `&&` estuvieran entre paréntesis: `(a && b) || (c && d)`
-```
+````
 
 ````warn header="No remplace *if* con || or &&"
 A veces, la gente usa el operador AND `&&` como una "forma más corta de escribir `if`".
@@ -231,7 +231,7 @@ Por ejemplo:
 ```js run
 let x = 1;
 
-(x > 0) && alert( 'Greater than zero!' );
+(x > 0) && alert("¡Mayor que cero!");
 ```
 
 La acción en la parte derecha de `&&` sería ejecutada sólo si la evaluación la alcanza. Eso es, solo si `(x > 0)` es verdadero.
@@ -241,9 +241,7 @@ Así que básicamente tenemos un análogo para:
 ```js run
 let x = 1;
 
-if (x > 0) {
-	alert("Mayor que cero!");
-}
+if (x > 0) alert("Mayor que cero!");
 ```
 Aunque la variante con `&&` parece más corta, `if` es más obvia y tiende a ser un poco más legible. Por lo tanto, recomendamos usar cada construcción para su propósito: use `if` si queremos si y use` && `si queremos AND.
 ````
