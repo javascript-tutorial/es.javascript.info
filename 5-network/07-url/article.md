@@ -107,7 +107,7 @@ url.searchParams.set('tbs', 'qdr:y'); // Parámetro añadido con dos puntos :
 // Los parámetros son automáticamente codificados
 alert(url); // https://google.com/search?q=test+me%21&tbs=qdr%3Ay
 
-// Iterar sobre los parametros de busqueda (Decodificados)
+// Iterar sobre los parametros de búsqueda (Decodificados)
 for(let [name, value] of url.searchParams) {
   alert(`${name}=${value}`); // q=test me!, then tbs=qdr:y
 }
