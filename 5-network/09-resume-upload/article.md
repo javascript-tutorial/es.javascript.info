@@ -50,7 +50,7 @@ Para reanudar una carga, necesitamos saber *exactamente* el número de bytes rec
     ```js
     xhr.open("POST", "upload", true);
 
-    // Archivo, de modo que el servidor sepa que archivo subimos
+    // Archivo, de modo que el servidor sepa qué archivo subimos
     xhr.setRequestHeader('X-File-Id', fileId);
 
     // El byte desde el que estamos reanudando, asi el servidor sabe que estamos reanudando
