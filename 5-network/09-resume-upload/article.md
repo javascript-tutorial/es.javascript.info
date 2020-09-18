@@ -14,7 +14,7 @@ Disponemos de `xhr.upload.onprogress` para rastrear el progreso de carga.
 
 Desafortunadamente, esto no nos ayudará a reanudar la descarga, Ya que se origina cuando los datos son *enviados*, ¿pero fue recibida por el servidor? el navegador no lo sabe.
 
-Tal vez fue almacenada por un proxy de la red local, o quizá el proceso del servidor remoto solo murio y no pudo procesarla, o solo fue perdida en el medio y no alcanzo al receptor.
+Tal vez fue almacenada por un proxy de la red local, o quizá el proceso del servidor remoto solo murió y no pudo procesarla, o solo se perdió en el medio y no alcanzó al receptor.
 
 Es por eso que este evento solo es útil para mostrar una barra de progreso bonita.
 
