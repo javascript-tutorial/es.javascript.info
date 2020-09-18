@@ -2,7 +2,7 @@
 
 Con el método `fetch` es bastante fácil cargar un archivo.
 
-¿Como reanudar la carga de un archivo despues de perder la conección? No hay una opcion incorporada para eso, pero tenemos las piezas para implementarlo.
+¿Cómo reanudar la carga de un archivo despues de perder la conexión? No hay una opción incorporada para eso, pero tenemos las piezas para implementarlo.
 
 Las cargas reanudables deberian venir con indicacion de progreso, ya que esperamos archivos grandes (Si necesitamos reanudar). Entonces, ya que `fetch` no permite rastrear el progreso de carga, usaremos [XMLHttpRequest](info:xmlhttprequest).
 
