@@ -64,7 +64,7 @@ Para reanudar una carga, necesitamos saber *exactamente* el número de bytes rec
     xhr.send(file.slice(startByte));
     ```
 
-    Aqui enviamos al server ambos archivos id como `X-File-Id`, de modo que sepa que archivos estamos cargando, y el byte inicial como `X-Start-Byte`, de modo que sepa que no lo estamos cargando inicialmente, si no que reanudandolo.
+    Aquí enviamos al servidor ambos archivos id como `X-File-Id`, para que de esa manera sepa que archivos estamos cargando, y el byte inicial como `X-Start-Byte`, para que sepa que no lo estamos cargando inicialmente, si no reanudándolo.
 
     El server deberia verificar sus registros, y en el caso de haber una carga de ese archivo, y el tamaño actual de la carga es exactamente  The server should check its records, and if there was an upload of that file, and the current uploaded size is exactly `X-Start-Byte`, then append the data to it.
 
