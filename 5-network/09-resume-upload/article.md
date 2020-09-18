@@ -77,6 +77,6 @@ Pero puedes cargarlo y ejecutarlo localmente para la demostración completa:
 
 [codetabs src="upload-resume" height=200]
 
-Como podemos ver, los metodos de networking modernos estan cerca de los gestores de archivos en sus capacidades -- control sobre header, indicador de progreso, enviar partes de archivos, etc.
+Como podemos ver, los métodos de red modernos estan cerca de los gestores de archivos en sus capacidades -- control sobre header, indicador de progreso, enviar partes de archivos, etc.
 
 Podemos implemetar la carga reanudable y mucho mas.
