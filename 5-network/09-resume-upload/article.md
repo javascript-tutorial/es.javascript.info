@@ -28,7 +28,7 @@ Para reanudar una carga, necesitamos saber *exactamente* el número de bytes rec
     ```
     Eso es necesario para reanudar la carga, para decirle al servidor lo que estamos reanudando.
 
-    Si el nombre o tamaño de la ultima fecha de modificacion cambia, entonces habrá otro `fileId`.
+    Si el nombre o tamaño de la última fecha de modificación cambia, entonces habrá otro `fileId`.
 
 2. Envia una solicitud al servidor, preguntando cuantos bytes tiene, asi:
     ```js
