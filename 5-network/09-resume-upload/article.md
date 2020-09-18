@@ -30,7 +30,7 @@ Para reanudar una carga, necesitamos saber *exactamente* el número de bytes rec
 
     Si el nombre o tamaño de la última fecha de modificación cambia, entonces habrá otro `fileId`.
 
-2. Envia una solicitud al servidor, preguntando cuantos bytes tiene, asi:
+2. Envía una solicitud al servidor, preguntando cuántos bytes tiene, así:
     ```js
     let response = await fetch('status', {
       headers: {
