@@ -1,6 +1,6 @@
 # Carga de archivos reanudable
 
-Con el metodo `fetch` es bastante facil cargar un archivo.
+Con el método `fetch` es bastante fácil cargar un archivo.
 
 ¿Como reanudar la carga de un archivo despues de perder la conección? No hay una opcion incorporada para eso, pero tenemos las piezas para implementarlo.
 
