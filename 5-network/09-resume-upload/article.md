@@ -22,7 +22,7 @@ Para reanudar una carga, necesitamos saber *exactamente* el número de bytes rec
 
 ## Algoritmos
 
-1. Primero, crear un archivo id, para unicamente identificar el archivo que vamos a subir:
+1. Primero, crear un archivo id, para únicamente identificar el archivo que vamos a subir:
     ```js
     let fileId = file.name + '-' + file.size + '-' + +file.lastModifiedDate;
     ```
