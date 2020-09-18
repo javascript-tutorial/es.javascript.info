@@ -69,7 +69,7 @@ Para reanudar una carga, necesitamos saber *exactamente* el número de bytes rec
     El servidor debe verificar sus registros, y si hubo una carga de ese archivo, y si el tamaño de carga actual es exactamente `X-Start-Byte`,  entonces agregarle los datos.
 
 
-Aqui esta la demo con el codigo tento del cliente como del servidor, escrito en Node.js.
+Aquí esta la demostración con el código tanto del cliente como del servidor, escrito en Node.js.
 
 Esto funciona solo parcialmente en este sitio, ya que Node.js esta detras de otro servidor llamado Nginx, que almacena cargas, pasandolas a Node.js cuando esta completamente lleno.
 
