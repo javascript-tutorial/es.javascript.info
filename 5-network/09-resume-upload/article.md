@@ -44,7 +44,7 @@ Para reanudar una carga, necesitamos saber *exactamente* el número de bytes rec
 
     Esto asume que el servidor rastrea archivos cargados por el encabezado `X-File-Id`. Debe ser implementado en el lado del servidor.
 
-    Si el archivo no existe aun en el servidor, entonces su respuesta debe ser `0`.
+    Si el archivo no existe aún en el servidor, entonces su respuesta debe ser `0`.
 
 3. Entonces, podemos usar el metodo `Blob` `slice` para enviar el archivo desde `startByte`:
     ```js
