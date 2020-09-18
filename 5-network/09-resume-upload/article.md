@@ -8,7 +8,7 @@ Las cargas reanudables deberían venir con indicación de progreso, ya que esper
 
 ## Evento de progreso poco útil
 
-Para reanudar la carga, necesitamos saber cuanto fue cargado hasta la perdida de la coneccion.
+Para reanudar la carga, necesitamos saber cuánto fue cargado hasta la pérdida de la conexión.
 
 Disponemos de `xhr.upload.onprogress` para rastrear el progreso de carga.
 
