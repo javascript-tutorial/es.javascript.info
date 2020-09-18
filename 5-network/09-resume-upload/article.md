@@ -73,7 +73,7 @@ Aquí esta la demostración con el código tanto del cliente como del servidor, 
 
 Esto funciona solo parcialmente en este sitio, ya que Node.js esta detrás de otro servidor llamado Nginx, que almacena cargas, pasándolas a Node.js cuando esta completamente lleno.
 
-Pero puedes cargarlo y ejecutarlo localmente para la demostracion completa:
+Pero puedes cargarlo y ejecutarlo localmente para la demostración completa:
 
 [codetabs src="upload-resume" height=200]
 
