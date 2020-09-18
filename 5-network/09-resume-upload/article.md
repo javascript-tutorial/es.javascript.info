@@ -12,7 +12,7 @@ Para reanudar la carga, necesitamos saber cuánto fue cargado hasta la pérdida 
 
 Disponemos de `xhr.upload.onprogress` para rastrear el progreso de carga.
 
-Desafortunadamente, esto no nos ayudara a reanudar la descarga, Ya que se origina cuando los datos son *enviados*, ¿pero fue recivida por el servidor? el navegador no lo sabe.
+Desafortunadamente, esto no nos ayudará a reanudar la descarga, Ya que se origina cuando los datos son *enviados*, ¿pero fue recibida por el servidor? el navegador no lo sabe.
 
 Tal vez fue almacenada por un proxy de la red local, o quizá el proceso del servidor remoto solo murio y no pudo procesarla, o solo fue perdida en el medio y no alcanzo al receptor.
 
