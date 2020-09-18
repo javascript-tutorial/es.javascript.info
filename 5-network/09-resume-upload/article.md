@@ -6,7 +6,7 @@ Con el método `fetch` es bastante fácil cargar un archivo.
 
 Las cargas reanudables deberían venir con indicación de progreso, ya que esperamos archivos grandes (Si necesitamos reanudar). Entonces, ya que `fetch` no permite rastrear el progreso de carga, usaremos [XMLHttpRequest](info:xmlhttprequest).
 
-## Evento de progreso poco util
+## Evento de progreso poco útil
 
 Para reanudar la carga, necesitamos saber cuanto fue cargado hasta la perdida de la coneccion.
 
