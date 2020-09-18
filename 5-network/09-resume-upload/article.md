@@ -71,7 +71,7 @@ Para reanudar una carga, necesitamos saber *exactamente* el número de bytes rec
 
 Aquí esta la demostración con el código tanto del cliente como del servidor, escrito en Node.js.
 
-Esto funciona solo parcialmente en este sitio, ya que Node.js esta detras de otro servidor llamado Nginx, que almacena cargas, pasandolas a Node.js cuando esta completamente lleno.
+Esto funciona solo parcialmente en este sitio, ya que Node.js esta detrás de otro servidor llamado Nginx, que almacena cargas, pasándolas a Node.js cuando esta completamente lleno.
 
 Pero puedes cargarlo y ejecutarlo localmente para la demostracion completa:
 
