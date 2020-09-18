@@ -53,7 +53,7 @@ Para reanudar una carga, necesitamos saber *exactamente* el número de bytes rec
     // Archivo, de modo que el servidor sepa qué archivo subimos
     xhr.setRequestHeader('X-File-Id', fileId);
 
-    // El byte desde el que estamos reanudando, asi el servidor sabe que estamos reanudando
+    // El byte desde el que estamos reanudando, así el servidor sabe que estamos reanudando
     xhr.setRequestHeader('X-Start-Byte', startByte);
 
     xhr.upload.onprogress = (e) => {
