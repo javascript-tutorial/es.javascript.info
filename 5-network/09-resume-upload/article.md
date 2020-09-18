@@ -18,7 +18,7 @@ Tal vez fue almacenada por un proxy de la red local, o quizá el proceso del ser
 
 Es por eso que este evento solo es útil para mostrar una barra de progreso bonita.
 
-Para resumir una carga, necesitamos saber *exactamente* el numero de bytes recibidos por el servidor. Y eso solo lo sabe el servidor, por lo tanto haremos una solicitud adicional.
+Para reanudar una carga, necesitamos saber *exactamente* el número de bytes recibidos por el servidor. Y eso solo lo sabe el servidor, por lo tanto haremos una solicitud adicional.
 
 ## Algoritmos
 
