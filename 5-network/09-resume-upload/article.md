@@ -46,7 +46,7 @@ Para reanudar una carga, necesitamos saber *exactamente* el número de bytes rec
 
     Si el archivo no existe aún en el servidor, entonces su respuesta debe ser `0`.
 
-3. Entonces, podemos usar el metodo `Blob` `slice` para enviar el archivo desde `startByte`:
+3. Entonces, podemos usar el método `Blob` `slice` para enviar el archivo desde `startByte`:
     ```js
     xhr.open("POST", "upload", true);
 
