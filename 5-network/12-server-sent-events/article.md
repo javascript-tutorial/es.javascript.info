@@ -102,7 +102,7 @@ data: Hola, configuré el retraso de reconexión en 15 segundos
 
 El `retry:` puede venir junto con algunos datos, o como un mensaje independiente.
 
-El navegador debe esperar esa cantidad de milisegundos antes de volver a conectarse. O más, por ejemplo, si el navegador sabe (desde el sistema operativo) que no hay conexión de red en este momento, puede esperar hasta que aparezca la conexión y luego volver a intentarlo.
+El navegador debe esperar esa cantidad de milisegundos antes de volver a conectarse. O más, por ejemplo: si el navegador sabe (desde el sistema operativo) que no hay conexión de red en este momento, puede esperar hasta que aparezca la conexión y luego volver a intentarlo.
 
 - Si el servidor desea que el navegador deje de volver a conectarse, debería responder con el estado HTTP 204.
 - Si el navegador quiere cerrar la conexión, debe llamar a `eventSource.close()`:
