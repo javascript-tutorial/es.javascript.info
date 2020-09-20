@@ -66,7 +66,7 @@ eventSource.onmessage = function(event) {
 
 ### Solicitudes Cross-origin
 
-`EventSource` admite solicitudes cross-origin, como `fetch` y cualquier otro método de red. Podemos utilizar cualquier URL:
+`EventSource` admite solicitudes cross-origin, como `fetch` o cualquier otro método de red. Podemos utilizar cualquier URL:
 
 ```js
 let source = new EventSource("https://another-site.com/events");
