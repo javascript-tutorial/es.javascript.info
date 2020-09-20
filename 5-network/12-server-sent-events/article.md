@@ -200,7 +200,7 @@ eventSource.addEventListener('leave', event => {
 
 ## Ejemplo completo
 
-Aquí está el servidor que envía mensajes con `1`,` 2`, `3`, luego `bye` y cierra la conexión.
+Aquí está el servidor que envía mensajes con `1`, `2`, `3`, luego `bye` y cierra la conexión.
 
 Luego, el navegador se vuelve a conectar automáticamente.
 
