@@ -8,7 +8,6 @@ En teoría, podríamos crear cualquier elemento invisible en algún lugar de HTM
 En primer lugar, su contenido puede ser cualquier HTML válido, incluso si normalmente requiere una etiqueta adjunta adecuada.
 
 Por ejemplo, podemos poner una fila de tabla `<tr>`:
-
 ```html
 <template>
   <tr>
