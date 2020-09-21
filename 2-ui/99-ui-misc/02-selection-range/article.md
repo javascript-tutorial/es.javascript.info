@@ -612,7 +612,7 @@ Eso es conveniente cuando hay otro controlador de eventos en la misma acción qu
 
 Cubrimos dos API diferentes para las selecciones:
 
-1. Para el documento: objetos `Selection` y` Range`.
+1. Para el documento: objetos `Selection` y `Range`.
 2. Para `input`,` textarea`: métodos y propiedades adicionales.
 
 La segunda API es muy simple, ya que funciona con texto.
