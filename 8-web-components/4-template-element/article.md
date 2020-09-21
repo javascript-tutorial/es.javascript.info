@@ -37,7 +37,7 @@ El contenido cobra vida (estilos aplicados, scripts, etc) cuando los insertamos 
 
 ## Insertando template
 
-El contenido template está disponible en su propiedad `content` como un [DocumentFragment](info:modifying-document#document-fragment) -- un tipo especial de nodo DOM.
+El contenido template está disponible en su propiedad `content` como un [DocumentFragment](info:modifying-document#document-fragment): un tipo especial de nodo DOM.
 
 Podemos tratarlo como a cualquier otro nodo DOM, excepto por una propiedad especial: cuando lo insertamos en algún lugar, sus “hijos” son insertados en su lugar.
 
