@@ -14,7 +14,7 @@ Tu podrías usar ahora mismo las recetas que hay al final, En la sección "Resum
 
 ## Range
 
-El concepto básico de selección [Range](https://dom.spec.whatwg.org/#ranges) es: básicamente, un par de "puntos límite": inicio y fin del rango.
+El concepto básico de selección [Range](https://dom.spec.whatwg.org/#ranges), es básicamente un par de "puntos límite": inicio y fin del rango.
 
 Cada punto representado como un nodo DOM principal con el desplazamiento relativo desde su inicio. Si el nodo principal es un nodo de elemento, entonces el desplazamiento es un número secundario, para un nodo de texto es la posición en el texto. Ejemplos a continuación.
 
