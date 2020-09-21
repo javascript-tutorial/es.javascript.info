@@ -48,7 +48,7 @@ Por ejemplo:
   <script>
     alert("Hola");
   </script>
-  <div class="Mensaje">¡Hola mundo!</div>
+  <div class="message">¡Hola mundo!</div>
 </template>
 
 <script>
