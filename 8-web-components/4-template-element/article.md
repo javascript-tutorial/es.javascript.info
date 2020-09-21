@@ -95,7 +95,7 @@ Ellos forman el shadow DOM:
 <div id="elem">
   #shadow-root
     <style> p { font-weight: bold; } </style>
-    <p id="mensaje"></p>
+    <p id="message"></p>
 </div>
 ```
 
