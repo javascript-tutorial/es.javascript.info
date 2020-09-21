@@ -215,9 +215,13 @@ alert(clone.sizes.width); // 51, ve el resultado desde el otro
 
 Para corregir esto, debemos usar un bucle de clonación que examine cada valor de `user[key]` y, si es un objeto, replicar su estructura también. Esto es llamado "clonación profunda".
 
+<<<<<<< HEAD
 Hay un algoritmo estándar para clonación profunda que maneja este caso y otros más complicados llamado [Structured cloning algorithm](https://html.spec.whatwg.org/multipage/structured-data.html#safe-passing-of-structured-data).
 
 Podemos usar recursividad para implementarlo. O, para no inventar la rueda, tomar una implementación existente, por ejemplo [_.cloneDeep(obj)](https://lodash.com/docs#cloneDeep) de la librería JavaScript [lodash](https://lodash.com).
+=======
+We can use recursion to implement it. Or, not to reinvent the wheel, take an existing implementation, for instance [_.cloneDeep(obj)](https://lodash.com/docs#cloneDeep) from the JavaScript library [lodash](https://lodash.com).
+>>>>>>> e074a5f825a3d10b0c1e5e82561162f75516d7e3
 
 ## Resumen
 

@@ -244,6 +244,10 @@ Tenga en cuenta que el evento anidado `menu-open` se captura en `document`. La p
 
 No se trata solo de `dispatchEvent`, hay otros casos. Si un controlador de eventos llama a métodos que desencadenan otros eventos, también se procesan sincrónicamente, de forma anidada.
 
+<<<<<<< HEAD
+=======
+That's not only about `dispatchEvent`, there are other cases. If an event handler calls methods that trigger other events -- they are processed synchronously too, in a nested fashion.
+>>>>>>> e074a5f825a3d10b0c1e5e82561162f75516d7e3
 
 Digamos que no nos gusta. Querríamos que `onclick` se procesara por completo primero, independientemente de `menu-open` o cualquier otro evento anidado.
 

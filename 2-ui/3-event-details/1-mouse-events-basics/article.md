@@ -58,11 +58,19 @@ Los valores posibles para `event.button` son:
 
 | Estado del botón | `event.button` |
 |--------------|----------------|
+<<<<<<< HEAD
 | Botón izquierdo (primario) | 0 |
 | Botón central (auxiliar) | 1 |
 | Botón derecho (secundario) | 2 |
 | Botón X1 (atrás) | 3 |
 | Botón X2 (adelante) | 4 |
+=======
+| Left button (primary) | 0 |
+| Middle button (auxiliary) | 1 |
+| Right button (secondary) | 2 |
+| X1 button (back) | 3 |
+| X2 button (forward) | 4 |
+>>>>>>> e074a5f825a3d10b0c1e5e82561162f75516d7e3
 
 La mayoría de los dispositivos de ratón sólo tienen los botones izquierdo y derecho, por lo que los valores posibles son `0` o `2`. Los dispositivos táctiles también generan eventos similares cuando se toca sobre ellos.
 
@@ -157,7 +165,11 @@ Mueve el mouse sobre el campo de entrada para ver `clientX/clientY` (el ejemplo 
 
 El doble clic del mouse tiene un efecto secundario que puede ser molesto en algunas interfaces: selecciona texto.
 
+<<<<<<< HEAD
 Por ejemplo, un doble clic en el texto de abajo lo selecciona además de activar nuestro controlador:
+=======
+For instance, double-clicking on the text below selects it in addition to our handler:
+>>>>>>> e074a5f825a3d10b0c1e5e82561162f75516d7e3
 
 ```html autorun height=50
 <span ondblclick="alert('dblclick')">Haz doble click en mi</span>

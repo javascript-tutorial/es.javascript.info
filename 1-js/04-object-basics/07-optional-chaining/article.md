@@ -84,7 +84,11 @@ Si no hay una variable `user` declarada, entonces `user?.Anything` provocará un
 // ReferenceError: El usuario no está definido
 user?.address;
 ```
+<<<<<<< HEAD
 Debe haber `let / const / var user`. El encadenamiento opcional solo funciona para variables declaradas.
+=======
+There must be `let/const/var user`. The optional chaining works only for declared variables.
+>>>>>>> e074a5f825a3d10b0c1e5e82561162f75516d7e3
 ````
 
 ## Short-circuiting (Cortocircuitos)

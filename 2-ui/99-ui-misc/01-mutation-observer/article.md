@@ -1,7 +1,11 @@
 
 # Mutation observer
 
+<<<<<<< HEAD
 `MutationObserver` es un objeto incorporado que observa un elemento DOM y dispara un callback cuando hay cambios en él.
+=======
+`MutationObserver` is a built-in object that observes a DOM element and fires a callback when it detects a change.
+>>>>>>> e074a5f825a3d10b0c1e5e82561162f75516d7e3
 
 Primero veremos su sintaxis, luego exploraremos un caso de la vida real para ver dónde puede ser útil.
 
@@ -128,16 +132,26 @@ Tal fragmento en un markup HTML se ve como esto:
 ...
 ```
 
+<<<<<<< HEAD
 También usaremos una librería JavaScript de "highlighting" para resaltar elementos en nuestro sitio, por ejemplo [Prism.js](https://prismjs.com/). Una llamada a `Prism.highlightElem(pre)` examina el contenido de tales elementos `pre` y les agrega tags y styles especiales para obtener sintaxis resaltada con color, similares a los que ves en esta página.
 
 ¿Exactamente cuándo ejecutar tal método de highlighting? Podemos hacerlo en el evento `DOMContentLoaded`, o al final de la página. En el momento en que tenemos nuestro DOM listo buscamos los elementos `pre[class*="language"]` y llamamos `Prism.highlightElem` en ellos:
+=======
+For better readability and at the same time, to beautify it, we'll be using a JavaScript syntax highlighting library on our site, like [Prism.js](https://prismjs.com/). To get syntax highlighting for above snippet in Prism, `Prism.highlightElem(pre)` is called, which examines the contents of such `pre` elements and adds special tags and styles for colored syntax highlighting into those elements, similar to what you see in examples here, on this page.
+
+When exactly should we run that highlighting method? Well, we can do it on `DOMContentLoaded` event, or put the script at the bottom of the page. The moment our DOM is ready, we can search for elements `pre[class*="language"]` and call `Prism.highlightElem` on them:
+>>>>>>> e074a5f825a3d10b0c1e5e82561162f75516d7e3
 
 ```js
 // resaltar todos los fragmentos de código en la página
 document.querySelectorAll('pre[class*="language"]').forEach(Prism.highlightElem);
 ```
 
+<<<<<<< HEAD
 Todo es simple hasta ahora, ¿verdad? Hay fragmentos de código `<pre>` en HTML y los resaltamos.
+=======
+Everything's simple so far, right? We find code snippets in HTML and highlight them.
+>>>>>>> e074a5f825a3d10b0c1e5e82561162f75516d7e3
 
 Continuemos. Digamos que vamos a buscar dinámicamente material desde un servidor. Estudiaremos métodos para ello [más adelante](info:fetch) en el tutorial. Por ahora solamente importa que buscamos un artículo HTML desde un servidor web y lo mostramos bajo demanda:
 
@@ -162,13 +176,23 @@ snippets.forEach(Prism.highlightElem);
 */!*
 ```
 
+<<<<<<< HEAD
 ...Pero imagina que tenemos muchos lugares en el código donde cargamos contenido: artículos, cuestionarios, entradas de foros. ¿Necesitamos poner el llamado al "highlighting" en todos lugares? No es muy conveniente, y es fácil de olvidar además.
 
 ¿Y si el contenido es cargado por un módulo de terceras partes? Por ejemplo tenemos un foro, escrito por algún otro, que carga contenido dinámicamente y quisiéramos añadirle sintaxis de highlighting. A nadie le gusta emparchar scripts de terceras partes.
+=======
+...But, imagine if we have many places in the code where we load our content - articles, quizzes, forum posts, etc. Do we need to put the highlighting call everywhere, to highlight the code in content after loading? That's not very convenient.
+
+And what if the content is loaded by a third-party module? For example, we have a forum written by someone else, that loads content dynamically, and we'd like to add syntax highlighting to it. No one likes patching third-party scripts.
+>>>>>>> e074a5f825a3d10b0c1e5e82561162f75516d7e3
 
 Afortunadamente hay otra opción.
 
+<<<<<<< HEAD
 Podemos usar `MutationObserver` para detectar automáticamente cuándo los fragmentos de código son insertados en la página y resaltarlos.
+=======
+We can use `MutationObserver` to automatically detect when code snippets are inserted into the page and highlight them.
+>>>>>>> e074a5f825a3d10b0c1e5e82561162f75516d7e3
 
 Entonces manejaremos la funcionalidad de "highlighting" en un único lugar, liberándonos de la necesidad de integrarlo.
 
@@ -236,30 +260,59 @@ Hay un método para detener la observación del nodo:
 
 - `observer.disconnect()` -- detiene la observación.
 
+<<<<<<< HEAD
 Cuando detenemos la observación, algunos cambios todavía podrían quedar sin ser procesados por el observador.
 
 - `observer.takeRecords()` -- obtiene una lista de registros de mutaciones sin procesar, aquellos que ocurrieron pero el callback no manejó.
+=======
+When we stop the observing, it might be possible that some changes were not yet processed by the observer. In such cases, we use
+
+- `observer.takeRecords()` -- gets a list of unprocessed mutation records - those that happened, but the callback has not handled them.
+>>>>>>> e074a5f825a3d10b0c1e5e82561162f75516d7e3
 
 Estos métodos pueden ser usados juntos, como esto:
 
 ```js
+<<<<<<< HEAD
 // quisiéramos detener el rastreo de cambios
 observer.disconnect();
 
 // manejar algunas mutaciones que no fueron procesadas
+=======
+// get a list of unprocessed mutations
+// should be called before disconnecting,
+// if you care about possibly unhandled recent mutations
+>>>>>>> e074a5f825a3d10b0c1e5e82561162f75516d7e3
 let mutationRecords = observer.takeRecords();
+
+// stop tracking changes
+observer.disconnect();
 ...
 ```
 
+<<<<<<< HEAD
 ```smart header="Interacción con la recolección de basura"
 Los observadores usan internamente referencias débiles. Esto es: si un nodo es quitado del DOM y se hace inalcanzable, se vuelve basura a ser recolectada.
+=======
+
+```smart header="Records returned by `observer.takeRecords()` are removed from the processing queue"
+The callback won't be called for records, returned by `observer.takeRecords()`.
+```
+
+```smart header="Garbage collection interaction"
+Observers use weak references to nodes internally. That is, if a node is removed from the DOM, and becomes unreachable, then it can be garbage collected.
+>>>>>>> e074a5f825a3d10b0c1e5e82561162f75516d7e3
 
 El mero hecho de que un nodo DOM sea observado no evita la recolección de basura.
 ```
 
 ## Resumen  
 
+<<<<<<< HEAD
 `MutationObserver` puede reaccionar a cambios en el DOM: atributos, elementos añadidos y quitados, contenido de texto.
+=======
+`MutationObserver` can react to changes in DOM - attributes, text content and adding/removing elements.
+>>>>>>> e074a5f825a3d10b0c1e5e82561162f75516d7e3
 
 Podemos usarlo para rastrear cambios introducidos por otras partes de nuestro código o bien para integrarlo con scripts de terceras partes.
 

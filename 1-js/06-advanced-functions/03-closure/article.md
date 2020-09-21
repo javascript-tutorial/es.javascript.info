@@ -315,7 +315,11 @@ Cuando en una entrevista, un desarrollador frontend recibe una pregunta sobre "�
 
 Por lo general, un entorno léxico se elimina de la memoria con todas las variables una vez que finaliza la llamada a la función. Eso es porque no hay referencias al respecto. Como cualquier objeto de JavaScript, solo se mantiene en la memoria mientras es accesible.
 
+<<<<<<< HEAD
 ... Pero si hay una función anidada a la que todavía se puede llegar después del final de una función, entonces tiene la propiedad `[[Environment]]` que hace referencia al entorno léxico.
+=======
+However, if there's a nested function that is still reachable after the end of a function, then it has `[[Environment]]` property that references the lexical environment.
+>>>>>>> e074a5f825a3d10b0c1e5e82561162f75516d7e3
 
 En ese caso, el entorno léxico aún es accesible incluso después de completar la función, por lo que permanece vivo.
 
@@ -334,7 +338,11 @@ let g = f(); // g.[[Environment]] almacena una referencia al entorno léxico
 // de la llamada f() correspondiente
 ```
 
+<<<<<<< HEAD
 Tenga en cuenta que si se llama a `f()` muchas veces y se guardan las funciones resultantes, todos los objetos del entorno léxico correspondientes también se conservarán en la memoria. Veamos las 3 funciones en el siguiente ejemplo:
+=======
+Please note that if `f()` is called many times, and resulting functions are saved, then all corresponding Lexical Environment objects will also be retained in memory. In the code below, all 3 of them:
+>>>>>>> e074a5f825a3d10b0c1e5e82561162f75516d7e3
 
 ```js
 function f() {
@@ -411,4 +419,10 @@ g();
 ```
 Esta característica de V8 es bueno saberla. Si está depurando con Chrome / Opera, tarde o temprano lo encontrará.
 
+<<<<<<< HEAD
 Eso no es un error en el depurador, sino más bien una característica especial de V8. Tal vez en algún momento la cambiarán. Siempre puede verificarlo ejecutando los ejemplos en esta página.
+=======
+This feature of V8 is good to know. If you are debugging with Chrome/Opera, sooner or later you will meet it.
+
+That is not a bug in the debugger, but rather a special feature of V8. Perhaps it will be changed sometime. You can always check for it by running the examples on this page.
+>>>>>>> e074a5f825a3d10b0c1e5e82561162f75516d7e3
