@@ -82,7 +82,7 @@ Reescribamos un ejemplo de Shadow DOM del capítulo anterior usando `<template>`
     elem.shadowRoot.append(tmpl.content.cloneNode(true)); // (*)
 */!*
 
-       elem.shadowRoot.getElementById('message').innerHTML = "!Saludos desde las sombras!";
+    elem.shadowRoot.getElementById('message').innerHTML = "¡Saludos desde las sombras!";
   };
 </script>
 ```
