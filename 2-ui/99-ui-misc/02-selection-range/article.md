@@ -121,7 +121,7 @@ From <input id="start" type="number" value=1> – To <input id="end" type="numbe
 </script>
 ```
 
-E.j seleccionando de `1` a `4` da como rango `<i>italic</i> and <b>bold</b>`.
+Ej. seleccionando de `1` a `4` da como rango `<i>italic</i> and <b>bold</b>`.
 
 ![](range-example-p-1-3.svg)
 
