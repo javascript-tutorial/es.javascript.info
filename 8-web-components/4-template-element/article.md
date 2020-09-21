@@ -69,7 +69,7 @@ Reescribamos un ejemplo de Shadow DOM del capítulo anterior usando `<template>`
 ```html run untrusted autorun="no-epub" height=60
 <template id="tmpl">
   <style> p { font-weight: bold; } </style>
-  <p id="mensaje"></p>
+  <p id="message"></p>
 </template>
 
 <div id="elem">Haz clic sobre mi</div>
