@@ -43,7 +43,7 @@ Seguidamente usaremos el moderno estándar shadow DOM cubierto en "otras especif
 
 Un elemento DOM puede tener dos tipos de subárboles DOM:
 
-1. Light tree -- un subárbol normal, hecho de HTML hijos. Todos los subárboles vistos en capítulos previos eran "light".
+1. Light tree -- un subárbol normal, hecho de hijos HTML. Todos los subárboles vistos en capítulos previos eran "light".
 2. Shadow tree -- un subárbol shadow DOM, no reflejado en HTML, oculto a la vista.
 
 Si un elemento tiene ambos, el navegador solamente construye el árbol shadow. Pero también podemos establecer un tipo de composición entre árboles shadow y light. Veremos los detalles en el capítulo <info:slots-composition>.
@@ -67,7 +67,7 @@ customElements.define('show-hello', class extends HTMLElement {
 <show-hello name="John"></show-hello>
 ```
 
-Así es como el DOM resultante se ve in las herramientas de desarrollador de Chrome, todo el contenido está bajo "#shadow-root":
+Así es como el DOM resultante se ve en las herramientas de desarrollador de Chrome, todo el contenido está bajo "#shadow-root":
 
 ![](shadow-dom-say-hello.png)
 
