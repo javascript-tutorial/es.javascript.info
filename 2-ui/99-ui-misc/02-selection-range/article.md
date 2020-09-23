@@ -4,37 +4,37 @@ libs:
 
 ---
 
-# Selection and Range
+# Selection y Range
 
-In this chapter we'll cover selection in the document, as well as selection in form fields, such as `<input>`.
+En este capítulo cubriremos la selección en el documento, así como la selección en campos de formulario, como `<input>`.
 
-JavaScript can get the existing selection, select/deselect both as a whole or partially, remove the selected part from the document, wrap it into a tag, and so on.
+JavaScript puede obtener la selección existente, seleccionar/deseleccionar tanto en su totalidad como parcialmente, eliminar la parte seleccionada del documento, envolverla en una etiqueta, etc.
 
-You can get ready to use recipes at the end, in "Summary" section. But you'll get much more if you read the whole chapter. The underlying `Range` and `Selection` objects are easy to grasp, and then you'll need no recipes to make them do what you want.
+Tu podrías usar ahora mismo las recetas que hay al final, En la sección "Resumen". Pero será mucho más beneficioso para ti si lees todo el capítulo. Los objetos subyacentes `Range` y `Selection` son fáciles de captar y, por lo tanto, no necesitará recetas para que hagan lo que deseas.
 
 ## Range
 
-The basic concept of selection is [Range](https://dom.spec.whatwg.org/#ranges): basically, a pair of "boundary points": range start and range end.
+El concepto básico de selección [Range](https://dom.spec.whatwg.org/#ranges), es básicamente un par de "puntos límite": inicio y fin del rango.
 
-Each point represented as a parent DOM node with the relative offset from its start. If the parent node is an element node, then the offset is a child number, for a text node it's the position in the text. Examples to follow.
+Cada punto es representado como un nodo DOM principal con el desplazamiento relativo desde su inicio. Si el nodo principal es un nodo de elemento, entonces el desplazamiento es un número secundario, para un nodo de texto es la posición en el texto. Ejemplos a continuación.
 
-Let's select something.
+Seleccionemos algo.
 
-First, we can create a range (the constructor has no parameters):
+Primero, podemos crear un rango (el constructor no tiene parámetros):
 
 ```js
 let range = new Range();
 ```
 
-Then we can set the selection boundaries using `range.setStart(node, offset)` and `range.setEnd(node, offset)`.
+Entonces podemos establecer los límites de selección usando `range.setStart(node, offset)` y `range.setEnd(node, offset)`.
 
-For example, consider this fragment of HTML:
+Por ejemplo, considere este fragmento de HTML:
 
 ```html
 <p id="p">Example: <i>italic</i> and <b>bold</b></p>
 ```
 
-Here's its DOM structure, note that here text nodes are important for us:
+Aquí está su estructura DOM, tenga en cuenta que aquí los nodos de texto son importantes para nosotros:
 
 <div class="select-p-domtree"></div>
 
@@ -72,7 +72,7 @@ let selectPDomtree = {
 drawHtmlTree(selectPDomtree, 'div.select-p-domtree', 690, 320);
 </script>
 
-Let's select `"Example: <i>italic</i>"`. That's two first children of `<p>` (counting text nodes):
+Seleccionamos `"Example: <i>italic</i>"`. Son los dos primeros hijos de `<p>` (contando nodos de texto):
 
 ![](range-example-p-0-1.svg)
 
@@ -87,18 +87,18 @@ Let's select `"Example: <i>italic</i>"`. That's two first children of `<p>` (cou
   range.setEnd(p, 2);
 */!*
 
-  // toString of a range returns its content as text (without tags)
-  alert(range); // Example: italic
+ // toString de un rango devuelve su contenido como texto (sin etiquetas)
+  alert(range); // Ejemplo: italic
 
-  // apply this range for document selection (explained later)
+  // aplicar este rango para la selección de documentos (explicado más adelante)
   document.getSelection().addRange(range);
 </script>
 ```
 
-- `range.setStart(p, 0)` -- sets the start at the 0th child of `<p>` (that's the text node `"Example: "`).
-- `range.setEnd(p, 2)` -- spans the range up to (but not including) 2nd child of `<p>` (that's the text node `" and "`, but as the end is not included, so the last selected node is `<i>`).
+- `range.setStart(p, 0)` -- establece el comienzo en el hijo 0 de `<p>` (ese es el nodo de texto `"Example: "`).
+- `range.setEnd(p, 2)` -- abarca el rango hasta (pero sin incluir) el segundo hijo de `<p>` (ese es el nodo de texto `" and "`, pero como el final no está incluido, el último nodo seleccionado es `<i>`).
 
-Here's a more flexible test stand where you try more variants:
+Aquí hay un banco de pruebas más flexible en el que probar más variantes:
 
 ```html run autorun
 <p id="p">Example: <i>italic</i> and <b>bold</b></p>
@@ -114,30 +114,30 @@ From <input id="start" type="number" value=1> – To <input id="end" type="numbe
     range.setEnd(p, end.value);
   */!*
 
-    // apply the selection, explained later
+    // aplicar la selección, explicado más adelante
     document.getSelection().removeAllRanges();
     document.getSelection().addRange(range);
   };
 </script>
 ```
 
-E.g. selecting from `1` to `4` gives range `<i>italic</i> and <b>bold</b>`.
+Ej. seleccionando de `1` a `4` da como rango `<i>italic</i> and <b>bold</b>`.
 
 ![](range-example-p-1-3.svg)
 
-We don't have to use the same node in `setStart` and `setEnd`. A range may span across many unrelated nodes. It's only important that the end is after the start.
+No tenemos que usar el mismo nodo en `setStart` y `setEnd`. Un rango puede abarcar muchos nodos no relacionados. Solo es importante que el final sea posterior al comienzo.
 
-### Selecting parts of text nodes
+### Seleccionar partes de nodos de texto
 
-Let's select the text partially, like this:
+Seleccionemos el texto parcialmente, así:
 
 ![](range-example-p-2-b-3.svg)
 
-That's also possible, we just need to set the start and the end as a relative offset in text nodes.
+Eso también es posible, solo necesitamos establecer el inicio y el final como un desplazamiento relativo en los nodos de texto.
 
-We need to create a range, that:
-- starts from position 2 in `<p>` first child (taking all but two first letters of "Ex<b>ample:</b> ")
-- ends at the position 3 in `<b>` first child (taking first three letters of "<b>bol</b>d", but no more):
+Necesitamos crear un rango, que:
+- comienza desde la posición 2 en `<p>` primer hijo (tomando todas menos dos primeras letras de "Ex<b>ample:</b>")
+- termina en la posición 3 de `<b>` primer hijo (tomando las primeras tres letras de "<b>bol</b>d", pero no más):
 
 ```html run
 <p id="p">Example: <i>italic</i> and <b>bold</b></p>
@@ -148,64 +148,64 @@ We need to create a range, that:
   range.setStart(p.firstChild, 2);
   range.setEnd(p.querySelector('b').firstChild, 3);
 
-  alert(range); // ample: italic and bol
+  alert(range); // amplio: italic and bol
 
-  // use this range for selection (explained later)
+  // use este rango para la selección (explicado más adelante)
   window.getSelection().addRange(range);
 </script>
 ```
 
-The range object has following properties:
+El objeto de rango tiene las siguientes propiedades:
 
 ![](range-example-p-2-b-3-range.svg)
 
-- `startContainer`, `startOffset` -- node and offset of the start,
-  - in the example above: first text node inside `<p>` and `2`.
-- `endContainer`, `endOffset` -- node and offset of the end,
-  - in the example above: first text node inside `<b>` and `3`.
-- `collapsed` -- boolean, `true` if the range starts and ends on the same point (so there's no content inside the range),
-  - in the example above: `false`
-- `commonAncestorContainer` -- the nearest common ancestor of all nodes within the range,
-  - in the example above: `<p>`
+- `startContainer`, `startOffset` -- nodo y desplazamiento del inicio,
+  - en el ejemplo anterior: primer nodo de texto dentro de `<p>` y `2`.
+- `endContainer`, `endOffset` -- nodo y desplazamiento del final,
+  - en el ejemplo anterior: primer nodo de texto dentro de `<b>` y `3`.
+- `collapsed` -- booleano, `true` si el rango comienza y termina en el mismo punto (por lo que no hay contenido dentro del rango),
+  - en el ejemplo anterior: `false`
+- `commonAncestorContainer` -- el ancestro común más cercano de todos los nodos dentro del rango,
+  - en el ejemplo anterior: `<p>`
 
-## Range methods
+## Métodos de Range
 
-There are many convenience methods to manipulate ranges.
+Hay muchos métodos convenientes para manipular rangos.
 
-Set range start:
+Establecer inicio de rango:
 
-- `setStart(node, offset)` set start at: position `offset` in `node`
-- `setStartBefore(node)` set start at: right before `node`
-- `setStartAfter(node)` set start at: right after `node`
+- `setStart(node, offset)` establecer inicio en: posición `offset` en `node`
+- `setStartBefore(node)` establecer inicio en: justo antes `node`
+- `setStartAfter(node)` establecer inicio en: justo después `node`
 
-Set range end (similar methods):
+Establecer fin de rango (métodos similares):
 
-- `setEnd(node, offset)` set end at: position `offset` in `node`
-- `setEndBefore(node)` set end at: right before `node`
-- `setEndAfter(node)` set end at: right after `node`
+- `setEnd(node, offset)` establecer final en: posición `offset` en `node`
+- `setEndBefore(node)` establecer final en: justo antes `node`
+- `setEndAfter(node)` establecer final en: justo después `node`
 
-**As it was demonstrated, `node` can be both a text or element node: for text nodes `offset` skips that many of characters, while for element nodes that many child nodes.**
+**Como quedó demostrado, `node` puede ser un nodo de texto o de elemento: para nodos de texto `offset` omite esa cantidad de caracteres, mientras que para los nodos de elementos esa cantidad de nodos secundarios.**
 
-Others:
-- `selectNode(node)` set range to select the whole `node`
-- `selectNodeContents(node)` set range to select the whole `node` contents
-- `collapse(toStart)` if `toStart=true` set end=start, otherwise set start=end, thus collapsing the range
-- `cloneRange()` creates a new range with the same start/end
+Otros:
+- `selectNode(node)` establecer rango para seleccionar el `node`
+- `selectNodeContents(node)` establecer rango para seleccionar todo el contenido de `node` 
+- `collapse(toStart)` si `toStart=true` establece final=comienzo, de otra manera comienzo=final, colapsando así el rango
+- `cloneRange()` crea un nuevo rango con el mismo inicio/final
 
-To manipulate the content within the range:
+Para manipular el contenido dentro del rango:
 
-- `deleteContents()` -- remove range content from the document
-- `extractContents()` -- remove range content from the document and return as [DocumentFragment](info:modifying-document#document-fragment)
-- `cloneContents()` -- clone range content and return as [DocumentFragment](info:modifying-document#document-fragment)
-- `insertNode(node)` -- insert `node` into the document at the beginning of the range
-- `surroundContents(node)` -- wrap `node` around range content. For this to work, the range must contain both opening and closing tags for all elements inside it: no partial ranges like `<i>abc`.
+- `deleteContents()` -- eliminar el contenido de rango del documento
+- `extractContents()` -- eliminar el contenido de rango del documento y lo retorna como [DocumentFragment](info:modifying-document#document-fragment)
+- `cloneContents()` -- clonar el contenido del rango y lo retorna como [DocumentFragment](info:modifying-document#document-fragment)
+- `insertNode(node)` -- inserta `node` en el documento al comienzo del rango
+- `surroundContents(node)` --envuelve `node` alrededor del contenido del rango. Para que esto funcione, el rango debe contener etiquetas de apertura y cierre para todos los elementos dentro de él: no hay rangos parciales como `<i>abc`.
 
-With these methods we can do basically anything with selected nodes.
+Con estos métodos podemos hacer básicamente cualquier cosa con los nodos seleccionados.
 
-Here's the test stand to see them in action:
+Aquí está el banco de pruebas para verlos en acción:
 
 ```html run autorun height=260
-Click buttons to run methods on the selection, "resetExample" to reset it.
+Haga clic en los botones para ejecutar métodos en la selección, "resetExample" para restablecerla.
 
 <p id="p">Example: <i>italic</i> and <b>bold</b></p>
 
@@ -213,7 +213,7 @@ Click buttons to run methods on the selection, "resetExample" to reset it.
 <script>
   let range = new Range();
 
-  // Each demonstrated method is represented here:
+  // Cada método demostrado se representa aquí:
   let methods = {
     deleteContents() {
       range.deleteContents()
@@ -259,66 +259,66 @@ Click buttons to run methods on the selection, "resetExample" to reset it.
 </script>
 ```
 
-There also exist methods to compare ranges, but these are rarely used. When you need them, please refer to the [spec](https://dom.spec.whatwg.org/#interface-range) or [MDN manual](https://developer.mozilla.org/en-US/docs/Web/API/Range).
+También existen métodos para comparar rangos, pero rara vez se utilizan. Cuando los necesite, consulte el [spec](https://dom.spec.whatwg.org/#interface-range) o [MDN manual](https://developer.mozilla.org/en-US/docs/Web/API/Range).
 
 
 ## Selection
 
-`Range` is a generic object for managing selection ranges. We may create such objects, pass them around -- they do not visually select anything on their own.
+`Range` es un objeto genérico para gestionar rangos de selección. Podemos crear tales objetos, pasarlos alrededor -- no seleccionan visualmente nada por sí mismos.
 
-The document selection is represented by `Selection` object, that can be obtained as `window.getSelection()` or `document.getSelection()`.
+La selección de documentos está representada por el objeto `Selection`, que se puede obtener como `window.getSelection()` o `document.getSelection()`.
 
-A selection may include zero or more ranges. At least, the [Selection API specification](https://www.w3.org/TR/selection-api/) says so. In practice though, only Firefox allows to select multiple ranges in the document by using `key:Ctrl+click` (`key:Cmd+click` for Mac).
+Una selección puede incluir cero o más rangos. Al menos, el [Selection API specification](https://www.w3.org/TR/selection-api/) lo dice. Sin embargo, en la práctica, solo Firefox permite seleccionar múltiples rangos en el documento usando `key:Ctrl+click` (`key:Cmd+click` para Mac).
 
-Here's a screenshot of a selection with 3 ranges, made in Firefox:
+Aquí hay una captura de pantalla de una selección con 3 rangos, realizada en Firefox:
 
 ![](selection-firefox.svg)
 
-Other browsers support at maximum 1 range. As we'll see, some of `Selection` methods imply that there may be many ranges, but again, in all browsers except Firefox, there's at maximum 1.
+Otros navegadores admiten un rango máximo de 1. Como veremos, algunos de los métodos de `Selection` implica que puede haber muchos rangos, pero nuevamente, en todos los navegadores excepto Firefox, hay un máximo de 1.
 
-## Selection properties
+## Propiedades de Selection 
 
-Similar to a range, a selection has a start, called "anchor", and the end, called "focus".
+Similar a Range, una selección tiene un inicio, llamado "ancla(anchor)", y un final, llamado "foco(focus)".
 
-The main selection properties are:
+Las principales propiedades de selection son:
 
-- `anchorNode` -- the node where the selection starts,
-- `anchorOffset` -- the offset in `anchorNode` where the selection starts,
-- `focusNode` -- the node where the selection ends,
-- `focusOffset` -- the offset in `focusNode` where the selection ends,
-- `isCollapsed` -- `true` if selection selects nothing (empty range), or doesn't exist.
-- `rangeCount` -- count of ranges in the selection, maximum `1` in all browsers except Firefox.
+- `anchorNode` -- el nodo donde comienza la selección,
+- `anchorOffset` -- el desplazamiento en `anchorNode` donde comienza la selección,
+- `focusNode` -- el nodo donde termina la selección,
+- `focusOffset` -- el desplazamiento en `focusNode` donde termina la selección,
+- `isCollapsed` -- `true` si la selección no selecciona nada (rango vacío), o no existe.
+- `rangeCount` -- recuento de rangos en la selección, máximo "1" en todos los navegadores excepto Firefox.
 
-````smart header="Selection end may be in the document before start"
-There are many ways to select the content, depending on the user agent: mouse, hotkeys, taps on a mobile etc.
+````smart header="El final de la selección puede estar en el documento antes del inicio"
+Hay muchas formas de seleccionar el contenido, dependiendo del agente de usuario: mouse, teclas de acceso rápido, toques en un móvil, etc.
 
-Some of them, such as a mouse, allow the same selection can be created in two directions: "left-to-right" and "right-to-left".
+Algunos de ellos, como un mouse, permiten que se pueda crear la misma selección en dos direcciones: "de izquierda a derecha" y "de derecha a izquierda".
 
-If the start (anchor) of the selection goes in the document before the end (focus), this selection is said to have "forward" direction.
+Si el inicio (ancla) de la selección va en el documento antes del final (foco), se dice que esta selección tiene una dirección "hacia adelante".
 
-E.g. if the user starts selecting with mouse and goes from "Example" to "italic":
+Ej. si el usuario comienza a seleccionar con el mouse y pasa de "Example" a "italic":
 
 ![](selection-direction-forward.svg)
 
-Otherwise, if they go from the end of "italic" to "Example", the selection is directed "backward", its focus will be before the anchor:
+De lo contrario, si van desde el final de "italic" to "Example", la selección se dirige "hacia atrás", su foco estará antes del ancla:
 
 ![](selection-direction-backward.svg)
 
-That's different from `Range` objects that are always directed forward: the range start can't be after its end.
+Eso es diferente de los objetos `Range` que siempre se dirigen hacia adelante: el inicio del rango no puede ser posterior a su final.
 ````
 
-## Selection events
+## Eventos Selection
 
-There are events on to keep track of selection:
+Hay eventos para realizar un seguimiento de la selección:
 
-- `elem.onselectstart` -- when a selection starts on `elem`, e.g. the user starts moving mouse with pressed button.
-    - Preventing the default action makes the selection not start.
-- `document.onselectionchange` -- whenever a selection changes.
-    - Please note: this handler can be set only on `document`.
+- `elem.onselectstart` -- cuando una selección comienza en `elem`, ej. el usuario comienza a mover el mouse con el botón presionado.
+    - Evitar la acción predeterminada hace que la selección no se inicie.
+- `document.onselectionchange` -- siempre que cambie una selección.
+    - Tenga en cuenta: este controlador solo se puede configurar en `document`.
 
-### Selection tracking demo
+### Demostración de seguimiento de selección
 
-Here's a small demo that shows selection boundaries dynamically as it changes:
+Aquí hay una pequeña demostración que muestra los límites de selección de forma dinámica a medida que cambia:
 
 ```html run height=80
 <p id="p">Select me: <i>italic</i> and <b>bold</b></p>
@@ -334,13 +334,13 @@ From <input id="from" disabled> – To <input id="to" disabled>
 </script>
 ```
 
-### Selection getting demo
+### Demostración de obtención de selección
 
-To get the whole selection:
-- As text: just call `document.getSelection().toString()`.
-- As DOM nodes: get the underlying ranges and call their `cloneContents()` method (only first range if we don't support Firefox multiselection).
+Para obtener toda la selección:
+- Como texto: solo llama `document.getSelection().toString()`.
+- Como nodos DOM: obtenga los rangos subyacentes y llame a su método `cloneContents()` (solo el primer rango si no admitimos la selección múltiple de Firefox).
 
-And here's the demo of getting the selection both as text and as DOM nodes:
+Y aquí está la demostración de cómo obtener la selección como texto y como nodos DOM:
 
 ```html run height=100
 <p id="p">Select me: <i>italic</i> and <b>bold</b></p>
@@ -355,104 +355,104 @@ As text: <span id="astext"></span>
 
     cloned.innerHTML = astext.innerHTML = "";
 
-    // Clone DOM nodes from ranges (we support multiselect here)
+    // Clonar nodos DOM de rangos (admitimos selección múltiple aquí)
     for (let i = 0; i < selection.rangeCount; i++) {
       cloned.append(selection.getRangeAt(i).cloneContents());
     }
 
-    // Get as text
+    // Obtener como texto
     astext.innerHTML += selection;
   };
 </script>
 ```
 
-## Selection methods
+## Métodos Selection 
 
-Selection methods to add/remove ranges:
+Métodos de selección para agregar/eliminar rangos:
 
-- `getRangeAt(i)` -- get i-th range, starting from `0`. In all browsers except firefox, only `0` is used.
-- `addRange(range)` -- add `range` to selection. All browsers except Firefox ignore the call, if the selection already has an associated range.
-- `removeRange(range)` -- remove `range` from the selection.
-- `removeAllRanges()` -- remove all ranges.
-- `empty()` -- alias to `removeAllRanges`.
+- `getRangeAt(i)` -- obtener el rango i-ésimo, comenzando desde "0". En todos los navegadores, excepto Firefox, solo se utiliza `0`.
+- `addRange(rango)` -- agrega un `rango` a la selección. Todos los navegadores excepto Firefox ignoran la llamada, si la selección ya tiene un rango asociado.
+- `removeRange(rango)` --elimina `rango` de la selección.
+- `removeAllRanges()` --elimina todos los rangos.
+- `empty()` -- alias para `removeAllRanges`.
 
-Also, there are convenience methods to manipulate the selection range directly, without `Range`:
+Además, existen métodos convenientes para manipular el rango de selección directamente, sin `Range`:
 
-- `collapse(node, offset)` -- replace selected range with a new one that starts and ends at the given `node`, at position `offset`.
-- `setPosition(node, offset)` -- alias to `collapse`.
-- `collapseToStart()` - collapse (replace with an empty range) to selection start,
-- `collapseToEnd()` - collapse to selection end,
-- `extend(node, offset)` - move focus of the selection to the given `node`, position `offset`,
-- `setBaseAndExtent(anchorNode, anchorOffset, focusNode, focusOffset)` - replace selection range with the given start `anchorNode/anchorOffset` and end `focusNode/focusOffset`. All content in-between them is selected.
-- `selectAllChildren(node)` -- select all children of the `node`.
-- `deleteFromDocument()` -- remove selected content from the document.
-- `containsNode(node, allowPartialContainment = false)` -- checks whether the selection contains `node` (partially if the second argument is `true`)
+- `collapse(node, offset)` -- Reemplazar el rango seleccionado con uno nuevo que comienza y termina en el `node` dado, en posición `offset`.
+- `setPosition(node, offset)` -- alias para `collapse`.
+- `collapseToStart()` - colapsar (reemplazar con un rango vacío) al inicio de la selección,
+- `collapseToEnd()` - colapso hasta el final de la selección,
+- `extend(node, offset)` - mover el foco de la selección al `node` dado, posición `offset`,
+- `setBaseAndExtent(anchorNode, anchorOffset, focusNode, focusOffset)` - reemplazar el rango de selección con el inicio dado `anchorNode/anchorOffset` y final `focusNode/focusOffset`. Se selecciona todo el contenido entre ellos.
+- `selectAllChildren(node)` -- seleccionar todos los hijos del `node`.
+- `deleteFromDocument()` -- eliminar el contenido seleccionado del documento.
+- `containsNode(node, allowPartialContainment = false)` -- comprueba si la selección contiene `node` (parcialmente si el segundo argumento es `true`)
 
-So, for many tasks we can call `Selection` methods, no need to access the underlying `Range` object.
+Entonces, para muchas tareas podemos llamar a los métodos de `Selection`, y no es necesario acceder al objeto `Range` subyacente.
 
-For example, selecting the whole contents of the paragraph `<p>`:
+Por ejemplo, seleccionando todo el contenido del párrafo `<p>`:
 
 ```html run
 <p id="p">Select me: <i>italic</i> and <b>bold</b></p>
 
 <script>
-  // select from 0th child of <p> to the last child
+  // seleccione desde el 0 hijo de <p> hasta el último hijo
   document.getSelection().setBaseAndExtent(p, 0, p, p.childNodes.length);
 </script>
 ```
 
-The same thing using ranges:
+Lo mismo usando rangos:
 
 ```html run
 <p id="p">Select me: <i>italic</i> and <b>bold</b></p>
 
 <script>
   let range = new Range();
-  range.selectNodeContents(p); // or selectNode(p) to select the <p> tag too
+  range.selectNodeContents(p); // o selectNode(p) para seleccionar el tag <p> también
 
-  document.getSelection().removeAllRanges(); // clear existing selection if any
+  document.getSelection().removeAllRanges(); // borrar la selección existente si la hubiera
   document.getSelection().addRange(range);
 </script>
 ```
 
-```smart header="To select, remove the existing selection first"
-If the selection already exists, empty it first with `removeAllRanges()`. And then add ranges. Otherwise, all browsers except Firefox ignore new ranges.
+```smart header="Para seleccionar, primero elimine la selección existente"
+Si la selección ya existe, vacíelo primero con `removeAllRanges()`. Y luego agregue rangos. De lo contrario, todos los navegadores excepto Firefox ignoran los nuevos rangos.
 
-The exception is some selection methods, that replace the existing selection, like `setBaseAndExtent`.
+La excepción son algunos métodos de selección, que reemplazan la selección existente, como `setBaseAndExtent`.
 ```
 
-## Selection in form controls
+## Selección en controles de formulario
 
-Form elements, such as `input` and `textarea` provide [special API for selection](https://html.spec.whatwg.org/#textFieldSelection), without `Selection` or `Range` objects. As an input value is a pure text, not HTML, there's no need for such objects, everything's much simpler.
+Elementos de formulario, como `input` y `textarea` proporciona [API especial para la selección](https://html.spec.whatwg.org/#textFieldSelection), sin objetos `Selection` o `Range`. Como un valor de entrada es un texto puro, no HTML, no hay necesidad de tales objetos, todo es mucho más simple.
 
-Properties:
-- `input.selectionStart` -- position of selection start (writeable),
-- `input.selectionEnd` -- position of selection end (writeable),
-- `input.selectionDirection` -- selection direction, one of: "forward", "backward" or "none" (if e.g. selected with a double mouse click),
+Propiedades:
+- `input.selectionStart` -- posición de inicio de selección (escribible),
+- `input.selectionEnd` -- posición del final de la selección (escribible),
+- `input.selectionDirection` -- dirección de selección, una de: "adelante" "hacia atrás" o "ninguno" (si, por ejemplo, se selecciona con un doble clic del mouse),
 
-Events:
-- `input.onselect` -- triggers when something is selected.
+Eventos:
+- `input.onselect` -- se activa cuando se selecciona algo.
 
-Methods:
+Métodos:
 
-- `input.select()` -- selects everything in the text control (can be `textarea` instead of `input`),
-- `input.setSelectionRange(start, end, [direction])` -- change the selection to span from position `start` till `end`, in the given direction (optional).
-- `input.setRangeText(replacement, [start], [end], [selectionMode])` -- replace a range of text with the new text.
+- `input.select()` -- selecciona todo en el control de texto (puede ser `textarea` en vez de `input`),
+- `input.setSelectionRange(start, end, [direction])` -- cambiar la selección para abarcar desde la posición `start` hasta `end`, en la dirección indicada (opcional).
+- `input.setRangeText(replacement, [start], [end], [selectionMode])` -- reemplace un rango de texto con el nuevo texto.
 
-    Optional arguments `start` and `end`, if provided, set the range start and end, otherwise user selection is used.
+    Los argumentos opcionales `start` y `end`, si se proporcionan, establecen el inicio y el final del rango; de lo contrario, se utiliza la selección del usuario.
 
-    The last argument, `selectionMode`, determines how the selection will be set after the text has been replaced. The possible values are:
+    El último argumento, `selectionMode`, determina cómo se establecerá la selección después de que se haya reemplazado el texto. Los posibles valores son:
 
-    - `"select"` -- the newly inserted text will be selected.
-    - `"start"` -- the selection range collapses just before the inserted text (the cursor will be immediately before it).
-    - `"end"` -- the selection range collapses just after the inserted text (the cursor will be right after it).
-    - `"preserve"` -- attempts to preserve the selection. This is the default.
+    - `"select"` -- se seleccionará el texto recién insertado.
+    - `"start"` -- el rango de selección se colapsa justo antes del texto insertado (el cursor estará inmediatamente antes).
+    - `"end"` -- el rango de selección se colapsa justo después del texto insertado (el cursor estará justo después).
+    - `"preserve"` -- intenta preservar la selección. Este es el predeterminado.
 
-Now let's see these methods in action.
+Ahora veamos estos métodos en acción.
 
-### Example: tracking selection
+### Ejemplo: Seguimiento de selección
 
-For example, this code uses `onselect` event to track selection:
+Por ejemplo, este código usa el evento `onselect` para rastrear la selección:
 
 ```html run autorun
 <textarea id="area" style="width:80%;height:60px">
@@ -469,20 +469,20 @@ From <input id="from" disabled> – To <input id="to" disabled>
 </script>
 ```
 
-Please note:
-- `onselect` triggers when something is selected, but not when the selection is removed.
-- `document.onselectionchange` event should not trigger for selections inside a form control, according to the [spec](https://w3c.github.io/selection-api/#dfn-selectionchange), as it's not related to `document` selection and ranges. Some browsers generate it, but we shouldn't rely on it.
+Tenga en cuenta:
+- `onselect` se activa cuando se selecciona algo, pero no cuando se elimina la selección.
+- El evento `document.onselectionchange` no debería activarse para las selecciones dentro de un control de formulario, según el [spec](https://w3c.github.io/selection-api/#dfn-selectionchange), ya que no está relacionado con la selección y los rangos del "documento". Algunos navegadores lo generan, pero no debemos confiar en él.
 
 
-### Example: moving cursor
+### Ejemplo: cursor en movimiento
 
-We can change `selectionStart` and `selectionEnd`, that sets the selection.
+Podemos cambiar `selectionStart` y `selectionEnd`, que establece la selección.
 
-An important edge case is when `selectionStart` and `selectionEnd` equal each other. Then it's exactly the cursor position. Or, to rephrase, when nothing is selected, the selection is collapsed at the cursor position.
+Un caso límite importante es cuando `selectionStart` y `selectionEnd` son iguales entre sí. Entonces es exactamente la posición del cursor. O, para reformular, cuando no se selecciona nada, la selección se contrae en la posición del cursor.
 
-So, by setting `selectionStart` and `selectionEnd` to the same value, we move the cursor.
+Entonces, al establecer `selectionStart` y `selectionEnd` en el mismo valor, movemos el cursor.
 
-For example:
+Por ejemplo:
 
 ```html run autorun
 <textarea id="area" style="width:80%;height:60px">
@@ -501,13 +501,13 @@ Focus on me, the cursor will be at position 10.
 </script>
 ```
 
-### Example: modifying selection
+### Ejemplo: modificar la selección
 
-To modify the content of the selection, we can use `input.setRangeText()` method. Of course, we can read `selectionStart/End` and, with the knowledge of the selection, change the corresponding substring of `value`, but `setRangeText` is more powerful and often more convenient.
+Para modificar el contenido de la selección, podemos utilizar el método `input.setRangeText()` Por supuesto, podemos leer `selectionStart/End` y, con el conocimiento de la selección, cambiar la subcadena correspondiente de `value`, pero `setRangeText` es más poderoso y a menudo más conveniente.
 
-That's a somewhat complex method. In its simplest one-argument form it replaces the user selected range and removes the selection.
+Ese es un método algo complejo. En su forma más simple de un argumento, reemplaza el rango seleccionado por el usuario y elimina la selección.
 
-For example, here the user selection will be wrapped by `*...*`:
+Por ejemplo, aquí la selección de usuario estará envuelta por `*...*`:
 
 ```html run autorun
 <input id="input" style="width:200px" value="Select here and click the button">
@@ -516,7 +516,7 @@ For example, here the user selection will be wrapped by `*...*`:
 <script>
 button.onclick = () => {
   if (input.selectionStart == input.selectionEnd) {
-    return; // nothing is selected
+    return; // nada fue seleccionado
   }
 
   let selected = input.value.slice(input.selectionStart, input.selectionEnd);
@@ -525,9 +525,9 @@ button.onclick = () => {
 </script>
 ```
 
-With more arguments, we can set range `start` and `end`.
+Con más argumentos, podemos establecer un rango `start` y `end`.
 
-In this example we find `"THIS"` in the input text, replace it and keep the replacement selected:
+En este ejemplo, encontramos `THIS` en el texto de entrada, lo reemplazamos y mantenemos el reemplazo seleccionado:
 
 ```html run autorun
 <input id="input" style="width:200px" value="Replace THIS in text">
@@ -544,13 +544,13 @@ button.onclick = () => {
 </script>
 ```
 
-### Example: insert at cursor
+### Ejemplo: insertar en el cursor
 
-If nothing is selected, or we use equal `start` and `end` in `setRangeText`, then the new text is just inserted, nothing is removed.
+Si no se selecciona nada, o usamos el mismo `comienzo` y `final` en `setRangeText`, entonces el nuevo texto se acaba de insertar, no se elimina nada.
 
-We can also insert something "at the cursor" using `setRangeText`.
+También podemos insertar algo "en el cursor" usando `setRangeText`.
 
-Here's a button that inserts `"HELLO"` at the cursor position and puts the cursor immediately after it. If the selection is not empty, then it gets replaced (we can detect it by comparing `selectionStart!=selectionEnd` and do something else instead):
+Aquí hay un botón que se inserta `"HELLO"` en la posición del cursor y lo coloca inmediatamente después. Si la selección no está vacía, entonces se reemplaza (podemos detectarla comparando `selectionStart!=selectionEnd` y hacer otra cosa en su lugar):
 
 ```html run autorun
 <input id="input" style="width:200px" value="Text Text Text Text Text">
@@ -565,11 +565,11 @@ Here's a button that inserts `"HELLO"` at the cursor position and puts the curso
 ```
 
 
-## Making unselectable
+## Haciendo no seleccionable
 
-To make something unselectable, there are three ways:
+Para hacer algo no seleccionable, hay tres formas:
 
-1. Use CSS property `user-select: none`.
+1. Usar propiedad CSS `user-select: none`.
 
     ```html run
     <style>
@@ -580,12 +580,12 @@ To make something unselectable, there are three ways:
     <div>Selectable <div id="elem">Unselectable</div> Selectable</div>
     ```
 
-    This doesn't allow the selection to start at `elem`. But the user may start the selection elsewhere and include `elem` into it.
+    Esto no permite que la selección comience en `elem`. Pero el usuario puede iniciar la selección en otro lugar e incluir `elem` en ella.
 
-    Then `elem` will become a part of `document.getSelection()`, so the selection actually happens, but its content is usually ignored in copy-paste.
+   Entonces, `elem` se convertirá en parte de `document.getSelection )`, por lo que la selección realmente ocurre, pero su contenido generalmente se ignora al copiar y pegar.
 
 
-2. Prevent default action in `onselectstart` or `mousedown` events.
+2. Evita la acción predeterminada en los eventos `onselectstart` o `mousedown`.
 
     ```html run
     <div>Selectable <div id="elem">Unselectable</div> Selectable</div>
@@ -595,38 +595,38 @@ To make something unselectable, there are three ways:
     </script>
     ```
 
-    This prevents starting the selection on `elem`, but the visitor may start it at another element, then extend to `elem`.
+   Esto evita que la selección se inicie en `elem`, pero el visitante puede iniciarla en otro elemento y luego extenderla a `elem`.
 
-    That's convenient when there's another event handler on the same action that triggers the select (e.g. `mousedown`). So we disable the selection to avoid conflict, still allowing `elem` contents to be copied.
+Eso es conveniente cuando hay otro controlador de eventos en la misma acción que activa la selección (por ejemplo, `mousedown`). Así que deshabilitamos la selección para evitar conflictos, permitiendo que se copien los contenidos de `elem`.
 
-3. We can also clear the selection post-factum after it happens with `document.getSelection().empty()`. That's rarely used, as this causes unwanted blinking as the selection appears-disappears.
+3. También podemos borrar la selección post-factum después de que suceda con `document.getSelection().Empty ()`. Eso se usa con poca frecuencia, ya que provoca un parpadeo no deseado cuando la selección aparece o desaparece.
 
-## References
+## Referencias
 
 - [DOM spec: Range](https://dom.spec.whatwg.org/#ranges)
 - [Selection API](https://www.w3.org/TR/selection-api/#dom-globaleventhandlers-onselectstart)
 - [HTML spec: APIs for the text control selections](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#textFieldSelection)
 
 
-## Summary
+## Resumen
 
-We covered two different APIs for selections:
+Cubrimos dos API diferentes para las selecciones:
 
-1. For document: `Selection` and `Range` objects.
-2. For `input`, `textarea`: additional methods and properties.
+1. Para el documento: objetos `Selection` y `Range`.
+2. Para `input`, `textarea`: métodos y propiedades adicionales.
 
-The second API is very simple, as it works with text.
+La segunda API es muy simple, ya que funciona con texto.
 
-The most used recipes are probably:
+Las recetas más utilizadas probablemente sean:
 
 1. Getting the selection:
     ```js
     let selection = document.getSelection();
 
-    let cloned = /* element to clone the selected nodes to */;
+    let cloned = /* elemento para clonar los nodos seleccionados para */;
 
-    // then apply Range methods to selection.getRangeAt(0)
-    // or, like here, to all ranges to support multi-select
+    // luego aplica los métodos Range a selection.getRangeAt (0)
+    // o, como aquí, a todos los rangos para admitir selección múltiple
     for (let i = 0; i < selection.rangeCount; i++) {
       cloned.append(selection.getRangeAt(i).cloneContents());
     }
@@ -635,12 +635,12 @@ The most used recipes are probably:
     ```js
     let selection = document.getSelection();
 
-    // directly:
+    // directamente:
     selection.setBaseAndExtent(...from...to...);
 
-    // or we can create a range and:
+    // o podemos crear un rango y:
     selection.removeAllRanges();
     selection.addRange(range);
     ```
 
-And finally, about the cursor. The cursor position in editable elements, like `<textarea>` is always at the start or the end of the selection. We can use it  to get cursor position or to move the cursor by setting `elem.selectionStart` and `elem.selectionEnd`.
+Y finalmente, sobre el cursor. La posición del cursor en elementos editables, como `<textarea>` está siempre al principio o al final de la selección. Podemos usarlo para obtener la posición del cursor o para mover el cursor configurando `elem.selectionStart` y `elem.selectionEnd`.
