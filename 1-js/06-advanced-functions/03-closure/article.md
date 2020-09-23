@@ -315,7 +315,7 @@ Cuando en una entrevista, un desarrollador frontend recibe una pregunta sobre "�
 
 Por lo general, un entorno léxico se elimina de la memoria con todas las variables una vez que finaliza la llamada a la función. Eso es porque no hay referencias al respecto. Como cualquier objeto de JavaScript, solo se mantiene en la memoria mientras es accesible.
 
-... Pero si hay una función anidada a la que todavía se puede llegar después del final de una función, entonces tiene la propiedad `[[Environment]]` que hace referencia al entorno léxico.
+Sin embargo, si hay una función anidada a la que todavía se puede llegar después del final de una función, entonces tiene la propiedad `[[Environment]]` que hace referencia al entorno léxico.
 
 En ese caso, el entorno léxico aún es accesible incluso después de completar la función, por lo que permanece vivo.
 
@@ -334,7 +334,7 @@ let g = f(); // g.[[Environment]] almacena una referencia al entorno léxico
 // de la llamada f() correspondiente
 ```
 
-Tenga en cuenta que si se llama a `f()` muchas veces y se guardan las funciones resultantes, todos los objetos del entorno léxico correspondientes también se conservarán en la memoria. Veamos las 3 funciones en el siguiente ejemplo:
+Tenga en cuenta que si se llama a `f()` muchas veces y se guardan las funciones resultantes, todos los objetos del entorno léxico correspondientes también se conservarán en la memoria. En el siguiente código, las 3 de ellas:
 
 ```js
 function f() {

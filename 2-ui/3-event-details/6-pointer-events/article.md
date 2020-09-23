@@ -8,7 +8,9 @@ Hagamos una pequeña descripción general para que comprenda la imagen general y
 
 - Hace mucho tiempo, en el pasado, solo existían eventos de mouse.
 
-    Luego aparecieron los dispositivos táctiles. Para que el código antiguo funcione, también generan eventos de mouse. Por ejemplo, tocar genera `mousedown`. Pero los eventos del mouse no eran adecuados porque los dispositivos táctiles son más poderosos en muchos aspectos. Por ejemplo, es posible tocar varios puntos a la vez, y los eventos del mouse no tienen propiedades para eso.
+    Luego aparecieron los dispositivos táctiles. Para que el código antiguo funcione, también generan eventos de mouse. Por ejemplo, tocar genera `mousedown`. 
+    
+    Pero los dispositivos táctiles tienen más capacidadess que un mouse. Por ejemplo, es posible tocar múltiples puntos al mismo ("multi-touch"). Los eventos del mouse no tienen las propiedades necesariass para manejar tal multi-touch.
 
 - Por lo tanto, se introdujeron eventos táctiles, como `touchstart`,`touchend`, `touchmove`, que tienen propiedades específicas de toque (no los cubrimos en detalle aquí, porque los eventos de puntero son aún mejores).
 
@@ -16,7 +18,9 @@ Hagamos una pequeña descripción general para que comprenda la imagen general y
 
 - Para resolver estos problemas, se introdujo el nuevo estándar: *Pointer Events*. Este proporciona un conjunto único de eventos para todo tipo de dispositivos señaladores.
 
-Al momento la especificación [Pointer Events Level 2](https://www.w3.org/TR/pointerevents2/) es compatible con todos los principales navegadores, mientras que [Pointer Events Level 3](https://w3c.github.io/pointerevents/) está en proceso. A menos que codifique para Internet Explorer 10 o Safari 12 y versiones anteriores, ya no tiene sentido usar el mouse o los eventos táctiles. Podemos cambiar a eventos de puntero.
+Al momento la especificación [Pointer Events Level 2](https://www.w3.org/TR/pointerevents2/) es compatible con todos los principales navegadores, mientras que [Pointer Events Level 3](https://w3c.github.io/pointerevents/) está en proceso y es mayormente compatible con Pointer Events level 2. 
+
+A menos que codifique para navegadores viejos tales como Internet Explorer 10 o Safari 12 y versiones anteriores, ya no tiene sentido usar el mouse o los eventos táctiles: podemos cambiar a eventos de puntero.
 
 Dicho esto, hay peculiaridades importantes, uno debe saber usarlas correctamente y evitar sorpresas adicionales. Les prestaremos atención en este artículo.
 
@@ -24,7 +28,7 @@ Dicho esto, hay peculiaridades importantes, uno debe saber usarlas correctamente
 
 Los eventos de puntero se llaman de forma similar a los eventos del mouse:
 
-| Eventos de puntero | Eventos de mouse |
+| Evento de puntero | Evento de mouse similar |
 |---------------|-------------|
 | `pointerdown` | `mousedown` |
 | `pointerup` | `mouseup` |
@@ -42,7 +46,7 @@ Como podemos ver, para cada `mouse<event>`, hay un `pointer<event>` que juega un
 ```smart header="Remplazando *mouse<event>* con *pointer<event>* en nuestro código"
 Podemos reemplazar los eventos `mouse<event>` con `pointer<event>` en nuestro código y esperar que las cosas sigan funcionando bien con el mouse.
 
-El soporte para dispositivos táctiles también mejorará "mágicamente", pero probablemente necesitemos agregar la regla `touch-action: none` en CSS. Vea los detalles a continuación en la sección sobre `pointercancel`.
+El soporte para dispositivos táctiles también mejorará "mágicamente", pero probablemente necesitemos agregar la regla `touch-action: none` en CSS. Veremos los detalles a continuación en la sección sobre `pointercancel`.
 ```
 
 ## Propiedades de los eventos de puntero
@@ -51,8 +55,8 @@ Los eventos de puntero tienen las mismas propiedades que los eventos del mouse, 
 
 - `pointerId` - el identificador único del puntero que causa el evento.
     
-    Permite manejar múltiples punteros, como una pantalla táctil con lápiz y multitáctil (explicado a continuación).
-- `pointerType` - el tipo de dispositivo señalador debe ser una cadena, uno de los siguientes: "mouse", "pen" o "touch".
+    Generado por el navegador. Permite manejar múltiples punteros, como una pantalla táctil con lápiz y multitáctil (explicado a continuación).
+- `pointerType` - el tipo de dispositivo señalador. Debe ser una cadena, uno de los siguientes: "mouse", "pen" o "touch".
 
     Podemos usar esta propiedad para reaccionar de manera diferente en varios tipos de punteros.
 - `isPrimary` - `true` para el puntero principal (el primer dedo en multitáctil).
@@ -77,7 +81,7 @@ Esto es lo que sucede cuando un usuario toca una pantalla en un lugar y luego co
 
 1. En el primer toque:
     - `pointerdown` with `isPrimary=true` y algún `pointerId`.
-2. Para el segundo dedo y toques posteriores:
+2. Para el segundo dedo y toques posteriores (asumiendo que el primero sigue tocando):
     - `pointerdown` con `isPrimary=false` y un diferente `pointerId` por cada dedo.
 
 Tenga en cuenta: el `pointerId` no se asigna a todo el dispositivo, sino a cada dedo que se toca. Si usamos 5 dedos para tocar simultáneamente la pantalla, tenemos 5 eventos `pointerdown` con coordenadas respectivas y diferentes `pointerId`.
@@ -91,12 +95,10 @@ Aquí está la demostración que registra los eventos `pointerdown` y `pointerup
 
 [iframe src="multitouch" edit height=200]
 
-Tenga en cuenta que debe utilizar un dispositivo con pantalla táctil, como un teléfono o una tableta, para ver realmente la diferencia. Para dispositivos de un solo toque, como el de un mouse, siempre será el mismo `pointerId` con `isPrimary=true` para todos los eventos de puntero.
+Tenga en cuenta que debe utilizar un dispositivo con pantalla táctil, como un teléfono o una tableta, para ver realmente la diferencia en `pointerId/isPrimary`. Para dispositivos de un solo toque, como el de un mouse, siempre será el mismo `pointerId` con `isPrimary=true` para todos los eventos de puntero.
 ```
 
 ## Evento: pointercancel
-
-Ya hemos mencionado la importancia de `touch-action: none`. Ahora expliquemos por qué, ya que omitir esto puede hacer que nuestras interfaces funcionen mal.
 
 El evento `pointercancel` se dispara cuando hay una interacción de puntero en curso, y luego sucede algo que hace que se anule, de modo que no se generan más eventos de puntero.
 
@@ -111,9 +113,9 @@ Digamos que estamos implementando arrastrar y soltar (drag'n'drop) en una pelota
 
 A continuación, se muestra el flujo de acciones del usuario y los eventos correspondientes:
 
-1) El usuario presiona el botón del mouse sobre una imagen para comenzar a arrastrar
+1) El usuario presiona sobre una imagen para comenzar a arrastrar
     - `pointerdown` el evento se dispara
-2) Luego comienzan a arrastrar la imagen
+2) Luego comienzan a mover el puntero (arrastrando la imagen)
     - `pointermove` se dispara, tal vez varias veces
 3) ¡Sorpresa! El navegador tiene soporte nativo de arrastrar y soltar para imágenes, que se dispara y se hace cargo del proceso de arrastrar y soltar, generando así el evento `pointercancel`.
     - El navegador ahora maneja arrastrar y soltar la imagen por sí solo. El usuario puede incluso arrastrar la imagen de la bola fuera del navegador, a su programa de correo o al administrador de archivos.
@@ -136,7 +138,7 @@ Necesitaremos dos cosas:
 1. Evitar que suceda la función nativa de arrastrar y soltar:
     - Puede hacerlo configurando `ball.ondragstart = () => false`, tal como se describe en el artículo <info:mouse-drag-and-drop>.
     - Eso funciona bien para eventos de mouse.
-2. Para los dispositivos táctiles, también existen acciones del navegador relacionadas con el tacto. También tendremos problemas con ellos.
+2. Para los dispositivos táctiles, también existen acciones del navegador relacionadas con el tacto (además de arrastrar y soltar). También tendremos problemas con ellos.
     - Podemos prevenirlos configurando `#ball{touch-action: none}` en CSS.
     - Entonces nuestro código comenzará a funcionar en dispositivos táctiles.
 
@@ -156,41 +158,52 @@ Ahora podemos agregar el código para mover realmente la bola, y nuestro método
 
 La captura de puntero es una característica especial de los eventos de puntero.
 
-La idea es que podemos "vincular" todos los eventos con un `pointerId` particular a un elemento dado. Luego, todos los eventos posteriores con el mismo `pointerId` se redireccionarán al mismo elemento. Es decir: el navegador establece ese elemento como destino y dispara los controladores asociados, sin importar dónde sucedió realmente.
+La idea es muy simple, pero puede verse extraña al principio, porque no existe algo aí para ningún otro tipo de evento. 
 
-Los métodos relacionados son:
-- `elem.setPointerCapture(pointerId)` - vincula el `pointerId` dado a `elem`.
-- `elem.releasePointerCapture(pointerId)` - desvincula el `pointerId` dado del `elem`.
+El método principal es: 
+- `elem.setPointerCapture(pointerId)` - vincula el `pointerId` dado a `elem`. Después del llamado todos los eventos de puntero con el mismo `pointerId` tendrán `elem` como objetivo (como si pasara sobre `elem`), no importa dónde en el documento realmente ocurrió.
 
-Tal unión no dura mucho. Se elimina automáticamente después de los eventos `pointerup` o `pointercancel`, o cuando el `elem` de destino se elimina del documento.
+En otras palabras, `elem.setPointerCapture(pointerId)` redirecciona todos los subsecuentes eventos con el `pointerId` dado hacia `elem`.
 
-Ahora, ¿cuándo necesitamos esto?
+El vínculo se deshace::
+- automáticamente cuando ocurren los eventos `pointerup` o `pointercancel`,
+- automáticamente cuando `elem` es quitado del documento,
+- cuando `elem.releasePointerCapture(pointerId)` es llamado.
 
-**La captura de puntero se utiliza para simplificar el tipo de interacciones de arrastrar y soltar.**
+**La captura de puntero puede utilizarse para simplificar el tipo de interacciones de arrastrar y soltar.**
 
 Recordemos el problema que encontramos al hacer un control deslizante personalizado en el artículo <info:mouse-drag-and-drop>.
 
-1) Primero, el usuario presiona `pointerdown` en el control deslizante para comenzar a arrastrarlo.
-2) ...Pero luego, a medida que mueven el puntero, puede salirse del control deslizante: que vaya por debajo o por encima de él.
+Hacemos un elemento deslizante con la corredera y botón (`thumb`) dentro.
 
-Pero continuamos rastreando los eventos de la pista `pointermove` y movemos el pulgar hasta `pointerup`, aunque el puntero ya no esté en el control deslizante.
+Funciona así:
 
-[Anteriormente](info: mouse-drag-and-drop), para manejar los eventos `pointermove` que ocurrían fuera del control deslizante, escuchábamos los eventos `pointermove` en todo el `document`. 
+1) Primero, el usuario presiona en el deslizante - se dispara `pointerdown`
+2) Entonces mueve el puntero - se dispara `pointermove` y mueve el botón `thumb`
+    - ...mientras el puntero se mueve, puede salirse del control deslizante: que vaya por debajo o por encima de él. El botón debe moverse estrictamente horizontal, permaneciendo alineado con el puntero.
 
-La captura de puntero proporciona una solución alternativa: podemos llamar a `thumb.setPointerCapture(event.pointerId)` en el controlador `pointerdown`, y luego a todos los eventos de puntero futuros hasta que `pointerup` se redireccione a `thumb`.
+Entonces, para rastrear todos los movimientos del puntero, incluyendo aquillos por arriba o por debajo, tenemos que asignar el controlador de evento `pointermove` al `document` entero.
 
-Es decir: se llamará a los controladores de eventos en `thumb` y `event.target` siempre será `thumb`, incluso si el usuario mueve el puntero por todo el documento. Así que podemos escuchar en `thumb` desde `pointermove`, sin importar dónde suceda.
+Esta solución se ve un poco "sucia". Uno de los problemas es que los movimientos alrededor del documento pueden causar efectos colaterales, disparar otros eventos, completamente sin relación al deslizante.
+
+La captura de puntero provee un medio de vincular `pointermove` a `thumb` y evitar cualquiera de tales problemas:
+
+- Podemos llamar `thumb.setPointerCapture(event.pointerId)` en el controlador`pointerdown`,
+- Entoncess futuros eventos de puntero hasta `pointerup/cancel` serán redirigidos a `thumb`. 
+- Cuando ocurre `pointerup` (arrastre finalizado), el vínculo se deshace automáticamente, no necesitamos atender eso.
+
+Entonces, incluso si el usuario mueve el puntero alrededor de todo el documento, los controladores de eventos serán llamados sobre `thumb`. Además las propiedades de coordenadas de los eventos, tales como `clientX/clientY` aún serán correctas, la captura solo afecta a `target/currentTarget`.
 
 Aquí está el código esencial:
 
 ```js
 thumb.onpointerdown = function(event) {
-  // reorienta todos los eventos de puntero (hasta pointerup) a mí
+  // reorienta todos los eventos de puntero (hasta pointerup) a thumb
   thumb.setPointerCapture(event.pointerId);
 };
 
 thumb.onpointermove = function(event) {
-  // mueve el control deslizante: escucha con thumb, ya que todos los eventos se redireccionan a él
+  // mueve el control deslizante: escucha a thumb, ya que todos los eventos se redireccionan a él
   let newLeft = event.clientX - slider.getBoundingClientRect().left;
   thumb.style.left = newLeft + 'px';
 };
@@ -205,7 +218,11 @@ La demostración completa:
 [iframe src="slider" height=100 edit]
 ```
 
-**Como resumen: el código se vuelve más limpio ya que ya no necesitamos agregar o eliminar controladores en todo el `document`. Eso es lo que hace la captura de punteros.**
+Finalizando, la captura de puntero nos brinda dos beneficios::
+1. El código se vuelve más claro, ya no necesitamos agregar o quitar controladores para el `document` entero. El vínculo se deshace automáticamente.
+2. Si hay cualquier controlador `pointermove` en el documento, no serán disparados accidentalmente mientras el usuario está arrastrando el deslizante.
+
+### Eventos de captura de puntero
 
 Hay dos eventos de puntero asociados:
 
@@ -214,11 +231,11 @@ Hay dos eventos de puntero asociados:
 
 ## Resumen
 
-Los eventos de puntero permiten manejar eventos de mouse, toque y lápiz simultáneamente.
+Los eventos de puntero permiten manejar eventos de mouse, toque y lápiz simultáneamente con una simple pieza de código.
 
 Los eventos de puntero extienden los eventos del mouse. Podemos reemplazar `mouse` con `pointer` en los nombres de los eventos y esperar que nuestro código continúe funcionando para el mouse, con mejor soporte para otros tipos de dispositivos.
 
-Recuerde establecer `touch-events: none` en CSS para los elementos que involucramos, de lo contrario, el navegador secuestra muchos tipos de interacciones táctiles y no se generarán eventos de puntero.
+Para arrastrar y soltar, y complejas interacciones que el navegador pudiera decidir secuestrar y manejarlas por su cuenta, recuerde cancelar la acción predeterminada sobre eventos y establecer `touch-events: none` en CSS para los elementos que involucramos.
 
 Las habilidades adicionales de los eventos Pointer son:
 
