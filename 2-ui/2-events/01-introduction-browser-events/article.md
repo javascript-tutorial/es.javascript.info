@@ -352,7 +352,7 @@ Esto es posible porque cuando el navegador lee el atributo, crea un handler como
 
 ## Objetos handlers: handleEvent
 
-Podemos asignar no solo una función, sino un objeto como manejador del evento usando `addEventListener`. Cuando el evento ocurre, el método `handleEvent` es llamado.
+Podemos asignar no solo una función, sino un objeto como handler del evento usando `addEventListener`. Cuando el evento ocurre, el método `handleEvent` es llamado.
 
 Por ejemplo:
 
