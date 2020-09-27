@@ -1,36 +1,36 @@
-# Resumable file upload
+# Carga de archivos reanudable
 
-With `fetch` method it's fairly easy to upload a file.
+Con el método `fetch` es bastante fácil cargar un archivo.
 
-How to resume the upload after lost connection? There's no built-in option for that, but we have the pieces to implement it.
+¿Cómo reanudar la carga de un archivo despues de perder la conexión? No hay una opción incorporada para eso, pero tenemos las piezas para implementarlo.
 
-Resumable uploads should come with upload progress indication, as we expect big files (if we may need to resume). So, as `fetch` doesn't allow to track upload progress, we'll use [XMLHttpRequest](info:xmlhttprequest).
+Las cargas reanudables deberían venir con indicación de progreso, ya que esperamos archivos grandes (Si necesitamos reanudar). Entonces, ya que `fetch` no permite rastrear el progreso de carga, usaremos [XMLHttpRequest](info:xmlhttprequest).
 
-## Not-so-useful progress event
+## Evento de progreso poco útil
 
-To resume upload, we need to know how much was uploaded till the connection was lost.
+Para reanudar la carga, necesitamos saber cuánto fue cargado hasta la pérdida de la conexión.
 
-There's `xhr.upload.onprogress` to track upload progress.
+Disponemos de `xhr.upload.onprogress` para rastrear el progreso de carga.
 
-Unfortunately, it won't help us to resume the upload here, as it triggers when the data is *sent*, but was it received by the server? The browser doesn't know.
+Desafortunadamente, esto no nos ayudará a reanudar la descarga, Ya que se origina cuando los datos son *enviados*, ¿pero fue recibida por el servidor? el navegador no lo sabe.
 
-Maybe it was buffered by a local network proxy, or maybe the remote server process just died and couldn't process them, or it was just lost in the middle and didn't reach the receiver.
+Tal vez fue almacenada por un proxy de la red local, o quizá el proceso del servidor remoto solo murió y no pudo procesarla, o solo se perdió en el medio y no alcanzó al receptor.
 
-That's why this event is only useful to show a nice progress bar.
+Es por eso que este evento solo es útil para mostrar una barra de progreso bonita.
 
-To resume upload, we need to know *exactly* the number of bytes received by the server. And only the server can tell that, so we'll make an additional request.
+Para reanudar una carga, necesitamos saber *exactamente* el número de bytes recibidos por el servidor. Y eso solo lo sabe el servidor, por lo tanto haremos una solicitud adicional.
 
-## Algorithm
+## Algoritmos
 
-1. First, create a file id, to uniquely identify the file we're going to upload:
+1. Primero, crear un archivo id, para únicamente identificar el archivo que vamos a subir:
     ```js
     let fileId = file.name + '-' + file.size + '-' + +file.lastModifiedDate;
     ```
-    That's needed for resume upload, to tell the server what we're resuming.
+    Eso es necesario para reanudar la carga, para decirle al servidor lo que estamos reanudando.
 
-    If the name or the size or the last modification date changes, then there'll be another `fileId`.
+    Si el nombre o tamaño de la última fecha de modificación cambia, entonces habrá otro `fileId`.
 
-2. Send a request to the server, asking how many bytes it already has, like this:
+2. Envía una solicitud al servidor, preguntando cuántos bytes tiene, así:
     ```js
     let response = await fetch('status', {
       headers: {
@@ -38,45 +38,45 @@ To resume upload, we need to know *exactly* the number of bytes received by the 
       }
     });
 
-    // The server has that many bytes
+    // El servidor tiene tanta cantidad de bytes
     let startByte = +await response.text();
     ```
 
-    This assumes that the server tracks file uploads by `X-File-Id` header. Should be implemented at server-side.
+    Esto asume que el servidor rastrea archivos cargados por el encabezado `X-File-Id`. Debe ser implementado en el lado del servidor.
 
-    If the file doesn't yet exist at the server, then the server response should be `0`
+    Si el archivo no existe aún en el servidor, entonces su respuesta debe ser `0`.
 
-3. Then, we can use `Blob` method `slice` to send the file from `startByte`:
+3. Entonces, podemos usar el método `Blob` `slice` para enviar el archivo desde `startByte`:
     ```js
     xhr.open("POST", "upload", true);
 
-    // File id, so that the server knows which file we upload
+    // Archivo, de modo que el servidor sepa qué archivo subimos
     xhr.setRequestHeader('X-File-Id', fileId);
 
-    // The byte we're resuming from, so the server knows we're resuming
+    // El byte desde el que estamos reanudando, así el servidor sabe que estamos reanudando
     xhr.setRequestHeader('X-Start-Byte', startByte);
 
     xhr.upload.onprogress = (e) => {
       console.log(`Uploaded ${startByte + e.loaded} of ${startByte + e.total}`);
     };
 
-    // file can be from input.files[0] or another source
+    // El archivo puede ser de input.files[0] u otra fuente
     xhr.send(file.slice(startByte));
     ```
 
-    Here we send the server both file id as `X-File-Id`, so it knows which file we're uploading, and the starting byte as `X-Start-Byte`, so it knows we're not uploading it initially, but resuming.
+    Aquí enviamos al servidor ambos archivos id como `X-File-Id`, para que de esa manera sepa que archivos estamos cargando, y el byte inicial como `X-Start-Byte`, para que sepa que no lo estamos cargando inicialmente, si no reanudándolo.
 
-    The server should check its records, and if there was an upload of that file, and the current uploaded size is exactly `X-Start-Byte`, then append the data to it.
+    El servidor debe verificar sus registros, y si hubo una carga de ese archivo, y si el tamaño de carga actual es exactamente `X-Start-Byte`,  entonces agregarle los datos.
 
 
-Here's the demo with both client and server code, written on Node.js.
+Aquí esta la demostración con el código tanto del cliente como del servidor, escrito en Node.js.
 
-It works only partially on this site, as Node.js is behind another server named Nginx, that buffers uploads, passing them to Node.js when fully complete.
+Esto funciona solo parcialmente en este sitio, ya que Node.js esta detrás de otro servidor llamado Nginx, que almacena cargas, pasándolas a Node.js cuando esta completamente lleno.
 
-But you can download it and run locally for the full demonstration:
+Pero puedes cargarlo y ejecutarlo localmente para la demostración completa:
 
 [codetabs src="upload-resume" height=200]
 
-As we can see, modern networking methods are close to file managers in their capabilities -- control over headers, progress indicator, sending file parts, etc.
+Como podemos ver, los métodos de red modernos estan cerca de los gestores de archivos en sus capacidades -- control sobre header, indicador de progreso, enviar partes de archivos, etc.
 
-We can implement resumable upload and much more.
+Podemos implemetar la carga reanudable y mucho mas.
