@@ -133,7 +133,7 @@ function animate({timing, draw, duration}) {
     // calcular el estado actual de la animación
     let progress = timing(timeFraction)
 
-    draw(progress); // dibujala
+    draw(progress); // dibujar
 
     if (timeFraction < 1) {
       requestAnimationFrame(animate);
@@ -146,7 +146,7 @@ function animate({timing, draw, duration}) {
 La función `animate` acepta 3 parámetros que básicamente describen la animación:
 
 `duration`
-: Tiempo total de animación. Como, `1000`.
+: Tiempo total de animación. Como: `1000`.
 
 `timing(timeFraction)`
 : Función de sincronización, como la propiedad CSS `transition-timing-function` que obtiene la fracción de tiempo que pasó (`0` al inicio, `1` al final) y devuelve la finalización de la animación (como `y` en la curva de Bézier).
