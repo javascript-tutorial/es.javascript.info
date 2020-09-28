@@ -30,7 +30,15 @@ Muestra una ventana modal con un mensaje de texto, un campo de entrada para el v
 `default`
 : Un segundo parámetro opcional, el valor inicial del campo de entrada.
 
+<<<<<<< HEAD
 El usuario puede escribir algo en el campo de entrada de solicitud y presionar OK. Luego obtenemos ese texto en el `resultado`. O pueden cancelar la entrada presionando Cancelar o presionando la tecla `: Esc`, luego obtenemos `null` como el `result`.
+=======
+```smart header="The square brackets in syntax `[...]`"
+The square brackets around `default` in the syntax above denote that the parameter is optional, not required.
+```
+
+The visitor can type something in the prompt input field and press OK. Then we get that text in the `result`. Or they can cancel the input by pressing Cancel or hitting the `key:Esc` key, then we get `null` as the `result`.
+>>>>>>> f489145731a45df6e369a3c063e52250f3f0061d
 
 La llamada a `prompt` retorna el texto del campo de entrada o `null` si la entrada fue cancelada.
 

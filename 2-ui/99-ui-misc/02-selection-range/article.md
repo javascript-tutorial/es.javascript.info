@@ -259,7 +259,11 @@ Haga clic en los botones para ejecutar métodos en la selección, "resetExample"
 </script>
 ```
 
+<<<<<<< HEAD
 También existen métodos para comparar rangos, pero rara vez se utilizan. Cuando los necesite, consulte el [spec](https://dom.spec.whatwg.org/#interface-range) o [MDN manual](https://developer.mozilla.org/en-US/docs/Web/API/Range).
+=======
+There also exist methods to compare ranges, but these are rarely used. When you need them, please refer to the [spec](https://dom.spec.whatwg.org/#interface-range) or [MDN manual](mdn:/api/Range).
+>>>>>>> f489145731a45df6e369a3c063e52250f3f0061d
 
 
 ## Selection
@@ -619,8 +623,13 @@ La segunda API es muy simple, ya que funciona con texto.
 
 Las recetas más utilizadas probablemente sean:
 
+<<<<<<< HEAD
 1. Obteniendo la selección:
     ```js run
+=======
+1. Getting the selection:
+    ```js
+>>>>>>> f489145731a45df6e369a3c063e52250f3f0061d
     let selection = document.getSelection();
 
     let cloned = /* elemento para clonar los nodos seleccionados para */;
@@ -631,8 +640,13 @@ Las recetas más utilizadas probablemente sean:
       cloned.append(selection.getRangeAt(i).cloneContents());
     }
     ```
+<<<<<<< HEAD
 2. Configuración de la selección:
     ```js run
+=======
+2. Setting the selection:
+    ```js
+>>>>>>> f489145731a45df6e369a3c063e52250f3f0061d
     let selection = document.getSelection();
 
     // directamente:

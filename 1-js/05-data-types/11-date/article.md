@@ -69,7 +69,11 @@ Para crear un nuevo objeto `Date` se lo instancia con `new Date()` junto con uno
     new Date(2011, 0, 1); // Igual que la línea de arriba, sólo que a los ultimos 4 parámetros se les asigna '0' por default.
     ```
 
+<<<<<<< HEAD
     La precisión mínima es de 1 ms (1/1000 de segundo):
+=======
+    The maximal precision is 1 ms (1/1000 sec):
+>>>>>>> f489145731a45df6e369a3c063e52250f3f0061d
 
     ```js run
     let date = new Date(2011, 0, 1, 2, 3, 4, 567);

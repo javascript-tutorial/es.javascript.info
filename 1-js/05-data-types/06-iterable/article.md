@@ -292,7 +292,16 @@ alert( str.slice(1, 3) ); // garbage (dos piezas de diferentes pares sustitutos)
 
 ## Resumen
 
+<<<<<<< HEAD
 Los objetos que se pueden usar en `for..of` se denominan *iterables*.
+=======
+- Technically, iterables must implement the method named `Symbol.iterator`.
+    - The result of `obj[Symbol.iterator]()` is called an *iterator*. It handles the further iteration process.
+    - An iterator must have the method named `next()` that returns an object `{done: Boolean, value: any}`, here `done:true` denotes the end of the iteration process, otherwise the `value` is the next value.
+- The `Symbol.iterator` method is called automatically by `for..of`, but we also can do it directly.
+- Built-in iterables like strings or arrays, also implement `Symbol.iterator`.
+- String iterator knows about surrogate pairs.
+>>>>>>> f489145731a45df6e369a3c063e52250f3f0061d
 
 - Técnicamente, los iterables deben implementar el método llamado `Symbol.iterator`.
     - El resultado de `obj[Symbol.iterator]` se llama *iterador*. Maneja el proceso de iteración adicional.
@@ -306,5 +315,9 @@ Los objetos que tienen propiedades indexadas y `longitud` o *length* se llaman *
 
 Si miramos dentro de la especificación, veremos que la mayoría de los métodos incorporados suponen que funcionan con iterables o array-likes en lugar de matrices "reales", porque eso es más abstracto.
 
+<<<<<<< HEAD
 `Array.from (obj[, mapFn, thisArg])` crea un verdadero `Array` de un `obj` iterable o array-like, y luego podemos usar métodos de matriz en él. Los argumentos opcionales `mapFn` y `thisArg` nos permiten aplicar una función a cada elemento.
  
+=======
+`Array.from(obj[, mapFn, thisArg])` makes a real `Array` from an iterable or array-like `obj`, and we can then use array methods on it. The optional arguments `mapFn` and `thisArg` allow us to apply a function to each item.
+>>>>>>> f489145731a45df6e369a3c063e52250f3f0061d

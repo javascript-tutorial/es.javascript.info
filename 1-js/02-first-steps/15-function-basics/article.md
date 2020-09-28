@@ -181,7 +181,11 @@ Por ejemplo, la función mencionada anteriormente `showMessage(from, text)` se p
 showMessage("Ann");
 ```
 
+<<<<<<< HEAD
 Eso no es un error. la llamada saldría `"Ann: undefined"`. No existe el parámetro `text`, entonces asumimos que `text === undefined`.
+=======
+That's not an error. Such a call would output `"*Ann*: undefined"`. There's no `text`, so it's assumed that `text === undefined`.
+>>>>>>> f489145731a45df6e369a3c063e52250f3f0061d
 
 Si quisiéramos usar un `text` "predeterminado" en este caso, lo podemos identificar después del `=`:
 

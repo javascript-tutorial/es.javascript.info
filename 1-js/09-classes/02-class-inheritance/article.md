@@ -352,7 +352,7 @@ Why is there the difference?
 
 Well, the reason is in the field initialization order. The class field is initialized:
 - Before constructor for the base class (that doesn't extend anything),
-- Imediately after `super()` for the derived class.
+- Immediately after `super()` for the derived class.
 
 In our case, `Rabbit` is the derived class. There's no `constructor()` in it. As said previously, that's the same as if there was an empty constructor with only `super(...args)`.
 
@@ -532,7 +532,11 @@ Aquí está la demostración de un resultado incorrecto de `super` después de c
 ```js run
 let animal = {
   sayHi() {
+<<<<<<< HEAD
     console.log(`Soy un animal`);
+=======
+    alert(`I'm an animal`);
+>>>>>>> f489145731a45df6e369a3c063e52250f3f0061d
   }
 };
 
@@ -546,7 +550,11 @@ let rabbit = {
 
 let plant = {
   sayHi() {
+<<<<<<< HEAD
     console.log("Soy una planta");
+=======
+    alert("I'm a plant");
+>>>>>>> f489145731a45df6e369a3c063e52250f3f0061d
   }
 };
 

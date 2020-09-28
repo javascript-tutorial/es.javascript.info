@@ -36,15 +36,23 @@ Esto es porque `delete obj.key` borra el valor de `key`. Es todo lo que hace. Fu
 
 Por lo tanto, necesitamos utilizar métodos especiales.
 
+<<<<<<< HEAD
 El método [arr.splice(start)](mdn:js/Array/splice) funciona como una navaja suiza para arrays. Puede hacer todo: insertar, remover y remplazar elementos.
+=======
+The [arr.splice](mdn:js/Array/splice) method is a swiss army knife for arrays. It can do everything: insert, remove and replace elements.
+>>>>>>> f489145731a45df6e369a3c063e52250f3f0061d
 
 La sintáxis es:
 
 ```js
-arr.splice(index[, deleteCount, elem1, ..., elemN])
+arr.splice(start[, deleteCount, elem1, ..., elemN])
 ```
 
+<<<<<<< HEAD
 Comienza en el índice `index`: remueve `deleteCount` elementos y luego inserta `elem1, ..., elemN` en su lugar devolviendo un array con los elementos removidos.
+=======
+It modified `arr` starting from the index `start`: removes `deleteCount` elements and then inserts `elem1, ..., elemN` at their place. Returns the array of removed elements.
+>>>>>>> f489145731a45df6e369a3c063e52250f3f0061d
 
 Este método es más fácil de entender con ejemplos.
 
@@ -706,6 +714,7 @@ La llamada a `users.filter(army.canJoin, army)` puede ser reemplazada con `users
 
 Veamos el ayudamemoria de métodos para arrays:
 
+<<<<<<< HEAD
 - Para agregar/remover elementos:
   - `push(...items)` -- agrega elementos al final,
   - `pop()` -- extrae elementos del final,
@@ -714,6 +723,16 @@ Veamos el ayudamemoria de métodos para arrays:
   - `splice(pos, deleteCount, ...items)` -- al índice `pos` borra `deleteCount` elementos e inserta `items`.
   - `slice(start, end)` -- crea un nuevo array y copia elementos desde la posición `start` hasta `end` (no incluído) en el nuevo array.
   - `concat(...items)` -- devuelve un nuevo array: copia todos los elementos del array actual y le agrega `items`. Si alguno de los `items` es un array, entonces su primer elemento es tomado
+=======
+- To add/remove elements:
+  - `push(...items)` -- adds items to the end,
+  - `pop()` -- extracts an item from the end,
+  - `shift()` -- extracts an item from the beginning,
+  - `unshift(...items)` -- adds items to the beginning.
+  - `splice(pos, deleteCount, ...items)` -- at index `pos` delete `deleteCount` elements and insert `items`.
+  - `slice(start, end)` -- creates a new array, copies elements from index `start` till `end` (not inclusive) into it.
+  - `concat(...items)` -- returns a new array: copies all members of the current one and adds `items` to it. If any of `items` is an array, then its elements are taken.
+>>>>>>> f489145731a45df6e369a3c063e52250f3f0061d
 
 - Para buscar entre elements:
   - `indexOf/lastIndexOf(item, pos)` -- busca por `item` comenzando desde la posición `pos`, devolviendo el índice o `-1` si no se encuentra.
@@ -742,7 +761,20 @@ Estos métodos son los más utilizados y cubren el 99% de los casos. Pero existe
 
   La función `fn` es llamada para cada elemento del array de manera similar a `map`. Si alguno/todos los  resultados son `true`, devuelve `true`, si no, `false`.
 
+<<<<<<< HEAD
 - [arr.fill(value, start, end)](mdn:js/Array/fill) -- llena el array repitiendo `value` desde el índice `start` hasta `end`.
+=======
+  We can use `every` to compare arrays:
+  ```js run
+  function arraysEqual(arr1, arr2) {
+    return arr1.length === arr2.length && arr1.every((value, index) => value === arr2[index]);
+  }
+
+  alert( arraysEqual([1, 2], [1, 2])); // true
+  ```
+
+- [arr.fill(value, start, end)](mdn:js/Array/fill) -- fills the array with repeating `value` from index `start` to `end`.
+>>>>>>> f489145731a45df6e369a3c063e52250f3f0061d
 
 - [arr.copyWithin(target, start, end)](mdn:js/Array/copyWithin) -- copia sus elementos desde la posición `start` hasta la posición `end` en *si mismo*, a la posición `target` (reescribe lo existente).
 

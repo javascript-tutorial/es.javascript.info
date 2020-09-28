@@ -32,8 +32,15 @@ Lo podemos comprobar así:
 ```js run
 let obj = {};
 
+<<<<<<< HEAD
 alert(obj.__proto__ === Object.prototype); // verdadero
 // obj.toString === obj.__proto__.toString == Object.prototype.toString
+=======
+alert(obj.__proto__ === Object.prototype); // true
+
+alert(obj.toString === obj.__proto__.toString); //true
+alert(obj.toString === Object.prototype.toString); //true
+>>>>>>> f489145731a45df6e369a3c063e52250f3f0061d
 ```
 
 Tenga en cuenta que no hay más `[[Prototype]]` en la cadena sobre `Object.prototype`:

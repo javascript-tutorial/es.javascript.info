@@ -227,17 +227,44 @@ Para ser precisos, la no configurabilidad impone varias restricciones a `defineP
 - 3. No se puede cambiar `writable: false` a `true` (al revés funciona).
 - 4. No se puede cambiar `get/set` por una propiedad accesoria (pero puede asignarlos si está ausente).
 
+<<<<<<< HEAD
 Aquí estamos haciendo `user.name` una constante "sellada por siempre":
+=======
+**The idea of "configurable: false" is to prevent changes of property flags and its deletion, while allowing to change its value.**
+
+Here `user.name` is non-configurable, but we can still change it (as it's writable):
+>>>>>>> f489145731a45df6e369a3c063e52250f3f0061d
 
 ```js run
-let user = { };
+let user = {
+  name: "John"
+};
 
 Object.defineProperty(user, "name", {
+  configurable: false
+});
+
+user.name = "Pete"; // works fine
+delete user.name; // Error
+```
+
+And here we make `user.name` a "forever sealed" constant:
+
+```js run
+let user = {
+  name: "John"
+};
+
+Object.defineProperty(user, "name", {
+<<<<<<< HEAD
   value: "Juan",
+=======
+>>>>>>> f489145731a45df6e369a3c063e52250f3f0061d
   writable: false,
   configurable: false
 });
 
+<<<<<<< HEAD
 *!*
 // No seremos capaces de cambiar usuario.nombre o su identificador
 // Nada de esto funcionará:
@@ -253,6 +280,15 @@ Excepción notable: un valor de propiedad no-configurable pero writable puede se
 
 La idea de `configurable: false` is para evitar cambios a los indicadores de propiedad y su borrado, no cambios a su valor.
 ```
+=======
+// won't be able to change user.name or its flags
+// all this won't work:
+user.name = "Pete";
+delete user.name;
+Object.defineProperty(user, "name", { value: "Pete" });
+```
+
+>>>>>>> f489145731a45df6e369a3c063e52250f3f0061d
 
 ## Object.defineProperties
 

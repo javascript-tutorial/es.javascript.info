@@ -229,11 +229,16 @@ new Promise((resolve, reject) => {
 *!*
   // se ejecuta cuando se cumple la promesa, no importa con éxito o no
   .finally(() => stop loading indicator)
+  // so the loading indicator is always stopped before we process the result/error
 */!*
   .then(result => show result, err => show error)
 ```
 
+<<<<<<< HEAD
 Sin embargo, no es exactamente un alias de `then(f, f)`. Hay varias diferencias importantes:
+=======
+That said, `finally(f)` isn't exactly an alias of `then(f,f)` though. There are few subtle differences:
+>>>>>>> f489145731a45df6e369a3c063e52250f3f0061d
 
 1. Un manejador `finally` no tiene argumentos. En `finally` no sabemos si la promesa es exitosa o no. Eso está bien, ya que nuestra tarea generalmente es realizar procedimientos de finalización "generales".
 2. Un controlador `finally` pasa a través de resultados y errores al siguiente controlador.
@@ -257,6 +262,7 @@ Sin embargo, no es exactamente un alias de `then(f, f)`. Hay varias diferencias 
       .catch(err => alert(err));  // <-- .catch maneja el objeto error
     ```
 
+<<<<<<< HEAD
     Eso es muy conveniente, porque 'finally' no está destinado a procesar un resultado "promesa". Entonces lo pasa.
 
     Hablaremos más sobre el encadenamiento de promesas y la transmisión de resultados entre los manejadores en el próximo capítulo.
@@ -265,6 +271,15 @@ Sin embargo, no es exactamente un alias de `then(f, f)`. Hay varias diferencias 
 
 ````smart header="En promesas establecidas, los manejadores se ejecutan inmediatamente"
 Si hay una promesa pendiente, los manejadores `.then/catch/finally` la esperan. De lo contrario, si una promesa ya se resolvió, se ejecutan inmediatamente:
+=======
+That's very convenient, because `finally` is not meant to process a promise result. So it passes it through.
+
+We'll talk more about promise chaining and result-passing between handlers in the next chapter.
+
+
+````smart header="We can attach handlers to settled promises"
+If a promise is pending, `.then/catch/finally` handlers wait for it. Otherwise, if a promise has already settled, they just run:
+>>>>>>> f489145731a45df6e369a3c063e52250f3f0061d
 
 ```js run
 // la promesa se resuelve inmediatamente después de la creación
@@ -273,9 +288,15 @@ let promise = new Promise(resolve => resolve("hecho!"));
 promise.then(alert); // ¡hecho! (aparece ahora)
 ```
 
+<<<<<<< HEAD
 Ten en cuenta que esto es diferente y más poderoso que el escenario de la "lista de suscripción" de la vida real. Si el cantante ya lanzó su canción y luego una persona se registra en la lista de suscripción, probablemente no recibirá esa canción. Las suscripciones en la vida real deben hacerse antes del evento.
 
 Las promesas son más flexibles. Podemos agregar manejadores en cualquier momento: si el resultado ya está allí, nuestros manejadores lo obtienen de inmediato.
+=======
+Note that this makes promises more powerful than the real life "subscription list" scenario. If the singer has already released their song and then a person signs up on the subscription list, they probably won't receive that song. Subscriptions in real life must be done prior to the event.
+
+Promises are more flexible. We can add handlers any time: if the result is already there, they just execute.
+>>>>>>> f489145731a45df6e369a3c063e52250f3f0061d
 ````
 
 A continuación, veamos ejemplos más prácticos de cómo las promesas pueden ayudarnos a escribir código asincrónico.

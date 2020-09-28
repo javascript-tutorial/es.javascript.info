@@ -332,7 +332,11 @@ Existen 3 métodos para las cabeceras HTTP:
 
 ## POST, Formularios
 
+<<<<<<< HEAD
 Para hacer una solicitud POST, podemos utilizar el objeto [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) nativo.
+=======
+To make a POST request, we can use the built-in [FormData](mdn:api/FormData) object.
+>>>>>>> f489145731a45df6e369a3c063e52250f3f0061d
 
 La sintaxis:
 

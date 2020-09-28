@@ -135,7 +135,11 @@ Los paréntesis anulan cualquier precedencia, por lo que si no estamos satisfech
 
 Hay muchos operadores en JavaScript. Cada operador tiene un número de precedencia correspondiente. El que tiene el número más grande se ejecuta primero. Si la precedencia es la misma, el orden de ejecución es de izquierda a derecha.
 
+<<<<<<< HEAD
 Aquí hay un extracto de la [tabla de precedencia] (https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Operator_Precedence) (no necesita recordar esto, pero tenga en cuenta que los operadores unarios son más altos que el operador binario correspondiente):
+=======
+Here's an extract from the [precedence table](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence) (you don't need to remember this, but note that unary operators are higher than corresponding binary ones):
+>>>>>>> f489145731a45df6e369a3c063e52250f3f0061d
 
 | Precedencia| Nombre | Signo |
 |------------|------|------|
@@ -370,6 +374,7 @@ La lista de operadores:
 - RIGHT SHIFT ( `>>` )
 - ZERO-FILL RIGHT SHIFT ( `>>>` )
 
+<<<<<<< HEAD
 Estos operadores se usan muy raramente. Para comprenderlos, necesitamos profundizar en la representación de números de bajo nivel y no sería óptimo hacerlo en este momento, especialmente porque no los necesitaremos pronto. Si tienes curiosidad, puedes leer el artículo [Operadores a nivel de bit](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Bitwise_Operators#Bitwise_AND) en MDN. Sería más práctico hacerlo cuando surja una necesidad real.
 
 ## Modificar en el lugar
@@ -405,6 +410,9 @@ n *= 3 + 5;
 
 alert( n ); // 16  (lado derecho evaluado primero, lo mismo que n *= 8)
 ```
+=======
+These operators are used very rarely, when we need to fiddle with numbers on the very lowest (bitwise) level. We won't need these operators any time soon, as web development has little use of them, but in some special areas, such as cryptography, they are useful. You can read the [Bitwise Operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Bitwise) chapter on MDN when a need arises.
+>>>>>>> f489145731a45df6e369a3c063e52250f3f0061d
 
 ## Coma
 

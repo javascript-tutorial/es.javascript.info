@@ -16,7 +16,11 @@ Entonces, si la función contenedora se llama a 0ms, 200ms y 500ms, y luego no h
 
 ... Y obtendrá los argumentos de la última llamada, y se ignorarán otras llamadas.
 
+<<<<<<< HEAD
 Aquí está el código para ello (usa el decorador debounce del [Lodash library](https://lodash.com/docs/4.17.15#debounce):
+=======
+Here's the code for it (uses the debounce decorator from the [Lodash library](https://lodash.com/docs/4.17.15#debounce)):
+>>>>>>> f489145731a45df6e369a3c063e52250f3f0061d
 
 ```js
 let f = _.debounce(alert, 1000);
