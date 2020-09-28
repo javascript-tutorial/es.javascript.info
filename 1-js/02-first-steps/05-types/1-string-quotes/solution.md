@@ -1,5 +1,5 @@
 
-Los "backticks" incrustan la expresión dentro de `${...}` en la cadena.
+Los backticks incrustan la expresión dentro de `${...}` en la cadena.
 
 ```js run
 let name = "Ilya";
@@ -10,6 +10,6 @@ alert( `hola ${1}` ); // hola 1
 // la expresión es una cadena "nombre"
 alert( `hola ${"name"}` ); // hola name
 
-// la expresión es una variable, incrustarla
+// la expresión es una variable, incrustada
 alert( `hola ${name}` ); // hola Ilya
 ```

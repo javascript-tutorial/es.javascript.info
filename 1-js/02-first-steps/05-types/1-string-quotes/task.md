@@ -9,9 +9,9 @@ Cuál es la salida del script?
 ```js
 let name = "Ilya";
 
-alert( `hola ${1}` ); // ?
+alert( `Hola ${1}` ); // ?
 
-alert( `hola ${"name"}` ); // ?
+alert( `Hola ${"name"}` ); // ?
 
-alert( `hola ${name}` ); // ?
+alert( `Hola ${name}` ); // ?
 ```
