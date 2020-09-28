@@ -133,7 +133,7 @@ function animate({timing, draw, duration}) {
     // calcular el estado actual de la animación
     let progress = timing(timeFraction)
 
-    draw(progress); // dibujala
+    draw(progress); // dibujar
 
     if (timeFraction < 1) {
       requestAnimationFrame(animate);
