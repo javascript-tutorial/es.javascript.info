@@ -40,13 +40,13 @@ Además de los números comunes, existen los llamados "valores numéricos especi
     ```js run
     alert( Infinity ); // Infinito
     ```
-- `NaN` representa un error computacional. Es el resultado de una operación matemática incorrecta o indefinida, por ejemplo:
+- `NaN` representa un error de calculo. Es el resultado de una operación matemática incorrecta o indefinida, por ejemplo:
 
     ```js run
     alert( "no es un número" / 2 ); // NaN, tal división es errónea
     ```
 
-    `NaN` es "pegajoso". Cualquier otra operación sobre `NaN` retorna `NaN`:
+    `NaN` es "pegajoso". Cualquier otra operación sobre `NaN` devuelve `NaN`:
 
     ```js run
     alert( "no es un número" / 2 + 5); // NaN
@@ -94,17 +94,17 @@ Un string (cadena de caracteres) en JavaScript debe colocarse entre comillas.
 
 ```js
 let str = "Hola";
-let str2 = 'Las comillas individuales también están bien';
+let str2 = 'Las comillas simples también están bien';
 let phrase = `se puede incrustar otro ${str}`;
 ```
 
 En JavaScript, hay 3 tipos de comillas.
 
 1. Comillas dobles: `"Hola"`.
-2. Comillas individuales: `'Hola'`.
+2. Comillas simples: `'Hola'`.
 3. Backticks (comillas invertidas): <code>&#96;Hola&#96;</code>.
 
-Las comillas dobles e individuales son comillas "simples". No hay diferencia entre ellas en JavaScript.
+Las comillas dobles y simples son comillas "sencillas" (es decir, funcionan igual). No hay diferencia entre ellas en JavaScript.
 
 Los backticks son comillas de "funcionalidad extendida". Nos permiten incrustar variables y expresiones en una cadena de caracteres encerrándolas en `${...}`, por ejemplo:
 
@@ -135,9 +135,9 @@ En JavaScript no existe tal tipo. Sólo hay un tipo: `string`. Un string puede e
 
 ## Un boolean (tipo lógico)
 
-El tipo boolean (booleano) tiene sólo dos valores: `verdadero` y `falso`.
+El tipo booleano tiene sólo dos valores: `true` y `false`.
 
-Este tipo se utiliza comúnmente para almacenar valores de sí/no: `verdadero` significa "sí, correcto", y `falso` significa "no, incorrecto".
+Este tipo se utiliza comúnmente para almacenar valores de sí/no: `true` significa "sí, correcto, verdadero", y `false` significa "no, incorrecto, falso".
 
 Por ejemplo:
 
