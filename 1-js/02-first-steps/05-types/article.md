@@ -133,7 +133,7 @@ En algunos idiomas, hay un tipo especial "carácter" para un solo carácter. Por
 En JavaScript no existe tal tipo. Sólo hay un tipo: `string`. Un string puede estar formado por un solo carácter o por varios de ellos.
 ```
 
-## Un boolean (tipo lógico)
+## Booleano (tipo lógico)
 
 El tipo booleano tiene sólo dos valores: `true` y `false`.
 
