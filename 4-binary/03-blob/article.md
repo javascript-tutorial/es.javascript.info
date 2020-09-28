@@ -1,69 +1,69 @@
 # Blob
 
-`ArrayBuffer` and views are a part of ECMA standard, a part of JavaScript.
+Los `ArrayBuffer` y las vistas son parte del estándar ECMA, una parte de JavaScript.
 
-In the browser, there are additional higher-level objects, described in [File API](https://www.w3.org/TR/FileAPI/), in particular `Blob`.
+En el navegador, hay objetos de alto nivel adicionales, descritas en la [API de Archivo](https://www.w3.org/TR/FileAPI/), en particular `Blob`.
 
-`Blob` consists of an optional string `type` (a MIME-type usually), plus `blobParts` -- a sequence of other `Blob` objects, strings and `BufferSource`.
+`Blob` consta de un tipo especial de cadena (usualmente de tipo MIME), más partes Blob: una secuencia de otros objetos `Blob`, cadenas y `BufferSource`.
 
 ![](blob.svg)
 
-The constructor syntax is:
+La sintaxis del constructor es:
 
 ```js
-new Blob(blobParts, options);
+new Blob(blobParts, opciones);
 ```
 
-- **`blobParts`** is an array of `Blob`/`BufferSource`/`String` values.
-- **`options`** optional object:
-  - **`type`** -- `Blob` type, usually MIME-type, e.g. `image/png`,
-  - **`endings`** -- whether to transform end-of-line to make the `Blob` correspond to current OS newlines (`\r\n` or `\n`). By default `"transparent"` (do nothing), but also can be `"native"` (transform).
+- **`blobParts`** es un array de valores `Blob`/`BufferSource`/`String`.
+- **`opciones`** objeto opcional:
+  - **`tipo`** -- `Blob`, usualmente un tipo MIME, por ej. `image/png`,
+  - **`endings`** -- para transformar los finales de línea para hacer que el `Blob` coincida con los carácteres de nueva línea del Sistema Operativo actual (`\r\n` or `\n`). Por omisión es `"transparent"` (no hacer nada), pero también puede ser `"native"` (transformar).
 
-For example:
+Por ejemplo:
 
 ```js
-// create Blob from a string
+// crear un Blob a partir de una cadena
 let blob = new Blob(["<html>…</html>"], {type: 'text/html'});
-// please note: the first argument must be an array [...]
+// observación: el primer argumento debe ser un array [...]
 ```
 
 ```js
-// create Blob from a typed array and strings
-let hello = new Uint8Array([72, 101, 108, 108, 111]); // "Hello" in binary form
+// crear un Blob a partir de un array tipado y cadenas
+let hello = new Uint8Array([72, 101, 108, 108, 111]); // "Hello" en formato binario
 
 let blob = new Blob([hello, ' ', 'world'], {type: 'text/plain'});
 ```
 
 
-We can extract `Blob` slices with:
+Podemos extraer porciones del `Blob` con:
 
 ```js
 blob.slice([byteStart], [byteEnd], [contentType]);
 ```
 
-- **`byteStart`** -- the starting byte, by default 0.
-- **`byteEnd`** -- the last byte (exclusive, by default till the end).
-- **`contentType`** -- the `type` of the new blob, by default the same as the source.
+- **`byteStart`** -- el byte inicial, por omisión es 0.
+- **`byteEnd`** -- el último byte (exclusivo, por omisión es el final).
+- **`contentType`** -- el `tipo` del nuevo blob, por omisión es el mismo que la fuente.
 
-The arguments are similar to `array.slice`, negative numbers are allowed too.
+Los argumentos son similares a `array.slice`, los números negativos también son permitidos.
 
-```smart header="`Blob` objects are immutable"
-We can't change data directly in a `Blob`, but we can slice parts of a `Blob`, create new `Blob` objects from them, mix them into a new `Blob` and so on.
+```smart header="los objetos `Blob` son inmutables"
+No podemos cambiar datos directamente en un `Blob`, pero podemos obtener partes de un `Blob`, crear nuevos objetos `Blob` a partir de ellos, mezclarlos en un nuevo `Blob` y así por el estilo.
 
-This behavior is similar to JavaScript strings: we can't change a character in a string, but we can make a new corrected string.
+Este comportamiento es similar a las cadenas de JavaScript: no podemos cambiar un caractér en una cadena, pero podemos hacer una nueva, corregida.
 ```
 
-## Blob as URL
+## Blob como URL
 
-A Blob can be easily used as an URL for `<a>`, `<img>` or other tags, to show its contents.
+Un Blob puede ser utilizado fácilmente como una URL para `<a>`, `<img>` u otras etiquetas, para mostrar su contenido.
 
-Thanks to `type`, we can also download/upload `Blob` objects, and the `type` naturally becomes `Content-Type` in network requests.
+Gracias al `tipo`, también podemos descargar/cargar objetos `Blob`, y el `tipo` se convierte naturalmente en `Content-Type` en solicitudes de red.
 
-Let's start with a simple example. By clicking on a link you download a dynamically-generated `Blob` with `hello world` contents as a file:
+Empecemos con un ejemplo simple. Al hacer click en un link, descargas un `Blob` dinámicamente generado con contenido `hello world` en forma de archivo:
 
 ```html run
-<!-- download attribute forces the browser to download instead of navigating -->
-<a download="hello.txt" href='#' id="link">Download</a>
+<!-- descargar atributos forza el navegador a descargar en lugar de navegar -->
+<a download="hello.txt" href='#' id="link">Descargar</a>
 
 <script>
 let blob = new Blob(["Hello, world!"], {type: 'text/plain'});
@@ -72,9 +72,9 @@ link.href = URL.createObjectURL(blob);
 </script>
 ```
 
-We can also create a link dynamically in JavaScript and simulate a click by `link.click()`, then download starts automatically.
+También podemos crear un link dinámicamente en JavaScript y simular un click con `link.click()`, y la descarga inicia automáticamente.
 
-Here's the similar code that causes user to download the dynamicallly created `Blob`, without any HTML:
+Este es un código similar que permite al usuario descargar el `Blob` creado dinámicamente, sin HTML:
 
 ```js run
 let link = document.createElement('a');
@@ -89,50 +89,50 @@ link.click();
 URL.revokeObjectURL(link.href);
 ```
 
-`URL.createObjectURL` takes a `Blob` and creates a unique URL for it, in the form `blob:<origin>/<uuid>`.
+`URL.createObjectURL` toma un `Blob` y crea una URL única para él, con la forma `blob:<origin>/<uuid>`.
 
-That's what the value of `link.href` looks like:
+Así es como se ve el valor de `link.href`:
 
 ```
 blob:https://javascript.info/1e67e00e-860d-40a5-89ae-6ab0cbee6273
 ```
 
-The browser for each URL generated by `URL.createObjectURL` stores an the URL -> `Blob` mapping internally. So such URLs are short, but allow to access the `Blob`.
+Por cada URL generada por `URL.createObjectURL` el navegador almacena un `Blob` en la URL mapeado internamente. Así que las URLs son cortas, pero permiten acceder al `Blob`.
 
-A generated URL (and hence the link with it) is only valid within the current document, while it's open. And it allows to reference the `Blob` in `<img>`, `<a>`, basically any other object that expects an url.
+Una URL generada (y su relación con ella) solo es válida en el documento actual, mientras está abierto. Y este permite referenciar al `Blob` en `<img>`, `<a>`, básicamente cualquier otro objeto que espera un URL.
 
-There's a side-effect though. While there's a mapping for a `Blob`, the `Blob` itself resides in the memory. The browser can't free it.
+También hay efectos secundarios. Mientras haya un mapeado para un `Blob`, el `Blob` en sí mismo se guarda en la memoria. El navegador no puede liberarlo.
 
-The mapping is automatically cleared on document unload, so `Blob` objects are freed then. But if an app is long-living, then that doesn't happen soon.
+El mapeado se limpia automáticamente al vaciar un documento, así los objetos `Blob` son liberados. Pero si una applicación es de larga vida, entonces eso no va a pasar pronto.
 
-**So if we create a URL, that `Blob` will hang in memory, even if not needed any more.**
+**Entonces, si creamos una URL, este `Blob` se mantendrá en la memoria, incluso si ya no se necesita.**
 
-`URL.revokeObjectURL(url)` removes the reference from the internal mapping, thus allowing the `Blob` to be deleted (if there are no other references), and the memory to be freed.
+`URL.revokeObjectURL(url)` elimina la referencia el mapeo interno, además de permitir que el `Blob` sea borrado (si ya no hay otras referencias), y que la memoria sea liberada.
 
-In the last example, we intend the `Blob` to be used only once, for instant downloading, so we call `URL.revokeObjectURL(link.href)` immediately.
+En el último ejemplo, intentamos que el `Blob` sea utilizado una sola vez, para descargas instantáneas, así llamamos `URL.revokeObjectURL(link.href)` inmediatamente.
 
-In the previous example with the clickable HTML-link, we don't call `URL.revokeObjectURL(link.href)`, because that would make the `Blob` url invalid. After the revocation, as the mapping is removed, the URL doesn't work any more.
+En el ejemplo anterior con el link HTML clickeable, no llamamos `URL.revokeObjectURL(link.href)`, porque eso puede hacer la URL del `Blob` inválido. Después de la revocación, como el mapeo es eliminado, la URL ya no volverá a funcionar.
 
-## Blob to base64
+## Blob a base64
 
-An alternative to `URL.createObjectURL` is to convert a `Blob` into a base64-encoded string.
+Una alternativa a `URL.createObjectURL` es convertir un `Blob` en una cadena codificada en base64.
 
-That encoding represents binary data as a string of ultra-safe "readable" characters with ASCII-codes from 0 to 64. And what's more important -- we can use this encoding in "data-urls".
+Esa codificación representa datos binarios como una cadena ultra segura de caractéres "legibles" con códigos ASCII desde el 0 al 64. Y lo que es más importante, podemos utilizar codificación en las "URLs de datos".
 
-A [data url](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs) has the form `data:[<mediatype>][;base64],<data>`. We can use such urls everywhere, on par with "regular" urls.
+Un [URL de datos](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs) tiene la forma `data:[<mediatype>][;base64],<data>`. Podemos usar suficientes URLs por doquier, junto a URLs "regulares".
 
-For instance, here's a smiley:
+Por ejemplo, aquí hay una sonrisa:
 
 ```html
 <img src="data:image/png;base64,R0lGODlhDAAMAKIFAF5LAP/zxAAAANyuAP/gaP///wAAAAAAACH5BAEAAAUALAAAAAAMAAwAAAMlWLPcGjDKFYi9lxKBOaGcF35DhWHamZUW0K4mAbiwWtuf0uxFAgA7">
 ```
 
-The browser will decode the string and show the image: <img src="data:image/png;base64,R0lGODlhDAAMAKIFAF5LAP/zxAAAANyuAP/gaP///wAAAAAAACH5BAEAAAUALAAAAAAMAAwAAAMlWLPcGjDKFYi9lxKBOaGcF35DhWHamZUW0K4mAbiwWtuf0uxFAgA7">
+El navegador decodificará la cadena y mostrará la imagen: <img src="data:image/png;base64,R0lGODlhDAAMAKIFAF5LAP/zxAAAANyuAP/gaP///wAAAAAAACH5BAEAAAUALAAAAAAMAAwAAAMlWLPcGjDKFYi9lxKBOaGcF35DhWHamZUW0K4mAbiwWtuf0uxFAgA7">
 
 
-To transform a `Blob` into base64, we'll use the built-in `FileReader` object. It can read data from Blobs in multiple formats. In the [next chapter](info:file) we'll cover it more in-depth.
+Para transformar un `Blob` a base64, usaremos el objeto nativo `FileReader`. Puede leer datos de Blobs en múltiples formatos. En el [siguiente capítulo](info:file) lo cubriremos en profundidad.
 
-Here's the demo of downloading a blob, now via base-64:
+Aquí está el demo de descarga de un blob, ahora con base-64:
 
 ```js run
 let link = document.createElement('a');
@@ -142,79 +142,79 @@ let blob = new Blob(['Hello, world!'], {type: 'text/plain'});
 
 *!*
 let reader = new FileReader();
-reader.readAsDataURL(blob); // converts the blob to base64 and calls onload
+reader.readAsDataURL(blob); // convierte el blob a base64 y llama a onload
 */!*
 
 reader.onload = function() {
-  link.href = reader.result; // data url
+  link.href = reader.result; // URL de datos
   link.click();
 };
 ```
 
-Both ways of making an URL of a `Blob` are usable. But usually `URL.createObjectURL(blob)` is simpler and faster.
+Se pueden utilizar ambas maneras para hacer una URL de un `Blob` . Pero usualmente `URL.createObjectURL(blob)` es más simple y rápido.
 
-```compare title-plus="URL.createObjectURL(blob)" title-minus="Blob to data url"
-+ We need to revoke them if care about memory.
-+ Direct access to blob, no "encoding/decoding"
-- No need to revoke anything.
-- Performance and memory losses on big `Blob` objects for encoding.
+```compare title-plus="URL.createObjectURL(blob)" title-minus="Blob a URL de datos"
++ Necesitamos revocarlos para cuidar la memoria.
++ Acceso directo al blob, sin "condificación/decodificación"
+- No necesitamos revocar nada.
+- Se pierde rendimiento y memoria en grandes objetos `Blob` al codificar.
 ```
 
-## Image to blob
+## imagen a blob
 
-We can create a `Blob` of an image, an image part, or even make a page screenshot. That's handy to upload it somewhere.
+Podemos crear un `Blob` de una imagen, una parte de una imagen, o incluso hacer una captura de la página. Es práctico para subirlo a algún lugar.
 
-Image operations are done via `<canvas>` element:
+Las operaciones de imágenes se hacen a través del elemento `<canvas>`:
 
-1. Draw an image (or its part) on canvas using [canvas.drawImage](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage).
-2. Call canvas method [.toBlob(callback, format, quality)](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toBlob) that creates a `Blob` and runs `callback` with it when done.
+1. Dibuja una imagen (o una parte) en el canvas utilizando [canvas.drawImage](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage).
+2. Llama el método de canvas [.toBlob(callback, format, quality)](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toBlob) que crea un `Blob` y llama el `callback` cuando termina.
 
-In the example below, an image is just copied, but we could cut from it, or transform it on canvas prior to making a blob:
+En el ejemplo siguiente, un imagen se copia, pero no podemos cortarla o transformarla en el canvas hasta convertirla en blob:
 
 ```js run
-// take any image
+// tomar cualquier imagen
 let img = document.querySelector('img');
 
-// make <canvas> of the same size
+// hacer el <canvas> del mismo tamaño
 let canvas = document.createElement('canvas');
 canvas.width = img.clientWidth;
 canvas.height = img.clientHeight;
 
 let context = canvas.getContext('2d');
 
-// copy image to it (this method allows to cut image)
+// copiar la imagen en él (este método permite cortar la imagen)
 context.drawImage(img, 0, 0);
-// we can context.rotate(), and do many other things on canvas
+// podemos hacer un context.rotate(), y muchas otras cosas en canvas
 
-// toBlob is async opereation, callback is called when done
+// toBlob es una operación sincrónica, callback es llamada al terminar
 canvas.toBlob(function(blob) {
-  // blob ready, download it
+  // blob listo, descárgalo
   let link = document.createElement('a');
   link.download = 'example.png';
 
   link.href = URL.createObjectURL(blob);
   link.click();
 
-  // delete the internal blob reference, to let the browser clear memory from it
+  // borrar la referencia interna del blob, para permitir al navegador eliminarlo de la memoria
   URL.revokeObjectURL(link.href);
 }, 'image/png');
 ```
 
-If we prefer `async/await` instead of callbacks:
+Si preferimos `async/await` en lugar de callbacks:
 ```js
 let blob = await new Promise(resolve => canvasElem.toBlob(resolve, 'image/png'));
 ```
 
-For screenshotting a page, we can use a library such as <https://github.com/niklasvh/html2canvas>. What it does is just walks the page and draws it on `<canvas>`. Then we can get a `Blob` of it the same way as above.
+Para capturar la página, podemos utilizar una librería como <https://github.com/niklasvh/html2canvas>. Que lo que hace es escanear toda la página y dibujarla en el `<canvas>`. Entonces podemos obtener un `Blob` de la misma manera que arriba.
 
-## From Blob to ArrayBuffer
+## De Blob a ArrayBuffer
 
-The `Blob` constructor allows to create a blob from almost anything, including any `BufferSource`.
+El constructor de `Blob` permite crear un blob de casi cualquier cosa, incluyendo cualquier `BufferSource`.
 
-But if we need to perform low-level processing, we can get the lowest-level `ArrayBuffer` from it using `FileReader`:
+Pero si queremos ejecutar un procesamiento de bajo nivel, podemos obtener el nivel más bajo de un `ArrayBuffer` utilizando `FileReader`:
 
 ```js
-// get arrayBuffer from blob
+// obtener un arrayBuffer desde un blob
 let fileReader = new FileReader();
 
 *!*
@@ -227,15 +227,15 @@ fileReader.onload = function(event) {
 ```
 
 
-## Summary
+## Resumen
 
-While `ArrayBuffer`, `Uint8Array` and other `BufferSource` are "binary data", a [Blob](https://www.w3.org/TR/FileAPI/#dfn-Blob) represents "binary data with type".
+Mientras `ArrayBuffer`, `Uint8Array` y otros `BufferSource` son "datos binarios", un [Blob](https://www.w3.org/TR/FileAPI/#dfn-Blob) representa "datos binarios con tipo".
 
-That makes Blobs convenient for upload/download operations, that are so common in the browser.
+Esto hace a los Blobs convenientes para operaciones de carga/descarga, estos son muy comunes en el navegador.
 
-Methods that perform web-requests, such as [XMLHttpRequest](info:xmlhttprequest), [fetch](info:fetch) and so on, can work with `Blob` natively, as well as with other binary types.
+Los métodos que ejecutan solicitudes web, como [XMLHttpRequest](info:xmlhttprequest), [fetch](info:fetch) y otros, pueden trabajar nativamente con `Blob`, como con otros tipos binarios.
 
-We can easily convert betweeen `Blob` and low-level binary data types:
+Podemos convertir fácilmente entre `Blob` y tipos de datos binarios de bajo nivel:
 
-- We can make a Blob from a typed array using `new Blob(...)` constructor.
-- We can get back `ArrayBuffer` from a Blob using `FileReader`, and then create a view over it for low-level binary processing.
+- Podemos convertir a Blob desde un array tipado usando el constructor `new Blob(...)`.
+- Podemos obtener un `ArrayBuffer` de un Blob usando `FileReader`, y entonces crear una vista sobre él para procesamiento binario de bajo nivel.

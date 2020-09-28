@@ -94,12 +94,11 @@ Pero deberían ser dos sentencias separadas, no una. Tal unión en este caso es 
 
 Recomendamos colocar puntos y coma entre las sentencias, incluso si están separadas por saltos de línea. Esta regla está ampliamente adoptada por la comunidad. Notemos una vez más que es posible omitir los puntos y coma la mayoría del tiempo. Pero es más seguro, especialmente para un principiante, usarlos.
 
-## Comentarios
+## Comentarios [#code-comments]
 
 A medida que pasa el tiempo, los programas se vuelven cada vez más complejos. Se hace necesario agregar *comentarios* que describan lo que hace el código y por qué.
 
 Los comentarios se pueden poner en cualquier lugar de un script. No afectan su ejecución porque el motor simplemente los ignora.
-
 
 **Los comentarios de una línea comienzan con dos caracteres de barra diagonal `//`.**
 
@@ -137,10 +136,10 @@ alert('Mundo');
 ```
 
 ```smart header="¡Usa accesos rápidos del teclado!"
-En la mayoría de los editores, se puede comentar una línea de código presionando `key:Ctrl+/` para un comentario de una sola línea y algo como `key:Ctrl+Shift+/` - para comentarios de varias líneas (selecciona una parte del código y pulsa la tecla de acceso rápido). Para Mac, intenta `key: Cmd` en lugar de `key: Ctrl`.
+En la mayoría de los editores, se puede comentar una línea de código presionando `key:Ctrl+/` para un comentario de una sola línea y algo como `key:Ctrl+Shift+/` - para comentarios de varias líneas (selecciona una parte del código y pulsa la tecla de acceso rápido). Para Mac, intenta `key: Cmd` en lugar de `key: Ctrl` y `key:Option` en lugar de `key:Shift`.
 ```
 
-````warn header="¡Los comentarios anidados no son compatibles!"
+````warn header="¡Los comentarios anidados no son admitidos!"
 No puede haber `/*...*/` dentro de otro `/*...*/`.
 
 Dicho código terminará con un error:

@@ -34,4 +34,4 @@ Si añadimos un manejador de eventos a estos eventos y un `event.preventDefault(
 
 Hay muchas maneras de iniciar un desplazamiento, la más fiable es usar CSS, la propiedad `overflow`.
 
-Aquí hay algunas tareas que puedes resolver o mirar para ver las aplicaciones de `onscroll`.
+Aquí hay algunas tareas que puede resolver o revisar para ver aplicaciones de `onscroll`.

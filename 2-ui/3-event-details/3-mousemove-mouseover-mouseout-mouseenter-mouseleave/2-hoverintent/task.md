@@ -6,7 +6,7 @@ Importance: 5
 
 Escribe una función que muestre un tooltip sobre un elemento solamente si el visitante mueve el mouse *hacia él*, pero no *a través de él*.
 
-En otras palabras, si el visitante mueve el mouse hacia el elemento y para ahí -- muestra el tooltip. Y si solamente mueve el mouse a través, entonces no lo necesitamos. ¿Quién quiere parpadeos extra?
+En otras palabras, si el visitante mueve el mouse hacia el elemento y para ahí, muestra el tooltip. Y si solamente mueve el mouse a través, entonces no lo necesitamos. ¿Quién quiere parpadeos extra?
 
 Tecnicamente, podemos medir la velocidad del mouse sobre el elemento, y si es lenta podemos asumir que el mouse viene "sobre el elemento" y mostramos el tooltip, si es rápida -- entonces lo ignoramos.
 

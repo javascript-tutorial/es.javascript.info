@@ -10,6 +10,8 @@ Hemos acordado un glosario para la consistencia de las traducciones, por favor, 
 
 Si desea hacer seguimiento al trabajo realizado en este repositorio, saber más a cerca de como contribuir, o presentarte al equipo, le invitamos a que se una a nuestro servidor: [Discord](https://discord.gg/mcsMcHN)
 
+See <https://javascript.info/translate> for the details.
+
 # Como contribuir
 
 ## 1. Ingresar a la siguiente página: [es.javascript.info](https://github.com/javascript-tutorial/es.javascript.info/issues/17)
@@ -200,3 +202,6 @@ Please don't translate or remove the `[#...]` part, it's for URL anchors.
 You can run the tutorial server locally to see how the translation looks.
 
 The server and install instructions are at <https://github.com/javascript-tutorial/server>. 
+
+♥  
+Ilya Kantor @iliakan

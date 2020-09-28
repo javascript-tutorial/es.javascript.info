@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   let elem = document.getElementById('coords-show-mark');
 
-  // no elem in ebook (pdf/epub) mode
+  // no hay elem en la versión ebook (pdf/epub)
   if (elem) {
     elem.onclick = function() {
 
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return message;
       }
 
-      let message = createMessageUnder(elem, 'Hello, world!');
+      let message = createMessageUnder(elem, 'Hola, mundo!');
       document.body.append(message);
       setTimeout(() => message.remove(), 5000);
     }
