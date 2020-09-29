@@ -1,4 +1,4 @@
-# Carga de recursos: onload and onerror
+# Carga de recursos: onload y onerror
 
 El navegador nos permite hacer seguimiento de la carga de recursos externos -- scripts, iframes, imagenes y más.
 
@@ -14,7 +14,7 @@ Digamos que tenemos que cargar un script de terceros y llamar una función que s
 Podemos cargarlo dinámicamente de esta manera:
 
 ```js
-let script = document.createElement('script');
+let script = document.createElement("script");
 script.src = "my.js";
 
 document.head.append(script);
@@ -69,7 +69,7 @@ script.onerror = function() {
 */!*
 ```
 
-Please note that we can't get HTTP error details here. We don't know if it was an error 404 or 500 or something else. Just that the loading failed.
+Por favor nota que como no podemos obtener detalles del error HTTP aquí, no podemos saber if fue un error 404 o algo diferente. Solo el error de carga.
 
 ```warn
 Los eventos `onload/onerror` rastrean solamente la carga de ellos mismos.
@@ -84,14 +84,14 @@ Los eventos `load` y `error` también funcionan para otros recursos, basicamente
 Por ejemplo:
 
 ```js run
-let img = document.createElement('img');
+let img = document.createElement("img");
 img.src = "https://js.cx/clipart/train.gif"; // (*)
 
-img.onload = function() {
+img.onload = function () {
   alert(`Image loaded, size ${img.width}x${img.height}`);
 };
 
-img.onerror = function() {
+img.onerror = function () {
   alert("Error occurred while loading image");
 };
 ```
@@ -105,15 +105,16 @@ Por históricas razones.
 
 ## Política de Crossorigin
 
-There's a rule: scripts from one site can't access contents of the other site. So, e.g. a script at `https://facebook.com` can't read the user's mailbox at `https://gmail.com`.
+Hay algunas reglas: los scripts un sitio cuyo contenido no puede ser accedido de otro sitio. Por ejemplo: un script de `https://facebook.com` no puede leer la bandeja de correros del usuario en `https://gmail.com`.
 
-Or, to be more precise, one origin (domain/port/protocol triplet) can't access the content from another one. So even if we have a subdomain, or just another port, these are different origins with no access to each other.
+O para ser mas precisos, un origen (dominio/puerto/protocolo trillizo) no puede acceder al contenido de otro. Entonces, incluso si tenemos un sub-dominio o solo otro puerto son diferentes origenes sin acceso al otro.
 
 Esta regla también afecta a recursos de otros dominios.
 
-If we're using a script from another domain, and there's an error in it, we can't get error details.
+Si usamos un script de otro dominio y tiene un error,, no podemos obtener detalles del error.
 
-For example, let's take a script `error.js` that consists of a single (bad) function call:
+Por ejemplo, tomemos un script `error.js` que consta de un única llamda a una función (mala).
+
 ```js
 // 📁 error.js
 noSuchFunction();
@@ -123,9 +124,9 @@ Ahora cargalo desde el mismo sitio donde esta alojado:
 
 ```html run height=0
 <script>
-window.onerror = function(message, url, line, col, errorObj) {
-  alert(`${message}\n${url}, ${line}:${col}`);
-};
+  window.onerror = function (message, url, line, col, errorObj) {
+    alert(`${message}\n${url}, ${line}:${col}`);
+  };
 </script>
 <script src="/article/onload-onerror/crossorigin/error.js"></script>
 ```
@@ -141,9 +142,9 @@ Ahora carguemos el mismo script desde otro dominio:
 
 ```html run height=0
 <script>
-window.onerror = function(message, url, line, col, errorObj) {
-  alert(`${message}\n${url}, ${line}:${col}`);
-};
+  window.onerror = function (message, url, line, col, errorObj) {
+    alert(`${message}\n${url}, ${line}:${col}`);
+  };
 </script>
 <script src="https://cors.javascript.info/article/onload-onerror/crossorigin/error.js"></script>
 ```
@@ -172,16 +173,16 @@ Hay 3 niveles de acceso a cross-origin:
 3. **`crossorigin="use-credentials"`** -- access allowed if the server sends back the header `Access-Control-Allow-Origin` with our origin and `Access-Control-Allow-Credentials: true`. Browser sends authorization information and cookies to remote server.
 
 ```smart
-You can read more about cross-origin access in the chapter <info:fetch-crossorigin>. It describes the `fetch` method for network requests, but the policy is exactly the same.
+Tu puedes leer más sobre accesos de origen cruzado (`cross-origin`)
 
-Such thing as "cookies" is out of our current scope, but you can read about them in the chapter <info:cookie>.
+Cosas como las "cookies" estan fuera de nuestro alcance, pero podemos leer sobre ellas en <info:cookie>.
 ```
 
-In our case, we didn't have any crossorigin attribute. So the cross-origin access was prohibited. Let's add it.
+En nuetro caso no teníamos ningún atributo de origen cruzado `cross-origin`. Por lo que se prohibió el acceso de origen cruzado. Vamos a agregarlo.
 
-We can choose between `"anonymous"` (no cookies sent, one server-side header needed) and `"use-credentials"` (sends cookies too, two server-side headers needed).
+Podemos elegir entre `"anonymous"` (no se envian las cookies, una sola cabecera esa necesaria en el lado del servidor) y `"use-credentials"` (envias las cookies, dos cabeceras son necesarias en el lado del servidor).
 
-If we don't care about cookies, then `"anonymous"` is the way to go:
+Si no nos importan las las `cookies`, entonces `"anonymous"` es el camino a seguir:
 
 ```html run height=0
 <script>
@@ -192,7 +193,7 @@ window.onerror = function(message, url, line, col, errorObj) {
 <script *!*crossorigin="anonymous"*/!* src="https://cors.javascript.info/article/onload-onerror/crossorigin/error.js"></script>
 ```
 
-Now, assuming that the server provides an `Access-Control-Allow-Origin` header, everything's fine. We have the full error report.
+Ahora, asumiendo que el servedor provee una cabecera `Access-Control-Allow-Origin`, todo esta bien. Podemos tener el reporte completo del error.
 
 ## Summary
 
