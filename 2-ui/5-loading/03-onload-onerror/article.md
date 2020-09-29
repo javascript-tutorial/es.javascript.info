@@ -28,7 +28,7 @@ Para nuestros scripts podemos usar [JavaScript modules](info:modules) esto, pero
 
 ### script.onload
 
-El evento `load` se ejecuta despues de que el script sea cargado y ejecutado.
+El evento `load` se ejecuta después de que script sea cargado y ejecutado.
 
 Por ejemplo:
 
@@ -74,7 +74,7 @@ Por favor nota que como no podemos obtener detalles del error HTTP aquí, no pod
 ```warn
 Los eventos `onload/onerror` rastrean solamente la carga de ellos mismos.
 
-Errors that may occur during script processing and execution are out of scope for these events. That is: if a script loaded successfully, then `onload` triggers, even if it has programming errors in it. To track script errors, one can use `window.onerror` global handler.
+Los errores que ocurren durante el procesamiento y ejecución estan fuera del alcance para esos eventos. Eso es: si un script es cargado de manera exitosa, es decir cuando el evento `onload` se dispara, incluso si tiene errores de programación adentro. Para rastrear los errores del script un puede usar el manejador global `window.onerror`;
 ```
 
 ## Other resources
@@ -96,10 +96,10 @@ img.onerror = function () {
 };
 ```
 
-There are some notes though:
+Sin embargo, hay algunas notas:
 
-- Most resources start loading when they are added to the document. But `<img>` is an exception. It starts loading when it gets a src `(*)`.
-- For `<iframe>`, the `iframe.onload` event triggers when the iframe loading finished, both for successful load and in case of an error.
+- La mayoría de recursos empiezan a cargarse cuando son agregados al documento. Pero `<img>` es una excepción, comienza la carga cuando tiene una fuente `(*)`.
+- Para `<iframe>`, el evento `iframe.onload` se dispara cuando el iframe ha terminado de cargar, tanto para una carga exitosa como en caso de un error.
 
 Por históricas razones.
 
@@ -156,21 +156,21 @@ Script error.
 , 0:0
 ```
 
-Details may vary depending on the browser, but the idea is the same: any information about the internals of a script, including error stack traces, is hidden. Exactly because it's from another domain.
+Los detalles pueden variar dependiendo del navegador, pero la idea es la misma: cualquier información sobre las partes internas de un script, incluyendo el rastreo de la pila de errores, oculta. Exactamente porque es de otro dominio.
 
 ¿Por qué necesitamos detalles de error?
 
-There are many services (and we can build our own) that listen for global errors using `window.onerror`, save errors and provide an interface to access and analyze them. That's great, as we can see real errors, triggered by our users. But if a script comes from another origin, then there's not much information about errors in it, as we've just seen.
+Hay muchos servicios (y podemos contruir uno nuestro) que escuchan lo errores globales usando `window.onerror`, guardan los errores y proveen una interfaz para acceder a ellos y analizarlos. Eso es grandioso ya que podemos ver los errores originales que ocasionados por nuestros usuarios. Pero si el script viene desde otro origen, cuando no hay mucha información sobre los errores adentro como acabamos de ver.
 
-Similar cross-origin policy (CORS) is enforced for other types of resources as well.
+También se aplica políticas similares de origen cruzado (CORS) a otros tipos de recursos.
 
-**To allow cross-origin access, the `<script>` tag needs to have the `crossorigin` attribute, plus the remote server must provide special headers.**
+**Para permitir el accesso de origen cruzado, la etiqueta `<script>` necesita tener el atributo `crossorigin`, además el servidor remoto debe proporcionar cabeceras especiales.**
 
 Hay 3 niveles de acceso a cross-origin:
 
-1. **No `crossorigin` attribute** -- access prohibited.
-2. **`crossorigin="anonymous"`** -- access allowed if the server responds with the header `Access-Control-Allow-Origin` with `*` or our origin. Browser does not send authorization information and cookies to remote server.
-3. **`crossorigin="use-credentials"`** -- access allowed if the server sends back the header `Access-Control-Allow-Origin` with our origin and `Access-Control-Allow-Credentials: true`. Browser sends authorization information and cookies to remote server.
+1. **Sin el atributo `crossorigin`** -- acceso prohibido.
+2. **`crossorigin="anonymous"`** -- acceso permitido si el servidor responde con la cabecera `Access-Control-Allow-Origin` con `*` o nuestro origen. El navegador no envía la información de la autorización y cookies al servidor remoto.
+3. **`crossorigin="use-credentials"`** -- acceso permitido si el servidor envia de vuelta la cabecera `Access-Control-Allow-Origin` con nuestro origen y `Access-Control-Allow-Credentials: true`. El navegador envía la información de la autorización y las cookies al servidor remoto.
 
 ```smart
 Tu puedes leer más sobre accesos de origen cruzado (`cross-origin`)
@@ -195,9 +195,9 @@ window.onerror = function(message, url, line, col, errorObj) {
 
 Ahora, asumiendo que el servedor provee una cabecera `Access-Control-Allow-Origin`, todo esta bien. Podemos tener el reporte completo del error.
 
-## Summary
+## Resumen
 
-Las imagenes `<img>`, estilos externos, scripts y otros recursos proveen los eventos `load` and `error` para rastrear sus cargas:
+Las imagenes `<img>`, estilos externos, scripts y otros recursos proveen los eventos `load` y `error` para rastrear sus cargas:
 
 - `load` se ejecuta cuando la carga ha sido exitosa,
 - `error` se ejecuta cuando una carga ha fallado.
