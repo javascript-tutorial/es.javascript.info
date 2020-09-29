@@ -4,7 +4,7 @@ El navegador nos permite hacer seguimiento de la carga de recursos externos -- s
 
 Hay dos eventos para eso:
 
-- `onload` -- cuando cargo exitosamente,
+- `onload` -- cuando cargó exitosamente,
 - `onerror` -- cuando un error ha ocurrido.
 
 ## Cargando un script
