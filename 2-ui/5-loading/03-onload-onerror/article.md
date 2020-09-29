@@ -160,13 +160,13 @@ Los detalles pueden variar dependiendo del navegador, pero la idea es la misma: 
 
 ¿Por qué necesitamos detalles de error?
 
-Hay muchos servicios (y podemos contruir uno nuestro) que escuchan lo errores globales usando `window.onerror`, guardan los errores y proveen una interfaz para acceder a ellos y analizarlos. Eso es grandioso ya que podemos ver los errores originales que ocasionados por nuestros usuarios. Pero si el script viene desde otro origen, cuando no hay mucha información sobre los errores adentro como acabamos de ver.
+Hay muchos servicios (y podemos contruir uno nuestro) que escuchan lo errores globales usando `window.onerror`, guardan los errores y proveen una interfaz para acceder a ellos y analizarlos. Eso es grandioso ya que podemos ver los errores originales ocasionados por nuestros usuarios. Pero si el script viene desde otro origen no hay mucha información sobre los errores como acabamos de ver.
 
 También se aplica políticas similares de origen cruzado (CORS) a otros tipos de recursos.
 
 **Para permitir el accesso de origen cruzado, la etiqueta `<script>` necesita tener el atributo `crossorigin`, además el servidor remoto debe proporcionar cabeceras especiales.**
 
-Hay 3 niveles de acceso a cross-origin:
+Hay 3 niveles de acceso de origen cruzado:
 
 1. **Sin el atributo `crossorigin`** -- acceso prohibido.
 2. **`crossorigin="anonymous"`** -- acceso permitido si el servidor responde con la cabecera `Access-Control-Allow-Origin` con `*` o nuestro origen. El navegador no envía la información de la autorización y cookies al servidor remoto.
@@ -178,7 +178,7 @@ Tu puedes leer más sobre accesos de origen cruzado (`cross-origin`)
 Cosas como las "cookies" estan fuera de nuestro alcance, pero podemos leer sobre ellas en <info:cookie>.
 ```
 
-En nuetro caso no teníamos ningún atributo de origen cruzado `cross-origin`. Por lo que se prohibió el acceso de origen cruzado. Vamos a agregarlo.
+En nuetro caso no teníamos ningún atributo de origen cruzado (`cross-origin`). Por lo que se prohibió el acceso de origen cruzado. Vamos a agregarlo.
 
 Podemos elegir entre `"anonymous"` (no se envian las cookies, una sola cabecera esa necesaria en el lado del servidor) y `"use-credentials"` (envias las cookies, dos cabeceras son necesarias en el lado del servidor).
 
