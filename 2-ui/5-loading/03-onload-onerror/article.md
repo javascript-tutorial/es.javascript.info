@@ -77,7 +77,7 @@ Los eventos `onload/onerror` rastrean solamente la carga de ellos mismos.
 Los errores que ocurren durante el procesamiento y ejecución estan fuera del alcance para esos eventos. Eso es: si un script es cargado de manera exitosa, es decir cuando el evento `onload` se dispara, incluso si tiene errores de programación adentro. Para rastrear los errores del script un puede usar el manejador global `window.onerror`;
 ```
 
-## Other resources
+## Otros recursos
 
 Los eventos `load` y `error` también funcionan para otros recursos, basicamente para cualquier que tiene una externa `src`
 
@@ -103,7 +103,7 @@ Sin embargo, hay algunas notas:
 
 Por históricas razones.
 
-## Política de Crossorigin
+## Política de origen cruzado
 
 Hay algunas reglas: los scripts un sitio cuyo contenido no puede ser accedido de otro sitio. Por ejemplo: un script de `https://facebook.com` no puede leer la bandeja de correros del usuario en `https://gmail.com`.
 
