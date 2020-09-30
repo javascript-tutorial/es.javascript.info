@@ -28,7 +28,7 @@ Hay muchos más eventos. Entraremos en detalle con eventos en particular en los 
 
 ## Manejadores de eventos
 
-Para reaccionar con eventos podemos asignar un *handler (manejador)* el cuál es una función que se ejecuta en caso de un evento.
+Para reaccionar con eventos podemos asignar un *handler (manejador)* el cual es una función que se ejecuta en caso de un evento.
 
 Los handlers son una forma de ejecutar código JavaScript en caso de acciones por parte del usuario.
 
@@ -46,7 +46,7 @@ Por ejemplo, para asignar un handler `click` para un `input` podemos usar `oncli
 
 Al hacer click, el código dentro de `onclick` se ejecuta.
 
-Toma en cuenta que dentro de `onclick` usamos comillas sencillas, porque el atributo en sí va entre comillas dobles. Si olvidamos que el código está dentro del atributo y usamos comillas dobles dentro, así:  `onclick="alert("Click!")"`, no funcionará correctamente.
+Toma en cuenta que dentro de `onclick` usamos comillas simples, porque el atributo en sí va entre comillas dobles. Si olvidamos que el código está dentro del atributo y usamos comillas dobles dentro, así:  `onclick="alert("Click!")"`, no funcionará correctamente.
 
 Un atributo HTML no es un lugar conveniente para escribir un motón de código, así que mejor creamos una función JavaScript y la llamamos allí.
 
@@ -224,7 +224,7 @@ element.addEventListener(event, handler, [options]);
 `options`
 : Un objeto adicional, opcional, con las propiedades:
     - `once`: si es `true` entonces el listener se remueve automáticamente después de activarlo.
-    - `capture`: la fase en la que se controla el evento, que será cubierta en el capítulo <info:bubbling-and-capturing>. Por históricas razones, `options` también puede ser `false/true`, lo que es igual a `{capture: false/true}`.
+    - `capture`: la fase en la que se controla el evento, que será cubierta en el capítulo <info:bubbling-and-capturing>. Por razones históricas, `options` también puede ser `false/true`, lo que es igual a `{capture: false/true}`.
     - `passive`: si es `true` entonces el handler no llamará a `preventDefault()`, esto lo explicaremos más adelante en <info:default-browser-action>.
 
 Para remover el handler, usa `removeEventListener`:

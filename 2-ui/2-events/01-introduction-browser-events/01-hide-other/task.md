@@ -2,7 +2,7 @@ importance: 5
 
 ---
 
-# Ocultar en el click
+# Ocultar con un click
 
 Agrega JavaScript al `button` para hacer que `<div id="text">` desaparezca al clickearlo.
 

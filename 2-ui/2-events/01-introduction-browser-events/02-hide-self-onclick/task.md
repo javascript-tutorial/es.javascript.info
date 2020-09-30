@@ -4,7 +4,7 @@ importance: 5
 
 # Ocultarse
 
-Crea un botón que se oculte así mismo al darle un click.
+Crea un botón que se oculte a sí mismo al darle un click.
 
 ```online
 Así:
