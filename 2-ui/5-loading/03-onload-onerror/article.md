@@ -98,7 +98,7 @@ img.onerror = function () {
 
 Sin embargo, hay algunas notas:
 
-- La mayoría de recursos empiezan a cargarse cuando son agregados al documento. Pero `<img>` es una excepción, comienza la carga cuando tiene una fuente `(*)`.
+- La mayoría de recursos empiezan a cargarse cuando son agregados al documento. Pero `<img>` es una excepción, comienza la carga cuando obtiene una fuente ".src" `(*)`.
 - Para `<iframe>`, el evento `iframe.onload` se dispara cuando el iframe ha terminado de cargar, tanto para una carga exitosa como en caso de un error.
 
 Esto es por razones históricas.
