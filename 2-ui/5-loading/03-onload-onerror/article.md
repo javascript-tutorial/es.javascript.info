@@ -172,7 +172,7 @@ Hay 3 niveles de acceso de origen cruzado:
 3. **`crossorigin="use-credentials"`** -- acceso permitido si el servidor envia de vuelta la cabecera `Access-Control-Allow-Origin` con nuestro origen y `Access-Control-Allow-Credentials: true`. El navegador envía la información de la autorización y las cookies al servidor remoto.
 
 ```smart
-Tu puedes leer más sobre accesos de origen cruzado (`cross-origin`)
+Puedes leer más sobre accesos de origen cruzado  en el capítulo <info:fetch-crossorigin>. Este describe el método `fetch` para requerimientos de red, pero la política es exactamente la misma.
 
 Cosas como las "cookies" estan fuera de nuestro alcance, pero podemos leer sobre ellas en <info:cookie>.
 ```
