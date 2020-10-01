@@ -201,6 +201,6 @@ Las imágenes `<img>`, estilos externos, scripts y otros recursos proveen los ev
 - `load` se ejecuta cuando la carga ha sido exitosa,
 - `error` se ejecuta cuando una carga ha fallado.
 
-La única exception es el `<iframe>`: por razones historicas siempre dispara el evento `load`, incluso si no encontró la página.
+La única excepción es el `<iframe>`: por razones históricas siempre dispara el evento `load`, incluso si no encontró la página.
 
 El evento `readystatechange` también funciona para recursos, pero es muy poco usado debido a que los eventos `load/error` son mas simples.
