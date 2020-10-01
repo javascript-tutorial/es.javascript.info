@@ -49,7 +49,7 @@ script.onload = function() {
 
 Entonces en `onload` podemos usar variables, ejecutar funciones, etc.
 
-...y que si la carga falla? Por ejemplo: no hay tal script (error 404) en el servidor o el servidor esta caido (unavailable).
+...¿y si la carga falla? Por ejemplo: no hay tal script (error 404) en el servidor o el servidor está caído (no diponible).
 
 ### script.onerror
 
