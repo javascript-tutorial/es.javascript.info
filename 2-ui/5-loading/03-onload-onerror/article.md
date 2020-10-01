@@ -79,7 +79,7 @@ Los errores que pueden ocurrir durante el procesamiento y ejecución están fuer
 
 ## Otros recursos
 
-Los eventos `load` y `error` también funcionan para otros recursos, basicamente para cualquier que tiene una externa `src`
+Los eventos `load` y `error` también funcionan para otros recursos, básicamente para cualquiera que tenga una `src` externa.
 
 Por ejemplo:
 
@@ -98,20 +98,20 @@ img.onerror = function () {
 
 Sin embargo, hay algunas notas:
 
-- La mayoría de recursos empiezan a cargarse cuando son agregados al documento. Pero `<img>` es una excepción, comienza la carga cuando tiene una fuente `(*)`.
+- La mayoría de recursos empiezan a cargarse cuando son agregados al documento. Pero `<img>` es una excepción, comienza la carga cuando obtiene una fuente ".src" `(*)`.
 - Para `<iframe>`, el evento `iframe.onload` se dispara cuando el iframe ha terminado de cargar, tanto para una carga exitosa como en caso de un error.
 
-Por históricas razones.
+Esto es por razones históricas.
 
 ## Política de origen cruzado
 
-Hay algunas reglas: los scripts un sitio cuyo contenido no puede ser accedido de otro sitio. Por ejemplo: un script de `https://facebook.com` no puede leer la bandeja de correros del usuario en `https://gmail.com`.
+Hay una regla: los scripts de un sitio no pueden acceder al contenido de otro sitio. Por ejemplo: un script de `https://facebook.com` no puede leer la bandeja de correos del usuario en `https://gmail.com`.
 
-O para ser mas precisos, un origen (dominio/puerto/protocolo trillizo) no puede acceder al contenido de otro. Entonces, incluso si tenemos un sub-dominio o solo otro puerto son diferentes origenes sin acceso al otro.
+O para ser más precisos, un origen (el trío dominio/puerto/protocolo) no puede acceder al contenido de otro. Entonces, incluso si tenemos un sub-dominio o solo un puerto distinto, son considerados origenes diferentes sin acceso al otro.
 
 Esta regla también afecta a recursos de otros dominios.
 
-Si usamos un script de otro dominio y tiene un error,, no podemos obtener detalles del error.
+Si usamos un script de otro dominio y tiene un error, no podemos obtener detalles del error.
 
 Por ejemplo, tomemos un script `error.js` que consta de un única llamada a una función (con errores).
 ```js
@@ -155,13 +155,13 @@ Script error.
 , 0:0
 ```
 
-Los detalles pueden variar dependiendo del navegador, pero la idea es la misma: cualquier información sobre las partes internas de un script, incluyendo el rastreo de la pila de errores, oculta. Exactamente porque es de otro dominio.
+Los detalles pueden variar dependiendo del navegador, pero la idea es la misma: cualquier información sobre las partes internas de un script, incluyendo el rastreo de la pila de errores, se oculta. Exactamente porque es de otro dominio.
 
 ¿Por qué necesitamos detalles de error?
 
-Hay muchos servicios (y podemos contruir uno nuestro) que escuchan lo errores globales usando `window.onerror`, guardan los errores y proveen una interfaz para acceder a ellos y analizarlos. Eso es grandioso ya que podemos ver los errores originales ocasionados por nuestros usuarios. Pero si el script viene desde otro origen no hay mucha información sobre los errores como acabamos de ver.
+Hay muchos servicios (y podemos construir uno nuestro) que escuchan los errores globales usando `window.onerror`, guardan los errores y proveen una interfaz para acceder a ellos y analizarlos. Eso es grandioso ya que podemos ver los errores originales ocasionados por nuestros usuarios. Pero si el script viene desde otro origen no hay mucha información sobre los errores como acabamos de ver.
 
-También se aplica políticas similares de origen cruzado (CORS) a otros tipos de recursos.
+También se aplican políticas similares de origen cruzado (CORS) a otros tipos de recursos.
 
 **Para permitir el accesso de origen cruzado, la etiqueta `<script>` necesita tener el atributo `crossorigin`, además el servidor remoto debe proporcionar cabeceras especiales.**
 
@@ -172,7 +172,7 @@ Hay 3 niveles de acceso de origen cruzado:
 3. **`crossorigin="use-credentials"`** -- acceso permitido si el servidor envia de vuelta la cabecera `Access-Control-Allow-Origin` con nuestro origen y `Access-Control-Allow-Credentials: true`. El navegador envía la información de la autorización y las cookies al servidor remoto.
 
 ```smart
-Tu puedes leer más sobre accesos de origen cruzado (`cross-origin`)
+Puedes leer más sobre accesos de origen cruzado  en el capítulo <info:fetch-crossorigin>. Este describe el método `fetch` para requerimientos de red, pero la política es exactamente la misma.
 
 Cosas como las "cookies" estan fuera de nuestro alcance, pero podemos leer sobre ellas en <info:cookie>.
 ```
