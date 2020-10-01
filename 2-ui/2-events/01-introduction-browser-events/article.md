@@ -28,7 +28,7 @@ Hay muchos más eventos. Entraremos en detalle con eventos en particular en los 
 
 ## Controladores de eventos
 
-Para reaccionar con eventos podemos asignar un *handler (manejador)* el cual es una función que se ejecuta en caso de un evento.
+Para reaccionar con eventos podemos asignar un *handler (controlador)* el cual es una función que se ejecuta en caso de un evento.
 
 Los handlers son una forma de ejecutar código JavaScript en caso de acciones por parte del usuario.
 
