@@ -155,7 +155,7 @@ Script error.
 , 0:0
 ```
 
-Los detalles pueden variar dependiendo del navegador, pero la idea es la misma: cualquier información sobre las partes internas de un script, incluyendo el rastreo de la pila de errores, oculta. Exactamente porque es de otro dominio.
+Los detalles pueden variar dependiendo del navegador, pero la idea es la misma: cualquier información sobre las partes internas de un script, incluyendo el rastreo de la pila de errores, se oculta. Exactamente porque es de otro dominio.
 
 ¿Por qué necesitamos detalles de error?
 
