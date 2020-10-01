@@ -79,7 +79,7 @@ Los errores que pueden ocurrir durante el procesamiento y ejecución están fuer
 
 ## Otros recursos
 
-Los eventos `load` y `error` también funcionan para otros recursos, basicamente para cualquier que tiene una externa `src`
+Los eventos `load` y `error` también funcionan para otros recursos, básicamente para cualquiera que tenga una `src` externa.
 
 Por ejemplo:
 
