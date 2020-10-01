@@ -181,7 +181,7 @@ En nuetro caso no teníamos ningún atributo de origen cruzado (`cross-origin`).
 
 Podemos elegir entre `"anonymous"` (no se envian las cookies, una sola cabecera esa necesaria en el lado del servidor) y `"use-credentials"` (envias las cookies, dos cabeceras son necesarias en el lado del servidor).
 
-Si no nos importan las las `cookies`, entonces `"anonymous"` es el camino a seguir:
+Si no nos importan las `cookies`, entonces `"anonymous"` es el camino a seguir:
 
 ```html run height=0
 <script>
