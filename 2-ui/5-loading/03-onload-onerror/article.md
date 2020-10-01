@@ -161,7 +161,7 @@ Los detalles pueden variar dependiendo del navegador, pero la idea es la misma: 
 
 Hay muchos servicios (y podemos contruir uno nuestro) que escuchan lo errores globales usando `window.onerror`, guardan los errores y proveen una interfaz para acceder a ellos y analizarlos. Eso es grandioso ya que podemos ver los errores originales ocasionados por nuestros usuarios. Pero si el script viene desde otro origen no hay mucha información sobre los errores como acabamos de ver.
 
-También se aplica políticas similares de origen cruzado (CORS) a otros tipos de recursos.
+También se aplican políticas similares de origen cruzado (CORS) a otros tipos de recursos.
 
 **Para permitir el accesso de origen cruzado, la etiqueta `<script>` necesita tener el atributo `crossorigin`, además el servidor remoto debe proporcionar cabeceras especiales.**
 
