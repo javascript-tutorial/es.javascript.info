@@ -53,7 +53,7 @@ Entonces en `onload` podemos usar variables, ejecutar funciones, etc.
 
 ### script.onerror
 
-Los errors que ocurren durante la carga de un script puede ser rastreados en el evento `error`.
+Los errores que ocurren durante la carga de un script pueden ser rastreados en el evento `error`.
 
 Por ejemplo, hagamos una petición a un script que no existe:
 
