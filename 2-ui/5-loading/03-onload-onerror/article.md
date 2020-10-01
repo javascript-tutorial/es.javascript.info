@@ -196,7 +196,7 @@ Ahora, asumiendo que el servedor provee una cabecera `Access-Control-Allow-Origi
 
 ## Resumen
 
-Las imagenes `<img>`, estilos externos, scripts y otros recursos proveen los eventos `load` y `error` para rastrear sus cargas:
+Las imágenes `<img>`, estilos externos, scripts y otros recursos proveen los eventos `load` y `error` para rastrear sus cargas:
 
 - `load` se ejecuta cuando la carga ha sido exitosa,
 - `error` se ejecuta cuando una carga ha fallado.
