@@ -1,6 +1,6 @@
 # Carga de recursos: onload y onerror
 
-El navegador nos permite hacer seguimiento de la carga de recursos externos -- scripts, iframes, imagenes y más.
+El navegador nos permite hacer seguimiento de la carga de recursos externos: scripts, iframes, imagenes y más.
 
 Hay dos eventos para eso:
 
