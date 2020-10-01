@@ -20,7 +20,7 @@ script.src = "my.js";
 document.head.append(script);
 ```
 
-...pero como podemos ejecutar la función que esta dentro del script? Necesitamos esperar hasta que el script haya cargado, y solo después podemos llamarlo.
+...pero ¿cómo podemos ejecutar la función que esta dentro del script? Necesitamos esperar hasta que el script haya cargado, y solo después podemos llamarlo.
 
 ```smart
 Para nuestros scripts podemos usar [JavaScript modules](info:modules) aquí, pero no está adoptado ampliamente por bibliotecas de terceros.
