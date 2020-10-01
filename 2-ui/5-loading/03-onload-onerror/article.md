@@ -114,7 +114,6 @@ Esta regla también afecta a recursos de otros dominios.
 Si usamos un script de otro dominio y tiene un error,, no podemos obtener detalles del error.
 
 Por ejemplo, tomemos un script `error.js` que consta de un única llamda a una función (mala).
-
 ```js
 // 📁 error.js
 noSuchFunction();
