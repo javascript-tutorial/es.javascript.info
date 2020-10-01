@@ -28,7 +28,7 @@ Para nuestros scripts podemos usar [JavaScript modules](info:modules) esto, pero
 
 ### script.onload
 
-El evento `load` se ejecuta después de que script sea cargado y ejecutado.
+El evento `load` se dispara después de que script sea cargado y ejecutado.
 
 Por ejemplo:
 
