@@ -26,7 +26,7 @@ Aquí hay una lista con los eventos del DOM más utilizados, solo para echar un 
 
 Hay muchos más eventos. Entraremos en detalle con eventos en particular en los siguientes capítulos.
 
-## Manejadores de eventos
+## Controladores de eventos
 
 Para reaccionar con eventos podemos asignar un *handler (manejador)* el cual es una función que se ejecuta en caso de un evento.
 
