@@ -107,7 +107,7 @@ Esto es por razones históricas.
 
 Hay algunas reglas: los scripts un sitio cuyo contenido no puede ser accedido de otro sitio. Por ejemplo: un script de `https://facebook.com` no puede leer la bandeja de correros del usuario en `https://gmail.com`.
 
-O para ser mas precisos, un origen (dominio/puerto/protocolo trillizo) no puede acceder al contenido de otro. Entonces, incluso si tenemos un sub-dominio o solo otro puerto son diferentes origenes sin acceso al otro.
+O para ser más precisos, un origen (el trío dominio/puerto/protocolo) no puede acceder al contenido de otro. Entonces, incluso si tenemos un sub-dominio o solo un puerto distinto, son considerados origenes diferentes sin acceso al otro.
 
 Esta regla también afecta a recursos de otros dominios.
 
