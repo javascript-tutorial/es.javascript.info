@@ -101,7 +101,7 @@ Sin embargo, hay algunas notas:
 - La mayoría de recursos empiezan a cargarse cuando son agregados al documento. Pero `<img>` es una excepción, comienza la carga cuando tiene una fuente `(*)`.
 - Para `<iframe>`, el evento `iframe.onload` se dispara cuando el iframe ha terminado de cargar, tanto para una carga exitosa como en caso de un error.
 
-Por históricas razones.
+Esto es por razones históricas.
 
 ## Política de origen cruzado
 
