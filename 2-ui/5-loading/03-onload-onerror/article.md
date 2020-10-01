@@ -192,7 +192,7 @@ window.onerror = function(message, url, line, col, errorObj) {
 <script *!*crossorigin="anonymous"*/!* src="https://cors.javascript.info/article/onload-onerror/crossorigin/error.js"></script>
 ```
 
-Ahora, asumiendo que el servedor provee una cabecera `Access-Control-Allow-Origin`, todo esta bien. Podemos tener el reporte completo del error.
+Ahora, asumiendo que el servidor brinda una cabecera `Access-Control-Allow-Origin`, todo está bien. Podemos tener el reporte completo del error.
 
 ## Resumen
 
