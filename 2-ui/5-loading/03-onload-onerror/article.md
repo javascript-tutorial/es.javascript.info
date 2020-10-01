@@ -74,7 +74,7 @@ Por favor nota que como no podemos obtener detalles del error HTTP aquí, no pod
 ```warn
 Los eventos `onload/onerror` rastrean solamente la carga de ellos mismos.
 
-Los errores que ocurren durante el procesamiento y ejecución estan fuera del alcance para esos eventos. Eso es: si un script es cargado de manera exitosa, es decir cuando el evento `onload` se dispara, incluso si tiene errores de programación adentro. Para rastrear los errores del script un puede usar el manejador global `window.onerror`;
+Los errores que pueden ocurrir durante el procesamiento y ejecución están fuera del alcance para esos eventos. Eso es: si un script es cargado de manera exitosa, incluso si tiene errores de programación adentro, el evento `onload` se dispara. Para rastrear los errores del script un puede usar el manejador global `window.onerror`;
 ```
 
 ## Otros recursos
