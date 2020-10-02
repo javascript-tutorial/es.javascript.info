@@ -2,12 +2,12 @@ importance: 5
 
 ---
 
-# Animate the ball bouncing to the right
+# Animar la pelota rebotando hacia la derecha
 
-Make the ball bounce to the right. Like this:
+Haz que la pelota rebote hacia la derecha. Así:
 
 [iframe height=250 src="solution"]
 
-Write the animation code. The distance to the left is `100px`.
+Escribe el código de la animación. La distancia a la izquierda es `100px`.
 
-Take the solution of the previous task <info:task/animate-ball> as the source.
+Toma la solución de la tarea anterior <info:task/animate-ball> como fuente.

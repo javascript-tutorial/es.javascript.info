@@ -2,8 +2,8 @@ importance: 5
 
 ---
 
-# Animate the bouncing ball
+# Animar la pelota que rebota
 
-Make a bouncing ball. Click to see how it should look:
+Haz una pelota que rebote. Haz clic para ver cómo debería verse:
 
 [iframe height=250 src="solution"]
