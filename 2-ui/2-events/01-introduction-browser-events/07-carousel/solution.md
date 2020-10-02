@@ -1,17 +1,17 @@
-The images ribbon can be represented as `ul/li` list of images `<img>`.
+La cinta de imágenes se puede representar como una lista `ul/li` de imágenes `<img>`.
 
-Normally, such a ribbon is wide, but we put a fixed-size `<div>` around to "cut" it, so that only a part of the ribbon is visible:
+Normalmente dicha cinta es ancha pero colocamos un tamaño fijo `<div>` alrededor para "cortarla", de modo que solo una parte de la cinta sea visible:
 
 ![](carousel1.svg)
 
-To make the list show horizontally we need to apply correct CSS properties for `<li>`, like `display: inline-block`.
+Para que la lista se muestre horizontalmente debemos aplicar las propiedades CSS correctas para `<li>`, como `display: inline-block`.
 
-For `<img>` we should also adjust `display`, because by default it's `inline`. There's extra space reserved under `inline` elements for "letter tails", so we can use `display:block` to remove it.
+Para `<img>` también deberíamos ajustar `display`, ya que es `inline` por default. Hay espacio adicional reservado debajo de los "letter tails", por lo que podemos usar `display:block` para eliminarlo.
 
-To do the scrolling, we can shift `<ul>`. There are many ways to do it, for instance by changing `margin-left` or (better performance) use `transform: translateX()`:
+Para hacer el desplazamiento, podemos cambiar `<ul>`. Hay muchas formas de hacerlo, por ejemplo, cambiando `margin-left` o (para mejor rendimiento) usando  `transform: translateX()`:
 
 ![](carousel2.svg)
 
-The outer `<div>` has a fixed width, so "extra" images are cut.
+El `<div>` exterior tiene un ancho fijo, por lo que se cortan las imágenes "extra".
 
-The whole carousel is a self-contained "graphical component" on the page, so we'd better wrap it into a single `<div class="carousel">` and style things inside it.
+Todo el carrusel es un "componente gráfico" autónomo en la página, por lo que será mejor que lo envuelva en un solo elemento `<div class="carousel">` y le apliquemos estilo.

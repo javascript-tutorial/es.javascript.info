@@ -2,12 +2,12 @@ importance: 4
 
 ---
 
-# Carousel
+# Carrusel
 
-Create a "carousel" -- a ribbon of images that can be scrolled by clicking on arrows.
+Crea un "carrusel": una cinta de imágenes que se puede desplazar haciendo clic en las flechas.
 
 [iframe height=200 src="solution"]
 
-Later we can add more features to it: infinite scrolling, dynamic loading etc.
+Más adelante podemos agregarle más funciones: desplazamiento infinito, carga dinámica, etc.
 
-P.S. For this task HTML/CSS structure is actually 90% of the solution.
+P.D. Para esta tarea, la estructura HTML / CSS es en realidad el 90% de la solución.
