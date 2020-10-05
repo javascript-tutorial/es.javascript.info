@@ -1,8 +1,13 @@
 # Código ninja
 
 
+<<<<<<< HEAD
 ```quote author="Confucio"
 Aprender sin pensar es inútil. Pensar sin aprender peligroso.
+=======
+```quote author="Confucius (Analects)"
+Learning without thought is labor lost; thought without learning is perilous.
+>>>>>>> 181cc781ab6c55fe8c43887a0c060db7f93fb0ca
 ```
 
 Los programadores ninjas del pasado usaron estos trucos para afilar la mente de los mantenedores de código.
@@ -104,8 +109,13 @@ Una lectura rápida de dicho código se hace imposible. Y cuando hay un error de
 
 ## Sinónimos inteligentes
 
+<<<<<<< HEAD
 ```quote author="Confucius"
 Es difícil encontrar un gato negro en una habitación oscura, sobre todo cuando no está.
+=======
+```quote author="Laozi (Tao Te Ching)"
+The Tao that can be told is not the eternal Tao. The name that can be named is not the eternal name.
+>>>>>>> 181cc781ab6c55fe8c43887a0c060db7f93fb0ca
 ```
 
 Usando nombres *similares* para las mismas cosas hace tu vida mas interesante y le muestra al público tu creatividad.

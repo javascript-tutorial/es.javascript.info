@@ -9,7 +9,11 @@ En este capítulo primero vamos a ver detalles teóricos acerca de cómo funcion
 
 ## Loop de eventos
 
+<<<<<<< HEAD
 El concepto de *loop de eventos* es muy simple. Existe un ciclo infinito en el que el motor de JavaScript espera por una tarea, luego ejecuta la tarea requerida y finalmente vuelve a dormir esperando por una nueva tarea.
+=======
+The *event loop* concept is very simple. There's an endless loop, where the JavaScript engine waits for tasks, executes them and then sleeps, waiting for more tasks.
+>>>>>>> 181cc781ab6c55fe8c43887a0c060db7f93fb0ca
 
 EL algoritmo general del motor:
 
@@ -17,7 +21,11 @@ EL algoritmo general del motor:
     - ejecutarlas comenzando por la más antigua.
 2. Dormir hasta que aparezca una tarea, luego volver a 1.
 
+<<<<<<< HEAD
 Eso es una formalización de lo que vemos cuando navegamos por una página. El motor JavaScript no hace nada la mayoría del tiempo y solo corre cuando un script/controlador/evento se activa.
+=======
+That's a formalization for what we see when browsing a page. The JavaScript engine does nothing most of the time, it only runs if a script/handler/event activates.
+>>>>>>> 181cc781ab6c55fe8c43887a0c060db7f93fb0ca
 
 Ejemplos de tareas:
 
@@ -40,11 +48,19 @@ Las tareas de la cola son ejecutadas según la base "El que primero llega primer
 
 Hasta ahora bastante simple, ¿no?
 
+<<<<<<< HEAD
 Dos detalles más:
 1. El renderizado nunca ocurre mientras el motor ejecuta una tarea. No importa si la tarea ocupa mucho tiempo. Solo se realizan cambios a DOM una vez que la tarea finaliza.
 2. Si una tarea consume demasiado tiempo, el navegador no puede hacer otras tareas, procesos o eventos por lo que después de un tiempo muestra una alerta "La página no responde" sugiriendo detener la tarea con la página completa. Esto ocurre cuando hay muchos cálculos complejos o un error en la programación que lleva a un bucle infinito.
 
 Esa fue la teoría. Ahora veamos como podemos aplicar ese conocimiento.
+=======
+Two more details:
+1. Rendering never happens while the engine executes a task. It doesn't matter if the task takes a long time. Changes to the DOM are painted only after the task is complete.
+2. If a task takes too long, the browser can't do other tasks, such as processing user events. So after a time, it raises an alert like "Page Unresponsive", suggesting killing the task with the whole page. That happens when there are a lot of complex calculations or a programming error leading to an infinite loop.
+
+That was the theory. Now let's see how we can apply that knowledge.
+>>>>>>> 181cc781ab6c55fe8c43887a0c060db7f93fb0ca
 
 ## Caso de uso 1: dividiendo tareas que demandan alto consumo de CPU
 
@@ -160,7 +176,11 @@ Finalmente hemos dividido una tarea con un alto consumo de CPU en partes y ahora
 
 Otro beneficio de dividir tareas pesadas para scripts de navegadores es que podemos indicar el progreso.
 
+<<<<<<< HEAD
 Usualmente el navegador renderiza al terminar la ejecución del código que actualmente se está ejecutando. No importa si la tarea lleva demasiado tiempo. Los cambios a DOM serán aplicados solo cuando la tarea termine.
+=======
+As mentioned earlier, changes to DOM are painted only after the currently running task is completed, irrespective of how long it takes.
+>>>>>>> 181cc781ab6c55fe8c43887a0c060db7f93fb0ca
 
 Por un lado eso es genial porque nuestra función puede crear muchos elementos, agregarlos de a uno al documento y cambiar sus estilos... el visitante no verá ningún estado intermedio, sin finalizar. Lo cuál es importante, ¿no?
 
@@ -238,7 +258,11 @@ menu.onclick = function() {
 
 ## Macrotareas y Microtareas
 
+<<<<<<< HEAD
 Junto con las *macrotareas* descritas en este capítulo, existen *microtareas* mencionadas en el capítulo <info:microtask-queue>.
+=======
+Along with *macrotasks*, described in this chapter, there are *microtasks*, mentioned in the chapter <info:microtask-queue>.
+>>>>>>> 181cc781ab6c55fe8c43887a0c060db7f93fb0ca
 
 Las microtareas provienen únicamente de nuestro código. Por lo general, se crean mediante promesas: una ejecución del controlador `.then / catch / finally` se convierte en una microtarea. Las microtareas también se utilizan "bajo la cubierta" de "await", ya que es otra forma de manejo de promesas.
 
@@ -303,7 +327,11 @@ Aquí hay un ejemplo con la "barra de progreso de conteo", similar al que se mos
 
 ## Resumen
 
+<<<<<<< HEAD
 El algoritmo más detallado del loop de eventos (aunque aún simplificado en comparación con la [especificación](https://html.spec.whatwg.org/multipage/webappapis.html#event-loop-processing-model)):
+=======
+A more detailed event loop algorithm (though still simplified compared to the [specification](https://html.spec.whatwg.org/multipage/webappapis.html#event-loop-processing-model)):
+>>>>>>> 181cc781ab6c55fe8c43887a0c060db7f93fb0ca
 
 1. Retirar de la cola y ejecutar la tarea más antigua de la cola *macrotareas* (por ejemplo, "script").
 2. Ejecutar todas las *microtareas*:
@@ -316,7 +344,11 @@ El algoritmo más detallado del loop de eventos (aunque aún simplificado en com
 Para programar una nueva *macrotarea*:
 - Usar `setTimeout(f)` con un retraso de cero.
 
+<<<<<<< HEAD
 Eso puede usarse para dividir una gran tarea de cálculo en partes, para que el navegador pueda reaccionar a los eventos del usuario y mostrar el progreso entre ellos.
+=======
+That may be used to split a big calculation-heavy task into pieces, for the browser to be able to react to user events and show progress between them.
+>>>>>>> 181cc781ab6c55fe8c43887a0c060db7f93fb0ca
 
 Además, se utiliza en los controladores de eventos para programar una acción después de que el evento se haya manejado por completo.
 

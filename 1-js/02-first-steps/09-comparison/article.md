@@ -9,9 +9,15 @@ En Javascript se escriben así:
 - Igual: `a == b` (ten en cuenta el doble signo `==`. Un solo símbolo `a = b` significaría una asignación).
 - Distinto. En matemáticas la notación es <code>&ne;</code>, pero en JavaScript se escribe como una asignación con un signo de exclamación delante: <code>a != b</code>.
 
+<<<<<<< HEAD
 En este artículo, aprenderemos más sobre los diferentes tipos de comparaciones, cómo las realiza JavaScript, incluidas las peculiaridades importantes.
 
 Al final, encontrará una buena receta para evitar problemas relacionados con "peculiaridades de JavaScript"("javascript quirks").
+=======
+In this article we'll learn more about different types of comparisons, how JavaScript makes them, including important peculiarities.
+
+At the end you'll find a good recipe to avoid "JavaScript quirks"-related issues.
+>>>>>>> 181cc781ab6c55fe8c43887a0c060db7f93fb0ca
 
 ## Booleano es el resultado
 
@@ -57,7 +63,13 @@ El algoritmo para comparar dos cadenas es simple:
 4. Repita hasta el final de cada cadena.
 5. Si ambas cadenas tienen la misma longitud, entonces son iguales. De lo contrario, la cadena más larga es mayor.
 
+<<<<<<< HEAD
 En los ejemplos anteriores, la comparación `'Z' > 'A'` llega a un resultado en el primer paso, mientras que las cadenas `"Glow"` y `"Glee"` se comparan carácter por carácter:
+=======
+In the first example above, the comparison `'Z' > 'A'` gets to a result at the first step.
+
+The second comparison `'Glow'` and `'Glee'` needs more steps as strings are compared character-by-character:
+>>>>>>> 181cc781ab6c55fe8c43887a0c060db7f93fb0ca
 
 1. `G` es igual que `G`.
 2. `l` es igual que `l`.

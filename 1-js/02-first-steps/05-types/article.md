@@ -81,11 +81,22 @@ const bigInt = 1234567890123456789012345678901234567890n;
 
 Como los números `BigInt` rara vez se necesitan, no los cubrimos aquí, sino que les dedicamos un capítulo separado <info: bigint>. Léalo cuando necesite números tan grandes.
 
+<<<<<<< HEAD
 ```smart header="Problemas de compatibilidad"
 En este momento, `BigInt` es compatible con Firefox / Chrome / Edge, pero no con Safari / IE.
 ```
 
 ## Un string
+=======
+
+```smart header="Compatibility issues"
+Right now, `BigInt` is supported in Firefox/Chrome/Edge/Safari, but not in IE.
+```
+
+You can check [*MDN* BigInt compatibility table](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt#Browser_compatibility) to know which versions of a browser are supported.
+
+## String
+>>>>>>> 181cc781ab6c55fe8c43887a0c060db7f93fb0ca
 
 Un string (cadena de caracteres) en JavaScript debe estar encerrado entre comillas.
 
@@ -127,7 +138,11 @@ En el capítulo <info:string> trataremos más a fondo las cadenas.
 ```smart header="No existe el tipo *carácter*".
 En algunos lenguajes, hay un tipo especial "carácter" para un solo carácter. Por ejemplo, en el lenguaje C y en Java es `char`.
 
+<<<<<<< HEAD
 En JavaScript no existe tal tipo. Sólo hay un tipo: `string`. Una cadena puede estar formada por un solo carácter o por varios de ellos.
+=======
+In JavaScript, there is no such type. There's only one type: `string`. A string may consist of zero characters (be empty), one character or many of them.
+>>>>>>> 181cc781ab6c55fe8c43887a0c060db7f93fb0ca
 ```
 
 ## Un boolean (tipo lógico)
@@ -255,6 +270,7 @@ Las últimas tres líneas pueden necesitar una explicación adicional:
 
 Hay 8 tipos básicos en JavaScript.
 
+<<<<<<< HEAD
 - `number` para números de cualquier tipo: enteros o en punto flotante. Los enteros están limitados a ±2<sup>53</sup>.
 - `bigint` para números enteros de longitud arbitraria.
 - `string` para cadenas. Una cadena puede tener uno o más caracteres, no hay un tipo especial para un único carácter.
@@ -263,6 +279,16 @@ Hay 8 tipos básicos en JavaScript.
 - `undefined` para valores no asignados -- un tipo independiente que tiene un único valor "indefinido": `undefined`.
 - `object` para estructuras de datos complejas.
 - `symbol` para identificadores únicos.
+=======
+- `number` for numbers of any kind: integer or floating-point, integers are limited by <code>±(2<sup>53</sup>-1)</code>.
+- `bigint` is for integer numbers of arbitrary length.
+- `string` for strings. A string may have zero or more characters, there's no separate single-character type.
+- `boolean` for `true`/`false`.
+- `null` for unknown values -- a standalone type that has a single value `null`.
+- `undefined` for unassigned values -- a standalone type that has a single value `undefined`.
+- `object` for more complex data structures.
+- `symbol` for unique identifiers.
+>>>>>>> 181cc781ab6c55fe8c43887a0c060db7f93fb0ca
 
 El operador `typeof` nos permite ver qué tipo está almacenado en una variable.
 

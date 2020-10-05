@@ -315,7 +315,11 @@ Cuando en una entrevista, un desarrollador frontend recibe una pregunta sobre "�
 
 Por lo general, un entorno léxico se elimina de la memoria con todas las variables una vez que finaliza la llamada a la función. Eso es porque no hay referencias al respecto. Como cualquier objeto de JavaScript, solo se mantiene en la memoria mientras es accesible.
 
+<<<<<<< HEAD
 ... Pero si hay una función anidada a la que todavía se puede llegar después del final de una función, entonces tiene la propiedad `[[Environment]]` que hace referencia al entorno léxico.
+=======
+However, if there's a nested function that is still reachable after the end of a function, then it has `[[Environment]]` property that references the lexical environment.
+>>>>>>> 181cc781ab6c55fe8c43887a0c060db7f93fb0ca
 
 En ese caso, el entorno léxico aún es accesible incluso después de completar la función, por lo que permanece vivo.
 
@@ -334,7 +338,11 @@ let g = f(); // g.[[Environment]] almacena una referencia al entorno léxico
 // de la llamada f() correspondiente
 ```
 
+<<<<<<< HEAD
 Tenga en cuenta que si se llama a `f()` muchas veces y se guardan las funciones resultantes, todos los objetos del entorno léxico correspondientes también se conservarán en la memoria. Veamos las 3 funciones en el siguiente ejemplo:
+=======
+Please note that if `f()` is called many times, and resulting functions are saved, then all corresponding Lexical Environment objects will also be retained in memory. In the code below, all 3 of them:
+>>>>>>> 181cc781ab6c55fe8c43887a0c060db7f93fb0ca
 
 ```js
 function f() {
@@ -370,7 +378,11 @@ Como hemos visto, en teoría, mientras una función está viva, todas las variab
 
 Pero en la práctica, los motores de JavaScript intentan optimizar eso. Analizan el uso de variables y si es obvio que el código no usa una variable externa, la elimina.
 
+<<<<<<< HEAD
 **Un efecto secundario importante en V8 (Chrome, Opera) es que dicha variable no estará disponible en la depuración.**
+=======
+**An important side effect in V8 (Chrome, Edge, Opera) is that such variable will become unavailable in debugging.**
+>>>>>>> 181cc781ab6c55fe8c43887a0c060db7f93fb0ca
 
 Intente ejecutar el siguiente ejemplo en Chrome con las Herramientas para desarrolladores abiertas.
 
@@ -411,4 +423,10 @@ g();
 ```
 Esta característica de V8 es bueno saberla. Si está depurando con Chrome / Opera, tarde o temprano lo encontrará.
 
+<<<<<<< HEAD
 Eso no es un error en el depurador, sino más bien una característica especial de V8. Tal vez en algún momento la cambiarán. Siempre puede verificarlo ejecutando los ejemplos en esta página.
+=======
+This feature of V8 is good to know. If you are debugging with Chrome/Edge/Opera, sooner or later you will meet it.
+
+That is not a bug in the debugger, but rather a special feature of V8. Perhaps it will be changed sometime. You can always check for it by running the examples on this page.
+>>>>>>> 181cc781ab6c55fe8c43887a0c060db7f93fb0ca

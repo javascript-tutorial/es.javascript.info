@@ -69,7 +69,11 @@ name
 : Un nombre de la nueva ventana. Cada ventana tiene un `window.name`, y aquí podemos especificar cuál ventana usar para la ventana emergente. Si hay una ventana con ese nombre, la URL dada se abre en ella, de lo contrario abre una nueva ventana.
 
 params
+<<<<<<< HEAD
 : La cadena de configuración para nueva ventana. Contiene configuraciones, delimitado por una coma. No debe haber espacios en los parámetros, por ejemplo: `width:200,height=100`.
+=======
+: The configuration string for the new window. It contains settings, delimited by a comma. There must be no spaces in params, for instance: `width=200,height=100`.
+>>>>>>> 181cc781ab6c55fe8c43887a0c060db7f93fb0ca
 
 Configuración de `params`:
 
