@@ -31,6 +31,6 @@ function sumTo(n) { /*... tu código ... */ }
 alert( sumTo(100) ); // 5050
 ```
 
-P.S. ¿Qué variante de la solución es la más rápida? ¿Y la más lenta? ¿Por qué?
+P.D. ¿Qué variante de la solución es la más rápida? ¿Y la más lenta? ¿Por qué?
 
-P.P.S. ¿Podemos usar la recursión para contar `sumTo(100000)`?
+P.P.D. ¿Podemos usar la recursión para contar `sumTo(100000)`?
