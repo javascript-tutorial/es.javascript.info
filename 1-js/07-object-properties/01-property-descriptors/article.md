@@ -227,7 +227,7 @@ Para ser precisos, la no configurabilidad impone varias restricciones a `defineP
 3. No se puede cambiar `writable: false` a `true` (al revés funciona).
 4. No se puede cambiar `get/set` por una propiedad accesoria (pero puede asignarlos si está ausente).
 
-**La idea de "configurable: false" es prevenir cambios en los indicadores de la propiedad y u eliminación mientras que permite el cambio de su valor.**
+**La idea de "configurable: false" es prevenir cambios en los indicadores de la propiedad y su eliminación mientras que permite el cambio de su valor.**
 
 Aquí `user.name` es "non-configurable", pero aún puede cambiarse (por ser "writable"):
 
