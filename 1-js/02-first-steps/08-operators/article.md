@@ -218,7 +218,7 @@ La mayoría de los operadores en JavaScript devuelven un valor. Esto es obvio pa
 
 La llamada `x = value` escribe el `value` en `x` *y entonces lo devuelve*.
 
-Aquí un demo que usa la asignación como parte de un expresión más compleja:
+Aquí hay una demostración que usa una asignación como parte de una expresión más compleja:
 
 ```js run
 let a = 1;
