@@ -43,10 +43,8 @@ Esto es de suma importancia cuando queremos tratar `null/undefined` diferente de
 
 Por ejemplo:
 
-// Muestra el primer valor verdadero:
-*!*
-alert(firstName || lastName || nickName || "Anonymous"); // Supercoder
-*/!*
+```js
+height = height ?? 100;
 ```
 
 Esto le asigna `100` a `height` si esta no está definida.
