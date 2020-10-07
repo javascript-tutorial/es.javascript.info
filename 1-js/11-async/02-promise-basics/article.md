@@ -229,7 +229,7 @@ new Promise((resolve, reject) => {
 *!*
   // se ejecuta cuando se cumple la promesa, no importa con éxito o no
   .finally(() => stop loading indicator)
-  // so the loading indicator is always stopped before we process the result/error
+  // entonces el indicador de carga siempre es detenido antes de que procesemos result/error
 */!*
   .then(result => show result, err => show error)
 ```
