@@ -507,4 +507,8 @@ Para iterar sobre los elementos de un array:
   - `for (let item of arr)` -- la sintaxis moderna para items solamente.
   - `for (let i in arr)` -- nunca lo uses.
 
+Para comparar arrays, no uses el operador `==` (como tampoco `>`, `<` y otros), ya que no tienen un tratamiento especial para arrays. Lo manejan como cualquier objeto y no es lo que normalmente queremos.
+
+En su lugar puedes utilizar el bucle `for..of` para comparar arrays elemento a elemento.
+
 Volveremos a los arrays y estudiaremos más métodos para agregar, quitar, extraer elementos y ordenar arrays en el capítulo <info:array-methods>.
