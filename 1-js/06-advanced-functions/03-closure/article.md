@@ -333,7 +333,7 @@ let g = f(); // g.[[Environment]] almacena una referencia al entorno léxico
 // de la llamada f() correspondiente
 ```
 
-Tenga en cuenta que si se llama a `f()` muchas veces y se guardan las funciones resultantes, todos los objetos del entorno léxico correspondientes también se conservarán en la memoria. En el siguiente código, las 3 de ellas:
+Tenga en cuenta que si se llama a `f()` muchas veces y se guardan las funciones resultantes, todos los objetos del entorno léxico correspondientes también se conservarán en la memoria. Veamos las 3 funciones en el siguiente ejemplo:
 
 ```js
 function f() {
