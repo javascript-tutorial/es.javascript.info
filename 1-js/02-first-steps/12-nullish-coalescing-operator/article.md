@@ -43,7 +43,7 @@ Esto es de suma importancia cuando queremos tratar `null/undefined` diferente de
 
 Por ejemplo:
 
-// shows the first truthy value:
+// Muestra el primer valor verdadero:
 *!*
 alert(firstName || lastName || nickName || "Anonymous"); // Supercoder
 */!*
