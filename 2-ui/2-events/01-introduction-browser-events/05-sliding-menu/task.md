@@ -2,10 +2,10 @@ importance: 5
 
 ---
 
-# Create a sliding menu
+# Crear un menú deslizante
 
-Create a menu that opens/collapses on click:
+Crea un menú que se abra/colapse al hacer click:
 
 [iframe border=1 height=100 src="solution"]
 
-P.S. HTML/CSS of the source document is to be modified.
+P.D. El HTML/CSS del documento fuente se debe modificar.
