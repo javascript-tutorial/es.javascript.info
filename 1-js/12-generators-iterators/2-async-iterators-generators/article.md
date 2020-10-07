@@ -9,7 +9,7 @@ Veamos primero un ejemplo simple, para comprender la sintaxis y luego revisar un
 
 Repasemos el tópico acerca de iterables. 
 
-La idea es que tenemo un objeto, tal como `range`, aquí:
+La idea es que tenemo un objeto, tal como `range` aquí:
 ```js
 let range = {
   from: 1,
@@ -17,13 +17,13 @@ let range = {
 };
 ```
 
-...Y queremos usar un bucle `for..of` en él, tal como `for(value of range)`, para obtener valores desde `1` a `5`.
+...Y queremos usar un bucle `for..of` en él, tal como `for(value of range)`, para obtener valores desde `1` hasta `5`.
 
 En otras palabras, queremos agregar la habilidad de iteración al objeto.
 
 Eso puede ser implementado usando un método especial con el nombre `Symbol.iterator`:
 
-- Este métoddo es llamado por la construcción `for..of` cuando comienza el bucle, y debe devolver un objeto con el método `next`.
+- Este método es llamado por la construcción `for..of` cuando comienza el bucle, y debe devolver un objeto con el método `next`.
 - Para cada iteración, el método `next()` es invocado para el siguinte valor.
 - El `next()` debe devolver un valor en el formato `{done: true/false, value:<loop value>}`, donde `done:true` significa el fin del bucle.
 
@@ -35,14 +35,14 @@ let range = {
   to: 5,
 
 *!*
-  [Symbol.iterator]() { // called once, in the beginning of for..of
+  [Symbol.iterator]() { // llamado una vez, en el principio de for..of
 */!*
     return {
       current: this.from,
       last: this.to,
 
 *!*
-      next() { // called every iteration, to get the next value
+      next() { // llamado en cada iteración, para obtener el siguiente valor
 */!*
         if (this.current <= this.last) {
           return { done: false, value: this.current++ };
@@ -77,7 +77,7 @@ Para hacer un objeto iterable asincrónicamente:
 
 Como ejemplo inicial, hagamos iterable un objeto `range` object, similar al anterior, pero ahora devolverá valores asincrónicamente, uno por segundo.
 
-Todo lo que necesitamo hacer es algunos reemplazos en el código de abajo:
+Todo lo que necesitamos hacer es algunos reemplazos en el código de abajo:
 
 ```js run
 let range = {
@@ -149,13 +149,13 @@ Eso es natural, ya que espera encontrar `Symbol.iterator`, no `Symbol.asyncItera
 También es el caso de `for..of`: la sintaxis sin `await` necesita `Symbol.iterator`.
 ````
 
-## Repaso de  generators
+## Repaso de generators
 
 Ahora repasemos generators, que permiten una iteración mucho más corta. La mayoría de las veces, cuando queramos hacer un iterable, usaremos generators.
 
 Para simplicidad, omitiendo cosas importantes, son "funciones que generan (yield) valores". Son explicados en detalle en el capítulo [](info:generators).
 
-Los generators on etiquetados con `function*` (nota el asterisco) y usa `yield` para generar un valor, entonces podemos usar el bucle `for..of` en ellos.
+Los generators son etiquetados con `function*` (nota el asterisco) y usa `yield` para generar un valor, entonces podemos usar el bucle `for..of` en ellos.
 
 Este ejemplo genera una secuencia de valores desde `start` hasta `end`:
 
@@ -245,12 +245,12 @@ Entonce usamos `for await (...)` para iterarlo, como esto:
 })();
 ```
 
-Como el generador es sincrónico, podemos usar `await` dentro de él, contar con promesas, hacer solicitudes de red y así.
+Como el generador es asincrónico, podemos usar `await` dentro de él, contar con promesas, hacer solicitudes de red y así.
 
 ````smart header="Diferencia bajo la capa"
 Técnicamente, si eres un lector avanzado que recuerda los detalles de los generadores, hay una diferencia interna.
 
-En los generadores asincrónico, el método `generator.next()` es asincrónico, devuelve promesas.
+En los generadores asincrónicos, el método `generator.next()` es asincrónico, devuelve promesas.
 
 En un generador normal usariamos `result = generator.next()` para obtener valores. En un generador asíncrono debemos agregar `await`, así:
 
@@ -301,7 +301,7 @@ Ahora los valores vienen con retraso de 1 segundo entre ellos.
 ```smart
 Técnicamente podemos agregar al objeto ambos, `Symbol.iterator` y `Symbol.asyncIterator`, así será ambas cosas: sincrónicamente (`for..of`) y asincrónicamente (`for await..of`) iterables.
 
-Aunque en la práctica In practice es una cosa extraña para hacer.
+Aunque en la práctica es una cosa extraña para hacer.
 ```
 
 ## Ejemplo de la vida real: datos paginados
