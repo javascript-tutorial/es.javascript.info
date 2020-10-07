@@ -41,8 +41,8 @@ document.head.append(script);
 
 *!*
 script.onload = function() {
-  // el script crea una función de ayuda "_"
-  alert(_); // la función está disponible
+  // el script crea una variable "_"
+  alert( _.VERSION ); // muestra la versión de la librería
 };
 */!*
 ```

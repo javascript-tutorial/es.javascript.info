@@ -155,6 +155,7 @@ delete user?.name; // Eliminar user.name si el usuario existe
 ```warn header="Podemos usar `?.` para una lectura y eliminación segura, pero no para escribir"
 El encadenamiento opcional `?.` no tiene uso en el lado izquierdo de una tarea:
 
+Por ejemplo:
 ```js run
 // la idea del siguiente código es escribir user.name, si el usuario existe
 

@@ -229,6 +229,7 @@ new Promise((resolve, reject) => {
 *!*
   // se ejecuta cuando se cumple la promesa, no importa con éxito o no
   .finally(() => stop loading indicator)
+  // entonces el indicador de carga siempre es detenido antes de que procesemos result/error
 */!*
   .then(result => show result, err => show error)
 ```
@@ -261,7 +262,6 @@ Sin embargo, no es exactamente un alias de `then(f, f)`. Hay varias diferencias 
 
     Hablaremos más sobre el encadenamiento de promesas y la transmisión de resultados entre los manejadores en el próximo capítulo.
 
-3. Por último, pero no menos importante, `.finally(f)` es una sintaxis más conveniente que `.then(f, f)`: no es necesario duplicar la función `f`.
 
 ````smart header="En promesas establecidas, los manejadores se ejecutan inmediatamente"
 Si hay una promesa pendiente, los manejadores `.then/catch/finally` la esperan. De lo contrario, si una promesa ya se resolvió, se ejecutan inmediatamente:

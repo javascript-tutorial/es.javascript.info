@@ -60,7 +60,7 @@ alert('Altura completa del documento, con parte desplazada: ' + scrollHeight);
 
 ## Obtener el desplazamiento actual [#page-scroll]
 
-Los elementos DOM tienen su estado de desplazamiento actual en `elem.scrollLeft/scrollTop`.
+Los elementos DOM tienen su estado de desplazamiento actual en sus propiedades `elem.scrollLeft/scrollTop`.
 
 El desplazamiento de documentos, `document.documentElement.scrollLeft / Top` funciona en la mayoría de los navegadores, excepto los más antiguos basados en WebKit, como Safari (bug [5991](https://bugs.webkit.org/show_bug.cgi?id=5991)), donde deberíamos usar `document.body` en lugar de `document.documentElement`.
 

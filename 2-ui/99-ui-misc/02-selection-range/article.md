@@ -259,7 +259,7 @@ Haga clic en los botones para ejecutar métodos en la selección, "resetExample"
 </script>
 ```
 
-También existen métodos para comparar rangos, pero rara vez se utilizan. Cuando los necesite, consulte el [spec](https://dom.spec.whatwg.org/#interface-range) o [MDN manual](https://developer.mozilla.org/en-US/docs/Web/API/Range).
+También existen métodos para comparar rangos, pero rara vez se utilizan. Cuando los necesite, consulte el [spec](https://dom.spec.whatwg.org/#interface-range) o [MDN manual](mdn:/api/Range).
 
 
 ## Selection
@@ -620,7 +620,7 @@ La segunda API es muy simple, ya que funciona con texto.
 Las recetas más utilizadas probablemente sean:
 
 1. Obteniendo la selección:
-    ```js run
+    ```js 
     let selection = document.getSelection();
 
     let cloned = /* elemento para clonar los nodos seleccionados para */;
@@ -632,7 +632,7 @@ Las recetas más utilizadas probablemente sean:
     }
     ```
 2. Configuración de la selección:
-    ```js run
+    ```js 
     let selection = document.getSelection();
 
     // directamente:

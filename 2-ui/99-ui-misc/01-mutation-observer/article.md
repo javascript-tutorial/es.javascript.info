@@ -128,16 +128,16 @@ Tal fragmento en un markup HTML se ve como esto:
 ...
 ```
 
-También usaremos una librería JavaScript de "highlighting" para resaltar elementos en nuestro sitio, por ejemplo [Prism.js](https://prismjs.com/). Una llamada a `Prism.highlightElem(pre)` examina el contenido de tales elementos `pre` y les agrega tags y styles especiales para obtener sintaxis resaltada con color, similares a los que ves en esta página.
+Para mejorar la legibilidad y al mismo tiempo embellecerlo, usaremos una librería JavaScript de "highlighting" para resaltar elementos de nuestro sitio, por ejemplo [Prism.js](https://prismjs.com/). Para obtener sintaxis resaltada para el fragmento de arriba en Prism, llamamos a `Prism.highlightElem(pre)`, que examina el contenido de tales elementos y les agrega tags y styles especiales para obtener sintaxis resaltada con color, similares a los que ves en esta página.
 
-¿Exactamente cuándo ejecutar tal método de highlighting? Podemos hacerlo en el evento `DOMContentLoaded`, o al final de la página. En el momento en que tenemos nuestro DOM listo buscamos los elementos `pre[class*="language"]` y llamamos `Prism.highlightElem` en ellos:
+¿Exactamente cuándo ejecutar tal método de highlighting? Bien, podemos hacerlo en el evento `DOMContentLoaded`, o poner el script al final de la página. En el momento en que tenemos nuestro DOM listo buscamos los elementos `pre[class*="language"]` y llamamos `Prism.highlightElem` en ellos:
 
 ```js
 // resaltar todos los fragmentos de código en la página
 document.querySelectorAll('pre[class*="language"]').forEach(Prism.highlightElem);
 ```
 
-Todo es simple hasta ahora, ¿verdad? Hay fragmentos de código `<pre>` en HTML y los resaltamos.
+Todo es simple hasta ahora, ¿verdad? Buscamos fragmentos de código en HTML y los resaltamos.
 
 Continuemos. Digamos que vamos a buscar dinámicamente material desde un servidor. Estudiaremos métodos para ello [más adelante](info:fetch) en el tutorial. Por ahora solamente importa que buscamos un artículo HTML desde un servidor web y lo mostramos bajo demanda:
 
@@ -162,9 +162,9 @@ snippets.forEach(Prism.highlightElem);
 */!*
 ```
 
-...Pero imagina que tenemos muchos lugares en el código donde cargamos contenido: artículos, cuestionarios, entradas de foros. ¿Necesitamos poner el llamado al "highlighting" en todos lugares? No es muy conveniente, y es fácil de olvidar además.
+...Pero imagina que tenemos muchos lugares en el código donde cargamos contenido: artículos, cuestionarios, entradas de foros. ¿Necesitamos poner el llamado al "highlighting" en todos lugares? Eso no es muy conveniente.
 
-¿Y si el contenido es cargado por un módulo de terceras partes? Por ejemplo tenemos un foro, escrito por algún otro, que carga contenido dinámicamente y quisiéramos añadirle sintaxis de highlighting. A nadie le gusta emparchar scripts de terceras partes.
+¿Y si el contenido es cargado por un módulo de terceras partes? Por ejemplo tenemos un foro, escrito por algún otro, que carga contenido dinámicamente y quisiéramos añadirle sintaxis resaltada. A nadie le gusta emparchar scripts de terceras partes.
 
 Afortunadamente hay otra opción.
 
@@ -236,30 +236,37 @@ Hay un método para detener la observación del nodo:
 
 - `observer.disconnect()` -- detiene la observación.
 
-Cuando detenemos la observación, algunos cambios todavía podrían quedar sin ser procesados por el observador.
+Cuando detenemos la observación, algunos cambios todavía podrían quedar sin ser procesados por el observador. En tales casos usamos
 
 - `observer.takeRecords()` -- obtiene una lista de registros de mutaciones sin procesar, aquellos que ocurrieron pero el callback no manejó.
 
 Estos métodos pueden ser usados juntos, como esto:
 
 ```js
-// quisiéramos detener el rastreo de cambios
-observer.disconnect();
-
-// manejar algunas mutaciones que no fueron procesadas
+// obtener una lista de mutaciones sin procesar
+// debe ser llamada antes de la desconexión,
+// si te interesa las posibles mutaciones recientes sin manejar
 let mutationRecords = observer.takeRecords();
+
+// detener el rastreo de cambios
+observer.disconnect();
 ...
 ```
 
+
+```smart header="Lo registros devueltos por `observer.takeRecords()` son quitados de la cola de procesamiento"
+El callback no será llamado en registros devueltos por `observer.takeRecords()`.
+```
+
 ```smart header="Interacción con la recolección de basura"
-Los observadores usan internamente referencias débiles. Esto es: si un nodo es quitado del DOM y se hace inalcanzable, se vuelve basura a ser recolectada.
+Los observadores usan internamente referencias débiles a nodos. Esto es: si un nodo es quitado del DOM y se hace inalcanzable, se vuelve basura para ser recolectada.
 
 El mero hecho de que un nodo DOM sea observado no evita la recolección de basura.
 ```
 
 ## Resumen  
 
-`MutationObserver` puede reaccionar a cambios en el DOM: atributos, elementos añadidos y quitados, contenido de texto.
+`MutationObserver` puede reaccionar a cambios en el DOM: atributos, contenido de texto y añadir o quitar elementos.
 
 Podemos usarlo para rastrear cambios introducidos por otras partes de nuestro código o bien para integrarlo con scripts de terceras partes.
 

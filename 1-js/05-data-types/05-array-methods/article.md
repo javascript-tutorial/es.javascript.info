@@ -36,15 +36,15 @@ Esto es porque `delete obj.key` borra el valor de `key`. Es todo lo que hace. Fu
 
 Por lo tanto, necesitamos utilizar métodos especiales.
 
-El método [arr.splice(start)](mdn:js/Array/splice) funciona como una navaja suiza para arrays. Puede hacer todo: insertar, remover y remplazar elementos.
+El método [arr.splice](mdn:js/Array/splice) funciona como una navaja suiza para arrays. Puede hacer todo: insertar, remover y remplazar elementos.
 
 La sintáxis es:
 
 ```js
-arr.splice(index[, deleteCount, elem1, ..., elemN])
+arr.splice(start[, deleteCount, elem1, ..., elemN])
 ```
 
-Comienza en el índice `index`: remueve `deleteCount` elementos y luego inserta `elem1, ..., elemN` en su lugar devolviendo un array con los elementos removidos.
+Modifica `arr` comenzando en el índice `start`: remueve `deleteCount` elementos y luego inserta `elem1, ..., elemN` en su lugar. Devuelve el array con los elementos removidos.
 
 Este método es más fácil de entender con ejemplos.
 
@@ -741,6 +741,15 @@ Estos métodos son los más utilizados y cubren el 99% de los casos. Pero existe
 - [arr.some(fn)](mdn:js/Array/some)/[arr.every(fn)](mdn:js/Array/every) comprueba el array.
 
   La función `fn` es llamada para cada elemento del array de manera similar a `map`. Si alguno/todos los  resultados son `true`, devuelve `true`, si no, `false`.
+
+Podemos usar `every` para comparar arrays:
+  ```js run
+  function arraysEqual(arr1, arr2) {
+    return arr1.length === arr2.length && arr1.every((value, index) => value === arr2[index]);
+  }
+
+  alert( arraysEqual([1, 2], [1, 2])); // true
+  ```
 
 - [arr.fill(value, start, end)](mdn:js/Array/fill) -- llena el array repitiendo `value` desde el índice `start` hasta `end`.
 
