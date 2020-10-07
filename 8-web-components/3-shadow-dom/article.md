@@ -12,7 +12,7 @@ Tales como `<input type="range">`:
 <input type="range">
 </p>
 
-El navegador usa DOM/CSS internamente para dibujarlos. Esa estructura DOM normalmente está oculta para nosotros, pero podemos verla con herramientas de desarrollo. Por ejemplo en Chrome, necesitamos habilitar la opción "Show user agent shadow DOM" en "herramientas".
+El navegador usa DOM/CSS internamente para dibujarlos. Esa estructura DOM normalmente está oculta para nosotros, pero podemos verla con herramientas de desarrollo. Por ejemplo en Chrome, necesitamos habilitar la opción "Show user agent shadow DOM" en las heramientas de desarrollo.
 
 Entonces `<input type="range">` se ve algo así:
 
