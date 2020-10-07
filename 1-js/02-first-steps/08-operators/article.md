@@ -1,6 +1,6 @@
 # Operadores básicos, matemáticas
 
-Conocemos varios operadores de la escuela. Son cosas como la suma `+`, multiplicación `*`, resta `-`, etcétera.
+Conocemos varios operadores matemáticos porque nos los enseñaron en la escuela. Son cosas como la suma `+`, multiplicación `*`, resta `-`, etcétera.
 
 En este capítulo, nos vamos a concentrar en los aspectos de los operadores que no están cubiertos en la aritmética escolar.
 
@@ -26,7 +26,7 @@ Antes de continuar, comprendamos la terminología común.
     alert( y - x ); // 2, binario negativo resta valores
     ```
 
-    Formalmente, estamos hablando de dos operadores distintos: la negación unaria (un operando: revierte el sómbolo) and la resta binaria (dos operandos: resta).
+    Formalmente, estamos hablando de dos operadores distintos: la negación unaria (un operando: revierte el símbolo) y la resta binaria (dos operandos: resta).
 
 ## Matemáticas
 
@@ -34,12 +34,12 @@ Están soportadas las siguientes operaciones:
 
 - Suma `+`,
 - Resta `-`,
-- Multiplicacin `*`,
+- Multiplicación `*`,
 - División `/`,
 - Resto `%`,
 - Exponenciación `**`.
 
-Los primeros cuatro son conocidos mientras que `%` y `**` necesitan algunas palabras acerca de ellos.
+Los primeros cuatro son conocidos mientras que `%` y `**` deben ser explicados más ampliamente.
 
 ## Resto %
 

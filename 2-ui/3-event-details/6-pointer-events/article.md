@@ -158,7 +158,7 @@ Ahora podemos agregar el código para mover realmente la bola, y nuestro método
 
 La captura de puntero es una característica especial de los eventos de puntero.
 
-La idea es muy simple, pero puede verse extraña al principio, porque no existe algo aí para ningún otro tipo de evento. 
+La idea es muy simple, pero puede verse extraña al principio, porque no existe algo así para ningún otro tipo de evento. 
 
 El método principal es: 
 - `elem.setPointerCapture(pointerId)` - vincula el `pointerId` dado a `elem`. Después del llamado todos los eventos de puntero con el mismo `pointerId` tendrán `elem` como objetivo (como si pasara sobre `elem`), no importa dónde en el documento realmente ocurrió.
@@ -218,7 +218,7 @@ La demostración completa:
 [iframe src="slider" height=100 edit]
 ```
 
-Finalizando, la captura de puntero nos brinda dos beneficios::
+Finalizando, la captura de puntero nos brinda dos beneficios:
 1. El código se vuelve más claro, ya no necesitamos agregar o quitar controladores para el `document` entero. El vínculo se deshace automáticamente.
 2. Si hay cualquier controlador `pointermove` en el documento, no serán disparados accidentalmente mientras el usuario está arrastrando el deslizante.
 

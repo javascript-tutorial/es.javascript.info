@@ -65,7 +65,7 @@ Si es necesario, consulte el capitulo [](info:iterable) para ver más detalles s
 
 La iteración asincrónica es necesaria cuando los valores vienen asincrónicamente: después de `setTimeout` u otra clase de retraso.
 
-El caso más común es un objeto que neceita hacer un pedido sobre la red para enviar el siguiente valor, veremos un ejemplo de la vida real algo más adelante.
+El caso más común es un objeto que necesita hacer un pedido sobre la red para enviar el siguiente valor, veremos un ejemplo de la vida real algo más adelante.
 
 Para hacer un objeto iterable asincrónicamente:
 
@@ -266,7 +266,7 @@ Generadores regulares pueden ser usados como `Symbol.iterator` para hacer la ite
 
 Similarmente los generadores async pueden ser usados como `Symbol.asyncIterator` para implementar iteración asincrónica.
 
-Por ejemplo, podemos hacer que el objeto `range` genere valores asincrónicamente, ona vez por segundo, reemplazando el `Symbol.iterator` sincrónico con el asincrónico `Symbol.asyncIterator`:
+Por ejemplo, podemos hacer que el objeto `range` genere valores asincrónicamente, una vez por segundo, reemplazando el `Symbol.iterator` sincrónico con el asincrónico `Symbol.asyncIterator`:
 
 ```js run
 let range = {
