@@ -180,7 +180,7 @@ Los paréntesis anulan cualquier precedencia, por lo que si no estamos satisfech
 
 Hay muchos operadores en JavaScript. Cada operador tiene un número de precedencia correspondiente. El que tiene el número más grande se ejecuta primero. Si la precedencia es la misma, el orden de ejecución es de izquierda a derecha.
 
-Aquí hay un extracto de la [tabla de precedencia] (https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Operator_Precedence) (no necesita recordar esto, pero tenga en cuenta que los operadores unarios son más altos que el operador binario correspondiente):
+Aquí hay un extracto de la [tabla de precedencia](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Operator_Precedence) (no necesita recordar esto, pero tenga en cuenta que los operadores unarios son más altos que el operador binario correspondiente):
 
 | Precedencia| Nombre | Signo |
 |------------|------|------|

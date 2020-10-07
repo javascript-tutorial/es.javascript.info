@@ -11,7 +11,7 @@ El resultado de `a ?? b` es:
 Entonces, `x = a ?? b` es la versión corta de:
 
 ```js
-x = (a !== null && a !== undefined) ? a : b;
+result = (a !== null && a !== undefined) ? a : b;
 ```
 
 Aquí un ejemplo más detallado.
@@ -43,8 +43,10 @@ Esto es de suma importancia cuando queremos tratar `null/undefined` diferente de
 
 Por ejemplo:
 
-```js
-height = height ?? 100;
+// shows the first truthy value:
+*!*
+alert(firstName || lastName || nickName || "Anonymous"); // Supercoder
+*/!*
 ```
 
 Esto le asigna `100` a `height` si esta no está definida.

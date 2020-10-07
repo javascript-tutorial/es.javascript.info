@@ -153,7 +153,7 @@ Esto es:
 - Ellos no esperan a nadie y nadie espera por ellos.
 - El script que carga primero se ejecuta primero (`load-first order`)
 
-Esto puede ser cambiado si explícitamente establecemos `script.async=true`. Asó los scripts serán ejecutados en el orden del documento, tal como en `defer`.
+Esto puede ser cambiado si explícitamente establecemos `script.async=false`. Así los scripts serán ejecutados en el orden del documento, tal como en `defer`.
 
 En este ejemplo, la función `loadScript(src)` añade un script y también establece `async` a `false`.
 
