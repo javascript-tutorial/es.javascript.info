@@ -46,7 +46,7 @@ Como podemos ver, para cada `mouse<event>`, hay un `pointer<event>` que juega un
 ```smart header="Remplazando *mouse<event>* con *pointer<event>* en nuestro código"
 Podemos reemplazar los eventos `mouse<event>` con `pointer<event>` en nuestro código y esperar que las cosas sigan funcionando bien con el mouse.
 
-El soporte para dispositivos táctiles también mejorará "mágicamente", pero probablemente necesitemos agregar la regla `touch-action: none` en CSS. Veremos los detalles a continuación en la sección sobre `pointercancel`.
+El soporte para dispositivos táctiles también mejorará "mágicamente", pero probablemente necesitemos agregar la regla `touch-action: none` en CSS. Vea los detalles a continuación en la sección sobre `pointercancel`.
 ```
 
 ## Propiedades de los eventos de puntero
@@ -182,7 +182,7 @@ Funciona así:
 2) Entonces mueve el puntero - se dispara `pointermove` y mueve el botón `thumb`
     - ...mientras el puntero se mueve, puede salirse del control deslizante: que vaya por debajo o por encima de él. El botón debe moverse estrictamente horizontal, permaneciendo alineado con el puntero.
 
-Entonces, para rastrear todos los movimientos del puntero, incluyendo aquillos por arriba o por debajo, tenemos que asignar el controlador de evento `pointermove` al `document` entero.
+Entonces, para rastrear todos los movimientos del puntero, incluyendo aquellos por arriba o por debajo, tenemos que asignar el controlador de evento `pointermove` al `document` entero.
 
 Esta solución se ve un poco "sucia". Uno de los problemas es que los movimientos alrededor del documento pueden causar efectos colaterales, disparar otros eventos, completamente sin relación al deslizante.
 
