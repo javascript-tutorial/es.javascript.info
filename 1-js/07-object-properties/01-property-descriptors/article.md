@@ -240,11 +240,11 @@ Object.defineProperty(user, "name", {
   configurable: false
 });
 
-user.name = "Pete"; // works fine
+user.name = "Pete"; // funciona
 delete user.name; // Error
 ```
 
-And here we make `user.name` a "forever sealed" constant:
+Y aquí hacemos `user.name` una constante "sellada para siempre":
 
 ```js run
 let user = {
