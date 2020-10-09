@@ -242,7 +242,7 @@ Pero si está la bandera `pattern:g`, entonces:
 - ...y así sucesivamente.
 - Si no hay coincidencias, `regexp.exec` retorna `null` y resetea `regexp.lastIndex` a `0`.
 
-Entonces, repetidas llamadas todas las coincidencias una tras otra, usando la propiedad `regexp.lastIndex` para realizar el rastreo de la posición actual de la busqueda.
+Entonces, repetidas llamadas retornan todas las coincidencias una tras otra, usando la propiedad `regexp.lastIndex` para realizar el rastreo de la posición actual de la busqueda.
 
 En el pasado, antes el método `str.matchAll` fue agregado a JavaScript, llamadas de `regexp.exec` se utilizaron en el ciclo para obtener todas las coincidencias con sus grupos:
 
