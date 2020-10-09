@@ -149,7 +149,7 @@ El segundo argumento es la cadena de reemplazo. Podemos usar caracteres especial
 |`$&`|inserta toda la coincidencia|
 |<code>$&#096;</code>|inserta una parte de la cadena antes de la coincidencia|
 |`$'`|inserta una parte de la cadena después de la coincidencia|
-|`$n`|si `n` es un 1-2 dígito númerico, inserta el contenido del enésimo grupo capturado, para más detalles ver [](info:regexp-groups)|
+|`$n`|si `n` es un número, inserta el contenido del enésimo grupo capturado, para más detalles ver [](info:regexp-groups)|
 |`$<nombre>`|inserta el contenido de los paréntesis con el `nombre` dado, para más detalles ver [](info:regexp-groups)|
 |`$$`|inserta el carácter `$` |
 
