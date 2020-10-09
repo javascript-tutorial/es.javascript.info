@@ -335,7 +335,7 @@ Por ejemplo, podemos llamarlo aquí `regexp.test` dos veces en el mismo texto y 
 ```js run
 let regexp = /javascript/g;  // (expresión regular creada: regexp.lastIndex=0)
 
-alert( regexp.test("javascript") ); // true (regexp.lastIndex=10 ahora)
+alert( regexp.test("javascript") ); // true (ahora es regexp.lastIndex=10 )
 alert( regexp.test("javascript") ); // false
 ```
 
