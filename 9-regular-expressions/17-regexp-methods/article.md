@@ -172,7 +172,7 @@ La función es llamada con los siguientes argumentos `func(match, p1, p2, ..., p
 2. `p1, p2, ..., pn` -- contenido de los grupos capturados (si hay alguno),
 3. `offset` -- posición de la coincidencia,
 4. `input` -- la cadena de entrada,
-5. `groups` -- un objecto con los grupos nombrados.
+5. `groups` -- un objeto con los grupos nombrados.
 
 Si hay paréntesis en la expresión regular, entonces solo son 3 argumentos: `func(str, offset, input)`.
 
