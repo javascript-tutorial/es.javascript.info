@@ -77,7 +77,7 @@ let matchAll = str.matchAll(regexp);
 
 alert(matchAll); // [object RegExp String Iterator], no es una lista, pero si un objeto iterable
 
-matchAll = Array.from(matchAll); // ahora es una lista
+matchAll = Array.from(matchAll); // ahora es un array
 
 let firstMatch = matchAll[0];
 alert( firstMatch[0] );  // <h1>
