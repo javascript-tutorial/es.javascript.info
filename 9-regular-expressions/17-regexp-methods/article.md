@@ -65,7 +65,7 @@ Hay 3 diferencias con `match`:
 
 1. Retorna un objeto iterable con las coincidencias en lugar de un array. Podemos convertirlo en un array usando el método `Array.from`.
 2. Cada coincidencia es retornada como un array con los grupos capturados (el mismo formato de `str.match` sin la bandera `pattern:g`).
-3. Si no hay resultados, no retorna `null`, pero si un objecto iterable vacío.
+3. Si no hay resultados, no retorna `null`, pero sí un objeto iterable vacío.
 
 Ejemplo de uso:
 
