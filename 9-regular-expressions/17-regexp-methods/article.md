@@ -266,7 +266,7 @@ Esto también, aunque para navegadores modernos `str.matchAll` es lo más conven
 Por ejemplo:
 
 ```js run
-let str = 'Hola, mundo!';
+let str = 'Hello, world!';
 
 let regexp = /\w+/g; // sin la bandera "g", la propiedad `lastIndex` es ignorada
 regexp.lastIndex = 5; // buscar desde la 5ta posición (desde la coma)
