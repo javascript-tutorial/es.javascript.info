@@ -26,7 +26,7 @@ Tiene 3 modos:
 
 2. Si la expresión regular (`regexp`) tiene la bandera `pattern:g`, retorna una lista de todas las coincidencias como cadenas, sin capturar grupos y otros detalles.
     ```js run
-    let str = "Yo amo JavaScript";
+    let str = "I love JavaScript";
 
     let result = str.match(/Java(Script)/g);
 
@@ -39,7 +39,7 @@ Tiene 3 modos:
     Esto es algo mmuy importante. Si no hay coincidencias, no vamos a obtener un array vacío, pero si un `null`. Es fácil cometer un error olvidandolo, ej.:
 
     ```js run
-    let str = "Yo amo JavaScript";
+    let str = "I love JavaScript";
 
     let result = str.match(/HTML/);
 
