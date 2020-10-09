@@ -59,7 +59,7 @@ Tiene 3 modos:
 
 El método `str.matchAll(regexp)` es una variante ("nueva y mejorada") de `str.match`.
 
-Es usado principalmente para buscar por todas las coincidencias con todo todos los grupos.
+Es usado principalmente para buscar por todas las coincidencias con todos los grupos.
 
 Hay 3 diferencias con `match`:
 
