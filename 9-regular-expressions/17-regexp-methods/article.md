@@ -259,7 +259,7 @@ while (result = regexp.exec(str)) {
 }
 ```
 
-Esto también, aunque para navegadores modernos `str.matchAll` es lo más conveniente.
+Esto también funciona, aunque para navegadores modernos `str.matchAll` usualmente es lo más conveniente.
 
 **Podemos usar `regexp.exec` para buscar desde una posición dada configurando manualmente el `lastIndex`.**
 
