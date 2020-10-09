@@ -288,7 +288,7 @@ regexp.lastIndex = 5; // buscar exactamente en la posición 5
 alert( regexp.exec(str) ); // null
 ```
 
-Es conveniente para situaciones cuando necesitamos "leer" algo de la cadena por una expresión regular en una posición exacta. That's convenient for situations when we need to "read" something from the string by a regexp at the exact position, no en otro lugar.
+Esto es conveniente cuando con una expresión regular necesitamos "leer" algo de la cadena en una posición exacta, no en otro lugar.
 
 ## regexp.test(str)
 
