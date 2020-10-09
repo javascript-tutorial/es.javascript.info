@@ -338,7 +338,7 @@ alert( regexp.test("javascript") ); // true (ahora regexp.lastIndex es 10)
 alert( regexp.test("javascript") ); // false
 ```
 
-Eso es exactamente porque `regexp.lastIndex` no es cero en la segunda prueba.
+Eso es porque `regexp.lastIndex` no es cero en la segunda prueba.
 
 Para solucionarlo, podemos establecer `regexp.lastIndex = 0` antes de cada búsqueda. O en lugar de llamar a los metodos en la expresión regular usar los metodos de cadena `str.match/search/...`, ellos no usan el `lastIndex`.
 ````
