@@ -114,7 +114,7 @@ let str = "A drop of ink may make a million think";
 alert( str.search( /ink/i ) ); // 10 (posición de la primera coincidencia)
 ```
 
-**Limitación importante: solo `search` encuentra la primera coincidencia.**
+**Limitación importante: `search` solamente encuentra la primera coincidencia.**
 
 Si necesitamos las posiciones de las demás coincidencias, deberíamos usar otros medios, como encontrar todos con `str.matchAll(regexp)`.
 
