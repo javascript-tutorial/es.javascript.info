@@ -101,7 +101,7 @@ alert('12-34-56'.split('-')) // lista de [12, 34, 56]
 O también dividir una cadena usando una expresión regular de la misma forma:
 
 ```js run
-alert('12, 34, 56'.split(/,\s*/)) // lista de [12, 34, 56]
+alert('12, 34, 56'.split(/,\s*/)) // array de [12, 34, 56]
 ```
 
 ## str.search(regexp)
