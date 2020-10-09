@@ -232,7 +232,7 @@ Usando una función nos da todo el poder del reemplazo, porque obtiene toda la i
 
 El método `regexp.exec(str)` retorna una coincidencia por expresión regular (`regexp`) en la cadena (`str`). A diferencia de los metodos anteriores, se llama en una expresión regular en lugar de en una cadena.
 
-Se comporta de manera diferente dependiendo de sí la expresión regular tiene la bandera `pattern:g` o no.
+Se comporta de manera diferente dependiendo de si la expresión regular tiene la bandera `pattern:g` o no.
 
 Si no hay la bandera `pattern:g`, entonces `regexp.exec(str)` retorna la primera coindicencia igual que `str.match(regexp)`. Este comportamiento no trae nada nuevo.
 
