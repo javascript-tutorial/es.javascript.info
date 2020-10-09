@@ -8,7 +8,7 @@ El método `str.match(regexp)` encuentra coincidencias para las expresiones regu
 
 Tiene 3 modos:
 
-1. Si la expresión regular (`regexp`) no tiene la bandera `pattern:g`, retorna una lista con los grupos capturados y las propiedades `index` (posición de la coincidencia), `input` (cadena de entrada, igual a `str`):
+1. Si la expresión regular (`regexp`) no tiene la bandera `pattern:g`, retorna un array con los grupos capturados y las propiedades `index` (posición de la coincidencia), `input` (cadena de entrada, igual a `str`):
 
     ```js run
     let str = "I love JavaScript";
