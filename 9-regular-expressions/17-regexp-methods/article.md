@@ -271,7 +271,7 @@ let str = 'Hello, world!';
 let regexp = /\w+/g; // sin la bandera "g", la propiedad `lastIndex` es ignorada
 regexp.lastIndex = 5; // buscar desde la 5ta posición (desde la coma)
 
-alert( regexp.exec(str) ); // world!
+alert( regexp.exec(str) ); // world
 ```
 
 Si la expresión regular tiene la bandera `pattern:y`, entonces la búsqueda se realizará exactamente en la posición del `regexp.lastIndex`, no más adelante.
