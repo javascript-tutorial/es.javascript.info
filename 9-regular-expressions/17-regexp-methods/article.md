@@ -321,7 +321,7 @@ let regexp = /love/gi;
 
 let str = "I love JavaScript";
 
-// comienza la busqueda desde la posición 10:
+// comienza la búsqueda desde la posición 10:
 regexp.lastIndex = 10;
 alert( regexp.test(str) ); // false (sin coincidencia)
 ```
