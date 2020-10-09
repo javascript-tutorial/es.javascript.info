@@ -95,7 +95,7 @@ Divide la cadena usando la expresión regular (o una sub-cadena) como delimitado
 Podemos usar `split` con cadenas, así:
 
 ```js run
-alert('12-34-56'.split('-')) // lista de [12, 34, 56]
+alert('12-34-56'.split('-')) // array de [12, 34, 56]
 ```
 
 O también dividir una cadena usando una expresión regular de la misma forma:
