@@ -36,7 +36,7 @@ Tiene 3 modos:
 
 3. Si no hay coincidencias, no importa si tiene la bandera `pattern:g` o no,  retorna `null` .
 
-    Esto es algo muy importante. Si no hay coincidencias, no vamos a obtener un array vacío, pero si un `null`. Es fácil cometer un error olvidándolo, ej.:
+    Esto es algo muy importante. Si no hay coincidencias, no vamos a obtener un array vacío, pero sí un `null`. Es fácil cometer un error olvidándolo, ej.:
 
     ```js run
     let str = "I love JavaScript";
