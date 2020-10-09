@@ -34,7 +34,7 @@ Tiene 3 modos:
     alert( result.length ); // 1
     ```
 
-3. Si no hay coincidencias, no importa si tiene la bandera `pattern:g` o no, `null` es retornado.
+3. Si no hay coincidencias, no importa si tiene la bandera `pattern:g` o no,  retorna `null` .
 
     Esto es algo mmuy importante. Si no hay coincidencias, no vamos a obtener un array vacío, pero si un `null`. Es fácil cometer un error olvidandolo, ej.:
 
