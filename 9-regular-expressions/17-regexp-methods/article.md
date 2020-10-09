@@ -47,7 +47,7 @@ Tiene 3 modos:
     alert(result.length); // Error: Cannot read property 'length' of null
     ```
 
-    Si queremos que el resultado sea una lista, podemos escribirlo así:
+    Si queremos que el resultado sea un array, podemos escribirlo así:
 
     ```js
     let result = str.match(regexp) || [];
