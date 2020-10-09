@@ -274,7 +274,7 @@ regexp.lastIndex = 5; // buscar desde la 5ta posición (desde la coma)
 alert( regexp.exec(str) ); // mundo
 ```
 
-Si la expresión regular tiene la bandera `pattern:y`, entonces la busqueda se realizará exactamente en la posición del `regexp.lastIndex`, no más adelante.
+Si la expresión regular tiene la bandera `pattern:y`, entonces la búsqueda se realizará exactamente en la posición del `regexp.lastIndex`, no más adelante.
 
 Vamos a reemplazar la bandera `pattern:g` con `pattern:y` en el ejemplo anterior. No habrá coincidencias, ya que no hay palabra en la posición `5`:
 
