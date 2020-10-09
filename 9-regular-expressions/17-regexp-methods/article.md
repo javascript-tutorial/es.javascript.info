@@ -238,7 +238,7 @@ Si no hay la bandera `pattern:g`, entonces `regexp.exec(str)` retorna la primera
 
 Pero si está la bandera `pattern:g`, entonces:
 - Una llamda a `regexp.exec(str)` retorna la primera coincidencia y guarda la posición inmediatamante después en `regexp.lastIndex`.
-- La siguente llamada de la busqueda comienza desde la posición de `regexp.lastIndex`, retorna la siguiente coincidencia y guarda la posición inmediatamante después en `regexp.lastIndex`.
+- La siguente llamada de la búsqueda comienza desde la posición de `regexp.lastIndex`, retorna la siguiente coincidencia y guarda la posición inmediatamante después en `regexp.lastIndex`.
 - ...y así consecutivamente.
 - Si no hay coincidencias, `regexp.exec` retorna `null` y resetea `regexp.lastIndex` a `0`.
 
