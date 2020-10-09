@@ -24,7 +24,7 @@ Tiene 3 modos:
     alert( result.input );  // I love JavaScript (cadena de entrada)
     ```
 
-2. Si la expresión regular (`regexp`) tiene la bandera `pattern:g`, retorna una lista de todas las coincidencias como cadenas, sin capturar grupos y otros detalles.
+2. Si la expresión regular (`regexp`) tiene la bandera `pattern:g`, retorna un array de todas las coincidencias como cadenas, sin capturar grupos y otros detalles.
     ```js run
     let str = "I love JavaScript";
 
