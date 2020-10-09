@@ -244,7 +244,7 @@ Pero si está la bandera `pattern:g`, entonces:
 
 Entonces, repetidas llamadas retornan todas las coincidencias una tras otra, usando la propiedad `regexp.lastIndex` para realizar el rastreo de la posición actual de la busqueda.
 
-En el pasado, antes el método `str.matchAll` fue agregado a JavaScript, llamadas de `regexp.exec` se utilizaron en el ciclo para obtener todas las coincidencias con sus grupos:
+En el pasado, antes de que el método `str.matchAll` fuera agregado a JavaScript, se utilizaban llamadas de `regexp.exec` en el ciclo para obtener todas las coincidencias con sus grupos:
 
 ```js run
 let str = 'More about JavaScript at https://javascript.info';
