@@ -212,7 +212,7 @@ let result = str.replace(/(\w+) (\w+)/, (...match) => `${match[2]}, ${match[1]}`
 alert(result); // Smith, John
 ```
 
-O, si estamos usando grupos nombrados, entonces el objecto `groups` con ellos es siempre el último, por lo que podemos obtenerlos así:
+O, si estamos usando grupos nombrados, entonces el objeto `groups` con ellos es siempre el último, por lo que podemos obtenerlos así:
 
 ```js run
 let str = "John Smith";
