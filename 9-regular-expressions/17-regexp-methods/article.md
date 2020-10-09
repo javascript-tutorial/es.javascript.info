@@ -327,7 +327,7 @@ alert( regexp.test(str) ); // false (sin coincidencia)
 ```
 
 ````warn header="La misma expresión regular probada (de manera global) repetidamente en diferentes lugares puede fallar"
-Si nosotros aplicamos la misma expresión regular (de manera global) a diferentes entradas, puede causar resultados incorrectos, porque `regexp.test` anticipa las llamadas usando la propiedad `regexp.lastIndex`, por lo que la busqueda en otra cadena puede comenzar desde una posición distinta a cero.
+Si nosotros aplicamos la misma expresión regular (de manera global) a diferentes entradas, puede causar resultados incorrectos, porque `regexp.test` anticipa las llamadas usando la propiedad `regexp.lastIndex`, por lo que la búsqueda en otra cadena puede comenzar desde una posición distinta a cero.
 
 Por ejemplo, podemos llamarlo aquí `regexp.test` dos veces en el mismo texto y en la segunda vez falla:
 
