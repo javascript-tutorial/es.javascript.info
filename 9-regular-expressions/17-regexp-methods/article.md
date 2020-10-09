@@ -125,7 +125,7 @@ Este es un método genérico para buscar y reemplazar, uno de los más útiles. 
 Podemos usarlo sin expresiones regular, para buscar y reemplazar una sub-cadena:
 
 ```js run
-// reemplazar guión por dos puntos
+// reemplazar guion por dos puntos
 alert('12-34-56'.replace("-", ":")) // 12:34-56
 ```
 
