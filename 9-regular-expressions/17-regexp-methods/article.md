@@ -75,7 +75,7 @@ let regexp = /<(.*?)>/g;
 
 let matchAll = str.matchAll(regexp);
 
-alert(matchAll); // [object RegExp String Iterator], no es una lista, pero si un objeto iterable
+alert(matchAll); // [object RegExp String Iterator], no es un array, pero si un objeto iterable
 
 matchAll = Array.from(matchAll); // ahora es un array
 
