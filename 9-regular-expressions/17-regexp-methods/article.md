@@ -122,7 +122,7 @@ Si necesitamos las posiciones de las demás coincidencias, deberíamos usar otro
 
 Este es un método genérico para buscar y reemplazar, uno de los más útiles. La navaja suiza para buscar y reemplazar.  
 
-Podemos usarlo sin expresiones regular, para buscar y reemplazar una sub-cadena:
+Podemos usarlo sin expresiones regulares, para buscar y reemplazar una sub-cadena:
 
 ```js run
 // reemplazar guion por dos puntos
