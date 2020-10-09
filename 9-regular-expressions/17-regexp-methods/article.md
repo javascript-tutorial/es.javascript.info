@@ -234,7 +234,7 @@ El método `regexp.exec(str)` retorna una coincidencia por expresión regular (`
 
 Se comporta de manera diferente dependiendo de si la expresión regular tiene la bandera `pattern:g` o no.
 
-Si no hay la bandera `pattern:g`, entonces `regexp.exec(str)` retorna la primera coindicencia igual que `str.match(regexp)`. Este comportamiento no trae nada nuevo.
+Si no está bandera `pattern:g`, entonces `regexp.exec(str)` retorna la primera coincidencia igual que `str.match(regexp)`. Este comportamiento no trae nada nuevo.
 
 Pero si está la bandera `pattern:g`, entonces:
 - Una llamda a `regexp.exec(str)` retorna la primera coincidencia y guarda la posición inmediatamante después en `regexp.lastIndex`.
