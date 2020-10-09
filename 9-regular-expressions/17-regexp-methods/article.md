@@ -253,7 +253,7 @@ let regexp = /javascript/ig;
 let result;
 
 while (result = regexp.exec(str)) {
-  alert( `Found ${result[0]} at position ${result.index}` );
+  alert( `Se encontró ${result[0]} en la posición ${result.index}` );
   // Se encontró JavaScript en la posición 11, luego
   // Se encontró javascript en la posición 33
 }
