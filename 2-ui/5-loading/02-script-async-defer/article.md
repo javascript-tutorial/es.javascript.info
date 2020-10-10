@@ -3,7 +3,7 @@
 
 En los sitios web modernos los scripts suelen ser más "pesados" que el HTML, el tamaño de la descarga es grande y el tiempo de procesamiento es mayor.
 
-Cuando el navegador carga el HTML y se encuentra con una etiqueta `<script>...</script>`, no puede continuar construyendo el DOM ya que ahora debe ejecutar el script. Lo mismo sucede con los scripts externos `<script src="..."></script>`, el navegador tiene que esperar hasta que el script sea descargado para poder ejecutarlo y solo después procesa el resto de la página.   
+Cuando el navegador carga el HTML y se encuentra con una etiqueta `<script>...</script>`, no puede continuar construyendo el DOM. Debe ejecutar el script en el momento. Lo mismo sucede con los scripts externos `<script src="..."></script>`, el navegador tiene que esperar hasta que el script sea descargado, ejecutarlo y solo después procesa el resto de la página.   
 
 Esto nos lleva a dos importantes problemas:
 
@@ -185,8 +185,8 @@ Pero hay algunas diferencias esenciales entre ellos:
 
 |         | Orden | `DOMContentLoaded` |
 |---------|---------|---------|
-| `async` | *Load-first order*. El orden del documento no importa. ¿cual script carga primero? | Tal vez cargue y ejecute mientras el documento no ha sido completamente descargado, eso puede pasar si el script es pequeño o está en cache y el documento es suficientemente extenso. |
-| `defer` | *Document order* (como va en el documento). |  Ejecuta después de que el documento es cargado y analizado (espera si es necesario) |
+| `async` | *Load-first order*. El orden del documento no importa. El que carga primero ejecuta primero | Irrelevante. Puede cargar y ejecutarse mientras el documento no ha sido completamente descargado, eso puede pasar si el script es pequeño o está en cache y el documento es suficientemente extenso. |
+| `defer` | *Document order* (como van en el documento). |  Ejecutan después de que el documento es cargado y analizado (espera si es necesario), justo antes de `DOMContentLoaded`. |
 
 En la práctica, `defer` es usado para scripts que necesitan todo el DOM y/o el orden de ejecución es importante. 
 
