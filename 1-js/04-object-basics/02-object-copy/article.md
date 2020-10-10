@@ -1,4 +1,4 @@
-# Copia de objetos, referencias
+# Referencias de objetos y copia
 
 Una de las diferencias fundamentales entre objetos y primitivos es que los objetos son almacenados y copiados "por referencia", en cambio los primitivos: strings, number, boolean; son asignados y copiados "como un valor completo".
 
