@@ -68,7 +68,7 @@ function makeArmy() {
   let i = 0;
   while (i < 10) {
     *!*
-      for(let i = 0; i < 10; i++) {
+      let j = i;
     */!*
       let shooter = function() { // shooter function
         alert( *!*j*/!* ); // debería mostrar su número
