@@ -32,7 +32,7 @@ Así es como podemos representar gráficamente el objeto `animal` y la clase `An
 
 ![](rabbit-animal-independent-animal.svg)
 
-...Y nos gustaría crear otra clase `Rabbit`.
+...Y nos gustaría crear otra clase `Rabbit` (Conejo).
 
 Como los conejos son animales, la clase 'Rabbit' debe basarse en 'Animal', tener acceso a métodos animales, para que los conejos puedan hacer lo que los animales "genéricos" pueden hacer.
 
@@ -45,28 +45,28 @@ Construyamos la clase `Rabbit` que herede de `Animal`:
 class Rabbit extends Animal {
 */!*
   hide() {
-    alert(`${this.name} se esconde!`);
+    alert(`¡${this.name} se esconde!`);
   }
 }
 
 let rabbit = new Rabbit("Conejo Blanco");
 
 rabbit.run(5); // Conejo Blanco corre a una velocidad de 5.
-rabbit.hide(); // Conejo Blanco se esconde!
+rabbit.hide(); // ¡Conejo Blanco se esconde!
 ```
 
 Los objetos de la clase `Rabbit` tienen acceso a los métodos de `Rabbit`, como `rabbit.hide()`, y también a los métodos `Animal`, como `rabbit.run()`.
 
-Internamente, la palabra clave `extends` funciona con la buena mecánica de prototipo. Establece `Rabbit.prototype. [[Prototype]]` a `Animal.prototype`. Entonces, si no se encuentra un método en `Rabbit.prototype`, JavaScript lo toma de` Animal.prototype`.
+Internamente, la palabra clave `extends` funciona con la buena mecánica de prototipo: establece `Rabbit.prototype.[[Prototype]]` a `Animal.prototype`. Entonces, si no se encuentra un método en `Rabbit.prototype`, JavaScript lo toma de `Animal.prototype`.
 
 ![](animal-rabbit-extends.svg)
 
-Por ejemplo, para encontrar el método `rabbit.run`, el motor verifica (de abajo hacia arriba en la imagen) que:
+Por ejemplo, para encontrar el método `rabbit.run`, el motor verifica (en la imagen, de abajo hacia arriba):
 1. El objeto `rabbit` (no tiene el método `run`).
 2. Su prototipo, que es `Rabbit.prototype` (tiene el método `hide`, pero no el método `run`).
-3. Su prototipo,  `Animal.prototype` (debido a `extends`), este finalmente tiene el método `run`.
+3. Su prototipo, que es `Animal.prototype` (debido a `extends`). Este finalmente tiene el método `run`.
 
-Como podemos recordar del capítulo <info:native-prototypes>, JavaScript usa la misma herencia prototípica para los objetos incorporados. P.ej. `Date.prototype.[[Prototype]]` es `Object.prototype`, por lo que "Date" tiene métodos de objeto genéricos.
+Como podemos recordar del capítulo <info:native-prototypes>, JavaScript usa la misma herencia prototípica para los objetos incorporados. Por ejemplo `Date.prototype.[[Prototype]]` es `Object.prototype`, por lo que "Date" tiene acceso a métodos de objeto genéricos.
 
 ````smart header="Cualquier expresión está permitida después de `extends`"
 La sintaxis de clase permite especificar no solo una clase, sino cualquier expresión después de `extends`.
@@ -95,7 +95,7 @@ Eso puede ser útil para patrones de programación avanzados cuando usamos funci
 
 Ahora avancemos y sobrescribamos un método. Por defecto, todos los métodos que no están especificados en la clase `Rabbit` se toman directamente "tal cual" de la clase `Animal`.
 
-Si especificamos nuestro propio método `stop()` en `Rabbit`, se utilizará en su lugar:
+Pero Si especificamos nuestro propio método `stop()` en `Rabbit`, este se utilizará en su lugar:
 
 ```js
 class Rabbit extends Animal {
@@ -106,14 +106,14 @@ class Rabbit extends Animal {
 }
 ```
 
-...Pero, por lo general, no queremos reemplazar totalmente un método padre, sino más bien construir sobre él, modificar o ampliar su funcionalidad. Hacemos algo en nuestro método, pero llamamos al método padre antes/después o en el proceso.
+Usualmente no queremos reemplazar totalmente un método padre, sino más bien construir sobre él, modificar o ampliar su funcionalidad. Hacemos algo en nuestro método, pero llamamos al método padre antes, después o durante el proceso.
 
 Las clases proporcionan la palabra clave `"super"` para eso.
 
 - `super.method(...)` llama un método padre.
 - `super(...)` llama un constructor padre (solo dentro de nuestro constructor).
 
-Por ejemplo, dejemos que nuestro conejo se oculte automáticamente cuando se detenga:
+Por ejemplo, hagamos que nuestro conejo se oculte automáticamente cuando se detenga:
 
 ```js run
 class Animal {
@@ -137,7 +137,7 @@ class Animal {
 
 class Rabbit extends Animal {
   hide() {
-    alert(`${this.name} se esconde!`);
+    alert(`¡${this.name} se esconde!`);
   }
 
 *!*
@@ -151,7 +151,7 @@ class Rabbit extends Animal {
 let rabbit = new Rabbit("Conejo Blanco");
 
 rabbit.run(5); // Conejo Blanco corre a una velocidad de 5.
-rabbit.stop(); // Conejo Blanco se queda quieto. Conejo Blanco se esconde!
+rabbit.stop(); // Conejo Blanco se queda quieto. ¡Conejo Blanco se esconde!
 ```
 
 Ahora `Rabbit` tiene el método `stop` que llama al padre `super.stop()` en el proceso.
@@ -163,7 +163,7 @@ Si se accede, se toma de la función externa. Por ejemplo:
 ```js
 class Rabbit extends Animal {
   stop() {
-    setTimeout(() => super.stop(), 1000); // llama al stop() padre despues de 1seg
+    setTimeout(() => super.stop(), 1000); // llama al stop() padre despues de 1 segundo
   }
 }
 ```
@@ -224,16 +224,17 @@ class Rabbit extends Animal {
 
 *!*
 // No funciona!
-let rabbit = new Rabbit("Conejo Blanco", 10); // Error: esto no está definido.
+let rabbit = new Rabbit("Conejo Blanco", 10); // Error: this no está definido.
 */!*
 ```
 
-Vaya! Tenemos un error. Ahora no podemos crear conejos. ¿Qué salió mal?
+¡Vaya! Tenemos un error. Ahora no podemos crear conejos. ¿Qué salió mal?
 
 La respuesta corta es: 
-- **Los constructores en las clases heredadas deben llamar a `super(...)`, y (!) hacerlo antes de usar `this`**.
 
-...¿Pero por qué? ¿Que está pasando aqui? De hecho, el requisito parece extraño.
+- **Los constructores en las clases heredadas deben llamar a `super(...)`, y (¡!) hacerlo antes de usar `this`**.
+
+...¿Pero por qué? ¿Qué está pasando aqui? De hecho, el requisito parece extraño.
 
 Por supuesto, hay una explicación. Vamos a entrar en detalles, para que realmente entiendas lo que está pasando.
 
@@ -244,7 +245,7 @@ Esa etiqueta afecta su comportamiento con `new`.
 - Cuando una función regular se ejecuta con `new`, crea un objeto vacío y lo asigna a `this`.
 - Pero cuando se ejecuta un constructor derivado, no hace esto. Espera que el constructor padre haga este trabajo.
 
-**Por lo tanto, un constructor derivado debe llamar a `super` para ejecutar su constructor padre (no derivado), de lo contrario no se creará el objeto para `this`. Y obtendremos un error.**
+Entonces un constructor derivado debe llamar a `super` para ejecutar su constructor padre (base), de lo contrario no se creará el objeto para `this`. Y obtendremos un error.
 
 Para que el constructor `Rabbit` funcione, necesita llamar a `super()` antes de usar `this`, como aquí:
 
@@ -278,93 +279,105 @@ alert(rabbit.name); // Conejo Blanco
 alert(rabbit.earLength); // 10
 */!*
 ```
-### Overriding class fields: a tricky note
 
-```warn header="Advanced note"
-This note assumes you have a certain experience with classes, maybe in other programming languages.
-It provides better insight into the language and also explains the behavior that might be a source of bugs (but not very often).
-If you find it difficult to understand, just go on, continue reading, then return to it some time later.
+
+
+### Sobrescribiendo campos de clase: una nota con trampa
+
+```warn header="Nota avanzada"
+Esta nota assume que tienes cierta experiencia con clases, quizás en otros lenguajes de programación.
+
+Brinda una visión más profunda al lenguaje y también explica el comportamiento que podría causar errores (pero no muy a menudo).
+
+Si lo encuentras difícil de entender, simplemente sigue adelante, continúa leyendo y vuelve aquí más adelante.
 ```
 
-We can override not only methods, but also class fields.
+Podemos sobrescribir no solo métodos, sino también los campos de la clase.
 
-Although, there's a tricky behavior when we access an overridden field in parent constructor, quite different from most other programming languages.
+Pero hay un comportamiento peculiar cuando accedemos a los campos sobrescritos en el contructor padre, muy diferente a de la mayoría de los demás lenguajes de programación.
 
-Consider this example:
+Considera este ejemplo:
 
 ```js run
 class Animal {
   name = 'animal'
-  constructor() {
+
+constructor() {
     alert(this.name); // (*)
   }
 }
+
 class Rabbit extends Animal {
   name = 'rabbit';
 }
+
 new Animal(); // animal
 *!*
 new Rabbit(); // animal
 */!*
 ```
 
-Here, class `Rabbit` extends `Animal` and overrides `name` field with its own value.
+Aquí, la clase `Rabbit` extiende `Animal` y sobrescribe el campo `name` con un valor propio.
 
-There's no own constructor in `Rabbit`, so `Animal` constructor is called.
+`Rabbit` no tiene su propio constructor, entonces es llamado el de `Animal`.
 
-What's interesting is that in both cases: `new Animal()` and `new Rabbit()`, the `alert` in the line `(*)` shows `animal`.
+Lo interesante es que en ambos casos: `new Animal()` y `new Rabbit()`, el `alert` en la línea `(*)` muestra `animal`.
 
-**In other words, parent constructor always uses its own field value, not the overridden one.**
+**En otras palabras, el contructor padre siempre usa el valor de su propios campo de clase, no el sobrescrito.**
 
-What's odd about it?
+¿Qué es lo extrañoo de esto?
 
-If it's not clear yet, please compare with methods.
+Si esto aún no está claro, compara con métodos.
 
-Here's the same code, but instead of `this.name` field we call `this.showName()` method:
+Aquí está el mismo código, pero en lugar del campo `this.name` llamamos el método `this.showName()`:
 
 ```js run
 class Animal {
-  showName() {  // instead of this.name = 'animal'
+  showName() {  // en vez de this.name = 'animal'
     alert('animal');
   }
+
   constructor() {
     this.showName(); // instead of alert(this.name);
   }
 }
+
 class Rabbit extends Animal {
   showName() {
     alert('rabbit');
   }
 }
+
 new Animal(); // animal
 *!*
 new Rabbit(); // rabbit
 */!*
 ```
 
-Please note: now the output is different.
+Obsserva que ahora la salida es diferente.
 
-And that's what we naturally expect. When the parent constructor is called in the derived class, it uses the overridden method.
+Y es lo que esperamos naturalmente. Cuando el constructor padre es llamado en la clase derivada, usa el método sobrescrito.
 
-...But for class fields it's not so. As said, the parent constructor always uses the parent field.
+...Pero con los campos esto no es así. Como dijimos antes, el contructor padre siempre utiliza el campo padre.
 
-Why is there the difference?
+¿Por que existe la diferencia?
 
-Well, the reason is in the field initialization order. The class field is initialized:
-- Before constructor for the base class (that doesn't extend anything),
-- Immediately after `super()` for the derived class.
+Bien, la razón está en el orden de inicialización, El campo de clase es inicializado:
+- Antes del contructor para la clase de base (que no extiende nada),
+- Inmediatamente depué de `super()` para la clase derivada.
 
-In our case, `Rabbit` is the derived class. There's no `constructor()` in it. As said previously, that's the same as if there was an empty constructor with only `super(...args)`.
+En nuestro caso, `Rabbit` es la clase derivada. No hay `constructor()` en ella. Como establecimos previamente, es lo mismo que si hubiera un constructor vacío con solamente `super(...args)`.
 
-So, `new Rabbit()` calls `super()`, thus executing the parent constructor, and (per the rule for derived classes) only after that its class fields are initialized. At the time of the parent constructor execution, there are no `Rabbit` class fields yet, that's why `Animal` fields are used.
+Entonces, `new Rabbit()` llama a `super()` y se ejecuta el contructor padre, y (por la regla de la clase derivada) solamente después de que sus campos de clase sean inicializados. En el momento de la ejecución del contructor padre, todavía no existen los campos de clase de `Rabbit`, por ello los campos de `Animal` son los usado.
 
-This subtle difference between fields and methods is specific to JavaScript
+Esta sutil diferencia entre campos y métodos es particular de JavaScript
 
-Luckily, this behavior only reveals itself if an overridden field is used in the parent constructor. Then it may be difficult to understand what's going on, so we're explaining it here.
+Afortunadamente este comportamiento solo se revela si los campos sobrescritos son usados en el constructor padre. Entonces puede ser difícil entender qué es lo que está pasando, por ello lo explicamos aquí.
 
-If it becomes a problem, one can fix it by using methods or getters/setters instead of fields.
+Si esto e vuelve un problema, uno puede corregirlo usando métodos o getters/setters en lugar de campos.
 
-## [[HomeObject]]: el `super` interno 
+
+## El método `super` internamente [[HomeObject]] 
 
 ```warn header="Información avanzada"
 Si está leyendo el tutorial por primera vez, esta sección puede omitirse.
