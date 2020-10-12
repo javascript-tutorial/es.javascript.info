@@ -1,6 +1,6 @@
 # Propiedades del nodo: tipo, etiqueta y contenido
 
-Echemos un vistazo más en profundidad a los nodos DOM.
+Echemos un mirada más en profundidad a los nodos DOM.
 
 En este capítulo veremos más sobre cuáles son y aprenderemos sus propiedades más utilizadas.
 
