@@ -319,7 +319,7 @@ Entonces, lo que sucedió en `div.outerHTML=...` es:
 - Otro fragmento de HTML `<p>Un nuevo elemento</p>` se insertó en su lugar.
 - `div` todavía tiene su antiguo valor. El nuevo HTML no se guardó en ninguna variable.
 
-Es muy fácil cometer un error aquí: modifica `div.outerHTML` y luego continúa trabajando con `div` como si tuviera el nuevo contenido. Pero no es así. Esto es correcto para `innerHTML`, pero no para `outerHTML`.
+Es muy fácil cometer un error aquí: modificar `div.outerHTML` y luego continuar trabajando con `div` como si tuviera el nuevo contenido. Pero no es así. Esto es correcto para `innerHTML`, pero no para `outerHTML`.
 
 Podemos escribir en `elem.outerHTML`, pero debemos tener en cuenta que no cambia el elemento en el que estamos escribiendo ('elem'). En su lugar, coloca el nuevo HTML en su lugar. Podemos obtener referencias a los nuevos elementos consultando el DOM.
 
