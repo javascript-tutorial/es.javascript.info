@@ -115,15 +115,15 @@ button.style.WebkitBorderRadius = '5px';
 
 Sometimes we want to assign a style property, and later remove it.
 
-For instance, to hide an element, we can set `elem.style.display = "none"`.
+Por ejemplo, para ocultar un elemento, podemos establecer `elem.style.display = "none"`.
 
 Then later we may want to remove the `style.display` as if it were not set. Instead of `delete elem.style.display` we should assign an empty string to it: `elem.style.display = ""`.
 
 ```js run
-// if we run this code, the <body> will blink
-document.body.style.display = "none"; // hide
+// si podemos ejecutar este código, el <body> papadeará
+document.body.style.display = "none"; // ocultar
 
-setTimeout(() => document.body.style.display = "", 1000); // back to normal
+setTimeout(() => document.body.style.display = "", 1000); // volver a lo normal
 ```
 
 If we set `style.display` to an empty string, then the browser applies CSS classes and its built-in styles normally, as if there were no such `style.display` property at all.
@@ -137,7 +137,7 @@ To set the full style as a string, there's a special property `style.cssText`:
 <div id="div">Button</div>
 
 <script>
-  // we can set special style flags like "important" here
+  // podemos establecer estilos especiales con banderas como "important"
   div.style.cssText=`color: red !important;
     background-color: yellow;
     width: 100px;
@@ -153,22 +153,22 @@ This property is rarely used, because such assignment removes all existing style
 The same can be accomplished by setting an attribute: `div.setAttribute('style', 'color: red...')`.
 ````
 
-## Mind the units
+## Cuidado con las unidades CSS
 
-Don't forget to add CSS units to values.
+No olvidar agregar las unidades CSS a los valores.
 
-For instance, we should not set `elem.style.top` to `10`, but rather to `10px`. Otherwise it wouldn't work:
+Por ejemplo, nosotros no debemos establecer `elem.style.top` a `10`, sino más bien a `10px`. De lo contrario no funcionaría:
 
 ```html run height=100
 <body>
   <script>
   *!*
-    // doesn't work!
+    // ¡no funciona!
     document.body.style.margin = 20;
-    alert(document.body.style.margin); // '' (empty string, the assignment is ignored)
+    alert(document.body.style.margin); // '' (cadena vacía, la asignación es ignorada)
   */!*
 
-    // now add the CSS unit (px) - and it works
+    // ahora agregamos la unidad CSS (px) y funciona
     document.body.style.margin = '20px';
     alert(document.body.style.margin); // 20px
 
@@ -178,19 +178,19 @@ For instance, we should not set `elem.style.top` to `10`, but rather to `10px`. 
 </body>
 ```
 
-Please note: the browser "unpacks" the property `style.margin` in the last lines and infers `style.marginLeft` and `style.marginTop` from it.
+Tenga en cuenta: el navegador "desempaqueta" la propiedad `style.margin` en las últimas lineas e infiere `style.marginLeft` y `style.marginTop` de eso.
 
-## Computed styles: getComputedStyle
+## Estilos calculados: getComputedStyle
 
 So, modifying a style is easy. But how to *read* it?
 
-For instance, we want to know the size, margins, the color of an element. How to do it?
+Por ejemplo, queremos saber el tamaño, los margenes, el color de un elemento. ¿Cómo hacerlo?
 
-**The `style` property operates only on the value of the `"style"` attribute, without any CSS cascade.**
+**La propiedad `style` solo opera en el valor del atributo `"style"`, sin ninguna cascada de `css`.**
 
-So we can't read anything that comes from CSS classes using `elem.style`.
+Entonces no podemos leer ninguna clase CSS usando `elem.style`.
 
-For instance, here `style` doesn't see the margin:
+Por ejemplo, aquí `style` no ve el margen:
 
 ```html run height=60 no-beautify
 <head>
@@ -198,35 +198,35 @@ For instance, here `style` doesn't see the margin:
 </head>
 <body>
 
-  The red text
+  El texto en rojo
   <script>
 *!*
-    alert(document.body.style.color); // empty
-    alert(document.body.style.marginTop); // empty
+    alert(document.body.style.color); // vacío
+    alert(document.body.style.marginTop); // vacío
 */!*
   </script>
 </body>
 ```
 
-...But what if we need, say, to increase the margin by `20px`? We would want the current value of it.
+...pero si necesitamos incrementar el margen a  `20px`? vamos el querer el valor de la misma.
 
-There's another method for that: `getComputedStyle`.
+Hay otro método para eso: `getComputedStyle`.
 
-The syntax is:
+La síntaxis es:
 
 ```js
 getComputedStyle(element, [pseudo])
 ```
 
 element
-: Element to read the value for.
+: Elemento del cual se va a leer el valor.
 
 pseudo
 : A pseudo-element if required, for instance `::before`. An empty string or no argument means the element itself.
 
 The result is an object with styles, like `elem.style`, but now with respect to all CSS classes.
 
-For instance:
+Por ejemplo:
 
 ```html run height=100
 <head>
@@ -260,7 +260,7 @@ So nowadays `getComputedStyle` actually returns the resolved value of the proper
 ````warn header="`getComputedStyle` requires the full property name"
 We should always ask for the exact property that we want, like `paddingLeft` or `marginTop` or `borderTopWidth`. Otherwise the correct result is not guaranteed.
 
-For instance, if there are properties `paddingLeft/paddingTop`, then what should we get for `getComputedStyle(elem).padding`? Nothing, or maybe a "generated" value from known paddings? There's no standard rule here.
+Por ejemplo, if there are properties `paddingLeft/paddingTop`, then what should we get for `getComputedStyle(elem).padding`? Nothing, or maybe a "generated" value from known paddings? There's no standard rule here.
 
 There are other inconsistencies. As an example, some browsers (Chrome) show `10px` in the document below, and some of them (Firefox) --  do not:
 
@@ -277,8 +277,8 @@ There are other inconsistencies. As an example, some browsers (Chrome) show `10p
 ```
 ````
 
-```smart header="Styles applied to `:visited` links are hidden!"
-Visited links may be colored using `:visited` CSS pseudoclass.
+```smart header="Estilos aplicados a los enlacess `:visited` estan ocultos!"
+Los enlaces visitados deberían estar coloreados la pseudo-clase `:visited` de CSS.
 
 But `getComputedStyle` does not give access to that color, because otherwise an arbitrary page could find out whether the user visited a link by creating it on the page and checking the styles.
 
