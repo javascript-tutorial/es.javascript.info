@@ -2,7 +2,7 @@
 
 Una de las diferencias fundamentales entre objetos y primitivos es que los objetos son almacenados y copiados "por referencia", en cambio los primitivos: strings, number, boolean; son asignados y copiados "como un valor completo".
 
-Esto es fácil de entender si miramos un poco "bajo cunierta" de lo que pasa cuando copiamos por valor.
+Esto es fácil de entender si miramos un poco "bajo cubierta" de lo que pasa cuando copiamos por valor.
 
 Empecemos por un primitivo como string.
 
@@ -31,7 +31,7 @@ let user = {
 };
 ```
 
-And here's how it's actually stored in memory:
+Y así es como se almacena en la memoria:
 
 ![](variable-contains-reference.svg)
 
@@ -39,7 +39,7 @@ El objeto es almacenado en algún lugar de la memoria (a la derecha de la imagen
 
 Podemos pensar de una variable objeto, como `user`, como una hoja de papel con su dirección.
 
-Cuando ejecutamos acciones con el objeto, por ejemplo tomar una propiedad `user.name`, el motor JavaScript busca aquella dirección y ejecuta la operacion en el objeto mismo.
+Cuando ejecutamos acciones con el objeto, por ejemplo tomar una propiedad `user.name`, el motor JavaScript busca aquella dirección y ejecuta la operación en el objeto mismo.
 
 Ahora, por qué esto es importante.
 
@@ -74,7 +74,7 @@ alert(*!*user.name*/!*); // 'Pete', los cambios se ven desde la referencia "user
 ```
 
 
-Es como si tuviéramos un gabinete con dos llaves y usáramos una de ellas (`admin`) para accederlo. Si más tarde usamos la llave (`user`), podemos ver los cambios.
+Es como si tuviéramos un gabinete con dos llaves y usáramos una de ellas (`admin`) para acceder a él. Si más tarde usamos la llave (`user`), podemos ver los cambios.
 
 ## Comparación por referencia
 
