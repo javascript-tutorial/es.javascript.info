@@ -285,7 +285,7 @@ alert(rabbit.earLength); // 10
 ### Sobrescribiendo campos de clase: una nota con trampa
 
 ```warn header="Nota avanzada"
-Esta nota assume que tienes cierta experiencia con clases, quizás en otros lenguajes de programación.
+Esta nota asume que tienes cierta experiencia con clases, quizás en otros lenguajes de programación.
 
 Brinda una visión más profunda al lenguaje y también explica el comportamiento que podría causar errores (pero no muy a menudo).
 
