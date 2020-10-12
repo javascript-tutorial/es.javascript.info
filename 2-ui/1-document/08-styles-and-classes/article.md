@@ -2,28 +2,28 @@
 
 Before we get into JavaScript's ways of dealing with styles and classes -- here's an important rule. Hopefully it's obvious enough, but we still have to mention it.
 
-There are generally two ways to style an element:
+Por lo general, hay dos formas de dar estilo a un elemento:
 
-1. Create a class in CSS and add it: `<div class="...">`
-2. Write properties directly into `style`: `<div style="...">`.
+1. Crear una clase `css` y agregarsela: `<div class="...">`
+2. Escribir las propiedades directamente en `style`: `<div style="...">`.
 
-JavaScript can modify both classes and `style` properties.
+JavaScript puede modificar ambos, clases y las propiedades de `style`.
 
-We should always prefer CSS classes to `style`. The latter should only be used if classes "can't handle it".
+Nosotros deberíamos preferir las clases `css` en lugar de `style`. Este último solo debe usar si las clases "no pueden manejarlo".
 
-For example, `style` is acceptable if we calculate coordinates of an element dynamically and want to set them from JavaScript, like this:
+Por ejemplo, `style` es aceptable si nosotros calculamos las coordenadas de un elemento dinámicamente y queremos establecer estas desde JavaScript, así:
 
 ```js
-let top = /* complex calculations */;
-let left = /* complex calculations */;
+let top = /* cálculos complejos */;
+let left = /* cálculos complejos */;
 
-elem.style.left = left; // e.g '123px', calculated at run-time
-elem.style.top = top; // e.g '456px'
+elem.style.left = left; // ej. '123px', calculado en tiempo de ejecución
+elem.style.top = top; // ej. '456px'
 ```
 
-For other cases, like making the text red, adding a background icon -- describe that in CSS and then add the class (JavaScript can do that). That's more flexible and easier to support.
+Para otros casos, como convertir un texto en rojo, adding a background icon -- describe that in CSS and then add the class (JavaScript can do that). That's more flexible and easier to support.
 
-## className and classList
+## className y classList
 
 Changing a class is one of the most often used actions in scripts.
 
@@ -82,7 +82,7 @@ Besides, `classList` is iterable, so we can list all classes with `for..of`, lik
 </body>
 ```
 
-## Element style
+## `style` de un elemento
 
 The property `elem.style` is an object that corresponds to what's written in the `"style"` attribute. Setting `elem.style.width="100px"` works the same as if we had in the attribute `style` a string `width:100px`.
 
@@ -111,7 +111,7 @@ button.style.WebkitBorderRadius = '5px';
 ```
 ````
 
-## Resetting the style property
+## Reseteando la propiedad `style`
 
 Sometimes we want to assign a style property, and later remove it.
 
