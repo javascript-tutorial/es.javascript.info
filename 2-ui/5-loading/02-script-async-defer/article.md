@@ -3,7 +3,11 @@
 
 En los sitios web modernos los scripts suelen ser más "pesados" que el HTML, el tamaño de la descarga es grande y el tiempo de procesamiento es mayor.
 
+<<<<<<< HEAD
 Cuando el navegador carga el HTML y se encuentra con una etiqueta `<script>...</script>`, no puede continuar construyendo el DOM ya que ahora debe ejecutar el script. Lo mismo sucede con los scripts externos `<script src="..."></script>`, el navegador tiene que esperar hasta que el script sea descargado para poder ejecutarlo y solo después procesa el resto de la página.   
+=======
+When the browser loads HTML and comes across a `<script>...</script>` tag, it can't continue building the DOM. It must execute the script right now. The same happens for external scripts `<script src="..."></script>`: the browser must wait for the script to download, execute the downloaded script, and only then can it process the rest of the page.
+>>>>>>> 0599d07b3c13ee25f583fc091cead3c17a7e7779
 
 Esto nos lleva a dos importantes problemas:
 
@@ -185,8 +189,13 @@ Pero hay algunas diferencias esenciales entre ellos:
 
 |         | Orden | `DOMContentLoaded` |
 |---------|---------|---------|
+<<<<<<< HEAD
 | `async` | *Load-first order*. El orden del documento no importa. ¿cual script carga primero? | Tal vez cargue y ejecute mientras el documento no ha sido completamente descargado, eso puede pasar si el script es pequeño o está en cache y el documento es suficientemente extenso. |
 | `defer` | *Document order* (como va en el documento). |  Ejecuta después de que el documento es cargado y analizado (espera si es necesario) |
+=======
+| `async` | *Load-first order*. Their document order doesn't matter -- which loads first runs first |  Irrelevant. May load and execute while the document has not yet been fully downloaded. That happens if scripts are small or cached, and the document is long enough. |
+| `defer` | *Document order* (as they go in the document). |  Execute after the document is loaded and parsed (they wait if needed), right before `DOMContentLoaded`. |
+>>>>>>> 0599d07b3c13ee25f583fc091cead3c17a7e7779
 
 En la práctica, `defer` es usado para scripts que necesitan todo el DOM y/o el orden de ejecución es importante. 
 

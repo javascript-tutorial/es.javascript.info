@@ -1,6 +1,10 @@
 # Una introducción a JavaScript
 
+<<<<<<< HEAD
 Veamos qué tiene de especial JavaScript, qué podemos lograr con este lenguaje y qué otras tecnologías se integran bien con él.
+=======
+Let's see what's so special about JavaScript, what we can achieve with it, and what other technologies play well with it.
+>>>>>>> 0599d07b3c13ee25f583fc091cead3c17a7e7779
 
 ## ¿Qué es JavaScript?
 
@@ -67,7 +71,12 @@ Ejemplos de tales restricciones incluyen:
 
   Los navegadores mas modernos le permiten trabajar con archivos, pero el acceso es limitado y solo permitido si el usuario realiza ciertas acciones, como "arrastrar" un archivo a la ventana del navegador o seleccionarlo por medio de una etiqueta `<input`>.
 
+<<<<<<< HEAD
   Existen maneras de interactuar con la cámara, micrófono y otros dispositivos, pero eso requiere el permiso explicito del usuario. Por lo tanto, una página habilitada para JavaScript no puede habilitar una cámara web para observar el entorno y enviar la información a la [NSA](https://es.wikipedia.org/wiki/Agencia_de_Seguridad_Nacional).
+=======
+    There are ways to interact with camera/microphone and other devices, but they require a user's explicit permission. So a JavaScript-enabled page may not sneakily enable a web-camera, observe the surroundings and send the information to the [NSA](https://en.wikipedia.org/wiki/National_Security_Agency).
+- Different tabs/windows generally do not know about each other. Sometimes they do; for example when one window uses JavaScript to open the other one. But even in this case, JavaScript from one page may not access the other if they come from different sites (from a different domain, protocol or port).
+>>>>>>> 0599d07b3c13ee25f583fc091cead3c17a7e7779
 
 - Diferentes pestañas y ventanas generalmente no se conocen entre sí. A veces si lo hacen, por ejemplo, cuando una ventana usa JavaScript para abrir otra. Pero incluso en este caso, JavaScript no puede acceder a la otra si provienen de diferentes sitios. (De diferente dominio, protocolo o puerto).
 
@@ -119,6 +128,12 @@ Hay mas. Por supuesto, incluso si nosotros usamos alguno de estos lenguajes, deb
 
 ## Resumen
 
+<<<<<<< HEAD
 - JavaScript fue inicialmente creado como un lenguaje solo para el navegador, pero ahora es usado también en muchos otros entornos.
 - Hoy en día, JavaScript tiene una posición única como el lenguaje más extendido y adoptado de navegador, con una integración completa con HTML y CSS.
 - Existen muchos lenguajes que se convierten o transpilan a JavaScript y aportan ciertas características. Es recomendable echarles un vistazo, al menos brevemente, después de dominar JavaScript.
+=======
+- JavaScript was initially created as a browser-only language, but it is now used in many other environments as well.
+- Today, JavaScript has a unique position as the most widely-adopted browser language with full integration in HTML/CSS.
+- There are many languages that get "transpiled" to JavaScript and provide certain features. It is recommended to take a look at them, at least briefly, after mastering JavaScript.
+>>>>>>> 0599d07b3c13ee25f583fc091cead3c17a7e7779

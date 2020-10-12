@@ -2,7 +2,11 @@
 ## Tutorial Moderno de JavaScript en Español
 Abajo se les dan las instrucciones para comenzar a contribuir. Recuerden que al seleccionar un artículo, **deberán traducir todo su contenido**, incluidos los tasks y soluciones. No deben hacer PR si no está todo el artículo seleccionado traducido, haciendo esto, nos ayudarán a hacer mejores y más rápidas las revisiones.
 
+<<<<<<< HEAD
 También aconsejamos cuidar la **ortografía**, lo que incluye no olvidar los acentos en las traducciones.
+=======
+This repository hosts the English content of the Modern JavaScript Tutorial, published in [https://javascript.info](https://javascript.info).
+>>>>>>> 0599d07b3c13ee25f583fc091cead3c17a7e7779
 
 Les recordamos también, que para cada traducción, deberán crear una **nueva rama en su fork**, ya que la rama master deberá estar siempre limpia. **Un artículo = nueva rama**. 
 
@@ -101,9 +105,15 @@ The folder is named `N-url`, where `N` – is the number for sorting (articles a
 
 The folder has one of files:
 
+<<<<<<< HEAD
 - `index.md` for a section,
 - `article.md` for an article,
 - `task.md` for a task formulation (+`solution.md` with the solution text if any).
+=======
+  - `index.md` stands for a chapter
+  - `article.md` stands for an article
+  - `task.md` stands for a task (solution must be provided in `solution.md` file as well)
+>>>>>>> 0599d07b3c13ee25f583fc091cead3c17a7e7779
 
 A file starts with the `# Title Header`, and then the text in Markdown-like format, editable in a simple text editor. 
 
