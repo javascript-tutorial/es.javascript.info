@@ -18,4 +18,4 @@ for (let li of document.querySelectorAll('li')) {
 }
 ```
 
-Entonces podemos obtener el número de descendientes como `li.getElementsByTagName('li'). Length`.
+Entonces podemos obtener el número de descendientes como `li.getElementsByTagName('li').length`.
