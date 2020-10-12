@@ -1,4 +1,4 @@
-# Styles and classes
+# Estilos y clases
 
 Before we get into JavaScript's ways of dealing with styles and classes -- here's an important rule. Hopefully it's obvious enough, but we still have to mention it.
 
@@ -285,19 +285,20 @@ But `getComputedStyle` does not give access to that color, because otherwise an 
 JavaScript may not see the styles applied by `:visited`. And also, there's a limitation in CSS that forbids applying geometry-changing styles in `:visited`. That's to guarantee that there's no side way for an evil page to test if a link was visited and hence to break the privacy.
 ```
 
-## Summary
+## Resumen
 
-To manage classes, there are two DOM properties:
+Para manejar clases, hay dos propiedades del DOM:
 
-- `className` -- the string value, good to manage the whole set of classes.
-- `classList` -- the object with methods `add/remove/toggle/contains`, good for individual classes.
+- `className` -- el valor de la cadena, perfecto para manejar todo el conjunto de clases.
+- `classList` -- el objeto con métodos `add/remove/toggle/contains`, perfecto para clases invidivuales.
 
-To change the styles:
+Para cambiar los estilos:
 
-- The `style` property is an object with camelCased styles. Reading and writing to it has the same meaning as modifying individual properties in the `"style"` attribute. To see how to apply `important` and other rare stuff -- there's a list of methods at [MDN](mdn:api/CSSStyleDeclaration).
+- La propiedad `style` es un objecto con los estilos en `camelcase`. 
+Leer y escribir tiene el mismo significado que modificar propiedades individuales en el atributo `"style"`. Para ver como aplicar `important` y otras cosas raras, hay una lista de métodos en [MDN](mdn:api/CSSStyleDeclaration).
 
-- The `style.cssText` property corresponds to the whole `"style"` attribute, the full string of styles.
+- La propiedad `style.cssText` corresponde a todo el atributo `"style"`, la cadena completa de estilos.
 
-To read the resolved styles (with respect to all classes, after all CSS is applied and final values are calculated):
+Para leer los estilos resueltos (con respecto a todas las clases, después de que se aplica todo el `css` se calculan los valores finales):
 
-- The `getComputedStyle(elem, [pseudo])` returns the style-like object with them. Read-only.
+- El método `getComputedStyle(elem, [pseudo])` retorna el objeto de estilo con ellos (solo lectura).
