@@ -264,7 +264,7 @@ En otras palabras, `innerHTML+=` hace esto:
 
 **Como el contenido se "pone a cero" y se reescribe desde cero, todas las imágenes y otros recursos se volverán a cargar.**.
 
-En el ejemplo de `chatDiv` arriba, la línea `chatDiv.innerHTML+="¿Cómo va?"` recrea el contenido HTML y recarga `smile.gif` (espero que esté en caché). Si `chatDiv` tiene muchos otros textos e imágenes, entonces la recarga se vuelve claramente visible.
+En el ejemplo de `chatDiv` arriba, la línea `chatDiv.innerHTML+="¿Cómo va?"` recrea el contenido HTML y recarga `smile.gif` (con la esperanza de que esté en caché). Si `chatDiv` tiene muchos otros textos e imágenes, entonces la recarga se vuelve claramente visible.
 
 También hay otros efectos secundarios. Por ejemplo, si el texto existente se seleccionó con el mouse, la mayoría de los navegadores eliminarán la selección al reescribir `innerHTML`. Y si había un `<input>` con un texto ingresado por el visitante, entonces el texto será eliminado. Y así.
 
@@ -319,7 +319,7 @@ Entonces, lo que sucedió en `div.outerHTML=...` es:
 - Otro fragmento de HTML `<p>Un nuevo elemento</p>` se insertó en su lugar.
 - `div` todavía tiene su antiguo valor. El nuevo HTML no se guardó en ninguna variable.
 
-Es muy fácil cometer un error aquí: modifica `div.outerHTML` y luego continúa trabajando con `div` como si tuviera el nuevo contenido. Pero no es así. Esto es correcto para `innerHTML`, pero no para `outerHTML`.
+Es muy fácil cometer un error aquí: modificar `div.outerHTML` y luego continuar trabajando con `div` como si tuviera el nuevo contenido. Pero no es así. Esto es correcto para `innerHTML`, pero no para `outerHTML`.
 
 Podemos escribir en `elem.outerHTML`, pero debemos tener en cuenta que no cambia el elemento en el que estamos escribiendo ('elem'). En su lugar, coloca el nuevo HTML en su lugar. Podemos obtener referencias a los nuevos elementos consultando el DOM.
 
@@ -413,7 +413,7 @@ En la mayoría de los casos, esperamos el texto de un usuario y queremos tratarl
 
 El atributo "hidden" y la propiedad DOM especifican si el elemento es visible o no.
 
-Podemos usarlo en HTML o asignar usando JavaScript, así:
+Podemos usarlo en HTML o asignarlo usando JavaScript, así:
 
 ```html run height="80"
 <div>Ambos divs a continuación están ocultos</div>
@@ -427,7 +427,7 @@ Podemos usarlo en HTML o asignar usando JavaScript, así:
 </script>
 ```
 
-Técnicamente, `hidden` funciona igual que `style="display: none"`. Pero es más corto de escribir.
+Técnicamente, `hidden` funciona igual que `style="display:none"`. Pero es más corto de escribir.
 
 Aquí hay un elemento parpadeante:
 

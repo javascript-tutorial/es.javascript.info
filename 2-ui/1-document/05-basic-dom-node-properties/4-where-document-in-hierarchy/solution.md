@@ -1,5 +1,5 @@
 
-Podemos ver a qué clase pertenece, imprimiendola, así:
+Podemos ver a qué clase pertenece, imprimiéndola, así:
 
 ```js run
 alert(document); // [object HTMLDocument]
@@ -27,7 +27,7 @@ Además, hay una referencia a la función constructor dentro de `prototype`:
 alert(HTMLDocument.prototype.constructor === HTMLDocument); // true
 ```
 
-Para obtener un nombre de la clase como string, podemos usar `constructor.name`. Hagámoslo para toda la cadena prototype de `document`, hasta la clase `Nodo`:
+Para obtener un nombre de la clase como string, podemos usar `constructor.name`. Hagámoslo para toda la cadena prototype de `document`, hasta la clase `Node`:
 
 ```js run
 alert(HTMLDocument.prototype.constructor.name); // HTMLDocument
