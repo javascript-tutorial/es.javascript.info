@@ -397,7 +397,7 @@ Compara los dos:
 <div id="elem2"></div>
 
 <script>
-  let name = prompt("¿Cuál es tu nombre?", "<b>Winnie-el-pooh!</b>");
+  let name = prompt("¿Cuál es tu nombre?", "<b>¡Winnie-pooh!</b>");
 
   elem1.innerHTML = name;
   elem2.textContent = name;
@@ -405,7 +405,7 @@ Compara los dos:
 ```
 
 1. El primer `<div>` obtiene el nombre "como HTML": todas las etiquetas se convierten en etiquetas, por lo que vemos el nombre en negrita.
-2. El segundo `<div>` obtiene el nombre "como texto", así que literalmente vemos `<b>¡Winnie-el-pooh!</b>`.
+2. El segundo `<div>` obtiene el nombre "como texto", así que literalmente vemos `<b>¡Winnie-pooh!</b>`.
 
 En la mayoría de los casos, esperamos el texto de un usuario y queremos tratarlo como texto. No queremos HTML inesperado en nuestro sitio. Una asignación a `textContent` hace exactamente eso.
 
