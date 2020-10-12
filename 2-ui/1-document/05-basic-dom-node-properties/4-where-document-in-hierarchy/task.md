@@ -2,10 +2,10 @@ importance: 4
 
 ---
 
-# Where's the "document" in the hierarchy?
+# ¿Dónde está el "document" en la jerarquía?
 
-Which class does the `document` belong to?
+¿A qué clase pertenece el `document`?
 
-What's its place in the DOM hierarchy?
+¿Cuál es su lugar en la jerarquía DOM?
 
-Does it inherit from `Node` or `Element`, or maybe `HTMLElement`?
+¿Hereda de "Node" o "Elemento", o tal vez "HTMLElement"?
