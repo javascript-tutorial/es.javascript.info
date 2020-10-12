@@ -32,7 +32,7 @@ Así es como podemos representar gráficamente el objeto `animal` y la clase `An
 
 ![](rabbit-animal-independent-animal.svg)
 
-...Y nos gustaría crear otra clase `Rabbit` (Conejo).
+...Y nos gustaría crear otra clase `Rabbit`.
 
 Como los conejos son animales, la clase 'Rabbit' debe basarse en 'Animal', tener acceso a métodos animales, para que los conejos puedan hacer lo que los animales "genéricos" pueden hacer.
 
