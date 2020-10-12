@@ -413,7 +413,7 @@ En la mayoría de los casos, esperamos el texto de un usuario y queremos tratarl
 
 El atributo "hidden" y la propiedad DOM especifican si el elemento es visible o no.
 
-Podemos usarlo en HTML o asignar usando JavaScript, así:
+Podemos usarlo en HTML o asignarlo usando JavaScript, así:
 
 ```html run height="80"
 <div>Ambos divs a continuación están ocultos</div>
