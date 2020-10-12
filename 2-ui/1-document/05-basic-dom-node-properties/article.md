@@ -8,7 +8,7 @@ En este capítulo veremos más sobre cuáles son y aprenderemos sus propiedades 
 
 Los diferentes nodos DOM pueden tener diferentes propiedades. Por ejemplo, un nodo de elemento correspondiente a la etiqueta `<a>` tiene propiedades relacionadas con el enlace, y el correspondiente a `<input>` tiene propiedades relacionadas con la entrada y así sucesivamente. Los nodos de texto no son lo mismo que los nodos de elementos. Pero también hay propiedades y métodos comunes entre todos ellos, porque todas las clases de nodos DOM forman una única jerarquía.
 
-Cada nodo DOM pertenece a la clase integrada correspondiente.
+Cada nodo DOM pertenece a la clase nativa correspondiente.
 
 La raíz de la jerarquía es [EventTarget](https://dom.spec.whatwg.org/#eventtarget), que es heredada por [Node](http://dom.spec.whatwg.org/#interface-node), y otros nodos DOM heredan de él.
 
