@@ -78,7 +78,7 @@ Inténtalo en `document.body`.
 ```
 
 ````smart header="IDL en la especificación"
-En la especificación, las clases DOM no se describen mediante JavaScript, sino un [Lenguaje de descripción de interfaz](https://en.wikipedia.org/wiki/Interface_description_language) (IDL) especial, que suele ser fácil de entender.
+En la especificación, las clases DOM no se describen mediante JavaScript, sino con un [Lenguaje de descripción de interfaz](https://es.wikipedia.org/wiki/Lenguaje_de_descripci%C3%B3n_de_interfaz) (IDL) especial, que suele ser fácil de entender.
 
 En IDL, todas las propiedades están precedidas por sus tipos. Por ejemplo, `DOMString`, `boolean` y así sucesivamente.
 
