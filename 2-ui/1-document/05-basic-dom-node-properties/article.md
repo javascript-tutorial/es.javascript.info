@@ -427,7 +427,7 @@ Podemos usarlo en HTML o asignarlo usando JavaScript, así:
 </script>
 ```
 
-Técnicamente, `hidden` funciona igual que `style="display: none"`. Pero es más corto de escribir.
+Técnicamente, `hidden` funciona igual que `style="display:none"`. Pero es más corto de escribir.
 
 Aquí hay un elemento parpadeante:
 
