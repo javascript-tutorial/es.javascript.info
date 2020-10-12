@@ -74,7 +74,7 @@ Pero para los elementos DOM son diferentes:
 - `console.log(elem)` muestra el árbol DOM del elemento.
 - `console.dir(elem)` muestra el elemento como un objeto DOM, es bueno para explorar sus propiedades.
 
-Intentalo en `document.body`.
+Inténtalo en `document.body`.
 ```
 
 ````smart header="IDL en la especificación"
