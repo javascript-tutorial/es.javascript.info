@@ -1,6 +1,6 @@
 # Propiedades del nodo: tipo, etiqueta y contenido
 
-Echemos un vistazo más en profundidad a los nodos DOM.
+Echemos un mirada más en profundidad a los nodos DOM.
 
 En este capítulo veremos más sobre cuáles son y aprenderemos sus propiedades más utilizadas.
 
@@ -12,7 +12,7 @@ Cada nodo DOM pertenece a la clase nativa correspondiente.
 
 La raíz de la jerarquía es [EventTarget](https://dom.spec.whatwg.org/#eventtarget), que es heredada por [Node](http://dom.spec.whatwg.org/#interface-node), y otros nodos DOM heredan de él.
 
-Aquí está la imagen, explicaciones a seguir:
+Aquí está la imagen, con las explicaciones a continuación:
 
 ![](dom-class-hierarchy.svg)
 
@@ -72,13 +72,13 @@ La mayoría de los navegadores admiten dos comandos en sus herramientas de desar
 Pero para los elementos DOM son diferentes:
 
 - `console.log(elem)` muestra el árbol DOM del elemento.
-- `console.dir(elem)` muestra el elemento como un objeto DOM, es bueno explorar sus propiedades.
+- `console.dir(elem)` muestra el elemento como un objeto DOM, es bueno para explorar sus propiedades.
 
-Intentalo en `document.body`.
+Inténtalo en `document.body`.
 ```
 
 ````smart header="IDL en la especificación"
-En la especificación, las clases DOM no se describen mediante JavaScript, sino un [Lenguaje de descripción de interfaz](https://en.wikipedia.org/wiki/Interface_description_language) (IDL) especial, que suele ser fácil de entender.
+En la especificación, las clases DOM no se describen mediante JavaScript, sino con un [Lenguaje de descripción de interfaz](https://es.wikipedia.org/wiki/Lenguaje_de_descripci%C3%B3n_de_interfaz) (IDL) especial, que suele ser fácil de entender.
 
 En IDL, todas las propiedades están precedidas por sus tipos. Por ejemplo, `DOMString`, `boolean` y así sucesivamente.
 
@@ -211,7 +211,7 @@ El ejemplo muestra el contenido de `document.body` y luego lo reemplaza por comp
 
   <script>
     alert( document.body.innerHTML ); // leer el contenido actual
-    document.body.innerHTML = 'El nuevo BODY!'; // reemplázalo
+    document.body.innerHTML = 'El nuevo BODY!'; // reemplazar
   </script>
 
 </body>
