@@ -72,7 +72,7 @@ La mayoría de los navegadores admiten dos comandos en sus herramientas de desar
 Pero para los elementos DOM son diferentes:
 
 - `console.log(elem)` muestra el árbol DOM del elemento.
-- `console.dir(elem)` muestra el elemento como un objeto DOM, es bueno explorar sus propiedades.
+- `console.dir(elem)` muestra el elemento como un objeto DOM, es bueno para explorar sus propiedades.
 
 Intentalo en `document.body`.
 ```
