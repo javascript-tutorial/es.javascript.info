@@ -1,5 +1,5 @@
 
-Podemos ver a qué clase pertenece, imprimiendola, así:
+Podemos ver a qué clase pertenece, imprimiéndola, así:
 
 ```js run
 alert(document); // [object HTMLDocument]
