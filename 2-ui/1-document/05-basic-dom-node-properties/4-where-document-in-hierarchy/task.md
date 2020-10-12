@@ -8,4 +8,4 @@ importance: 4
 
 ¿Cuál es su lugar en la jerarquía DOM?
 
-¿Hereda de "Node" o "Elemento", o tal vez "HTMLElement"?
+¿Hereda de `Node` o `Element`, o tal vez `HTMLElement`?
