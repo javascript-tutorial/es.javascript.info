@@ -12,7 +12,7 @@ Cada nodo DOM pertenece a la clase integrada correspondiente.
 
 La raíz de la jerarquía es [EventTarget](https://dom.spec.whatwg.org/#eventtarget), que es heredada por [Node](http://dom.spec.whatwg.org/#interface-node), y otros nodos DOM heredan de él.
 
-Aquí está la imagen, explicaciones a seguir:
+Aquí está la imagen, con las explicaciones a continuación:
 
 ![](dom-class-hierarchy.svg)
 
