@@ -211,7 +211,7 @@ El ejemplo muestra el contenido de `document.body` y luego lo reemplaza por comp
 
   <script>
     alert( document.body.innerHTML ); // leer el contenido actual
-    document.body.innerHTML = 'El nuevo BODY!'; // reemplázalo
+    document.body.innerHTML = 'El nuevo BODY!'; // reemplazar
   </script>
 
 </body>
