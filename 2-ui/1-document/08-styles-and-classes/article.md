@@ -31,40 +31,40 @@ In the ancient time, there was a limitation in JavaScript: a reserved word like 
 
 So for classes the similar-looking property `"className"` was introduced: the `elem.className` corresponds to the `"class"` attribute.
 
-For instance:
+Por ejemplo:
 
 ```html run
 <body class="main page">
   <script>
-    alert(document.body.className); // main page
+    alert(document.body.className); // pagina principal
   </script>
 </body>
 ```
 
 If we assign something to `elem.className`, it replaces the whole string of classes. Sometimes that's what we need, but often we want to add/remove a single class.
 
-There's another property for that: `elem.classList`.
+Hay otra propiedad para eso: `elem.classList`.
 
 The `elem.classList` is a special object with methods to `add/remove/toggle` a single class.
 
-For instance:
+Por ejemplo:
 
 ```html run
 <body class="main page">
   <script>
 *!*
-    // add a class
+    // agregar una clase
     document.body.classList.add('article');
 */!*
 
-    alert(document.body.className); // main page article
+    alert(document.body.className); // clase "article" de la pagina principal
   </script>
 </body>
 ```
 
 So we can operate both on the full class string using `className` or on individual classes using `classList`. What we choose depends on our needs.
 
-Methods of `classList`:
+Métodos de `classList`:
 
 - `elem.classList.add/remove("class")` -- adds/removes the class.
 - `elem.classList.toggle("class")` -- adds the class if it doesn't exist, otherwise removes it.
@@ -94,7 +94,7 @@ z-index           => elem.style.zIndex
 border-left-width => elem.style.borderLeftWidth
 ```
 
-For instance:
+Por ejemplo:
 
 ```js run
 document.body.style.backgroundColor = prompt('background color?', 'green');
@@ -103,7 +103,7 @@ document.body.style.backgroundColor = prompt('background color?', 'green');
 ````smart header="Prefixed properties"
 Browser-prefixed properties like `-moz-border-radius`, `-webkit-border-radius` also follow the same rule: a dash means upper case.
 
-For instance:
+Por ejemplo:
 
 ```js
 button.style.MozBorderRadius = '5px';
@@ -150,7 +150,7 @@ To set the full style as a string, there's a special property `style.cssText`:
 
 This property is rarely used, because such assignment removes all existing styles: it does not add, but replaces them. May occasionally delete something needed. But we can safely use it for new elements, when we know we won't delete an existing style.
 
-The same can be accomplished by setting an attribute: `div.setAttribute('style', 'color: red...')`.
+Lo mismo se puede lograr estableciendo un atributo: `div.setAttribute('style', 'color: red...')`.
 ````
 
 ## Cuidado con las unidades CSS
@@ -182,7 +182,7 @@ Tenga en cuenta: el navegador "desempaqueta" la propiedad `style.margin` en las 
 
 ## Estilos calculados: getComputedStyle
 
-So, modifying a style is easy. But how to *read* it?
+Entonces, modificar un estilo es fácil. Pero cómo *leerlo*?
 
 Por ejemplo, queremos saber el tamaño, los margenes, el color de un elemento. ¿Cómo hacerlo?
 
@@ -222,9 +222,9 @@ element
 : Elemento del cual se va a leer el valor.
 
 pseudo
-: A pseudo-element if required, for instance `::before`. An empty string or no argument means the element itself.
+: Un pseudo-elemento es requerido, por ejemplo `::before`. Una cadena vacía o sin argumento significa el elemento mismo.
 
-The result is an object with styles, like `elem.style`, but now with respect to all CSS classes.
+El resultado es un objeto con estilos, como `elem.style`, pero ahora con respecto a todas las clases CSS.
 
 Por ejemplo:
 
@@ -247,22 +247,22 @@ Por ejemplo:
 ```
 
 ```smart header="Computed and resolved values"
-There are two concepts in [CSS](https://drafts.csswg.org/cssom/#resolved-values):
+Hay dos conceptos en [CSS](https://drafts.csswg.org/cssom/#resolved-values):
 
 1. A *computed* style value is the value after all CSS rules and CSS inheritance is applied, as the result of the CSS cascade. It can look like `height:1em` or `font-size:125%`.
 2. A *resolved* style value is the one finally applied to the element. Values like `1em` or `125%` are relative. The browser takes the computed value and makes all units fixed and absolute, for instance: `height:20px` or `font-size:16px`. For geometry properties resolved values may have a floating point, like `width:50.5px`.
 
-A long time ago `getComputedStyle` was created to get computed values, but it turned out that resolved values are much more convenient, and the standard changed.
+Hace mucho tiempo `getComputedStyle` fue creado para obtener los valores calculados, pero los valores resueltos son muchos mas convenientes, y el estándar cambio.
 
-So nowadays `getComputedStyle` actually returns the resolved value of the property, usually in `px` for geometry.
+Así que hoy en día `getComputedStyle` en realidad devuelve el valor resuelto de la propiedad, usualmente en `px` para geometría.
 ```
 
 ````warn header="`getComputedStyle` requires the full property name"
 We should always ask for the exact property that we want, like `paddingLeft` or `marginTop` or `borderTopWidth`. Otherwise the correct result is not guaranteed.
 
-Por ejemplo, if there are properties `paddingLeft/paddingTop`, then what should we get for `getComputedStyle(elem).padding`? Nothing, or maybe a "generated" value from known paddings? There's no standard rule here.
+Por ejemplo, si hay propiedades `paddingLeft/paddingTop`, entonces que deberíamos obtener de `getComputedStyle(elem).padding`? nada, o tal vez un valor "generado" de los paddings? No hay una regla estándar aquí.
 
-There are other inconsistencies. As an example, some browsers (Chrome) show `10px` in the document below, and some of them (Firefox) --  do not:
+Hay otras inconsistencias. Por ejemplo, algunos navegadores (Chrome) muestran `10px` en el documento a continuación, y alguno de ellos (Firefox) no:
 
 ```html run
 <style>
@@ -272,7 +272,7 @@ There are other inconsistencies. As an example, some browsers (Chrome) show `10p
 </style>
 <script>
   let style = getComputedStyle(document.body);
-  alert(style.margin); // empty string in Firefox
+  alert(style.margin); // cadena vacía en Firefox
 </script>
 ```
 ````
@@ -280,9 +280,10 @@ There are other inconsistencies. As an example, some browsers (Chrome) show `10p
 ```smart header="Estilos aplicados a los enlacess `:visited` estan ocultos!"
 Los enlaces visitados deberían estar coloreados la pseudo-clase `:visited` de CSS.
 
-But `getComputedStyle` does not give access to that color, because otherwise an arbitrary page could find out whether the user visited a link by creating it on the page and checking the styles.
+Pero `getComputedStyle` no da acceso a ese color, porque de lo contrario una página cualquiera podría averiguar si el usuario visitó un enlace creandoló en la página y verificar los estilos.
 
-JavaScript may not see the styles applied by `:visited`. And also, there's a limitation in CSS that forbids applying geometry-changing styles in `:visited`. That's to guarantee that there's no side way for an evil page to test if a link was visited and hence to break the privacy.
+JavaScript puede que no vea los estilos aplicados por `:visited`. Y también, 
+hay una limitación en CSS que prohíbe la aplicación de estilos de cambio de geometría en `:visited`. Eso es para garantizar que no haya forma para que una página maligna pruebe si un enlance fue visitado y rompa la privacidad.
 ```
 
 ## Resumen
