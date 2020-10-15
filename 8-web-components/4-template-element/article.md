@@ -16,7 +16,7 @@ Por ejemplo, podemos poner una fila de tabla `<tr>`:
 </template>
 ```
 
-Normalmente, si intentamos poner `<tr>` dentro, digamos, un `<div>`, el navegador detecta la estructura DOM inválida y la “arregla”, y añade un `<table>` alrededor. Eso no es lo que queremos. Por otro lado, `<template>` mantiene exactamente lo que ponemos allí.
+Normalmente, si intentamos poner `<tr>` dentro, digamos, de un `<div>`, el navegador detecta la estructura DOM como inválida y la “arregla”, y añade un `<table>` alrededor. Eso no es lo que queremos. Sin embargo, `<template>` mantiene exactamente lo que ponemos allí.
 
 También podemos poner estilos y scripts dentro de `<template>`:
 
