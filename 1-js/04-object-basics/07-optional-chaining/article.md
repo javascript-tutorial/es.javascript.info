@@ -19,7 +19,7 @@ let user = {}; // usuario sin propiedad "address"
 alert(user.address.street); // Error!
 ```
 
-Este es el resultado esperado, JavaScript funciona así, pero en muchos casos prácticoss preferiríamos obtener `undefined` en lugar del error (sin "street").
+Este es el resultado esperado, JavaScript funciona así, pero en muchos casos prácticos preferiríamos obtener `undefined` en lugar del error (sin "street").
 
 ...Y otro ejemplo.  En el desarrollo web, necesitamos obtener información sobre un elemento en la página, pero a veces este no existe:
 
@@ -44,7 +44,7 @@ Poniendo AND en el camino completo a la propiedad asegura que todos los componen
 
 El encadenamiento opcional `?.` detiene la evaluación y devuelve` undefined` si la parte anterior a `?.` es` undefined` o `null`.
 
-**De aquí en más en este artículo, por brevedad, diremos que algo "existe" si no es `null` o `undefined`.**
+**De aquí en adelante en este artículo, por brevedad, diremos que algo "existe" si no es `null` o `undefined`.**
 
 Aquí está la forma segura de acceder a `user.address.street`:
 
