@@ -1,8 +1,8 @@
 # Fetch: Cross-Origin Requests
 
-If we send a `fetch` request to another web-site, it will probably fail.
+Si enviamos una petición `fetch` hacia otro sitio seguramente fallará.
 
-For instance, let's try fetching `http://example.com`:
+Pro ejemplo, probemos realizar una petición a `http://example.com`:
 
 ```js run async
 try {
@@ -12,39 +12,39 @@ try {
 }
 ```
 
-Fetch fails, as expected.
+El método fetch falla, tal como lo esperabamos.
 
-The core concept here is *origin* -- a domain/port/protocol triplet.
+El concepto clave aquí es *el origen* (*origin*), triple combinación de dominio/puerto/protocolo.
 
-Cross-origin requests -- those sent to another domain (even a subdomain) or protocol or port -- require special headers from the remote side.
+Las solicitudes de origen cruzado `Cross-origin requests`, tales que son enviadas hacia otro dominio (incluso subdominio), protocolo o puerto, requieren de unas cabeceras especiales desde el sitio remoto.
 
-That policy is called "CORS": Cross-Origin Resource Sharing.
+Esta política es denominada "CORS", por sus siglas en inglés Cross-Origin Resource Sharing.
 
-## Why is CORS needed? A brief history
+## ¿Por que CORS es necesario?, Una breve historia
 
-CORS exists to protect the internet from evil hackers.
+CORS exíste para protejer Internet de los malvados hackers.
 
-Seriously. Let's make a very brief historical digression.
+En verdad... Déjame contarte un breve resumen de esta historia.
 
-**For many years a script from one site could not access the content of another site.**
+**Durante muchos años un script de un sitio no podía acceder al contenido de otro sitio.**
 
-That simple, yet powerful rule was a foundation of the internet security. E.g. an evil script from website `hacker.com` could not access user's mailbox at website `gmail.com`. People felt safe.
+Esta simple, pero poderosa regla, fue parte fundacional de la seguridad de Internet. Ej: Un script malisioso desde el sitio `hacker.com` no podía acceder a la casilla de correo en el sitio `gmail.com`. La gente se podía sentir segura.
 
-JavaScript also did not have any special methods to perform network requests at that time. It was a toy language to decorate a web page.
+Así mismo en ese momento, JavaScript no tenía ningún método especial para realizar solicitudes de red. Simplemente era un lenguaje juguete para decorar páginas web.
 
-But web developers demanded more power. A variety of tricks were invented to work around the limitation and make requests to other websites.
+Pero los desarrolladores web demandaron más poder. Una variedad de trucos fueron inventados para poder pasar por alto las limitaciones, y realizar solicitudes a otros sitios.
 
-### Using forms
+### Utilizando formularios
 
-One way to communicate with another server was to submit a `<form>` there. People submitted it into `<iframe>`, just to stay on the current page, like this:
+Una forma de comunicarse con otros servidores es y era utilizando un `<form>`. Las personas lo utilizaban para enviar el resultado hacia un `<iframe>`, y de este modo mantenerse en el mismo sitio, de este modo:
 
 ```html
-<!-- form target -->
+<!-- objetivo del form -->
 *!*
 <iframe name="iframe"></iframe>
 */!*
 
-<!-- a form could be dynamically generated and submited by JavaScript -->
+<!-- Un formulario puede ser generado de forma dinámica y ser enviado por JavaScript -->
 *!*
 <form target="iframe" method="POST" action="http://another.com/…">
 */!*
@@ -52,36 +52,36 @@ One way to communicate with another server was to submit a `<form>` there. Peopl
 </form>
 ```
 
-So, it was possible to make a GET/POST request to another site, even without networking methods, as forms can send data anywhere. But as it's forbidden to access the content of an `<iframe>` from another site, it wasn't possible to read the response.
+Entonces, de este modo era posible realizar solicitudes GET/POST hacia otro sitio, inclúso sin métodos de red, ya que los formularios pueden enviar mensajes a cualquier sitio. Pero ya que no es posible acceder al contenido de un `<iframe>` de otro sitio, esto evita que sea posible leer la respuesta.
 
-To be precise, there were actually tricks for that, they required special scripts at both the iframe and the page. So the communication with the iframe was technically possible. Right now there's no point to go into details, let these dinosaurs rest in peace.
+Para ser precisos, en realidad había trucos para eso, requerían scripts especiales tanto en el iframe como en la página. Entonces la comunicación con el iframe era técnicamente posible. Pero ya no hay necesidad de entrar en detalles, dejemos a los dinosaurios descanzar en paz.
 
-### Using scripts
+### Utilizando scripts
 
-Another trick was to use a `script` tag. A script could have any `src`, with any domain, like `<script src="http://another.com/…">`. It's possible to execute a script from any website.
+Otro truco es en el modo de utilizar la etiqueta `script`. Un script puede tener cualquier origen `src`, con cualquier dominio, tal como `<script src="http://another.com/…">`. De este modo es posible ejecutar un script de cualquier sitio web.
 
-If a website, e.g. `another.com` intended to expose data for this kind of access, then a so-called "JSONP (JSON with padding)" protocol was used.
+Si un sitio, por ejemplo, `another.com` requiere exponer datos con este tipo de acceso, el protocolo entonces llamado "JSONP (JSON con padding)" era utilizado.
 
-Here's how it worked.
+Veamos como se utilizaba.
 
-Let's say we, at our site, need to get the data from `http://another.com`, such as the weather:
+Digamos que, en nuestro sitio es necesario obtener datos de `http://another.com`, como podría ser el pronóstico del tiempo:
 
-1. First, in advance, we declare a global function to accept the data, e.g. `gotWeather`.
+1. Primero, adelantándonos, creamos una función global para aceptar los datos, por ejemplo: `gotWeather`.
 
     ```js
-    // 1. Declare the function to process the weather data
+    // 1. Se declara la función para procesar los datos del tiempo
     function gotWeather({ temperature, humidity }) {
       alert(`temperature: ${temperature}, humidity: ${humidity}`);
     }
     ```
-2. Then we make a `<script>` tag with `src="http://another.com/weather.json?callback=gotWeather"`, using the name of our function as the `callback` URL-parameter.
+2. Entonces creamos una etiqueta `<script>` donde `src="http://another.com/weather.json?callback=gotWeather"`, utilizando el nombre de nuestra función como un parámetro `callback`, dentro de la URL.
 
     ```js
     let script = document.createElement('script');
     script.src = `http://another.com/weather.json?callback=gotWeather`;
     document.body.append(script);
     ```
-3. The remote server `another.com` dynamically generates a script that calls `gotWeather(...)` with the data it wants us to receive.
+3. El servidor remoto `another.com` de forma dinámica genera un script que invoca el método `gotWeather(...)` con los datos que nosotros necesitamos recibir.
     ```js
     // The expected answer from the server looks like this:
     gotWeather({
@@ -89,51 +89,51 @@ Let's say we, at our site, need to get the data from `http://another.com`, such 
       humidity: 78
     });
     ```
-4. When the remote script loads and executes, `gotWeather` runs, and, as it's our function, we have the data.
+4. Entonces el script remoto carga y es ejecutado, la función `gotWeather` se invoca, y ya que es nuestra función, obtenemos los datos.
 
-That works, and doesn't violate security, because both sides agreed to pass the data this way. And, when both sides agree, it's definitely not a hack. There are still services that provide such access, as it works even for very old browsers.
+Esto funciona, y no viola la seguridad, ya que ambos sitios acuerdan en intercambiar los datos de este modo. Y cuando ambos lados concuerdan, definitivamente no se trata de un hackeo. Aún hay servicios que proveen este tipo de acceso, lo que puede ser útil ya que funciona en navegadores obsoletos.
 
-After a while, networking methods appeared in browser JavaScript.
+Tiempo después aparecieron métodos de red en los navegadores para JavaScript.
 
-At first, cross-origin requests were forbidden. But as a result of long discussions, cross-origin requests were allowed, but with any new capabilities requiring an explicit allowance by the server, expressed in special headers.
+Al comienzo, las solicitudes de origen cruzado fueron prohibidas, pero luego de prolongadas discusiones se permitieron, requiriendo concentimiento explicito por parte del servidor, esto expresado en cabezales especiales.
 
-## Simple requests
+## Solicitudes simples
 
-There are two types of cross-origin requests:
+Existen dos tipos de solicitudes de origen cruzado:
 
-1. Simple requests.
-2. All the others.
+1. Solicitudes simples.
+2. Todas las demás.
 
-Simple Requests are, well, simpler to make, so let's start with them.
+Las solicitudes simples son, bueno... simples de hacer, por lo tanto comencemos con ellas.
 
-A [simple request](http://www.w3.org/TR/cors/#terminology) is a request that satisfies two conditions:
+Una [solicitud simple](http://www.w3.org/TR/cors/#terminology) es una solicitud que cumple dos condiciones:
 
-1. [Simple method](http://www.w3.org/TR/cors/#simple-method): GET, POST or HEAD
-2. [Simple headers](http://www.w3.org/TR/cors/#simple-header) -- the only allowed custom headers are:
+1. [método simple](http://www.w3.org/TR/cors/#simple-method): GET, POST o HEAD
+2. [Cabeceras simples](http://www.w3.org/TR/cors/#simple-header) -- Las únicas cabeceras permitidas son:
     - `Accept`,
     - `Accept-Language`,
     - `Content-Language`,
-    - `Content-Type` with the value `application/x-www-form-urlencoded`, `multipart/form-data` or `text/plain`.
+    - `Content-Type` con el valor `application/x-www-form-urlencoded`, `multipart/form-data` o `text/plain`.
 
-Any other request is considered "non-simple". For instance, a request with `PUT` method or with an `API-Key` HTTP-header does not fit the limitations.
+Cualquier otra solicitud es considerada "no simple". Por lo tanto, una solicitud con el método `PUT` o con una cabecera HTTP `API-Key` no cumple con las limitaciones.
 
-**The essential difference is that a "simple request" can be made with a `<form>` or a `<script>`, without any special methods.**
+**La diferencia esencial es que una "solicitud simple" puede ser realizada mediante un `<form>` o un `<script>`, sin la necesidad de utilizar un método especial.**
 
-So, even a very old server should be ready to accept a simple request.
+Por lo tanto, incluso un servidor obsoleto debería ser capaz de aceptar una solicitud simple.
 
-Contrary to that, requests with non-standard headers or e.g. method `DELETE` can't be created this way. For a long time JavaScript was unable to do such requests. So an old server may assume that such requests come from a privileged source, "because a webpage is unable to send them".
+Contrario a esto, las solicitudes con cabeceras no estándar o métodos como el `DELETE` no pueden ser creados de este modo. Durante mucho tiempo no fue posible para JavaScript realizar este tipo de solicitudes. Por lo que un viejo servidor podía asumir que ese tipo de solicitudes provenía desde una fuente privilegiada, "ya que una página web es incapáz de enviarlas".
 
-When we try to make a non-simple request, the browser sends a special "preflight" request that asks the server -- does it agree to accept such cross-origin requests, or not?
+Cuando intentamos realizar una solicitud "no simple", el navegador envía una solicitud especial de "pre-vuelo" consultandole al servidor si está de acuerdo en aceptar ese tipo de solicitud de origen cruzado, o no.
 
-And, unless the server explicitly confirms that with headers, a non-simple request is not sent.
+Y, sólo en caso de que el servidor confirme de forma explícita, la solicitud "no simple" es enviada.
 
-Now we'll go into details.
+Vayamos ahora a los detalles.
 
-## CORS for simple requests
+## CORS para solicitudes simples
 
-If a request is cross-origin, the browser always adds `Origin` header to it.
+Si una solicitud es de origen cruzado, el navegador siempre le agregará una cabecera `Origin`.
 
-For instance, if we request `https://anywhere.com/request` from `https://javascript.info/page`, the headers will be like:
+Por ejemplo, si realizamos una solicitud de `https://anywhere.com/request` a `https://javascript.info/page`, las cabeceras podrían ser algo así:
 
 ```http
 GET /request
@@ -144,7 +144,7 @@ Origin: https://javascript.info
 ...
 ```
 
-As you can see, `Origin` header contains exactly the origin (domain/protocol/port), without a path.
+Tal como se puede ver, la cabecera `Origin` contiene exactamente el origen (protocolo/dominio/puerto), sin el path.
 
 The server can inspect the `Origin` and, if it agrees to accept such a request, adds a special header `Access-Control-Allow-Origin` to the response. That header should contain the allowed origin (in our case `https://javascript.info`), or a star `*`. Then the response is successful, otherwise an error.
 
