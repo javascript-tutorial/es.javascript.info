@@ -21,7 +21,7 @@ elem.style.left = left; // ej. '123px', calculado en tiempo de ejecución
 elem.style.top = top; // ej. '456px'
 ```
 
-Para otros casos como convertir un texto en rojo, agregar un icono de fondo. Escribir eso en CSS y luego agregar la clase (JavaScript puede hacer eso), es más flexible y más fácil de soportar.
+Para otros casos como convertir un texto en rojo, agregar un icono de fondo. Escribir eso en CSS y luego agregar la clase (JavaScript puede hacer eso), es más flexible y más fácil de mantener.
 
 ## className y classList
 
