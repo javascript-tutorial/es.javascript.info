@@ -27,7 +27,7 @@ Para otros casos como convertir un texto en rojo, agregar un icono de fondo. Esc
 
 Cambiar una clase es una de las acciones más utilizadas.
 
-En la antigüedad, había una limitación en JavaScript: una palabra reservado como `"class"` no podía ser una propiedad de un objeto. Esa limitación no existe ahora, pero en ese momento era imposible tener una propiedad `"class"`, como `elem.class`.
+En la antigüedad, había una limitación en JavaScript: una palabra reservada como `"class"` no podía ser una propiedad de un objeto. Esa limitación no existe ahora, pero en ese momento era imposible tener una propiedad `"class"`, como `elem.class`.
 
 Entonces para clases de similares propiedades, `"className"` fue introducido: el `elem.className` corresponde al atributo `"class"`.
 
