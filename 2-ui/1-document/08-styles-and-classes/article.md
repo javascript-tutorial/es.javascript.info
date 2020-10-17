@@ -101,7 +101,7 @@ document.body.style.backgroundColor = prompt('background color?', 'green');
 ```
 
 ````smart header="Propiedades prefijadas"
-Propiedades con prefijos del navegador como `-moz-border-radius`, `-webkit-border-radius` también las que siguen la misma regla: un guion significa mayúscula.
+Propiedades con prefijos del navegador como `-moz-border-radius`, `-webkit-border-radius` también siguen la misma regla: un guion significa mayúscula.
 
 Por ejemplo:
 
