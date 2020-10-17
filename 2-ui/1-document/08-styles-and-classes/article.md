@@ -1,6 +1,6 @@
 # Estilos y clases
 
-Antes de profundizar en como JavaScript maneja las clases y los estilos, hay una regla importante. Aunque es lo suficientemente obvio, aún tenemos que mencionarlo.
+Antes de profundizar en cómo JavaScript maneja las clases y los estilos, hay una regla importante. Aunque es lo suficientemente obvio, aún tenemos que mencionarlo.
 
 Por lo general, hay dos formas de dar estilo a un elemento:
 
