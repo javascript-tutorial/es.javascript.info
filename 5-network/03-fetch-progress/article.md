@@ -53,7 +53,7 @@ const reader = response.body.getReader();
 const contentLength = +response.headers.get('Content-Length');
 
 // Paso 3: leer los datos
-let receivedLength = 0; // cantidad de bytes recibidos en este momento
+let receivedLength = 0; // cantidad de bytes recibidos hasta el momento
 let chunks = []; // matriz de fragmentos binarios recibidos (comprende el cuerpo)
 while(true) {
   const {done, value} = await reader.read();
