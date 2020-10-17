@@ -1,10 +1,10 @@
 # Estilos y clases
 
-Before we get into JavaScript's ways of dealing with styles and classes -- here's an important rule. Hopefully it's obvious enough, but we still have to mention it.
+Antes de adentrarnos en como JavaScript maneja las clases y los estilos, hay una regla importante. Ojalá sea lo suficientemente obvio, pero aún tenemos que mencionarlo.
 
 Por lo general, hay dos formas de dar estilo a un elemento:
 
-1. Crear una clase `css` y agregarsela: `<div class="...">`
+1. Crear una clase `css` y agregarla a: `<div class="...">`
 2. Escribir las propiedades directamente en `style`: `<div style="...">`.
 
 JavaScript puede modificar ambos, clases y las propiedades de `style`.
@@ -21,15 +21,15 @@ elem.style.left = left; // ej. '123px', calculado en tiempo de ejecución
 elem.style.top = top; // ej. '456px'
 ```
 
-Para otros casos, como convertir un texto en rojo, adding a background icon -- describe that in CSS and then add the class (JavaScript can do that). That's more flexible and easier to support.
+Para otros casos, como convertir un texto en rojo, agregar un icono de fondo. Escribir eso en CSS y luego agregar la clase (JavaScript puede hacer eso), es más flexible y más fácil de soportar.
 
 ## className y classList
 
-Changing a class is one of the most often used actions in scripts.
+Cambiar una clase es una de las acciones más utilizadas en los scripts.
 
-In the ancient time, there was a limitation in JavaScript: a reserved word like `"class"` could not be an object property. That limitation does not exist now, but at that time it was impossible to have a `"class"` property, like `elem.class`.
+En la antigüedad, había una limitación en JavaScript: una palabra reservado como `"class"` no podía ser una propiedad de un objeto. Esa limitación no existe ahora, pero en ese momento era imposible tener una propiedad `"class"`, como `elem.class`.
 
-So for classes the similar-looking property `"className"` was introduced: the `elem.className` corresponds to the `"class"` attribute.
+Entonces para clases de similares propiedades, `"className"` fue introducido: el `elem.className` corresponde al atributo `"class"`.
 
 Por ejemplo:
 
@@ -41,11 +41,11 @@ Por ejemplo:
 </body>
 ```
 
-If we assign something to `elem.className`, it replaces the whole string of classes. Sometimes that's what we need, but often we want to add/remove a single class.
+Si asignamos algo a `elem.className`, reemplaza toda la cadena de clases. A veces es lo que necesitamos, pero a menudo queremos agregar o eliminar una sola clase.
 
 Hay otra propiedad para eso: `elem.classList`.
 
-The `elem.classList` is a special object with methods to `add/remove/toggle` a single class.
+El `elem.classList` es un objeto especial con metodos para agregar, eliminar y alternar `add/remove/toggle` una sola clase.
 
 Por ejemplo:
 
@@ -57,26 +57,26 @@ Por ejemplo:
     document.body.classList.add('article');
 */!*
 
-    alert(document.body.className); // clase "article" de la pagina principal
+    alert(document.body.className); // clase "article" de la página principal
   </script>
 </body>
 ```
 
-So we can operate both on the full class string using `className` or on individual classes using `classList`. What we choose depends on our needs.
+Entonces podemos trabajar con ambos: todas las clases como una cadena usando `className` o con clases individuales usando `classList`. Lo que elijamos depende de nuestras necesidades.
 
 Métodos de `classList`:
 
-- `elem.classList.add/remove("class")` -- adds/removes the class.
-- `elem.classList.toggle("class")` -- adds the class if it doesn't exist, otherwise removes it.
-- `elem.classList.contains("class")` -- checks for the given class, returns `true/false`.
+- `elem.classList.add/remove("class")` -- agrega o remueve la clase.
+- `elem.classList.toggle("class")` -- agrega la clase si no existe, si no la remueve.
+- `elem.classList.contains("class")` -- verifica si tiene la clase dada, devuelve `true/false`.
 
-Besides, `classList` is iterable, so we can list all classes with `for..of`, like this:
+Además, `classList` es iterable, entonces podemos listar todas las clases con `for..of`, así:
 
 ```html run
 <body class="main page">
   <script>
     for (let name of document.body.classList) {
-      alert(name); // main, and then page
+      alert(name); // main y luego page
     }
   </script>
 </body>
@@ -84,9 +84,9 @@ Besides, `classList` is iterable, so we can list all classes with `for..of`, lik
 
 ## `style` de un elemento
 
-The property `elem.style` is an object that corresponds to what's written in the `"style"` attribute. Setting `elem.style.width="100px"` works the same as if we had in the attribute `style` a string `width:100px`.
+La propiedad `elem.style` es un objecto que corresponde a lo escrito en el atributo `"style"`. Establecer `elem.style.width="100px"` funciona igual que sí tuvieramos en el atributo `style` una cadena con `width:100px`.
 
-For multi-word property the camelCase is used:
+Para propiedades de varias palabras se usa `camelCase`:
 
 ```js no-beautify
 background-color  => elem.style.backgroundColor
@@ -100,8 +100,8 @@ Por ejemplo:
 document.body.style.backgroundColor = prompt('background color?', 'green');
 ```
 
-````smart header="Prefixed properties"
-Browser-prefixed properties like `-moz-border-radius`, `-webkit-border-radius` also follow the same rule: a dash means upper case.
+````smart header="Propiedades prefijadas"
+Propiedades con prefijos del navegador como `-moz-border-radius`, `-webkit-border-radius` también las que siguen la misma regla: un guión significa mayúscula.
 
 Por ejemplo:
 
@@ -113,17 +113,17 @@ button.style.WebkitBorderRadius = '5px';
 
 ## Reseteando la propiedad `style`
 
-Sometimes we want to assign a style property, and later remove it.
+A veces queremos asignar una propiedad de estilo y luego removerla.
 
 Por ejemplo, para ocultar un elemento, podemos establecer `elem.style.display = "none"`.
 
-Then later we may want to remove the `style.display` as if it were not set. Instead of `delete elem.style.display` we should assign an empty string to it: `elem.style.display = ""`.
+Luego, más tarde, es posible que queramos remover `style.display` como si no estuviera establecido. En lugar de `delete elem.style.display` deberíamos asignarle una cadena vacía: `elem.style.display = ""`.
 
 ```js run
 // si podemos ejecutar este código, el <body> papadeará
 document.body.style.display = "none"; // ocultar
 
-setTimeout(() => document.body.style.display = "", 1000); // volver a lo normal
+setTimeout(() => document.body.style.display = "", 1000); // volverá a lo normal
 ```
 
 Si establecemos `style.display` como una cadena vacia, entonces el navegador aplica clases y estilos CSS incorporados normalmente por el navegador, como si no existiera tal `style.display`.
