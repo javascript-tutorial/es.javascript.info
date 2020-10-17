@@ -9,7 +9,7 @@ Por lo general, hay dos formas de dar estilo a un elemento:
 
 JavaScript puede modificar ambos, clases y las propiedades de `style`.
 
-Nosotros deberíamos preferir las clases `css` en lugar de `style`. Este último solo debe usar si las clases "no pueden manejarlo".
+Nosotros deberíamos preferir las clases `css` en lugar de `style`. Este último solo debe usarse si las clases "no pueden manejarlo".
 
 Por ejemplo, `style` es aceptable si nosotros calculamos las coordenadas de un elemento dinámicamente y queremos establecer estas desde JavaScript, así:
 
