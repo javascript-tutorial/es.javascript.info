@@ -41,7 +41,7 @@ Recibimos fragmentos de respuesta en el bucle, hasta que finaliza la carga, es d
 
 Para registrar el progreso, solo necesitamos que cada `value` de fragmento recibido agregue su longitud al contador.
 
-Aquí está el ejemplo funcional completo que obtiene la respuesta y registra el progreso en la consola, más explicaciones a seguir:
+Aquí está el ejemplo funcional completo que obtiene la respuesta y registra el progreso en la consola, seguido de su explicación:
 
 ```js run async
 // Paso 1: iniciar la búsqueda y obtener un lector
