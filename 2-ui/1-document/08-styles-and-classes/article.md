@@ -1,10 +1,10 @@
 # Estilos y clases
 
-Antes de adentrarnos en como JavaScript maneja las clases y los estilos, hay una regla importante. Ojalá sea lo suficientemente obvio, pero aún tenemos que mencionarlo.
+Antes de profundizar en como JavaScript maneja las clases y los estilos, hay una regla importante. Aunque es lo suficientemente obvio, aún tenemos que mencionarlo.
 
 Por lo general, hay dos formas de dar estilo a un elemento:
 
-1. Crear una clase `css` y agregarla a: `<div class="...">`
+1. Crear una clase `css` y agregarla: `<div class="...">`
 2. Escribir las propiedades directamente en `style`: `<div style="...">`.
 
 JavaScript puede modificar ambos, clases y las propiedades de `style`.
@@ -21,11 +21,11 @@ elem.style.left = left; // ej. '123px', calculado en tiempo de ejecución
 elem.style.top = top; // ej. '456px'
 ```
 
-Para otros casos, como convertir un texto en rojo, agregar un icono de fondo. Escribir eso en CSS y luego agregar la clase (JavaScript puede hacer eso), es más flexible y más fácil de soportar.
+Para otros casos como convertir un texto en rojo, agregar un icono de fondo. Escribir eso en CSS y luego agregar la clase (JavaScript puede hacer eso), es más flexible y más fácil de soportar.
 
 ## className y classList
 
-Cambiar una clase es una de las acciones más utilizadas en los scripts.
+Cambiar una clase es una de las acciones más utilizadas.
 
 En la antigüedad, había una limitación en JavaScript: una palabra reservado como `"class"` no podía ser una propiedad de un objeto. Esa limitación no existe ahora, pero en ese momento era imposible tener una propiedad `"class"`, como `elem.class`.
 
@@ -291,7 +291,7 @@ hay una limitación en CSS que prohíbe la aplicación de estilos de cambio de g
 Para manejar clases, hay dos propiedades del DOM:
 
 - `className` -- el valor de la cadena, perfecto para manejar todo el conjunto de clases.
-- `classList` -- el objeto con métodos `add/remove/toggle/contains`, perfecto para clases individuales.
+- `classList` -- el objeto con los métodos: `add/remove/toggle/contains`, perfecto para clases individuales.
 
 Para cambiar los estilos:
 
