@@ -95,7 +95,7 @@ Expliquemos eso paso a paso:
 3. Llama a `await reader.read()` hasta que esté listo.
 
     Recopilamos fragmentos de respuesta en la matriz `chunks`. Eso es importante, porque después de consumir la respuesta, no podremos "releerla" usando `response.json()` u otra forma (puedes intentarlo, habrá un error).
-4. Al final, tenemos `chunks` - una matriz de fragmentos de bytes `Uint8Array`. Necesitamos unirlos en un solo resultado. Desafortunadamente, no hay un método único que los concatene, por lo que hay un código para hacerlo:
+4. Al final, tenemos `chunks` - una matriz de fragmentos de bytes `Uint8Array`. Necesitamos unirlos en un solo resultado. Desafortunadamente, no hay un método simple que los concatene, por lo que hay un código para hacerlo:
     1. Creamos `chunksAll = new Uint8Array(selectedLength)` -- una matriz del mismo tipo con la longitud combinada.
     2. Luego usa el método `.set(chunk, position)` para copiar cada `chunk` uno tras otro en él.
 5. Tenemos el resultado en `chunksAll`. Sin embargo, es una matriz de bytes, no un string.
