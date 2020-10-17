@@ -126,12 +126,12 @@ document.body.style.display = "none"; // ocultar
 setTimeout(() => document.body.style.display = "", 1000); // volver a lo normal
 ```
 
-If we set `style.display` to an empty string, then the browser applies CSS classes and its built-in styles normally, as if there were no such `style.display` property at all.
+Si establecemos `style.display` como una cadena vacia, entonces el navegador aplica clases y estilos CSS incorporados normalmente por el navegador, como si no existiera tal `style.display`.
 
-````smart header="Full rewrite with `style.cssText`"
-Normally, we use `style.*` to assign individual style properties. We can't set the full style like `div.style="color: red; width: 100px"`, because `div.style` is an object, and it's read-only.
+````smart header="Reescribir todo usando `style.cssText`"
+Normalmente, podemos usar `style.*` para asignar propiedades de estilo individuales. No podemos establecer todo el estilo como `div.style="color: red; width: 100px"`, porque `div.style` es un objeto y es solo de lectura.
 
-To set the full style as a string, there's a special property `style.cssText`:
+Para establecer todo el estilo como una cadena, hay una propiedad especial: `style.cssText`:
 
 ```html run
 <div id="div">Button</div>
@@ -148,7 +148,7 @@ To set the full style as a string, there's a special property `style.cssText`:
 </script>
 ```
 
-This property is rarely used, because such assignment removes all existing styles: it does not add, but replaces them. May occasionally delete something needed. But we can safely use it for new elements, when we know we won't delete an existing style.
+Esta propiedad es rara vez usada, porque tal asignación remueve todo los estilos: no agrega, pero si las reemplaza. Lo que ocasionalmente puede eliminar algo necesario. Pero podemos usarlo de manera segura para nuevos elementos, cuando sabemos que no vamos a eliminar un estilo existente.
 
 Lo mismo se puede lograr estableciendo un atributo: `div.setAttribute('style', 'color: red...')`.
 ````
@@ -168,7 +168,7 @@ Por ejemplo, nosotros no debemos establecer `elem.style.top` a `10`, sino más b
     alert(document.body.style.margin); // '' (cadena vacía, la asignación es ignorada)
   */!*
 
-    // ahora agregamos la unidad CSS (px) y funciona
+    // ahora agregamos la unidad CSS (px) y esta sí funciona
     document.body.style.margin = '20px';
     alert(document.body.style.margin); // 20px
 
@@ -237,7 +237,7 @@ Por ejemplo:
   <script>
     let computedStyle = getComputedStyle(document.body);
 
-    // now we can read the margin and the color from it
+    // ahora podemos leer los margenes y el color de ahí
 
     alert( computedStyle.marginTop ); // 5px
     alert( computedStyle.color ); // rgb(255, 0, 0)
@@ -249,8 +249,8 @@ Por ejemplo:
 ```smart header="Computed and resolved values"
 Hay dos conceptos en [CSS](https://drafts.csswg.org/cssom/#resolved-values):
 
-1. A *computed* style value is the value after all CSS rules and CSS inheritance is applied, as the result of the CSS cascade. It can look like `height:1em` or `font-size:125%`.
-2. A *resolved* style value is the one finally applied to the element. Values like `1em` or `125%` are relative. The browser takes the computed value and makes all units fixed and absolute, for instance: `height:20px` or `font-size:16px`. For geometry properties resolved values may have a floating point, like `width:50.5px`.
+1. Un estilo *calculado* es el valor final de aplicar todas las reglas y herencias CSS, como resultado de la cascada CSS. Puede parecer `height:1em` o `font-size:125%`.
+2. Un estilo *resuelto* es la que finalmente se aplica al elemento. Valores como `1em` o `125%` son relativos. El navegador toma el valor calculado y hace que todas las unidades sean fijas y absolutas, por ejemplo: `height:20px` o `font-size:16px`. Para las propiedades de geometría los valores resueltos pueden tener un punto flotante, como `width:50.5px`.
 
 Hace mucho tiempo `getComputedStyle` fue creado para obtener los valores calculados, pero los valores resueltos son muchos mas convenientes, y el estándar cambio.
 
@@ -258,7 +258,7 @@ Así que hoy en día `getComputedStyle` en realidad devuelve el valor resuelto d
 ```
 
 ````warn header="`getComputedStyle` requires the full property name"
-We should always ask for the exact property that we want, like `paddingLeft` or `marginTop` or `borderTopWidth`. Otherwise the correct result is not guaranteed.
+Siempre deberíamos preguntar por la propiedad exacta que queremos, como `paddingLeft` o `marginTop` o `borderTopWidth`. De lo contrario, no se garantiza el resultado correcto.
 
 Por ejemplo, si hay propiedades `paddingLeft/paddingTop`, entonces que deberíamos obtener de `getComputedStyle(elem).padding`? nada, o tal vez un valor "generado" de los paddings? No hay una regla estándar aquí.
 

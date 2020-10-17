@@ -2,23 +2,23 @@ importance: 5
 
 ---
 
-# Create a notification
+# Crear una notificación
 
-Write a function `showNotification(options)` that creates a notification: `<div class="notification">` with the given content. The notification should automatically disappear after 1.5 seconds.
+Escribir una función `showNotification(options)` que cree una notificación: `<div class="notification">` con el contenido dado. La notificación debería desaparecer automáticamente despues de 1.5 segundos.
 
 The options are:
 
 ```js
-// shows an element with the text "Hello" near the right-top of the window
+// muestra un elemento con el texto "Hello" cerca de la parte superior de la ventana
 showNotification({
-  top: 10, // 10px from the top of the window (by default 0px)
-  right: 10, // 10px from the right edge of the window (by default 0px)
-  html: "Hello!", // the HTML of notification
-  className: "welcome" // an additional class for the div (optional)
+  top: 10, // 10px desde la parte superior de la ventana (por defecto es 0px)
+  right: 10, // 10px desde el borde derecho de la ventana (por defecto es 0px)
+  html: "Hello!", // el HTML de la notificación
+  className: "welcome" // una clase adicional para el "div" (opcional)
 });
 ```
 
 [demo src="solution"]
 
 
-Use CSS positioning to show the element at given top/right coordinates. The source document has the necessary styles.
+Usar posicionamiento CSS para mostrar el elemento en las coordenadas (top/right) dadas. El documento tiene los estilos necesarios.
