@@ -36,7 +36,7 @@ Por ejemplo:
 ```html run
 <body class="main page">
   <script>
-    alert(document.body.className); // pagina principal
+    alert(document.body.className); // página principal
   </script>
 </body>
 ```
@@ -45,7 +45,7 @@ Si asignamos algo a `elem.className`, reemplaza toda la cadena de clases. A vece
 
 Hay otra propiedad para eso: `elem.classList`.
 
-El `elem.classList` es un objeto especial con metodos para agregar, eliminar y alternar `add/remove/toggle` una sola clase.
+El `elem.classList` es un objeto especial con métodos para agregar, eliminar y alternar (`add/remove/toggle`) una sola clase.
 
 Por ejemplo:
 
@@ -84,7 +84,7 @@ Además, `classList` es iterable, entonces podemos listar todas las clases con `
 
 ## `style` de un elemento
 
-La propiedad `elem.style` es un objecto que corresponde a lo escrito en el atributo `"style"`. Establecer `elem.style.width="100px"` funciona igual que sí tuvieramos en el atributo `style` una cadena con `width:100px`.
+La propiedad `elem.style` es un objeto que corresponde a lo escrito en el atributo `"style"`. Establecer `elem.style.width="100px"` funciona igual que sí tuviéramos en el atributo `style` una cadena con `width:100px`.
 
 Para propiedades de varias palabras se usa `camelCase`:
 
@@ -101,7 +101,7 @@ document.body.style.backgroundColor = prompt('background color?', 'green');
 ```
 
 ````smart header="Propiedades prefijadas"
-Propiedades con prefijos del navegador como `-moz-border-radius`, `-webkit-border-radius` también las que siguen la misma regla: un guión significa mayúscula.
+Propiedades con prefijos del navegador como `-moz-border-radius`, `-webkit-border-radius` también las que siguen la misma regla: un guion significa mayúscula.
 
 Por ejemplo:
 
@@ -182,9 +182,9 @@ Tenga en cuenta: el navegador "desempaqueta" la propiedad `style.margin` en las 
 
 ## Estilos calculados: getComputedStyle
 
-Entonces, modificar un estilo es fácil. Pero cómo *leerlo*?
+Entonces, modificar un estilo es fácil. ¿Pero cómo *leerlo*?
 
-Por ejemplo, queremos saber el tamaño, los margenes, el color de un elemento. ¿Cómo hacerlo?
+Por ejemplo, queremos saber el tamaño, los márgenes, el color de un elemento. ¿Cómo hacerlo?
 
 **La propiedad `style` solo opera en el valor del atributo `"style"`, sin ninguna cascada de `css`.**
 
@@ -208,7 +208,7 @@ Por ejemplo, aquí `style` no ve el margen:
 </body>
 ```
 
-...pero si necesitamos incrementar el margen a  `20px`? vamos el querer el valor de la misma.
+Pero si necesitamos incrementar el margen a  `20px`? vamos el querer el valor de la misma.
 
 Hay otro método para eso: `getComputedStyle`.
 
@@ -237,7 +237,7 @@ Por ejemplo:
   <script>
     let computedStyle = getComputedStyle(document.body);
 
-    // ahora podemos leer los margenes y el color de ahí
+    // ahora podemos leer los márgenes y el color de ahí
 
     alert( computedStyle.marginTop ); // 5px
     alert( computedStyle.color ); // rgb(255, 0, 0)
@@ -246,18 +246,18 @@ Por ejemplo:
 </body>
 ```
 
-```smart header="Computed and resolved values"
+```smart header="Valores calculado y resueltos"
 Hay dos conceptos en [CSS](https://drafts.csswg.org/cssom/#resolved-values):
 
 1. Un estilo *calculado* es el valor final de aplicar todas las reglas y herencias CSS, como resultado de la cascada CSS. Puede parecer `height:1em` o `font-size:125%`.
 2. Un estilo *resuelto* es la que finalmente se aplica al elemento. Valores como `1em` o `125%` son relativos. El navegador toma el valor calculado y hace que todas las unidades sean fijas y absolutas, por ejemplo: `height:20px` o `font-size:16px`. Para las propiedades de geometría los valores resueltos pueden tener un punto flotante, como `width:50.5px`.
 
-Hace mucho tiempo `getComputedStyle` fue creado para obtener los valores calculados, pero los valores resueltos son muchos mas convenientes, y el estándar cambio.
+Hace mucho tiempo `getComputedStyle` fue creado para obtener los valores calculados, pero los valores resueltos son muchos más convenientes, y el estándar cambio.
 
 Así que hoy en día `getComputedStyle` en realidad devuelve el valor resuelto de la propiedad, usualmente en `px` para geometría.
 ```
 
-````warn header="`getComputedStyle` requires the full property name"
+````warn header="El método `getComputedStyle` requiere el nombre completo de la propiedad"
 Siempre deberíamos preguntar por la propiedad exacta que queremos, como `paddingLeft` o `marginTop` o `borderTopWidth`. De lo contrario, no se garantiza el resultado correcto.
 
 Por ejemplo, si hay propiedades `paddingLeft/paddingTop`, entonces que deberíamos obtener de `getComputedStyle(elem).padding`? nada, o tal vez un valor "generado" de los paddings? No hay una regla estándar aquí.
@@ -277,13 +277,13 @@ Hay otras inconsistencias. Por ejemplo, algunos navegadores (Chrome) muestran `1
 ```
 ````
 
-```smart header="Estilos aplicados a los enlacess `:visited` estan ocultos!"
+```smart header="Estilos aplicados a los enlacess `:visited` están ocultos!"
 Los enlaces visitados deberían estar coloreados la pseudo-clase `:visited` de CSS.
 
-Pero `getComputedStyle` no da acceso a ese color, porque de lo contrario una página cualquiera podría averiguar si el usuario visitó un enlace creandoló en la página y verificar los estilos.
+Pero `getComputedStyle` no da acceso a ese color, porque de lo contrario una página cualquiera podría averiguar si el usuario visitó un enlace creándolo en la página y verificar los estilos.
 
 JavaScript puede que no vea los estilos aplicados por `:visited`. Y también, 
-hay una limitación en CSS que prohíbe la aplicación de estilos de cambio de geometría en `:visited`. Eso es para garantizar que no haya forma para que una página maligna pruebe si un enlance fue visitado y rompa la privacidad.
+hay una limitación en CSS que prohíbe la aplicación de estilos de cambio de geometría en `:visited`. Eso es para garantizar que no haya forma para que una página maligna pruebe si un enlace fue visitado y rompa la privacidad.
 ```
 
 ## Resumen
@@ -291,11 +291,11 @@ hay una limitación en CSS que prohíbe la aplicación de estilos de cambio de g
 Para manejar clases, hay dos propiedades del DOM:
 
 - `className` -- el valor de la cadena, perfecto para manejar todo el conjunto de clases.
-- `classList` -- el objeto con métodos `add/remove/toggle/contains`, perfecto para clases invidivuales.
+- `classList` -- el objeto con métodos `add/remove/toggle/contains`, perfecto para clases individuales.
 
 Para cambiar los estilos:
 
-- La propiedad `style` es un objecto con los estilos en `camelcase`. 
+- La propiedad `style` es un objeto con los estilos en `camelcase`. 
 Leer y escribir tiene el mismo significado que modificar propiedades individuales en el atributo `"style"`. Para ver como aplicar `important` y otras cosas raras, hay una lista de métodos en [MDN](mdn:api/CSSStyleDeclaration).
 
 - La propiedad `style.cssText` corresponde a todo el atributo `"style"`, la cadena completa de estilos.
