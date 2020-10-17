@@ -120,7 +120,7 @@ Por ejemplo, para ocultar un elemento, podemos establecer `elem.style.display = 
 Luego, más tarde, es posible que queramos remover `style.display` como si no estuviera establecido. En lugar de `delete elem.style.display` deberíamos asignarle una cadena vacía: `elem.style.display = ""`.
 
 ```js run
-// si podemos ejecutar este código, el <body> papadeará
+// si ejecutamos este código, el <body> papadeará
 document.body.style.display = "none"; // ocultar
 
 setTimeout(() => document.body.style.display = "", 1000); // volverá a lo normal
