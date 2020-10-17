@@ -109,4 +109,4 @@ Expliquemos eso paso a paso:
 
 Al final tenemos el resultado (como un string o un blob, lo que sea conveniente) y el seguimiento del progreso en el proceso.
 
-Una vez más, ten en cuenta que eso no es para el progreso de *carga* (de ninguna manera ahora con `fetch`), solo para el progreso de *descarga*.
+Una vez más, ten en cuenta que eso no es para el progreso de *carga* (hasta ahora eso no es posible con `fetch`), solo para el progreso de *descarga*.
