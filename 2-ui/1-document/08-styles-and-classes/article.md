@@ -278,7 +278,7 @@ Hay otras inconsistencias. Por ejemplo, algunos navegadores (Chrome) muestran `1
 ````
 
 ```smart header="¡Los estilos aplicados a los enlaces `:visited` están ocultos!"
-Los enlaces visitados deberían estar coloreados la pseudo-clase `:visited` de CSS.
+Los enlaces visitados pueden ser coloreados usando la pseudo-clase `:visited` de CSS.
 
 Pero `getComputedStyle` no da acceso a ese color, porque de lo contrario una página cualquiera podría averiguar si el usuario visitó un enlace creándolo en la página y verificar los estilos.
 
