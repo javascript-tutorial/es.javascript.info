@@ -300,6 +300,6 @@ Leer y escribir tiene el mismo significado que modificar propiedades individuale
 
 - La propiedad `style.cssText` corresponde a todo el atributo `"style"`, la cadena completa de estilos.
 
-Para leer los estilos resueltos (con respecto a todas las clases, después de que se aplica todo el `css` se calculan los valores finales):
+Para leer los estilos resueltos (con respecto a todas las clases, después de que se aplica todo el `css` y se calculan los valores finales):
 
 - El método `getComputedStyle(elem, [pseudo])` retorna el objeto de estilo con ellos (solo lectura).
