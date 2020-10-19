@@ -354,7 +354,7 @@ new Rabbit(); // rabbit
 */!*
 ```
 
-Obsserva que ahora la salida es diferente.
+Observa que ahora la salida es diferente.
 
 Y es lo que esperamos naturalmente. Cuando el constructor padre es llamado en la clase derivada, usa el método sobrescrito.
 
