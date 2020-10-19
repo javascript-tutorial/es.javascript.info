@@ -7,7 +7,11 @@ Básicamente, solo ejecutas :
 window.open("https://javascript.info/");
 ```
 
+<<<<<<< HEAD
 ...Y eso abrirá una nueva ventana con una URL. La mayoría de los navegadores modernos están configurados para abrir pestañas nuevas en vez de ventanas separadas.
+=======
+...And it will open a new window with given URL. Most modern browsers are configured to open url in new tabs instead of separate windows.
+>>>>>>> d6e88647b42992f204f57401160ebae92b358c0d
 
 Los popups existen desde tiempos realmente antiguos. La idea inicial fue mostrar otro contenido sin cerrar la ventana principal. Ahora hay otras formas de hacerlo: podemos cargar contenido dinámicamente con [fetch](info:fetch) y mostrarlo de forma dinámica con `<div>`. Entonces, los popups no son algo que usamos todos los días.
 
@@ -15,9 +19,15 @@ Además, los popups son complicados en dispositivos móviles, que no muestran va
 
 Aún así, hay tareas donde los popups todavía son usados, por ejemplo para autorización o autenticación (Ingreso con Google/Facebook/...), porque:
 
+<<<<<<< HEAD
 1. Un popup es una ventana separada con su propio entorno JavaScript independiente. Por lo tanto es seguro abrir un popup desde un sitio de terceros no confiable.
 2. Es muy fácil abrir un popup.
 3. Un popup puede navegar (cambiar URL) y enviar mensajes a la ventana que lo abrió.
+=======
+1. A popup is a separate window which has its own independent JavaScript environment. So opening a popup from a third-party, non-trusted site is safe.
+2. It's very easy to open a popup.
+3. A popup can navigate (change URL) and send messages to the opener window.
+>>>>>>> d6e88647b42992f204f57401160ebae92b358c0d
 
 ## Bloqueo de ventanas emergentes (Popup)
 
@@ -89,7 +99,11 @@ También hay una serie de características específicas del navegador menos comp
 
 ## Ejemplo: Minimalizar una ventana
 
+<<<<<<< HEAD
 Abramos una ventana con un conjunto mínimo de características solo para ver cuál de ellos permite desactivar el navegador:
+=======
+Let's open a window with minimal set of features, just to see which of them browser allows to disable:
+>>>>>>> d6e88647b42992f204f57401160ebae92b358c0d
 
 ```js run
 let params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,

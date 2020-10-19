@@ -144,8 +144,13 @@ Asignaciones
 Operador bit a bit
 : Los operadores bit a bit funcionan con enteros a nivel de bit: mire la [documentación](mdn:/JavaScript/Reference/Operators/Bitwise_Operators) cuando son necesarios.
 
+<<<<<<< HEAD
 Ternarios
 : El único operador con 3 parametros: `cond ? resultA : resultB`. Sí `cond` es verdadera, devuelve `resultA`, de lo contrario `resultB`.
+=======
+Bitwise
+: Bitwise operators work with 32-bit integers at the lowest, bit-level: see the [docs](mdn:/JavaScript/Guide/Expressions_and_Operators#Bitwise) when they are needed.
+>>>>>>> d6e88647b42992f204f57401160ebae92b358c0d
 
 Operadores Lógicos
 

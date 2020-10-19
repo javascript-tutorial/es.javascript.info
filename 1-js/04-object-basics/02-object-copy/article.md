@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Copia de objetos, referencias
 
 Una de las diferencias fundamentales de los objetos respecto a los primitivos es que son almacenados y copiados "por referencia".
@@ -5,6 +6,17 @@ Una de las diferencias fundamentales de los objetos respecto a los primitivos es
 Los valores primitivos: strings, numbers, booleans -- son asignados y copiados "como un valor completo".
 
 Por ejemplo:
+=======
+# Object references and copying
+
+One of the fundamental differences of objects versus primitives is that objects are stored and copied "by reference", as opposed to primitive values: strings, numbers, booleans, etc -- that are always copied "as a whole value".
+
+That's easy to understand if we look a bit "under a cover" of what happens when we copy a value.
+
+Let's start with a primitive, such as a string.
+
+Here we put a copy of `message` into `phrase`:
+>>>>>>> d6e88647b42992f204f57401160ebae92b358c0d
 
 ```js
 let message = "Hello!";
@@ -15,11 +27,21 @@ Como resultado tenemos dos variables independientes, cada una almacenando la cad
 
 ![](variable-copy-value.svg)
 
+<<<<<<< HEAD
 Los objetos no son así.
 
 **Una variable no almacena el objeto mismo sino su "dirección en memoria", en otras palabras "una referencia" a él.**
 
 Aquí tenemos una imagen del objeto:
+=======
+Quite an obvious result, right?
+
+Objects are not like that.
+
+**A variable assigned to an object stores not the object itself, but its "address in memory", in other words "a reference" to it.**
+
+Let's look at an example of such variable:
+>>>>>>> d6e88647b42992f204f57401160ebae92b358c0d
 
 ```js
 let user = {
@@ -27,9 +49,21 @@ let user = {
 };
 ```
 
+And here's how it's actually stored in memory:
+
 ![](variable-contains-reference.svg)
 
+<<<<<<< HEAD
 Aquí, el objeto es almacenado en algún lugar de la memoria. Y la variable `user` tiene una "referencia" a él.
+=======
+The object is stored somewhere in memory (at the right of the picture), while the `user` variable (at the left) has a "reference" to it.
+
+We may think of an object variable, such as `user`, as of a sheet of paper with the address.
+
+When we perform actions with the object, e.g. take a property `user.name`, JavaScript engine looks into that address and performs the operation on the actual object.
+
+Now here's why it's important.
+>>>>>>> d6e88647b42992f204f57401160ebae92b358c0d
 
 **Cuando una variable de objeto es copiada -- la referencia es copiada, el objeto no es duplicado.**
 
@@ -45,7 +79,13 @@ Ahora tenemos dos variables, cada una con una referencia al mismo objeto:
 
 ![](variable-copy-reference.svg)
 
+<<<<<<< HEAD
 Podemos usar cualquiera de las variables para acceder al objeto y modificar su contenido:
+=======
+As you can see, there's still one object, now with two variables that reference it.
+
+We can use any variable to access the object and modify its contents:
+>>>>>>> d6e88647b42992f204f57401160ebae92b358c0d
 
 ```js run
 let user = { name: 'John' };
@@ -59,6 +99,7 @@ admin.name = 'Pete'; // cambiado por la referencia "admin"
 alert(*!*user.name*/!*); // 'Pete', los cambios se ven desde la referencia "user"
 ```
 
+<<<<<<< HEAD
 El ejemplo anterior demuestra que solamente hay un único objeto. Como si tuviéramos un gabinete con dos llaves y usáramos una de ellas (`admin`) para accederlo. Si más tarde usamos la llave (`user`), podemos ver los cambios.
 
 ## Comparación por referencia
@@ -68,6 +109,16 @@ En los objetos, los operadores de igualdad `==` e igualdad estricta `===` funcio
 **Dos objetos son iguales solamente si ellos son el mismo objeto.**
 
 Aquí dos variables referencian el mismo objeto, así que ellos son iguales:
+=======
+
+It's just as if we had a cabinet with two keys and used one of them (`admin`) to get into it. Then, if we later use another key (`user`) we can see changes.
+
+## Comparison by reference
+
+Two objects are equal only if they are the same object.
+
+For instance, here `a` and `b` reference the same object, thus they are equal:
+>>>>>>> d6e88647b42992f204f57401160ebae92b358c0d
 
 ```js run
 let a = {};
@@ -77,7 +128,11 @@ alert( a == b ); // true, verdadero. Ambas variables hacen referencia al mismo o
 alert( a === b ); // true
 ```
 
+<<<<<<< HEAD
 Y aquí dos objetos independientes no son iguales, incluso estando ambos vacíos:
+=======
+And here two independent objects are not equal, even though they look alike (both are empty):
+>>>>>>> d6e88647b42992f204f57401160ebae92b358c0d
 
 ```js run
 let a = {};
@@ -86,7 +141,11 @@ let b = {}; // dos objetos independientes
 alert( a == b ); // false
 ```
 
+<<<<<<< HEAD
 Para comparaciones como `obj1 > obj2`, o comparaciones contra un primitivo `obj == 5`, los objetos son convertidos a primitivos. Estudiaremos cómo funciona la conversión de objetos pronto, pero a decir verdad tales comparaciones ocurren raramente y suelen ser errores de código.
+=======
+For comparisons like `obj1 > obj2` or for a comparison against a primitive `obj == 5`, objects are converted to primitives. We'll study how object conversions work very soon, but to tell the truth, such comparisons are needed very rarely, usually they appear as a result of a programming mistake.
+>>>>>>> d6e88647b42992f204f57401160ebae92b358c0d
 
 ## Clonación y mezcla, Object.assign
 

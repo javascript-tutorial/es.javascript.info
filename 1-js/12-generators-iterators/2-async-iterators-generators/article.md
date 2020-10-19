@@ -155,7 +155,11 @@ Ahora repasemos generators, que permiten una iteración mucho más corta. La may
 
 Para simplicidad, omitiendo cosas importantes, son "funciones que generan (yield) valores". Son explicados en detalle en el capítulo [](info:generators).
 
+<<<<<<< HEAD
 Los generators son etiquetados con `function*` (nota el asterisco) y usa `yield` para generar un valor, entonces podemos usar el bucle `for..of` en ellos.
+=======
+Generators are labelled with `function*` (note the star) and use `yield` to generate a value, then we can use `for..of` to loop over them.
+>>>>>>> d6e88647b42992f204f57401160ebae92b358c0d
 
 Este ejemplo genera una secuencia de valores desde `start` hasta `end`:
 

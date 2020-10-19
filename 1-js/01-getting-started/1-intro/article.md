@@ -1,6 +1,10 @@
 # Una introducción a JavaScript
 
+<<<<<<< HEAD
 Veamos qué tiene de especial JavaScript, qué podemos lograr con este lenguaje y qué otras tecnologías se integran bien con él.
+=======
+Let's see what's so special about JavaScript, what we can achieve with it, and what other technologies play well with it.
+>>>>>>> d6e88647b42992f204f57401160ebae92b358c0d
 
 ## ¿Qué es JavaScript?
 
@@ -119,6 +123,12 @@ Hay mas. Por supuesto, incluso si nosotros usamos alguno de estos lenguajes, deb
 
 ## Resumen
 
+<<<<<<< HEAD
 - JavaScript fue inicialmente creado como un lenguaje solo para el navegador, pero ahora es usado también en muchos otros entornos.
 - Hoy en día, JavaScript tiene una posición única como el lenguaje más extendido y adoptado de navegador, con una integración completa con HTML y CSS.
 - Existen muchos lenguajes que se convierten o transpilan a JavaScript y aportan ciertas características. Es recomendable echarles un vistazo, al menos brevemente, después de dominar JavaScript.
+=======
+- JavaScript was initially created as a browser-only language, but it is now used in many other environments as well.
+- Today, JavaScript has a unique position as the most widely-adopted browser language with full integration in HTML/CSS.
+- There are many languages that get "transpiled" to JavaScript and provide certain features. It is recommended to take a look at them, at least briefly, after mastering JavaScript.
+>>>>>>> d6e88647b42992f204f57401160ebae92b358c0d

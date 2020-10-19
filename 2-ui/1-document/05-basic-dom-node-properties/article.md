@@ -397,15 +397,24 @@ Compara los dos:
 <div id="elem2"></div>
 
 <script>
+<<<<<<< HEAD
   let name = prompt("¿Cuál es tu nombre?", "<b>¡Winnie-pooh!</b>");
+=======
+  let name = prompt("What's your name?", "<b>Winnie-the-Pooh!</b>");
+>>>>>>> d6e88647b42992f204f57401160ebae92b358c0d
 
   elem1.innerHTML = name;
   elem2.textContent = name;
 </script>
 ```
 
+<<<<<<< HEAD
 1. El primer `<div>` obtiene el nombre "como HTML": todas las etiquetas se convierten en etiquetas, por lo que vemos el nombre en negrita.
 2. El segundo `<div>` obtiene el nombre "como texto", así que literalmente vemos `<b>¡Winnie-pooh!</b>`.
+=======
+1. The first `<div>` gets the name "as HTML": all tags become tags, so we see the bold name.
+2. The second `<div>` gets the name "as text", so we literally see `<b>Winnie-the-Pooh!</b>`.
+>>>>>>> d6e88647b42992f204f57401160ebae92b358c0d
 
 En la mayoría de los casos, esperamos el texto de un usuario y queremos tratarlo como texto. No queremos HTML inesperado en nuestro sitio. Una asignación a `textContent` hace exactamente eso.
 
@@ -413,7 +422,11 @@ En la mayoría de los casos, esperamos el texto de un usuario y queremos tratarl
 
 El atributo "hidden" y la propiedad DOM especifican si el elemento es visible o no.
 
+<<<<<<< HEAD
 Podemos usarlo en HTML o asignarlo usando JavaScript, así:
+=======
+We can use it in HTML or assign it using JavaScript, like this:
+>>>>>>> d6e88647b42992f204f57401160ebae92b358c0d
 
 ```html run height="80"
 <div>Ambos divs a continuación están ocultos</div>

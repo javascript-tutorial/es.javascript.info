@@ -44,7 +44,11 @@ La sintáxis es:
 arr.splice(start[, deleteCount, elem1, ..., elemN])
 ```
 
+<<<<<<< HEAD
 Modifica `arr` comenzando en el índice `start`: remueve `deleteCount` elementos y luego inserta `elem1, ..., elemN` en su lugar. Devuelve el array con los elementos removidos.
+=======
+It modifies `arr` starting from the index `start`: removes `deleteCount` elements and then inserts `elem1, ..., elemN` at their place. Returns the array of removed elements.
+>>>>>>> d6e88647b42992f204f57401160ebae92b358c0d
 
 Este método es más fácil de entender con ejemplos.
 
@@ -419,13 +423,18 @@ Ahora sí funciona como esperábamos.
 
 Demos un paso al costado un momento y pensemos que es lo que está pasando. El array `arr` puede ser un array de cualquier cosa, ¿no? Puede contener números, strings, objetos o lo que sea. Podemos decir que tenemos un conjunto de *ciertos items*. Para ordenarlos, necesitamos una *función de orden* que sepa cómo comparar los elementos. El orden por defecto es hacerlo como strings.
 
+<<<<<<< HEAD
 El método `arr.sort(fn)` implementa un algorito genérico de orden. No necesitamos preocuparnos de cómo funciona internamente (la mayoría de las veces es una forma optimizada del algoritmo [quicksort](https://es.wikipedia.org/wiki/Quicksort)). Este método va a recorrer el array, comparar sus elementos usando la función dada y, finalmente, reordenarlos. Todo los que necesitamos hacer es proveer la `fn` que realiza la comparación.
+=======
+The `arr.sort(fn)` method implements a generic sorting algorithm. We don't need to care how it internally works (an optimized [quicksort](https://en.wikipedia.org/wiki/Quicksort) or [Timsort](https://en.wikipedia.org/wiki/Timsort) most of the time). It will walk the array, compare its elements using the provided function and reorder them, all we need is to provide the `fn` which does the comparison.
+>>>>>>> d6e88647b42992f204f57401160ebae92b358c0d
 
 Por cierto, si alguna vez queremos saber qué elementos son comparados -- nada nos impide ejecutar alert() en ellos:
 
 ```js run
 [1, -2, 15, 2, 0, 8].sort(function(a, b) {
   alert( a + " <> " + b );
+  return a - b;
 });
 ```
 
@@ -700,12 +709,17 @@ alert(soldiers[1].age); // 23
 
 Si en el ejemplo anterior usamos `users.filter(army.canJoin)`, entonces `army.canJoin` puede ser llamada como una función independiente, con `this=undefined`, lo que puede llevar a un error instantáneo.
 
+<<<<<<< HEAD
 La llamada a `users.filter(army.canJoin, army)` puede ser reemplazada con `users.filter(user => army.canJoin(user))` que realiza lo mismo. La forma anterior se usa más a menudo, ya que es un poco más fácil de entender.
+=======
+A call to `users.filter(army.canJoin, army)` can be replaced with `users.filter(user => army.canJoin(user))`, that does the same. The latter is used more often, as it's a bit easier to understand for most people.
+>>>>>>> d6e88647b42992f204f57401160ebae92b358c0d
 
 ## Resumen
 
 Veamos el ayudamemoria de métodos para arrays:
 
+<<<<<<< HEAD
 - Para agregar/remover elementos:
   - `push(...items)` -- agrega elementos al final,
   - `pop()` -- extrae elementos del final,
@@ -714,6 +728,16 @@ Veamos el ayudamemoria de métodos para arrays:
   - `splice(pos, deleteCount, ...items)` -- al índice `pos` borra `deleteCount` elementos e inserta `items`.
   - `slice(start, end)` -- crea un nuevo array y copia elementos desde la posición `start` hasta `end` (no incluído) en el nuevo array.
   - `concat(...items)` -- devuelve un nuevo array: copia todos los elementos del array actual y le agrega `items`. Si alguno de los `items` es un array, entonces su primer elemento es tomado
+=======
+- To add/remove elements:
+  - `push(...items)` -- adds items to the end,
+  - `pop()` -- extracts an item from the end,
+  - `shift()` -- extracts an item from the beginning,
+  - `unshift(...items)` -- adds items to the beginning.
+  - `splice(pos, deleteCount, ...items)` -- at index `pos` deletes `deleteCount` elements and inserts `items`.
+  - `slice(start, end)` -- creates a new array, copies elements from index `start` till `end` (not inclusive) into it.
+  - `concat(...items)` -- returns a new array: copies all members of the current one and adds `items` to it. If any of `items` is an array, then its elements are taken.
+>>>>>>> d6e88647b42992f204f57401160ebae92b358c0d
 
 - Para buscar entre elements:
   - `indexOf/lastIndexOf(item, pos)` -- busca por `item` comenzando desde la posición `pos`, devolviendo el índice o `-1` si no se encuentra.
@@ -724,12 +748,21 @@ Veamos el ayudamemoria de métodos para arrays:
 - Para iterar sobre elementos:
   - `forEach(func)` -- llama la `func` para cada elemento, no devuelve nada.
 
+<<<<<<< HEAD
 - Para transformar el array:
   - `map(func)` -- crea un nuevo array a partir de los resultados de llamar a la `func` para cada elemento.
   - `sort(func)` -- ordena el array y lo devuelve.
   - `reverse()` -- ordena el array de forma inversa y lo devuelve.
   - `split/join` -- convierte una cadena en un array y viceversa.
   - `reduce(func, initial)` -- calcula un solo valor para todo el array llamando a la `func` para cada elemento y pasando un resultado intermedio entre cada llamada.
+=======
+- To transform the array:
+  - `map(func)` -- creates a new array from results of calling `func` for every element.
+  - `sort(func)` -- sorts the array in-place, then returns it.
+  - `reverse()` -- reverses the array in-place, then returns it.
+  - `split/join` -- convert a string to array and back.
+  - `reduce/reduceRight(func, initial)` -- calculate a single value over the array by calling `func` for each element and passing an intermediate result between the calls.
+>>>>>>> d6e88647b42992f204f57401160ebae92b358c0d
 
 - Adicional:
   - `Array.isArray(arr)` comprueba que `arr` sea un array.
@@ -738,9 +771,17 @@ Por favor tener en cuenta que `sort`, `reverse` y `splice` modifican el propio a
 
 Estos métodos son los más utilizados y cubren el 99% de los casos. Pero existen algunos más:
 
+<<<<<<< HEAD
 - [arr.some(fn)](mdn:js/Array/some)/[arr.every(fn)](mdn:js/Array/every) comprueba el array.
 
   La función `fn` es llamada para cada elemento del array de manera similar a `map`. Si alguno/todos los  resultados son `true`, devuelve `true`, si no, `false`.
+=======
+- [arr.some(fn)](mdn:js/Array/some)/[arr.every(fn)](mdn:js/Array/every) check the array.
+
+  The function `fn` is called on each element of the array similar to `map`. If any/all results are `true`, returns `true`, otherwise `false`.
+  
+  These methods behave sort of like `||` and `&&` operators: if `fn`  returns a truthy value, `arr.some()` immediately returns `true` and stops iterating over the rest items; if `fn`  returns a falsy value, `arr.every()` immediately returns `false` and stops iterating over the rest items as well.
+>>>>>>> d6e88647b42992f204f57401160ebae92b358c0d
 
 Podemos usar `every` para comparar arrays:
   ```js run
@@ -755,7 +796,13 @@ Podemos usar `every` para comparar arrays:
 
 - [arr.copyWithin(target, start, end)](mdn:js/Array/copyWithin) -- copia sus elementos desde la posición `start` hasta la posición `end` en *si mismo*, a la posición `target` (reescribe lo existente).
 
+<<<<<<< HEAD
 Para la lista completa, ver [manual](mdn:js/Array).
+=======
+- [arr.flat(depth)](mdn:js/Array/flat)/[arr.flatMap(fn)](mdn:js/Array/flatMap) create a new flat array from a multidimensional array.
+
+For the full list, see the [manual](mdn:js/Array).
+>>>>>>> d6e88647b42992f204f57401160ebae92b358c0d
 
 A primera vista puede parecer que hay demasiados métodos para aprender y un tanto difíciles de recordar. Pero con el tiempo se vuelve más fácil.
 
