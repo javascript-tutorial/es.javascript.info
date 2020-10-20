@@ -238,7 +238,7 @@ En la [especificación](https://html.spec.whatwg.org/multipage/forms.html#the-op
 option = new Option(text, value, defaultSelected, selected);
 ```
 
-Parametros:
+Parámetros:
 
 - `text` -- el texto dentro del option,
 - `value` -- el valor del option,
