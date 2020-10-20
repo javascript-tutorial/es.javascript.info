@@ -1,16 +1,16 @@
-# Element size and scrolling
+# Elementos de tamaño y desplazamiento
 
-There are many JavaScript properties that allow us to read information about element width, height and other geometry features.
+Estas son muchas de las propiedades de JavaScript que nos permiten leer información de los elementos sobre el ancho, alto y otras características geométricas.
 
-We often need them when moving or positioning elements in JavaScript.
+Nosotros a menudo necesitamos de ellas cuando movemos o posicionamos un elemento en JavaScript.
 
-## Sample element
+## Elemento de muestra
 
-As a sample element to demonstrate properties we'll use the one given below:
+Como un elemento de muestra para demostrar las propiedades, usaremos el que se indica acontinuación:
 
 ```html no-beautify
 <div id="example">
-  ...Text...
+  ...Texto...
 </div>
 <style>
   #example {
@@ -23,22 +23,22 @@ As a sample element to demonstrate properties we'll use the one given below:
 </style>
 ```
 
-It has the border, padding and scrolling. The full set of features. There are no margins, as they are not the part of the element itself, and there are no special properties for them.
+Este tiene el borde, relleno y desplazamiento. El conjunto completo de funciones. No hay margenes, ya que no son parte del elemento en sí, y estos no tiene propiedades especiales.
 
-The element looks like this:
+El elemento tiene este aspecto:
 
 ![](metric-css.svg)
 
-You can [open the document in the sandbox](sandbox:metric).
+Tu puedes [abrir el documento en la zona de pruebas](sandbox:metric).
 
 ```smart header="Mind the scrollbar"
-The picture above demonstrates the most complex case when the element has a scrollbar. Some browsers (not all) reserve the space for it by taking it from the content (labeled as "content width" above).
+La imagen de arriba muestra el caso más complejo cuando el elemento tiene una barra de desplazamiento. Algunos navegadores (no todos) reservan espacio para tomarlo del contenido (etiquedado como "content width" arriba).
 
-So, without scrollbar the content width would be `300px`, but if the scrollbar is `16px` wide (the width may vary between devices and browsers) then only `300 - 16 = 284px` remains, and we should take it into account. That's why examples from this chapter assume that there's a scrollbar. Without it, some calculations are simpler.
+Entonces, sin la barra de desplazamiento el ancho del contenido sería `300px`, pero si la barra de desplazamiento tiene un ancho de `16px` (el ancho puede variar entre dispositivos y navegadores) entonces solo queda `300 - 16 = 284px`, y deberíamos tenerlo en cuenta. Es por eso que los ejemplos de este capitulo asumen que hay una barra de desplazamiento. Sin él, algunos cálculos son más sencillos.
 ```
 
 ```smart header="The `padding-bottom` area may be filled with text"
-Usually paddings are shown empty on our illustrations, but if there's a lot of text in the element and it overflows, then browsers show the "overflowing" text at `padding-bottom`, that's normal.
+Por lo general, los rellenos se muestran vacíos en nuestras ilustraciones, pero si hay mucho texto en el elemento y se desborda, los navegadores muestran el texto "desbordado" en `padding-bottom`, eso es normal.
 ```
 
 ## Geometry
