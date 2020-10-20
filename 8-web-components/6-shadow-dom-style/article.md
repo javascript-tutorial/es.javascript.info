@@ -58,7 +58,7 @@ custom-dialog {
 ```
 ...Entonces el `<custom-dialog>` estaría sin padding.
 
-Es muy conveniente, ya que podemos configurar estilos de componentes "predeterminados" en su regla `:host`, y luego anularlos fácilmente en el documento.
+Es muy conveniente, ya que podemos configurar estilos de componentes "predeterminados" en su regla `:host`, y luego sobreescribirlos fácilmente en el documento.
 
 La excepción es cuando una propiedad local esta etiquetada como `!important`, para tales propiedades, los estilos locales tienen prioridad.
 
