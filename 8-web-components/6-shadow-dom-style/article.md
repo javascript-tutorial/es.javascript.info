@@ -132,7 +132,7 @@ Para resumir, podemos usar `:host`-familia de selectores para aplicar estilos al
 
 Ahora consideremos la situación con los slots.
 
-Los elementos Slotted vienen de el light DOM, por lo que usan estilos del documento. Los estilos locales no afectan al contenido slotted.
+Los elementos slotted vienen del light DOM, por lo que usan estilos del documento. Los estilos locales no afectan al contenido slotted.
 
 En el siguiente ejemplo, slotted `<span>` está en bold, según el estilo del documento, pero no toma el `background` del estilo local:
 ```html run autorun="no-epub" untrusted height=80
