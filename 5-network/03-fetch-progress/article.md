@@ -1,5 +1,5 @@
 
-# Fetch: progreso de la descarga
+# Fetch: Progreso de la descarga
 
 El método `fetch` permite rastrear el progreso de *descarga*.
 
