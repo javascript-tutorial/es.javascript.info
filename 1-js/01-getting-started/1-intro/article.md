@@ -65,16 +65,14 @@ Ejemplos de tales restricciones incluyen:
 
 - JavaScript en el navegador no puede leer y escribir arbitrariamente archivos en el disco duro, copiarlos o ejecutar programas. No tiene acceso directo a funciones del Sistema operativo (OS).
 
-  Los navegadores mas modernos le permiten trabajar con archivos, pero el acceso es limitado y solo permitido si el usuario realiza ciertas acciones, como "arrastrar" un archivo a la ventana del navegador o seleccionarlo por medio de una etiqueta `<input`>.
+  Los navegadores más modernos le permiten trabajar con archivos, pero el acceso es limitado y solo permitido si el usuario realiza ciertas acciones, como "arrastrar" un archivo a la ventana del navegador o seleccionarlo por medio de una etiqueta `<input`>.
 
-  Existen maneras de interactuar con la cámara, micrófono y otros dispositivos, pero eso requiere el permiso explicito del usuario. Por lo tanto, una página habilitada para JavaScript no puede habilitar una cámara web para observar el entorno y enviar la información a la [NSA](https://es.wikipedia.org/wiki/Agencia_de_Seguridad_Nacional).
-
-- Diferentes pestañas y ventanas generalmente no se conocen entre sí. A veces si lo hacen, por ejemplo, cuando una ventana usa JavaScript para abrir otra. Pero incluso en este caso, JavaScript no puede acceder a la otra si provienen de diferentes sitios. (De diferente dominio, protocolo o puerto).
+    Existen maneras de interactuar con la cámara, micrófono y otros dispositivos, pero eso requiere el permiso explícito del usuario. Por lo tanto, una página habilitada para JavaScript no puede habilitar una cámara web para observar el entorno y enviar la información a la [NSA](https://es.wikipedia.org/wiki/Agencia_de_Seguridad_Nacional).
+- Diferentes pestañas y ventanas generalmente no se conocen entre sí. A veces si lo hacen, por ejemplo, cuando una ventana usa JavaScript para abrir otra. Pero incluso en este caso, JavaScript no puede acceder a la otra si provienen de diferentes sitios (de diferente dominio, protocolo o puerto).
 
   Esto es conocido como "política del mismo origen" ("Same Origin Policy"). Para evitar eso, ambas páginas deben contener código especial de JavaScript que permita manejar el intercambio de datos. Cubriremos esto en el tutorial.
 
-  Esta limitación es, de nuevo, para la seguridad del usuario. Una página de `http://anysite.com` la cual el usuario ha abierto no debe ser capaz de acceder a otra pestaña del navegador con la URL `http://gmail.com` y robar información de esta otra página.
-
+    Esta limitación es, de nuevo, para la seguridad del usuario. Una página de `http://anysite.com` la cual el usuario ha abierto no debe ser capaz de acceder a otra pestaña del navegador con la URL `http://gmail.com` y robar información de esta otra página.
 - JavaScript puede fácilmente comunicarse a través de la red con el servidor de donde la página actual proviene. Pero su capacidad para recibir información de otros sitios y dominios esta bloqueada. Aunque sea posible, esto requiere un acuerdo explícito (expresado en los encabezados HTTP) desde el sitio remoto. Una vez más, esto es una limitación de seguridad.
 
 ![](limitations.svg)
@@ -90,7 +88,6 @@ Existen al menos _tres_ cosas geniales sobre JavaScript:
 + Las cosas simples se hacen de manera simple.
 + Soportado por la mayoría de los navegadores y habilitado de forma predeterminada.
 ```
-
 JavaScript es la única tecnología de los navegadores que combina estas tres cosas.
 
 Eso es lo que hace a JavaScript único. Por esto es la herramienta mas extendida para crear interfaces de navegador.

@@ -49,6 +49,7 @@ Para habilitar completamente todas las características de JavaScript moderno, d
 
 ```js
 'use strict';
+
 ...
 ```
 
@@ -80,9 +81,10 @@ let x = 5;
 x = "John";
 ```
 
-Hay 7 tipos de datos:
+Hay 8 tipos de datos:
 
 - `number` tanto para números de punto flotante como enteros,
+- `bigint` para números enteros de largo arbitrario,
 - `string` para textos,
 - `boolean` para valores lógicos: `true/false`,
 - `null` -- un tipo con un solo valor `null`, que significa "vacío" o "no existe",
@@ -142,17 +144,18 @@ Asignaciones
 : He aqui una asignacion simple: `a = b` y una combinada `a *= 2`.
 
 Operador bit a bit
-: Los operadores bit a bit funcionan con enteros a nivel de bit: mire la [documentación](mdn:/JavaScript/Reference/Operators/Bitwise_Operators) cuando son necesarios.
+: Los operadores bit a bit funcionan con enteros de 32 bits al más bajo nivel, el de bit: mire la [documentación](mdn:/JavaScript/Reference/Operators/Bitwise_Operators) cuando sea necesario.
 
-Ternarios
+Condicional
 : El único operador con 3 parametros: `cond ? resultA : resultB`. Sí `cond` es verdadera, devuelve `resultA`, de lo contrario `resultB`.
 
 Operadores Lógicos
-
 : Los operadores lógicos Y `&&` y Ó `||` realizan una evaluación de circuito corto y luego devuelven el valor donde se detuvo. El operador lógico NOT `!` convierte el operando a tipo booleano y devuelve el valor inverso.
 
-Comparaciones
+Operador "Nullish coalescing"
+: El operador `??` brinda una forma de elegir el primer valor "definido" de una lista de variables. El resultado de `a ?? b` es `a` salvo que esta sea `null/undefined`, en cuyo caso será `b`.
 
+Comparaciones
 : Revision de igualdad `==` para valores de diferentes tipos los convierte en un número (excepto `null` y `undefined` que son iguales entre sí y nada más), por lo que son iguales:
 
     ```js run
@@ -171,7 +174,7 @@ Comparaciones
 Otros operadores
 : Hay algunos otros, como un operador de coma.
 
-Más en: <info:operators>, <info:comparison>, <info:logical-operators>.
+Más en: <info:operators>, <info:comparison>, <info:logical-operators>, <info:nullish-coalescing-operator>.
 
 ## Bucles
 
@@ -195,7 +198,6 @@ Más en: <info:operators>, <info:comparison>, <info:logical-operators>.
     ```
 
 - La variable declarada en el bucle `for(let...)` sólo es visible dentro del bucle. Pero también podemos omitir el `let` y reutilizar una variable existente.
-
 - Directivas `break/continue` permiten salir de todo el ciclo/iteración actual. Use etiquetas para romper bucles anidados.
 
 Detalles en: <info:while-for>.
@@ -248,9 +250,8 @@ Cubrimos tres formas de crear una función en JavaScript:
       let result = a + b;
 
       return result;
-    }
+    };
     ```
-    Las expresiones de función pueden tener un nombre, como `sum = function name(a, b)`, pero ese `name` solo es visible dentro de esa función.
 
 3. Funciones de flecha:
 
@@ -271,17 +272,12 @@ Cubrimos tres formas de crear una función en JavaScript:
     let double = n => n * 2;
     ```
 
+
 - Las funciones pueden tener variables locales: aquellas declaradas dentro de su cuerpo. Estas variables solo son visibles dentro de la función.
 - Los parámetros pueden tener valores predeterminados: `function sum(a = 1, b = 2) {...}`.
 - Las funciones siempre devuelven algo. Si no hay `return`, entonces el resultado es `undefined`.
 
-
-| Declaración de funciones | Expresión de funciones |
-|----------------------|---------------------|
-| visible en todo el bloque de código | creado cuando la ejecución lo alcanza |
-|   - | puede tener un nombre, visible solo dentro de la función |
-
-Más: ver <info:function-basics>, <info:function-expressions-arrows>.
+Más: ver <info:function-basics>, <info:arrow-functions-basics>.
 
 ## Más por venir
 
