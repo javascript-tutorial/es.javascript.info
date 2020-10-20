@@ -126,7 +126,7 @@ p. ej. `:host-context(.dark-theme)` coincide solo si hay una clase `dark-theme` 
 </body>
 ```
 
-Para resumir, podemos usar `:host`-familia de selectores para aplicar estilos al elemento principal del componente, según el contexto. Estos estilos (a menos que sea `!important`) se pueden sobreescribir en el documento.
+Para resumir, podemos usar `:host`-familia de selectores para aplicar estilos al elemento principal del componente, según el contexto. Estos estilos (a menos que sea `!important`) pueden ser sobreescritos por el documento.
 
 ## Estilo de contenido slotted
 
