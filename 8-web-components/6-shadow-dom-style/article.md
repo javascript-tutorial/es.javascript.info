@@ -269,7 +269,7 @@ user-card {
 }
 ```
 
-Las propiedades personalizadas CSS atraviesan el shadow DOM, son visibles en todas partes, por lo que la regla interna `.field` hara uso de ella.
+Las propiedades personalizadas CSS atraviesan el shadow DOM, son visibles en todas partes, por lo que la regla interna `.field` hará uso de ella.
 
 Aquí está el ejemplo completo:
 
