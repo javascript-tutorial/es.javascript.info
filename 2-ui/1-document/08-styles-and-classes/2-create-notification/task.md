@@ -6,7 +6,7 @@ importance: 5
 
 Escribir una función `showNotification(options)` que cree una notificación: `<div class="notification">` con el contenido dado. La notificación debería desaparecer automáticamente despues de 1.5 segundos.
 
-The options are:
+Las opciones son:
 
 ```js
 // muestra un elemento con el texto "Hello" cerca de la parte superior de la ventana
