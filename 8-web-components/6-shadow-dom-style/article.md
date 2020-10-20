@@ -60,7 +60,7 @@ custom-dialog {
 
 Es muy conveniente, ya que podemos configurar estilos de componentes "predeterminados" en su regla `:host`, y luego sobreescribirlos fácilmente en el documento.
 
-La excepción es cuando una propiedad local esta etiquetada como `!important`, para tales propiedades, los estilos locales tienen prioridad.
+La excepción es cuando una propiedad local está etiquetada como `!important`. Para tales propiedades, los estilos locales tienen prioridad.
 
 
 ## :host(selector)
