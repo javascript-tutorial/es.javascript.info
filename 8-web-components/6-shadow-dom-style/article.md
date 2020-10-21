@@ -42,7 +42,7 @@ customElements.define('custom-dialog', class extends HTMLElement {
 </custom-dialog>
 ```
 
-## En Cascada
+## Cascada
 
 El shadow host (`<custom-dialog>` en sí) reside en el light DOM, por lo que se ve afectado por las reglas de CSS del documento.
 
@@ -113,7 +113,7 @@ Ahora los estilos de centrado adicionales solo se aplican al primer dialogo: `<c
 
 ## :host-context(selector)
 
-Igual que `:host`, pero se aplica solo si el shadow host o cualquiera de sus ancestros en el documento externo coinciden con el `selector`.
+Igual que `:host`, pero se aplica solo si el shadow host o cualquiera de sus ancestros en el documento exterior coinciden con el `selector`.
 
 p. ej. `:host-context(.dark-theme)` coincide solo si hay una clase `dark-theme` en `<custom-dialog>` en cualquier lugar por encima de el:
 
@@ -128,13 +128,13 @@ p. ej. `:host-context(.dark-theme)` coincide solo si hay una clase `dark-theme` 
 
 Para resumir, podemos usar `:host`-familia de selectores para aplicar estilos al elemento principal del componente, según el contexto. Estos estilos (a menos que sea `!important`) pueden ser sobreescritos por el documento.
 
-## Estilo de contenido slotted
+## Estilo de contenido eslotado(slotted)
 
 Ahora consideremos la situación con los slots.
 
-Los elementos slotted vienen del light DOM, por lo que usan estilos del documento. Los estilos locales no afectan al contenido slotted.
+Los elementos eslotados vienen del light DOM, por lo que usan estilos del documento. Los estilos locales no afectan al contenido de los elementos eslotados.
 
-En el siguiente ejemplo, slotted `<span>` está en bold, según el estilo del documento, pero no toma el `background` del estilo local:
+En el siguiente ejemplo, el elemento eslotado `<span>` está en bold, según el estilo del documento, pero no toma el `background` del estilo local:
 ```html run autorun="no-epub" untrusted height=80
 <style>
 *!*
@@ -165,9 +165,9 @@ customElements.define('user-card', class extends HTMLElement {
 
 El resultado es bold, pero no red.
 
-Si queremos diseñar elementos slotted en nuestro componente, hay dos opciones.
+Si queremos aplicar estilos a elementos eslotados en nuestro componente, hay dos opciones.
 
-Primero, podemos diseñar el `<slot>` en sí mismo y confiar en la herencia CSS:
+Primero, podemos aplicarle el estilo al elemento `<slot>` en sí mismo y confiar en la herencia CSS:
 
 ```html run autorun="no-epub" untrusted height=80
 <user-card>
@@ -195,7 +195,7 @@ Aquí `<p>John Smith</p>` se vuelve bold, porque la herencia CSS está en efecto
 
 Otra opción es usar la pseudoclase `::slotted(selector)`. Coincide con elementos en función de 2 condiciones.
 
-1. Eso es un elemento slotted, que viene del light DOM. El nombre del slot no importa. Cualquier elemento slotted, pero solo el elemento en si, no sus hijos.
+1. Eso es un elemento eslotado, que viene del light DOM. El nombre del slot no importa. Cualquier elemento eslotado, pero solo el elemento en si, no sus hijos.
 2. El elemento coincide con el `selector`.
 
 En nuestro ejemplo, `::slotted(div)` selecciona exactamente `<div slot="username">`, pero no sus hijos:
@@ -248,7 +248,7 @@ No hay ningún selector que pueda afectar directamente a los estilos del shadow 
 
 **Existen propiedades CSS personalizadas en todos los niveles, tanto en light como shadow.**
 
-Por ejemplo, en el shadow DOM podemos usar la variable CSS `--user-card-field-color` para dar estilo a los campos, y el documento externo puede establecer su valor:
+Por ejemplo, en el shadow DOM podemos usar la variable CSS `--user-card-field-color` para dar estilo a los campos, y en el documento exterior establecer su valor:
 
 ```html
 <style>
@@ -261,7 +261,7 @@ Por ejemplo, en el shadow DOM podemos usar la variable CSS `--user-card-field-co
 <div class="field">Birthday: <slot name="birthday"></slot></div>
 ```
 
-Entonces, podemos declarar esta propiedad en el documento externo para `<user-card>`:
+Entonces, podemos declarar esta propiedad en el documento exterior para `<user-card>`:
 
 ```css
 user-card {
@@ -317,12 +317,12 @@ Shadow DOM puede incluir estilos, como `<style>` o `<link rel="stylesheet">`.
 
 Los estilos locales pueden afectar:
 - shadow tree,
-- shadow host con `:host`-pseudoclases familiares,
-- elementos slotted (provenientes de light DOM), `::slotted(selector)` permite seleccionar elementos slotted, pero no a sus hijos.
+- shadow host con `:host`-familia de pseudoclases,
+- elementos eslotados (provenientes de light DOM), `::slotted(selector)` permite seleccionar elementos eslotados, pero no a sus hijos.
 
 Los estilos de documentos pueden afectar:
 - shadow host (ya que vive en el documento exterior)
-- elementos slotted y su contenido (ya que eso también está en el documento externo)
+- elementos eslotados y su contenido (ya que eso también está en el documento exterior)
 
 Cuando las propiedades CSS entran en conflicto, normalmente los estilos del documento tienen prioridad, a menos que la propiedad esté etiquetada como `!important`. Entonces, los estilos locales tienen prioridad.
 
@@ -331,4 +331,4 @@ Las propiedades CSS personalizadas atraviesan el shadow DOM. Se utilizan como "h
 1. El componente utiliza una propiedad CSS personalizada para aplicar estilos a elementos clave, como `var(--component-name-title, <default value>)`.
 2. El autor del componente publica estas propiedades para los desarrolladores, son tan importantes como otros métodos de componentes públicos.
 3. Cuando un desarrollador desea aplicar un estilo a un título, asigna la propiedad CSS `--component-name-title` para el shadow host o superior.
-4. Ganancia!
+4. ¡Beneficio!
