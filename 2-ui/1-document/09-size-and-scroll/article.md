@@ -37,35 +37,35 @@ La imagen de arriba muestra el caso más complejo cuando el elemento tiene una b
 Entonces, sin la barra de desplazamiento el ancho del contenido sería `300px`, pero si la barra de desplazamiento tiene un ancho de `16px` (el ancho puede variar entre dispositivos y navegadores) entonces solo queda `300 - 16 = 284px`, y deberíamos tenerlo en cuenta. Es por eso que los ejemplos de este capitulo asumen que hay una barra de desplazamiento. Sin él, algunos cálculos son más sencillos.
 ```
 
-```smart header="The `padding-bottom` area may be filled with text"
+```smart header="El área `padding-bottom` puede estar lleno de texto"
 Por lo general, los rellenos se muestran vacíos en nuestras ilustraciones, pero si hay mucho texto en el elemento y se desborda, los navegadores muestran el texto "desbordado" en `padding-bottom`, eso es normal.
 ```
 
-## Geometry
+## Geometría
 
-Here's the overall picture with geometry properties:
+Aquí está la iamgen gereal con propiedades geométricas:
 
 ![](metric-all.svg)
 
-Values of these properties are technically numbers, but these numbers are "of pixels", so these are pixel measurements.
+Los valores de estas propiedades son tecnicamente números, pero estos numeros son "de píxeles", así que estas son medidas de píxeles.
 
-Let's start exploring the properties starting from the outside of the element.
+Comencemos a explotar las propiedades, iniciando desde el interior del elemento.
 
 ## offsetParent, offsetLeft/Top
 
-These properties are rarely needed, but still they are the "most outer" geometry properties, so we'll start with them.
+Estas propiedades son raramente necesarias, pero aún son las propiedades de geometría "más externas", así que comenzaremos con ellas.
 
-The `offsetParent` is the nearest ancestor that the browser uses for calculating coordinates during rendering.
+El `offsetParent` es el antepasado más cercano que usa el navegador para calcular las coordenadas durante el renderizado.
 
-That's the nearest ancestor that is one of the following:
+Ese es el antepasado más cercano que es uno de los siguientes:
 
 1. CSS-positioned (`position` is `absolute`, `relative`, `fixed` or `sticky`),  or
 2. `<td>`, `<th>`, or `<table>`,  or
 3. `<body>`.
 
-Properties `offsetLeft/offsetTop` provide x/y coordinates relative to `offsetParent` upper-left corner.
+Las propiedades `offsetLeft/offsetTop` proporcionan coordenadas x/y relativas a la esquina superior izquierda de `offsetParent`.
 
-In the example below the inner `<div>` has `<main>` as `offsetParent` and `offsetLeft/offsetTop` shifts from its upper-left corner (`180`):
+En el siguiente ejemplo el `<div>` interno tiene `<main>` como `offsetParent` y `offsetLeft/offsetTop` se desplaza desde su esquina superior izquierda (`180`):
 
 ```html run height=10
 <main style="position: relative" id="main">
@@ -82,24 +82,24 @@ In the example below the inner `<div>` has `<main>` as `offsetParent` and `offse
 
 ![](metric-offset-parent.svg)
 
-There are several occasions when `offsetParent` is `null`:
+Hay varias ocaciones en la que `offsetParent` es `null`:
 
-1. For not shown elements (`display:none` or not in the document).
-2. For `<body>` and `<html>`.
-3. For elements with `position:fixed`.
+1. Para elmentos no mostrados (`display:none` o no en el documento).
+2. Para `<body>` y `<html>`.
+3. Para elementos con `position:fixed`.
 
 ## offsetWidth/Height
 
-Now let's move on to the element itself.
+Ahora pasemos al elemento en sí.
 
-These two properties are the simplest ones. They provide the "outer" width/height of the element. Or, in other words, its full size including borders.
+Estas dos propiedades son las más simples. Proporcionan el ancho y alto "exterior" del elemento. O, en otras palabras, su tamaño completo, incluidos los bordes.
 
 ![](metric-offset-width-height.svg)
 
-For our sample element:
+Para nuestro elemento de muestra:
 
-- `offsetWidth = 390` -- the outer width, can be calculated as inner CSS-width (`300px`) plus paddings (`2 * 20px`) and borders (`2 * 25px`).
-- `offsetHeight = 290` -- the outer height.
+- `offsetWidth = 390` -- el ancho exterior, puede ser calculado como CSS-width interno (`300px`) más acolchonados (`2 * 20px`) y bordes (`2 * 25px`).
+- `offsetHeight = 290` -- el alto exterior.
 
 ````smart header="Geometry properties are zero/null for elements that are not displayed"
 Geometry properties are calculated only for displayed elements.
