@@ -179,12 +179,12 @@ Podemos usar estas propiedades para expandir el elemento a su ancho/alto complet
 Como esto:
 
 ```js
-// expand the element to the full content height
+// expanda el elemento a la altura completa del contenido
 element.style.height = `${element.scrollHeight}px`;
 ```
 
 ```online
-Click the button to expand the element:
+Clic en el bton para expandir el elemento:
 
 <div id="element" style="width:300px;height:200px; padding: 0;overflow: auto; border:1px solid black;">text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</div>
 
@@ -193,47 +193,47 @@ Click the button to expand the element:
 
 ## scrollLeft/scrollTop
 
-Properties `scrollLeft/scrollTop` are the width/height of the hidden, scrolled out part of the element.
+Las propiedades `scrollLeft/scrollTop` son el ancho/alto de la parte oculta y desplazada del elemento.
 
-On the picture below we can see `scrollHeight` and `scrollTop` for a block with a vertical scroll.
+En la imagen abajo podemos ver `scrollHeight` y `scrollTop` para un bloque con un desplazamiento vertical.
 
 ![](metric-scroll-top.svg)
 
-In other words, `scrollTop` is "how much is scrolled up".
+En otras palabras, `scrollTop` es "cuánto se desplaza hacia arriba".
 
-````smart header="`scrollLeft/scrollTop` can be modified"
-Most of the geometry properties here are read-only, but `scrollLeft/scrollTop` can be changed, and the browser will scroll the element.
+````smart header="`scrollLeft/scrollTop` puede ser modificado"
+La mayoría de las propiedades aqui son solo lectura, pero `scrollLeft/scrollTop` se puede cambiar, y el navegador desplazará el elemento.
 
 ```online
-If you click the element below, the code `elem.scrollTop += 10` executes. That makes the element content scroll `10px` down.
+Si haces clic en el elemento de abajo, se ejecuta el codigo `elem.scrollTop += 10`. Eso hace que el contenido del elemento se desplace `10px` abajo.
 
 <div onclick="this.scrollTop+=10" style="cursor:pointer;border:1px solid black;width:100px;height:80px;overflow:auto">Click<br>Me<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</div>
 ```
 
-Setting `scrollTop` to `0` or a big value, such as `1e9` will make the element scroll to the very top/bottom respectively.
+Establecer `scrollTop` en `0` o un valor grande, como `1e9` hará que el elemento se desplace hacia arriba/abajo respectivamente.
 ````
 
-## Don't take width/height from CSS
+## No uses width/height de CSS
 
-We've just covered geometry properties of DOM elements, that can be used to get widths, heights and calculate distances.
+Acabamos de cubrir las propiedades geométricas de los elementos DOM, que se pueden usar para obtener anchos, alturas y calcular distancias.
 
-But as we know from the chapter <info:styles-and-classes>, we can read CSS-height and width using `getComputedStyle`.
+Pero como sabemos por el capítulo <info:styles-and-classes>, podemos leer CSS-height y width usando `getComputedStyle`.
 
-So why not to read the width of an element with `getComputedStyle`, like this?
+Entonces, ¿Por qué no leer el ancho de un elemento con `getComputedStyle`, como este?
 
 ```js run
 let elem = document.body;
 
-alert( getComputedStyle(elem).width ); // show CSS width for elem
+alert( getComputedStyle(elem).width ); // muestra CSS width por elemento
 ```
 
-Why should we use geometry properties instead? There are two reasons:
+¿Por qué deberíamos usar propiedades geométricas en su lugar? Hay dos razones:
 
-1. First, CSS `width/height` depend on another property: `box-sizing` that defines "what is" CSS width and height. A change in `box-sizing` for CSS purposes may break such JavaScript.
-2. Second, CSS `width/height` may be `auto`, for instance for an inline element:
+1. Primero, CSS `width/height` dependen de otra propiedad: `box-sizing` que define "qué es" CSS width y height. Un cambio en `box-sizing` para propísitos de CSS puede romper dicho JavaScript.
+2. Segundo, CSS `width/height` puede ser `auto`, por ejemplo para un elemento en linea:
 
     ```html run
-    <span id="elem">Hello!</span>
+    <span id="elem">Hola!</span>
 
     <script>
     *!*
