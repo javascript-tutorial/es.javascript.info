@@ -242,7 +242,7 @@ También, `::slotted` solo se puede utilizar en CSS. No podemos usarlo en `query
 
 ¿Cómo diseñamos los elementos internos de un componente del documento principal?
 
-Selectores como `:host` aplican reglas al elemento `<custom-dialog>` o `<user-card>`, ¿pero como aplicar estilos a elementos del shadow DOM dentro de ellos?
+Selectores como `:host` aplican reglas al elemento `<custom-dialog>` o `<user-card>`, ¿pero cómo aplicar estilos a elementos del shadow DOM dentro de ellos?
 
 No hay ningún selector que pueda afectar directamente a los estilos del shadow DOM del documento. Pero así como exponemos métodos para interactuar con nuestro componente, podemos exponer variables CSS (propiedades CSS personalizadas) para darle estilo.
 
