@@ -263,7 +263,7 @@ let option = new Option("Text", "value", true, true);
 Los elementos Option tienen propiedades:
 
 `option.selected`
-: El option está seleccionado.
+: Es el option seleccionado.
 
 `option.index`
 : El número del option respecto a los demás en su `<select>`.
