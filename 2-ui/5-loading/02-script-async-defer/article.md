@@ -1,136 +1,143 @@
 
 # Scripts: async, defer
 
-In modern websites, scripts are often "heavier" than HTML: their download size is larger, and processing time is also longer.
+En los sitios web modernos los scripts suelen ser más "pesados" que el HTML, el tamaño de la descarga es grande y el tiempo de procesamiento es mayor.
 
-When the browser loads HTML and comes across a `<script>...</script>` tag, it can't continue building the DOM. It must execute the script right now. The same happens for external scripts `<script src="..."></script>`: the browser must wait until the script downloads, execute it, and only after process the rest of the page.
+Cuando el navegador carga el HTML y se encuentra con una etiqueta `<script>...</script>`, no puede continuar construyendo el DOM. Debe ejecutar el script en el momento. Lo mismo sucede con los scripts externos `<script src="..."></script>`, el navegador tiene que esperar hasta que el script sea descargado, ejecutarlo y solo después procesa el resto de la página.   
 
-That leads to two important issues:
+Esto nos lleva a dos importantes problemas:
 
-1. Scripts can't see DOM elements below them, so they can't add handlers etc.
-2. If there's a bulky script at the top of the page, it "blocks the page". Users can't see the page content till it downloads and runs:
+1. Los scripts no pueden ver los elementos del DOM que se encuentran debajo de él por lo que no pueden agregar controladores de eventos, etc.
+2. Si hay un script muy pesado en la parte superior de la página, este "bloquea la página". Los usuarios no pueden ver el contenido de la página hasta que sea descargado y ejecutado.
 
 ```html run height=100
-<p>...content before script...</p>
+<p>...contenido previo al script...</p>
 
 <script src="https://javascript.info/article/script-async-defer/long.js?speed=1"></script>
 
-<!-- This isn't visible until the script loads -->
-<p>...content after script...</p>
+<!-- Esto no es visible hasta que el script sea cargado -->
+<p>...contenido posterior al script...</p>
 ```
 
-There are some workarounds to that. For instance, we can put a script at the bottom of the page. Then it can see elements above it, and it doesn't block the page content from showing:
+Hay algunas soluciones para eso. Por ejemplo podemos poner el script en la parte inferior de la página por lo que podrá ver los elementos sobre él y no bloqueará la visualización del contenido de la página.
 
 ```html
 <body>
-  ...all content is above the script...
+  ...todo el contenido está arriba del script...
 
   <script src="https://javascript.info/article/script-async-defer/long.js?speed=1"></script>
 </body>
 ```
 
-But this solution is far from perfect. For example, the browser notices the script (and can start downloading it) only after it downloaded the full HTML document. For long HTML documents, that may be a noticeable delay.
+Pero esta solución está lejos de ser perfecta. Por ejemplo el navegador solo se dará cuenta del script (y podrá empezar a descargarlo) después de descargar todo el documento HTML. Para documentos HTML extensos eso puede ser un retraso notable.
 
-Such things are invisible for people using very fast connections, but many people in the world still have slow internet speeds and use a far-from-perfect mobile internet connection.
+Este tipo de cosas son imperceptibles para las personas que usan conexiones muy rápidas, pero muchas personas en el mundo todavía tienen velocidades de internet lentas y utilizan una conexión de internet móvil que esta lejos de ser perfecta.
 
-Luckily, there are two `<script>` attributes that solve the problem for us: `defer` and `async`.
+Afortunadamente hay dos atributos de `<script>` que resuelven ese problema para nosotros: `defer` y `async`.
 
 ## defer
 
-The `defer` attribute tells the browser that it should go on working with the page, and load the script "in background", then run the script when it loads.
+El atributo `defer` indica al navegador que no espere por el script. En lugar de ello, debe seguir procesando el HTML, construir el DOM. El script carga "en segundo plano" y se ejecuta cuando el DOM esta completo.
 
-Here's the same example as above, but with `defer`:
+Aquí está el mismo ejemplo de arriba pero con `defer`:
 
 ```html run height=100
-<p>...content before script...</p>
+<p>...contenido previo script...</p>
 
 <script defer src="https://javascript.info/article/script-async-defer/long.js?speed=1"></script>
 
-<!-- visible immediately -->
-<p>...content after script...</p>
+<!-- Inmediatamete visible -->
+<p>...contenido posterior al script...</p>
 ```
 
-- Scripts with `defer` never block the page.
-- Scripts with `defer` always execute when the DOM is ready, but before `DOMContentLoaded` event.
+En otras palabras:
 
-The following example demonstrates that:
+- Los scripts con `defer` nunca bloquean la página.
+- Los scripts con `defer` siempre se ejecutan cuando el DOM esta listo (pero antes del evento `DOMContentLoaded`).
+
+Los siguientes ejemplos demuestran la segunda parte:
 
 ```html run height=100
-<p>...content before scripts...</p>
+<p>...contenido previo a los scripts...</p>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => alert("DOM ready after defer!")); // (2)
+  document.addEventListener('DOMContentLoaded', () => alert("¡DOM listo después del defer!"));
 </script>
 
 <script defer src="https://javascript.info/article/script-async-defer/long.js?speed=1"></script>
 
-<p>...content after scripts...</p>
+<p>...contenido posterior a los scripts...</p>
 ```
 
-1. The page content shows up immediately.
-2. `DOMContentLoaded` waits for the deferred script. It only triggers when the script `(2)` is downloaded and executed.
+1. El contenido de la página se muestra inmediatamente.
+2. `DOMContentLoaded` espera por el script diferido. Solo se dispara cuando el script es descargado y ejecutado.
 
-Deferred scripts keep their relative order, just like regular scripts.
+**Los scripts diferidos mantienen su orden relativo, tal cual los scripts regulares.
 
-So, if we have a long script first, and then a smaller one, then the latter one waits.
+Digamos que tenemos dos scripts diferidos, `long.js` (largo) y luego `small.js` (corto):
 
 ```html
 <script defer src="https://javascript.info/article/script-async-defer/long.js"></script>
 <script defer src="https://javascript.info/article/script-async-defer/small.js"></script>
 ```
 
-```smart header="The small script downloads first, runs second"
-Browsers scan the page for scripts and download them in parallel, to improve performance. So in the example above both scripts download in parallel. The `small.js` probably makes it first.
+Los navegadores analizan la página en busca de scripts y los descarga en paralelo para mejorar el rendimiento. Entonces en el ejemplo superior ambos scripts se descargan en paralelo, el `small.js` probablemente lo haga primero.
 
-But the specification requires scripts to execute in the document order, so it waits for `long.js` to execute.
+...Pero el atributo `defer`, además de decirle al navegador "no bloquear", se asegura que el orden relativo se mantiene. Entonces incluso si `small.js` se carga primero, aún espera a hasta después que `long.js` se ejecuta.
+
+Por ello es importante para casos donde necesitamos cargar un librería JavaScript y entonces un script que depende de ella.
+
+```smart header="El atributo `defer` es solo para scripts externos"
+El atributo `defer` es ignorado si el `<script>` no tiene el atributo `src`.
 ```
-
-```smart header="The `defer` attribute is only for external scripts"
-The `defer` attribute is ignored if the `<script>` tag has no `src`.
-```
-
 
 ## async
 
-The `async` attribute means that a script is completely independent:
+El atributo `async` es de alguna manera como `defer`. También hace el script no bloqueante. Pero tiene importantes diferencias de comportamiento.
 
-- The page doesn't wait for async scripts, the contents are processed and displayed.
-- `DOMContentLoaded` and async scripts don't wait for each other:
-    - `DOMContentLoaded` may happen both before an async script (if an async script finishes loading after the page is complete)
-    - ...or after an async script (if an async script is short or was in HTTP-cache)
-- Other scripts don't wait for `async` scripts, and `async` scripts don't wait for them.
+El atributo `async` significa que el script es completamente independiente:
 
+- El navegador no se bloquea con scripts `async` (como `defer`).
+- Otros scripts no esperan por scripts `async`, y scripts `async` no espera por ellos.
+- El evento `DOMContentLoaded` y los scripts asincrónicos no se esperan entre sí:
+    - El evento `DOMContentLoaded` puede suceder antes que un script asincrónico (si un script asincrónico termina de cargar una vez la página está completa)
+    - ...o después de un script asincrónico (si tal script asincrónico es pequeño o está en cache)
 
-So, if we have several `async` scripts, they may execute in any order. Whatever loads first -- runs first:
+En otras palabras, los scripts `async` cargan en segundo plano y se ejecutan cuando están listos. El DOM y otros scripts no esperan por ellos, y ellos no esperan por nada. Un totalmente independiente script que se ejecuta en cuanto se ha cargado. Tan simple como es posible, ¿cierto? 
+
+Aquí hay un ejemplo similar al que vimos con `defer`: Dos scripts `long.js` y `small.js`, pero ahora con `async` en lugar de `defer`.
+
+Los unos no esperan por lo otros. El que cargue primero (probablemente `small.js`), se ejecuta primero.
 
 ```html run height=100
-<p>...content before scripts...</p>
+<p>...contenido previo a los scripts...</p>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => alert("DOM ready!"));
+  document.addEventListener('DOMContentLoaded', () => alert("¡DOM listo!"));
 </script>
 
 <script async src="https://javascript.info/article/script-async-defer/long.js"></script>
 <script async src="https://javascript.info/article/script-async-defer/small.js"></script>
 
-<p>...content after scripts...</p>
+<p>...contenido posterior a los scripts...</p>
 ```
 
-1. The page content shows up immediately: `async` doesn't block it.
-2. `DOMContentLoaded` may happen both before and after `async`, no guarantees here.
-3. Async scripts don't wait for each other. A smaller script `small.js` goes second, but probably loads before `long.js`, so runs first. That's called a "load-first" order.
+- El contenido de la página se muestra inmediatamente: `async` no lo bloquea.
+- El evento `DOMContentLoaded` puede suceder antes o después de `async`, no hay garantías aquí.
+- Un script más pequeño `small.js` que esté segundo probablemente cargue antes que uno más largo `long.js`, entonces se ejecutará primero. Aunque podría ser que `long.js` cargue primero si está en caché y ejecute primero. A eso lo llamamos "load-first order", se ejecuta primero el que cargue antes .
 
-Async scripts are great when we integrate an independent third-party script into the page: counters, ads and so on, as they don't depend on our scripts, and our scripts shouldn't wait for them:
+Los scripts asincrónicos son excelentes cuando incluimos scripts de terceros (contadores, anuncios, etc) en la página debido a que ellos no dependen de nuestros scripts y nuestros scripts no deberían esperar por ellos.
 
 ```html
 <!-- Google Analytics is usually added like this -->
 <script async src="https://google-analytics.com/analytics.js"></script>
 ```
 
+## Scripts dinámicos
 
-## Dynamic scripts
+Hay otra manera importante de agregar un script a la página.
 
-We can also add a script dynamically using JavaScript:
+Podemos crear un script y agregarlo dinámicamente al documento usando JavaScript:
 
 ```js run
 let script = document.createElement('script');
@@ -138,28 +145,19 @@ script.src = "/article/script-async-defer/long.js";
 document.body.append(script); // (*)
 ```
 
-The script starts loading as soon as it's appended to the document `(*)`.
+El script comienza a cargar tan pronto como es agregado al documento `(*)`.
 
-**Dynamic scripts behave as "async" by default.**
+**Los scripts dinámicos se comportan como `async` por defecto**
 
-That is:
-- They don't wait for anything, nothing waits for them.
-- The script that loads first -- runs first ("load-first" order).
+Esto es:
+- Ellos no esperan a nadie y nadie espera por ellos.
+- El script que carga primero se ejecuta primero (`load-first order`)
 
+Esto puede ser cambiado si explícitamente establecemos `script.async=false`. Así los scripts serán ejecutados en el orden del documento, tal como en `defer`.
 
-```js run
-let script = document.createElement('script');
-script.src = "/article/script-async-defer/long.js";
+En este ejemplo, la función `loadScript(src)` añade un script y también establece `async` a `false`.
 
-*!*
-script.async = false;
-*/!*
-
-document.body.append(script);
-```
-
-For example, here we add two scripts. Without `script.async=false` they would execute in load-first order (the `small.js` probably first). But with that flag the order is "as in the document":
-
+Entonces `long.js` siempre ejecuta primero (por haber sido agregado primero):
 
 ```js run
 function loadScript(src) {
@@ -169,29 +167,35 @@ function loadScript(src) {
   document.body.append(script);
 }
 
-// long.js runs first because of async=false
+// long.js se ejecuta primero a causa del async=false
 loadScript("/article/script-async-defer/long.js");
 loadScript("/article/script-async-defer/small.js");
 ```
 
+Sin `script.async=false`, los scripts es ejecutarían de forma predeterminada, en el orden de carga primero (probablemente `small.js` primero).
 
-## Summary
+De nuevo, como con `defer`, el orden importa si queremos cargar una librería y luego otro script que depende de ella.
 
-Both `async` and `defer` have one common thing: downloading of such scripts doesn't block page rendering. So the user can read page content and get acquainted with the page immediately.
 
-But there are also essential differences between them:
+## Resumen
 
-|         | Order | `DOMContentLoaded` |
+Ambos, `async` y `defer`, tienen algo en común: la descarga de tales scripts no bloquean el renderizado de la página. Por lo cual el usuario puede leer el contenido de la página y familiarizarse con la página inmediatamente.
+
+Pero hay algunas diferencias esenciales entre ellos:
+
+|         | Orden | `DOMContentLoaded` |
 |---------|---------|---------|
-| `async` | *Load-first order*. Their document order doesn't matter -- which loads first |  Irrelevant. May load and execute while the document has not yet been fully downloaded. That happens if scripts are small or cached, and the document is long enough. |
-| `defer` | *Document order* (as they go in the document). |  Execute after the document is loaded and parsed (they wait if needed), right before `DOMContentLoaded`. |
+| `async` | *Load-first order*. El orden del documento no importa. El que carga primero ejecuta primero | Irrelevante. Puede cargar y ejecutarse mientras el documento no ha sido completamente descargado, eso puede pasar si el script es pequeño o está en cache y el documento es suficientemente extenso. |
+| `defer` | *Document order* (como van en el documento). |  Ejecutan después de que el documento es cargado y analizado (espera si es necesario), justo antes de `DOMContentLoaded`. |
 
-```warn header="Page without scripts should be usable"
-Please note that if you're using `defer`, then the page is visible *before* the script loads.
+En la práctica, `defer` es usado para scripts que necesitan todo el DOM y/o el orden de ejecución es importante. 
 
-So the user may read the page, but some graphical components are probably not ready yet.
+Y `async` es usado para scripts independientes, como contadores y anuncios donde el orden de ejecución no importa.
 
-There should be "loading" indications in the proper places, and disabled buttons should show as such, so the user can clearly see what's ready and what's not.
+```warn header="La página sin scripts debe ser utilizable"
+Por favor ten en cuenta que si estas usando `defer` o `async`, el usuario verá la página antes de que el script sea cargado.
+
+En tal caso algunos componentes gráficos probablemente no estén listos.
+
+No olvides poner alguna señal de "cargando" y los deshabilitar botones que aún no estén funcionando. Permite al usuario ver claramente qué puede hacer en la página y qué está listo y qué no.
 ```
-
-In practice, `defer` is used for scripts that need the whole DOM and/or their relative execution order is important. And  `async` is used for independent scripts, like counters or ads. And their relative execution order does not matter.

@@ -1,1 +1,1 @@
-# Objects: the basics
+# Objetos: lo básico

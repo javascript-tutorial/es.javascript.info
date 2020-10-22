@@ -1,7 +1,7 @@
 # Código ninja
 
 
-```quote author="Confucio"
+```quote author="Confucio (Analectas)"
 Aprender sin pensar es inútil. Pensar sin aprender peligroso.
 ```
 
@@ -104,8 +104,8 @@ Una lectura rápida de dicho código se hace imposible. Y cuando hay un error de
 
 ## Sinónimos inteligentes
 
-```quote author="Confucius"
-Es difícil encontrar un gato negro en una habitación oscura, sobre todo cuando no está.
+```quote author="Lao Tse (Tao Te Ching)"
+El Tao que puede ser expresado no es el Tao eterno. El nombre que puede ser nombrado no es el nombre eterno.
 ```
 
 Usando nombres *similares* para las mismas cosas hace tu vida mas interesante y le muestra al público tu creatividad.

@@ -2,32 +2,32 @@ importance: 3
 
 ---
 
-# Multiply numeric properties by 2
+# Multiplicar propiedades numéricas por 2
 
-Create a function `multiplyNumeric(obj)` that multiplies all numeric properties of `obj` by `2`.
+Crea una función `multiplyNumeric(obj)` que multiplique todas las propiedades numéricas de `obj` por `2`.
 
-For instance:
+Por ejemplo:
 
 ```js
-// before the call
+// Antes de la llamada
 let menu = {
   width: 200,
   height: 300,
-  title: "My menu"
+  title: "Mi menú"
 };
 
 multiplyNumeric(menu);
 
-// after the call
+// Después de la llamada
 menu = {
   width: 400,
   height: 600,
-  title: "My menu"
+  title: "Mi menú"
 };
 ```
 
-Please note that `multiplyNumeric` does not need to return anything. It should modify the object in-place.
+Nota que `multiplyNumeric` no necesita devolver nada. Debe modificar el objeto en su lugar.
 
-P.S. Use `typeof` to check for a number here.
+P.D. Usa `typeof` para verificar si hay un número aquí.
 
 

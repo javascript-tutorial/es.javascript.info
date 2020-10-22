@@ -27,7 +27,7 @@
   </div>
 
   <script>
-    /* label the images, just for convenience, to visually track them */
+    /* etiqueta las imágenes pra poder rastrearlas, solo por conveniencia */
     let i = 1;
     for(let li of carousel.querySelectorAll('li')) {
       li.style.position = 'relative';
@@ -35,27 +35,27 @@
       i++;
     }
 
-    /* configuration */
-    let width = 130; // image width
-    let count = 3; // visible images count
+    /* configuración */
+    let width = 130; // ancho de las imágenes
+    let count = 3; // conteo de las imágenes visibles
 
     let list = carousel.querySelector('ul');
     let listElems = carousel.querySelectorAll('li');
 
-    let position = 0; // ribbon scroll position
+    let position = 0; // posición del desplazamiento del carrete
 
     carousel.querySelector('.prev').onclick = function() {
-      // shift left
+      // desplazamiento izquierdo
       position += width * count;
-      // can't move to the left too much, end of images
+      // no podemos mover demasiado a la izquierda, se acaban las imágenes
       position = Math.min(position, 0)
       list.style.marginLeft = position + 'px';
     };
 
     carousel.querySelector('.next').onclick = function() {
-      // shift right
+      // desplazamiento derecho
       position -= width * count;
-      // can only shift the ribbbon for (total ribbon length - visible count) images
+      // solo se puede desplazar el carrete de imágenes (longitud total de la cinta - conteo visibles)
       position = Math.max(position, -width * (listElems.length - count));
       list.style.marginLeft = position + 'px';
     };

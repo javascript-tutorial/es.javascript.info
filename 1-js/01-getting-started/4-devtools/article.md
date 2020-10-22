@@ -29,10 +29,15 @@ El aspecto exacto de las herramientas de desarrollador depende de su versión de
 - Aquí podemos ver el mensaje de error de color rojo. En este caso, el script contiene un comando desconocido "lalala".
 - A la derecha, hay un enlace en el que se puede hacer clic en la fuente `bug.html:12` con el número de línea donde se produjo el error.
 
-Debajo del mensaje de error, hay un símbolo azul `>`. Marca una "línea de comando" donde podemos escribir comandos JavaScript. Presione `key:Enter` para ejecutarlos (combine `key:Shift+Enter` para ingresar comandos de varias líneas).
+Debajo del mensaje de error, hay un símbolo azul `>`. Marca una "línea de comando" donde podemos escribir comandos JavaScript. Presione `key:Enter` para ejecutarlos.
 
 Ahora podemos ver errores, y eso es suficiente para empezar. Volveremos a las herramientas de desarrollador más adelante y cubriremos la depuración más en profundidad en el capítulo <info:debugging-chrome>.
 
+```smart header="Entrada multilínea"
+Por lo general, cuando colocamos una línea de código en la consola y luego presionamos Enter, se ejecuta.
+
+Para insertar varias líneas, presione `key:Shift+Enter`. De esta forma se pueden ingresar fragmentos largos de código JavaScript.
+```
 
 ## Firefox, Edge, y otros
 
@@ -50,15 +55,9 @@ Abra Preferencias y vaya al panel "Avanzado". Hay una casilla de verificación e
 
 Ahora combine `key:Cmd+Opt+C` para alternar a consola. Además, tenga en cuenta que ha aparecido el nuevo elemento del menú superior denominado "Desarrollar". Tiene muchos comandos y opciones.
 
-## Entrada multilínea
-
-Por lo general, cuando ponemos una línea de código en la consola y luego presionamos `key:Enter`, se ejecuta.
-
-Para insertar varias líneas, presione la combinación `key:Shift+Enter`.
-
 ## Resumen
 
 - Las herramientas para desarrolladores nos permiten ver errores, ejecutar comandos, examinar variables y mucho más.
 - Se pueden abrir con `key:F12` para la mayoría de los navegadores en Windows. Chrome para Mac necesita la combinación `key:Cmd+Opt+J`, Safari: `key:Cmd+Opt+C` (primero debe habilitarse).
 
-Ahora tenemos el entorno listo. En la siguiente sección, nos abocaremos a JavaScript.
+Ahora tenemos el entorno listo. En la siguiente sección nos enfocaremos en JavaScript.

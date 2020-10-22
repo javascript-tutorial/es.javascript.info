@@ -1,26 +1,18 @@
 # Interacción: alert, prompt, confirm
 
-Esta parte del tutorial pretende cubrir JavaScript "como es", sin ajustes específicos del entorno.
-
-Pero como seguiremos utilizando el navegador como entorno de demostración, deberíamos conocer al menos algunas de sus funciones de la interfaz de usuario. En este capítulo, nos familiarizaremos con las funciones del navegador `alert`, `prompt` y `confirm`.
+Como usaremos el navegador como nuestro entorno de demostración, veamos un par de funciones para interactuar con el usuario: `alert`,` prompt` y `confirm`.
 
 ## alert
 
-Sintaxis:
-
-```js
-alert(mensaje);
-```
-
-Esto muestra un mensaje y detiene la ejecución del script hasta que el usuario pulsa "OK".
+Este ya lo hemos visto. Muestra un mensaje y espera a que el usuario presione "Aceptar".
 
 Por ejemplo:
 
 ```js run
-alert("Hola");
+alert("Hello");
 ```
 
-La mini-ventana con el mensaje se llama *ventana modal*. La palabra "modal" significa que el usuario no puede interactuar con el resto de la página, presionar otros botones, etc. hasta que no se haya ocupado de la ventana. En este caso, hasta que pulse "OK".
+La mini ventana con el mensaje se llama * ventana modal *. La palabra "modal" significa que el visitante no puede interactuar con el resto de la página, presionar otros botones, etc., hasta que se haya ocupado de la ventana. En este caso, hasta que presionen "OK".
 
 ## prompt
 
@@ -38,7 +30,11 @@ Muestra una ventana modal con un mensaje de texto, un campo de entrada para el v
 `default`
 : Un segundo parámetro opcional, el valor inicial del campo de entrada.
 
-El usuario puede escribir algo en el campo de entrada y pulsar OK. O puede cancelar la entrada pulsando CANCELAR o presionando la tecla `key:Esc`.
+```smart header="Corchetes en la sintaxis `[...]`"
+Los corchetes alrededor de `default` en la sintaxis de arriba denotan que el parámetro es opcional, no requerido.
+```
+
+El usuario puede escribir algo en el campo de entrada de solicitud y presionar OK. Luego obtenemos ese texto en el `resultado`. O pueden cancelar la entrada presionando Cancelar o presionando la tecla `: Esc` obteniendo `null` como `result`.
 
 La llamada a `prompt` retorna el texto del campo de entrada o `null` si la entrada fue cancelada.
 
@@ -50,7 +46,7 @@ let age = prompt ('¿Cuántos años tienes?', 100);
 alert(`Tienes ${age} años!`); //Tienes 100 años!
 ```
 
-````warn header="En IE: siempre proporciona un `predeterminado`"
+````warn header="En IE: siempre proporciona un *predeterminado*"
 El segundo parámetro es opcional, pero si no lo proporcionamos, Internet Explorer insertará el texto `"undefined"` en el prompt.
 
 Ejecuta este código en Internet Explorer para verlo:

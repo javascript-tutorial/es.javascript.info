@@ -1,6 +1,6 @@
-# Object methods, "this"
+# Métodos del objeto, "this"
 
-Objects are usually created to represent entities of the real world, like users, orders and so on:
+Los objetos son creados usualmente para representar entidades del mundo real, como usuarios, órdenes, etc.:
 
 ```js
 let user = {
@@ -9,13 +9,13 @@ let user = {
 };
 ```
 
-And, in the real world, a user can *act*: select something from the shopping cart, login, logout etc.
+Y en el mundo real un usuario puede *actuar*: seleccionar algo del carrito de compras, hacer login, logout, etc.
 
-Actions are represented in JavaScript by functions in properties.
+Las acciones son representadas en JavaScript por funciones en las propiedades.
 
-## Method examples
+## Ejemplos de métodos
 
-For a start, let's teach the `user` to say hello:
+Para empezar, enseñemos al usuario `user` a decir hola:
 
 ```js run
 let user = {
@@ -25,22 +25,22 @@ let user = {
 
 *!*
 user.sayHi = function() {
-  alert("Hello!");
+  alert("¡Hola!");
 };
 */!*
 
-user.sayHi(); // Hello!
+user.sayHi(); // ¡Hola!
 ```
 
-Here we've just used a Function Expression to create the function and assign it to the property `user.sayHi` of the object.
+Aquí simplemente usamos una expresión de función para crear la función y asignarla a la propiedad `user.sayHi` del objeto.
 
-Then we can call it. The user can now speak!
+Entonces la llamamos. ¡El usuario ahora puede hablar!
 
-A function that is the property of an object is called its *method*.
+Una función que es la propiedad de un objeto es denominada su *método*.
 
-So, here we've got a method `sayHi` of the object `user`.
+Así, aquí tenemos un método `sayHi` del objeto `user`.
 
-Of course, we could use a pre-declared function as a method, like this:
+Por supuesto, podríamos usar una función pre-declarada como un método, parecido a esto:
 
 ```js run
 let user = {
@@ -48,29 +48,29 @@ let user = {
 };
 
 *!*
-// first, declare
+// primero, declara
 function sayHi() {
-  alert("Hello!");
+  alert("¡Hola!");
 };
 
-// then add as a method
+// entonces la agrega como un método
 user.sayHi = sayHi;
 */!*
 
-user.sayHi(); // Hello!
+user.sayHi(); // ¡Hola!
 ```
 
-```smart header="Object-oriented programming"
-When we write our code using objects to represent entities, that's called [object-oriented programming](https://en.wikipedia.org/wiki/Object-oriented_programming), in short: "OOP".
+```smart header="Programación orientada a objetos"
+Cuando escribimos nuestro código usando objetos que representan entidades, eso es llamado [Programación Orientada a Objetos](https://es.wikipedia.org/wiki/Programaci%C3%B3n_orientada_a_objetos), abreviado: "POO".
 
-OOP is a big thing, an interesting science of its own. How to choose the right entities? How to organize the interaction between them? That's architecture, and there are great books on that topic, like "Design Patterns: Elements of Reusable Object-Oriented Software" by E. Gamma, R. Helm, R. Johnson, J. Vissides or "Object-Oriented Analysis and Design with Applications" by G. Booch, and more.
+POO (OOP sus siglas en inglés) es una cosa grande, un ciencia interesante en sí misma. ¿Cómo elegir las entidades correctas? ¿Cómo organizar la interacción entre ellas? Eso es arquitectura, y hay muy buenos libros del tópico como "Patrones de diseño: Elementos de software orientado a objetos reutilizable" de E. Gamma, R. Helm, R. Johnson, J. Vissides o "Análisis y Diseño Orientado a Objetos" de G. Booch, y otros.
 ```
-### Method shorthand
+### Formas abreviadas para los métodos
 
-There exists a shorter syntax for methods in an object literal:
+Existe una sintaxis más corta para los métodos en objetos literales:
 
 ```js
-// these objects do the same
+// estos objetos hacen lo mismo
 
 user = {
   sayHi: function() {
@@ -78,31 +78,31 @@ user = {
   }
 };
 
-// method shorthand looks better, right?
+// la forma abreviada se ve mejor, ¿verdad?
 user = {
 *!*
-  sayHi() { // same as "sayHi: function()"
+  sayHi() { // igual que "sayHi: function()"
 */!*
     alert("Hello");
   }
 };
 ```
 
-As demonstrated, we can omit `"function"` and just write `sayHi()`.
+Como se demostró, podemos omitir `"function"` y simplemente escribir `sayHi()`.
 
-To tell the truth, the notations are not fully identical. There are subtle differences related to object inheritance (to be covered later), but for now they do not matter. In almost all cases the shorter syntax is preferred.
+A decir verdad, las notaciones no son completamente idénticas. Hay diferencias sutiles relacionadas a la herencia de objetos (por cubrir más adelante) que no importan ahora. En casi todos los casos la sintaxis abreviada es la preferida.
 
-## "this" in methods
+## "this" en métodos
 
-It's common that an object method needs to access the information stored in the object to do its job.
+Es común que un método de objeto necesite acceder a la información almacenada en el objeto para cumplir su tarea.
 
-For instance, the code inside `user.sayHi()` may need the name of the `user`.
+Por ejemplo, el código dentro de `user.sayHi()` puede necesitar el nombre del usuario `user`.
 
-**To access the object, a method can use the `this` keyword.**
+**Para acceder al objeto, un método puede usar la palabra clave `this`.**
 
-The value of `this` is the object "before dot", the one used to call the method.
+El valor de `this` es el objeto "antes del punto", el usado para llamar al método.
 
-For instance:
+Por ejemplo:
 
 ```js run
 let user = {
@@ -111,7 +111,7 @@ let user = {
 
   sayHi() {
 *!*
-    // "this" is the "current object"
+    // "this" es el "objeto actual"
     alert(this.name);
 */!*
   }
@@ -121,9 +121,9 @@ let user = {
 user.sayHi(); // John
 ```
 
-Here during the execution of `user.sayHi()`, the value of `this` will be `user`.
+Aquí durante la ejecución de `user.sayHi()`, el valor de `this` será `user`.
 
-Technically, it's also possible to access the object without `this`, by referencing it via the outer variable:
+Técnicamente, también es posible acceder al objeto sin `this`, haciendo referencia a él por medio de la variable externa:
 
 ```js
 let user = {
@@ -132,16 +132,16 @@ let user = {
 
   sayHi() {
 *!*
-    alert(user.name); // "user" instead of "this"
+    alert(user.name); // "user" en vez de "this"
 */!*
   }
 
 };
 ```
 
-...But such code is unreliable. If we decide to copy `user` to another variable, e.g. `admin = user` and overwrite `user` with something else, then it will access the wrong object.
+...Pero tal código no es confiable. Si decidimos copiar `user` a otra variable, por ejemplo `admin = user` y sobrescribir `user` con otra cosa, entonces accederá al objeto incorrecto.
 
-That's demonstrated below:
+Eso queda demostrado en las siguientes lineas:
 
 ```js run
 let user = {
@@ -150,7 +150,7 @@ let user = {
 
   sayHi() {
 *!*
-    alert( user.name ); // leads to an error
+    alert( user.name ); // lleva a un error
 */!*
   }
 
@@ -158,18 +158,18 @@ let user = {
 
 
 let admin = user;
-user = null; // overwrite to make things obvious
+user = null; // sobrescribimos para hacer las cosas evidentes
 
-admin.sayHi(); // Whoops! inside sayHi(), the old name is used! error!
+admin.sayHi(); // ¡oops! dentro de sayHi(), ¡Se usa el nombre viejo! ¡Error!
 ```
 
-If we used `this.name` instead of `user.name` inside the `alert`, then the code would work.
+Si usamos `this.name` en vez de `user.name` dentro de `alert`, entonces el código funciona.
 
-## "this" is not bound
+## "this" no es vinculado
 
-In JavaScript, keyword `this` behaves unlike most other programming languages. It can be used in any function.
+En JavaScript, la palabra clave `this` se comporta de manera distinta a la mayoría de otros lenguajes de programación. Puede ser usado en cualquier función.
 
-There's no syntax error in the following example:
+No hay error de sintaxis en el siguiente ejemplo:
 
 ```js
 function sayHi() {
@@ -177,9 +177,9 @@ function sayHi() {
 }
 ```
 
-The value of `this` is evaluated during the run-time, depending on the context.
+El valor de `this` es evaluado durante el tiempo de ejecución, dependiendo del contexto.
 
-For instance, here the same function is assigned to two different objects and has different "this" in the calls:
+Por ejemplo, aquí la función es asignada a dos objetos diferentes y tiene diferentes "this" en sus llamados:
 
 ```js run
 let user = { name: "John" };
@@ -190,23 +190,23 @@ function sayHi() {
 }
 
 *!*
-// use the same function in two objects
+// usa la misma función en dos objetos
 user.f = sayHi;
 admin.f = sayHi;
 */!*
 
-// these calls have different this
-// "this" inside the function is the object "before the dot"
+// estos llamados tienen diferente "this"
+// "this" dentro de la función es el objeto "antes del punto"
 user.f(); // John  (this == user)
 admin.f(); // Admin  (this == admin)
 
-admin['f'](); // Admin (dot or square brackets access the method – doesn't matter)
+admin['f'](); // Admin (punto o corchetes para acceder al método, no importa)
 ```
 
-The rule is simple: if `obj.f()` is called, then `this` is `obj` during the call of `f`. So it's either `user` or `admin` in the example above.
+La regla es simple: si `obj.f()` es llamado, entonces `this` es `obj` durante el llamado de `f`. Entonces es tanto `user` o `admin` en el ejemplo anterior.
 
-````smart header="Calling without an object: `this == undefined`"
-We can even call the function without an object at all:
+````smart header="Llamado sin un objeto: `this == undefined`"
+Podemos incluso llamar la función sin un objeto en absoluto:
 
 ```js run
 function sayHi() {
@@ -216,28 +216,28 @@ function sayHi() {
 sayHi(); // undefined
 ```
 
-In this case `this` is `undefined` in strict mode. If we try to access `this.name`, there will be an error.
+En este caso `this` es `undefined` en el modo estricto. Si tratamos de acceder a `this.name`, habrá un error.
 
-In non-strict mode the value of `this` in such case will be the *global object* (`window` in a browser, we'll get to it later in the chapter [](info:global-object)). This is a historical behavior that `"use strict"` fixes.
+En modo no estricto el valor de `this` en tal caso será el *objeto global* (`window` en un navegador, llegaremos a ello en el capítulo [](info:global-object)). Este es un comportamiento histórico que `"use strict"` corrije.
 
-Usually such call is a programming error. If there's `this` inside a function, it expects to be called in an object context.
+Usualmente tal llamado es un error de programa. Si hay `this` dentro de una función, se espera que sea llamada en un contexto de objeto.
 ````
 
-```smart header="The consequences of unbound `this`"
-If you come from another programming language, then you are probably used to the idea of a "bound `this`", where methods defined in an object always have `this` referencing that object.
+```smart header="Las consecuencias de un `this` desvinculado"
+Si vienes de otro lenguaje de programación, probablemente estés habituado a la idea de un "`this` vinculado", donde los método definidos en un objeto siempre tienen `this` referenciando ese objeto.
 
-In JavaScript `this` is "free", its value is evaluated at call-time and does not depend on where the method was declared, but rather on what object is "before the dot".
+En JavaScript `this` es "libre", su valor es evaluado al momento de su llamado y no depende de dónde fue declarado el método sino de cuál es el objeto "delante del punto".
 
-The concept of run-time evaluated `this` has both pluses and minuses. On the one hand, a function can be reused for different objects. On the other hand, the greater flexibility creates more possibilities for mistakes.
+El concepto de `this` evaluado en tiempo de ejecución tiene sus pros y sus contras. Por un lado, una función puede ser reusada por diferentes objetos. Por otro, la mayor flexibilidad crea más posibilidades para equivocaciones.
 
-Here our position is not to judge whether this language design decision is good or bad. We'll understand how to work with it, how to get benefits and avoid problems.
+Nuestra posición no es juzgar si la decisión del diseño de lenguaje es buena o mala. Vamos a entender cómo trabajar con ello, obtener beneficios y evitar problemas.
 ```
 
-## Arrow functions have no "this"
+## Las funciones de flecha no tienen "this"
 
-Arrow functions are special: they don't have their "own" `this`. If we reference `this` from such a function, it's taken from the outer "normal" function.
+Las funciones de flecha son especiales: ellas no tienen su "propio" `this`. Si nosotros hacemos referencia a `this` desde tales funciones, esta será tomada desde afuera de la función "normal".
 
-For instance, here `arrow()` uses `this` from the outer `user.sayHi()` method:
+Por ejemplo, aquí `arrow()` usa `this` desde fuera del método `user.sayHi()`:
 
 ```js run
 let user = {
@@ -251,18 +251,18 @@ let user = {
 user.sayHi(); // Ilya
 ```
 
-That's a special feature of arrow functions, it's useful when we actually do not want to have a separate `this`, but rather to take it from the outer context. Later in the chapter <info:arrow-functions> we'll go more deeply into arrow functions.
+Esto es una característica especial de las funciones de flecha, útil cuando no queremos realmente un `this` separado sino tomarlo de un contexto externo. Más adelante en el capítulo <info:arrow-functions> las trataremos en profundidad.
 
 
-## Summary
+## Resumen
 
-- Functions that are stored in object properties are called "methods".
-- Methods allow objects to "act" like `object.doSomething()`.
-- Methods can reference the object as `this`.
+- Las funciones que son almacenadas en propiedades de objeto son llamadas "métodos".
+- Los método permiten a los objetos "actuar", como `object.doSomething()`.
+- Los métodos pueden hacer referencia al objeto con `this`.
 
-The value of `this` is defined at run-time.
-- When a function is declared, it may use `this`, but that `this` has no value until the function is called.
-- A function can be copied between objects.
-- When a function is called in the "method" syntax: `object.method()`, the value of `this` during the call is `object`.
+El valor de `this` es definido en tiempo de ejecución.
+- Cuando una función es declarada, puede usar `this`, pero ese `this` no tiene valor hasta que la función es llamada.
+- Una función puede ser copiada entre objetos.
+- Cuando una función es llamada en la sintaxis de método: `object.method()`, el valor de `this` durante el llamado es `object`.
 
-Please note that arrow functions are special: they have no `this`. When `this` is accessed inside an arrow function, it is taken from outside.
+Ten en cuenta que las funciones de flecha son especiales: ellas no tienen `this`. Cuando `this` es accedido dentro de una función de flecha, su valor es tomado desde el exterior.

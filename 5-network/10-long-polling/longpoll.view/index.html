@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <script src="browser.js"></script>
 
-All visitors of this page will see messages of each other.
+Todos los visitantes de esta página verán mensajes entre ellos.
 
 <form name="publish">
   <input type="text" name="message" />
-  <input type="submit" value="Send" />
+  <input type="submit" value="Enviar" />
 </form>
 
 <div id="subscribe">
@@ -13,6 +13,6 @@ All visitors of this page will see messages of each other.
 
 <script>
   new PublishForm(document.forms.publish, 'publish');
-  // random url parameter to avoid any caching issues
+  // parámetro de url aleatorio para evitar problemas de almacenamiento en caché
   new SubscribePane(document.getElementById('subscribe'), 'subscribe?random=' + Math.random());
 </script>

@@ -13,7 +13,7 @@ function checkAge(age) {
   if (age > 18) {
     return true;
   } else {
-    return confirm('¿Tienes permiso de tus padres para acceder a esta página?');
+    return confirm('¿Tienes permiso de tus padres?');
   }
 }
 ```
@@ -23,4 +23,4 @@ Reescríbalo, para realizar lo mismo, pero sin `if`, en una sola linea.
 Haz dos variantes de `checkAge`:
 
 1. Usando un operador de signo de interrogación `?`
-2. Usando Ó `||`
+2. Usando OR `||`

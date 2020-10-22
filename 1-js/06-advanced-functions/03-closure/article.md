@@ -1,11 +1,15 @@
 
-# Ámbito de Variable
+# Ámbito de Variable y el concepto "closure" 
 
-JavaScript es un lenguaje muy orientado a funciones. Nos da mucha libertad. Se puede crear una función dinámicamente, pasarla como argumento a otra función y llamarla desde un lugar de código totalmente diferente más adelante.
+JavaScript es un lenguaje muy orientado a funciones. Nos da mucha libertad. Una función se puede crear en cualquier momento, pasar como argumento a otra función y luego llamar desde un lugar de código totalmente diferente más tarde.
 
 Ya sabemos que una función puede acceder a variables fuera de ella.
 
-Ahora ampliemos nuestro conocimiento para incluir escenarios más complejos.
+Pero, ¿qué sucede si estas variables "externas" cambian desde que se crea una función? ¿La función verá los valores nuevos o los antiguos?
+
+Y si una función se pasa como parámetro y se llama desde otro lugar del código, ¿tendrá acceso a las variables externas en el nuevo lugar?
+
+Ampliemos nuestro conocimiento para comprender estos escenarios y otros más complejos.
 
 ```smart header="Hablaremos de las variables let / const aquí"
 En JavaScript, hay 3 formas de declarar una variable: `let`, `const` (las modernas) y `var` (más antigua).
@@ -121,7 +125,6 @@ Aquí la función *anidada* `getFullName()` se hace por conveniencia. Puede acce
 Lo que es mucho más interesante, es que puede devolverse una función anidada: ya sea como propiedad de un nuevo objeto o como resultado en sí mismo. Luego se puede usar en otro lugar. No importa dónde, todavía tiene acceso a las mismas variables externas.
 
 A continuación, `makeCounter` crea la función "contador "que devuelve el siguiente número en cada invocación:
-
 
 ```js run
 function makeCounter() {
@@ -311,7 +314,7 @@ Cuando en una entrevista, un desarrollador frontend recibe una pregunta sobre "�
 
 Por lo general, un entorno léxico se elimina de la memoria con todas las variables una vez que finaliza la llamada a la función. Eso es porque no hay referencias al respecto. Como cualquier objeto de JavaScript, solo se mantiene en la memoria mientras es accesible.
 
-... Pero si hay una función anidada a la que todavía se puede llegar después del final de una función, entonces tiene la propiedad `[[Environment]]` que hace referencia al entorno léxico.
+Sin embargo, si hay una función anidada a la que todavía se puede llegar después del final de una función, entonces tiene la propiedad `[[Environment]]` que hace referencia al entorno léxico.
 
 En ese caso, el entorno léxico aún es accesible incluso después de completar la función, por lo que permanece vivo.
 
@@ -356,7 +359,9 @@ function f() {
     alert(value);
   }
 }
+
 let g = f(); // mientras exista la función g, el valor permanece en la memoria
+
 g = null; // ... y ahora la memoria está limpia
 ```
 
@@ -366,7 +371,7 @@ Como hemos visto, en teoría, mientras una función está viva, todas las variab
 
 Pero en la práctica, los motores de JavaScript intentan optimizar eso. Analizan el uso de variables y si es obvio que el código no usa una variable externa, la elimina.
 
-**Un efecto secundario importante en V8 (Chrome, Opera) es que dicha variable no estará disponible en la depuración.**
+**Un efecto secundario importante en V8 (Chrome, Edge, Opera) es que dicha variable no estará disponible en la depuración.**
 
 Intente ejecutar el siguiente ejemplo en Chrome con las Herramientas para desarrolladores abiertas.
 
@@ -375,9 +380,11 @@ Cuando se detiene, en el tipo de consola `alert(value)`.
 ```js run
 function f() {
   let value = Math.random();
+
   function g() {
     debugger; // en console: type alert(value); ¡No hay tal variable!
   }
+
   return g;
 }
 
@@ -405,6 +412,7 @@ function f() {
 let g = f();
 g();
 ```
-Esta característica de V8 es bueno saberla. Si está depurando con Chrome / Opera, tarde o temprano lo encontrará.
+
+Esta característica de V8 es bueno saberla. Si está depurando con Chrome/Edge/Opera, tarde o temprano lo encontrará.
 
 Eso no es un error en el depurador, sino más bien una característica especial de V8. Tal vez en algún momento la cambiarán. Siempre puede verificarlo ejecutando los ejemplos en esta página.

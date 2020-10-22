@@ -2,8 +2,8 @@ importance: 5
 
 ---
 
-# Output a single-linked list in the reverse order
+# Genere una lista de un solo enlace en orden inverso
 
-Output a single-linked list from the previous task <info:task/output-single-linked-list> in the reverse order.
+Genere una lista de un solo enlace a partir de la tarea anterior <info:task/output-single-linked-list> en orden inverso.
 
-Make two solutions: using a loop and using a recursion.
+Escribe dos soluciones: utilizando un bucle y utilizando recursividad.

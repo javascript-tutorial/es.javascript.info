@@ -2,9 +2,9 @@ importance: 5
 
 ---
 
-# Output a single-linked list
+# Generar una lista de un solo enlace
 
-Let's say we have a single-linked list (as described in the chapter <info:recursion>):
+Digamos que tenemos una lista de un solo enlace (como se describe en el capítulo <info:recursion>):
 
 ```js
 let list = {
@@ -22,8 +22,8 @@ let list = {
 };
 ```
 
-Write a function `printList(list)` that outputs list items one-by-one.
+Escribe una función `printList(list)` que genere los elementos de la lista uno por uno.
 
-Make two variants of the solution: using a loop and using recursion.
+Haz dos variantes de la solución: utilizando un bucle y utilizando recursividad.
 
-What's better: with recursion or without it?
+¿Qué es mejor: con recursividad o sin ella?
