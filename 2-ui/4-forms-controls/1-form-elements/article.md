@@ -57,7 +57,7 @@ alert(ageElems[0]); // [object HTMLInputElement]
 </script>
 ```
 
-Estas propiedades de navegación no dependen de la estructura de las etiquetas. Todos los controles, sin importar qué tan profundos se encuentren en el formulario, están disponibles `form.elements`.
+Estas propiedades de navegación no dependen de la estructura de las etiquetas. Todos los controles, sin importar qué tan profundos se encuentren en el formulario, están disponibles en `form.elements`.
 
 
 ````smart header="Fieldsets como \"sub-formularios\""
