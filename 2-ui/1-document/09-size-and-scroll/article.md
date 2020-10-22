@@ -102,13 +102,13 @@ Para nuestro elemento de muestra:
 - `offsetHeight = 290` -- el alto exterior.
 
 ````smart header="Geometry properties are zero/null for elements that are not displayed"
-Geometry properties are calculated only for displayed elements.
+Las propiedades geomátricas son calculadas solo para elementos mostrados.
 
-If an element (or any of its ancestors) has `display:none` or is not in the document, then all geometry properties are zero (or `null` for `offsetParent`).
+En un elemento (o cualquiera de sus antepasados) tiene `display:none` o no está en el documento, entonces las propiedades geométricas son cero (o `null` para `offsetParent`).
 
-For example, `offsetParent` is `null`, and `offsetWidth`, `offsetHeight` are `0` when we created an element, but haven't inserted it into the document yet, or it (or it's ancestor) has `display:none`.
+Por ejemplo, `offsetParent` es `null`, y `offsetWidth`, `offsetHeight` son `0` cuando creamos un elemento, pero aun no lo han insertado en el documento, o eso (o su antecesor) tiene `display:none`.
 
-We can use this to check if an element is hidden, like this:
+Nosotros podemos usar esto para verificar si un elemento está oculto, así: 
 
 ```js
 function isHidden(elem) {
@@ -116,68 +116,67 @@ function isHidden(elem) {
 }
 ```
 
-Please note that such `isHidden` returns `true` for elements that are on-screen, but have zero sizes (like an empty `<div>`).
+Por favor ten encuenta que `isHidden` retorna `true` para elementos que están en pantalla, pero tienen tamaño cero (como un `<div>` vacío).
 ````
 
 ## clientTop/Left
 
-Inside the element we have the borders.
+Dentro del elemento, nosotros tenemos los bordes.
 
-To measure them, there are properties `clientTop` and `clientLeft`.
+Para medirlos, están las propiedades `clientTop` y `clientLeft`.
 
-In our example:
+En nuestro ejemplo:
 
-- `clientLeft = 25` -- left border width
-- `clientTop = 25` -- top border width
+- `clientLeft = 25` -- ancho del borde izquierdo
+- `clientTop = 25` -- ancho del borde superior
 
 ![](metric-client-left-top.svg)
 
-...But to be precise -- these properties are not border width/height, but rather relative coordinates of the inner side from the outer side.
+...Para ser precisos -- Estas propiedades no son el ancho/alto del borde, sino las coordenadas relativas del lado interior del lado exterior.
 
-What's the difference?
+Cuál es la diferencia?
 
-It becomes visible when the document is right-to-left (the operating system is in Arabic or Hebrew languages). The scrollbar is then not on the right, but on the left, and then `clientLeft` also includes the scrollbar width.
+Se vuelve visible cuando el documento está de derecha a izquierda (el sistema operativo está en idioma Árabe o Hebreo). La barra de desplazamiento no está a la derecha, si no a la izquierda, y luego `clientLeft` también incluye el ancho de la barra de desplazamiento.
+En este caso, `clientLeft` no sería `25`, pero con ancho de la barra de desplazamiento `25 + 16 = 41`.
 
-In that case, `clientLeft` would be not `25`, but with the scrollbar width `25 + 16 = 41`.
-
-Here's the example in hebrew:
+Aquí está el ejemplo en hebreo:
 
 ![](metric-client-left-top-rtl.svg)
 
 ## clientWidth/Height
 
-These properties provide the size of the area inside the element borders.
+Esta propiedad proporciona el tamaño del area dentro del los bordes del elemento.
 
-They include the content width together with paddings, but without the scrollbar:
+Incluyen el ancho del contenido junto con los rellenos, pero sin la barra de desplazamiento:
 
 ![](metric-client-width-height.svg)
 
-On the picture above let's first consider `clientHeight`.
+En la imagen de arriba, consideramos primero `clientHeight`.
 
-There's no horizontal scrollbar, so it's exactly the sum of what's inside the borders: CSS-height `200px` plus top and bottom paddings (`2 * 20px`) total `240px`.
+No hay barra de desplazamiento horizontal, por lo que es exactamente la suma de lo que está dentro de los bordes: CSS-height `200px` más relleno superior e inferior (`2 * 20px`) total `240px`.
 
-Now `clientWidth` -- here the content width is not `300px`, but `284px`, because `16px` are occupied by the scrollbar. So the sum is `284px` plus left and right paddings, total `324px`.
+Ahora `clientWidth` -- aquí el ancho del contenido no es `300px`, sino `284px`, porque los `16px` son ocupados por la barra de desplazamiento. Entonces la suma es `284px` más los rellenos de izquierda y derecha, total `324px`.
 
-**If there are no paddings, then `clientWidth/Height` is exactly the content area, inside the borders and the scrollbar (if any).**
+**Si no hay rellenos, entonces `clientWidth/Height` es exactamente el área de contenido, dentro de los bordes y la barra de desplazamiento (si la hay).**
 
 ![](metric-client-width-nopadding.svg)
 
-So when there's no padding we can use `clientWidth/clientHeight` to get the content area size.
+Entonces, cuando no hay relleno, podremos usar `clientWidth/clientHeight` para obtener el tamaño del área de contenido.
 
 ## scrollWidth/Height
 
-These properties are like `clientWidth/clientHeight`, but they also include the scrolled out (hidden) parts:
+Estas propiedades son como `clientWidth/clientHeight`, pero también incluyen las partes desplazadas (ocultas):
 
 ![](metric-scroll-width-height.svg)
 
-On the picture above:
+En la imagen de arriba:
 
-- `scrollHeight = 723` -- is the full inner height of the content area including the scrolled out parts.
-- `scrollWidth = 324` -- is the full inner width, here we have no horizontal scroll, so it equals `clientWidth`.
+- `scrollHeight = 723` -- es la altura interior completa del área de contenido, incluyendo las partes desplazadas.
+- `scrollWidth = 324` -- es el ancho interior completo, aqui no tenemos desplazamiento horizontal, por lo que es igual a `clientWidth`.
 
-We can use these properties to expand the element wide to its full width/height.
+Podemos usar estas propiedades para expandir el elemento a su ancho/alto completo.
 
-Like this:
+Como esto:
 
 ```js
 // expand the element to the full content height
