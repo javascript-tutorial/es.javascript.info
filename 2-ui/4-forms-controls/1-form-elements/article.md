@@ -36,7 +36,7 @@ Por ejemplo:
 </script>
 ```
 
-Pueden haber múltiples elementos con el mismo nombre, tal es el caso de los controles tipo radio.
+Puede haber múltiples elementos con el mismo nombre, tal es el caso de los controles tipo radio.
 
 En ese caso `form.elements[name]` es una colección, por ejemplo:
 
