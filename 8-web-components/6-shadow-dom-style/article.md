@@ -101,7 +101,7 @@ customElements.define('custom-dialog', class extends HTMLElement {
 
 
 <custom-dialog centered>
-  Centrado!
+  ¡Centrado!
 </custom-dialog>
 
 <custom-dialog>
@@ -109,7 +109,7 @@ customElements.define('custom-dialog', class extends HTMLElement {
 </custom-dialog>
 ```
 
-Ahora los estilos de centrado adicionales solo se aplican al primer dialogo: `<custom-dialog centered>`.
+Ahora los estilos de centrado adicionales solo se aplican al primer diálogo: `<custom-dialog centered>`.
 
 ## :host-context(selector)
 
@@ -128,7 +128,7 @@ p. ej. `:host-context(.dark-theme)` coincide solo si hay una clase `dark-theme` 
 
 Para resumir, podemos usar `:host`-familia de selectores para aplicar estilos al elemento principal del componente, según el contexto. Estos estilos (a menos que sea `!important`) pueden ser sobreescritos por el documento.
 
-## Estilo de contenido eslotado(slotted)
+## Estilo de contenido eslotado(cuando un elemento ha sido insertado en un slot, se dice que fue eslotado por su término en inglés slotted)
 
 Ahora consideremos la situación con los slots.
 
@@ -240,7 +240,7 @@ También, `::slotted` solo se puede utilizar en CSS. No podemos usarlo en `query
 
 ## CSS hooks con propiedades personalizadas
 
-Como diseñamos los elementos internos de un componente del documento principal?
+¿Cómo diseñamos los elementos internos de un componente del documento principal?
 
 Selectores como `:host` aplican reglas al elemento `<custom-dialog>` o `<user-card>`, pero como aplicar estilos a elementos del shadow DOM dentro de ellos?
 
