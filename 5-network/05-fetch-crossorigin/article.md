@@ -16,7 +16,7 @@ El método fetch falla, tal como lo esperábamos.
 
 El concepto clave aquí es *el origen* (*origin*), triple combinación de dominio/puerto/protocolo.
 
-Las solicitudes de origen cruzado `Cross-origin requests`, tales que son enviadas hacia otro dominio (incluso subdominio), protocolo o puerto, requieren de unas cabeceras especiales desde el sitio remoto.
+Las solicitudes de origen cruzado `Cross-origin requests` (aquellas que son enviadas hacia otro dominio --incluso subdominio--, protocolo o puerto), requieren de unas cabeceras especiales desde el sitio remoto.
 
 Esta política es denominada "CORS", por sus siglas en inglés Cross-Origin Resource Sharing.
 
