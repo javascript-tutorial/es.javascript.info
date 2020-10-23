@@ -149,7 +149,7 @@ Tal como se puede ver, la cabecera `Origin` contiene exactamente el origen (prot
 El servidor puede inspeccionar el origen `Origin` y, si esta de acuerdo en aceptar ese tipo de solicitudes, agrega una cabecera especial `Access-Control-Allow-Origin` a la respuesta. Esta cabecera debe contener el origen permitido (en nuestro caso `https://es.javascript.info`), o un asterisco `*`. En ese caso la respuesta es satisfactoria, de otro modo falla.
 
 El navegador cumple el papel de mediador de confianza:
-1. Se asegura de que el origen correcto es enviado cuando se trata de una solicitud de origen cruzado.
+1. Ante una solicitud de origen cruzado, se asegura de que se envíe el origen correcto.
 2. Chequea que la respuesta contenga la cabecera `Access-Control-Allow-Origin`, de ser así JavaScript tiene permitido acceder a la respuesta, de no ser así la solicitud falla con un error.
 
 ![](xhr-another-domain.svg)
