@@ -362,7 +362,7 @@ Desde el punto de vista del navegador, existen dos tipos de solicitudes de orige
 
 La diferencia escencial es que las solicitudes simples eran posibles desde los viejos tiempos utilizando las etiquetas `<form>` o `<script>`, mientras que las solicitudes "no simples" fueron imposibles para el navegador durante mucho tiempo.
 
-Por lo tanto, en la práctica, la diferencia se encuentra en que las solicitudes simples son realizadas de forma directa, utilizando la cabecera `Origin`, mientras que para las otras el navegador realiza una solicitud de "pre-vuelo", solicitando la autorización.
+Por lo tanto, en la práctica, la diferencia se encuentra en que las solicitudes simples son realizadas de forma directa, utilizando la cabecera `Origin`, mientras que para las otras el navegador realiza una solicitud extra de "pre-vuelo" para requerir la autorización.
 
 **Para una solicitud simple:**
 
