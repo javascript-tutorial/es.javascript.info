@@ -205,7 +205,7 @@ Podemos utilizar cualquier método HTTP: no únicamente `GET/POST`, sino tambié
 
 Hace algún tiempo nadie podía siquiera imaginar que un sitio web pudiera realizar ese tipo de solicitudes. Por lo que aún existen servicios web que cuando reciben un método no estándar los consideran como una señal de que: "Del otro lado no hay un navegador". Ellos pueden tener en cuenta esto cuando revisan los derechos de acceso.
 
-Por lo tanto, para evitar malentendidos, cualquier solicitud "no simple" -- Estas que no podían ser realizadas en los viejos tiempos, el navegador no realizará estas solicitudes de forma directa. Antes, enviará una solicitud preliminar llamada solicitud de "pre-vuelo", solicitando se le conceda los permisos.
+Por lo tanto, para evitar malentendidos, cualquier solicitud "no simple" (Estas que no podían ser realizadas en los viejos tiempos), no será realizada por el navegador en forma directa. Antes, enviará una solicitud preliminar llamada solicitud de "pre-vuelo", solicitando se le conceda los permisos.
 
 Una solicitud de "pre-vuelo" utiliza el método `OPTIONS`, sin contenido en el cuerpo y con dos cabeceras:
 
