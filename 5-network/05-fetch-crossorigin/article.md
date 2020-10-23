@@ -296,7 +296,7 @@ API-Key: secret
 Origin: https://es.javascript.info
 ```
 
-### Paso 4 (respuesta actual)
+### Paso 4 (respuesta real)
 
 El server no debe olvidar agregar la cabecera `Access-Control-Allow-Origin` a la respuesta principal. Un pre-vuelo exitoso no lo libera de esto:
 
