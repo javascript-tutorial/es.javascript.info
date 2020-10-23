@@ -282,7 +282,7 @@ Ahora el navegador puede ver que `PATCH` se encuentra dentro de la cabecera `Acc
 
 Si se encuentra con una cabecera `Access-Control-Max-Age` con determinada cantidad de segundos, entonces los permisos son almacenados en el caché por ese determinado tiempo. La solicitud anterior será cacheada por 86400 segundos (un día). Durante ese marco de tiempo, las solicitudes siguientes no requerirán la de pre-vuelo. Asumiendo que estén dentro de lo permitido en la respuesta cacheada, serán enviadas de forma directa.
 
-### Paso 3 (solicitud actual)
+### Paso 3 (solicitud real)
 
 Una vez el pre-vuelo se realiza de forma satisfactoria, el navegador realiza la solicitud principal. El algoritmo aquí es el mismo que el utilizado para una solicitud simple.
 
