@@ -210,7 +210,7 @@ Por lo tanto, para evitar malentendidos, cualquier solicitud "no simple" (Estas 
 Una solicitud de "pre-vuelo" utiliza el método `OPTIONS`, sin contenido en el cuerpo y con dos cabeceras:
 
 - `Access-Control-Request-Method`, cabecera que contiene el método de la solicitud "no simple".
-- `Access-Control-Request-Headers` provee una lista separa por comas de las cabeceras no simples de la solicitud.
+- `Access-Control-Request-Headers` provee una lista separada por comas de las cabeceras no simples de la solicitud.
 
 Si el servidor esta de acuerdo con lo solicitado, entonces responderá con el código de estado 200 y un cuerpo vacío:
 
