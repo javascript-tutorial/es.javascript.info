@@ -1,4 +1,4 @@
-Necesitamos la cabecera `Origin`, ya que en algunos casos `Referer` no está presente. Por ejemplo, cuando realizamos un `fetch` desde una página HTTP a una HTTPS (desde un sitio menos seguro a uno más seguro), en ese caso no tendremos el campo `Referer`.
+Necesitamos la cabecera `Origin`, ya que en algunos casos `Referer` no está presente. Por ejemplo, cuando realizamos un `fetch` a una página HTTP desde una HTTPS (acceder a un sitio menos seguro desde uno más seguro), en ese caso no tendremos el campo `Referer`.
 
 La [Política de seguridad de contenido](http://en.wikipedia.org/wiki/Content_Security_Policy) puede prohibir el envío de `Referer`.
 
