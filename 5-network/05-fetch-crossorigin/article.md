@@ -336,7 +336,7 @@ fetch('http://another.com', {
 
 Ahora `fetch` envía cookies originadas desde `another.com` con las solicitudes a ese sitio.
 
-Si el servidor esta de acuerdo en aceptar solicitudes *with credentials*, debe agregar la cabecera `Access-Control-Allow-Credentials: true` a la respuesta, además de `Access-Control-Allow-Origin`.
+Si el servidor está de acuerdo en aceptar solicitudes *with credentials*, debe agregar la cabecera `Access-Control-Allow-Credentials: true` a la respuesta, además de `Access-Control-Allow-Origin`.
 
 Por ejemplo:
 
