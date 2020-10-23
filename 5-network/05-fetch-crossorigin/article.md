@@ -217,7 +217,7 @@ Si el servidor está de acuerdo con lo solicitado, entonces responderá con el c
 - `Access-Control-Allow-Origin` debe ser `*` o el origen de la solicitud, tal como `https://es.javascript.info`, para permitir el acceso.
 - `Access-Control-Allow-Methods` contiene el método permitido.
 - `Access-Control-Allow-Headers` contiene un listado de las cabeceras permitidas.
-- Además, la cabecera `Access-Control-Max-Age` puede especificar el número de segundos durante se cacheará el permiso. Por lo que el navegador no debe volver a enviar la solicitud de "pre-vuelo" que coincidan con los permisos otorgados.
+- Además, la cabecera `Access-Control-Max-Age` puede especificar el número máximo de segundos que puede recordar los permisos. Por lo que el navegador no necesita volver a requerirlos en las próximas solicitudes.
 
 ![](xhr-preflight.svg)
 
