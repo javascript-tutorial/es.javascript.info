@@ -318,7 +318,7 @@ Una solicitud de origen cruzado realizada por código JavaScript, por defecto no
 
 Esto es poco común para solicitudes HTTP. Usualmente una solicitud a un sitio `http://site.com` es acompañada por todas las cookies de ese dominio. Pero una solicitud de origen cruzado realizada por métodos de JavaScript son una excepción.
 
-Por ejemplo, `fetch('http://another.com')` no enviará ninguna cookie, Incluso (!) esas que pertenecen al dominio `another.com`.
+Por ejemplo, `fetch('http://another.com')` no enviará ninguna cookie, ni siquiera (!) esas que pertenecen al dominio `another.com`.
 
 ¿Por qué?
 
