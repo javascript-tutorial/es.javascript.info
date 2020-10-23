@@ -346,7 +346,7 @@ Access-Control-Allow-Origin: https://es.javascript.info
 Access-Control-Allow-Credentials: true
 ```
 
-Cabe destacar que: `Access-Control-Allow-Origin` no es posible utilizar con un asterisco `*` para solicitudes con credenciales. Tal como se muestra a continuación debe proveer el origen exacto. Esto es una medida adicional de seguridad, para asegurar de que el servidor realmente conoce a en quién confía para que le envíe este tipo de solicitudes.
+Cabe destacar que: `Access-Control-Allow-Origin` no se puede utilizar con un asterisco `*` para solicitudes con credenciales. Tal como se muestra a continuación debe proveer el origen exacto. Esto es una medida adicional de seguridad, para asegurar de que el servidor conozca exactamente en quién confiar para que le envíe este tipo de solicitudes.
 
 ## Resumen
 
