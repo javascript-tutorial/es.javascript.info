@@ -201,7 +201,7 @@ Con éste valor de `Access-Control-Expose-Headers`, el script tendrá permitido 
 
 ## Solicitudes "No simples"
 
-Podemos utilizar cualquier método HTTP: no únicamente `GET/POST`, sino que también `PATCH`, `DELETE` y otros.
+Podemos utilizar cualquier método HTTP: no únicamente `GET/POST`, sino también `PATCH`, `DELETE` y otros.
 
 Hace algún tiempo atrás nadie podía siquiera imaginar que un sitio web pudiera realizar ese tipo de solicitudes. Por lo que aún existen servicios web que cuando reciben un método no estándar los consideran como una señal de que: "Del otro lado no hay un navegador". Es algo a tener en cuenta cuando revisamos los derechos de acceso.
 
