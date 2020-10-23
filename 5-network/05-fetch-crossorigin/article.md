@@ -212,7 +212,7 @@ Una solicitud de "pre-vuelo" utiliza el método `OPTIONS`, sin contenido en el c
 - `Access-Control-Request-Method`, cabecera que contiene el método de la solicitud "no simple".
 - `Access-Control-Request-Headers` provee una lista separada por comas de las cabeceras no simples de la solicitud.
 
-Si el servidor esta de acuerdo con lo solicitado, entonces responderá con el código de estado 200 y un cuerpo vacío:
+Si el servidor está de acuerdo con lo solicitado, entonces responderá con el código de estado 200 y un cuerpo vacío:
 
 - `Access-Control-Allow-Origin` debe ser `*` o el origen de la solicitud, tal como `https://es.javascript.info`, para permitir el acceso.
 - `Access-Control-Allow-Methods` contiene el método permitido.
