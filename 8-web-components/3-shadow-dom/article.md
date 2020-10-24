@@ -12,7 +12,7 @@ Tales como `<input type="range">`:
 <input type="range">
 </p>
 
-El navegador usa DOM/CSS internamente para dibujarlos. Esa estructura DOM normalmente está oculta para nosotros, pero podemos verla con herramientas de desarrollo. Por ejemplo en Chrome, necesitamos habilitar la opción "Show user agent shadow DOM" en las heramientas de desarrollo.
+El navegador usa DOM/CSS internamente para dibujarlos. Esa estructura DOM normalmente está oculta para nosotros, pero podemos verla con herramientas de desarrollo. Por ejemplo, en Chrome, necesitamos habilitar la opción "Show user agent shadow DOM" en las herramientas de desarrollo.
 
 Entonces `<input type="range">` se ve algo así:
 
@@ -98,7 +98,7 @@ alert(elem.shadowRoot.host === elem); // true
 
 Shadow DOM está fuertemente delimitado del documento principal "main document":
 
-1. Los elementos Shadow DOM no son visibles para `querySelector` desde el DOM visble (light DOM). En particular,  los elementos Shadow DOM pueden tener ids en conflicto con aquellos en el DOM visible. Estos debe ser únicos solamente dentro del árbol shadow.
+1. Los elementos Shadow DOM no son visibles para `querySelector` desde el DOM visible (light DOM). En particular,  los elementos Shadow DOM pueden tener ids en conflicto con aquellos en el DOM visible. Estos deben ser únicos solamente dentro del árbol shadow.
 2. El Shadow DOM tiene stylesheets propios. Las reglas de estilo del exterior DOM no se le aplican.
 
 Por ejemplo:
@@ -139,7 +139,7 @@ Por ejemplo:
 
 - DOM: <https://dom.spec.whatwg.org/#shadow-trees>
 - Compatibilidad: <https://caniuse.com/#feat=shadowdomv1>
-- Shadow DOM es mencionado en muchas otras especificaciones, por ejemplo [DOM Parsing](https://w3c.github.io/DOM-Parsing/#the-innerhtml-mixin) especifica que que shadow root tiene `innerHTML`.
+- Shadow DOM es mencionado en muchas otras especificaciones, por ejemplo [DOM Parsing](https://w3c.github.io/DOM-Parsing/#the-innerhtml-mixin) especifica que el shadow root tiene `innerHTML`.
 
 
 ## Resumen
