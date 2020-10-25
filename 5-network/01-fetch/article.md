@@ -302,7 +302,6 @@ Propiedades de respuesta:
 - `response.headers` -- Objeto similar al Map que contiene los encabezados HTTP.
 
 Metodos para obtener el cuerpo de la respuesta:
-
 - **`response.text()`** -- lee y devuelve la respuesta en formato texto,
 - **`response.json()`** -- convierte la respuesta como un JSON,
 - **`response.formData()`** -- devuelve la respuesta como un objeto `FormData` (explicado en [el siguiente capitulo](info:formdata)),
