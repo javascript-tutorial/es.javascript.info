@@ -1,10 +1,12 @@
-# Copia de objetos, referencias
+# Referencias de objetos y copia
 
-Una de las diferencias fundamentales de los objetos respecto a los primitivos es que son almacenados y copiados "por referencia".
+Una de las diferencias fundamentales entre objetos y primitivos es que los objetos son almacenados y copiados "por referencia", en cambio los primitivos: strings, number, boolean; son asignados y copiados "como un valor completo".
 
-Los valores primitivos: strings, numbers, booleans -- son asignados y copiados "como un valor completo".
+Esto es fácil de entender si miramos un poco "bajo cubierta" de lo que pasa cuando copiamos por valor.
 
-Por ejemplo:
+Empecemos por un primitivo como string.
+
+Aquí ponemos una copia de `message` en `phrase`:
 
 ```js
 let message = "Hello!";
@@ -15,11 +17,13 @@ Como resultado tenemos dos variables independientes, cada una almacenando la cad
 
 ![](variable-copy-value.svg)
 
+Bastante obvio, ¿verdad? 
+
 Los objetos no son así.
 
 **Una variable no almacena el objeto mismo sino su "dirección en memoria", en otras palabras "una referencia" a él.**
 
-Aquí tenemos una imagen del objeto:
+Veamos un ejemplo de tal variable:
 
 ```js
 let user = {
@@ -27,9 +31,17 @@ let user = {
 };
 ```
 
+Y así es como se almacena en la memoria:
+
 ![](variable-contains-reference.svg)
 
-Aquí, el objeto es almacenado en algún lugar de la memoria. Y la variable `user` tiene una "referencia" a él.
+El objeto es almacenado en algún lugar de la memoria (a la derecha de la imagen), mientras que la variable `user` (a la izquierda) tiene una "referencia" a él.
+
+Podemos pensar de una variable objeto, como `user`, como una hoja de papel con su dirección.
+
+Cuando ejecutamos acciones con el objeto, por ejemplo tomar una propiedad `user.name`, el motor JavaScript busca aquella dirección y ejecuta la operación en el objeto mismo.
+
+Ahora, por qué esto es importante.
 
 **Cuando una variable de objeto es copiada -- la referencia es copiada, el objeto no es duplicado.**
 
@@ -45,6 +57,8 @@ Ahora tenemos dos variables, cada una con una referencia al mismo objeto:
 
 ![](variable-copy-reference.svg)
 
+Como puedes ver, aún hay un objeto, ahora con dos variables haciendo referencia a él.
+
 Podemos usar cualquiera de las variables para acceder al objeto y modificar su contenido:
 
 ```js run
@@ -59,15 +73,14 @@ admin.name = 'Pete'; // cambiado por la referencia "admin"
 alert(*!*user.name*/!*); // 'Pete', los cambios se ven desde la referencia "user"
 ```
 
-El ejemplo anterior demuestra que solamente hay un único objeto. Como si tuviéramos un gabinete con dos llaves y usáramos una de ellas (`admin`) para accederlo. Si más tarde usamos la llave (`user`), podemos ver los cambios.
+
+Es como si tuviéramos un gabinete con dos llaves y usáramos una de ellas (`admin`) para acceder a él. Si más tarde usamos la llave (`user`), podemos ver los cambios.
 
 ## Comparación por referencia
 
-En los objetos, los operadores de igualdad `==` e igualdad estricta `===` funcionan exactamente igual.
+Dos objetos son iguales solamente si ellos son el mismo objeto.
 
-**Dos objetos son iguales solamente si ellos son el mismo objeto.**
-
-Aquí dos variables referencian el mismo objeto, así que ellos son iguales:
+Por ejemplo, aquí `a` y `b` tienen referencias al mismo objeto, por lo tanto son iguales:
 
 ```js run
 let a = {};
@@ -77,7 +90,7 @@ alert( a == b ); // true, verdadero. Ambas variables hacen referencia al mismo o
 alert( a === b ); // true
 ```
 
-Y aquí dos objetos independientes no son iguales, incluso estando ambos vacíos:
+Y aquí dos objetos independientes no son iguales, aunque se vean iguales (ambos están vacíos):
 
 ```js run
 let a = {};
@@ -86,7 +99,7 @@ let b = {}; // dos objetos independientes
 alert( a == b ); // false
 ```
 
-Para comparaciones como `obj1 > obj2`, o comparaciones contra un primitivo `obj == 5`, los objetos son convertidos a primitivos. Estudiaremos cómo funciona la conversión de objetos pronto, pero a decir verdad tales comparaciones ocurren raramente y suelen ser errores de código.
+Para comparaciones como `obj1 > obj2`, o comparaciones contra un primitivo `obj == 5`, los objetos son convertidos a primitivos. Estudiaremos cómo funciona la conversión de objetos pronto, pero a decir verdad tales comparaciones ocurren raramente, suelen ser errores de código.
 
 ## Clonación y mezcla, Object.assign
 
@@ -214,8 +227,6 @@ alert(clone.sizes.width); // 51, ve el resultado desde el otro
 ```
 
 Para corregir esto, debemos usar un bucle de clonación que examine cada valor de `user[key]` y, si es un objeto, replicar su estructura también. Esto es llamado "clonación profunda".
-
-Hay un algoritmo estándar para clonación profunda que maneja este caso y otros más complicados llamado [Structured cloning algorithm](https://html.spec.whatwg.org/multipage/structured-data.html#safe-passing-of-structured-data).
 
 Podemos usar recursividad para implementarlo. O, para no inventar la rueda, tomar una implementación existente, por ejemplo [_.cloneDeep(obj)](https://lodash.com/docs#cloneDeep) de la librería JavaScript [lodash](https://lodash.com).
 

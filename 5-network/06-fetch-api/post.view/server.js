@@ -17,7 +17,7 @@ function accept(req, res) {
       chunks.push(data);
       length += data.length;
 
-      // Too much POST data, kill the connection!
+      // Demasiados datos POST, ¡cancela la conexión!
       if (length > 1e6) {
         request.connection.destroy();
       }

@@ -16,6 +16,7 @@ Es más fácil entender viendo un ejemplo: Aquí tenemos una función con dos ar
 
 ```js run
 let sumar = new Function('a', 'b', 'return a + b');
+
 alert(sumar(1, 2)); // 3
 ```
 
@@ -123,3 +124,8 @@ Estos tres significan lo mismo:
 
 ```js
 new Function('a', 'b', 'return a + b'); // sintáxis básica
+new Function('a,b', 'return a + b'); // separación por comas
+new Function('a , b', 'return a + b'); // separación por comas con espacios
+```
+
+Las funciones creadas con `new Function`, tienen `[[Environment]]` haciendo referencia a ambiente léxico global, no al externo. En consecuencia no pueden usar variables externas. Pero eso es en realidad algo bueno, porque nos previene de errores. Pasar parámetros explícitamente es mucho mejor arquitectónicamente y no causa problemas con los minificadores.

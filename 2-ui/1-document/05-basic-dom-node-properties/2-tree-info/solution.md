@@ -1,4 +1,4 @@
-Let's make a loop over `<li>`:
+Hagamos un ciclo sobre `<li>`:
 
 ```js
 for (let li of document.querySelectorAll('li')) {
@@ -6,16 +6,16 @@ for (let li of document.querySelectorAll('li')) {
 }
 ```
 
-In the loop we need to get the text inside every `li`.
+En el ciclo, necesitamos introducir el texto dentro de cada `li`.
 
-We can read the text from the first child node of `li`, that is the text node:
+Podemos leer el texto del primer nodo hijo de `li`, que es el nodo de texto:
 
 ```js
 for (let li of document.querySelectorAll('li')) {
   let title = li.firstChild.data;
 
-  // title is the text in <li> before any other nodes
+  // el título es el texto en <li> antes de cualquier otro nodo
 }
 ```
 
-Then we can get the number of descendants as `li.getElementsByTagName('li').length`.
+Entonces podemos obtener el número de descendientes como `li.getElementsByTagName('li').length`.

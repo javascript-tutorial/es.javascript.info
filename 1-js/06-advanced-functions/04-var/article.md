@@ -60,11 +60,13 @@ Lo mismo para los bucles: `var` no puede ser local en los bloques ni en los bucl
 
 ```js
 for (var i = 0; i < 10; i++) {
+  var one = 1;
   // ...
 }
 
 *!*
 alert(i); // 10, "i" es visible después del bucle, es una variable global
+alert(one); // 1, "one" es visible después del bucle, es una variable global
 */!*
 ```
 
@@ -205,7 +207,7 @@ Como todas las declaraciones `var` son procesadas al inicio de la función, pode
 
 En ambos ejemplos de arriba `alert` se ejecuta sin un error, porque la variable `phrase` existe. Pero su valor no fue asignado aún, entonces muestra `undefined`.
 
-### IIFE
+## IIFE
 
 Como en el pasado solo existía `var`, y no había visibilidad a nivel de bloque, los programadores inventaron una manera de emularla. Lo que hicieron fue el llamado "expresiones de función inmediatamente invocadas (abreviado IIFE en inglés).
 
@@ -216,7 +218,7 @@ Un IIFE se ve así:
 ```js run
 (function() {
 
-  let message = "Hello";
+  var message = "Hello";
 
   alert(message); // Hello
 
@@ -231,7 +233,7 @@ La expresión de función es encerrada entre paréntesis `(function {...})`, por
 // Trata de declarar e inmediatamente llamar una función
 function() { // <-- Error: la instrucción de función requiere un nombre de función
 
-  let message = "Hello";
+  var message = "Hello";
 
   alert(message); // Hello
 
@@ -277,7 +279,7 @@ En todos los casos de arriba declaramos una expresión de función y la ejecutam
 
 Hay dos diferencias principales entre `var` y `let/const`:
 
-1. Las variables `var` no tienen alcance de bloque, su mínimo de alcance es a nivel de función.
+1. Las variables `var` no tienen alcance de bloque: su visibilidad alcanza a la función, o es global si es declarada fuera de las funciones.
 2. Las declaraciones `var` son procesadas al inicio de la función (o del script para las globales) .
 
 Hay otra diferencia menor relacionada al objeto global que cubriremos en el siguiente capítulo.

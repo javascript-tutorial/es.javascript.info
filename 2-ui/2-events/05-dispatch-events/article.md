@@ -219,7 +219,6 @@ Por ejemplo, en el código siguiente, el evento `menu-open` se activa durante el
 
 Se procesa inmediatamente, sin esperar a que termine el controlador `onclick`:
 
-
 ```html run autorun
 <button id="menu">Menu (dame clic)</button>
 

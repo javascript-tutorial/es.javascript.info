@@ -6,7 +6,7 @@ importance: 4
 
 Para cada bucle, anota qué valores mostrará y luego compara las respuestas.
 
-Ambos bucles ¿`alertan` los mismos valores?
+Ambos bucles, ¿muestran en `alert` los mismos valores?
 
 1. La forma del sufijo:
 
