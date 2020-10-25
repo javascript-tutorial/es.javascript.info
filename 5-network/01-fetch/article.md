@@ -80,6 +80,7 @@ let commits = await response.json(); // leer respuesta del cuerpo y devolver com
 
 alert(commits[0].author.login);
 ```
+
 O tambien usando promesas, en lugar de `await`:
 
 ```js run
@@ -87,6 +88,7 @@ fetch('https://api.github.com/repos/javascript-tutorial/en.javascript.info/commi
   .then(response => response.json())
   .then(commits => alert(commits[0].author.login));
 ```
+
 Para obtener la respuesta como texto, `await response.text()` en lugar de `.json()`:
 
 ```js run async
