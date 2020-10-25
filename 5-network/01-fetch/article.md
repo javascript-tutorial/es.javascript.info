@@ -227,7 +227,6 @@ Tener en cuenta, si la respuesta del `body` es una cadena de texto, entonces el 
 
 Pero, como vamos a enviar un objeto JSON, en su lugar utilizaremos la opción `headers` especificada a `application/json`, que es la opcion correcta `Content-Type` para información en formato JSON.
 
-
 ## Enviando una imagen
 
 También es posible enviar datos binarios con `fetch`, utilizando los objetos `Blob` o `BufferSource`.
