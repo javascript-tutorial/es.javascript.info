@@ -233,7 +233,6 @@ También es posible enviar datos binarios con `fetch`, utilizando los objetos `B
 
 En el siguiente ejemplo, utilizaremos un `<canvas>` donde podremos dibujar utilizando nuestro ratón. Haciendo click en el botón "enviar" enviará la imagen al servidor: 
 
-
 ```html run autorun height="90"
 <body style="margin:0">
   <canvas id="canvasElem" width="100" height="80" style="border:1px solid"></canvas>
