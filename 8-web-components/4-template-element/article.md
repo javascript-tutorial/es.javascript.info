@@ -1,7 +1,7 @@
 
 # Elemento template
 
-Un elemento `<template>` incorporado sirve como almacenamiento para plantillas de HTML markup. El navegador ignora su contenido, solo verifica la validez de la sintaxis, pero podemos acceder a él y usarlo en JavaScript, para crear otros elementos.
+El elemento incorporado `<template>` sirve como almacenamiento para plantillas de HTML markup. El navegador ignora su contenido, solo verifica la validez de la sintaxis, pero podemos acceder a él y usarlo en JavaScript para crear otros elementos.
 
 En teoría, podríamos crear cualquier elemento invisible en algún lugar de HTML par fines de almacenamiento de HTML markup. ¿Qué hay de especial en `<template>`?
 
@@ -111,6 +111,6 @@ La etiqueta `<template>` es bastante única, ya que:
 
 - El navegador comprueba la sintaxis HTML dentro de él (lo opuesto a usar una plantilla string dentro de un script).
 - ...Pero aún permite el uso de cualquier etiqueta HTML de alto nivel, incluso aquellas que no tienen sentido sin un envoltorio adecuado (por ej.`<tr>`).
-- El contenido se vuelve interactivo: cuando es insertado en el documento los scripts se ejecutan, `<video autoplay>` se reproduce, etc. 
+- El contenido se vuelve interactivo cuando es insertado en el documento: los scripts se ejecutan, `<video autoplay>` se reproduce, etc. 
 
 El elemento `<template>` no ofrece ningún mecanismo de iteración, enlazamiento de datos o sustitución de variables, pero podemos implementar los que están por encima.
