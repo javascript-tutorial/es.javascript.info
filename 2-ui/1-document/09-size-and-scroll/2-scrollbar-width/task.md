@@ -6,6 +6,6 @@ importancia: 3
 
 Escribe el código que retorna el tamaño de una barra de desplazamiento estándar.
 
-Para Windows esto usualmente varía entre `12px` y `20px`. Si el navegador no reserva algun espacio para esto (la barra de desplazamiento es medio traslucido sobre el texto, también pasa), entonces puede ser `0px`.
+Para Windows esto usualmente varía entre `12px` y `20px`. Si el navegador no reserva algun espacio para esto (la barra de desplazamiento es medio traslúcida sobre el texto, también pasa), entonces puede ser `0px`.
 
 P.S. El código debería funcionar con cualquier documento HTML, no depende de su contenido.
