@@ -268,7 +268,7 @@ Los elementos tienen las siguientes propiedades geométricas:
 - `offsetParent` -- es el ancestro posicionado más cercano o `td`, `th`, `table`, `body`.
 - `offsetLeft/offsetTop` -- coordenadas relativas al borde superior izquierdo de `offsetParent`.
 - `offsetWidth/offsetHeight` -- ancho/alto "exterior" de un elemento, incluidos los bordes.
-- `clientLeft/clientTop` -- las distancias desde la esquina exterior superior izquierda a la esquina interior superior izquierda (contenido + relleno). Para los Sistemas Operativos de izquierda. derecha, siempre son los anchoes de los bordes izquierdo/superior. Para los Sistemas Operativos de derecha a izquierda, la barra de desplazamiento está a la izquierda, por lo que `clientLeft` también incluye su ancho.
+- `clientLeft/clientTop` -- las distancias desde la esquina exterior superior izquierda a la esquina interior superior izquierda (contenido + relleno). Para los Sistemas Operativos de izquierda a derecha, siempre son los anchos de los bordes izquierdo/superior. Para los Sistemas Operativos de derecha a izquierda, la barra de desplazamiento está a la izquierda, por lo que `clientLeft` también incluye su ancho.
 - `clientWidth/clientHeight` -- el ancho/alto del contenido incluyendo rellenos, pero sin la barra de desplazamiento.
 - `scrollWidth/scrollHeight` -- el ancho/alto del contenido, al igual que `clientWidth/clientHeight`, pero también incluye la parte invisible desplazada del elemento.
 - `scrollLeft/scrollTop` -- ancho/alto de la parte superior desplazada del elemento, comenzando desde la esquina superior izquierda.
