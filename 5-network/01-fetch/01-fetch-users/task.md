@@ -1,8 +1,8 @@
 # Fetch de usuarios de GitHub
 
-Crear una función async llamada `getUsuarios(nombres)`, que tome como parámetro un arreglo de logins de GitHub, obtenga el listado de usuarios de GitHub indicado y devuelva un arreglo de usuarios de GitHub.
+Crear una función async llamada `getUsers(names)`, que tome como parámetro un arreglo de logins de GitHub, obtenga el listado de usuarios de GitHub indicado y devuelva un arreglo de usuarios de GitHub.
 
-La url de GitHub con la información de usuario especifica `NOMBREUSUARIO` es: `https://api.github.com/users/NOMBREUSUARIO`.
+La url de GitHub con la información de usuario especifica `USERNAME` es: `https://api.github.com/users/USERNAME`.
 
 En el ambiente de prueba (sandbox) hay un ejemplo de referencia. 
 
