@@ -28,7 +28,7 @@ Ahora la pelota está finalmente centrada.
 
 ````warn header="Atención: ¡la trampa!"
 
-El codigo no funcionará seguramente mientras `<img>` no tenga width/height:
+El código no funcionará seguramente mientras `<img>` no tenga width/height:
 
 ```html
 <img src="ball.png" id="ball">
