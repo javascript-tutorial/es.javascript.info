@@ -26,7 +26,7 @@ ball.style.top = Math.round(field.clientHeight / 2 - ball.offsetHeight / 2) + 'p
 
 Ahora la pelota está finalmente centrada.
 
-````warn header="Attention: the pitfall!"
+````warn header="Atención: ¡la trampa!"
 
 El codigo no funcionará seguramente mientras `<img>` no tenga width/height:
 
