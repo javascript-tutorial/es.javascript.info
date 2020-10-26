@@ -129,7 +129,11 @@ setTimeout(() => { clearInterval(timerId); alert('stop'); }, 5000);
 ```smart header="El tiempo pasa mientras se muestra 'alerta'"
 En la mayoría de los navegadores, incluidos Chrome y Firefox, el temporizador interno continúa "marcando" mientras muestra "alert / confirm / prompt".
 
+<<<<<<< HEAD
 Entonces, si ejecuta el código anterior y no descarta la ventana de 'alerta' por un tiempo, en la próxima 'alerta' se mostrará de inmediato. El intervalo real entre alertas será más corto que 2 segundos.
+=======
+So if you run the code above and don't dismiss the `alert` window for some time, then the next `alert` will be shown immediately as you do it. The actual interval between alerts will be shorter than 2 seconds.
+>>>>>>> 2d5be7b7307b0a4a85e872d229e0cebd2d8563b5
 ```
 
 ## setTimeout anidado
@@ -279,7 +283,11 @@ Lo mismo sucede si usamos `setInterval` en lugar de `setTimeout`: `setInterval(f
 
 Esa limitación proviene de la antigüedad y muchos guiones dependen de ella, por lo que existe por razones históricas.
 
+<<<<<<< HEAD
 Para JavaScript del lado del servidor, esa limitación no existe, y existen otras formas de planificar un trabajo asincrónico inmediato, como [setImmediate](https://nodejs.org/api/timers.html) para Node.js. Entonces esta nota es específica del navegador.
+=======
+For server-side JavaScript, that limitation does not exist, and there exist other ways to schedule an immediate asynchronous job, like [setImmediate](https://nodejs.org/api/timers.html#timers_setimmediate_callback_args) for Node.js. So this note is browser-specific.
+>>>>>>> 2d5be7b7307b0a4a85e872d229e0cebd2d8563b5
 ````
 
 ## Resumen
@@ -290,7 +298,15 @@ Para JavaScript del lado del servidor, esa limitación no existe, y existen otra
 - La programación de retardo cero con `setTimeout(func, 0) `(lo mismo que `setTimeout(func)`) se usa para programar la llamada "lo antes posible, pero después de que se complete el script actual".
 - El navegador limita la demora mínima para cinco o más llamadas anidadas de `setTimeout` o para `setInterval` (después de la quinta llamada) a 4 ms. Eso es por razones históricas.
 
+<<<<<<< HEAD
 Tenga en cuenta que todos los métodos de planifiación no *garantizan* el retraso exacto.
+=======
+- Methods `setTimeout(func, delay, ...args)` and `setInterval(func, delay, ...args)` allow us to run the `func` once/regularly after `delay` milliseconds.
+- To cancel the execution, we should call `clearTimeout/clearInterval` with the value returned by `setTimeout/setInterval`.
+- Nested `setTimeout` calls are a more flexible alternative to `setInterval`, allowing us to set the time *between* executions more precisely.
+- Zero delay scheduling with `setTimeout(func, 0)` (the same as `setTimeout(func)`) is used to schedule the call "as soon as possible, but after the current script is complete".
+- The browser limits the minimal delay for five or more nested calls of `setTimeout` or for `setInterval` (after 5th call) to 4ms. That's for historical reasons.
+>>>>>>> 2d5be7b7307b0a4a85e872d229e0cebd2d8563b5
 
 Por ejemplo, el temporizador en el navegador puede ralentizarse por muchas razones:
 - La CPU está sobrecargada.

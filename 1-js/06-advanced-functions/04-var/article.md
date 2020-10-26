@@ -82,7 +82,11 @@ function sayHi() {
 }
 
 sayHi();
+<<<<<<< HEAD
 alert(phrase); // Error: phrase no está definida (Revise consola de desarrollador)
+=======
+alert(phrase); // Error: phrase is not defined
+>>>>>>> 2d5be7b7307b0a4a85e872d229e0cebd2d8563b5
 ```
 
 Como podemos ver, `var` atraviesa `if`, `for` u otros bloques. Esto es porque mucho tiempo atrás los bloques en JavaScript no tenían ambientes léxicos. Y `var` es un remanente de aquello.
@@ -279,8 +283,13 @@ En todos los casos de arriba declaramos una expresión de función y la ejecutam
 
 Hay dos diferencias principales entre `var` y `let/const`:
 
+<<<<<<< HEAD
 1. Las variables `var` no tienen alcance de bloque: su visibilidad alcanza a la función, o es global si es declarada fuera de las funciones.
 2. Las declaraciones `var` son procesadas al inicio de la función (o del script para las globales) .
+=======
+1. `var` variables have no block scope, their visibility is scoped to current function, or global, if declared outside function.
+2. `var` declarations are processed at function start (script start for globals).
+>>>>>>> 2d5be7b7307b0a4a85e872d229e0cebd2d8563b5
 
 Hay otra diferencia menor relacionada al objeto global que cubriremos en el siguiente capítulo.
 

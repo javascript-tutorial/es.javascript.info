@@ -5,7 +5,11 @@ El objeto global proporciona variables y funciones que están disponibles en cua
 
 En un navegador se denomina `window`, para Node.js es` global`, para otros entornos puede tener otro nombre.
 
+<<<<<<< HEAD
 Recientemente, se agregó `globalThis` al lenguaje, como un nombre estandarizado para un objeto global, que debería ser compatible con todos los entornos al igual que con los principales navegadores.
+=======
+Recently, `globalThis` was added to the language, as a standardized name for a global object, that should be supported across all environments. It's supported in all major browsers.
+>>>>>>> 2d5be7b7307b0a4a85e872d229e0cebd2d8563b5
 
 Aquí usaremos `window`, suponiendo que nuestro entorno sea un navegador. Si su script puede ejecutarse en otros entornos, es mejor usar `globalThis` en su lugar.
 
@@ -25,7 +29,13 @@ var gVar = 5;
 alert(window.gVar); // 5 (se convirtió en una propiedad del objeto global)
 ```
 
+<<<<<<< HEAD
 ¡Por favor no te fíes de eso! Este comportamiento existe por razones de compatibilidad. Los scripts modernos hacen uso de [Módulos Javascript](info:modules) para que tales cosas no sucedan.
+=======
+The same effect have function declarations (statements with `function` keyword in the main code flow, not function expressions).
+
+Please don't rely on that! This behavior exists for compatibility reasons. Modern scripts use [JavaScript modules](info:modules) where such thing doesn't happen.
+>>>>>>> 2d5be7b7307b0a4a85e872d229e0cebd2d8563b5
 
 Si usáramos `let` en su lugar, esto no sucedería:
 

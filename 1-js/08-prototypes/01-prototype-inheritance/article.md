@@ -198,8 +198,13 @@ alert(admin.fullName); // John Smith (*)
 // disparadores setter!
 admin.fullName = "Alice Cooper"; // (**)
 
+<<<<<<< HEAD
 alert(admin.fullName); // Alice Cooper , estado de admin modificado
 alert(user.fullName); // John Smith , estado de user protegido
+=======
+alert(admin.fullName); // Alice Cooper, state of admin modified
+alert(user.fullName); // John Smith, state of user protected
+>>>>>>> 2d5be7b7307b0a4a85e872d229e0cebd2d8563b5
 ```
 
 Aquí en la línea `(*)` la propiedad `admin.fullName` tiene un getter en el prototipo `user`, por lo que es llamado. Y en la línea `(**)` la propiedad tiene un setter en el prototipo, por lo que es llamado.
