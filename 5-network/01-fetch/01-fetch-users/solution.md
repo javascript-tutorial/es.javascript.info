@@ -1,18 +1,18 @@
 
-To fetch a user we need: `fetch('https://api.github.com/users/USERNAME')`.
+Para obtener un usuario tenemos que ejecutar el siguiente código: `fetch('https://api.github.com/users/NOMBREUSUARIO')`.
 
-If the response has status `200`, call `.json()` to read the JS object.
+Si la respuesta contiene el status `200`, utilizamos el método `.json()` para leer el objeto JS.
 
-Otherwise, if a `fetch` fails, or the response has non-200 status, we just return `null` in the resulting array.
+Por el contrario, si el `fetch` falla o la respuesta no contiene un status 200, devolvemos `null` en el resultado del arreglo. 
 
-So here's the code:
+Código: 
 
 ```js demo
-async function getUsers(names) {
+async function obtenerUsuarios(nombresUsuarios) {
   let jobs = [];
 
-  for(let name of names) {
-    let job = fetch(`https://api.github.com/users/${name}`).then(
+  for(let nombre of nombresUsuarios) {
+    let job = fetch(`https://api.github.com/users/${nombre}`).then(
       successResponse => {
         if (successResponse.status != 200) {
           return null;
@@ -27,14 +27,14 @@ async function getUsers(names) {
     jobs.push(job);
   }
 
-  let results = await Promise.all(jobs);
+  let resultados = await Promise.all(jobs);
 
-  return results;
+  return resultados;
 }
 ```
 
-Please note: `.then` call is attached directly to `fetch`, so that when we have the response, it doesn't wait for other fetches, but starts to read `.json()` immediately.
+Nota: la función `.then` está directamente vinculada al `fetch`. Por lo tanto, cuando se obtiene la respuesta se procede a ejecutar la función `.json()` inmediatamente en lugar de esperar a las otras peticiones.
 
-If we used `await Promise.all(names.map(name => fetch(...)))`, and call `.json()` on the results, then it would wait for all fetches to respond. By adding `.json()` directly to each `fetch`, we ensure that individual fetches start reading data as JSON without waiting for each other.
+Si en su lugar utilizáramos `await Promise.all(nombres.map(nombre => fetch(...)))` y llamamos a la función `.json()` sobre los resultados, entonces esperaríamos a que todos las peticiones fetch completen antes de obtener una respuesta. Al agregar `.json()` directamente en cada `fetch`, nos aseguramos que las peticiones se procesen de manera independiente obteniendo una mejor respuesta en nuestra aplicación. 
 
-That's an example of how low-level Promise API can still be useful even if we mainly use `async/await`.
+Esto es un ejemplo de como la API de Promesas puede ser útil aunque mayormente se utilice `async/await`.
