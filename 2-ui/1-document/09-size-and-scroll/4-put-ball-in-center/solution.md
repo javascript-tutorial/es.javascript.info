@@ -1,6 +1,6 @@
 La pelota tiene `position:absolute`. Significa que sus coordenadas `left/top` se miden desde el elemento posicionado más cercano, es decir `#field` (porque tiene `position:relative`).
 
-Las coordenadas incian desde el interior de la esquina superior izquierda del campo: 
+Las coordenadas inician desde el interior de la esquina superior izquierda del campo: 
 
 ![](field.svg)
 
