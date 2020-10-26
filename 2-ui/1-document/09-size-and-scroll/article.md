@@ -243,7 +243,7 @@ alert( getComputedStyle(elem).width ); // muestra CSS width por elemento
     </script>
     ```
 
-    Desde el punto de vista de CSS, `width:auto` es perfectamente normal, pero en JavaScript neceistamos un tamaño exacto en `px` que podríamos usar en los cálculos. Entonces, aquí el ancho de CSS width es inútil.
+    Desde el punto de vista de CSS, `width:auto` es perfectamente normal, pero en JavaScript necesitamos un tamaño exacto en `px` que podríamos usar en los cálculos. Entonces, aquí el ancho de CSS width es inútil.
 
 Y hay una razón más: una barra de desplazamiento. A veces, el código que funcionaba bien sin una barra de desplazamiento tiene errores, porque una barra de desplazmiento toma el espacio del contenido en algunos navegadores. Entonces, el ancho real disponible para el contenido es *menor* que el ancho de CSS. Y `clientWidth/clientHeight` tenga eso en cuenta.
 
