@@ -1,5 +1,5 @@
 
-Para obtener un usuario tenemos que ejecutar el siguiente código: `fetch('https://api.github.com/users/NOMBREUSUARIO')`.
+Para obtener un usuario tenemos que ejecutar el siguiente código: `fetch('https://api.github.com/users/USERNAME')`.
 
 Si la respuesta contiene el status `200`, utilizamos el método `.json()` para leer el objeto JS.
 
@@ -8,11 +8,11 @@ Por el contrario, si el `fetch` falla o la respuesta no contiene un status 200, 
 Código: 
 
 ```js demo
-async function obtenerUsuarios(nombresUsuarios) {
+async function getUsers(names) {
   let jobs = [];
 
-  for(let nombre of nombresUsuarios) {
-    let job = fetch(`https://api.github.com/users/${nombre}`).then(
+  for(let name of names) {
+    let job = fetch(`https://api.github.com/users/${name}`).then(
       successResponse => {
         if (successResponse.status != 200) {
           return null;
@@ -27,14 +27,14 @@ async function obtenerUsuarios(nombresUsuarios) {
     jobs.push(job);
   }
 
-  let resultados = await Promise.all(jobs);
+  let results = await Promise.all(jobs);
 
-  return resultados;
+  return results;
 }
 ```
 
 Nota: la función `.then` está directamente vinculada al `fetch`. Por lo tanto, cuando se obtiene la respuesta se procede a ejecutar la función `.json()` inmediatamente en lugar de esperar a las otras peticiones.
 
-Si en su lugar utilizáramos `await Promise.all(nombres.map(nombre => fetch(...)))` y llamamos a la función `.json()` sobre los resultados, entonces esperaríamos a que todos las peticiones fetch completen antes de obtener una respuesta. Al agregar `.json()` directamente en cada `fetch`, nos aseguramos que las peticiones se procesen de manera independiente obteniendo una mejor respuesta en nuestra aplicación. 
+Si en su lugar utilizáramos `await Promise.all(names.map(name => fetch(...)))` y llamamos a la función `.json()` sobre los resultados, entonces esperaríamos a que todos las peticiones fetch completen antes de obtener una respuesta. Al agregar `.json()` directamente en cada `fetch`, nos aseguramos que las peticiones se procesen de manera independiente obteniendo una mejor respuesta en nuestra aplicación. 
 
 Esto es un ejemplo de como la API de Promesas puede ser útil aunque mayormente se utilice `async/await`.
