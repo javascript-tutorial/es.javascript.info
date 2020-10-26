@@ -259,7 +259,7 @@ El elemento con texto tiene CSS `width:300px`.
 En un Windows OS de escritorio, Firefox, Chrome, Edge reservan el espacio para la barra de desplazamiento. Pero Firefox muestra `300px`, mientras que Chrome y Edge muestran menos. Eso es por que Firefox devuelve el ancho del CSS y otros navegadores devuelven el ancho "real".
 ```
 
-Tenga en cuenta que la diferencia descrita solo de leer `getComputedStyle(...).width` de JavaScript, visualmente todo es correcto.
+Tenga en cuenta que la diferencia descrita es solo de leer `getComputedStyle(...).width` de JavaScript, visualmente todo es correcto.
 
 ## Resumen
 
