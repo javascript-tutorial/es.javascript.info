@@ -4,7 +4,7 @@ importancia: 3
 
 # ¿Qué es el ancho de la barra de desplazamiento?
 
-Escribe el código que retorna el tamaño de una barra de desplazamiento estandar.
+Escribe el código que retorna el tamaño de una barra de desplazamiento estándar.
 
 Para Windows esto usualmente varía entre `12px` y `20px`. Si el navegador no reserva algun espacio para esto (la barra de desplazamiento es medio traslucido sobre el texto, también pasa), entonces puede ser `0px`.
 
