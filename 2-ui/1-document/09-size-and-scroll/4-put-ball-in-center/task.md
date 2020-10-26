@@ -10,7 +10,7 @@ Así es como se ve el documento de origen:
 
 ¿Cuales son las coordenadas del centro de campo?
 
-Calcúlelos y usalos para colocar la pelota en el centro del campo verde:
+Calcúlalos y úsalos para colocar la pelota en el centro del campo verde:
 
 [iframe src="solution" height=180]
 
