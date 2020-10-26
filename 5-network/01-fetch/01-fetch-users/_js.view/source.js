@@ -1,4 +1,4 @@
 
 async function obtenerUsuarios(nombresUsuarios) {
-  /* your code */
+  /* Tú código */
 }
