@@ -133,20 +133,20 @@ Vayamos ahora a los detalles.
 
 Si una solicitud es de origen cruzado, el navegador siempre le agregará una cabecera `Origin`.
 
-Por ejemplo, si realizamos una solicitud de `https://anywhere.com/request` a `https://es.javascript.info/page`, las cabeceras podrían ser algo así:
+Por ejemplo, si realizamos una solicitud de `https://anywhere.com/request` a `https://javascript.info/page`, las cabeceras podrían ser algo así:
 
 ```http
 GET /request
 Host: anywhere.com
 *!*
-Origin: https://es.javascript.info
+Origin: https://javascript.info
 */!*
 ...
 ```
 
 Tal como se puede ver, la cabecera `Origin` contiene exactamente el origen (protocolo/dominio/puerto), sin el path.
 
-El servidor puede inspeccionar el origen `Origin` y, si esta de acuerdo en aceptar ese tipo de solicitudes, agrega una cabecera especial `Access-Control-Allow-Origin` a la respuesta. Esta cabecera debe contener el origen permitido (en nuestro caso `https://es.javascript.info`), o un asterisco `*`. En ese caso la respuesta es satisfactoria, de otro modo falla.
+El servidor puede inspeccionar el origen `Origin` y, si esta de acuerdo en aceptar ese tipo de solicitudes, agrega una cabecera especial `Access-Control-Allow-Origin` a la respuesta. Esta cabecera debe contener el origen permitido (en nuestro caso `https://javascript.info`), o un asterisco `*`. En ese caso la respuesta es satisfactoria, de otro modo falla.
 
 El navegador cumple el papel de mediador de confianza:
 1. Ante una solicitud de origen cruzado, se asegura de que se envíe el origen correcto.
@@ -159,7 +159,7 @@ Aquí tenemos un ejemplo de una respuesta permisiva desde el servidor:
 200 OK
 Content-Type:text/html; charset=UTF-8
 *!*
-Access-Control-Allow-Origin: https://es.javascript.info
+Access-Control-Allow-Origin: https://javascript.info
 */!*
 ```
 
@@ -191,7 +191,7 @@ Por ejemplo:
 Content-Type:text/html; charset=UTF-8
 Content-Length: 12345
 API-Key: 2c9de507f2c54aa1
-Access-Control-Allow-Origin: https://es.javascript.info
+Access-Control-Allow-Origin: https://javascript.info
 *!*
 Access-Control-Expose-Headers: Content-Length,API-Key
 */!*
@@ -214,7 +214,7 @@ Una solicitud de "pre-vuelo" utiliza el método `OPTIONS`, sin contenido en el c
 
 Si el servidor está de acuerdo con lo solicitado, entonces responderá con el código de estado 200 y un cuerpo vacío:
 
-- `Access-Control-Allow-Origin` debe ser `*` o el origen de la solicitud, tal como `https://es.javascript.info`, para permitir el acceso.
+- `Access-Control-Allow-Origin` debe ser `*` o el origen de la solicitud, tal como `https://javascript.info`, para permitir el acceso.
 - `Access-Control-Allow-Methods` contiene el método permitido.
 - `Access-Control-Allow-Headers` contiene un listado de las cabeceras permitidas.
 - Además, la cabecera `Access-Control-Max-Age` puede especificar el número máximo de segundos que puede recordar los permisos. Por lo que el navegador no necesita volver a requerirlos en las próximas solicitudes.
@@ -245,7 +245,7 @@ Antes de enviar una solicitud de este tipo, el navegador, por si mismo, envía u
 ```http
 OPTIONS /service.json
 Host: site.com
-Origin: https://es.javascript.info
+Origin: https://javascript.info
 Access-Control-Request-Method: PATCH
 Access-Control-Request-Headers: Content-Type,API-Key
 ```
@@ -260,7 +260,7 @@ Access-Control-Request-Headers: Content-Type,API-Key
 ### Paso 2 (solicitud de pre-vuelo)
 
 El servidor debe responder con el código de estado 200 y las cabeceras:
-- `Access-Control-Allow-Origin: https://es.javascript.info`
+- `Access-Control-Allow-Origin: https://javascript.info`
 - `Access-Control-Allow-Methods: PATCH`
 - `Access-Control-Allow-Headers: Content-Type,API-Key`.
 
@@ -272,7 +272,7 @@ Por ejemplo, esta respuesta habilita además los métodos `PUT`, `DELETE` y otra
 
 ```http
 200 OK
-Access-Control-Allow-Origin: https://es.javascript.info
+Access-Control-Allow-Origin: https://javascript.info
 Access-Control-Allow-Methods: PUT,PATCH,DELETE
 Access-Control-Allow-Headers: API-Key,Content-Type,If-Modified-Since,Cache-Control
 Access-Control-Max-Age: 86400
@@ -293,7 +293,7 @@ PATCH /service.json
 Host: site.com
 Content-Type: application/json
 API-Key: secret
-Origin: https://es.javascript.info
+Origin: https://javascript.info
 ```
 
 ### Paso 4 (respuesta real)
@@ -301,7 +301,7 @@ Origin: https://es.javascript.info
 El server no debe olvidar agregar la cabecera `Access-Control-Allow-Origin` a la respuesta principal. Un pre-vuelo exitoso no lo libera de esto:
 
 ```http
-Access-Control-Allow-Origin: https://es.javascript.info
+Access-Control-Allow-Origin: https://javascript.info
 ```
 
 Entonces JavaScript es capáz de leer la respuesta principal del servidor.
@@ -342,7 +342,7 @@ Por ejemplo:
 
 ```http
 200 OK
-Access-Control-Allow-Origin: https://es.javascript.info
+Access-Control-Allow-Origin: https://javascript.info
 Access-Control-Allow-Credentials: true
 ```
 
