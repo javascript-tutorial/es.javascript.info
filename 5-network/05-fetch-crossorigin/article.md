@@ -2,7 +2,7 @@
 
 Si enviamos una petición `fetch` hacia otro sitio seguramente fallará.
 
-Pro ejemplo, probemos realizar una petición a `http://example.com`:
+Por ejemplo, probemos realizar una petición a `http://example.com`:
 
 ```js run async
 try {
@@ -22,7 +22,7 @@ Esta política es denominada "CORS", por sus siglas en inglés Cross-Origin Reso
 
 ## ¿Por que CORS es necesario?, Una breve historia
 
-CORS existe para proteger Internet de los malvados hackers.
+CORS existe para proteger Internet de los hackers malvados.
 
 En verdad... Déjame contarte un breve resumen de esta historia.
 
@@ -60,7 +60,7 @@ Para ser precisos, en realidad había trucos para eso, requerían scripts especi
 
 Otro truco es en el modo de utilizar la etiqueta `script`. Un script puede tener cualquier origen `src`, con cualquier dominio, tal como `<script src="http://another.com/…">`. De este modo es posible ejecutar un script de cualquier sitio web.
 
-Si un sitio, por ejemplo, `another.com` requiere exponer datos con este tipo de acceso, el protocolo entonces llamado "JSONP (JSON con padding)" era utilizado.
+Si un sitio, por ejemplo, `another.com` requiere exponer datos con este tipo de acceso, se utilizaba el protocolo llamado en ese entonces "JSONP (JSON con padding)" .
 
 Veamos como se utilizaba.
 
@@ -280,7 +280,7 @@ Access-Control-Max-Age: 86400
 
 Ahora el navegador puede ver que `PATCH` se encuentra dentro de la cabecera `Access-Control-Allow-Methods` y `Content-Type,API-Key` dentro de la lista `Access-Control-Allow-Headers`, por lo que permitirá enviar la solicitud principal.
 
-Si se encuentra con una cabecera `Access-Control-Max-Age` con determinada cantidad de segundos, entonces los permisos son almacenados en el caché por ese determinado tiempo. La solicitud anterior será cacheada por 86400 segundos (un día). Durante ese marco de tiempo, las solicitudes siguientes no requerirán la de pre-vuelo. Asumiendo que estén dentro de lo permitido en la respuesta cacheada, serán enviadas de forma directa.
+Si se encuentra con una cabecera `Access-Control-Max-Age` con determinada cantidad de segundos, entonces los permisos son almacenados en el caché por ese determinado tiempo. La solicitud anterior será cacheada por 86400 segundos (un día). Durante ese marco de tiempo, las solicitudes siguientes no requerirán la solicitud de pre-vuelo. Asumiendo que estén dentro de lo permitido en la respuesta cacheada, serán enviadas de forma directa.
 
 ### Paso 3 (solicitud real)
 
@@ -375,7 +375,7 @@ Por lo tanto, en la práctica, la diferencia se encuentra en que las solicitudes
 
 Adicionalmente, para garantizar a JavaScript acceso a cualquier cabecera de la respuesta, con excepción de `Cache-Control`, `Content-Language`, `Content-Type`, `Expires`, `Last-Modified` o `Pragma`, el servidor debe agregarlas como permitidas en la lista de la cabecera `Access-Control-Expose-Headers`.
 
-**Para solicitudes no simples, una solicitud preliminar de "pre-vuelo" es utilizada antes de la solicitud principal:**
+**Para solicitudes no simples, se utiliza una solicitud preliminar "pre-vuelo"  antes de la solicitud principal:**
 
 - → El navegador envía una solicitud del tipo `OPTIONS` a la misma URL, con las cabeceras:
     - `Access-Control-Request-Method` con el método de la solicitud.
@@ -384,4 +384,4 @@ Adicionalmente, para garantizar a JavaScript acceso a cualquier cabecera de la r
     - `Access-Control-Allow-Methods` con la lista de todos los métodos permitidos,
     - `Access-Control-Allow-Headers` con una lista de cabeceras permitidas,
     - `Access-Control-Max-Age` con los segundos en los que se podrá almacenar la autorización en caché.
-- Tras lo cual la solicitud es enviada, y el esquema previo utilizado para las solicitudes "simples" es aplicado.
+- Tras lo cual la solicitud es enviada, y se aplica el esquema previo utilizado para las solicitudes "simples".

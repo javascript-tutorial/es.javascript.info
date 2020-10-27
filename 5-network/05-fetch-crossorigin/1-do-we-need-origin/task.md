@@ -24,5 +24,5 @@ Tal como se puede ver, tanto `Referer` como `Origin` están presentes.
 
 Las preguntas:
 
-1. ¿Por que la cabecera `Origin` es necesaria, si `Referer` contiene incluso más información?
+1. ¿Por qué la cabecera `Origin` es necesaria, si `Referer` contiene incluso más información?
 2. ¿Es posible que no se incluya `Referer` u `Origin`, o que contengan datos incorrectos?
