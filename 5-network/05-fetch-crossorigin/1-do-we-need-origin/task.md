@@ -6,7 +6,7 @@ importance: 5
 
 Como seguramente ya sepas, existe la cabecera HTTP `Referer`, la cual por lo general contiene la url del sitio que generó la solicitud.
 
-Por ejemplo, cuando solicitamos la url `http://google.com` desde `http://es.javascript.info/alguna/url`, las cabeceras se ven de este modo:
+Por ejemplo, cuando solicitamos la url `http://google.com` desde `http://javascript.info/alguna/url`, las cabeceras se ven de este modo:
 
 ```
 Accept: */*
@@ -15,8 +15,8 @@ Accept-Encoding: gzip,deflate,sdch
 Connection: keep-alive
 Host: google.com
 *!*
-Origin: http://es.javascript.info
-Referer: http://es.javascript.info/alguna/url
+Origin: http://javascript.info
+Referer: http://javascript.info/alguna/url
 */!*
 ```
 
