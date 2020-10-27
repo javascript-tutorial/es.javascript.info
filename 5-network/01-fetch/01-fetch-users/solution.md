@@ -35,6 +35,6 @@ async function getUsers(names) {
 
 Nota: la función `.then` está directamente vinculada al `fetch`. Por lo tanto, cuando se obtiene la respuesta se procede a ejecutar la función `.json()` inmediatamente en lugar de esperar a las otras peticiones.
 
-Si en su lugar utilizáramos `await Promise.all(names.map(name => fetch(...)))` y llamamos a la función `.json()` sobre los resultados, entonces esperaríamos a que todos las peticiones fetch completen antes de obtener una respuesta. Al agregar `.json()` directamente en cada `fetch`, nos aseguramos que las peticiones se procesen de manera independiente obteniendo una mejor respuesta en nuestra aplicación. 
+Si en su lugar utilizáramos `await Promise.all(names.map(name => fetch(...)))` y llamamos a la función `.json()` sobre los resultados, entonces esperaríamos a que todos las peticiones fetch completen antes de obtener una respuesta. Al agregar `.json()` directamente en cada `fetch`, nos aseguramos de que las peticiones se procesen de manera independiente obteniendo una mejor respuesta en nuestra aplicación. 
 
 Esto es un ejemplo de como la API de Promesas puede ser útil aunque mayormente se utilice `async/await`.
