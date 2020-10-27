@@ -1,9 +1,9 @@
 
-async function obtenerUsuarios(nombresUsuarios) {
+async function getUsers(names) {
   let jobs = [];
 
-  for(let nombre of nombresUsuarios) {
-    let job = fetch(`https://api.github.com/users/${nombre}`).then(
+  for(let name of names) {
+    let job = fetch(`https://api.github.com/users/${name}`).then(
       successResponse => {
         if (successResponse.status != 200) {
           return null;
@@ -18,7 +18,7 @@ async function obtenerUsuarios(nombresUsuarios) {
     jobs.push(job);
   }
 
-  let resultados = await Promise.all(jobs);
+  let results = await Promise.all(jobs);
 
-  return resultados;
+  return results;
 }
