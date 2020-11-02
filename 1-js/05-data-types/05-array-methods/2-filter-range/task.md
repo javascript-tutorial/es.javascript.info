@@ -4,7 +4,11 @@ importance: 4
 
 # Filtrar un rango
 
+<<<<<<< HEAD
 Escribe una función `filterRange(arr, a, b)` que obtenga un array `arr`, busque los elementos entre `a` y `b` y devuelva un array con los resultados. 
+=======
+Write a function `filterRange(arr, a, b)` that gets an array `arr`, looks for elements with values higher or equal to `a` and lower or equal to `b` and return a result as an array.
+>>>>>>> dccca58f268ad6d5a6f2160613a8ea3c5cd53a2d
 
 La función no debe modificar el array. Debe devolver un nuevo array.
 

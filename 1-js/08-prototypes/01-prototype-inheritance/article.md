@@ -12,7 +12,11 @@ En JavaScript, los objetos tienen una propiedad oculta especial `[[Prototype]]` 
 
 ![prototype](object-prototype-empty.svg)
 
+<<<<<<< HEAD
 El prototipo es un poco "mágico". Cuando queremos leer una propiedad de `object`, y falta, JavaScript la toma automáticamente del prototipo. En programación, tal cosa se llama "herencia prototípica". Muchas características geniales del lenguaje y técnicas de programación se basan en él.
+=======
+When we  read a property from `object`, and it's missing, JavaScript automatically takes it from the prototype. In programming, such thing is called "prototypal inheritance". And soon we'll study many examples of such inheritance, as well as cooler language features built upon it.
+>>>>>>> dccca58f268ad6d5a6f2160613a8ea3c5cd53a2d
 
 La propiedad `[[Prototype]]` es interna y está oculta, pero hay muchas formas de configurarla.
 
@@ -27,10 +31,11 @@ let rabbit = {
 };
 
 *!*
-rabbit.__proto__ = animal;
+rabbit.__proto__ = animal; // sets rabbit.[[Prototype]] = animal
 */!*
 ```
 
+<<<<<<< HEAD
 ```smart header="`__proto__` es un getter/setter histórico para `[[Prototype]]`"
 Tenga en cuenta que `__proto__` *no es lo mismo* que `[[Prototype]] `. Es un getter/setter para este.
 
@@ -40,6 +45,9 @@ Según la especificación, `__proto__` solo debe ser compatible con los navegado
 ```
 
 Si buscamos una propiedad en `rabbit`, y falta, JavaScript automáticamente la toma de `animal`.
+=======
+Now if we read a property from `rabbit`, and it's missing, JavaScript will automatically take it from `animal`.
+>>>>>>> dccca58f268ad6d5a6f2160613a8ea3c5cd53a2d
 
 Por ejemplo:
 
@@ -130,14 +138,37 @@ alert(longEar.jumps); // verdadero (desde rabbit)
 
 ![](proto-animal-rabbit-chain.svg)
 
+<<<<<<< HEAD
 Solo hay dos limitaciones:
+=======
+Now if we read something from `longEar`, and it's missing, JavaScript will look for it in `rabbit`, and then in `animal`.
+
+There are only two limitations:
+>>>>>>> dccca58f268ad6d5a6f2160613a8ea3c5cd53a2d
 
 1. Las referencias no pueden ir en círculos. JavaScript arrojará un error si intentamos asignar `__proto__` en un círculo.
 2. El valor de `__proto__` puede ser un objeto o `nulo`. Otros tipos son ignorados.
 
 También puede ser obvio, pero aún así: solo puede haber un `[[Prototype]]`. Un objeto no puede heredar desde dos.
 
+<<<<<<< HEAD
 ## La escritura no usa prototipo
+=======
+
+```smart header="`__proto__` is a historical getter/setter for `[[Prototype]]`"
+It's a common mistake of novice developers not to know the difference between these two. 
+
+Please note that `__proto__` is *not the same* as the internal `[[Prototype]]` property. It's a getter/setter for `[[Prototype]]`. Later we'll see situations where it matters,  for now let's just keep it in mind, as we build our understanding of JavaScript language.
+
+The `__proto__` property is a bit outdated. It exists for historical reasons, modern JavaScript suggests that we should use `Object.getPrototypeOf/Object.setPrototypeOf` functions instead that get/set the prototype. We'll also cover these functions later. 
+
+By the specification, `__proto__` must only be supported by browsers. In fact though, all environments including server-side support `__proto__`, so we're quite safe using it.
+
+As the `__proto__` notation is a bit more intuitively obvious, we use it in the examples.
+```
+
+## Writing doesn't use prototype
+>>>>>>> dccca58f268ad6d5a6f2160613a8ea3c5cd53a2d
 
 El prototipo solo se usa para leer propiedades.
 
@@ -198,8 +229,13 @@ alert(admin.fullName); // John Smith (*)
 // disparadores setter!
 admin.fullName = "Alice Cooper"; // (**)
 
+<<<<<<< HEAD
 alert(admin.fullName); // Alice Cooper , estado de admin modificado
 alert(user.fullName); // John Smith , estado de user protegido
+=======
+alert(admin.fullName); // Alice Cooper, state of admin modified
+alert(user.fullName); // John Smith, state of user protected
+>>>>>>> dccca58f268ad6d5a6f2160613a8ea3c5cd53a2d
 ```
 
 Aquí en la línea `(*)` la propiedad `admin.fullName` tiene un getter en el prototipo `user`, por lo que es llamado. Y en la línea `(**)` la propiedad tiene un setter en el prototipo, por lo que es llamado.

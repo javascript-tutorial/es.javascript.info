@@ -406,7 +406,11 @@ Unos ejemplos:
     alert( Math.pow(2, 10) ); // 2 elevado a la potencia de 10 = 1024
     ```
 
+<<<<<<< HEAD
 Hay más funciones y constantes en el objeto `Math`, incluyendo trigonometría, que puedes encontrar en la [documentación del objeto Math](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Math).
+=======
+There are more functions and constants in `Math` object, including trigonometry, which you can find in the [docs for the Math object](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Math).
+>>>>>>> dccca58f268ad6d5a6f2160613a8ea3c5cd53a2d
 
 ## Resumen
 

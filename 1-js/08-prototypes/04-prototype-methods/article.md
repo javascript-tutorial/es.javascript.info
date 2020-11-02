@@ -197,7 +197,13 @@ Los métodos modernos para configurar y acceder directamente al prototipo son:
 - [Object.getPrototypeOf(obj)](mdn:js/Object.getPrototypeOf) - devuelve el `[[Prototype]]` de `obj` (igual que el getter de `__proto__`).
 - [Object.setPrototypeOf(obj, proto)](mdn:js/Object.setPrototypeOf) - establece el `[[Prototype]]` de `obj` en `proto` (igual que el setter de `__proto__`).
 
+<<<<<<< HEAD
 El getter/setter incorporado de `__proto__` no es seguro si queremos poner claves generadas por el usuario en un objeto. Aunque un usuario puede ingresar `"__proto __"` como clave, y habrá un error, con consecuencias levemente dañinas, pero generalmente impredecibles.
+=======
+- [Object.create(proto, [descriptors])](mdn:js/Object/create) -- creates an empty object with a given `proto` as `[[Prototype]]` (can be `null`) and optional property descriptors.
+- [Object.getPrototypeOf(obj)](mdn:js/Object/getPrototypeOf) -- returns the `[[Prototype]]` of `obj` (same as `__proto__` getter).
+- [Object.setPrototypeOf(obj, proto)](mdn:js/Object/setPrototypeOf) -- sets the `[[Prototype]]` of `obj` to `proto` (same as `__proto__` setter).
+>>>>>>> dccca58f268ad6d5a6f2160613a8ea3c5cd53a2d
 
 
 Entonces podemos usar `Object.create(null)` para crear un objeto "muy simple" sin `__proto__`, o apegarnos a los objetos `Map` para eso.

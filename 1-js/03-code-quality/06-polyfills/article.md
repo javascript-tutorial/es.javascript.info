@@ -22,7 +22,12 @@ En realidad, hay dos partes en Babel:
 
 2. Segundo, el polyfill.
 
+<<<<<<< HEAD
     El transpiler reescribe el código, por lo que se cubren las características de la sintaxis. Pero para funciones nuevas tenemos que escribir un script especial que las implemente. JavaScript es un lenguaje muy dinámico, puede que los scripts no solo agreguen nuevas funciones, sino también modifiquen las funciones incorporadas, para que actúen de forma correspondiente al estándar moderno.
+=======
+    New language features may include not only syntax constructs, but also built-in functions.
+    The transpiler rewrites the code, transforming syntax constructs into older ones. But as for new built-in functions, we need to implement them. JavaScript is a highly dynamic language, scripts may add/modify any functions, so that they behave according to the modern standard.
+>>>>>>> dccca58f268ad6d5a6f2160613a8ea3c5cd53a2d
 
     Existe el término "polyfill" para scripts que "llenan"(fill in) el vacío y agregan las implementaciones que faltan.
 

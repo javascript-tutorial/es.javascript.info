@@ -31,8 +31,14 @@ let array = [ john ];
 john = null; // sobrescribe la referencia
 
 *!*
+<<<<<<< HEAD
 // John se almacena dentro del array, por lo que no será recolectado por el recolector de basura
 // Lo podemos obtener como array[0]
+=======
+// the object previously referenced by john is stored inside the array 
+// therefore it won't be garbage-collected
+// we can get it as array[0]
+>>>>>>> dccca58f268ad6d5a6f2160613a8ea3c5cd53a2d
 */!*
 ```
 

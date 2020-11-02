@@ -25,7 +25,11 @@ alert( usersMapped[0].id ); // 1
 alert( usersMapped[0].fullName ); // John Smith
 ```
 
+<<<<<<< HEAD
 Ten en cuenta que para las funciones arrow necesitamos usar paréntesis adicionales.
+=======
+Please note that in the arrow functions we need to use additional brackets. 
+>>>>>>> dccca58f268ad6d5a6f2160613a8ea3c5cd53a2d
 
 No podemos escribirlo de la siguiente manera:
 ```js

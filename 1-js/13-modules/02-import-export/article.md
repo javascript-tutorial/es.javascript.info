@@ -322,9 +322,13 @@ export {default as User} from './user.js'; // reexportar default
 
 ¿Por qué se necesitaría eso? Veamos un caso de uso práctico.
 
+<<<<<<< HEAD
 Imagínese, estamos escribiendo un "paquete": una carpeta con muchos módulos, con algunas de las funciones exportadas al exterior (herramientas como NPM nos permiten publicar y distribuir dichos paquetes), y muchos módulos son solo "ayudantes", para uso interno en otros módulos de paquete.
 
 La estructura del archivo podría ser así:
+=======
+Imagine, we're writing a "package": a folder with a lot of modules, with some of the functionality exported outside (tools like NPM allow us to publish and distribute such packages, but we don't have to use them), and many modules are just "helpers", for internal use in other package modules.
+>>>>>>> dccca58f268ad6d5a6f2160613a8ea3c5cd53a2d
 
 ```
 auth/
@@ -378,7 +382,11 @@ export {default as User} from './user.js';
 
 La exportación predeterminada necesita un manejo separado cuando se reexporta.
 
+<<<<<<< HEAD
 Digamos que tenemos `user.js`, y nos gustaría volver a exportar la clase `User` de él:
+=======
+Let's say we have `user.js` with the `export default class User` and would like to re-export it:
+>>>>>>> dccca58f268ad6d5a6f2160613a8ea3c5cd53a2d
 
 ```js
 // 📁 user.js
@@ -387,6 +395,12 @@ export default class User {
 }
 ```
 
+<<<<<<< HEAD
+=======
+We can come across two problems with it:
+
+1. `export User from './user.js'` won't work. That would lead to a syntax error.
+>>>>>>> dccca58f268ad6d5a6f2160613a8ea3c5cd53a2d
 
 1. `export User from './user.js'` no funcionará. Qué puede fallar?... Pero es un errro de sintáxis!
 
@@ -400,7 +414,11 @@ Si nos gustaría reexportar tanto la exportación con nombre como la predetermin
     export {default} from './user.js'; // para reexportar la exportación predeterminada
     ```
 
+<<<<<<< HEAD
 Tales rarezas de reexportar la exportación predeterminada son una de las razones por las que a algunos desarrolladores no les gustan.
+=======
+Such oddities of re-exporting a default export are one of the reasons why some developers don't like default exports and prefer named ones.
+>>>>>>> dccca58f268ad6d5a6f2160613a8ea3c5cd53a2d
 
 ## Resumen
 

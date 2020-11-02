@@ -26,7 +26,11 @@ Por ejemplo, si hay un objeto en una variable local, y ese objeto tiene una prop
 
 Hay un proceso en segundo plano en el motor de JavaScript que se llama [recolector de basura] (https://es.wikipedia.org/wiki/Recolector_de_basura). Monitorea todos los objetos y elimina aquellos que se han vuelto inalcanzables.
 
+<<<<<<< HEAD
 ## Un ejemplo sencillo
+=======
+    For instance, if there's an object in a global variable, and that object has a property referencing another object, *that* object is considered reachable. And those that it references are also reachable. Detailed examples to follow.
+>>>>>>> dccca58f268ad6d5a6f2160613a8ea3c5cd53a2d
 
 Aquí va el ejemplo más simple:
 

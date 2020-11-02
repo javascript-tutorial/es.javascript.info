@@ -89,7 +89,11 @@ El problema es que antes de publicar el JavaScript a producción, este es compri
 
 Por ejemplo, si una función tiene `let userName`, el _minifier_ lo reemplaza a `let a` (o otra letra si esta está siendo utilizada), y lo hace en todas partes. Esto es normalmente una práctica segura, al ser una variable local, nada de fuera de la función puede acceder a ella. Y dentro de una función, el _minifier_ reemplaza todo lo que le menciona. Los Minificadores son inteligiente, ellos analizan la estructura del código, por lo tanto, no rompen nada. No realizan un simple buscar y reemplazar.
 
+<<<<<<< HEAD
 Pero, si `new Function` puede acceder a las variables externas, entonces no podría encontrar `userName`, ya que esto es pasada como un string _después_ de que el código haya sido minificado.
+=======
+For instance, if a function has `let userName`, minifier replaces it with `let a` (or another letter if this one is occupied), and does it everywhere. That's usually a safe thing to do, because the variable is local, nothing outside the function can access it. And inside the function, minifier replaces every mention of it. Minifiers are smart, they analyze the code structure, so they don't break anything. They're not just a dumb find-and-replace.
+>>>>>>> dccca58f268ad6d5a6f2160613a8ea3c5cd53a2d
 
 **Incluso si podemos acceder al entorno léxico con `new Function`, tendríamos problemas con los minificadores**
 

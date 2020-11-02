@@ -20,8 +20,13 @@ Tiene 3 modos:
     alert( result.length ); // 2
 
     // Additional information:
+<<<<<<< HEAD
     alert( result.index );  // 0 (match position)
     alert( result.input );  // I love JavaScript (cadena de entrada)
+=======
+    alert( result.index );  // 7 (match position)
+    alert( result.input );  // I love JavaScript (source string)
+>>>>>>> dccca58f268ad6d5a6f2160613a8ea3c5cd53a2d
     ```
 
 2. Si la expresión regular (`regexp`) tiene la bandera `pattern:g`, retorna un array de todas las coincidencias como cadenas, sin capturar grupos y otros detalles.
