@@ -387,7 +387,7 @@ export default class User {
 }
 ```
 
-Podemo tener dos problemas:
+Podemos tener dos problemas:
 
 1. `export User from './user.js'` no funcionará. Nos dará un error de sintaxis.
 
