@@ -419,13 +419,14 @@ Ahora sí funciona como esperábamos.
 
 Demos un paso al costado un momento y pensemos que es lo que está pasando. El array `arr` puede ser un array de cualquier cosa, ¿no? Puede contener números, strings, objetos o lo que sea. Podemos decir que tenemos un conjunto de *ciertos items*. Para ordenarlos, necesitamos una *función de orden* que sepa cómo comparar los elementos. El orden por defecto es hacerlo como strings.
 
-El método `arr.sort(fn)` implementa un algorito genérico de orden. No necesitamos preocuparnos de cómo funciona internamente (la mayoría de las veces es una forma optimizada del algoritmo [quicksort](https://es.wikipedia.org/wiki/Quicksort)). Este método va a recorrer el array, comparar sus elementos usando la función dada y, finalmente, reordenarlos. Todo los que necesitamos hacer es proveer la `fn` que realiza la comparación.
+El método `arr.sort(fn)` implementa un algorito genérico de orden. No necesitamos preocuparnos de cómo funciona internamente (la mayoría de las veces es una forma optimizada del algoritmo [quicksort](https://es.wikipedia.org/wiki/Quicksort) o [Timsort](https://en.wikipedia.org/wiki/Timsort)). Este método va a recorrer el array, comparar sus elementos usando la función dada y, finalmente, reordenarlos. Todo los que necesitamos hacer es proveer la `fn` que realiza la comparación.
 
 Por cierto, si alguna vez queremos saber qué elementos son comparados -- nada nos impide ejecutar alert() en ellos:
 
 ```js run
 [1, -2, 15, 2, 0, 8].sort(function(a, b) {
   alert( a + " <> " + b );
+  return a - b;
 });
 ```
 
@@ -700,7 +701,7 @@ alert(soldiers[1].age); // 23
 
 Si en el ejemplo anterior usamos `users.filter(army.canJoin)`, entonces `army.canJoin` puede ser llamada como una función independiente, con `this=undefined`, lo que puede llevar a un error instantáneo.
 
-La llamada a `users.filter(army.canJoin, army)` puede ser reemplazada con `users.filter(user => army.canJoin(user))` que realiza lo mismo. La forma anterior se usa más a menudo, ya que es un poco más fácil de entender.
+La llamada a `users.filter(army.canJoin, army)` puede ser reemplazada con `users.filter(user => army.canJoin(user))` que realiza lo mismo. Esta última se usa más a menudo ya que es un poco más fácil de entender.
 
 ## Resumen
 
@@ -729,7 +730,7 @@ Veamos el ayudamemoria de métodos para arrays:
   - `sort(func)` -- ordena el array y lo devuelve.
   - `reverse()` -- ordena el array de forma inversa y lo devuelve.
   - `split/join` -- convierte una cadena en un array y viceversa.
-  - `reduce(func, initial)` -- calcula un solo valor para todo el array llamando a la `func` para cada elemento y pasando un resultado intermedio entre cada llamada.
+  - `reduce/reduceRight(func, initial)` -- calcula un solo valor para todo el array llamando a la `func` para cada elemento y pasando un resultado intermedio entre cada llamada.
 
 - Adicional:
   - `Array.isArray(arr)` comprueba que `arr` sea un array.
@@ -741,6 +742,8 @@ Estos métodos son los más utilizados y cubren el 99% de los casos. Pero existe
 - [arr.some(fn)](mdn:js/Array/some)/[arr.every(fn)](mdn:js/Array/every) comprueba el array.
 
   La función `fn` es llamada para cada elemento del array de manera similar a `map`. Si alguno/todos los  resultados son `true`, devuelve `true`, si no, `false`.
+    
+  Estos métodos se comportan con similitud a los operadores `||` y `&&`: si `fn` devuelve un valor verdadero, `arr.some()` devuelve `true` y detiene la iteración de inmediato; si `fn`  devuelve un valor falso, `arr.every()` devuelve `false` y detiene la iteración también.
 
 Podemos usar `every` para comparar arrays:
   ```js run
@@ -754,6 +757,8 @@ Podemos usar `every` para comparar arrays:
 - [arr.fill(value, start, end)](mdn:js/Array/fill) -- llena el array repitiendo `value` desde el índice `start` hasta `end`.
 
 - [arr.copyWithin(target, start, end)](mdn:js/Array/copyWithin) -- copia sus elementos desde la posición `start` hasta la posición `end` en *si mismo*, a la posición `target` (reescribe lo existente).
+
+- [arr.flat(depth)](mdn:js/Array/flat)/[arr.flatMap(fn)](mdn:js/Array/flatMap) crea un nuevo array plano desde un array multidimensional .
 
 Para la lista completa, ver [manual](mdn:js/Array).
 

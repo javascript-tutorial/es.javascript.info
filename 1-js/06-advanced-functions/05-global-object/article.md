@@ -25,6 +25,8 @@ var gVar = 5;
 alert(window.gVar); // 5 (se convirtió en una propiedad del objeto global)
 ```
 
+El mismo efecto lo tienen la declaraciones de función (sentencias con la palabra clave `function` en el flujo principal del código, no las expresiones de función).
+
 ¡Por favor no te fíes de eso! Este comportamiento existe por razones de compatibilidad. Los scripts modernos hacen uso de [Módulos Javascript](info:modules) para que tales cosas no sucedan.
 
 Si usáramos `let` en su lugar, esto no sucedería:

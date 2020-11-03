@@ -35,7 +35,7 @@ Por ejemplo:
 ```js run
 let user = {}; // El usuario no tiene dirección
 
-alert( user && user.address && user.address.street ); // undefined (no error)
+alert( user.address && user.address.street && user.address.street.name ); // undefined (no error)
 ```
 
 Poniendo AND en el camino completo a la propiedad asegura que todos los componentes existen (si no, la evaluación se detiene), pero es engorroso de escribir.
@@ -113,17 +113,20 @@ Por ejemplo, `?.()` Se usa para llamar a una función que puede no existir.
 En el siguiente código, algunos de nuestros usuarios tienen el método `admin`, y otros no:
 
 ```js run
-let user1 = {
+let userAdmin = {
   admin() {
     alert("I am admin");
   }
-}
+};
 
-let user2 = {};
+let userGuest = {};
 
 *!*
-user1.admin?.(); // I am admin
-user2.admin?.();
+userAdmin.admin?.(); // I am admin
+*/!*
+
+*!*
+userGuest.admin?.(); // nothing (no such method)
 */!*
 ```
 
