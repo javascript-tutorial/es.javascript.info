@@ -100,7 +100,7 @@ Pero si `new Function` pudiera acceder a las variables externas, no podría enco
 
 Además, tal código sería una mala arquitectura y propensa a errores.
 
-Para pasasr algo a una función creada como `new Function`, debemos usar sus argumentos.
+Para pasar algo a una función creada como `new Function`, debemos usar sus argumentos.
 
 ## Resumen
 
