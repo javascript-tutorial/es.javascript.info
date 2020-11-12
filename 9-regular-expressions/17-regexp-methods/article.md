@@ -20,7 +20,7 @@ Tiene 3 modos:
     alert( result.length ); // 2
 
     // Additional information:
-    alert( result.index );  // 0 (match position)
+    alert( result.index );  // 7 (match position)
     alert( result.input );  // I love JavaScript (cadena de entrada)
     ```
 

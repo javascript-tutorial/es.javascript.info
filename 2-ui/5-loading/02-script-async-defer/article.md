@@ -83,7 +83,7 @@ Digamos que tenemos dos scripts diferidos, `long.js` (largo) y luego `small.js` 
 
 Los navegadores analizan la página en busca de scripts y los descarga en paralelo para mejorar el rendimiento. Entonces en el ejemplo superior ambos scripts se descargan en paralelo, el `small.js` probablemente lo haga primero.
 
-...Pero el atributo `defer`, además de decirle al navegador "no bloquear", se asegura que el orden relativo se mantiene. Entonces incluso si `small.js` se carga primero, aún espera a hasta después que `long.js` se ejecuta.
+...Pero el atributo `defer`, además de decirle al navegador "no bloquear", asegura que el orden relativo se mantenga. Entonces incluso si `small.js` se carga primero, aún espera y se ejecuta después de `long.js`.
 
 Por ello es importante para casos donde necesitamos cargar un librería JavaScript y entonces un script que depende de ella.
 
