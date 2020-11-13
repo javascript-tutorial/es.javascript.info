@@ -15,7 +15,10 @@ E.g. we have a code string `subject:let varName = "value"`, and we need to read 
 
 We'll look for variable name using regexp `pattern:\w+`. Actually, JavaScript variable names need a bit more complex regexp for accurate matching, but here it doesn't matter.
 
-A call to `str.match(/\w+/)` will find only the first word in the line. Or all words with the flag `pattern:g`. But we need only one word at position `4`.
+- A call to `str.match(/\w+/)` will find only the first word in the line (`let`). That's not it.
+- We can add the flag `pattern:g`. But then the call `str.match(/\w+/g)` will look for all words in the text, while we need one word at position `4`. Again, not what we need.
+
+**So, how to search for a regexp exactly at the given position?**
 
 To search from the given position, we can use method `regexp.exec(str)`.
 
