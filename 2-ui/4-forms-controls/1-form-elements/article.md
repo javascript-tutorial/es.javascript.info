@@ -205,7 +205,9 @@ Aquí hay un ejemplo:
 </script>
 ```
 
-A diferencia de la mayoría de controles, `<select>` permite seleccionar multiples opciones a la vez si tiene el atributo `multiple`. Esta característica es raramente utilizada. En ese caso, necesitamos usar la primera forma: Añade/elimina la propiedad `selected` de los subelementos `<option>`.
+A diferencia de la mayoría de controles, `<select>` permite seleccionar multiples opciones a la vez si tiene el atributo `multiple`. Esta característica es raramente utilizada. 
+
+En ese caso, necesitamos usar la primera forma: Añade/elimina la propiedad `selected` de los subelementos `<option>`.
 
 Podemos obtener su colección como `select.options`, por ejemplo:
 

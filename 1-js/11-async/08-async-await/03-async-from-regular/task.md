@@ -1,7 +1,7 @@
 
 # Llamado async desde un non-async
 
-Tenemos una función "regular". ¿Cómo llamar `async` desde ella y usar el resultado?
+Tenemos una función "regular" llamada `f`. ¿Cómo llamar la función `async`, `wait()` y usar su  resultado dentro de `f`?
 
 ```js
 async function wait() {

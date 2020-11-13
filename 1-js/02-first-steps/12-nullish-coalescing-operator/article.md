@@ -11,7 +11,7 @@ El resultado de `a ?? b` es:
 Entonces, `x = a ?? b` es la versión corta de:
 
 ```js
-x = (a !== null && a !== undefined) ? a : b;
+result = (a !== null && a !== undefined) ? a : b;
 ```
 
 Aquí un ejemplo más detallado.

@@ -41,8 +41,8 @@ document.head.append(script);
 
 *!*
 script.onload = function() {
-  // el script crea una función de ayuda "_"
-  alert(_); // la función está disponible
+  // el script crea una variable "_"
+  alert( _.VERSION ); // muestra la versión de la librería
 };
 */!*
 ```
@@ -113,7 +113,7 @@ Esta regla también afecta a recursos de otros dominios.
 
 Si usamos un script de otro dominio y tiene un error, no podemos obtener detalles del error.
 
-Por ejemplo, tomemos un script `error.js` que consta de un única llamada a una función (con errores).
+Por ejemplo, tomemos un script `error.js` que consta de una sola llamada a una función (con errores).
 ```js
 // 📁 error.js
 noSuchFunction();

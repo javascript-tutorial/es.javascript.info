@@ -1,21 +1,21 @@
-# Shadow DOM styling
+# Estilo Shadow DOM
 
-Shadow DOM may include both `<style>` and `<link rel="stylesheet" href="…">` tags. In the latter case, stylesheets are HTTP-cached, so they are not redownloaded for multiple components that use same template.
+Shadow DOM puede incluir las etiquetas `<style>` y `<link rel="stylesheet" href="…">`. En este último caso, las hojas de estilo se almacenan en la caché HTTP, por lo que no se vuelven a descargar para varios de los componentes que usan la misma plantilla.
 
-As a general rule, local styles work only inside the shadow tree, and document styles work outside of it. But there are few exceptions.
+Como regla general, los estilos locales solo funcionan dentro del shadow tree, y los estilos de documentos funcionan fuera de él. Pero hay pocas excepciones.
 
 ## :host
 
-The `:host` selector allows to select the shadow host (the element containing the shadow tree).
+El selector `:host` permite seleccionar el shadow host (el elemento que contiene el shadow tree).
 
-For instance, we're making `<custom-dialog>` element that should be centered. For that we need to style the `<custom-dialog>` element itself.
+Por ejemplo, estamos creando un elemento `<custom-dialog>` que debería estar centrado. Para eso necesitamos diseñar el elemento `<custom-dialog>`.
 
-That's exactly what `:host` does:
+Eso es exactamente lo que `:host` hace:
 
 ```html run autorun="no-epub" untrusted height=80
 <template id="tmpl">
   <style>
-    /* the style will be applied from inside to the custom-dialog element */
+    /* el estilo se aplicará desde el interior al elemento de diálogo personalizado */
     :host {
       position: fixed;
       left: 50%;
@@ -42,13 +42,13 @@ customElements.define('custom-dialog', class extends HTMLElement {
 </custom-dialog>
 ```
 
-## Cascading
+## Cascada
 
-The shadow host (`<custom-dialog>` itself) resides in the light DOM, so it's affected by document CSS rules.
+El shadow host (`<custom-dialog>` en sí) reside en el light DOM, por lo que se ve afectado por las reglas de CSS del documento.
 
-If there's a property styled both in `:host` locally, and in the document, then the document style takes precedence.
+Si hay una propiedad con estilo tanto en el `:host` localmente, y en el documento, entonces el estilo del documento tiene prioridad.
 
-For instance, if in the document we had:
+Por ejemplo, si en el documento tenemos:
 ```html
 <style>
 custom-dialog {
@@ -56,18 +56,18 @@ custom-dialog {
 }
 </style>
 ```
-...Then the `<custom-dialog>` would be without padding.
+...Entonces el `<custom-dialog>` estaría sin padding.
 
-It's very convenient, as we can setup "default" component styles in its `:host` rule, and then easily override them in the document.
+Es muy conveniente, ya que podemos configurar estilos de componentes "predeterminados" en su regla `:host`, y luego sobreescribirlos fácilmente en el documento.
 
-The exception is when a local property is labelled `!important`, for such properties, local styles take precedence.
+La excepción es cuando una propiedad local está etiquetada como `!important`. Para tales propiedades, los estilos locales tienen prioridad.
 
 
 ## :host(selector)
 
-Same as `:host`, but applied only if the shadow host matches the `selector`.
+Igual que `:host`, pero se aplica solo si el shadow host coincide con el `selector`.
 
-For example, we'd like to center the `<custom-dialog>` only if it has `centered` attribute:
+Por ejemplo, nos gustaría centrar el `<custom-dialog>` solo si tiene el atributo `centered`:
 
 ```html run autorun="no-epub" untrusted height=80
 <template id="tmpl">
@@ -101,40 +101,40 @@ customElements.define('custom-dialog', class extends HTMLElement {
 
 
 <custom-dialog centered>
-  Centered!
+  ¡Centrado!
 </custom-dialog>
 
 <custom-dialog>
-  Not centered.
+  No centrado.
 </custom-dialog>
 ```
 
-Now the additional centering styles are only applied to the first dialog: `<custom-dialog centered>`.
+Ahora los estilos de centrado adicionales solo se aplican al primer diálogo: `<custom-dialog centered>`.
 
 ## :host-context(selector)
 
-Same as `:host`, but applied only if the shadow host or any of its ancestors in the outer document matches the `selector`.
+Igual que `:host`, pero se aplica solo si el shadow host o cualquiera de sus ancestros en el documento exterior coinciden con el `selector`.
 
-E.g. `:host-context(.dark-theme)` matches only if there's `dark-theme` class on `<custom-dialog>` on anywhere above it:
+p. ej. `:host-context(.dark-theme)` coincide solo si hay una clase `dark-theme` en `<custom-dialog>` en cualquier lugar por encima de el:
 
 ```html
 <body class="dark-theme">
   <!--
-    :host-context(.dark-theme) applies to custom-dialogs inside .dark-theme
+    :host-context(.dark-theme) se aplica a los custom-dialogs dentro de .dark-theme
   -->
   <custom-dialog>...</custom-dialog>
 </body>
 ```
 
-To summarize, we can use `:host`-family of selectors to style the main element of the component, depending on the context. These styles (unless `!important`) can be overridden by the document.
+Para resumir, podemos usar `:host`-familia de selectores para aplicar estilos al elemento principal del componente, según el contexto. Estos estilos (a menos que sea `!important`) pueden ser sobreescritos por el documento.
 
-## Styling slotted content
+## Estilo de contenido eslotado(cuando un elemento ha sido insertado en un slot, se dice que fue eslotado por su término en inglés slotted)
 
-Now let's consider the situation with slots.
+Ahora consideremos la situación con los slots.
 
-Slotted elements come from light DOM, so they use document styles. Local styles do not affect slotted content.
+Los elementos eslotados vienen del light DOM, por lo que usan estilos del documento. Los estilos locales no afectan al contenido de los elementos eslotados.
 
-In the example below, slotted `<span>` is bold, as per document style, but does not take `background` from the local style:
+En el siguiente ejemplo, el elemento eslotado `<span>` está en bold, según el estilo del documento, pero no toma el `background` del estilo local:
 ```html run autorun="no-epub" untrusted height=80
 <style>
 *!*
@@ -163,11 +163,11 @@ customElements.define('user-card', class extends HTMLElement {
 </script>
 ```
 
-The result is bold, but not red.
+El resultado es bold, pero no red.
 
-If we'd like to style slotted elements in our component, there are two choices.
+Si queremos aplicar estilos a elementos eslotados en nuestro componente, hay dos opciones.
 
-First, we can style the `<slot>` itself and rely on CSS inheritance:
+Primero, podemos aplicarle el estilo al elemento `<slot>` en sí mismo y confiar en la herencia CSS:
 
 ```html run autorun="no-epub" untrusted height=80
 <user-card>
@@ -191,14 +191,14 @@ customElements.define('user-card', class extends HTMLElement {
 </script>
 ```
 
-Here `<p>John Smith</p>` becomes bold, because CSS inheritance is in effect between the `<slot>` and its contents. But in CSS itself not all properties are inherited.
+Aquí `<p>John Smith</p>` se vuelve bold, porque la herencia CSS está en efecto entre el `<slot>` y su contenido. Pero en el propio CSS no todas las propiedades se heredan.
 
-Another option is to use `::slotted(selector)` pseudo-class. It matches elements based on two conditions:
+Otra opción es usar la pseudoclase `::slotted(selector)`. Coincide con elementos en función de 2 condiciones.
 
-1. That's a slotted element, that comes from the light DOM. Slot name doesn't matter. Just any slotted element, but only the element itself, not its children.
-2. The element matches the `selector`.
+1. Eso es un elemento eslotado, que viene del light DOM. El nombre del slot no importa. Cualquier elemento eslotado, pero solo el elemento en si, no sus hijos.
+2. El elemento coincide con el `selector`.
 
-In our example, `::slotted(div)` selects exactly `<div slot="username">`, but not its children:
+En nuestro ejemplo, `::slotted(div)` selecciona exactamente `<div slot="username">`, pero no sus hijos:
 
 ```html run autorun="no-epub" untrusted height=80
 <user-card>
@@ -224,45 +224,44 @@ customElements.define('user-card', class extends HTMLElement {
 </script>
 ```
 
-Please note, `::slotted` selector can't descend any further into the slot. These selectors are invalid:
+Tenga en cuenta, que el selector `::slotted` no puede descender más en el slot. Estos selectores no son válidos:
 
 ```css
 ::slotted(div span) {
-  /* our slotted <div> does not match this */
+  /* nuestro slotted <div> no coincide con esto */
 }
 
 ::slotted(div) p {
-  /* can't go inside light DOM */
+  /* No puede entrar en light DOM */
 }
 ```
 
-Also, `::slotted` can only be used in CSS. We can't use it in `querySelector`.
+También, `::slotted` solo se puede utilizar en CSS. No podemos usarlo en `querySelector`.
 
-## CSS hooks with custom properties
+## CSS hooks con propiedades personalizadas
 
-How do we style internal elements of a component from the main document?
+¿Cómo diseñamos los elementos internos de un componente del documento principal?
 
-Selectors like `:host` apply rules to `<custom-dialog>` element or `<user-card>`, but how to style shadow DOM elements inside them?
+Selectores como `:host` aplican reglas al elemento `<custom-dialog>` o `<user-card>`, ¿pero cómo aplicar estilos a elementos del shadow DOM dentro de ellos?
 
-There's no selector that can directly affect shadow DOM styles from the document. But just as we expose methods to interact with our component, we can expose CSS variables (custom CSS properties) to style it.
+No hay ningún selector que pueda afectar directamente a los estilos del shadow DOM del documento. Pero así como exponemos métodos para interactuar con nuestro componente, podemos exponer variables CSS (propiedades CSS personalizadas) para darle estilo.
 
-**Custom CSS properties exist on all levels, both in light and shadow.**
+**Existen propiedades CSS personalizadas en todos los niveles, tanto en light como shadow.**
 
-For example, in shadow DOM we can use `--user-card-field-color` CSS variable to  style fields, and the outer document can set its value:
+Por ejemplo, en el shadow DOM podemos usar la variable CSS `--user-card-field-color` para dar estilo a los campos, y en el documento exterior establecer su valor:
 
 ```html
 <style>
   .field {
     color: var(--user-card-field-color, black);
-    /* if --user-card-field-color is not defined, use black color */
+    /* si --user-card-field-color no esta definido, usar color negro */
   }
 </style>
 <div class="field">Name: <slot name="username"></slot></div>
 <div class="field">Birthday: <slot name="birthday"></slot></div>
-</style>
 ```
 
-Then, we can declare this property in the outer document for `<user-card>`:
+Entonces, podemos declarar esta propiedad en el documento exterior para `<user-card>`:
 
 ```css
 user-card {
@@ -270,9 +269,9 @@ user-card {
 }
 ```
 
-Custom CSS properties pierce through shadow DOM, they are visible everywhere, so the inner `.field` rule will make use of it.
+Las propiedades personalizadas CSS atraviesan el shadow DOM, son visibles en todas partes, por lo que la regla interna `.field` hará uso de ella.
 
-Here's the full example:
+Aquí está el ejemplo completo:
 
 ```html run autorun="no-epub" untrusted height=80
 <style>
@@ -312,24 +311,24 @@ customElements.define('user-card', class extends HTMLElement {
 
 
 
-## Summary
+## Resumen
 
-Shadow DOM can include styles, such as `<style>` or `<link rel="stylesheet">`.
+Shadow DOM puede incluir estilos, como `<style>` o `<link rel="stylesheet">`.
 
-Local styles can affect:
+Los estilos locales pueden afectar:
 - shadow tree,
-- shadow host with `:host`-family pseudoclasses,
-- slotted elements (coming from light DOM), `::slotted(selector)` allows to select  slotted elements themselves, but not their children.
+- shadow host con `:host`-familia de pseudoclases,
+- elementos eslotados (provenientes de light DOM), `::slotted(selector)` permite seleccionar elementos eslotados, pero no a sus hijos.
 
-Document styles can affect:
-- shadow host (as it lives in the outer document)
-- slotted elements and their contents (as that's also in the outer document)
+Los estilos de documentos pueden afectar:
+- shadow host (ya que vive en el documento exterior)
+- elementos eslotados y su contenido (ya que eso también está en el documento exterior)
 
-When CSS properties conflict, normally document styles have precedence, unless the property is labelled as `!important`. Then local styles have precedence.
+Cuando las propiedades CSS entran en conflicto, normalmente los estilos del documento tienen prioridad, a menos que la propiedad esté etiquetada como `!important`. Entonces, los estilos locales tienen prioridad.
 
-CSS custom properties pierce through shadow DOM. They are used as "hooks" to style the component:
+Las propiedades CSS personalizadas atraviesan el shadow DOM. Se utilizan como "hooks" para aplicar estilos al componente:
 
-1. The component uses a custom CSS property to style key elements, such as `var(--component-name-title, <default value>)`.
-2. Component author publishes these properties for developers, they are same important as other public component methods.
-3. When a developer wants to style a title, they assign `--component-name-title` CSS property for the shadow host or above.
-4. Profit!
+1. El componente utiliza una propiedad CSS personalizada para aplicar estilos a elementos clave, como `var(--component-name-title, <default value>)`.
+2. El autor del componente publica estas propiedades para los desarrolladores, son tan importantes como otros métodos de componentes públicos.
+3. Cuando un desarrollador desea aplicar un estilo a un título, asigna la propiedad CSS `--component-name-title` para el shadow host o superior.
+4. ¡Beneficio!

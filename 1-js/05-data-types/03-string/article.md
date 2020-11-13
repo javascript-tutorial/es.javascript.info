@@ -110,7 +110,7 @@ alert('Yo soy \'Walrus\''); // Yo soy 'Walrus'
 
 Como puedes ver, debimos anteponer un caracter de escape `\` antes de cada comilla ya que de otra manera hubiera indicado el final del string.
 
-Obviamente, eso se refiere sólo a las comillas que son iguales a las que están rodeando al string. Por lo que, una solución más elegante sería cambiar a comillas dobles o backticks:
+Obviamente, eso se refiere sólo a las comillas que son iguales a las que están rodeando al string. Una solución más elegante sería cambiar a comillas dobles o backticks:
 
 ```js run
 alert(`Yo soy "Walrus"`); // Yo soy "Walrus"

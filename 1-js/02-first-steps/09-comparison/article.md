@@ -57,7 +57,9 @@ El algoritmo para comparar dos cadenas es simple:
 4. Repita hasta el final de cada cadena.
 5. Si ambas cadenas tienen la misma longitud, entonces son iguales. De lo contrario, la cadena más larga es mayor.
 
-En los ejemplos anteriores, la comparación `'Z' > 'A'` llega a un resultado en el primer paso, mientras que las cadenas `"Glow"` y `"Glee"` se comparan carácter por carácter:
+En los ejemplos anteriores, la comparación `'Z' > 'A'` llega a un resultado en el primer paso.
+
+La segunda comparación `"Glow"` y `"Glee"` necesitan más pasos, se comparan carácter por carácter:
 
 1. `G` es igual que `G`.
 2. `l` es igual que `l`.
