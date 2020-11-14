@@ -70,7 +70,7 @@ Se pueden declarar usando:
 - `var` (estilo antiguo, lo veremos más tarde)
 
 Un nombre de variable puede incluir:
-- Letras y dígitos, pero el primer carácter puede no ser un dígito.
+- Letras y dígitos, pero el primer carácter no puede ser un dígito.
 - Los caracteres `$` y `_` son normales, al igual que las letras.
 - Los alfabetos y jeroglíficos no latinos también están permitidos, pero comúnmente no se usan.
 
@@ -223,7 +223,7 @@ switch (age) {
     break;
 
   default:
-    alert("Cualquier valor no igual a uno arriba");
+    alert("Todo valor que no sea igual a uno de arriba");
 }
 ```
 
@@ -256,19 +256,19 @@ Cubrimos tres formas de crear una función en JavaScript:
 3. Funciones de flecha:
 
     ```js
-    // expression at the right side
+    // la expresión en el lado derecho
     let sum = (a, b) => a + b;
 
-    // or multi-line syntax with { ... }, need return here:
+    // o sintaxi multilínea { ... }, necesita return aquí:
     let sum = (a, b) => {
       // ...
       return a + b;
     }
 
-    // without arguments
+    // sin argumentos
     let sayHi = () => alert("Hello");
 
-    // with a single argument
+    // con un único argumento
     let double = n => n * 2;
     ```
 
