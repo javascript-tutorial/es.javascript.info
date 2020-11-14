@@ -25,7 +25,7 @@ function loadScript(src, callback) {
 
 Vamos a promisificarla. La función nueva `loadScriptPromise(src)` va a hacer lo mismo, pero solo acepta `src` (sin callback) y retorna una promesa.
 
-Here it is:
+Aquí:
 ```js
 let loadScriptPromise = function(src) {
   return new Promise((resolve, reject) => {
