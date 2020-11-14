@@ -365,7 +365,7 @@ Explayando más sobre cómo funciona:
 2. Los commits son devueltos en formato JSON.
 3. Deberíamos obtener la siguiente URL de la página del `enlace` en el encabezado de la respuesta. Esto tiene un formato especial, por lo que usamos una expresión regular para eso (aprenderemos esta característica en [Regular expressions](info:regular-expressions)). 
     - La URL de la página siguiente puede verse así `https://api.github.com/repositories/93253246/commits?page=2`. Eso es generado por el propio Github.
-4. Luego entregamos todos los "commit" recibidos uno por uno, y cuando finalizan, se activará la siguiente iteración `while(url)` haciendo una solicitud más.
+4. Luego entregamos uno por uno todos los "commit" recibidos y, cuando finalizan, se activará la siguiente iteración `while(url)` haciendo una solicitud más.
 
 Un ejemplo de uso (muestra autores de commit en la consola):
 
