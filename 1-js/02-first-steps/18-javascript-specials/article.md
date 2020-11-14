@@ -259,7 +259,7 @@ Cubrimos tres formas de crear una función en JavaScript:
     // la expresión en el lado derecho
     let sum = (a, b) => a + b;
 
-    // o sintaxi multilínea { ... }, necesita return aquí:
+    // o sintaxis multilínea { ... }, necesita return aquí:
     let sum = (a, b) => {
       // ...
       return a + b;
