@@ -31,7 +31,7 @@ rabbit.__proto__ = animal;
 */!*
 ```
 
-Ahora, si buscamos una propiedad en `rabbit` y falta, JavaScript la toma automáticamente de `animal`.
+Si buscamos una propiedad en `rabbit`, y falta, JavaScript la toma automáticamente de `animal`.
 
 Por ejemplo:
 
