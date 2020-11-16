@@ -12,7 +12,7 @@ En JavaScript, los objetos tienen una propiedad oculta especial `[[Prototype]]` 
 
 ![prototype](object-prototype-empty.svg)
 
-Cuando leemos una propiedad de `object`, y falta, JavaScript la toma automáticamente del prototipo. En programación, tal cosa se llama "herencia prototípica". Pronto estudiaremoss muchos ejemplos de tal herencia y otras características geniales del lenguaje basadas en ella.
+Cuando leemos una propiedad de `object`, y falta, JavaScript la toma automáticamente del prototipo. En programación esto se llama "herencia prototípica". Pronto estudiaremos muchos ejemplos de esta herencia y otras características interesantes del lenguaje que se basan en ella.
 
 La propiedad `[[Prototype]]` es interna y está oculta, pero hay muchas formas de configurarla.
 
