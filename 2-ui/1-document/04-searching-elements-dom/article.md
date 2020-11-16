@@ -70,8 +70,13 @@ El `id` debe ser único. Sólo puede haber en todo el documento un elemento con 
 Si hay múltiples elementos con el mismo id, entonces el comportamiento de los métodos que lo usan es impredecible, por ejemplo `document.getElementById` puede devolver cualquiera de esos elementos al azar. Así que, por favor, sigan la regla y mantengan el `id` único. 
 ```
 
+<<<<<<< HEAD
 ```warn header="Sólo `document.getElementById`, no `anyElem.getElementById`"
 El método `getElementById` sólo puede ser llamado en el objeto `document`. Busca el `id` dado en todo el documento.
+=======
+```warn header="Only `document.getElementById`, not `anyElem.getElementById`"
+The method `getElementById` can be called only on `document` object. It looks for the given `id` in the whole document.
+>>>>>>> 99e59ba611ab11319ef9d0d66734b0bea2c3f058
 ```
 
 ## querySelectorAll [#querySelectorAll]
@@ -363,7 +368,11 @@ Hay 6 métodos principales para buscar nodos en el DOM:
 </tbody>
 </table>
 
+<<<<<<< HEAD
 Los más utilizados son `querySelector` y `querySelectorAll`, pero `getElementBy*` puede ser de ayuda esporádicamente o encontrarse en scripts antiguos.
+=======
+By far the most used are `querySelector` and `querySelectorAll`, but `getElement(s)By*` can be sporadically helpful or found in the old scripts.
+>>>>>>> 99e59ba611ab11319ef9d0d66734b0bea2c3f058
 
 Aparte de eso:
 

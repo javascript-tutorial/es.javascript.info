@@ -198,7 +198,11 @@ En el modo XML, el caso se mantiene "tal cual". Hoy en día, el modo XML rara ve
 
 ## innerHTML: los contenidos
 
+<<<<<<< HEAD
 La propiedad [innerHTML](https://w3c.github.io/DOM-Parsing/#widl-Element-innerHTML) permite obtener el HTML dentro del elemento como un string.
+=======
+The [innerHTML](https://w3c.github.io/DOM-Parsing/#the-innerhtml-mixin) property allows to get the HTML inside the element as a string.
+>>>>>>> 99e59ba611ab11319ef9d0d66734b0bea2c3f058
 
 También podemos modificarlo. Así que es una de las formas más poderosas de cambiar la página.
 

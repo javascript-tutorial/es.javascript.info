@@ -132,7 +132,11 @@ Podemos esbozarlo como:
   </li>
 </ul>
 
+<<<<<<< HEAD
 Ahí es cuando la función comienza a ejecutarse. La condición `n == 1` es falsa, por lo que el flujo continúa en la segunda rama de` if`:
+=======
+That's when the function starts to execute. The condition `n == 1` is falsy, so the flow continues into the second branch of `if`:
+>>>>>>> 99e59ba611ab11319ef9d0d66734b0bea2c3f058
 
 ```js run
 function pow(x, n) {
@@ -188,7 +192,11 @@ El nuevo contexto de ejecución actual está en la parte superior (y en negrita)
 Cuando terminamos la subllamada -- es fácil reanudar el contexto anterior, ya que mantiene ambas variables y el lugar exacto del código donde se detuvo. Aquí en la imagen usamos la palabra "línea", pero por supuesto es más precisa.
 
 ```smart
+<<<<<<< HEAD
 En la figura usamos la palabra línea "line" porque en nuestro ejemplo hay solo una subllamada en línea, pero generalmente una simple línea de código puede contener múltiples subllamadas, como `pow(…) + pow(…) + otraCosa(…)`.
+=======
+Here in the picture we use the word "line", as in our example there's only one subcall in line, but generally a single line of code may contain multiple subcalls, like `pow(…) + pow(…) + somethingElse(…)`.
+>>>>>>> 99e59ba611ab11319ef9d0d66734b0bea2c3f058
 
 Entonces sería más preciso decir que la ejecución se reanuda "inmediatamente después de la subllamada".
 ```

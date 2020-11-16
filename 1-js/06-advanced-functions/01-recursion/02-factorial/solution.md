@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 Por definición, un factorial de `n!` puede ser escrito como `n * (n-1)!`.
+=======
+By definition, a factorial `n!` can be written as `n * (n-1)!`.
+>>>>>>> 99e59ba611ab11319ef9d0d66734b0bea2c3f058
 
 En otras palabras, el resultado de `factorial(n)` se puede calcular como `n` multiplicado por el resultado de `factorial(n-1)`. Y la llamada de `n-1` puede descender recursivamente más y más hasta `1`.
 

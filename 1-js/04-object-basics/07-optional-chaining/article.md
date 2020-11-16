@@ -46,7 +46,17 @@ El encadenamiento opcional `?.` detiene la evaluación y devuelve` undefined` si
 
 **De aquí en adelante en este artículo, por brevedad, diremos que algo "existe" si no es `null` o `undefined`.**
 
+<<<<<<< HEAD
 Aquí está la forma segura de acceder a `user.address.street`:
+=======
+**Further in this article, for brevity, we'll be saying that something "exists" if it's not `null` and not `undefined`.**
+
+In other words, `value?.prop`:
+- is the same as `value.prop` if `value` exists,
+- otherwise (when `value` is `undefined/null`) it returns `undefined`.
+
+Here's the safe way to access `user.address.street` using `?.`:
+>>>>>>> 99e59ba611ab11319ef9d0d66734b0bea2c3f058
 
 ```js run
 let user = {}; // El usuario no tiene dirección

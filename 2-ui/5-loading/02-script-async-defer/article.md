@@ -37,7 +37,11 @@ Afortunadamente hay dos atributos de `<script>` que resuelven ese problema para 
 
 ## defer
 
+<<<<<<< HEAD
 El atributo `defer` indica al navegador que no espere por el script. En lugar de ello, debe seguir procesando el HTML, construir el DOM. El script carga "en segundo plano" y se ejecuta cuando el DOM esta completo.
+=======
+The `defer` attribute tells the browser not to wait for the script. Instead, the browser will continue to process the HTML, build DOM. The script loads "in the background", and then runs when the DOM is fully built.
+>>>>>>> 99e59ba611ab11319ef9d0d66734b0bea2c3f058
 
 Aquí está el mismo ejemplo de arriba pero con `defer`:
 
@@ -97,6 +101,7 @@ El atributo `async` es de alguna manera como `defer`. También hace el script no
 
 El atributo `async` significa que el script es completamente independiente:
 
+<<<<<<< HEAD
 - El navegador no se bloquea con scripts `async` (como `defer`).
 - Otros scripts no esperan por scripts `async`, y scripts `async` no espera por ellos.
 - El evento `DOMContentLoaded` y los scripts asincrónicos no se esperan entre sí:
@@ -104,6 +109,15 @@ El atributo `async` significa que el script es completamente independiente:
     - ...o después de un script asincrónico (si tal script asincrónico es pequeño o está en cache)
 
 En otras palabras, los scripts `async` cargan en segundo plano y se ejecutan cuando están listos. El DOM y otros scripts no esperan por ellos, y ellos no esperan por nada. Un totalmente independiente script que se ejecuta en cuanto se ha cargado. Tan simple como es posible, ¿cierto? 
+=======
+- The browser doesn't block on `async` scripts (like `defer`).
+- Other scripts don't wait for `async` scripts, and `async` scripts don't wait for them.
+- `DOMContentLoaded` and async scripts don't wait for each other:
+    - `DOMContentLoaded` may happen both before an async script (if an async script finishes loading after the page is complete)
+    - ...or after an async script (if an async script is short or was in HTTP-cache)
+
+In other words, `async` scripts load in the background and run when ready. The DOM and other scripts don't wait for them, and they don't wait for anything. A fully independent script that runs when loaded. As simple, at it can get, right?
+>>>>>>> 99e59ba611ab11319ef9d0d66734b0bea2c3f058
 
 Aquí hay un ejemplo similar al que vimos con `defer`: Dos scripts `long.js` y `small.js`, pero ahora con `async` en lugar de `defer`.
 
