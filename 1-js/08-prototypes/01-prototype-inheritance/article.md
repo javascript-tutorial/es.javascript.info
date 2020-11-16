@@ -12,7 +12,7 @@ En JavaScript, los objetos tienen una propiedad oculta especial `[[Prototype]]` 
 
 ![prototype](object-prototype-empty.svg)
 
-El prototipo es un poco "mágico". Cuando queremos leer una propiedad de `object`, y falta, JavaScript la toma automáticamente del prototipo. En programación, tal cosa se llama "herencia prototípica". Muchas características geniales del lenguaje y técnicas de programación se basan en él.
+Cuando leemos una propiedad de `object`, y falta, JavaScript la toma automáticamente del prototipo. En programación, tal cosa se llama "herencia prototípica". Pronto estudiaremoss muchos ejemplos de tal herencia y otras características geniales del lenguaje basadas en ella.
 
 La propiedad `[[Prototype]]` es interna y está oculta, pero hay muchas formas de configurarla.
 
@@ -31,15 +31,7 @@ rabbit.__proto__ = animal;
 */!*
 ```
 
-```smart header="`__proto__` es un getter/setter histórico para `[[Prototype]]`"
-Tenga en cuenta que `__proto__` *no es lo mismo* que `[[Prototype]] `. Es un getter/setter para este.
-
-Existe por razones históricas. En lenguaje moderno, se reemplaza con las funciones `Object.getPrototypeOf/Object.setPrototypeOf` que también obtienen/establecen el prototipo. Estudiaremos las razones de eso y estas funciones más adelante.
-
-Según la especificación, `__proto__` solo debe ser compatible con los navegadores, pero de hecho todos los entornos lo admiten, incluido el lado del servidor. Por ahora, como la notación `__proto__` es un poco más intuitiva, la usaremos en los ejemplos.
-```
-
-Si buscamos una propiedad en `rabbit`, y falta, JavaScript automáticamente la toma de `animal`.
+Ahora, si buscamos una propiedad en `rabbit` y falta, JavaScript la toma automáticamente de `animal`.
 
 Por ejemplo:
 
@@ -55,7 +47,7 @@ let rabbit = {
 rabbit.__proto__ = animal; // (*)
 */!*
 
-// // podemos encontrar ambas propiedades en conejo ahora:
+// podemos encontrar ambas propiedades en conejo ahora:
 *!*
 alert( rabbit.eats ); // verdadero (**)
 */!*
@@ -130,12 +122,27 @@ alert(longEar.jumps); // verdadero (desde rabbit)
 
 ![](proto-animal-rabbit-chain.svg)
 
+Ahora, si leemos algo de `longEar` y falta, JavaScript lo buscará en `rabbit`, y luego en `animal`.
+
 Solo hay dos limitaciones:
 
-1. Las referencias no pueden ir en círculos. JavaScript arrojará un error si intentamos asignar `__proto__` en un círculo.
-2. El valor de `__proto__` puede ser un objeto o `nulo`. Otros tipos son ignorados.
+1. No puede haber referencias circulares. JavaScript arrojará un error si intentamos asignar `__proto__` en un círculo.
+2. El valor de `__proto__` puede ser un objeto o `null`. Otros tipos son ignorados.
 
 También puede ser obvio, pero aún así: solo puede haber un `[[Prototype]]`. Un objeto no puede heredar desde dos.
+
+
+```smart header="`__proto__` es un getter/setter histórico para `[[Prototype]]`"
+Es un error común de principiantes no saber la diferencia entre ambos.
+
+Tenga en cuenta que `__proto__` *no es lo mismo* que `[[Prototype]]`. `__proto__` es un getter/setter para `[[Prototype]]`. Más adelante veremos situaciones donde esto importa, por ahora solo tengámoslo en cuenta mientras vamos entendiendo el lenguaje JavaScript.
+
+La propiedad `__proto__` es algo vetusta. Existe por razones históricas, el JavaScript moderno sugiere el uso de las funciones `Object.getPrototypeOf/Object.setPrototypeOf` en lugar de get/set del prototipo. Estudiaremos estas funciones más adelante.
+
+Según la especificación, `__proto__` solo debe ser soportado por los navegadores. Aunque de hecho, todos los entornos incluyendo los del lado del servidor soportan `__proto__`, así que bastante seguro usarlo.
+
+Como la notación `__proto__` es más intuitiva, la usaremos en los ejemplos.
+```
 
 ## La escritura no usa prototipo
 
@@ -159,11 +166,11 @@ let rabbit = {
 
 *!*
 rabbit.walk = function() {
-  alert("¡Conejo! Rebota-rebota!");
+  alert("¡Conejo! ¡Salta, salta!");
 };
 */!*
 
-rabbit.walk(); // ¡Conejo! Rebota-rebota!
+rabbit.walk(); // ¡Conejo! ¡Salta, salta!
 ```
 
 De ahora en adelante, la llamada `rabbit.walk()` encuentra el método inmediatamente en el objeto y lo ejecuta, sin usar el prototipo:
@@ -195,7 +202,7 @@ let admin = {
 
 alert(admin.fullName); // John Smith (*)
 
-// disparadores setter!
+// ¡Dispara el setter!
 admin.fullName = "Alice Cooper"; // (**)
 
 alert(admin.fullName); // Alice Cooper , estado de admin modificado
@@ -293,7 +300,6 @@ let rabbit = {
   jumps: true,
   __proto__: animal
 };
-
 
 for(let prop in rabbit) {
   let isOwn = rabbit.hasOwnProperty(prop);
