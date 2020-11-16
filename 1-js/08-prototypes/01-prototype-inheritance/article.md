@@ -47,7 +47,7 @@ let rabbit = {
 rabbit.__proto__ = animal; // (*)
 */!*
 
-// podemos encontrar ambas propiedades en conejo ahora:
+// Ahora podemos encontrar ambas propiedades en conejo:
 *!*
 alert( rabbit.eats ); // verdadero (**)
 */!*
