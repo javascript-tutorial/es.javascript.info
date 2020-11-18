@@ -381,7 +381,7 @@ Eventos:
 - `error`,
 - `close`.
 
-El WebSocket por sí mismo no incluye reconexión, autenticación ni otros mecanismos de alto nivel. Así que hay librerías cliente/servidor para eso, y también es posible implementar esas capacidades manualmente.
+El WebSocket por sí mismo no incluye reconexión, autenticación ni otros mecanismos de alto nivel. Hay librerías cliente/servidor para eso, y también es posible implementar esas capacidades manualmente.
 
 A veces, para integrar WebSocket a un proyecto existente, se ejecuta un servidor WebSocket en paralelo con el servidor HTTP principal compartiendo la misma base de datos. Las peticiones a WebSocket usan `wss://ws.site.com`, un subdominio que se dirige al servidor de WebSocket mientras que `https://site.com` va al servidor HTTP principal.
 
