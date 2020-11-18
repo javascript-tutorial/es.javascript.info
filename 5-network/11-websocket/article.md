@@ -316,13 +316,13 @@ socket.onmessage = function(event) {
 }
 ```
 
-El código de servidor está un algo fuera de nuestro objetivo. Aquí usaremos Node.js, pero no necesitas hacerlo. Otras plataformas también tienen sus formas de trabajar con WebSocket.
+El código de servidor está algo fuera de nuestro objetivo. Aquí usaremos Node.js, pero no necesitas hacerlo. Otras plataformas también tienen sus formas de trabajar con WebSocket.
 
 El algoritmo de lado de servidor será:
 
 1. Crear `clients = new Set()` -- un conjunto de sockets.
 2. Para cada websocket aceptado, sumarlo al conjunto `clients.add(socket)` y establecer un "event listener" `message` para obtener sus mensajes.
-3. Cuando un mensaje es recibido: iterar sobre los clientes y envierlo a todos.
+3. Cuando un mensaje es recibido: iterar sobre los clientes y enviarlo a todos ellos.
 4. Cuando una conexión se cierra: `clients.delete(socket)`.
 
 ```js
@@ -341,7 +341,7 @@ function onSocketConnect(ws) {
   clients.add(ws);
 
   ws.on('message', function(message) {
-    message = message.slice(0, 50); // la longitud de mensaje máxima será 50
+    message = message.slice(0, 50); // la longitud máxima del mensaje será 50
 
     for(let client of clients) {
       client.send(message);
@@ -359,7 +359,7 @@ Aquí está el ejemplo funcionando:
 
 [iframe src="chat" height="100" zip]
 
-Puedes descargarlo (botón arriba/derecha en el iframe) y correrlo localmente. No olvides instalar [Node.js](https://nodejs.org/en/) y `npm install ws` antes de ejecutarlo.
+Puedes descargarlo (botón arriba/derecha en el iframe) y ejecutarlo localmente. No olvides instalar [Node.js](https://nodejs.org/en/) y `npm install ws` antes de hacerlo.
 
 ## Resumen
 
