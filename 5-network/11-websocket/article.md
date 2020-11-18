@@ -12,7 +12,7 @@ Para abrir una conexión websocket, necesitamos crear `new WebSocket` usando el 
 let socket = new WebSocket("*!*ws*/!*://javascript.info");
 ```
 
-También hay una versión encriptada `wss://`. Equivale al HTTPS de los websockets.
+También hay una versión encriptada `wss://`. Equivale al HTTPS para los websockets.
 
 ```smart header="Siempre dé preferencia a `wss://`"
 El protocolo `wss://` no solamente está encriptado, también es más confiable.
