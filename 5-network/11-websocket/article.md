@@ -6,7 +6,7 @@ WebSocket es especialmente bueno para servicios que requieren intercambio de inf
 
 ## Un ejemplo simple
 
-Para abrir una conexión websocket, necesitamos crear `new WebSocket` usando el protocolo especial `ws` en la url:
+Para abrir una conexión websocket, necesitamos crearla `new WebSocket` usando el protocolo especial `ws` en la url:
 
 ```js
 let socket = new WebSocket("*!*ws*/!*://javascript.info");
@@ -19,7 +19,7 @@ El protocolo `wss://` no solamente está encriptado, también es más confiable.
 
 Esto es porque los datos en `ws://` no están encriptados y son visibles para cualquier intermediario. Entonces los servidores proxy viejos que no conocen el WebSocket podrían interpretar los datos como cabeceras "extrañas" y abortar la conexión.
 
-En cambio `wss://` es WebSocket sobre TLS (al igual que HTTPS es HTTP sobre TLS), la seguridad de la capa de transporte encripta los datos al que envía y los desencripta al que recibe. Los paquetes de datos pasan encriptados a través de los proxy. Estos servidores no pueden ver lo que hay dentro y los dejan pasar.
+En cambio `wss://` es WebSocket sobre TLS (al igual que HTTPS es HTTP sobre TLS), la seguridad de la capa de transporte encripta los datos del que envía y los desencripta para el que recibe. Los paquetes de datos pasan encriptados a través de los proxy. Estos servidores no pueden ver lo que hay dentro y los dejan pasar.
 ```
 
 Una vez que el socket es creado, debemos escuchar los eventos que ocurren en él. Hay en total 4 eventos:
@@ -60,7 +60,7 @@ socket.onerror = function(error) {
 };
 ```
 
-Para propósitos de demostración, hay un pequeño servidor [server.js](demo/server.js), escrito en Node.js, ejecutándose para el ejemplor de arriba. Este responde con "Hello from server, John", espera 5 segundos, y cierra la conexión.
+Para propósitos de demostración, hay un pequeño servidor [server.js](demo/server.js), escrito en Node.js, ejecutándose para el ejemplo de arriba. Este responde con "Hello from server, John", espera 5 segundos, y cierra la conexión.
 
 Entonces verás los eventos `open` -> `message` -> `close`.
 
