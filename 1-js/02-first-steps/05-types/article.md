@@ -40,7 +40,7 @@ Además de los números comunes, existen los llamados "valores numéricos especi
     ```js run
     alert( Infinity ); // Infinito
     ```
-- `NaN` representa un error de calculo. Es el resultado de una operación matemática incorrecta o indefinida, por ejemplo:
+- `NaN` representa un error de cálculo. Es el resultado de una operación matemática incorrecta o indefinida, por ejemplo:
 
     ```js run
     alert( "no es un número" / 2 ); // NaN, tal división es errónea
