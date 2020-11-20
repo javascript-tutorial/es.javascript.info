@@ -1,6 +1,6 @@
 # WebSocket
 
-El protocolo `WebSocket`, decripto en la especificación [RFC 6455](http://tools.ietf.org/html/rfc6455), brinda una forma de intercambiar datos entre el navegador y el servidor por medio de una conexión persistente. Los datos pueden ser pasados en ambas direcciones como paquetes "packets", sin cortar la conexión y sin pedidos de HTTP "HTTP-requests" adicionales.
+El protocolo `WebSocket`, descrito en la especificación [RFC 6455](http://tools.ietf.org/html/rfc6455), brinda una forma de intercambiar datos entre el navegador y el servidor por medio de una conexión persistente. Los datos pueden ser pasados en ambas direcciones como paquetes "packets", sin cortar la conexión y sin pedidos de HTTP "HTTP-requests" adicionales.
 
 WebSocket es especialmente bueno para servicios que requieren intercambio de información continua, por ejemplo juegos en línea, sistemas de negocios en tiempo real, entre otros.
 
