@@ -27,7 +27,7 @@ let rabbit = {
 };
 
 *!*
-rabbit.__proto__ = animal;
+rabbit.__proto__ = animal; // establece rabbit.[[Prototype]] = animal
 */!*
 ```
 

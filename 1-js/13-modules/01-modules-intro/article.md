@@ -260,7 +260,7 @@ Abajo compare con un script normal:
 
 <script>
 *!*
-  alert(typeof button); // Error: button es indefinido, el script no puede ver los elementos de abjo
+  alert(typeof button); // button es indefinido, el script no puede ver los elementos de abajo
 */!*
   // los scripts normales corren inmediatamente, antes que el resto de la página sea procesada
 </script>

@@ -144,7 +144,7 @@ loadScript('/my/script.js', function(script) {
     });
 */!*
 
-  })
+  });
 
 });
 ```
@@ -221,7 +221,7 @@ loadScript('1.js', function(error, script) {
         });
 
       }
-    })
+    });
   }
 });
 ```
@@ -279,7 +279,7 @@ loadScript('1.js', function(error, script) {
           }
         });
       }
-    })
+    });
   }
 });
 -->
@@ -319,7 +319,7 @@ function step3(error, script) {
   } else {
     // ...continua despues que se han cargado todos los scripts (*)
   }
-};
+}
 ```
 
 ¿Lo Ves? Hace lo mismo, y ahora no hay anidamiento profundo porque convertimos cada acción en una función de nivel superior separada.
