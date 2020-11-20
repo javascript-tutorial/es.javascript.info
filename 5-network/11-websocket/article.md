@@ -2,7 +2,7 @@
 
 El protocolo `WebSocket`, descripto en la especificación [RFC 6455](http://tools.ietf.org/html/rfc6455) brinda una forma de intercambiar datos entre el navegador y el servidor por medio de una conexión persistente. Los datos pueden ser pasados en ambas direcciones como paquetes "packets", sin cortar la conexión y sin pedidos de HTTP "HTTP-requests" adicionales.
 
-WebSocket es especialmente bueno para servicios que requieren intercambio de información continua, por ejemplo juegos en línea, sistemas de negocios en tiempo real y así.
+WebSocket es especialmente bueno para servicios que requieren intercambio de información continua, por ejemplo juegos en línea, sistemas de negocios en tiempo real, entre otros.
 
 ## Un ejemplo simple
 
@@ -91,7 +91,7 @@ Sec-WebSocket-Version: 13
 - `Origin` -- La página de origen del cliente, ej. `https://javascript.info`. Los objetos WebSocket son cross-origin por naturaleza. No existen las cabeceras especiales ni otras limitaciones. De cualquier manera los servidores viejos son incapaces de manejar WebSocket, asi que no hay problemas de compatibilidad. Pero la cabecera `Origin` es importante, pues habilita al servidor decidir si permite o no la comunicación WebSocket con el sitio web.
 - `Connection: Upgrade` -- señaliza que el cliente quiere cambiar el protocolo.
 - `Upgrade: websocket` -- el protocolo requerido es "websocket".
-- `Sec-WebSocket-Key` -- una clave de seguridad aleatoria generadaa por el navegador.
+- `Sec-WebSocket-Key` -- una clave de seguridad aleatoria generada por el navegador.
 - `Sec-WebSocket-Version` -- Versión del protocolo WebSocket, 13 es la actual.
 
 ```smart header="El intercambio WebSocket no puede ser emulado"
@@ -160,7 +160,7 @@ Sec-WebSocket-Protocol: soap
 
 Aquí el servidor responde que soporta la extensión "deflate-frame", y únicamente SOAP de los subprotocolos solicitados.
 
-## Transferencia de detos
+## Transferencia de datos
 
 La comunicación WebSocket consiste de "frames" (cuadros) de fragmentos de datos, que pueden ser enviados de ambos lados y pueden ser de varias clases:
 
@@ -333,7 +333,7 @@ const clients = new Set();
 
 http.createServer((req, res) => {
   // aquí solo manejamos conexiones websocket
-  // en proyectos reales tendremos también tendremos algún código para manejar peticiones no websocket
+  // en proyectos reales tendremos también algún código para manejar peticiones no websocket
   wss.handleUpgrade(req, req.socket, Buffer.alloc(0), onSocketConnect);
 });
 
