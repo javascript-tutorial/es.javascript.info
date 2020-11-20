@@ -21,7 +21,7 @@ let n = 123;
 n = 12.345;
 ```
 
-El tipo *número* representa tanto números enteros como de punto flotante.
+El tipo *number* representa tanto números enteros como de punto flotante.
 
 Hay muchas operaciones para números. Por ejemplo, multiplicación `*`, división `/`, suma `+`, resta `-`, y demás.
 
