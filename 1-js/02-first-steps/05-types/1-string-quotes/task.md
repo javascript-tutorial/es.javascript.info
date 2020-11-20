@@ -4,7 +4,7 @@ importance: 5
 
 # Comillas
 
-Cuál es la salida del script?
+¿Cuál es la salida del script?
 
 ```js
 let name = "Ilya";
