@@ -68,7 +68,7 @@ Simple, ¿no es así?  Lo que realmente ocurre en `str.toUpperCase()`:
 
 Así los primitivos pueden proveer métodos y aún permanecer livianos.
 
-El motor JavaScript optimiza este proceso enormemente.  Incluso puede saltear la creación del objeto extra por completo.  Pero aún se debe adherir a la especificación y comportarse como si creara uno.
+El motor JavaScript optimiza este proceso enormemente.  Incluso puede saltarse la creación del objeto extra por completo.  Pero aún se debe adherir a la especificación y comportarse como si creara uno.
 
 Un number tiene sus propios métodos, por ejemplo [toFixed(n)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Number/toFixed) redondea el número a la precisión dada:
 
@@ -100,7 +100,7 @@ Los objetos siempre son true en un `if`, entonces el alert mostrará:
 let cero = new Number(0);
 
 if (cero) { // cero es true, porque es un objeto
-  alert( "cero es verdadero?!?" );
+  alert( "¿cero es verdadero?!?" );
 }
 ```
 

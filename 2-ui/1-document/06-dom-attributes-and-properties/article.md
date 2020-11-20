@@ -215,7 +215,7 @@ Hay otros ejemplos. El atributo `style` es un string, pero la propiedad `style` 
 </script>
 ```
 
-Sin embargo, la mayoría de las propiedades son strings.
+La mayoría de las propiedades son strings.
 
 Muy raramente, incluso si un tipo de propiedad DOM es un string, puede diferir del atributo. Por ejemplo, la propiedad DOM `href` siempre es una URL *completa*, incluso si el atributo contiene una URL relativa o solo un `#hash`.
 
@@ -297,7 +297,7 @@ Por ejemplo, aquí para el estado del pedido se usa el atributo `order-state`:
 </div>
 ```
 
-¿Por qué sería preferible usar un atributo a tener clases como `.order-state-new`, `.order-state-pending`, `order-state-canceled`?
+¿Por qué sería preferible usar un atributo a tener clases como `.order-state-new`, `.order-state-pending`, `.order-state-canceled`?
 
 Porque un atributo es más conveniente de administrar. El estado se puede cambiar tan fácil como:
 

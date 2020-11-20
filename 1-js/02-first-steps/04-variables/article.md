@@ -203,7 +203,7 @@ let имя = '...';
 let 我 = '...';
 ```
 
-Técnicamente, no existe ningún error aquí, tales nombres están permitidos, pero existe una tradición internacional de utilizar inglés en el nombramiento de variables. Incluso si estamos escribiendo un script pequeño, este puede tener una larga vida por delante. Puede ser necesario que gente de otros países deba leerlo en algún momento.
+Técnicamente, no existe ningún error aquí. Tales nombres están permitidos, pero existe una tradición internacional de utilizar inglés en el nombramiento de variables. Incluso si estamos escribiendo un script pequeño, este puede tener una larga vida por delante. Puede ser necesario que gente de otros países deba leerlo en algún momento.
 ````
 
 ````warn header="Nombres reservados"
@@ -267,7 +267,7 @@ Existe una práctica utilizada ampliamente de utilizar constantes como aliases d
 
 Tales constantes se nombran utilizando letras mayúsculas y guiones bajos.
 
-Por ejemplo:
+Por ejemplo, creemos constantes para los colores en el formato "web" (hexadecimal):
 
 ```js run
 const COLOR_RED = "#F00";
@@ -303,7 +303,7 @@ En otras palabras, las constantes nombradas con mayúscula son utilizadas como �
 
 Estando en el tema de las variables, existe una cosa de mucha importancia.
 
-Por favor se sensato al nombrar tus variables. Pensémolo por un momento.
+Una variable debe tener un nombre claro, de significado evidente, que describa el dato que almacena.
 
 Nombrar variables es una de las habilidades más importantes y complejas en la programación. Un vistazo rápido a el nombre de las variables nos revela cuál código fue escrito por un principiante o por un desarrollador experimentado.
 

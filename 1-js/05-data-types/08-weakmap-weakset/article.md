@@ -1,6 +1,6 @@
 # WeakMap y WeakSet
 
-Como sabemos por el capítulo  <info:garbage-collection>, el motor de JavaScript almacena un valor en la memoria mientras es accesible(y puede ser potencialmente usado).
+Como sabemos por el capítulo  <info:garbage-collection>, el motor de JavaScript almacena un valor en la memoria mientras es accesible (y puede ser potencialmente usado).
 
 Por ejemplo:
 ```js
@@ -30,7 +30,8 @@ let array = [ john ];
 john = null; // sobrescribe la referencia
 
 *!*
-// John se almacena dentro del array, por lo que no será recolectado por el recolector de basura
+// El objeto referenciado por John se almacena dentro del array, 
+// por lo que no será recolectado por el recolector de basura
 // Lo podemos obtener como array[0]
 */!*
 ```

@@ -1,8 +1,8 @@
 # Fetch: Cross-Origin Requests
 
-If we send a `fetch` request to another web-site, it will probably fail.
+Si enviamos una petición `fetch` hacia otro sitio seguramente fallará.
 
-For instance, let's try fetching `http://example.com`:
+Por ejemplo, probemos realizar una petición a `http://example.com`:
 
 ```js run async
 try {
@@ -12,39 +12,39 @@ try {
 }
 ```
 
-Fetch fails, as expected.
+El método fetch falla, tal como lo esperábamos.
 
-The core concept here is *origin* -- a domain/port/protocol triplet.
+El concepto clave aquí es *el origen* (*origin*), triple combinación de dominio/puerto/protocolo.
 
-Cross-origin requests -- those sent to another domain (even a subdomain) or protocol or port -- require special headers from the remote side.
+Las solicitudes de origen cruzado `Cross-origin requests` (aquellas que son enviadas hacia otro dominio --incluso subdominio--, protocolo o puerto), requieren de unas cabeceras especiales desde el sitio remoto.
 
-That policy is called "CORS": Cross-Origin Resource Sharing.
+Esta política es denominada "CORS", por sus siglas en inglés Cross-Origin Resource Sharing.
 
-## Why is CORS needed? A brief history
+## ¿Por que CORS es necesario?, Una breve historia
 
-CORS exists to protect the internet from evil hackers.
+CORS existe para proteger Internet de los hackers malvados.
 
-Seriously. Let's make a very brief historical digression.
+En verdad... Déjame contarte un breve resumen de esta historia.
 
-**For many years a script from one site could not access the content of another site.**
+**Durante muchos años un script de un sitio no podía acceder al contenido de otro sitio.**
 
-That simple, yet powerful rule was a foundation of the internet security. E.g. an evil script from website `hacker.com` could not access user's mailbox at website `gmail.com`. People felt safe.
+Esta simple, pero poderosa regla, fue parte fundacional de la seguridad de Internet. Ej: Un script malicioso desde el sitio `hacker.com` no podía acceder a la casilla de correo en el sitio `gmail.com`. La gente se podía sentir segura.
 
-JavaScript also did not have any special methods to perform network requests at that time. It was a toy language to decorate a web page.
+Así mismo en ese momento, JavaScript no tenía ningún método especial para realizar solicitudes de red. Simplemente era un lenguaje juguete para decorar páginas web.
 
-But web developers demanded more power. A variety of tricks were invented to work around the limitation and make requests to other websites.
+Pero los desarrolladores web demandaron más poder. Una variedad de trucos fueron inventados para poder pasar por alto las limitaciones, y realizar solicitudes a otros sitios.
 
-### Using forms
+### Utilizando formularios
 
-One way to communicate with another server was to submit a `<form>` there. People submitted it into `<iframe>`, just to stay on the current page, like this:
+Una forma de comunicarse con otros servidores es y era utilizando un `<form>`. Las personas lo utilizaban para enviar el resultado hacia un `<iframe>`, y de este modo mantenerse en el mismo sitio, de este modo:
 
 ```html
-<!-- form target -->
+<!-- objetivo del form -->
 *!*
 <iframe name="iframe"></iframe>
 */!*
 
-<!-- a form could be dynamically generated and submited by JavaScript -->
+<!-- Un formulario puede ser generado de forma dinámica y ser enviado por JavaScript -->
 *!*
 <form target="iframe" method="POST" action="http://another.com/…">
 */!*
@@ -52,36 +52,36 @@ One way to communicate with another server was to submit a `<form>` there. Peopl
 </form>
 ```
 
-So, it was possible to make a GET/POST request to another site, even without networking methods, as forms can send data anywhere. But as it's forbidden to access the content of an `<iframe>` from another site, it wasn't possible to read the response.
+Entonces, de este modo era posible realizar solicitudes GET/POST hacia otro sitio, incluso sin métodos de red, ya que los formularios pueden enviar mensajes a cualquier sitio. Pero ya que no es posible acceder al contenido de un `<iframe>` de otro sitio, esto evita que sea posible leer la respuesta.
 
-To be precise, there were actually tricks for that, they required special scripts at both the iframe and the page. So the communication with the iframe was technically possible. Right now there's no point to go into details, let these dinosaurs rest in peace.
+Para ser precisos, en realidad había trucos para eso, requerían scripts especiales tanto en el iframe como en la página. Entonces la comunicación con el iframe era técnicamente posible. Pero ya no hay necesidad de entrar en detalles, dejemos a los dinosaurios descanzar en paz.
 
-### Using scripts
+### Utilizando scripts
 
-Another trick was to use a `script` tag. A script could have any `src`, with any domain, like `<script src="http://another.com/…">`. It's possible to execute a script from any website.
+Otro truco es en el modo de utilizar la etiqueta `script`. Un script puede tener cualquier origen `src`, con cualquier dominio, tal como `<script src="http://another.com/…">`. De este modo es posible ejecutar un script de cualquier sitio web.
 
-If a website, e.g. `another.com` intended to expose data for this kind of access, then a so-called "JSONP (JSON with padding)" protocol was used.
+Si un sitio, por ejemplo, `another.com` requiere exponer datos con este tipo de acceso, se utilizaba el protocolo llamado en ese entonces "JSONP (JSON con padding)" .
 
-Here's how it worked.
+Veamos como se utilizaba.
 
-Let's say we, at our site, need to get the data from `http://another.com`, such as the weather:
+Digamos que, en nuestro sitio es necesario obtener datos de `http://another.com`, como podría ser el pronóstico del tiempo:
 
-1. First, in advance, we declare a global function to accept the data, e.g. `gotWeather`.
+1. Primero, adelantándonos, creamos una función global para aceptar los datos, por ejemplo: `gotWeather`.
 
     ```js
-    // 1. Declare the function to process the weather data
+    // 1. Se declara la función para procesar los datos del tiempo
     function gotWeather({ temperature, humidity }) {
       alert(`temperature: ${temperature}, humidity: ${humidity}`);
     }
     ```
-2. Then we make a `<script>` tag with `src="http://another.com/weather.json?callback=gotWeather"`, using the name of our function as the `callback` URL-parameter.
+2. Entonces creamos una etiqueta `<script>` donde `src="http://another.com/weather.json?callback=gotWeather"`, utilizando el nombre de nuestra función como un parámetro `callback`, dentro de la URL.
 
     ```js
     let script = document.createElement('script');
     script.src = `http://another.com/weather.json?callback=gotWeather`;
     document.body.append(script);
     ```
-3. The remote server `another.com` dynamically generates a script that calls `gotWeather(...)` with the data it wants us to receive.
+3. El servidor remoto `another.com` de forma dinámica genera un script que invoca el método `gotWeather(...)` con los datos que nosotros necesitamos recibir.
     ```js
     // The expected answer from the server looks like this:
     gotWeather({
@@ -89,51 +89,51 @@ Let's say we, at our site, need to get the data from `http://another.com`, such 
       humidity: 78
     });
     ```
-4. When the remote script loads and executes, `gotWeather` runs, and, as it's our function, we have the data.
+4. Entonces el script remoto carga y es ejecutado, la función `gotWeather` se invoca, y ya que es nuestra función, obtenemos los datos.
 
-That works, and doesn't violate security, because both sides agreed to pass the data this way. And, when both sides agree, it's definitely not a hack. There are still services that provide such access, as it works even for very old browsers.
+Esto funciona, y no viola la seguridad, ya que ambos sitios acuerdan en intercambiar los datos de este modo. Y cuando ambos lados concuerdan, definitivamente no se trata de un hackeo. Aún hay servicios que proveen este tipo de acceso, lo que puede ser útil ya que funciona en navegadores obsoletos.
 
-After a while, networking methods appeared in browser JavaScript.
+Tiempo después aparecieron métodos de red en los navegadores para JavaScript.
 
-At first, cross-origin requests were forbidden. But as a result of long discussions, cross-origin requests were allowed, but with any new capabilities requiring an explicit allowance by the server, expressed in special headers.
+Al comienzo, las solicitudes de origen cruzado fueron prohibidas, pero luego de prolongadas discusiones se permitieron, requiriendo consentimiento explicito por parte del servidor, esto expresado en cabezales especiales.
 
-## Simple requests
+## Solicitudes simples
 
-There are two types of cross-origin requests:
+Existen dos tipos de solicitudes de origen cruzado:
 
-1. Simple requests.
-2. All the others.
+1. Solicitudes simples.
+2. Todas las demás.
 
-Simple Requests are, well, simpler to make, so let's start with them.
+Las solicitudes simples son, bueno... simples de hacer, por lo tanto comencemos con ellas.
 
-A [simple request](http://www.w3.org/TR/cors/#terminology) is a request that satisfies two conditions:
+Una [solicitud simple](http://www.w3.org/TR/cors/#terminology) es una solicitud que cumple dos condiciones:
 
-1. [Simple method](http://www.w3.org/TR/cors/#simple-method): GET, POST or HEAD
-2. [Simple headers](http://www.w3.org/TR/cors/#simple-header) -- the only allowed custom headers are:
+1. [método simple](http://www.w3.org/TR/cors/#simple-method): GET, POST o HEAD
+2. [Cabeceras simples](http://www.w3.org/TR/cors/#simple-header) -- Las únicas cabeceras permitidas son:
     - `Accept`,
     - `Accept-Language`,
     - `Content-Language`,
-    - `Content-Type` with the value `application/x-www-form-urlencoded`, `multipart/form-data` or `text/plain`.
+    - `Content-Type` con el valor `application/x-www-form-urlencoded`, `multipart/form-data` o `text/plain`.
 
-Any other request is considered "non-simple". For instance, a request with `PUT` method or with an `API-Key` HTTP-header does not fit the limitations.
+Cualquier otra solicitud es considerada "no simple". Por lo tanto, una solicitud con el método `PUT` o con una cabecera HTTP `API-Key` no cumple con las limitaciones.
 
-**The essential difference is that a "simple request" can be made with a `<form>` or a `<script>`, without any special methods.**
+**La diferencia esencial es que una "solicitud simple" puede ser realizada mediante un `<form>` o un `<script>`, sin la necesidad de utilizar un método especial.**
 
-So, even a very old server should be ready to accept a simple request.
+Por lo tanto, incluso un servidor obsoleto debería ser capaz de aceptar una solicitud simple.
 
-Contrary to that, requests with non-standard headers or e.g. method `DELETE` can't be created this way. For a long time JavaScript was unable to do such requests. So an old server may assume that such requests come from a privileged source, "because a webpage is unable to send them".
+Contrario a esto, las solicitudes con cabeceras no estándar o métodos como el `DELETE` no pueden ser creados de este modo. Durante mucho tiempo no fue posible para JavaScript realizar este tipo de solicitudes. Por lo que un viejo servidor podía asumir que ese tipo de solicitudes provenía desde una fuente privilegiada, "ya que una página web es incapaz de enviarlas".
 
-When we try to make a non-simple request, the browser sends a special "preflight" request that asks the server -- does it agree to accept such cross-origin requests, or not?
+Cuando intentamos realizar una solicitud "no simple", el navegador envía una solicitud especial de "pre-vuelo" consultándole al servidor si está de acuerdo en aceptar ese tipo de solicitud de origen cruzado, o no.
 
-And, unless the server explicitly confirms that with headers, a non-simple request is not sent.
+Y, sólo en caso de que el servidor confirme de forma explícita, la solicitud "no simple" es enviada.
 
-Now we'll go into details.
+Vayamos ahora a los detalles.
 
-## CORS for simple requests
+## CORS para solicitudes simples
 
-If a request is cross-origin, the browser always adds `Origin` header to it.
+Si una solicitud es de origen cruzado, el navegador siempre le agregará una cabecera `Origin`.
 
-For instance, if we request `https://anywhere.com/request` from `https://javascript.info/page`, the headers will be like:
+Por ejemplo, si realizamos una solicitud de `https://anywhere.com/request` a `https://javascript.info/page`, las cabeceras podrían ser algo así:
 
 ```http
 GET /request
@@ -144,17 +144,17 @@ Origin: https://javascript.info
 ...
 ```
 
-As you can see, `Origin` header contains exactly the origin (domain/protocol/port), without a path.
+Tal como se puede ver, la cabecera `Origin` contiene exactamente el origen (protocolo/dominio/puerto), sin el path.
 
-The server can inspect the `Origin` and, if it agrees to accept such a request, adds a special header `Access-Control-Allow-Origin` to the response. That header should contain the allowed origin (in our case `https://javascript.info`), or a star `*`. Then the response is successful, otherwise an error.
+El servidor puede inspeccionar el origen `Origin` y, si esta de acuerdo en aceptar ese tipo de solicitudes, agrega una cabecera especial `Access-Control-Allow-Origin` a la respuesta. Esta cabecera debe contener el origen permitido (en nuestro caso `https://javascript.info`), o un asterisco `*`. En ese caso la respuesta es satisfactoria, de otro modo falla.
 
-The browser plays the role of a trusted mediator here:
-1. It ensures that the correct `Origin` is sent with a cross-origin request.
-2. It checks for permitting `Access-Control-Allow-Origin` in the response, if it exists, then JavaScript is allowed to access the response, otherwise it fails with an error.
+El navegador cumple el papel de mediador de confianza:
+1. Ante una solicitud de origen cruzado, se asegura de que se envíe el origen correcto.
+2. Chequea que la respuesta contenga la cabecera `Access-Control-Allow-Origin`, de ser así JavaScript tiene permitido acceder a la respuesta, de no ser así la solicitud falla con un error.
 
 ![](xhr-another-domain.svg)
 
-Here's an example of a permissive server response:
+Aquí tenemos un ejemplo de una respuesta permisiva desde el servidor:
 ```http
 200 OK
 Content-Type:text/html; charset=UTF-8
@@ -163,9 +163,9 @@ Access-Control-Allow-Origin: https://javascript.info
 */!*
 ```
 
-## Response headers
+## Cabeceras de respuesta
 
-For cross-origin request, by default JavaScript may only access so-called "simple" response headers:
+Para las respuestas de origen cruzado, por defecto JavaScript sólo puede acceder a las cabeceras llamadas "simples":
 
 - `Cache-Control`
 - `Content-Language`
@@ -174,17 +174,17 @@ For cross-origin request, by default JavaScript may only access so-called "simpl
 - `Last-Modified`
 - `Pragma`
 
-Accessing any other response header causes an error.
+El acceso a otro tipo de cabeceras de la respuesta generará un error.
 
 ```smart
-There's no `Content-Length` header in the list!
+Como se puede ver, ¡no está la cabecera `Content-Length` en la lista!
 
-This header contains the full response length. So, if we're downloading something and would like to track the percentage of progress, then an additional permission is required to access that header (see below).
+Esta cabecera contiene el tamaño total de la respuesta. Por lo que si queremos mostrar el progreso de la descarga, en ese caso necesitaremos un permiso adicional para acceder a ese campo de la cabecera.
 ```
 
-To grant JavaScript access to any other response header, the server must send  `Access-Control-Expose-Headers` header. It contains a comma-separated list of non-simple header names that should be made accessible.
+Para permitirle a JavaScript acceso a otros tipos de cabeceras, el servidor debe incluir la cabecera `Access-Control-Expose-Headers`. Este campo contiene una lista separada por comas de las cabeceras no simples que podrán ser accesibles.
 
-For example:
+Por ejemplo:
 
 ```http
 200 OK
@@ -197,30 +197,31 @@ Access-Control-Expose-Headers: Content-Length,API-Key
 */!*
 ```
 
-With such `Access-Control-Expose-Headers` header, the script is allowed to read `Content-Length` and `API-Key` headers of the response.
+Con éste valor de `Access-Control-Expose-Headers`, el script tendrá permitido acceder a los valores de las cabeceras `Content-Length` y `API-Key` de la respuesta.
 
-## "Non-simple" requests
+## Solicitudes "No simples"
 
-We can use any HTTP-method: not just `GET/POST`, but also `PATCH`, `DELETE` and others.
+Podemos utilizar cualquier método HTTP: no únicamente `GET/POST`, sino también `PATCH`, `DELETE` y otros.
 
-Some time ago no one could even imagine that a webpage could make such requests. So there may still exist webservices that treat a non-standard method as a signal: "That's not a browser". They can take it into account when checking access rights.
+Hace algún tiempo nadie podía siquiera imaginar que un sitio web pudiera realizar ese tipo de solicitudes. Por lo que aún existen servicios web que cuando reciben un método no estándar los consideran como una señal de que: "Del otro lado no hay un navegador". Ellos pueden tener en cuenta esto cuando revisan los derechos de acceso.
 
-So, to avoid misunderstandings, any "non-simple" request -- that couldn't be done in the old times, the browser does not make such requests right away. Before it sends a preliminary, so-called "preflight" request, asking for permission.
+Por lo tanto, para evitar malentendidos, cualquier solicitud "no simple" (Estas que no podían ser realizadas en los viejos tiempos), no será realizada por el navegador en forma directa. Antes, enviará una solicitud preliminar llamada solicitud de "pre-vuelo", solicitando se le conceda los permisos.
 
-A preflight request uses method `OPTIONS`, no body and two headers:
+Una solicitud de "pre-vuelo" utiliza el método `OPTIONS`, sin contenido en el cuerpo y con dos cabeceras:
 
-- `Access-Control-Request-Method` header has the method of the non-simple request.
-- `Access-Control-Request-Headers` header provides a comma-separated list of its non-simple HTTP-headers.
+- `Access-Control-Request-Method`, cabecera que contiene el método de la solicitud "no simple".
+- `Access-Control-Request-Headers` provee una lista separada por comas de las cabeceras no simples de la solicitud.
 
-If the server agrees to serve the requests, then it should respond with empty body, status 200 and headers:
+Si el servidor está de acuerdo con lo solicitado, entonces responderá con el código de estado 200 y un cuerpo vacío:
 
-- `Access-Control-Allow-Methods` must have the allowed method.
-- `Access-Control-Allow-Headers` must have a list of allowed headers.
-- Additionally, the header `Access-Control-Max-Age` may specify a number of seconds to cache the permissions. So the browser won't have to send a preflight for subsequent requests that satisfy given permissions.
+- `Access-Control-Allow-Origin` debe ser `*` o el origen de la solicitud, tal como `https://javascript.info`, para permitir el acceso.
+- `Access-Control-Allow-Methods` contiene el método permitido.
+- `Access-Control-Allow-Headers` contiene un listado de las cabeceras permitidas.
+- Además, la cabecera `Access-Control-Max-Age` puede especificar el número máximo de segundos que puede recordar los permisos. Por lo que el navegador no necesita volver a requerirlos en las próximas solicitudes.
 
 ![](xhr-preflight.svg)
 
-Let's see how it works step-by-step on example, for a cross-origin `PATCH` request (this method is often used to update data):
+Vamos a ver como funciona paso a paso, mediante un ejemplo para una solicitud de origen cruzado `PATCH` (este método suele utilizarse para actualizar datos):
 
 ```js
 let response = await fetch('https://site.com/service.json', {
@@ -232,14 +233,14 @@ let response = await fetch('https://site.com/service.json', {
 });
 ```
 
-There are three reasons why the request is not simple (one is enough):
-- Method `PATCH`
-- `Content-Type` is not one of: `application/x-www-form-urlencoded`, `multipart/form-data`, `text/plain`.
-- "Non-simple" `API-Key` header.
+Hay tres motivos por los cuales esta solicitud no es simple (una es suficiente):
+- Método `PATCH`
+- `Content-Type` no es del tipo: `application/x-www-form-urlencoded`, `multipart/form-data`, `text/plain`.
+- Cabecera `API-Key` "No simple".
 
-### Step 1 (preflight request)
+### Paso 1 (solicitud de pre-vuelo)
 
-Prior to sending such request, the browser, on its own, sends a preflight request that looks like this:
+Antes de enviar una solicitud de este tipo, el navegador, por si mismo, envía una solicitud de pre-vuelo que se ve de este modo:
 
 ```http
 OPTIONS /service.json
@@ -249,39 +250,43 @@ Access-Control-Request-Method: PATCH
 Access-Control-Request-Headers: Content-Type,API-Key
 ```
 
-- Method: `OPTIONS`.
-- The path -- exactly the same as the main request: `/service.json`.
-- Cross-origin special headers:
-    - `Origin` -- the source origin.
-    - `Access-Control-Request-Method` -- requested method.
-    - `Access-Control-Request-Headers` -- a comma-separated list of "non-simple" headers.
+- Método: `OPTIONS`.
+- El path -- exactamente el mismo que el de la solicitud principal: `/service.json`.
+- Cabeceras especiales de origen cruzado (Cross-origin):
+    - `Origin` -- el origen de la fuente.
+    - `Access-Control-Request-Method` -- método solicitado.
+    - `Access-Control-Request-Headers` -- listado separado por comas de las cabeceras "no simples".
 
-### Step 2 (preflight response)
+### Paso 2 (solicitud de pre-vuelo)
 
-The server should respond with status 200 and headers:
+El servidor debe responder con el código de estado 200 y las cabeceras:
+- `Access-Control-Allow-Origin: https://javascript.info`
 - `Access-Control-Allow-Methods: PATCH`
 - `Access-Control-Allow-Headers: Content-Type,API-Key`.
 
-That allows future communication, otherwise an error is triggered.
+Esto permitirá la comunicación futura, de otro modo se disparará un error.
 
-If the server expects other methods and headers in the future, it makes sense to allow them in advance by adding to the list:
+Si el servidor espera otro método y cabeceras en el futuro, tiene sentido permitirlos por adelantado agregándolos a la lista.
+
+Por ejemplo, esta respuesta habilita además los métodos `PUT`, `DELETE` y otras cabeceras:
 
 ```http
 200 OK
+Access-Control-Allow-Origin: https://javascript.info
 Access-Control-Allow-Methods: PUT,PATCH,DELETE
 Access-Control-Allow-Headers: API-Key,Content-Type,If-Modified-Since,Cache-Control
 Access-Control-Max-Age: 86400
 ```
 
-Now the browser can see that `PATCH` is in `Access-Control-Allow-Methods` and `Content-Type,API-Key` are in the list `Access-Control-Allow-Headers`, so it sends out the main request.
+Ahora el navegador puede ver que `PATCH` se encuentra dentro de la cabecera `Access-Control-Allow-Methods` y `Content-Type,API-Key` dentro de la lista `Access-Control-Allow-Headers`, por lo que permitirá enviar la solicitud principal.
 
-Besides, the preflight response is cached for time, specified by `Access-Control-Max-Age` header (86400 seconds, one day), so subsequent requests will not cause a preflight. Assuming that they fit the cached allowances, they will be sent directly.
+Si se encuentra con una cabecera `Access-Control-Max-Age` con determinada cantidad de segundos, entonces los permisos son almacenados en el caché por ese determinado tiempo. La solicitud anterior será cacheada por 86400 segundos (un día). Durante ese marco de tiempo, las solicitudes siguientes no requerirán la solicitud de pre-vuelo. Asumiendo que estén dentro de lo permitido en la respuesta cacheada, serán enviadas de forma directa.
 
-### Step 3 (actual request)
+### Paso 3 (solicitud real)
 
-When the preflight is successful, the browser now makes the main request. The algorithm here is the same as for simple requests.
+Una vez el pre-vuelo se realiza de forma satisfactoria, el navegador realiza la solicitud principal. El algoritmo aquí es el mismo que el utilizado para una solicitud simple.
 
-The main request has `Origin` header (because it's cross-origin):
+La solicitud principal tiene la cabecera `Origin` (ya que se trata de una solicitud de origen cruzado):
 
 ```http
 PATCH /service.json
@@ -291,37 +296,37 @@ API-Key: secret
 Origin: https://javascript.info
 ```
 
-### Step 4 (actual response)
+### Paso 4 (respuesta real)
 
-The server should not forget to add `Access-Control-Allow-Origin` to the main response. A successful preflight does not relieve from that:
+El server no debe olvidar agregar la cabecera `Access-Control-Allow-Origin` a la respuesta principal. Un pre-vuelo exitoso no lo libera de esto:
 
 ```http
 Access-Control-Allow-Origin: https://javascript.info
 ```
 
-Then JavaScript is able to read the main server response.
+Entonces JavaScript es capáz de leer la respuesta principal del servidor.
 
 ```smart
-Preflight request occurs "behind the scenes", it's invisible to JavaScript.
+La solicitud de pre-vuelo ocurre "detrás de escena", es invisible a JavaScript.
 
-JavaScript only gets the response to the main request or an error if there's no server permission.
+JavaScript únicamente obtiene la respuesta a la solicitud principal o un error en caso de que el servidor no otorgue la autorización.
 ```
 
-## Credentials
+## Credenciales
 
-A cross-origin request initiated by JavaScript code by default does not bring any credentials (cookies or HTTP authentication).
+Una solicitud de origen cruzado realizada por código JavaScript, por defecto no provee ningún tipo de credenciales (cookies o autenticación HTTP).
 
-That's uncommon for HTTP-requests. Usually, a request to `http://site.com` is accompanied by all cookies from that domain. But cross-origin requests made by JavaScript methods are an exception.
+Esto es poco común para solicitudes HTTP. Usualmente una solicitud a un sitio `http://site.com` es acompañada por todas las cookies de ese dominio. Pero una solicitud de origen cruzado realizada por métodos de JavaScript son una excepción.
 
-For example, `fetch('http://another.com')` does not send any cookies, even those  (!) that belong to `another.com` domain.
+Por ejemplo, `fetch('http://another.com')` no enviará ninguna cookie, ni siquiera (!) esas que pertenecen al dominio `another.com`.
 
-Why?
+¿Por qué?
 
-That's because a request with credentials is much more powerful than without them. If allowed, it grants JavaScript the full power to act on behalf of the user and access sensitive information using their credentials.
+El motivo de esto es que una solicitud con credenciales es mucho más poderosa que sin ellas. Si se permitiera, esto garantizaría a JavaScript el completo poder de actuar en representación del usuario y de acceder a información sensible utilizando sus credenciales.
 
-Does the server really trust the script that much? Then it must explicitly allow requests with credentials with an additional header.
+¿En verdad el servidor confía lo suficiente en el script? En ese caso el servidor debera enviar explicitamente que permite solicitudes con credenciales mediante otra cabecera especial.
 
-To send credentials in `fetch`, we need to add the option `credentials: "include"`, like this:
+Para permitir el envío de credenciales en `fetch`, necesitamos agregar la opción `credentials: "include"`, de este modo:
 
 ```js
 fetch('http://another.com', {
@@ -329,11 +334,11 @@ fetch('http://another.com', {
 });
 ```
 
-Now `fetch` sends cookies originating from `another.com` without request to that site.
+Ahora `fetch` envía cookies originadas desde `another.com` con las solicitudes a ese sitio.
 
-If the server agrees to accept the request *with credentials*, it should add a header `Access-Control-Allow-Credentials: true` to the response, in addition to `Access-Control-Allow-Origin`.
+Si el servidor está de acuerdo en aceptar solicitudes *with credentials*, debe agregar la cabecera `Access-Control-Allow-Credentials: true` a la respuesta, además de `Access-Control-Allow-Origin`.
 
-For example:
+Por ejemplo:
 
 ```http
 200 OK
@@ -341,42 +346,42 @@ Access-Control-Allow-Origin: https://javascript.info
 Access-Control-Allow-Credentials: true
 ```
 
-Please note: `Access-Control-Allow-Origin` is prohibited from using a star `*` for requests with credentials. Like shown above, it must provide the exact origin there. That's an additional safety measure, to ensure that the server really knows who it trusts to make such requests.
+Cabe destacar que: `Access-Control-Allow-Origin` no se puede utilizar con un asterisco `*` para solicitudes con credenciales. Tal como se muestra a continuación debe proveer el origen exacto. Esto es una medida adicional de seguridad, para asegurar de que el servidor conozca exactamente en quién confiar para que le envíe este tipo de solicitudes.
 
-## Summary
+## Resumen
 
-From the browser point of view, there are two kinds of cross-origin requests: "simple" and all the others.
+Desde el punto de vista del navegador, existen dos tipos de solicitudes de origen cruzado: solicitudes "simple" y todas las demás.
 
-[Simple requests](http://www.w3.org/TR/cors/#terminology) must satisfy the following conditions:
-- Method: GET, POST or HEAD.
-- Headers -- we can set only:
+[Solicitudes simple](http://www.w3.org/TR/cors/#terminology) deben cumplir las siguientes condiciones:
+- Método: GET, POST o HEAD.
+- Cabeceras -- únicamente puede contener:
     - `Accept`
     - `Accept-Language`
     - `Content-Language`
-    - `Content-Type` to the value `application/x-www-form-urlencoded`, `multipart/form-data` or `text/plain`.
+    - `Content-Type` con el valor `application/x-www-form-urlencoded`, `multipart/form-data` o `text/plain`.
 
-The essential difference is that simple requests were doable since ancient times using `<form>` or `<script>` tags, while non-simple were impossible for browsers for a long time.
+La diferencia escencial es que las solicitudes simples eran posibles desde los viejos tiempos utilizando las etiquetas `<form>` o `<script>`, mientras que las solicitudes "no simples" fueron imposibles para el navegador durante mucho tiempo.
 
-So, the practical difference is that simple requests are sent right away, with `Origin` header, while for the other ones the browser makes a preliminary "preflight" request, asking for permission.
+Por lo tanto, en la práctica, la diferencia se encuentra en que las solicitudes simples son realizadas de forma directa, utilizando la cabecera `Origin`, mientras que para las otras el navegador realiza una solicitud extra de "pre-vuelo" para requerir la autorización.
 
-**For simple requests:**
+**Para una solicitud simple:**
 
-- → The browser sends `Origin` header with the origin.
-- ← For requests without credentials (not sent default), the server should set:
-    - `Access-Control-Allow-Origin` to `*` or same value as `Origin`
-- ← For requests with credentials, the server should set:
-    - `Access-Control-Allow-Origin` to same value as `Origin`
-    - `Access-Control-Allow-Credentials` to `true`
+- → El navegador envía una cabecera `Origin` con el origen.
+- ← Para solicitudes sin credenciales (no enviadas por defecto), el servidor debe enviar:
+    - `Access-Control-Allow-Origin` como `*` o el mismo valor que en `Origin`.
+- ← Para solicitudes con credenciales, el servidor deberá agregar:
+    - `Access-Control-Allow-Origin` con el mismo valor que en `Origin`.
+    - `Access-Control-Allow-Credentials` en `true`
 
-Additionally, to grant JavaScript access to any response headers except `Cache-Control`,  `Content-Language`, `Content-Type`, `Expires`, `Last-Modified` or `Pragma`, the server should list the allowed ones in `Access-Control-Expose-Headers` header.
+Adicionalmente, para garantizar a JavaScript acceso a cualquier cabecera de la respuesta, con excepción de `Cache-Control`, `Content-Language`, `Content-Type`, `Expires`, `Last-Modified` o `Pragma`, el servidor debe agregarlas como permitidas en la lista de la cabecera `Access-Control-Expose-Headers`.
 
-**For non-simple requests, a preliminary "preflight" request is issued before the requested one:**
+**Para solicitudes no simples, se utiliza una solicitud preliminar "pre-vuelo"  antes de la solicitud principal:**
 
-- → The browser sends `OPTIONS` request to the same URL, with headers:
-    - `Access-Control-Request-Method` has requested method.
-    - `Access-Control-Request-Headers` lists non-simple requested headers.
-- ← The server should respond with status 200 and headers:
-    - `Access-Control-Allow-Methods` with a list of allowed methods,
-    - `Access-Control-Allow-Headers` with a list of allowed headers,
-    - `Access-Control-Max-Age` with a number of seconds to cache permissions.
-- Then the actual request is sent, the previous "simple" scheme is applied.
+- → El navegador envía una solicitud del tipo `OPTIONS` a la misma URL, con las cabeceras:
+    - `Access-Control-Request-Method` con el método de la solicitud.
+    - `Access-Control-Request-Headers` listado de las cabeceras no simples.
+- ← El servidor debe responder con el código de estado 200 y las cabeceras:
+    - `Access-Control-Allow-Methods` con la lista de todos los métodos permitidos,
+    - `Access-Control-Allow-Headers` con una lista de cabeceras permitidas,
+    - `Access-Control-Max-Age` con los segundos en los que se podrá almacenar la autorización en caché.
+- Tras lo cual la solicitud es enviada, y se aplica el esquema previo utilizado para las solicitudes "simples".

@@ -126,7 +126,6 @@ Lo que es mucho más interesante, es que puede devolverse una función anidada: 
 
 A continuación, `makeCounter` crea la función "contador "que devuelve el siguiente número en cada invocación:
 
-
 ```js run
 function makeCounter() {
   let count = 0;
@@ -315,7 +314,7 @@ Cuando en una entrevista, un desarrollador frontend recibe una pregunta sobre "�
 
 Por lo general, un entorno léxico se elimina de la memoria con todas las variables una vez que finaliza la llamada a la función. Eso es porque no hay referencias al respecto. Como cualquier objeto de JavaScript, solo se mantiene en la memoria mientras es accesible.
 
-... Pero si hay una función anidada a la que todavía se puede llegar después del final de una función, entonces tiene la propiedad `[[Environment]]` que hace referencia al entorno léxico.
+Sin embargo, si hay una función anidada a la que todavía se puede llegar después del final de una función, entonces tiene la propiedad `[[Environment]]` que hace referencia al entorno léxico.
 
 En ese caso, el entorno léxico aún es accesible incluso después de completar la función, por lo que permanece vivo.
 
@@ -360,7 +359,9 @@ function f() {
     alert(value);
   }
 }
+
 let g = f(); // mientras exista la función g, el valor permanece en la memoria
+
 g = null; // ... y ahora la memoria está limpia
 ```
 
@@ -370,7 +371,7 @@ Como hemos visto, en teoría, mientras una función está viva, todas las variab
 
 Pero en la práctica, los motores de JavaScript intentan optimizar eso. Analizan el uso de variables y si es obvio que el código no usa una variable externa, la elimina.
 
-**Un efecto secundario importante en V8 (Chrome, Opera) es que dicha variable no estará disponible en la depuración.**
+**Un efecto secundario importante en V8 (Chrome, Edge, Opera) es que dicha variable no estará disponible en la depuración.**
 
 Intente ejecutar el siguiente ejemplo en Chrome con las Herramientas para desarrolladores abiertas.
 
@@ -379,9 +380,11 @@ Cuando se detiene, en el tipo de consola `alert(value)`.
 ```js run
 function f() {
   let value = Math.random();
+
   function g() {
     debugger; // en console: type alert(value); ¡No hay tal variable!
   }
+
   return g;
 }
 
@@ -409,6 +412,7 @@ function f() {
 let g = f();
 g();
 ```
-Esta característica de V8 es bueno saberla. Si está depurando con Chrome / Opera, tarde o temprano lo encontrará.
+
+Esta característica de V8 es bueno saberla. Si está depurando con Chrome/Edge/Opera, tarde o temprano lo encontrará.
 
 Eso no es un error en el depurador, sino más bien una característica especial de V8. Tal vez en algún momento la cambiarán. Siempre puede verificarlo ejecutando los ejemplos en esta página.

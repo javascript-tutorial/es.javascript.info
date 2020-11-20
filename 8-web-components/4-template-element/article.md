@@ -1,24 +1,24 @@
 
-# Template element
+# Elemento template
 
-A built-in `<template>` element serves as a storage for HTML markup templates. The browser ignores it contents, only checks for syntax validity, but we can access and use it in JavaScript, to create other elements.
+El elemento incorporado `<template>` sirve como almacenamiento para plantillas de HTML markup. El navegador ignora su contenido, solo verifica la validez de la sintaxis, pero podemos acceder a él y usarlo en JavaScript para crear otros elementos.
 
-In theory, we could create any invisible element somewhere in HTML for HTML markup storage purposes. What's special about `<template>`?
+En teoría, podríamos crear cualquier elemento invisible en algún lugar de HTML par fines de almacenamiento de HTML markup. ¿Qué hay de especial en `<template>`?
 
-First, its content can be any valid HTML, even if it normally requires a proper enclosing tag.
+En primer lugar, su contenido puede ser cualquier HTML válido, incluso si normalmente requiere una etiqueta adjunta adecuada.
 
-For example, we can put there a table row `<tr>`:
+Por ejemplo, podemos poner una fila de tabla `<tr>`:
 ```html
 <template>
   <tr>
-    <td>Contents</td>
+     <td>Contenidos</td>
   </tr>
 </template>
 ```
 
-Usually, if we try to put `<tr>` inside, say, a `<div>`, the browser detects the invalid DOM structure and "fixes" it, adds `<table>` around. That's not what we want. On the other hand, `<template>` keeps exactly what we place there.
+Normalmente, si intentamos poner `<tr>` dentro, digamos, de un `<div>`, el navegador detecta la estructura DOM como inválida y la “arregla”, y añade un `<table>` alrededor. Eso no es lo que queremos. Sin embargo, `<template>` mantiene exactamente lo que ponemos allí.
 
-We can put styles and scripts into `<template>` as well:
+También podemos poner estilos y scripts dentro de `<template>`:
 
 ```html
 <template>
@@ -26,45 +26,45 @@ We can put styles and scripts into `<template>` as well:
     p { font-weight: bold; }
   </style>
   <script>
-    alert("Hello");
+    alert("Hola");
   </script>
 </template>
 ```
 
-The browser considers `<template>` content "out of the document": styles are not applied, scripts are not executed, `<video autoplay>` is not run, etc.
+El navegador considera al contenido `<template>` “fuera del documento”: Los estilos no son aplicados, los scripts no son ejecutados, `<video autoplay>` no es ejecutado, etc.
 
-The content becomes live (styles apply, scripts run etc) when we insert it into the document.
+El contenido cobra vida (estilos aplicados, scripts, etc) cuando los insertamos dentro del documento.
 
-## Inserting template
+## Insertando template
 
-The template content is available in its `content` property as a [DocumentFragment](info:modifying-document#document-fragment) -- a special type of DOM node.
+El contenido template está disponible en su propiedad `content` como un [DocumentFragment](info:modifying-document#document-fragment): un tipo especial de nodo DOM.
 
-We can treat it as any other DOM node, except one special property: when we insert it somewhere, its children are inserted instead.
+Podemos tratarlo como a cualquier otro nodo DOM, excepto por una propiedad especial: cuando lo insertamos en algún lugar, sus hijos son insertados en su lugar.
 
-For example:
+Por ejemplo:
 
 ```html run
 <template id="tmpl">
   <script>
-    alert("Hello");
+    alert("Hola");
   </script>
-  <div class="message">Hello, world!</div>
+  <div class="message">¡Hola mundo!</div>
 </template>
 
 <script>
   let elem = document.createElement('div');
 
 *!*
-  // Clone the template content to reuse it multiple times
+  // Clona el contenido de la plantilla para reutilizarlo múltiples veces
   elem.append(tmpl.content.cloneNode(true));
 */!*
 
   document.body.append(elem);
-  // Now the script from <template> runs
+  // Ahora el script de <template> se ejecuta
 </script>
 ```
 
-Let's rewrite a Shadow DOM example from the previous chapter using `<template>`:
+Reescribamos un ejemplo de Shadow DOM del capítulo anterior usando `<template>`:
 
 ```html run untrusted autorun="no-epub" height=60
 <template id="tmpl">
@@ -72,7 +72,7 @@ Let's rewrite a Shadow DOM example from the previous chapter using `<template>`:
   <p id="message"></p>
 </template>
 
-<div id="elem">Click me</div>
+<div id="elem">Haz clic sobre mi</div>
 
 <script>
   elem.onclick = function() {
@@ -82,14 +82,14 @@ Let's rewrite a Shadow DOM example from the previous chapter using `<template>`:
     elem.shadowRoot.append(tmpl.content.cloneNode(true)); // (*)
 */!*
 
-    elem.shadowRoot.getElementById('message').innerHTML = "Hello from the shadows!";
+    elem.shadowRoot.getElementById('message').innerHTML = "¡Saludos desde las sombras!";
   };
 </script>
 ```
 
-In the line `(*)` when we clone and insert `tmpl.content`, as its `DocumentFragment`, its children (`<style>`, `<p>`) are inserted instead.
+En la línea `(*)`, cuando clonamos e insertamos `tmpl.content` como su `DocumentFragment`, sus hijos (`<style>`, `<p>`) se insertan en su lugar.
 
-They form the shadow DOM:
+Ellos forman el shadow DOM:
 
 ```html
 <div id="elem">
@@ -99,18 +99,18 @@ They form the shadow DOM:
 </div>
 ```
 
-## Summary
+## Resumen
 
-To summarize:
+Para resumir:
 
-- `<template>` content can be any syntactically correct HTML.
-- `<template>` content is considered "out of the document", so it doesn't affect anything.
-- We can access `template.content` from JavaScript, clone it to reuse in a new component.
+- El contenido `<template>` puede ser cualquier HTML sintácticamente correcto.
+- El contenido `<template>` es considerado “fuera del documento”, para que no afecte a nada.
+- Podemos acceder a `template.content` desde JavaScript, y clonarlo para reusarlo en un nuevo componente.
 
-The `<template>` tag is quite unique, because:
+La etiqueta `<template>` es bastante única, ya que: 
 
-- The browser checks HTML syntax inside it (as opposed to using a template string inside a script).
-- ...But still allows use of any top-level HTML tags, even those that don't make sense without proper wrappers (e.g. `<tr>`).
-- The content becomes interactive: scripts run, `<video autoplay>` plays etc, when inserted into the document.
+- El navegador comprueba la sintaxis HTML dentro de él (lo opuesto a usar una plantilla string dentro de un script).
+- ...Pero aún permite el uso de cualquier etiqueta HTML de alto nivel, incluso aquellas que no tienen sentido sin un envoltorio adecuado (por ej.`<tr>`).
+- El contenido se vuelve interactivo cuando es insertado en el documento: los scripts se ejecutan, `<video autoplay>` se reproduce, etc. 
 
-The `<template>` element does not feature any iteration mechanisms, data binding or variable substitutions, but we can implement those on top of it.
+El elemento `<template>` no ofrece ningún mecanismo de iteración, enlazamiento de datos o sustitución de variables, pero podemos implementar los que están por encima.

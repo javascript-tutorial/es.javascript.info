@@ -81,9 +81,12 @@ const bigInt = 1234567890123456789012345678901234567890n;
 
 Como los números `BigInt` rara vez se necesitan, no los cubrimos aquí, sino que les dedicamos un capítulo separado <info: bigint>. Léalo cuando necesite números tan grandes.
 
+
 ```smart header="Problemas de compatibilidad"
-En este momento, `BigInt` es compatible con Firefox / Chrome / Edge, pero no con Safari / IE.
+En este momento, `BigInt` es compatible con Firefox/Chrome/Edge/Safari pero no con IE.
 ```
+
+Puedes revissar la [tabla de compatibilidad BigInt de *MDN*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt#Browser_compatibility) para conocer las versiones de navegadores soportadas.
 
 ## Un string
 
@@ -127,7 +130,7 @@ En el capítulo <info:string> trataremos más a fondo las cadenas.
 ```smart header="No existe el tipo *carácter*".
 En algunos lenguajes, hay un tipo especial "carácter" para un solo carácter. Por ejemplo, en el lenguaje C y en Java es `char`.
 
-En JavaScript no existe tal tipo. Sólo hay un tipo: `string`. Una cadena puede estar formada por un solo carácter o por varios de ellos.
+En JavaScript no existe tal tipo. Sólo hay un tipo: `string`. Una cadena puede estar formada por cero caracteres (estar vacía), un carácter o por varios de ellos.
 ```
 
 ## Un boolean (tipo lógico)
@@ -257,7 +260,7 @@ Hay 8 tipos básicos en JavaScript.
 
 - `number` para números de cualquier tipo: enteros o en punto flotante. Los enteros están limitados a ±2<sup>53</sup>.
 - `bigint` para números enteros de longitud arbitraria.
-- `string` para cadenas. Una cadena puede tener uno o más caracteres, no hay un tipo especial para un único carácter.
+- `string` para cadenas. Una cadena puede tener cero o más caracteres, no hay un tipo especial para un único carácter.
 - `boolean` para verdadero y falso: `true`/`false`.
 - `null` para valores desconocidos -- un tipo independiente que tiene un solo valor nulo: `null`.
 - `undefined` para valores no asignados -- un tipo independiente que tiene un único valor "indefinido": `undefined`.

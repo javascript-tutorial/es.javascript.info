@@ -36,7 +36,7 @@ La clasificación de letras se realiza mediante la cadena de llamadas en la lín
 Por conveniencia la dividimos en múltiples líneas:
 
 ```js
-let sorted = arr[i] // PAN
+let sorted = word // PAN
   .toLowerCase() // pan
   .split('') // ['p','a','n']
   .sort() // ['a','n','p']

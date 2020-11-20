@@ -30,7 +30,11 @@ Muestra una ventana modal con un mensaje de texto, un campo de entrada para el v
 `default`
 : Un segundo parámetro opcional, el valor inicial del campo de entrada.
 
-El usuario puede escribir algo en el campo de entrada de solicitud y presionar OK. Luego obtenemos ese texto en el `resultado`. O pueden cancelar la entrada presionando Cancelar o presionando la tecla `: Esc`, luego obtenemos `null` como el `result`.
+```smart header="Corchetes en la sintaxis `[...]`"
+Los corchetes alrededor de `default` en la sintaxis de arriba denotan que el parámetro es opcional, no requerido.
+```
+
+El usuario puede escribir algo en el campo de entrada de solicitud y presionar OK. Luego obtenemos ese texto en el `resultado`. O pueden cancelar la entrada presionando Cancelar o presionando la tecla `: Esc` obteniendo `null` como `result`.
 
 La llamada a `prompt` retorna el texto del campo de entrada o `null` si la entrada fue cancelada.
 

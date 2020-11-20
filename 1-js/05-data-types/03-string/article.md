@@ -17,7 +17,7 @@ let double = "comillas dobles";
 let backticks = `backticks`;
 ```
 
-Comillas simples y dobles son escencialmente lo mismo. Sin embargo los "backticks" nos permiten ingresar expresiones dentro del string, incluso llamados a funciones:
+Comillas simples y dobles son escencialmente lo mismo. Sin embargo los "backticks" nos permiten ingresar expresiones dentro del string, envolviéndolos en `${…}`:
 
 ```js run
 function sum(a, b) {
@@ -62,7 +62,7 @@ let guestList = 'Invitados:\n * Juan\n * Pedro\n * Maria';
 alert(guestList); // una lista de invitados en múltiples líneas
 ```
 
-Por ejemplo, estas dos líneas son iguales, solo que escritas en forma diferente:
+Por ejemplo, estas dos líneas son iguales, pero escritas en forma diferente:
 
 ```js run
 let str1 = "Hello\nWorld"; // dos líneas usando el "símbolo de nueva línea"
@@ -110,7 +110,7 @@ alert('Yo soy \'Walrus\''); // Yo soy 'Walrus'
 
 Como puedes ver, debimos anteponer un caracter de escape `\` antes de cada comilla ya que de otra manera hubiera indicado el final del string.
 
-Obviamente, eso se refiere sólo a las comillas que son iguales a las que están rodeando al string. Por lo que, una solución más elegante sería cambiar a comillas dobles o backticks:
+Obviamente, eso se refiere sólo a las comillas que son iguales a las que están rodeando al string. Una solución más elegante sería cambiar a comillas dobles o backticks:
 
 ```js run
 alert(`Yo soy "Walrus"`); // Yo soy "Walrus"
@@ -126,7 +126,7 @@ Es posible, pero debemos duplicarlo como sigue `\\`:
 alert(`El carácter de escape: \\`); // El carácter de escape: \
 ```
 
-## Largo del string (String length)
+## Largo del string
 
 La propiedad 'length' entrega el largo del string:
 

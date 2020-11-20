@@ -2,34 +2,34 @@
 <script>
 let eventSource;
 
-function start() { // when "Start" button pressed
+function start() { // cuando se presiona el botón "Inicio"
   if (!window.EventSource) {
-    // IE or an old browser
-    alert("The browser doesn't support EventSource.");
+    // IE o un navegador antiguo
+    alert("El navegador no es compatible con EventSource.");
     return;
   }
 
   eventSource = new EventSource('digits');
 
   eventSource.onopen = function(e) {
-    log("Event: open");
+    log("Evento: open");
   };
 
   eventSource.onerror = function(e) {
-    log("Event: error");
+    log("Evento: error");
     if (this.readyState == EventSource.CONNECTING) {
-      log(`Reconnecting (readyState=${this.readyState})...`);
+      log(`Reconectando (readyState=${this.readyState})...`);
     } else {
-      log("Error has occured.");
+      log("Un error ha ocurrido.");
     }
   };
 
   eventSource.addEventListener('bye', function(e) {
-    log("Event: bye, data: " + e.data);
+    log("Evento: bye, datos: " + e.data);
   });
 
   eventSource.onmessage = function(e) {
-    log("Event: message, data: " + e.data);
+    log("Evento: message, datos: " + e.data);
   };
 }
 
@@ -44,7 +44,7 @@ function log(msg) {
 }
 </script>
 
-<button onclick="start()">Start</button> Press the "Start" to begin.
+<button onclick="start()">Inicio</button> Presiona "Inicio" para comenzar.
 <div id="logElem" style="margin: 6px 0"></div>
 
-<button onclick="stop()">Stop</button> "Stop" to finish.
+<button onclick="stop()">Detener</button> "Detener" para terminar.

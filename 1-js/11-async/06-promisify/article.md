@@ -25,15 +25,16 @@ function loadScript(src, callback) {
 
 Vamos a promisificarla. La función nueva `loadScriptPromise(src)` va a hacer lo mismo, pero solo acepta `src` (sin callback) y retorna una promesa.
 
+Aquí:
 ```js
 let loadScriptPromise = function(src) {
   return new Promise((resolve, reject) => {
     loadScript(src, (err, script) => {
-      if (err) reject(err)
+      if (err) reject(err);
       else resolve(script);
     });
-  })
-}
+  });
+};
 
 // uso:
 // loadScriptPromise('path/script.js').then(...)
@@ -66,7 +67,7 @@ function promisify(f) {
       f.call(this, ...args); // llama a la función original
     });
   };
-};
+}
 
 // uso:
 let loadScriptPromise = promisify(loadScript);
@@ -98,11 +99,11 @@ function promisify(f, manyArgs = false) {
       f.call(this, ...args);
     });
   };
-};
+}
 
 // Uso:
 f = promisify(f, true);
-f(...).then(arrayOfResults => ..., err => ...)
+f(...).then(arrayOfResults => ..., err => ...);
 ```
 En algunos casos, puede que `err` esté ausente: `callback(result)`, o que haya algo que no es habitual en el formato del callback, por lo que tendremos que promisificar tales funciones manualmente.
 
