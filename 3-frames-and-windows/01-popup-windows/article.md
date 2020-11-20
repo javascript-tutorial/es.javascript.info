@@ -7,7 +7,7 @@ Básicamente, solo ejecutas :
 window.open("https://javascript.info/");
 ```
 
-...Y eso abrirá una nueva ventana con una URL. La mayoría de los navegadores modernos están configurados para abrir pestañas nuevas en vez de ventanas separadas.
+...Y eso abrirá una nueva ventana con la URL dada. La mayoría de los navegadores modernos están configurados para abrir pestañas nuevas en vez de ventanas separadas.
 
 Los popups existen desde tiempos realmente antiguos. La idea inicial fue mostrar otro contenido sin cerrar la ventana principal. Ahora hay otras formas de hacerlo: podemos cargar contenido dinámicamente con [fetch](info:fetch) y mostrarlo de forma dinámica con `<div>`. Entonces, los popups no son algo que usamos todos los días.
 
@@ -69,7 +69,7 @@ name
 : Un nombre de la nueva ventana. Cada ventana tiene un `window.name`, y aquí podemos especificar cuál ventana usar para la ventana emergente. Si hay una ventana con ese nombre, la URL dada se abre en ella, de lo contrario abre una nueva ventana.
 
 params
-: La cadena de configuración para nueva ventana. Contiene configuraciones, delimitado por una coma. No debe haber espacios en los parámetros, por ejemplo: `width:200,height=100`.
+: La cadena de configuración para nueva ventana. Contiene configuraciones, delimitado por una coma. No debe haber espacios en los parámetros, por ejemplo: `width=200,height=100`.
 
 Configuración de `params`:
 

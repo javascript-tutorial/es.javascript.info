@@ -101,9 +101,9 @@ The folder is named `N-url`, where `N` – is the number for sorting (articles a
 
 The folder has one of files:
 
-- `index.md` for a section,
-- `article.md` for an article,
-- `task.md` for a task formulation (+`solution.md` with the solution text if any).
+  - `index.md` stands for a chapter
+  - `article.md` stands for an article
+  - `task.md` stands for a task (solution must be provided in `solution.md` file as well)
 
 A file starts with the `# Title Header`, and then the text in Markdown-like format, editable in a simple text editor. 
 

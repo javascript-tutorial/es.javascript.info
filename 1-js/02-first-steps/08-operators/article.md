@@ -1,6 +1,6 @@
-# Operadores
+# Operadores básicos, matemáticas
 
-Conocemos varios operadores de la escuela. Son cosas como la suma `+`, multiplicación `*`, resta `-`, etcétera.
+Conocemos varios operadores matemáticos porque nos los enseñaron en la escuela. Son cosas como la suma `+`, multiplicación `*`, resta `-`, etcétera.
 
 En este capítulo, nos vamos a concentrar en los aspectos de los operadores que no están cubiertos en la aritmética escolar.
 
@@ -26,9 +26,55 @@ Antes de continuar, comprendamos la terminología común.
     alert( y - x ); // 2, binario negativo resta valores
     ```
 
-    Formalmente, estamos hablando de dos operadores distintos: la negación unaria (un operando: revierte el sómbolo) and la resta binaria (dos operandos: resta).
+    Formalmente, estamos hablando de dos operadores distintos: la negación unaria (un operando: revierte el símbolo) y la resta binaria (dos operandos: resta).
 
-## Concatenación de cadenas, binario +
+## Matemáticas
+
+Están soportadas las siguientes operaciones:
+
+- Suma `+`,
+- Resta `-`,
+- Multiplicación `*`,
+- División `/`,
+- Resto `%`,
+- Exponenciación `**`.
+
+Los primeros cuatro son conocidos mientras que `%` y `**` deben ser explicados más ampliamente.
+
+## Resto %
+
+El operador resto `%`, a pesar de su apariencia, no está relacionado con porcentajes.
+
+El resultado de `a % b` es el [resto](https://es.wikipedia.org/wiki/Resto) de la división entera de `a` por `b`.
+
+Por ejemplo:
+
+```js run
+alert( 5 % 2 ); // 1 es un resto de 5 dividido por 2
+alert( 8 % 3 ); // 2 es un resto de 8 dividido por 3
+```
+
+## Exponenciación **
+
+El operador de exponenciación `**` es una inclusión reciente al lenguaje.
+
+Por ejemplo:
+
+```js run
+alert( 2 ** 2 ); // 4  (2 * 2)
+alert( 2 ** 3 ); // 8  (2 * 2 * 2)
+alert( 2 ** 4 ); // 16 (2 * 2 * 2 * 2)
+```
+
+Matemáticamente, la exponenciación es definida para números no enteros también, Por ejemplo la raíz cuadrada es el exponente `1/2`:
+
+```js run
+alert( 4 ** (1/2) ); // 2 (potencia de 1/2 es lo mismo que raíz cuadrada, eso es matemáticas)
+alert( 8 ** (1/3) ); // 2 (potencia de 1/3 es lo mismo que raíz cúbica)
+```
+
+
+## Concatenación de cadenas con el binario +
 
 Ahora veamos características especiales de JavaScript que van más allá de las aritméticas escolares.
 
@@ -50,16 +96,17 @@ alert( '1' + 2 ); // "12"
 alert( 2 + '1' ); // "21"
 ```
 
-Vieron, no importa si el primer operando es una cadena o el segundo. La regla es simple: si cualquiera de los operandos es una cadena, el otro también se convierte en una cadena.
+Vieron, no importa si el primer operando es una cadena o el segundo.
 
-Sin embargo, tenga en cuenta que las operaciones se ejecutan de izquierda a derecha. Si hay dos números seguidos de una cadena, los números se agregarán antes de convertirlos en una cadena:
-
+Aquí hay un ejemplo algo más complejo:
 
 ```js run
 alert(2 + 2 + '1' ); // "41" y no "221"
 ```
 
-Concatenación de cadena y conversión es una característica especial del operador binario suma `+`. Otros operadores aritméticos sólo funcionan con números y siempre convierten sus operandos a números.
+Aquí, los operandores trabajan uno después de otro. El primer `+` suma dos números entonces devuelve `4`, luego el siguiente `+` le agrega la cadena `1`, así que se evalúa como `4 + '1' = 41`.
+
+El binario `+` es el único operador que soporta cadenas en esa forma. Otros operadores matemáticos trabajan solamente con números y siempre convierten sus operandos a números.
 
 Por ejemplo, resta y división:
 
@@ -94,8 +141,6 @@ alert( +"" );   // 0
 Realmente hace lo mismo que `Number(...)`, pero es más corto.
 
 La necesidad de convertir cadenas en números surge con mucha frecuencia. Por ejemplo, si estamos obteniendo valores de campos de formulario HTML, generalmente son cadenas. 
-
-¿Qué pasa si queremos sumarlos?
 
 El operador binario suma los agregaría como cadenas:
 
@@ -135,13 +180,14 @@ Los paréntesis anulan cualquier precedencia, por lo que si no estamos satisfech
 
 Hay muchos operadores en JavaScript. Cada operador tiene un número de precedencia correspondiente. El que tiene el número más grande se ejecuta primero. Si la precedencia es la misma, el orden de ejecución es de izquierda a derecha.
 
-Aquí hay un extracto de la [tabla de precedencia] (https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Operator_Precedence) (no necesita recordar esto, pero tenga en cuenta que los operadores unarios son más altos que el operador binario correspondiente):
+Aquí hay un extracto de la [tabla de precedencia](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Operator_Precedence) (no necesita recordar esto, pero tenga en cuenta que los operadores unarios son más altos que el operador binario correspondiente):
 
 | Precedencia| Nombre | Signo |
 |------------|------|------|
 | ... | ... | ... |
 | 16 | suma unaria | `+` |
 | 16 | negación unaria | `-` |
+| 16 | exponenciación | `**` |
 | 14 | multiplicación | `*` |
 | 14 | division | `/` |
 | 13 | suma | `+` |
@@ -164,24 +210,11 @@ let x = 2 * 2 + 1;
 alert( x ); // 5
 ```
 
-Es posible encadenar asignaciones:
+### Asignación = devuelve un valor
 
-```js run
-let a, b, c;
+El hecho de que `=` sea un operador, no un construcción "mágica" del lenguaje, tiene un implicanción interesante.
 
-*!*
-a = b = c = 2 + 2;
-*/!*
-
-alert( a ); // 4
-alert( b ); // 4
-alert( c ); // 4
-```
-
-Las asignaciones encadenadas evalúan de derecha a izquierda. Primero, se evalúa la expresión más a la derecha `2 + 2` y luego se asigna a las variables de la izquierda: `c`, `b` y `a`. Al final, todas las variables comparten un solo valor.
-
-````smart header="El operador asignación `\"=\"` devuelve un valor"
-Un operador siempre devuelve un valor. Eso es obvio para la mayoría de ellos, como la suma `+` o la multiplicación `*`. Pero el operador de asignación también sigue esta regla.
+La mayoría de los operadores en JavaScript devuelven un valor. Esto es obvio para `+` y `-`, pero también es cierto para `=`.
 
 La llamada `x = value` escribe el `value` en `x` *y luego lo devuelve*.
 
@@ -201,44 +234,69 @@ alert( c ); // 0
 
 En el ejemplo anterior, el resultado de la expresión `(a = b + 1)` es el valor asignado a `a` (es decir, `3`). Luego se usa para evaluaciones adicionales.
 
-Código gracioso, ¿no? Deberíamos entender cómo funciona, porque a veces lo vemos en las bibliotecas de JavaScript, pero no deberíamos escribir algo así. Tales trucos definitivamente no hacen que el código sea más claro o legible.
-````
+Código gracioso, ¿no? Deberíamos entender cómo funciona, porque a veces lo vemos en las bibliotecas de JavaScript.
 
-## Resto %
+Pero no deberíamos escribir algo así. Tales trucos definitivamente no hacen que el código sea más claro o legible.
 
-El operador resto `%`, a pesar de su apariencia, no está relacionado con porcentajes.
+### Asignaciones encadenadas
 
-El resultado de `a % b` es el resto de la división entera de `a` por `b`.
-
-Por ejemplo:
+Otra característica interesante es la habilidad para encadenar asignaciones:
 
 ```js run
-alert( 5 % 2 ); // 1 es un resto de 5 dividido por 2
-alert( 8 % 3 ); // 2 es un resto de 8 dividido por 3
-alert( 6 % 3 ); // 0 es un resto de 6 dividido por 3
+let a, b, c;
+
+*!*
+a = b = c = 2 + 2;
+*/!*
+
+alert( a ); // 4
+alert( b ); // 4
+alert( c ); // 4
 ```
 
-## Exponenciación **
+Las asignaciones encadenadas evalúan de derecha a izquierda. Primero, se evalúa la expresión más a la derecha `2 + 2` y luego se asigna a las variables de la izquierda: `c`, `b` y `a`. Al final, todas las variables comparten un solo valor.
 
-El operador de exponenciación `**` es una inclusión reciente al lenguaje.
+Una vez más, con el propósito de la legibilidad es mejor separa tal código en unas pocas líneas:
 
-Para un número natural `b`, el resultado de `a ** b` es `a` multiplicado por sí mismos `b` veces.
+```js
+c = 2 + 2;
+b = c;
+a = c;
+```
+Es más fácil de leer, especialmente cuando se hace de un vistazo.
+
+## Modificar en el lugar
+
+A menudo necesitamos aplicar un operador a una variable y guardar el nuevo resultado en esa misma variable.
 
 Por ejemplo:
 
-```js run
-alert( 2 ** 2 ); // 4  (2 * 2)
-alert( 2 ** 3 ); // 8  (2 * 2 * 2)
-alert( 2 ** 4 ); // 16 (2 * 2 * 2 * 2)
+```js
+let n = 2;
+n = n + 5;
+n = n * 2;
 ```
 
-El operador también funciona para números no enteros.
-
-Por ejemplo:
+Esta notación puede ser acortada utilizando los operadores `+=` y `*=`:
 
 ```js run
-alert( 4 ** (1/2) ); // 2 (potencia de 1/2 es lo mismo que raíz cuadrada, eso es matemáticas)
-alert( 8 ** (1/3) ); // 2 (potencia de 1/3 es lo mismo que raíz cúbica)
+let n = 2;
+n += 5; // ahora n = 7 (lo mismo que n = n + 5)
+n *= 2; // ahora n = 14 (lo mismo que n = n * 2)
+
+alert( n ); // 14
+```
+
+Los operadores cortos "modifica y asigna" existen para todos los operadores aritméticos y de nivel bit: `/=`, `-=`, etcétera.
+
+Tales operadores tienen la misma precedencia que la asignación normal, por lo tanto se ejecutan después de otros cálculos:
+
+```js run
+let n = 2;
+
+n *= 3 + 5;
+
+alert( n ); // 16  (lado derecho evaluado primero, lo mismo que n *= 8)
 ```
 
 ## Incremento/decremento
@@ -371,40 +429,6 @@ La lista de operadores:
 - ZERO-FILL RIGHT SHIFT ( `>>>` )
 
 Estos operadores se usan muy raramente. Para comprenderlos, necesitamos profundizar en la representación de números de bajo nivel y no sería óptimo hacerlo en este momento, especialmente porque no los necesitaremos pronto. Si tienes curiosidad, puedes leer el artículo [Operadores a nivel de bit](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Bitwise_Operators#Bitwise_AND) en MDN. Sería más práctico hacerlo cuando surja una necesidad real.
-
-## Modificar en el lugar
-
-A menudo necesitamos aplicar un operador a una variable y guardar el nuevo resultado en esa misma variable.
-
-Por ejemplo:
-
-```js
-let n = 2;
-n = n + 5;
-n = n * 2;
-```
-
-Esta notación puede ser acortada utilizando los operadores `+=` y `*=`:
-
-```js run
-let n = 2;
-n += 5; // ahora n = 7 (lo mismo que n = n + 5)
-n *= 2; // ahora n = 14 (lo mismo que n = n * 2)
-
-alert( n ); // 14
-```
-
-Los operadores cortos "modifica y asigna" existen para todos los operadores aritméticos y de nivel bit: `/=`, `-=`, etcétera.
-
-Tales operadores tienen la misma precedencia que la asignación normal, por lo tanto se ejecutan después de otros cálculos:
-
-```js run
-let n = 2;
-
-n *= 3 + 5;
-
-alert( n ); // 16  (lado derecho evaluado primero, lo mismo que n *= 8)
-```
 
 ## Coma
 

@@ -2,12 +2,12 @@ importance: 5
 
 ---
 
-# Add a closing button
+# Agregar un botón de cierre
 
-There's a list of messages.
+Hay una lista de mensajes.
 
-Use JavaScript to add a closing button to the right-upper corner of each message.
+Usa JavaScript para agregar un botón de cierre en la esquina superior derecha de cada mensaje.
 
-The result should look like this:
+El resultado debería verse algo así:
 
 [iframe src="solution" height=450]

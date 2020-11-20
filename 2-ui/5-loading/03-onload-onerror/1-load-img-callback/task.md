@@ -2,35 +2,35 @@ importance: 4
 
 ---
 
-# Load images with a callback
+# Cargando imágenes con una un función de retorno (`callback`)
 
-Normally, images are loaded when they are created. So when we add `<img>` to the page, the user does not see the picture immediately. The browser needs to load it first.
+Normalmente, las imágenes son cargadas cuando son creadas. Entonces, cuando nosotros agregamos `<img>` a la página el usuario no ve la imágen inmediatamente. El navegador necesita cargarlo primero.
 
-To show an image immediately, we can create it "in advance", like this:
+Para mostrar una imágen inmediatamente, podemos crearlo "en avance", como esto:
 
 ```js
 let img = document.createElement('img');
 img.src = 'my.jpg';
 ```
 
-The browser starts loading the image and remembers it in the cache. Later, when the same image appears in the document (no matter how), it shows up immediately.
+El navegador comienza a cargar la imágen y lo guarda en el cache. Después cuando la misma imágen aparece en el documento (no importa cómo) la muestra inmediatamente.
 
-**Create a function `preloadImages(sources, callback)` that loads all images from the array `sources` and, when ready, runs `callback`.**
+**Crear una función `preloadImages(sources, callback)` que cargue todas las imágenes desde una lista de fuentes (`sources`) y, cuando esten listas, ejecutar la función de retorno (`callback`).**
 
-For instance, this will show an `alert` after the images are loaded:
+Por ejemplo: esto puede mostrar una alerta (`alert`) después de que la imágen sea cargada:
 
 ```js
 function loaded() {
-  alert("Images loaded")
+  alert("Imágenes cargadas")
 }
 
 preloadImages(["1.jpg", "2.jpg", "3.jpg"], loaded);
 ```
 
-In case of an error, the function should still assume the picture "loaded".
+En caso de un error, la función debería seguir asumiendo que la imágen ha sido "cargada".
 
-In other words, the `callback` is executed when all images are either loaded or errored out.
+En otras palabras, la función de retorno (`callback`) es ejecutada cuando todas las imágenes han sido cargadas o no.
 
-The function is useful, for instance, when we plan to show a gallery with many scrollable images, and want to be sure that all images are loaded.
+La función es útil, por ejemplo, cuando planeamos mostrar una galería con muchas imágenes desplazables y estar seguros que todas las imágenes estan cargadas. 
 
-In the source document you can find links to test images, and also the code to check whether they are loaded or not. It should output `300`.
+En el documento fuente puedes encontrar enlaces para probar imágenes y también el codigo para verificar si han sido cargadas o no. Debería devolver `300`.

@@ -328,7 +328,7 @@ Aquí un ejemplo de un archivo `.eslintrc`:
   },
   "rules": {
     "no-console": 0,
-    "indent": ["warning", 2]
+    "indent": 2
   }
 }
 ```

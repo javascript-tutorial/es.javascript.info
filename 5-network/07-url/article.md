@@ -145,10 +145,10 @@ Aunque si usamos un string, necesitamos codificar/decodificar caracteres especia
 
 Existen funciones incorporadas para eso:
 
-- [encodeURI](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURI) - Codifica la URL como un todo.
-- [decodeURI](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/decodeURI) - La decodifica de vuelta.
-- [encodeURIComponent](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent) - Codifica un componente URL, como un parametro de busqueda, un hash, o un pathname.
-- [decodeURIComponent](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/decodeURIComponent) - La decodifica de vuelta.
+- [encodeURI](mdn:/JavaScript/Reference/Global_Objects/encodeURI) - Codifica la URL como un todo.
+- [decodeURI](mdn:/JavaScript/Reference/Global_Objects/decodeURI) - La decodifica de vuelta.
+- [encodeURIComponent](mdn:/JavaScript/Reference/Global_Objects/encodeURIComponent) - Codifica un componente URL, como un parametro de busqueda, un hash, o un pathname.
+- [decodeURIComponent](mdn:/JavaScript/Reference/Global_Objects/decodeURIComponent) - La decodifica de vuelta.
 
 Una pregunta natural es: "¿Cuál es la diferencia entre `encodeURIComponent` y `encodeURI`?¿Cuándo deberíamos usar una u otra?
 
