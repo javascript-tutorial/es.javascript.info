@@ -73,8 +73,12 @@ admin.name = 'Pete'; // cambiado por la referencia "admin"
 alert(*!*user.name*/!*); // 'Pete', los cambios se ven desde la referencia "user"
 ```
 
+<<<<<<< HEAD
 
 Es como si tuviéramos un gabinete con dos llaves y usáramos una de ellas (`admin`) para acceder a él. Si más tarde usamos la llave (`user`), podemos ver los cambios.
+=======
+It's just as if we had a cabinet with two keys and used one of them (`admin`) to get into it. Then, if we later use another key (`user`) we can see changes.
+>>>>>>> 23da191b58643387783f38e999f5b05be87d3d93
 
 ## Comparación por referencia
 
@@ -230,7 +234,35 @@ Para corregir esto, debemos usar un bucle de clonación que examine cada valor d
 
 Podemos usar recursividad para implementarlo. O, para no inventar la rueda, tomar una implementación existente, por ejemplo [_.cloneDeep(obj)](https://lodash.com/docs#cloneDeep) de la librería JavaScript [lodash](https://lodash.com).
 
+<<<<<<< HEAD
 ## Resumen
+=======
+```smart header="Const objects can be modified"
+An important "side effect" of storing objects as references is that an object declared as `const` *can* be modified.
+
+For instance:
+
+```js run
+const user = {
+  name: "John"
+};
+
+*!*
+user.name = "Pete"; // (*)
+*/!*
+
+alert(user.name); // Pete
+```
+
+It might seem that the line `(*)` would cause an error, but no. The value of `user` is constant, it must always reference the same object. But properties of that object are free to change.
+
+In other words, the `const user` gives an error only if we try to set `user=...` as a whole, and that's all.
+
+That said, if we really need to make constant object properties, it's also possible, but using totally different methods, we'll mention that in the chapter <info:property-descriptors>.
+```
+
+## Summary
+>>>>>>> 23da191b58643387783f38e999f5b05be87d3d93
 
 Los objetos son asignados y copiados por referencia. En otras palabras, una variable almacena no el valor del objeto sino una referencia (dirección de memoria) del valor. Entoncess copiar tal variable o pasarla como argumento de función copia la referencia, no el objeto.
 

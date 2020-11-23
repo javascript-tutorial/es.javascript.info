@@ -76,11 +76,21 @@ Por ejemplo, el siguiente código evita tales eventos y muestra qué es los que 
 
 Por favor ten en cuenta que no solo es posible copiar/pegar texto, sino cualquier cosa. Por ejemplo, podemos copiar un archivo en el gestor de archivos del SO y pegarlo.
 
+<<<<<<< HEAD
 Hay una lista de métodos [en la especificación](https://www.w3.org/TR/clipboard-apis/#dfn-datatransfer) que puede funcionar con diferentes tipos de datos incluyendo archivos, leer/escribir del portapapeles.
 
 Pero ten en cuenta que el portapapeles es algo a nivel "global" del SO. La mayoría de los navegadores dan acceso a leer/escribir del portapapeles dentro del alcance del usuario por cuestiones de seguridad, e.g. al manejar eventos `onclick`.
 
 Además está prohibido generar eventos "personalizados" del portapapeles con `dispatchEvent` en todos los navegadores excepto Firefox.
+=======
+That's because `clipboardData` implements `DataTransfer` interface, commonly used for drag'n'drop and copy/pasting. It's bit beyound our scope now, but you can find its methods [in the specification](https://html.spec.whatwg.org/multipage/dnd.html#the-datatransfer-interface).
+
+```warn header="ClipboardAPI: user safety restrictions"
+The clipboard is a "global" OS-level thing. So most browsers allow read/write access to the clipboard only in the scope of certain user actions for the safety, e.g. in `onclick` event handlers.
+
+Also it's forbidden to generate "custom" clipboard events with `dispatchEvent` in all browsers except Firefox.
+```
+>>>>>>> 23da191b58643387783f38e999f5b05be87d3d93
 
 ## Resumen
 

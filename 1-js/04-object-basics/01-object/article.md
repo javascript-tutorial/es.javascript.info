@@ -92,6 +92,7 @@ let user = {
 ```
 Eso se llama una coma "final" o "colgante".  Facilita agregar, eliminar y mover propiedades, porque todas las líneas se vuelven similares.
 
+<<<<<<< HEAD
 ````smart header="Los objetos con const pueden cambiarse"
 Toma en cuenta: un objeto declarado con `const` *puede* ser modificado.
 
@@ -117,6 +118,9 @@ Hay otra manera de crear objetos con propiedades constantes, las veremos despué
 ````
 
 ## Corchetes
+=======
+## Square brackets
+>>>>>>> 23da191b58643387783f38e999f5b05be87d3d93
 
 La notación de punto no funciona para acceder a propiedades con claves de más de una palabra:
 
