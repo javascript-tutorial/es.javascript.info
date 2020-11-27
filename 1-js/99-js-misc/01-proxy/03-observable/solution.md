@@ -1,26 +1,26 @@
-The solution consists of two parts:
+La solución consiste de dos partes:
 
-1. Whenever `.observe(handler)` is called, we need to remember the handler somewhere, to be able to call it later. We can store handlers right in the object, using our symbol as the property key.
-2. We need a proxy with `set` trap to call handlers in case of any change.
+1. Cauando `.observe(handler)` es llamado, necesitamos recordar el manejador 'handler' en algún lugar para poder llamarlo después. Podemos almacenar los manejadores directamente en el objeto, usando nuestro symbol como clave de la propiedad.
+2. Necesitamos un proxy con la trampa `set` que llame a los manejadores en caso de cualquier cambio.
 
 ```js run
 let handlers = Symbol('handlers');
 
 function makeObservable(target) {
-  // 1. Initialize handlers store
+  // 1. Inicializa el almacén de manejadores
   target[handlers] = [];
 
-  // Store the handler function in array for future calls
+  // Almacena la función manejadora en el array para llamados futuros
   target.observe = function(handler) {
     this[handlers].push(handler);
   };
 
-  // 2. Create a proxy to handle changes
+  // 2. Crea un proxy para manejar cambios
   return new Proxy(target, {
     set(target, property, value, receiver) {
-      let success = Reflect.set(...arguments); // forward the operation to object
-      if (success) { // if there were no error while setting the property
-        // call all handlers
+      let success = Reflect.set(...arguments); // reenvía la operación al objeto
+      if (success) { // si no hay errores al establecer la propiedad
+        // llama a todos los manejadores
         target[handlers].forEach(handler => handler(property, value));
       }
       return success;
