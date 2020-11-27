@@ -3,7 +3,7 @@ libs:
 
 ---
 
-# Función binding (vinculadora)
+# Función bind: vinculación de funciones
 
 
 Al pasar métodos de objeto como devoluciones de llamada, por ejemplo a `setTimeout`, se genera un problema conocido: "pérdida de `this`".
