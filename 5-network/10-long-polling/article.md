@@ -70,7 +70,11 @@ Como puedes ver, la función `subscribe` realiza una búsqueda, luego espera la 
 ```warn header="El servidor debería estar bien aún con muchas conexiones pendientes"
 La arquitectura del servidor debe poder funcionar con muchas conexiones pendientes.
 
+<<<<<<< HEAD
 Algunas arquitecturas de servidor ejecutan un proceso por conexión, resultando en que habrá tantos procesos como conexiones y cada proceso requiere bastante memoria. Demasiadas conexiones la consumirán toda.
+=======
+Certain server architectures run one process per connection, resulting in there being as many processes as there are connections, while each process consumes quite a bit of memory. So, too many connections will just consume it all.
+>>>>>>> e1a3f634a47c119cf1ec7420c49fc0fc7172c0b5
 
 Este suele ser el caso de los backends escritos en lenguajes como PHP y Ruby.
 

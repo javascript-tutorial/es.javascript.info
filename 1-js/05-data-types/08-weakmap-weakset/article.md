@@ -30,9 +30,15 @@ let array = [ john ];
 john = null; // sobrescribe la referencia
 
 *!*
+<<<<<<< HEAD
 // El objeto referenciado por John se almacena dentro del array, 
 // por lo que no será recolectado por el recolector de basura
 // Lo podemos obtener como array[0]
+=======
+// the object previously referenced by john is stored inside the array
+// therefore it won't be garbage-collected
+// we can get it as array[0]
+>>>>>>> e1a3f634a47c119cf1ec7420c49fc0fc7172c0b5
 */!*
 ```
 
@@ -60,7 +66,11 @@ Veamos qué significa esto en los ejemplos.
 
 ## WeakMap
 
+<<<<<<< HEAD
 La primera diferencia con `Map` es que las propiedades `WeakMap` deben ser objetos, no valores primitivos:
+=======
+The first difference between `Map` and `WeakMap` is that keys must be objects, not primitive values:
+>>>>>>> e1a3f634a47c119cf1ec7420c49fc0fc7172c0b5
 
 ```js run
 let weakMap = new WeakMap();
@@ -101,9 +111,15 @@ Compárelo con el ejemplo del `Map` regular anterior. Ahora, si `john` solo exis
 
 ¿Por qué tanta limitación? Eso es por razones técnicas. Si un objeto ha perdido todas las demás referencias (como `john` en el código anterior), entonces se debe recolectar automáticamente como basura. Pero técnicamente no se especifica exactamente *cuándo se realiza la limpieza*.
 
+<<<<<<< HEAD
 El motor de JavaScript decide eso. Puede optar por realizar la limpieza de la memoria inmediatamente o esperar y realizar la limpieza más tarde cuando ocurran más eliminaciones. Por lo tanto, técnicamente no se conoce el recuento actual de elementos de un `WeakMap`. El motor puede haberlo limpiado o no, o lo hizo parcialmente. Por esa razón, los métodos que acceden a todas las propiedades / valores no son compatibles.
 
 Ahora, ¿dónde necesitamos esta estructura de datos?
+=======
+The JavaScript engine decides that. It may choose to perform the memory cleanup immediately or to wait and do the cleaning later when more deletions happen. So, technically, the current element count of a `WeakMap` is not known. The engine may have cleaned it up or not, or did it partially. For that reason, methods that access all keys/values are not supported.
+
+Now, where do we need such a data structure?
+>>>>>>> e1a3f634a47c119cf1ec7420c49fc0fc7172c0b5
 
 ## Caso de uso: datos adicionales
 
@@ -147,7 +163,11 @@ countUser(john); // cuenta sus visitas
 john = null;
 ```
 
+<<<<<<< HEAD
 Ahora el objeto `john` debería ser recolectado como basura, pero permanece en la memoria, ya que es una propiedad en` visitCountMap`.
+=======
+Now, `john` object should be garbage collected, but remains in memory, as it's a key in `visitsCountMap`.
+>>>>>>> e1a3f634a47c119cf1ec7420c49fc0fc7172c0b5
 
 Necesitamos limpiar `visitCountMap` cuando eliminamos usuarios, de lo contrario, crecerá en la memoria indefinidamente. Tal limpieza puede convertirse en una tarea tediosa en arquitecturas complejas.
 
@@ -164,13 +184,23 @@ function countUser(user) {
 }
 ```
 
+<<<<<<< HEAD
 Ahora no tenemos que limpiar `visitasCountMap`. Después de que el objeto `john` se vuelve inalcanzable por todos los medios excepto como una propiedad de` WeakMap`, se elimina de la memoria, junto con la información de esa propiedad de `WeakMap`.
+=======
+Now we don't have to clean `visitsCountMap`. After `john` object becomes unreachable, by all means except as a key of `WeakMap`, it gets removed from memory, along with the information by that key from `WeakMap`.
+>>>>>>> e1a3f634a47c119cf1ec7420c49fc0fc7172c0b5
 
 ## Caso de uso: almacenamiento en caché
 
+<<<<<<< HEAD
 Otro ejemplo común es el almacenamiento en caché: cuando se debe recordar el resultado de una función ("en caché"), para que las llamadas futuras en el mismo objeto lo reutilicen.
 
 Podemos usar `Map` para almacenar resultados, así:
+=======
+Another common example is caching. We can store ("cache") results from a function, so that future calls on the same object can reuse it.
+
+To achieve that, we can use `Map` (not optimal scenario):
+>>>>>>> e1a3f634a47c119cf1ec7420c49fc0fc7172c0b5
 
 ```js run
 // 📁 cache.js
@@ -207,7 +237,11 @@ alert(cache.size); // 1 (Ouch! ¡El objeto todavía está en caché, tomando mem
 
 Para múltiples llamadas de `proceso (obj)` con el mismo objeto, solo calcula el resultado la primera vez, y luego lo toma de `caché`. La desventaja es que necesitamos limpiar el 'caché' cuando el objeto ya no es necesario.
 
+<<<<<<< HEAD
 Si reemplazamos `Map` por `WeakMap`, este problema desaparece: el resultado en caché se eliminará de la memoria automáticamente después de que el objeto se recolecte.
+=======
+If we replace `Map` with `WeakMap`, then this problem disappears. The cached result will be removed from memory automatically after the object gets garbage collected .
+>>>>>>> e1a3f634a47c119cf1ec7420c49fc0fc7172c0b5
 
 ```js run
 // 📁 cache.js
@@ -248,7 +282,11 @@ obj = null;
 - Existe un objeto en el conjunto mientras es accesible desde otro lugar.
 - Al igual que `Set`, admite` add`, `has` y` delete`, pero no `size`,` keys()` ni iteraciones.
 
+<<<<<<< HEAD
 Al ser "débil", también sirve como almacenamiento adicional. Pero no para datos arbitrarios, sino para hechos "sí / no". Una membresía en `WeakSet` puede significar algo sobre el objeto.
+=======
+Being "weak", it also serves as additional storage. But not for arbitrary data, rather for "yes/no" facts. A membership in `WeakSet` may mean something about the object.
+>>>>>>> e1a3f634a47c119cf1ec7420c49fc0fc7172c0b5
 
 Por ejemplo, podemos agregar usuarios a `WeakSet` para realizar un seguimiento de los que visitaron nuestro sitio:
 
@@ -276,7 +314,11 @@ john = null;
 // visitedSet se limpiará automáticamente
 ```
 
+<<<<<<< HEAD
  La limitación más notable de `WeakMap` y` WeakSet` es la ausencia de iteraciones y la imposibilidad de obtener todo el contenido actual. Esto puede parecer inconveniente, pero no impide que `WeakMap / WeakSet` haga su trabajo principal: ser un almacenamiento "adicional" de datos para objetos que se almacenan / administran en otro lugar.
+=======
+The most notable limitation of `WeakMap` and `WeakSet` is the absence of iterations, and the inability to get all current content. That may appear inconvenient, but does not prevent `WeakMap/WeakSet` from doing their main job -- be an "additional" storage of data for objects which are stored/managed at another place.
+>>>>>>> e1a3f634a47c119cf1ec7420c49fc0fc7172c0b5
 
 ## Resumen
 
@@ -284,6 +326,13 @@ john = null;
 
 `WeakSet` es una colección tipo `Set` que almacena solo objetos y los elimina una vez que se vuelven inaccesibles por otros medios.
 
+<<<<<<< HEAD
 Ambos no admiten métodos y propiedades que se refieren a todas las propiedades o su recuento. Solo se permiten operaciones individuales.
 
 `WeakMap` y` WeakSet` se utilizan como estructuras de dato "secundarias" además del almacenamiento de objetos "principal". Una vez que el objeto se elimina del almacenamiento principal, si solo se encuentra como la propiedad de `WeakMap` o en un` WeakSet`, se limpiará automáticamente.
+=======
+It's main advantages are that they have weak reference to objects, so they can easily be removed by garbage colector. 
+That comes at the cost of not having support for `clear`, `size`, `keys`, `values` ...
+
+`WeakMap` and `WeakSet` are used as "secondary" data structures in addition to the "primary" object storage. Once the object is removed from the primary storage, if it is only found as the key of `WeakMap` or in a `WeakSet`, it will be cleaned up automatically.
+>>>>>>> e1a3f634a47c119cf1ec7420c49fc0fc7172c0b5

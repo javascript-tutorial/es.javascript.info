@@ -50,7 +50,11 @@ Estas opciones gobiernan cómo `fetch` establece el encabezado HTTP `Referer`.
 
 Por lo general, ese encabezado se establece automáticamente y contiene la URL de la página que realizó la solicitud. En la mayoría de los escenarios, no es importante en absoluto, a veces, por motivos de seguridad, tiene sentido eliminarlo o acortarlo.
 
+<<<<<<< HEAD
 **La opción `referrer` permite establecer cualquier `Referer` dentro del origen actual) o eliminarlo.**
+=======
+**The `referrer` option allows to set any `Referer` (within the current origin) or remove it.**
+>>>>>>> e1a3f634a47c119cf1ec7420c49fc0fc7172c0b5
 
 Para no enviar ningún referer, establece un string vacío:
 ```js
@@ -216,6 +220,7 @@ window.onunload = function() {
 Normalmente, cuando se descarga un documento, se cancelan todas las solicitudes de red asociadas. Pero la opción `keepalive` le dice al navegador que realice la solicitud en segundo plano, incluso después de salir de la página. Por tanto, esta opción es fundamental para que nuestra solicitud tenga éxito.
 
 
+<<<<<<< HEAD
 Tiene algunas limitaciones:
 
 - No podemos enviar megabytes: el límite de cuerpo para las solicitudes `keepalive` es de 64 kb.
@@ -223,3 +228,10 @@ Tiene algunas limitaciones:
     - Este límite se aplica a todas las solicitudes `keepalive` juntas. En otras palabras, podemos realizar múltiples solicitudes `keepalive` en paralelo, pero la suma de las longitudes de sus cuerpos no debe exceder los 64kb.
 - No podemos manejar la respuesta del servidor si el documento no está cargado. Entonces, en nuestro ejemplo, `fetch` tendrá éxito debido a `keepalive`, pero las funciones posteriores no funcionarán.
     - En la mayoría de los casos, como enviar estadísticas, no es un problema, ya que el servidor simplemente acepta los datos y generalmente envía una respuesta vacía a tales solicitudes.
+=======
+- We can't send megabytes: the body limit for `keepalive` requests is 64KB.
+    - If we need to gather a lot of statistics about the visit, we should send it out regularly in packets, so that there won't be a lot left for the last `onunload` request.
+    - This limit applies to all `keepalive` requests together. In other words, we can perform multiple `keepalive` requests in parallel, but the sum of their body lengths should not exceed 64KB.
+- We can't handle the server response if the document is unloaded. So in our example `fetch` will succeed due to `keepalive`, but subsequent functions won't work.
+    - In most cases, such as sending out statistics, it's not a problem, as server just accepts the data and usually sends an empty response to such requests.
+>>>>>>> e1a3f634a47c119cf1ec7420c49fc0fc7172c0b5

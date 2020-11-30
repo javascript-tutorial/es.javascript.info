@@ -266,7 +266,11 @@ Entonces podemos poner el `dispatchEvent` (u otra llamada de activación de even
 </script>
 ```
 
+<<<<<<< HEAD
 Entonces podemos poner el `dispatchEvent` (u otra llamada de activación de eventos) al final de `onclick` o, mejor aún, envolverlo en el `setTimeout` de retardo cero:
+=======
+Now `dispatchEvent` runs asynchronously after the current code execution is finished, including `menu.onclick`, so event handlers are totally separate.
+>>>>>>> e1a3f634a47c119cf1ec7420c49fc0fc7172c0b5
 
 El orden de salida se convierte en: 1 -> 2 -> anidado.
 

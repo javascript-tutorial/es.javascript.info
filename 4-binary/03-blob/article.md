@@ -55,7 +55,11 @@ Este comportamiento es similar a las cadenas de JavaScript: no podemos cambiar u
 
 ## Blob como URL
 
+<<<<<<< HEAD
 Un Blob puede ser utilizado fácilmente como una URL para `<a>`, `<img>` u otras etiquetas, para mostrar su contenido.
+=======
+A Blob can be easily used as a URL for `<a>`, `<img>` or other tags, to show its contents.
+>>>>>>> e1a3f634a47c119cf1ec7420c49fc0fc7172c0b5
 
 Gracias al `tipo`, también podemos descargar/cargar objetos `Blob`, y el `tipo` se convierte naturalmente en `Content-Type` en solicitudes de red.
 
@@ -99,7 +103,11 @@ blob:https://javascript.info/1e67e00e-860d-40a5-89ae-6ab0cbee6273
 
 Por cada URL generada por `URL.createObjectURL` el navegador almacena un URL -> `Blob` mapeado internamente. Así que las URLs son cortas, pero permiten acceder al `Blob`.
 
+<<<<<<< HEAD
 Una URL generada (y su relación con ella) solo es válida en el documento actual, mientras está abierto. Y este permite referenciar al `Blob` en `<img>`, `<a>`, básicamente cualquier otro objeto que espera un URL.
+=======
+A generated URL (and hence the link with it) is only valid within the current document, while it's open. And it allows to reference the `Blob` in `<img>`, `<a>`, basically any other object that expects a URL.
+>>>>>>> e1a3f634a47c119cf1ec7420c49fc0fc7172c0b5
 
 También hay efectos secundarios. Mientras haya un mapeado para un `Blob`, el `Blob` en sí mismo se guarda en la memoria. El navegador no puede liberarlo.
 
@@ -151,7 +159,11 @@ reader.onload = function() {
 };
 ```
 
+<<<<<<< HEAD
 Se pueden utilizar ambas maneras para hacer una URL de un `Blob` . Pero usualmente `URL.createObjectURL(blob)` es más simple y rápido.
+=======
+Both ways of making a URL of a `Blob` are usable. But usually `URL.createObjectURL(blob)` is simpler and faster.
+>>>>>>> e1a3f634a47c119cf1ec7420c49fc0fc7172c0b5
 
 ```compare title-plus="URL.createObjectURL(blob)" title-minus="Blob a URL de datos"
 + Necesitamos revocarlos para cuidar la memoria.

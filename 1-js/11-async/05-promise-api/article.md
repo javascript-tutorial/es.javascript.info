@@ -217,6 +217,29 @@ Promise.race([
 La primera promesa fue la más rápida, por lo que se vuelve resultado. En cuanto una promesa responde, "gana la carrera", y todos los resultados o errores posteriores son ignorados.
 
 
+## Promise.any
+
+Similar to `Promise.race`, but waits only for the first fulfilled promise and gets its result. If all of the given promises are rejected, then the returned promise is rejected.
+
+The syntax is:
+
+```js
+let promise = Promise.any(iterable);
+```
+
+For instance, here the result will be `1`:
+
+```js run
+Promise.any([
+  new Promise((resolve, reject) => setTimeout(() => reject(new Error("Whoops!")), 1000)),
+  new Promise((resolve, reject) => setTimeout(() => resolve(1), 2000)),
+  new Promise((resolve, reject) => setTimeout(() => resolve(3), 3000))
+]).then(alert); // 1
+```
+
+The first promise here was fastest, but it was rejected, so the second promise became the result. After the first fulfilled promise "wins the race", all further results are ignored.
+
+
 ## Promise.resolve/reject
 
 Los métodos `Promise.resolve` y `Promise.reject` son raramente necesitados en código moderno porque la sintaxis `async/await` (que veremos [luego](info:async-await)) las hace algo obsoletas.
@@ -274,6 +297,7 @@ En la práctica este método casi nunca es usado.
 
 Existen 5 métodos estáticos de la clase `Promise`:
 
+<<<<<<< HEAD
 1. `Promise.all(promises)` -- espera que todas las promesas se resuelvan y devuelve un array de sus resultados. Si cualquiera es rechazada se vuelve el error de `Promise.all` y los demás resultados son ignorados.
 2. `Promise.allSettled(promises)` (método recientemente añadido) -- espera que toda las promesas respondan y devuelve sus resultados como un array de objetos con:
     - `status`: `"fulfilled"` o `"rejected"`
@@ -281,5 +305,15 @@ Existen 5 métodos estáticos de la clase `Promise`:
 3. `Promise.race(promises)` -- espera a la primera promesa que responda y aquel resultado o error se vuelve su resultado o error.
 4. `Promise.resolve(value)` -- crea una promesa resuelta con el "value" dado.
 5. `Promise.reject(error)` -- crea una promesa rechazada con el "error" dado.
+=======
+1. `Promise.all(promises)` -- waits for all promises to resolve and returns an array of their results. If any of the given promises rejects, it becomes the error of `Promise.all`, and all other results are ignored.
+2. `Promise.allSettled(promises)` (recently added method) -- waits for all promises to settle and returns their results as an array of objects with:
+    - `status`: `"fulfilled"` or `"rejected"`
+    - `value` (if fulfilled) or `reason` (if rejected).
+3. `Promise.race(promises)` -- waits for the first promise to settle, and its result/error becomes the outcome.
+4. `Promise.any(promises)` -- waits for the first promise to fulfill, and its result becomes the outcome. If all of the given promises rejects, it becomes the error of `Promise.any`.
+5. `Promise.resolve(value)` -- makes a resolved promise with the given value.
+6. `Promise.reject(error)` -- makes a rejected promise with the given error.
+>>>>>>> e1a3f634a47c119cf1ec7420c49fc0fc7172c0b5
 
 De las 5, `Promise.all` es probablemente la más común en la práctica.
