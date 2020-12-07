@@ -209,7 +209,11 @@ arr.push("Pear"); // modifica el array por referencia
 alert( fruits ); // Banana, Pear - ahora con 2 items
 ```
 
+<<<<<<< HEAD
 ...Pero lo que hace a los array realmente especiales es su representación interna. El motor trata de almacenarlos en áreas de memoria contigua, uno tras otro, justo como muestra la ilustración en este capítulo. Hay otras optimizaciones también para hacer que los arrays trabajen verdaderamente rápido.
+=======
+...But what makes arrays really special is their internal representation. The engine tries to store its elements in the contiguous memory area, one after another, just as depicted on the illustrations in this chapter, and there are other optimizations as well, to make arrays work really fast.
+>>>>>>> c56e6a57ac3497aab77128c5bfca13513980709b
 
 Pero todo esto se puede malograr si dejamos de trabajarlos como arrays de colecciones ordenadas y comenzamos a usarlos como si fueran objetos comunes.
 

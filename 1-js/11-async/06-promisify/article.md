@@ -44,7 +44,11 @@ Ahora `loadScriptPromise` se ajusta bien a nuestro código basado en promesas.
 
 Como podemos ver, le delega todo el trabajo a la función `loadScript` original, proveyendo su propio callback que es traducido a promise `resolve/reject`.
 
+<<<<<<< HEAD
 Como vamos a tener que promisificar muchas funciones, tiene sentido usar un ayudante.
+=======
+In practice we may need to promisify more than one function, so it makes sense to use a helper.
+>>>>>>> c56e6a57ac3497aab77128c5bfca13513980709b
 
 Esto es en realidad muy simple -- La función `promisify(f)` debajo toma una función `f` que sera promisificada y retorna una función de envoltura (wrapper function).
 

@@ -239,7 +239,11 @@ alert(str.indexOf('widget')); // -1, no es encontrado, la búsqueda toma en cuen
 alert(str.indexOf('id')); // 1, "id" es encontrado en la posición 1 (..idget con id)
 ```
 
+<<<<<<< HEAD
 El segundo parámetro es opcional y nos permite buscar desde la posición entregada.
+=======
+The optional second parameter allows us to start searching from a given position.
+>>>>>>> c56e6a57ac3497aab77128c5bfca13513980709b
 
 Por ejemplo, la primera ocurrencia de `"id"` es en la posición `1`. Para buscar por la siguiente ocurrencia, comencemos a buscar desde la posoción `2`:
 

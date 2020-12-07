@@ -97,10 +97,15 @@ Tiempo después aparecieron métodos de red en los navegadores para JavaScript.
 
 Al comienzo, las solicitudes de origen cruzado fueron prohibidas, pero luego de prolongadas discusiones se permitieron, requiriendo consentimiento explicito por parte del servidor, esto expresado en cabezales especiales.
 
+<<<<<<< HEAD
 ## Solicitudes simples
+=======
+## Safe requests
+>>>>>>> c56e6a57ac3497aab77128c5bfca13513980709b
 
 Existen dos tipos de solicitudes de origen cruzado:
 
+<<<<<<< HEAD
 1. Solicitudes simples.
 2. Todas las demás.
 
@@ -110,26 +115,55 @@ Una [solicitud simple](http://www.w3.org/TR/cors/#terminology) es una solicitud 
 
 1. [método simple](http://www.w3.org/TR/cors/#simple-method): GET, POST o HEAD
 2. [Cabeceras simples](http://www.w3.org/TR/cors/#simple-header) -- Las únicas cabeceras permitidas son:
+=======
+1. Safe requests.
+2. All the others.
+
+Safe Requests are simpler to make, so let's start with them.
+
+A request is safe if it satisfies two conditions:
+
+1. [Safe method](https://fetch.spec.whatwg.org/#cors-safelisted-method): GET, POST or HEAD
+2. [Safe headers](https://fetch.spec.whatwg.org/#cors-safelisted-request-header) -- the only allowed custom headers are:
+>>>>>>> c56e6a57ac3497aab77128c5bfca13513980709b
     - `Accept`,
     - `Accept-Language`,
     - `Content-Language`,
     - `Content-Type` con el valor `application/x-www-form-urlencoded`, `multipart/form-data` o `text/plain`.
 
+<<<<<<< HEAD
 Cualquier otra solicitud es considerada "no simple". Por lo tanto, una solicitud con el método `PUT` o con una cabecera HTTP `API-Key` no cumple con las limitaciones.
 
 **La diferencia esencial es que una "solicitud simple" puede ser realizada mediante un `<form>` o un `<script>`, sin la necesidad de utilizar un método especial.**
 
 Por lo tanto, incluso un servidor obsoleto debería ser capaz de aceptar una solicitud simple.
+=======
+Any other request is considered "unsafe". For instance, a request with `PUT` method or with an `API-Key` HTTP-header does not fit the limitations.
+
+**The essential difference is that a safe request can be made with a `<form>` or a `<script>`, without any special methods.**
+
+So, even a very old server should be ready to accept a safe request.
+>>>>>>> c56e6a57ac3497aab77128c5bfca13513980709b
 
 Contrario a esto, las solicitudes con cabeceras no estándar o métodos como el `DELETE` no pueden ser creados de este modo. Durante mucho tiempo no fue posible para JavaScript realizar este tipo de solicitudes. Por lo que un viejo servidor podía asumir que ese tipo de solicitudes provenía desde una fuente privilegiada, "ya que una página web es incapaz de enviarlas".
 
+<<<<<<< HEAD
 Cuando intentamos realizar una solicitud "no simple", el navegador envía una solicitud especial de "pre-vuelo" consultándole al servidor si está de acuerdo en aceptar ese tipo de solicitud de origen cruzado, o no.
 
 Y, sólo en caso de que el servidor confirme de forma explícita, la solicitud "no simple" es enviada.
+=======
+When we try to make a unsafe request, the browser sends a special "preflight" request that asks the server -- does it agree to accept such cross-origin requests, or not?
+
+And, unless the server explicitly confirms that with headers, a unsafe request is not sent.
+>>>>>>> c56e6a57ac3497aab77128c5bfca13513980709b
 
 Vayamos ahora a los detalles.
 
+<<<<<<< HEAD
 ## CORS para solicitudes simples
+=======
+## CORS for safe requests
+>>>>>>> c56e6a57ac3497aab77128c5bfca13513980709b
 
 Si una solicitud es de origen cruzado, el navegador siempre le agregará una cabecera `Origin`.
 
@@ -165,7 +199,11 @@ Access-Control-Allow-Origin: https://javascript.info
 
 ## Cabeceras de respuesta
 
+<<<<<<< HEAD
 Para las respuestas de origen cruzado, por defecto JavaScript sólo puede acceder a las cabeceras llamadas "simples":
+=======
+For cross-origin request, by default JavaScript may only access so-called "safe" response headers:
+>>>>>>> c56e6a57ac3497aab77128c5bfca13513980709b
 
 - `Cache-Control`
 - `Content-Language`
@@ -182,7 +220,11 @@ Como se puede ver, ¡no está la cabecera `Content-Length` en la lista!
 Esta cabecera contiene el tamaño total de la respuesta. Por lo que si queremos mostrar el progreso de la descarga, en ese caso necesitaremos un permiso adicional para acceder a ese campo de la cabecera.
 ```
 
+<<<<<<< HEAD
 Para permitirle a JavaScript acceso a otros tipos de cabeceras, el servidor debe incluir la cabecera `Access-Control-Expose-Headers`. Este campo contiene una lista separada por comas de las cabeceras no simples que podrán ser accesibles.
+=======
+To grant JavaScript access to any other response header, the server must send  `Access-Control-Expose-Headers` header. It contains a comma-separated list of unsafe header names that should be made accessible.
+>>>>>>> c56e6a57ac3497aab77128c5bfca13513980709b
 
 Por ejemplo:
 
@@ -199,18 +241,31 @@ Access-Control-Expose-Headers: Content-Length,API-Key
 
 Con éste valor de `Access-Control-Expose-Headers`, el script tendrá permitido acceder a los valores de las cabeceras `Content-Length` y `API-Key` de la respuesta.
 
+<<<<<<< HEAD
 ## Solicitudes "No simples"
+=======
+## "Unsafe" requests
+>>>>>>> c56e6a57ac3497aab77128c5bfca13513980709b
 
 Podemos utilizar cualquier método HTTP: no únicamente `GET/POST`, sino también `PATCH`, `DELETE` y otros.
 
 Hace algún tiempo nadie podía siquiera imaginar que un sitio web pudiera realizar ese tipo de solicitudes. Por lo que aún existen servicios web que cuando reciben un método no estándar los consideran como una señal de que: "Del otro lado no hay un navegador". Ellos pueden tener en cuenta esto cuando revisan los derechos de acceso.
 
+<<<<<<< HEAD
 Por lo tanto, para evitar malentendidos, cualquier solicitud "no simple" (Estas que no podían ser realizadas en los viejos tiempos), no será realizada por el navegador en forma directa. Antes, enviará una solicitud preliminar llamada solicitud de "pre-vuelo", solicitando se le conceda los permisos.
+=======
+So, to avoid misunderstandings, any "unsafe" request -- that couldn't be done in the old times, the browser does not make such requests right away. Before it sends a preliminary, so-called "preflight" request, asking for permission.
+>>>>>>> c56e6a57ac3497aab77128c5bfca13513980709b
 
 Una solicitud de "pre-vuelo" utiliza el método `OPTIONS`, sin contenido en el cuerpo y con dos cabeceras:
 
+<<<<<<< HEAD
 - `Access-Control-Request-Method`, cabecera que contiene el método de la solicitud "no simple".
 - `Access-Control-Request-Headers` provee una lista separada por comas de las cabeceras no simples de la solicitud.
+=======
+- `Access-Control-Request-Method` header has the method of the unsafe request.
+- `Access-Control-Request-Headers` header provides a comma-separated list of its unsafe HTTP-headers.
+>>>>>>> c56e6a57ac3497aab77128c5bfca13513980709b
 
 Si el servidor está de acuerdo con lo solicitado, entonces responderá con el código de estado 200 y un cuerpo vacío:
 
@@ -233,10 +288,17 @@ let response = await fetch('https://site.com/service.json', {
 });
 ```
 
+<<<<<<< HEAD
 Hay tres motivos por los cuales esta solicitud no es simple (una es suficiente):
 - Método `PATCH`
 - `Content-Type` no es del tipo: `application/x-www-form-urlencoded`, `multipart/form-data`, `text/plain`.
 - Cabecera `API-Key` "No simple".
+=======
+There are three reasons why the request is unsafe (one is enough):
+- Method `PATCH`
+- `Content-Type` is not one of: `application/x-www-form-urlencoded`, `multipart/form-data`, `text/plain`.
+- "Unsafe" `API-Key` header.
+>>>>>>> c56e6a57ac3497aab77128c5bfca13513980709b
 
 ### Paso 1 (solicitud de pre-vuelo)
 
@@ -250,12 +312,21 @@ Access-Control-Request-Method: PATCH
 Access-Control-Request-Headers: Content-Type,API-Key
 ```
 
+<<<<<<< HEAD
 - Método: `OPTIONS`.
 - El path -- exactamente el mismo que el de la solicitud principal: `/service.json`.
 - Cabeceras especiales de origen cruzado (Cross-origin):
     - `Origin` -- el origen de la fuente.
     - `Access-Control-Request-Method` -- método solicitado.
     - `Access-Control-Request-Headers` -- listado separado por comas de las cabeceras "no simples".
+=======
+- Method: `OPTIONS`.
+- The path -- exactly the same as the main request: `/service.json`.
+- Cross-origin special headers:
+    - `Origin` -- the source origin.
+    - `Access-Control-Request-Method` -- requested method.
+    - `Access-Control-Request-Headers` -- a comma-separated list of "unsafe" headers.
+>>>>>>> c56e6a57ac3497aab77128c5bfca13513980709b
 
 ### Paso 2 (solicitud de pre-vuelo)
 
@@ -284,7 +355,11 @@ Si se encuentra con una cabecera `Access-Control-Max-Age` con determinada cantid
 
 ### Paso 3 (solicitud real)
 
+<<<<<<< HEAD
 Una vez el pre-vuelo se realiza de forma satisfactoria, el navegador realiza la solicitud principal. El algoritmo aquí es el mismo que el utilizado para una solicitud simple.
+=======
+When the preflight is successful, the browser now makes the main request. The algorithm here is the same as for safe requests.
+>>>>>>> c56e6a57ac3497aab77128c5bfca13513980709b
 
 La solicitud principal tiene la cabecera `Origin` (ya que se trata de una solicitud de origen cruzado):
 
@@ -350,21 +425,37 @@ Cabe destacar que: `Access-Control-Allow-Origin` no se puede utilizar con un ast
 
 ## Resumen
 
+<<<<<<< HEAD
 Desde el punto de vista del navegador, existen dos tipos de solicitudes de origen cruzado: solicitudes "simple" y todas las demás.
 
 [Solicitudes simple](http://www.w3.org/TR/cors/#terminology) deben cumplir las siguientes condiciones:
 - Método: GET, POST o HEAD.
 - Cabeceras -- únicamente puede contener:
+=======
+From the browser point of view, there are two kinds of cross-origin requests: "safe" and all the others.
+
+"Safe" requests must satisfy the following conditions:
+- Method: GET, POST or HEAD.
+- Headers -- we can set only:
+>>>>>>> c56e6a57ac3497aab77128c5bfca13513980709b
     - `Accept`
     - `Accept-Language`
     - `Content-Language`
     - `Content-Type` con el valor `application/x-www-form-urlencoded`, `multipart/form-data` o `text/plain`.
 
+<<<<<<< HEAD
 La diferencia escencial es que las solicitudes simples eran posibles desde los viejos tiempos utilizando las etiquetas `<form>` o `<script>`, mientras que las solicitudes "no simples" fueron imposibles para el navegador durante mucho tiempo.
 
 Por lo tanto, en la práctica, la diferencia se encuentra en que las solicitudes simples son realizadas de forma directa, utilizando la cabecera `Origin`, mientras que para las otras el navegador realiza una solicitud extra de "pre-vuelo" para requerir la autorización.
 
 **Para una solicitud simple:**
+=======
+The essential difference is that safe requests were doable since ancient times using `<form>` or `<script>` tags, while unsafe were impossible for browsers for a long time.
+
+So, the practical difference is that safe requests are sent right away, with `Origin` header, while for the other ones the browser makes a preliminary "preflight" request, asking for permission.
+
+**For safe requests:**
+>>>>>>> c56e6a57ac3497aab77128c5bfca13513980709b
 
 - → El navegador envía una cabecera `Origin` con el origen.
 - ← Para solicitudes sin credenciales (no enviadas por defecto), el servidor debe enviar:
@@ -375,6 +466,7 @@ Por lo tanto, en la práctica, la diferencia se encuentra en que las solicitudes
 
 Adicionalmente, para garantizar a JavaScript acceso a cualquier cabecera de la respuesta, con excepción de `Cache-Control`, `Content-Language`, `Content-Type`, `Expires`, `Last-Modified` o `Pragma`, el servidor debe agregarlas como permitidas en la lista de la cabecera `Access-Control-Expose-Headers`.
 
+<<<<<<< HEAD
 **Para solicitudes no simples, se utiliza una solicitud preliminar "pre-vuelo"  antes de la solicitud principal:**
 
 - → El navegador envía una solicitud del tipo `OPTIONS` a la misma URL, con las cabeceras:
@@ -385,3 +477,15 @@ Adicionalmente, para garantizar a JavaScript acceso a cualquier cabecera de la r
     - `Access-Control-Allow-Headers` con una lista de cabeceras permitidas,
     - `Access-Control-Max-Age` con los segundos en los que se podrá almacenar la autorización en caché.
 - Tras lo cual la solicitud es enviada, y se aplica el esquema previo utilizado para las solicitudes "simples".
+=======
+**For unsafe requests, a preliminary "preflight" request is issued before the requested one:**
+
+- → The browser sends `OPTIONS` request to the same URL, with headers:
+    - `Access-Control-Request-Method` has requested method.
+    - `Access-Control-Request-Headers` lists unsafe requested headers.
+- ← The server should respond with status 200 and headers:
+    - `Access-Control-Allow-Methods` with a list of allowed methods,
+    - `Access-Control-Allow-Headers` with a list of allowed headers,
+    - `Access-Control-Max-Age` with a number of seconds to cache permissions.
+- Then the actual request is sent, the previous "safe" scheme is applied.
+>>>>>>> c56e6a57ac3497aab77128c5bfca13513980709b

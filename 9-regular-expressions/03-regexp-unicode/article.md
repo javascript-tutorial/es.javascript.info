@@ -41,13 +41,21 @@ Podemos buscar caracteres por su propiedad, usando `pattern:\p{...}`. Para usar 
 
 Por ejemplo, `\p{Letter}` denota una letra en cualquiera de los idiomas. También podemos usar `\p{L}`, ya que `L` es un alias de `Letter`. Casi todas las propiedades tienen alias cortos.
 
+<<<<<<< HEAD
 En el ejemplo a continuación se encontrarán tres tipos de letras: inglés, georgiano y coreano.
+=======
+In the example below three kinds of letters will be found: English, Georgian and Korean.
+>>>>>>> c56e6a57ac3497aab77128c5bfca13513980709b
 
 ```js run
 let str = "A ბ ㄱ";
 
 alert( str.match(/\p{L}/gu) ); // A,ბ,ㄱ
+<<<<<<< HEAD
 alert( str.match(/\p{L}/g) ); // null (sin coincidencia, como no hay bandera "u")
+=======
+alert( str.match(/\p{L}/g) ); // null (no matches, \p doesn't work without the flag "u")
+>>>>>>> c56e6a57ac3497aab77128c5bfca13513980709b
 ```
 
 Estas son las principales categorías y subcategorías de caracteres:

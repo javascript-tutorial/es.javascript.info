@@ -24,7 +24,7 @@ Para reanudar una carga, necesitamos saber *exactamente* el número de bytes rec
 
 1. Primero, crear un archivo id, para únicamente identificar el archivo que vamos a subir:
     ```js
-    let fileId = file.name + '-' + file.size + '-' + +file.lastModifiedDate;
+    let fileId = file.name + '-' + file.size + '-' + file.lastModified;
     ```
     Eso es necesario para reanudar la carga, para decirle al servidor lo que estamos reanudando.
 
