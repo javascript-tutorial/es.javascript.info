@@ -30,4 +30,4 @@ Demo en el iframe:
 
 [iframe src="solution" height=160 border=1]
 
-P.S. El código fuente tiene el HTML/CSS para el formulario con posicion fija. Pero tu decides como haces el modal.
+P.S. El código fuente tiene el HTML/CSS para el formulario con posición fija. Pero tú decides cómo haces el modal.
