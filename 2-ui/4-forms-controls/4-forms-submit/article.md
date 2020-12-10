@@ -49,7 +49,7 @@ Para enviar un formulario al servidor manualmente, podemos usar `form.submit()`.
 
 Entonces el evento `submit` no será generado. Se asume que si el programador llama `form.submit()`, entonces el script ya realizó todo el procesamiento relacionado.
 
-Aveces es usado para crear y enviar un formlario manualmente, como en este ejemplo:
+A veces es usado para crear y enviar un formlario manualmente, como en este ejemplo:
 
 ```js run
 let form = document.createElement('form');
