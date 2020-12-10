@@ -17,4 +17,4 @@ Debido a que el `<div>` cubre toda la ventana, recibe todos los clicks, en vez d
 
 También podemos prevenir el scroll en la página utilizando `body.style.overflowY='hidden'`.
 
-El formulario no debe estar en el `<div>`, pero si junto a él, porque no queremos que tenga `opacity`.
+El formulario no debe estar en el `<div>` sino junto a él, porque no queremos que tenga `opacity`.
