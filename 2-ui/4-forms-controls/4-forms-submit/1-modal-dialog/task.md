@@ -7,7 +7,7 @@ importance: 5
 Crea una función `showPrompt(html, callback)`  que muestre un formulario con el mensaje `html`, un campo input y botones `OK/CANCELAR`.
 
 - Un usuario debe escribir algo en el campo de texto y pulsar `key:Enter` o el botón OK, entonces `callback(value)` es llamado con el valor introducido.
-- En caso contrario si el usuario pulsa `key:Esc` o CANCELAR, entonces `callback(null)` es llamado.
+- En caso contrario, si el usuario pulsa `key:Esc` o CANCELAR, entonces `callback(null)` es llamado.
 
 En ambos casos se finaliza el proceso se y borra el formulario.
 
