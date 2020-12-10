@@ -14,7 +14,7 @@ En ambos casos se finaliza el proceso se y borra el formulario.
 Requisitos:
 
 - El formulario debe de estar en el centro de la ventana.
-- El formulario es *modal*. En otras palabras, no habrá interacción con el resto de la página siempre que sea posible, hasta que el usuario lo cierre.
+- El formulario es *modal*. Es decir que no habrá interacción con el resto de la página, siempre que sea posible, hasta que el usuario lo cierre.
 - Cuando se muestra el formulario, el foco debe estar en el `<input>` del usuario.
 - Las teclas `key:Tab`/`key:Shift+Tab` deben alternar el foco entre los diferentes campos del formulario, no se permite cambiar el foco a otros elementos de la página. 
 
