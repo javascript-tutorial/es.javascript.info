@@ -15,6 +15,6 @@ Una ventana modal puede ser implementada utilizando un `<div id="cover-div">` se
 
 Debido a que el `<div>` cubre toda la ventana, recibe todos los clicks, en vez de la página tras él.
 
-También podemos prevenir el scroll en la página utilizando `body.style.overflowY='hidden'`.
+También podemos evitar el scroll en la página utilizando `body.style.overflowY='hidden'`.
 
 El formulario no debe estar en el `<div>` sino junto a él, porque no queremos que tenga `opacity`.
