@@ -58,7 +58,7 @@ form.method = 'GET';
 
 form.innerHTML = '<input name="q" value="test">';
 
-// el formulario debe de estar en el document para poder enviarlo
+// el formulario debe estar en el document para poder enviarlo
 document.body.append(form);
 
 form.submit();
