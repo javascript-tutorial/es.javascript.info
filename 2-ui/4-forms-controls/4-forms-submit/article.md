@@ -28,7 +28,7 @@ Ambas acciones muestran `alert` y el formulario no es enviado debido a la presen
 </form>
 ```
 
-````smart header="Relation between `submit` and `click`"
+````smart header="Relación entre `submit` y `click`"
 Cuando un formulario es enviado utlizando `key:Enter` en un campo tipo texto, un evento `click` se genera en el `<input type="submit">`
 
 Muy curioso, dado que no hubo ningún click en absoluto.
