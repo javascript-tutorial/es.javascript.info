@@ -9,7 +9,11 @@ El encadenamiento opcional `?.` es una forma a prueba de errores para acceder a 
 
 Si acaba de comenzar a leer el tutorial y aprender JavaScript, quizás el problema aún no lo haya tocado, pero es bastante común.
 
+<<<<<<< HEAD
 Por ejemplo, algunos de nuestros usuarios tienen direcciones, pero pocos no las proporcionaron. Entonces no podemos leer con seguridad `user.address.street`:
+=======
+As an example, let's say we have `user` objects that hold the information about our users.
+>>>>>>> 23e85b3c33762347e26276ed869e491e959dd557
 
 En tal cao, cuando intentamos obtener `user.address.street`, obtendremos un error:
 
@@ -19,7 +23,13 @@ let user = {}; // usuario sin propiedad "address"
 alert(user.address.street); // Error!
 ```
 
+<<<<<<< HEAD
 Este es el resultado esperado, JavaScript funciona así, pero en muchos casos prácticos preferiríamos obtener `undefined` en lugar del error (sin "street").
+=======
+That's the expected result. JavaScript works like this. As `user.address` is `undefined`, an attempt to get `user.address.street` fails with an error.
+
+In many practical cases we'd prefer to get `undefined` instead of an error here (meaning "no street").
+>>>>>>> 23e85b3c33762347e26276ed869e491e959dd557
 
 ...Y otro ejemplo.  En el desarrollo web, necesitamos obtener información sobre un elemento en la página, pero a veces este no existe:
 
@@ -30,7 +40,19 @@ let html = document.querySelector('.my-element').innerHTML;
 
 Antes de que apareciera `?.` en el lenguaje, se usaba el operador `&&` para solucionarlo.
 
+<<<<<<< HEAD
 Por ejemplo:
+=======
+```js
+let user = {}; // user has no address
+
+alert(user.address ? user.address.street ? user.address.street.name : null : null);
+```
+
+That's just awful, one may even have problems understanding such code.
+
+Don't even care to, as there's a better way to write it, using the `&&` operator:
+>>>>>>> 23e85b3c33762347e26276ed869e491e959dd557
 
 ```js run
 let user = {}; // El usuario no tiene dirección

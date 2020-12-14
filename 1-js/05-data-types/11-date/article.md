@@ -385,10 +385,17 @@ El método [Date.parse(str)](mdn:js/Date/parse) permite leer una fecha desde un 
 
 El formato del string debe ser: `YYYY-MM-DDTHH:mm:ss.sssZ`, donde:
 
+<<<<<<< HEAD
 - `YYYY-MM-DD` -- es la fecha: año-mes-día.
 - El caracter `"T"` se usa como delimitador.
 - `HH:mm:ss.sss` -- es la hora: horas, minutos, segundos y milisegundos.
 - El caracter `'Z'` es opcional y especifica la zona horaria, con el formato `+-hh:mm`. Si se incluye únicamente la letra `Z` equivale a UTC+0.
+=======
+- `YYYY-MM-DD` -- is the date: year-month-day.
+- The character `"T"` is used as the delimiter.
+- `HH:mm:ss.sss` -- is the time: hours, minutes, seconds and milliseconds.
+- The optional `'Z'` part denotes the time zone in the format `+-hh:mm`. A single letter `Z` would mean UTC+0.
+>>>>>>> 23e85b3c33762347e26276ed869e491e959dd557
 
 Tambien es posible pasar como string variantes abreviadas, tales como `YYYY-MM-DD` o `YYYY-MM` o incluso `YYYY`.
 
@@ -424,10 +431,17 @@ Nótese que, a diferencia de otros sistemas, los _timestamps_ en JavaScript est�
 Suele suceder que necesitemos tomar medidas de tiempo más precisas. En sí, JavaScript no tiene incorporada una manera de medir el tiempo en microsegundos (1 millonésima parte de segundo), pero la mayoría de los entornos de ejecución sí lo permiten. Por ejemplo, el navegador posee [performance.now()](mdn:api/Performance/now) que nos permite saber la cantidad de milisegundos que tarda una página en cargar, con una precisión de microsegundos (3 dígitos después del punto):
 
 ```js run
+<<<<<<< HEAD
 alert(`La carga de la página comenzó hace ${performance.now()}ms`);
 // Devuelve algo así como: "La carga de la página comenzó hace 34731.26000000001ms"
 // los dígitos .26 son microsegundos (260 microsegundos)
 // Sólo los 3 primeros dígitos después del punto decimal son correctos, los demás son errores de precisión.
+=======
+alert(`Loading started ${performance.now()}ms ago`);
+// Something like: "Loading started 34731.26000000001ms ago"
+// .26 is microseconds (260 microseconds)
+// more than 3 digits after the decimal point are precision errors, only the first 3 are correct
+>>>>>>> 23e85b3c33762347e26276ed869e491e959dd557
 ```
 
 Node.js posee el módulo `microtime`, entre otros. Prácticamente casi cualquier dispositivo y entorno de ejecución permite mayor precisión, sólo que no es posible en `Date`.

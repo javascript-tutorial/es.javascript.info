@@ -55,18 +55,30 @@ También es posible combinar varias clases, p.ej.: `pattern:[\s\d]` significa "u
 ```smart header="Las clases de caracteres son abreviaturas (o atajos) para ciertos conjuntos de caracteres."
 Por ejemplo:
 
+<<<<<<< HEAD
 - **\d** -- es lo mismo que `pattern:[0-9]`,
 - **\w** -- es lo mismo que `pattern:[a-zA-Z0-9_]`,
 - **\s** -- es lo mismo que `pattern:[\t\n\v\f\r ]`, además de otros caracteres de espacio raros de unicode.
+=======
+- **\d** -- is the same as `pattern:[0-9]`,
+- **\w** -- is the same as `pattern:[a-zA-Z0-9_]`,
+- **\s** -- is the same as `pattern:[\t\n\v\f\r ]`, plus few other rare Unicode space characters.
+>>>>>>> 23e85b3c33762347e26276ed869e491e959dd557
 ```
 
 ### Ejemplo: multi-idioma \w
 
 Como la clase de caracteres `pattern:\w` es una abreviatura de `pattern:[a-zA-Z0-9_]`, no puede coincidir con sinogramas chinos, letras cirílicas, etc.
 
+<<<<<<< HEAD
 Podemos escribir un patrón más universal, que busque caracteres de palabra en cualquier idioma. Eso es fácil con las propiedades unicode: `pattern:[\p{Alpha}\p{M}\p{Nd}\p{Pc}\p{Join_C}]`.
 
 Descifrémoslo. Similar a `pattern:\w`, estamos creando un conjunto propio que incluye caracteres con las siguientes propiedades unicode:
+=======
+We can write a more universal pattern, that looks for wordly characters in any language. That's easy with Unicode properties: `pattern:[\p{Alpha}\p{M}\p{Nd}\p{Pc}\p{Join_C}]`.
+
+Let's decipher it. Similar to `pattern:\w`, we're making a set of our own that includes characters with following Unicode properties:
+>>>>>>> 23e85b3c33762347e26276ed869e491e959dd557
 
 - `Alfabético` (`Alpha`) - para letras,
 - `Marca` (`M`) - para acentos,
@@ -85,10 +97,17 @@ let str = `Hola 你好 12`;
 alert( str.match(regexp) ); // H,o,l,a,你,好,1,2
 ```
 
+<<<<<<< HEAD
 Por supuesto, podemos editar este patrón: agregar propiedades unicode o eliminarlas. Las propiedades Unicode se cubren con más detalle en el artículo <info:regexp-unicode>.
 
 ```warn header="Las propiedades Unicode no son compatibles con Edge y Firefox"
 Las propiedades Unicode `pattern:p{…}` aún no se implementan en Edge y Firefox. Si realmente los necesitamos, podemos usar la biblioteca [XRegExp](http://xregexp.com/).
+=======
+Of course, we can edit this pattern: add Unicode properties or remove them. Unicode properties are covered in more details in the article <info:regexp-unicode>.
+
+```warn header="Unicode properties aren't supported in IE"
+Unicode properties `pattern:p{…}` are not implemented in IE. If we really need them, we can use library [XRegExp](http://xregexp.com/).
+>>>>>>> 23e85b3c33762347e26276ed869e491e959dd557
 
 O simplemente usa rangos de caracteres en el idioma de tu interés, p.ej. `pattern:[а-я]` para letras cirílicas.
 ```

@@ -89,7 +89,15 @@ alert(word); // varName
 
 We performed a search of `pattern:\w+`, starting from position `regexp.lastIndex = 4`.
 
+<<<<<<< HEAD
 Please note: the search starts at position `lastIndex` and then goes further. If there's no word at position `lastIndex`, but it's somewhere after it, then it will be found:
+=======
+The result is correct.
+
+...But wait, not so fast.
+
+Please note: the `regexp.exec` call starts searching at position `lastIndex` and then goes further. If there's no word at position `lastIndex`, but it's somewhere after it, then it will be found:
+>>>>>>> 23e85b3c33762347e26276ed869e491e959dd557
 
 ```js run
 let str = 'let varName = "value"';

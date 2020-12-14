@@ -24,9 +24,15 @@ Cuando `abort()` es invocado:
 - `controller.signal` emite el evento `"abort"`.
 - La propiedad `controller.signal.aborted` toma el valor `true`.
 
+<<<<<<< HEAD
 Generalmente tenemos dos partes en el proceso: 
 1. El que ejecuta la operación de cancelación, genera un listener que escucha a `controller.signal`.
 2. El que cancela: este llama a `controller.abort()` cuendo es necesario.
+=======
+Generally, we have two parties in the process: 
+1. The one that performs an cancelable operation, it sets a listener on `controller.signal`.
+2. The one that cancels: it calls `controller.abort()` when needed.
+>>>>>>> 23e85b3c33762347e26276ed869e491e959dd557
 
 Tal como se muestra a continuación (por ahora sin `fetch`):
 
@@ -50,7 +56,11 @@ Como podemos ver, `AbortController` es simplemente la via para pasar eventos `ab
 
 Podríamos implementar alguna clase de escucha de evento en nuestro código por nuestra cuenta, sin el objeto `AbortController` en absoluto.
 
+<<<<<<< HEAD
 Poro lo valioso es que `fetch` sabe cómo trabajar con el objeto `AbortController`, está integrado con él. 
+=======
+But what's valuable is that `fetch` knows how to work with `AbortController` object, it's integrated with it.
+>>>>>>> 23e85b3c33762347e26276ed869e491e959dd557
 
 ## Uso con fetch
 

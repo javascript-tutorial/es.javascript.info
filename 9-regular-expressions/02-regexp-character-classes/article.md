@@ -8,7 +8,11 @@ Una *clase de caracteres* es una notación especial que coincide con cualquier s
 
 Para empezar, exploremos la clase "dígito". Está escrito como `pattern:\d` y corresponde a "cualquier dígito".
 
+<<<<<<< HEAD
 Por ejemplo, busquemos el primer dígito en el número de teléfono:
+=======
+For instance, let's find the first digit in the phone number:
+>>>>>>> 23e85b3c33762347e26276ed869e491e959dd557
 
 ```js run
 let str = "+7(903)-123-45-67";
@@ -144,10 +148,17 @@ Eso es lo que hace la bandera `pattern:s`. Si una expresión regular la tiene, e
 alert( "A\nB".match(/A.B/s) ); // A\nB (coincide!)
 ```
 
+<<<<<<< HEAD
 ````warn header="El patrón (`pattern:.`) no es compatible con Firefox (< 78), IE, Edge (< 79)"
 Consulte <https://caniuse.com/#search=dotall> para conocer el soporte actualizado. Al momento de escribirse este manual, no estaban soportados.
 
 Afortunadamente, hay una alternativa, que funciona en todas partes. Podemos usar una expresión regular como `pattern:[\s\S]` para que coincida con "cualquier carácter".
+=======
+````warn header="Not supported in IE"
+The `pattern:s` flag is not supported in IE.
+
+Luckily, there's an alternative, that works everywhere. We can use a regexp like `pattern:[\s\S]` to match "any character" (this pattern will be covered in the article <info:regexp-character-sets-and-ranges>).
+>>>>>>> 23e85b3c33762347e26276ed869e491e959dd557
 
 ```js run
 alert( "A\nB".match(/A[\s\S]B/) ); // A\nB (coincide!)
@@ -179,7 +190,11 @@ alert( "1 - 5".match(/\d\s-\s\d/) ); // 1 - 5, tambien funciona
 
 **Un espacio es un carácter. Igual de importante que cualquier otro carácter.**
 
+<<<<<<< HEAD
 No podemos agregar o eliminar espacios de una expresión regular y esperar que funcione igual.
+=======
+We can't add or remove spaces from a regular expression and expect it to work the same.
+>>>>>>> 23e85b3c33762347e26276ed869e491e959dd557
 
 En otras palabras, en una expresión regular todos los caracteres importan, los espacios también.
 ````
@@ -198,6 +213,10 @@ Existen las siguientes clases de caracteres:
 
 ...¡Pero eso no es todo!
 
+<<<<<<< HEAD
 La codificación Unicode, utilizada por JavaScript para las cadenas, proporciona muchas propiedades para los caracteres, como: a qué idioma pertenece la letra (si es una letra), es un signo de puntuación, etc.
+=======
+Unicode encoding, used by JavaScript for strings, provides many properties for characters, like: which language the letter belongs to (if it's a letter), is it a punctuation sign, etc.
+>>>>>>> 23e85b3c33762347e26276ed869e491e959dd557
 
 Se pueden hacer búsquedas usando esas propiedades. Y se requiere la bandera `pattern:u`, analizada en el siguiente artículo.

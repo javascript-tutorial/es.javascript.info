@@ -96,7 +96,13 @@ class CoffeeMachine {
   _waterAmount = 0;
 
   set waterAmount(value) {
+<<<<<<< HEAD
     if (value < 0) throw new Error("Agua en negativo");
+=======
+    if (value < 0) {
+      value = 0;
+    }
+>>>>>>> 23e85b3c33762347e26276ed869e491e959dd557
     this._waterAmount = value;
   }
 
@@ -117,7 +123,11 @@ let coffeeMachine = new CoffeeMachine(100);
 coffeeMachine.waterAmount = -10; // Error: Agua en negativo
 ```
 
+<<<<<<< HEAD
 Ahora el acceso está bajo control, por lo que falla el ajuste del agua por debajo de cero.
+=======
+Now the access is under control, so setting the water amount below zero becomes impossible.
+>>>>>>> 23e85b3c33762347e26276ed869e491e959dd557
 
 ## "Power" de solo lectura
 
@@ -159,7 +169,11 @@ class CoffeeMachine {
   _waterAmount = 0;
 
   *!*setWaterAmount(value)*/!* {
+<<<<<<< HEAD
     if (value < 0) throw new Error("Agua en negativo");
+=======
+    if (value < 0) value = 0;
+>>>>>>> 23e85b3c33762347e26276ed869e491e959dd557
     this._waterAmount = value;
   }
 
@@ -198,19 +212,34 @@ class CoffeeMachine {
 */!*
 
 *!*
+<<<<<<< HEAD
   #checkWater(value) {
     if (value < 0) throw new Error("Agua en negativo");
     if (value > this.#waterLimit) throw new Error("Demasiada agua");
+=======
+  #fixWaterAmount(value) {
+    if (value < 0) return 0;
+    if (value > this.#waterLimit) return this.#waterLimit;
+>>>>>>> 23e85b3c33762347e26276ed869e491e959dd557
   }
 */!*
+
+  setWaterAmount(value) {
+    this.#waterLimit = this.#fixWaterAmount(value);
+  }
 
 }
 
 let coffeeMachine = new CoffeeMachine();
 
 *!*
+<<<<<<< HEAD
 // no puede acceder a privados desde fuera de la clase
 coffeeMachine.#checkWater(); // Error
+=======
+// can't access privates from outside of the class
+coffeeMachine.#fixWaterAmount(123); // Error
+>>>>>>> 23e85b3c33762347e26276ed869e491e959dd557
 coffeeMachine.#waterLimit = 1000; // Error
 */!*
 ```
@@ -231,7 +260,11 @@ class CoffeeMachine {
   }
 
   set waterAmount(value) {
+<<<<<<< HEAD
     if (value < 0) throw new Error("Agua en negativo");
+=======
+    if (value < 0) value = 0;
+>>>>>>> 23e85b3c33762347e26276ed869e491e959dd557
     this.#waterAmount = value;
   }
 }

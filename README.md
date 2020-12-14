@@ -89,7 +89,11 @@ If maintainers do not respond, or if you'd like to become a maintainer, write us
 
 🎉 Thank you!
 
+<<<<<<< HEAD
 Your name and the contribution size will appear in the "About project" page when the translation gets published.
+=======
+**You can edit the text in any editor.** The tutorial uses enhanced "markdown" format, easy to grasp. And if you want to see how it looks on-site, there's a server to run the tutorial locally at <https://github.com/javascript-tutorial/server>.
+>>>>>>> 23e85b3c33762347e26276ed869e491e959dd557
 
 P.S. The full list of languages can be found at <https://javascript.info/translate>.
 
@@ -181,6 +185,7 @@ Some files, usually tasks, have YAML metadata at the top, delimited by `---`:
 ```md
 importance: 5
 
+<<<<<<< HEAD
 ---
 ...
 ```
@@ -203,5 +208,8 @@ You can run the tutorial server locally to see how the translation looks.
 
 The server and install instructions are at <https://github.com/javascript-tutorial/server>. 
 
+=======
+---  
+>>>>>>> 23e85b3c33762347e26276ed869e491e959dd557
 ♥  
 Ilya Kantor @iliakan

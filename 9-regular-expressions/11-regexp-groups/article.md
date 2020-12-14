@@ -249,7 +249,11 @@ El llamado a `matchAll` no realiza la búsqueda. En cambio devuelve un objeto it
 
 Por lo tanto, se encontrará tantos resultados como sea necesario, no más.
 
+<<<<<<< HEAD
 Por ejemplo, posiblemente hay 100 coincidencias en el texto, pero en un bucle `for..of` encontramos 5 de ellas: entonces decidimos que es suficiente y realizamos un `break`.  Así el buscador no gastará tiempo buscando otras 95 coincidencias.
+=======
+E.g. there are potentially 100 matches in the text, but in a `for..of` loop we found 5 of them, then decided it's enough and made a `break`. Then the engine won't spend time finding other 95 matches.
+>>>>>>> 23e85b3c33762347e26276ed869e491e959dd557
 ```
 
 ## Grupos con nombre

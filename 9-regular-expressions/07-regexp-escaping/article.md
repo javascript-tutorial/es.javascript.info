@@ -94,6 +94,12 @@ alert( "Capítulo 5.1".match(regexp) ); // 5.1
 
 ## Resumen
 
+<<<<<<< HEAD
 - Para buscar literalmente caracteres especiales `pattern:[ \ ^ $ . | ? * + ( )`, se les antepone una barra invertida `\` ("escaparlos").
 - Se debe escapar `/` si estamos dentro de `pattern:/.../` (pero no dentro de `new RegExp`).
 - Al pasar una cadena a `new RegExp`, se deben duplicar las barras invertidas `\\`, porque las comillas de cadena consumen una.
+=======
+- To search for special characters `pattern:[ \ ^ $ . | ? * + ( )` literally, we need to prepend them with a backslash `\` ("escape them").
+- We also need to escape `/` if we're inside `pattern:/.../` (but not inside `new RegExp`).
+- When passing a string to `new RegExp`, we need to double backslashes `\\`, cause string quotes consume one of them.
+>>>>>>> 23e85b3c33762347e26276ed869e491e959dd557

@@ -77,7 +77,11 @@ setInterval(animate3, 20);
 
 Estos varios redibujos independientes deben agruparse para facilitar el redibujado al navegador y, por lo tanto, cargar menos CPU y verse más fluido.
 
+<<<<<<< HEAD
 Hay una cosa más a tener en cuenta. A veces, cuando el CPU está sobrecargado, o hay otras razones para volver a dibujar con menos frecuencia (como cuando la pestaña del navegador está oculta), no deberíamos ejecutarlo cada `20ms`.
+=======
+There's one more thing to keep in mind. Sometimes CPU is overloaded, or there are other reasons to redraw less often (like when the browser tab is hidden), so we really shouldn't run it every `20ms`.
+>>>>>>> 23e85b3c33762347e26276ed869e491e959dd557
 
 Pero, ¿cómo sabemos eso en JavaScript? Hay una especificación [Sincronización de animación](http://www.w3.org/TR/animation-timing/) que proporciona la función `requestAnimationFrame`. Aborda todos estos problemas y aún más.
 
@@ -227,7 +231,11 @@ Velo en acción (haz clic para activar):
 
 [iframe height=40 src="quad" link]
 
+<<<<<<< HEAD
 ...O la curva cúbica o evento con mayor `n`. Aumentar la potencia hace que se acelere más rápido.
+=======
+...Or the cubic curve or even greater `n`. Increasing the power makes it speed up faster.
+>>>>>>> 23e85b3c33762347e26276ed869e491e959dd557
 
 Aquí está el gráfico de `progress` en la potencia `5`:
 
@@ -397,15 +405,25 @@ El efecto se ve claramente si comparamos las gráficas de `easyIn`, `easyOut` y 
 
 ![](circ-ease.svg)
 
+<<<<<<< HEAD
 - <span style="color:#EE6B47">Rojo</span> es la variante regular de `circ` (`easyIn`).
 - <span style="color:#8DB173">Verde</span> -- `easeOut`.
 - <span style="color:#62C0DC">Azul</span> -- `easeInOut`.
+=======
+- <span style="color:#EE6B47">Red</span> is the regular variant of `circ` (`easeIn`).
+- <span style="color:#8DB173">Green</span> -- `easeOut`.
+- <span style="color:#62C0DC">Blue</span> -- `easeInOut`.
+>>>>>>> 23e85b3c33762347e26276ed869e491e959dd557
 
 Como podemos ver, el gráfico de la primera mitad de la animación es el `easyIn` reducido y la segunda mitad es el `easyOut` reducido. Como resultado, la animación comienza y termina con el mismo efecto.
 
 ## "Dibujar" más interesante
 
+<<<<<<< HEAD
 En lugar de mover el elemento podemos hacer otra cosa. Todo lo que necesitamos es escribir la función `draw` adecuada.
+=======
+Instead of moving the element we can do something else. All we need is to write the proper `draw`.
+>>>>>>> 23e85b3c33762347e26276ed869e491e959dd557
 
 Aquí está la escritura de texto animada "rebotando":
 

@@ -145,7 +145,7 @@ let analyticsData = { /* objeto con datos recopilados */ };
 
 window.addEventListener("unload", function() {
   navigator.sendBeacon("/analytics", JSON.stringify(analyticsData));
-};
+});
 ```
 
 - La solicitud se envía como POST.
