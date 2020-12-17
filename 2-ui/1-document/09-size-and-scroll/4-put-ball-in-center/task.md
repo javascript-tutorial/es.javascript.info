@@ -8,7 +8,7 @@ Así es como se ve el documento de origen:
 
 [iframe src="source" edit link height=180]
 
-¿Cuales son las coordenadas del centro de campo?
+¿Cuáles son las coordenadas del centro de campo?
 
 Calcúlalos y úsalos para colocar la pelota en el centro del campo verde:
 
