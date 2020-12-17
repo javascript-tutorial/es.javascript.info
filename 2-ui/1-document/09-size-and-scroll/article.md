@@ -206,7 +206,7 @@ En otras palabras, `scrollTop` es "cuánto se desplaza hacia arriba".
 La mayoría de las propiedades aquí son solo lectura, pero `scrollLeft/scrollTop` se puede cambiar, y el navegador desplazará el elemento.
 
 ```online
-Si haces clic en el elemento de abajo, se ejecuta el codigo `elem.scrollTop += 10`. Eso hace que el contenido del elemento se desplace `10px` abajo.
+Si haces clic en el elemento de abajo, se ejecuta el código `elem.scrollTop += 10`. Eso hace que el contenido del elemento se desplace `10px` abajo.
 
 <div onclick="this.scrollTop+=10" style="cursor:pointer;border:1px solid black;width:100px;height:80px;overflow:auto">Click<br>Me<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</div>
 ```
