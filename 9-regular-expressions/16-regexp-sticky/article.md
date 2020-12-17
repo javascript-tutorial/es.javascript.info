@@ -124,4 +124,4 @@ Como podemos ver, el `pattern:/\w+/y` de regexp no coincide en la posición `3` 
 
 Imagina que tenemos un texto largo, y no hay coincidencias en él. Entonces la búsqueda con el indicador `pattern:g` irá hasta el final del texto, y esto tomará significativamente más tiempo que la búsqueda con el indicador `pattern:y`.
 
-En tales tareas como el análisis léxico, normalmente hay muchas búsquedas en una posición exacta. Usar el indicador `pattern:y` es la clave para un buen desempeño.
+En tareas tales como el análisis léxico, normalmente hay muchas búsquedas en una posición exacta. Usar el indicador `pattern:y` es la clave para un buen desempeño.
