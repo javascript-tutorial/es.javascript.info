@@ -6,4 +6,4 @@ importance: 5
 
 ¿Cuál es la diferencia entre `getComputedStyle(elem).width` y `elem.clientWidth`?
 
-Dar almenos 3 diferencias. Mientras más, mejor.
+Dar al menos 3 diferencias. Mientras más, mejor.
