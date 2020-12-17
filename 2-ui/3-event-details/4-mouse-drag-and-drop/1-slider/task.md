@@ -2,7 +2,7 @@ importance: 5
 
 ---
 
-# Barra de desplazamiento
+# Control deslizante
 
 Crea un control deslizante:
 
