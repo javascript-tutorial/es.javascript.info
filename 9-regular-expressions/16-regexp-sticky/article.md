@@ -86,7 +86,7 @@ alert(word); // varName
 
 Realizamos una búsqueda de `pattern:\w+`, comenzando desde la posición `regexp.lastIndex = 4`.
 
-Por favor nota que la búsqueda comienza en la posición `lastIndex` y luego profundiza. Sí no hay ninguna palabra en la posición `lastIndex`, pero está en algún lugar posterior, entonces será encontrada:
+Nota que la búsqueda comienza en la posición `lastIndex` y luego sigue adelante. Si no hay ninguna palabra en la posición `lastIndex` pero la hay en algún lugar posterior, entonces será encontrada:
 
 ```js run
 let str = 'let varName = "value"';
