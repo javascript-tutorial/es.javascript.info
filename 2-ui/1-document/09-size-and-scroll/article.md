@@ -146,7 +146,7 @@ Aquí está el ejemplo en hebreo:
 
 ## clientWidth/Height
 
-Esta propiedad proporciona el tamaño del area dentro del los bordes del elemento.
+Esta propiedad proporciona el tamaño del área dentro del los bordes del elemento.
 
 Incluyen el ancho del contenido junto con los rellenos, pero sin la barra de desplazamiento:
 
