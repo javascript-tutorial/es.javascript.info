@@ -19,7 +19,7 @@ Una llamada a `str.match(/\w+/)` solo encontrará la primera palabra de la líne
 
 Para buscar desde la posición dada, usamos el método `regexp.exec(str)`.
 
-Sí `regexp` no tiene indicadores `pattern:g` o `pattern:y`, entonces este método busca la primer coincidencia en el string `str`, exactamente como `str.match(regexp)`. Un caso tan simple sin indicadores no nos interesa aquí.
+Sí `regexp` no tiene indicadores `pattern:g` o `pattern:y`, entonces este método busca la primera coincidencia en el string `str`, exactamente como `str.match(regexp)`. Un caso tan simple sin indicadores no nos interesa aquí.
 
 Sí hay indicador `pattern:g`, realiza la búsqueda en el string `str`, empezando desde la posición almacenada en su propiedad `regexp.lastIndex`. Y, si encuentra una coincidencia, entonces establece `regexp.lastIndex` en el index inmediatamente después del emparejamiento.
 
