@@ -185,7 +185,7 @@ element.style.height = `${element.scrollHeight}px`;
 ```
 
 ```online
-Clic en el bton para expandir el elemento:
+Clic en el botón para expandir el elemento:
 
 <div id="element" style="width:300px;height:200px; padding: 0;overflow: auto; border:1px solid black;">text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</div>
 
