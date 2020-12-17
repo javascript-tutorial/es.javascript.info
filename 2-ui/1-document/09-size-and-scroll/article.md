@@ -230,7 +230,7 @@ alert( getComputedStyle(elem).width ); // muestra CSS width por elemento
 
 ¿Por qué deberíamos usar propiedades geométricas en su lugar? Hay dos razones:
 
-1. Primero, CSS `width/height` dependen de otra propiedad: `box-sizing` que define "qué es" CSS width y height. Un cambio en `box-sizing` para propísitos de CSS puede romper dicho JavaScript.
+1. Primero, CSS `width/height` dependen de otra propiedad: `box-sizing` que define "qué es" CSS width y height. Un cambio en `box-sizing` para propósitos de CSS puede romper dicho JavaScript.
 2. Segundo, CSS `width/height` puede ser `auto`, por ejemplo para un elemento en linea:
 
     ```html run
