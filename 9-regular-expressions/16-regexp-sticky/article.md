@@ -3,7 +3,7 @@
 
 EL indicador `pattern:y` permite realizar la búsqueda en una posición dada en el string de origen.
 
-Para entender el caso de uso del indicador `pattern:y`, y ver que tan bueno es, exploremos un caso práctico de uso.
+Para entender el caso de uso del indicador `pattern:y`, y ver lo notable que es, exploremos un ejemplo práctico.
 
 Una tarea común para regexps es "Analisis lexico": tenemos un texto, por ej. en un lenguaje de programación,  y analiza sus elementos estructurales.
 
