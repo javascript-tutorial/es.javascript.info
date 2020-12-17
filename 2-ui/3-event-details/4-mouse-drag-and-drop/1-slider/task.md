@@ -4,7 +4,7 @@ importance: 5
 
 # Barra de desplazamiento
 
-Crea una barra de desplazamiento:
+Crea un control deslizante:
 
 [iframe src="solution" height=60 border=1]
 
