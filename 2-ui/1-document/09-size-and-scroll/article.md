@@ -106,7 +106,7 @@ Las propiedades geomátricas son calculadas solo para elementos mostrados.
 
 En un elemento (o cualquiera de sus antepasados) tiene `display:none` o no está en el documento, entonces las propiedades geométricas son cero (o `null` para `offsetParent`).
 
-Por ejemplo, `offsetParent` es `null`, y `offsetWidth`, `offsetHeight` son `0` cuando creamos un elemento, pero aun no lo han insertado en el documento, o eso (o su antecesor) tiene `display:none`.
+Por ejemplo, `offsetParent` es `null`, y `offsetWidth`, `offsetHeight` son `0` cuando creamos un elemento, pero aún no lo han insertado en el documento, o eso (o su antecesor) tiene `display:none`.
 
 Nosotros podemos usar esto para verificar si un elemento está oculto, así: 
 
