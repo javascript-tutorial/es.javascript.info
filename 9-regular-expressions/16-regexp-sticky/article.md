@@ -9,7 +9,7 @@ Una tarea común para regexps es el "Análisis léxico": tenemos un texto, por e
 
 Por ejemplo, HTML tiene etiquetas y atributos, el código JavaScript tiene funciones, variables, etc.
 
-Escribir analizadores léxicos es un área especial, con sus propias herramientas y algoritmos, así que no profundizaremos en ello, pero existe una tarea común: leer algo en una posición dada.
+Escribir analizadores léxicos es un área especial, con sus propias herramientas y algoritmos, así que no profundizaremos en ello; pero existe una tarea común: leer algo en una posición dada.
 
 Por ej. tenemos una cadena de código `subject:let varName = "value"`, y necesitamos leer el nombre de su variable, que comienza en la posición `4`.
 
