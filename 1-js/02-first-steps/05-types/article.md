@@ -12,7 +12,7 @@ let message = "hola";
 message = 123456;
 ```
 
-Los lenguajes de programación que permiten estas cosas, como JavaScript, se denominan "dinámicamente tipados", lo que significa que allí hay tipos de datos, pero las variables no están vinculadas a ninguno de ellos.
+Los lenguajes de programación que permiten estas cosas, como JavaScript, se denominan "dinámicamente tipados", lo que significa que allí hay tipos de datos, pero las variables no están vinculadas rígidamente a ninguno de ellos.
 
 
 ## Número
