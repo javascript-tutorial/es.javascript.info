@@ -65,7 +65,7 @@ while (result = regexp.exec(str)) {
 }
 ```
 
-Tal uso de `regexp.exec` es una alternativa para el método `str.match bAll`.
+Tal uso de `regexp.exec` es una alternativa al método `str.match bAll`.
 
 A diferencia de otros métodos, podemos establecer nuestro propio `lastIndex`, para comenzar la búsqueda desde la posición dada.
 
