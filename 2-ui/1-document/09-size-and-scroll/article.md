@@ -34,7 +34,7 @@ Tu puedes [abrir el documento en la zona de pruebas](sandbox:metric).
 ```smart header="Mind the scrollbar"
 La imagen de arriba muestra el caso más complejo cuando el elemento tiene una barra de desplazamiento. Algunos navegadores (no todos) reservan espacio para tomarlo del contenido (etiquedado como "content width" arriba).
 
-Entonces, sin la barra de desplazamiento el ancho del contenido sería `300px`, pero si la barra de desplazamiento tiene un ancho de `16px` (el ancho puede variar entre dispositivos y navegadores) entonces solo queda `300 - 16 = 284px`, y deberíamos tenerlo en cuenta. Es por eso que los ejemplos de este capitulo asumen que hay una barra de desplazamiento. Sin él, algunos cálculos son más sencillos.
+Entonces, sin la barra de desplazamiento el ancho del contenido sería `300px`, pero si la barra de desplazamiento tiene un ancho de `16px` (el ancho puede variar entre dispositivos y navegadores) entonces solo queda `300 - 16 = 284px`, y deberíamos tenerlo en cuenta. Es por eso que los ejemplos de este capítulo asumen que hay una barra de desplazamiento. Sin él, algunos cálculos son más sencillos.
 ```
 
 ```smart header="El área `padding-bottom` puede estar lleno de texto"
