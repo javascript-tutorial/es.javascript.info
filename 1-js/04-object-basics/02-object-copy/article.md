@@ -73,7 +73,6 @@ admin.name = 'Pete'; // cambiado por la referencia "admin"
 alert(*!*user.name*/!*); // 'Pete', los cambios se ven desde la referencia "user"
 ```
 
-
 Es como si tuviéramos un gabinete con dos llaves y usáramos una de ellas (`admin`) para acceder a él. Si más tarde usamos la llave (`user`), podemos ver los cambios.
 
 ## Comparación por referencia
@@ -229,6 +228,30 @@ alert(clone.sizes.width); // 51, ve el resultado desde el otro
 Para corregir esto, debemos usar un bucle de clonación que examine cada valor de `user[key]` y, si es un objeto, replicar su estructura también. Esto es llamado "clonación profunda".
 
 Podemos usar recursividad para implementarlo. O, para no inventar la rueda, tomar una implementación existente, por ejemplo [_.cloneDeep(obj)](https://lodash.com/docs#cloneDeep) de la librería JavaScript [lodash](https://lodash.com).
+
+````smart header="Los objetos con const pueden cambiarse"
+Un efecto secundario importante de almacentar objetos como referencias es que un objeto declarado con `const` *puede* ser modificado.
+
+Por ejemplo:
+
+```js run
+const user = {
+  name: "John"
+};
+
+*!*
+user.name = "Pete"; // (*)
+*/!*
+
+alert(user.name); // Pete
+```
+
+Puede parecer que la linea `(*)` ocasionaría un error, pero no.  El valor de `user` es constante, debe siempre hacer referencia al mismo objeto. Pero sus propiedades pueden cambiar libremente.
+
+En otras palabras, `const user` solamente da error cuando intentamos asignar `user=...` como un todo.
+
+Si realmente queremos hacer constantes las propiedades del objeto, es también posible pero usando métodos totalmente diferentes, las veremos después en el capítulo <info:property-descriptors>.
+````
 
 ## Resumen
 
