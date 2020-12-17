@@ -3,7 +3,7 @@ Para obtener el ancho de la barra de desplazamiento, podemos crear un elemento c
 Entonces la diferencia entre su ancho completo `offsetWidth` y el ancho del area interior `clientWidth` será exactamente la barra de desplazamiento:
 
 ```js run
-// crea a div con el scroll
+// crea un div con el scroll
 let div = document.createElement('div');
 
 div.style.overflowY = 'scroll';
