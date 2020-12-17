@@ -11,7 +11,7 @@ Hacer que todos los elementos con clase `draggable` sean arrastrables. Como la p
 Requerimientos:
 
 - Usa delegación de eventos para detectar el inicio del arrastrado: un solo manejador de eventos en el `document` para `mousedown`.
-- Si los elementos son arrastrados a los bordes superior/inferior de la ventana -- la página se desliza hacia arriba/abajo para permitir dicho arrastre.
+- Si los elementos son arrastrados a los bordes superior/inferior de la ventana: la página se desliza hacia arriba/abajo para permitir dicho arrastre.
 - Sin desplazamiento horizontal (esto hace la tarea un poco más simple, añadirlo es fácil).
 - Los elementos arrastrables o sus partes nunca deben dejar la ventana, incluso después de movimientos rápidos del ratón.
 
