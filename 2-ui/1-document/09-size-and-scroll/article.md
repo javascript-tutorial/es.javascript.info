@@ -203,7 +203,7 @@ En la imagen abajo podemos ver `scrollHeight` y `scrollTop` para un bloque con u
 En otras palabras, `scrollTop` es "cuánto se desplaza hacia arriba".
 
 ````smart header="`scrollLeft/scrollTop` puede ser modificado"
-La mayoría de las propiedades aqui son solo lectura, pero `scrollLeft/scrollTop` se puede cambiar, y el navegador desplazará el elemento.
+La mayoría de las propiedades aquí son solo lectura, pero `scrollLeft/scrollTop` se puede cambiar, y el navegador desplazará el elemento.
 
 ```online
 Si haces clic en el elemento de abajo, se ejecuta el codigo `elem.scrollTop += 10`. Eso hace que el contenido del elemento se desplace `10px` abajo.
