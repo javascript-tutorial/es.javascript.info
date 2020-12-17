@@ -136,7 +136,7 @@ En nuestro ejemplo:
 
 Cuál es la diferencia?
 
-Se vuelve visible cuando el documento está de derecha a izquierda (el sistema operativo está en idioma Árabe o Hebreo). La barra de desplazamiento no está a la derecha, si no a la izquierda, y luego `clientLeft` también incluye el ancho de la barra de desplazamiento.
+Se vuelve visible cuando el documento está de derecha a izquierda (el sistema operativo está en idioma Árabe o Hebreo). La barra de desplazamiento no está a la derecha, sino a la izquierda, y luego `clientLeft` también incluye el ancho de la barra de desplazamiento.
 
 En este caso, `clientLeft` no sería `25`, pero con ancho de la barra de desplazamiento `25 + 16 = 41`.
 
