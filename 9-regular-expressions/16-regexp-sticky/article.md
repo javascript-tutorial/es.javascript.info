@@ -36,7 +36,7 @@ let regexp = /\w+/g;
 alert(regexp.lastIndex); // 0 (inicialmente lastIndex=0) 
 
 let word1 = regexp.exec(str);
-alert(word1[0]); // let (1er palabra)
+alert(word1[0]); // let (primera palabra)
 alert(regexp.lastIndex); // 3 (Posición posterior al emparejamiento)
 
 let word2 = regexp.exec(str);
