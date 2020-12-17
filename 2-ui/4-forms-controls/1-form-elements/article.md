@@ -1,6 +1,6 @@
 # Propiedades y Métodos de Formularios
 
-Los formularios y controles, como `<input>` Tienen muchos eventos y propiedades especiales.
+Los formularios y controles, como `<input>`, tienen muchos eventos y propiedades especiales.
 
 Trabajar con formularios será mucho más conveniente cuando los aprendamos.
 
