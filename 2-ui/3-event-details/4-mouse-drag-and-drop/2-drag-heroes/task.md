@@ -6,7 +6,7 @@ importance: 5
 
 Esta tarea te puede ayudar a comprobar tu entendimiento de varios aspectos de Arrastrar y Soltar, y del DOM.
 
-Hacer que todos los elementos con clase `draggable` -- sean arrastrables. Como la pelota de este capítulo.
+Hacer que todos los elementos con clase `draggable` sean arrastrables. Como la pelota de este capítulo.
 
 Requerimientos:
 
