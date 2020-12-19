@@ -1,6 +1,6 @@
 La solución consiste de dos partes:
 
-1. Cauando `.observe(handler)` es llamado, necesitamos recordar el manejador 'handler' en algún lugar para poder llamarlo después. Podemos almacenar los manejadores directamente en el objeto, usando nuestro symbol como clave de la propiedad.
+1. Cuando `.observe(handler)` es llamado, necesitamos recordar el manejador 'handler' en algún lugar para poder llamarlo después. Podemos almacenar los manejadores directamente en el objeto, usando nuestro symbol como clave de la propiedad.
 2. Necesitamos un proxy con la trampa `set` que llame a los manejadores en caso de cualquier cambio.
 
 ```js run
@@ -10,7 +10,7 @@ function makeObservable(target) {
   // 1. Inicializa el almacén de manejadores
   target[handlers] = [];
 
-  // Almacena la función manejadora en el array para llamados futuros
+  // Almacena la función manejadora en el array para llamadas futuras
   target.observe = function(handler) {
     this[handlers].push(handler);
   };

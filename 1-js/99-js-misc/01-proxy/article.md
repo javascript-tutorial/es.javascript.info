@@ -37,7 +37,7 @@ Como no hay trampas, todas las operaciones sobre `proxy` son redirigidas a `targ
 2. Una operación de lectura `proxy.test` devuelve el valor desde `target`.
 3. La iteración sobre `proxy` devuelve valores de `target`.
 
-Como podemos que cuando no hay trampas, `proxy` es un envoltorio transparende alrededor de `target`.
+Como podemos ver, sin ninguna trampa, `proxy` es un envoltorio transparende alrededor de `target`.
 
 ![](proxy.svg)
 
@@ -47,7 +47,7 @@ Para activar más habilidades, agreguemos trampas.
 
 ¿Qué podemos interceptar con ellas?
 
-Para la mayoría de las operaciones en objetos existe el denominado "método interno" en la especificación que describe cómo este trabaja en el más bajo nivel. Por ejemplo `[[Get]]`: es el método interno para leer una propiedad, `[[Set]]`: el método interno para escribirla, etcétera. Estos métodos solamente son usados en la especificación, no podemos llamarlos directamente por nombre.
+Para la mayoría de las operaciones en objetos existe el denominado "método interno" en la especificación Javascript que describe cómo este trabaja en el más bajo nivel. Por ejemplo `[[Get]]`: es el método interno para leer una propiedad, `[[Set]]`: el método interno para escribirla, etcétera. Estos métodos solamente son usados en la especificación, no podemos llamarlos directamente por nombre.
 
 Las trampas del proxy interceptan la invocación a estos métodos. Están listadas en la [Especificación del proxy](https://tc39.es/ecma262/#sec-proxy-object-internal-methods-and-internal-slots) y en la tabla debajo.
 
@@ -126,7 +126,7 @@ alert( numbers[123] ); // 0 (porque no existe tal ítem)
 
 Como podemos ver, es muy fácil de hacer con una trampa `get`.
 
-Podemos usar `Proxy` para implementar cualqier lógica para valores "por defecto".
+Podemos usar `Proxy` para implementar cualquier lógica para valores "por defecto".
 
 Supongamos que tenemos un diccionario con frases y sus traducciones:
 
@@ -178,7 +178,7 @@ Nota cómo el proxy sobrescribe la variable:
 dictionary = new Proxy(dictionary, ...);
 ```
 
-El proxy debe reemplazar totalmente el objeto target en todo lugar. Nadie debe jamás hacer referencia al objeto target después de que se lo hizo proxy. De otro modo sería fácil trastearlo.
+El proxy debe reemplazar totalmente el objeto target en todo lugar. Nadie debe jamás hacer referencia al objeto target después de haberlo hecho el proxy. De otro modo sería fácil manipularlo.
 ````
 
 ## Validación con la trampa "set"
