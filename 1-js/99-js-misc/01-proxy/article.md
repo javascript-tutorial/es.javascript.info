@@ -178,7 +178,7 @@ Nota cómo el proxy sobrescribe la variable:
 dictionary = new Proxy(dictionary, ...);
 ```
 
-El proxy debe reemplazar totalmente el objeto target en todo lugar. Nadie debe jamás hacer referencia al objeto target después de haberlo hecho el proxy. De otro modo sería fácil manipularlo.
+El proxy debe reemplazar completamente al objeto "target" que envolvió: nadie debe jamás hacer referencia al objeto target saltando tal envoltura. De otro modo sería fácil desbaratarlo. 
 ````
 
 ## Validación con la trampa "set"
