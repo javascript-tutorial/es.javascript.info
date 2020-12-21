@@ -97,19 +97,19 @@ Tiempo después aparecieron métodos de red en los navegadores para JavaScript.
 
 Al comienzo, las solicitudes de origen cruzado fueron prohibidas, pero luego de prolongadas discusiones se permitieron, requiriendo consentimiento explicito por parte del servidor, esto expresado en cabezales especiales.
 
-## Solicitudes simples
+## Solicitudes seguras
 
 Existen dos tipos de solicitudes de origen cruzado:
 
-1. Solicitudes simples.
+1. Solicitudes seguras.
 2. Todas las demás.
 
-Las solicitudes simples son, bueno... simples de hacer, por lo tanto comencemos con ellas.
+Las solicitudes seguras son más simples de hacer, comencemos con ellas.
 
-Una [solicitud simple](http://www.w3.org/TR/cors/#terminology) es una solicitud que cumple dos condiciones:
+Una solicitud es segura si cumple dos condiciones:
 
-1. [método simple](http://www.w3.org/TR/cors/#simple-method): GET, POST o HEAD
-2. [Cabeceras simples](http://www.w3.org/TR/cors/#simple-header) -- Las únicas cabeceras permitidas son:
+1. [método seguro](https://fetch.spec.whatwg.org/#cors-safelisted-method): GET, POST o HEAD
+2. [Cabeceras seguras](https://fetch.spec.whatwg.org/#cors-safelisted-request-header) -- Las únicas cabeceras permitidas son:
     - `Accept`,
     - `Accept-Language`,
     - `Content-Language`,
@@ -129,7 +129,7 @@ Y, sólo en caso de que el servidor confirme de forma explícita, la solicitud "
 
 Vayamos ahora a los detalles.
 
-## CORS para solicitudes simples
+## CORS para solicitudes seguras
 
 Si una solicitud es de origen cruzado, el navegador siempre le agregará una cabecera `Origin`.
 

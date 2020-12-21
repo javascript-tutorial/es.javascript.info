@@ -88,7 +88,7 @@ Estas palabras comunes no son tan obvias para determinar por qué la regexp fall
 
 Probablemente no es lo que esperabamos, pero así es como funciona.
 
-**En el modo codicioso (por defecto) un cuantificador se repite tantas veces como sea posible.**
+**En el modo codicioso (por defecto) un carácter cuantificado se repite tantas veces como sea posible.**
 
 El motor de regexp agrega a la coincidencia tantos caracteres como pueda abarcar el patrón `pattern:.+`, y luego los abrevia uno por uno si el resto del patrón no coincide.
 
@@ -109,7 +109,7 @@ let regexp = /".+?"/g;
 
 let str = 'una "bruja" y su "escoba" son una';
 
-alert( str.match(regexp) ); // bruja, escoba
+alert( str.match(regexp) ); // "bruja", "escoba"
 ```
 
 Para comprender claramente el cambio, rastreemos la búsqueda paso a paso.
@@ -179,7 +179,7 @@ let regexp = /"[^"]+"/g;
 
 let str = 'una "bruja" y su "escoba" son una';
 
-alert( str.match(regexp) ); // bruja, escoba
+alert( str.match(regexp) ); // "bruja", "escoba"
 ```
 
 La regexp `pattern:"[^"]+"` devuelve el resultado correcto, porque busca una comilla doble `pattern:'"'` seguida por uno o más caracteres no comilla doble `pattern:[^"]`, y luego la commilla doble de cierre.
@@ -293,9 +293,9 @@ alert( str2.match(regexp) ); // <a href="link1" class="doc">, <a href="link2" cl
 Los cuantfiadores tienen dos modos de funcionamiento:
 
 Codiciosa
-: Por defecto el motor de expresión regular prueba repetir el cualntificador tantas veces como sea posible. Por ejemplo, `pattern:\d+` consume todos los posibles dígitos. Cuando es imposible consumir más (no hay más dígitos o es el fin de la cadena), entonces continúa hasta coincidir con el resto del patrón. Si no hay coincidencia entonces se decrementa el número de repeticiones (reinicios) y prueba de nuevo.
+: Por defecto el motor de expresión regular prueba repetir el caráctr cuantificado tantas veces como sea posible. Por ejemplo, `pattern:\d+` consume todos los posibles dígitos. Cuando es imposible consumir más (no hay más dígitos o es el fin de la cadena), entonces continúa hasta coincidir con el resto del patrón. Si no hay coincidencia entonces se decrementa el número de repeticiones (reinicios) y prueba de nuevo.
 
 Perezoso
-: Habilitado por el signo de interrogación `pattern:?` después de un cuantificador. El motor de regexp prueba la coincidencia para el resto del patrón antes de cada repetición del cuantificador.
+: Habilitado por el signo de interrogación `pattern:?` después de un cuantificador. El motor de regexp prueba la coincidencia para el resto del patrón antes de cada repetición del carácter cuantificado.
 
 Como vimos, el modo perezoso no es una "panacea" de la búsqueda codiciosa. Una alternativa es una búsqueda codiciosa refinada, con exclusiones, como en el patrón `pattern:"[^"]+"`.

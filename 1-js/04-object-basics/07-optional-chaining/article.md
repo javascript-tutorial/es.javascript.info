@@ -9,9 +9,11 @@ El encadenamiento opcional `?.` es una forma a prueba de errores para acceder a 
 
 Si acaba de comenzar a leer el tutorial y aprender JavaScript, quizás el problema aún no lo haya tocado, pero es bastante común.
 
-Por ejemplo, algunos de nuestros usuarios tienen direcciones, pero pocos no las proporcionaron. Entonces no podemos leer con seguridad `user.address.street`:
+Como ejemplo, digamos que tenemos objetos `user` que contienen información de nuestros usuarios. 
 
-En tal cao, cuando intentamos obtener `user.address.street`, obtendremos un error:
+La mayoría de nuestros usuarios tienen la dirección en la propiedad `user.address`, con la calle en `user.address.street`, pero algunos no la proporcionaron.
+
+En tal caso, cuando intentamos obtener `user.address.street`en un usuario sin dirección obtendremos un error:
 
 ```js run
 let user = {}; // usuario sin propiedad "address"
@@ -19,7 +21,9 @@ let user = {}; // usuario sin propiedad "address"
 alert(user.address.street); // Error!
 ```
 
-Este es el resultado esperado, JavaScript funciona así, pero en muchos casos prácticos preferiríamos obtener `undefined` en lugar del error (sin "street").
+Este es el resultado esperado. JavaScript funciona así, como `user.address` es `undefined`, el intento de obtener `user.address.street` falla dando un error.
+
+En muchos casos prácticos preferiríamos obtener `undefined` en lugar del error (dando a entender "sin calle")
 
 ...Y otro ejemplo.  En el desarrollo web, necesitamos obtener información sobre un elemento en la página, pero a veces este no existe:
 
@@ -28,25 +32,57 @@ Este es el resultado esperado, JavaScript funciona así, pero en muchos casos pr
 let html = document.querySelector('.my-element').innerHTML;
 ```
 
-Antes de que apareciera `?.` en el lenguaje, se usaba el operador `&&` para solucionarlo.
+Una vez más, si el elemento no existe, obtendremos un error al acceder al `.innerHTML` de `null`. Y en algunos casos, cuando la ausencia del elemento es normal, quisiéramos evitar el error y simplemente aceptar `html = null` como resultado.
 
-Por ejemplo:
+¿Cómo podemos hacer esto?
 
-```js run
-let user = {}; // El usuario no tiene dirección
+La solución obvia sería chequear el valor usando `if` o el operador condicional `?.` antes de usar la propiedad:
 
-alert( user.address && user.address.street && user.address.street.name ); // undefined (no error)
+```js 
+let user = {};
+
+alert(user.address ? user.address.street : undefined);
 ```
 
-Poniendo AND en el camino completo a la propiedad asegura que todos los componentes existen (si no, la evaluación se detiene), pero es engorroso de escribir.
+Esto funciona, no hay error... Pero es bastante poco elegante. Como puedes ver, `"user.address"` aparece dos veces en el código. En propiedades anidadas más profundamente, esto se vuelve un problema porque se requerirán más repeticiones.
+
+Ejemplo: Tratemos de obtener `user.address.street.name`.
+
+Necesitamos chequear `user.address` y `user.address.street`:
+
+```js
+let user = {}; // El usuario no tiene dirección
+
+alert(user.address ? user.address.street ? user.address.street.name : null : null);
+```
+
+Esto es horrible, podemos tener problemas para siquiera entender tal código.
+
+Ni lo intente, hay una mejor manera de escribirlo, usando el operador  `&&`:
+
+```js run
+let user = {}; // usuario sin dirección
+
+alert( user.address && user.address.street && user.address.street.name ); // undefined (sin error)
+```
+
+Poniendo AND en el camino completo a la propiedad asegura que todos los componentes existen (si no, la evaluación se detiene), pero no es lo ideal.
+
+Como puedes ver, los nombres de propiedad aún están duplicados en el código. Por ejemplo en el código de arriba `user.address` aparece tres veces.
+
+Es por ello que el encadenamiento opcional `?.` fue agregado al lenguaje. ¡Para resolver este problema de una vez por todas!
 
 ## Encadenamiento opcional
 
-El encadenamiento opcional `?.` detiene la evaluación y devuelve` undefined` si la parte anterior a `?.` es` undefined` o `null`.
+El encadenamiento opcional `?.` detiene la evaluación si la parte anterior a `?.` es ` undefined` o `null` y devuelve esa parte. 
 
 **De aquí en adelante en este artículo, por brevedad, diremos que algo "existe" si no es `null` o `undefined`.**
 
-Aquí está la forma segura de acceder a `user.address.street`:
+En otras palabras, `value?.prop`:
+- es lo mismo que `value.prop` si `value` existe,
+- de otro modo (cuando `value` es `undefined/null`) devuelve `undefined`.
+
+Aquí está la forma segura de acceder a `user.address.street` usando `?.`:
 
 ```js run
 let user = {}; // El usuario no tiene dirección
@@ -54,7 +90,9 @@ let user = {}; // El usuario no tiene dirección
 alert( user?.address?.street ); // undefined (no hay error)
 ```
 
-Leer la dirección con `user? .Address` funciona incluso si el objeto `user` no existe:
+El código es corto y claro, no hay duplicación en absoluto
+
+Leer la dirección con `user?.Address` funciona incluso si el objeto `user` no existe:
 
 ```js run
 let user = null;
@@ -65,14 +103,12 @@ alert( user?.address.street ); // undefined
 
 Tenga en cuenta: la sintaxis `?.` hace opcional el valor delante de él, pero no más allá.
 
-En el ejemplo anterior, `user?.` permite que solo `user` sea `null/undefined`.
-
-Por otro lado, si `user` existe, entonces debe tener la propiedad `user.address`, de lo contrario `user?.Address.street` da un error en el segundo punto.
+Por ejemplo en `user?.address.street.name` el `?.` permite a `user` ser `null/undefined`, pero es todo lo que hace. El resto de las propiedades son accedidas de la manera normal.  Si queremos que algunas de ellas sean opcionales, necesitamos reemplazar más `.` con `?.`.
 
 ```warn header="No abuses del encadenamiento opcional"
 Deberíamos usar `?.` solo donde está bien que algo no exista.
 
-Por ejemplo, si de acuerdo con nuestra lógica de codificación, el objeto `user` debe estar allí, pero `address` es opcional, entonces `user.address?.Street` sería mejor.
+Por ejemplo, si de acuerdo con nuestra lógica de codificación, el objeto `user` debe estar allí, pero `address` es opcional, entonces deberíamos escribir `user.address?.street` y no `user?.address?.street`.
 
 Entonces, si `user` no está definido debido a un error, lo sabremos y lo arreglaremos. De lo contrario, los errores de codificación pueden silenciarse donde no sea apropiado y volverse más difíciles de depurar.
 ```
@@ -84,7 +120,7 @@ Si no hay una variable `user` declarada, entonces `user?.anything` provocará un
 // ReferenceError: user no está definido
 user?.address;
 ```
-Debe haber `let/const/var user`. El encadenamiento opcional solo funciona para variables declaradas.
+La variable debe ser declarada (con `let/const/var user` o como parámetro de función). El encadenamiento opcional solo funciona para variables declaradas.
 ````
 
 ## Short-circuiting (Cortocircuitos)
@@ -108,7 +144,7 @@ alert(x); // 0, el valor no se incrementa
 
 El encadenamiento opcional `?.` no es un operador, sino una construcción de sintaxis especial, que también funciona con funciones y corchetes.
 
-Por ejemplo, `?.()` Se usa para llamar a una función que puede no existir.
+Por ejemplo, `?.()` se usa para llamar a una función que puede no existir.
 
 En el siguiente código, algunos de nuestros usuarios tienen el método `admin`, y otros no:
 
@@ -126,7 +162,7 @@ userAdmin.admin?.(); // I am admin
 */!*
 
 *!*
-userGuest.admin?.(); // nothing (no such method)
+userGuest.admin?.(); // nada (no existe tal método)
 */!*
 ```
 

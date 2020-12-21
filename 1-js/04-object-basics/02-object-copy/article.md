@@ -1,6 +1,6 @@
 # Referencias de objetos y copia
 
-Una de las diferencias fundamentales entre objetos y primitivos es que los objetos son almacenados y copiados "por referencia", en cambio los primitivos: strings, number, boolean; son asignados y copiados "como un valor completo".
+Una de las diferencias fundamentales entre objetos y primitivos es que los objetos son almacenados y copiados "por referencia", en cambio los primitivos: strings, number, boolean, etc.; son asignados y copiados "como un valor completo".
 
 Esto es fácil de entender si miramos un poco "bajo cubierta" de lo que pasa cuando copiamos por valor.
 
@@ -37,13 +37,13 @@ Y así es como se almacena en la memoria:
 
 El objeto es almacenado en algún lugar de la memoria (a la derecha de la imagen), mientras que la variable `user` (a la izquierda) tiene una "referencia" a él.
 
-Podemos pensar de una variable objeto, como `user`, como una hoja de papel con su dirección.
+Podemos pensar de una variable objeto, como `user`, como una hoja de papel con la  dirección del objeto en él.
 
 Cuando ejecutamos acciones con el objeto, por ejemplo tomar una propiedad `user.name`, el motor JavaScript busca aquella dirección y ejecuta la operación en el objeto mismo.
 
 Ahora, por qué esto es importante.
 
-**Cuando una variable de objeto es copiada -- la referencia es copiada, el objeto no es duplicado.**
+**Cuando una variable de objeto es copiada, se copia solo la referencia. El objeto no es duplicado.**
 
 Por ejemplo:
 
@@ -73,7 +73,7 @@ admin.name = 'Pete'; // cambiado por la referencia "admin"
 alert(*!*user.name*/!*); // 'Pete', los cambios se ven desde la referencia "user"
 ```
 
-Es como si tuviéramos un gabinete con dos llaves y usáramos una de ellas (`admin`) para acceder a él. Si más tarde usamos la llave (`user`), podemos ver los cambios.
+Es como si tuviéramos un gabinete con dos llaves y usáramos una de ellas (`admin`) para acceder a él y hacer cambios. Si más tarde usamos la llave (`user`), estaríamos abriendo el mismo gabinete y accediendo al contenido cambiado.
 
 ## Comparación por referencia
 

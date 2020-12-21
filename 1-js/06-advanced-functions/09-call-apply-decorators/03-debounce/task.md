@@ -21,7 +21,7 @@ Aquí está el código para ello (usa el decorador debounce del [Lodash library]
 ```js
 let f = _.debounce(alert, 1000);
 
-f("a"); 
+f("a");
 setTimeout( () => f("b"), 200);
 setTimeout( () => f("c"), 500); 
 // la función debounce espera 1000 ms después de la última llamada y luego ejecuta: alert ("c")

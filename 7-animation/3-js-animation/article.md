@@ -227,7 +227,7 @@ Velo en acción (haz clic para activar):
 
 [iframe height=40 src="quad" link]
 
-...O la curva cúbica o evento con mayor `n`. Aumentar la potencia hace que se acelere más rápido.
+...O la curva cúbica o incluso mayor `n`. Aumentar la potencia hace que se acelere más rápido.
 
 Aquí está el gráfico de `progress` en la potencia `5`:
 
@@ -397,7 +397,7 @@ El efecto se ve claramente si comparamos las gráficas de `easyIn`, `easyOut` y 
 
 ![](circ-ease.svg)
 
-- <span style="color:#EE6B47">Rojo</span> es la variante regular de `circ` (`easyIn`).
+- <span style="color:#EE6B47">Rojo</span> es la variante regular de `circ` (`easeIn`).
 - <span style="color:#8DB173">Verde</span> -- `easeOut`.
 - <span style="color:#62C0DC">Azul</span> -- `easeInOut`.
 

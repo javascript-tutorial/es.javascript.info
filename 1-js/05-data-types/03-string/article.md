@@ -50,7 +50,7 @@ let guestList = "Invitados:  // Error: Unexpected token ILLEGAL
 
 Las comillas simples y dobles provienen de la creación de lenguaje en tiempos ancestrales, cuando la necesidad de múltiples líneas no era tomada en cuenta. Los backticks aparecieron mucho después y por ende son más versátiles.
 
-Los backticks además nos permiten especificar una "función de plantilla" antes del primer backtick. La sintaxis es: <code>func&#96;string&#96;</code>. La función `func` es llamada automáticamente, recibe el string y la expresión insertada y los puede procesar. Puedes leer más sobre esto en [docs](mdn:/JavaScript/Reference/Template_literals#Tagged_template_literals). Eso se llama "plantillas etiquetadas". Esta característica hace que sea más fácil rodear strings en plantillas personalizadas u otra funcionalidad, pero es raramente usada.
+Los backticks además nos permiten especificar una "función de plantilla" antes del primer backtick. La sintaxis es: <code>func&#96;string&#96;</code>. La función `func` es llamada automáticamente, recibe el string y la expresión insertada y los puede procesar. Eso se llama "plantillas etiquetadas". Esta característica hace que sea más fácil implementar plantillas personalizadas, pero es raramente usada en la práctica. Puedes leer más sobre esto en [docs](mdn:/JavaScript/Reference/Template_literals#Tagged_templates). 
 
 ## Caracteres especiales
 
@@ -81,7 +81,7 @@ Esta es la lista completa:
 | Carácter | Descripción |
 |-----------|-------------|
 |`\n`|Nueva línea|
-|`\r`|Carriage return (retorno de carro): No se usa solo. Los archivos de texto de Windows usan una combinaión de dos caracteres `\r\n` para representar un corte de línea. |
+|`\r`|Retorno de carro: No se usa aislado. Los archivos de texto de Windows usan una combinación de dos caracteres `\r\n` para representar un corte de línea. |
 |`\'`, `\"`|Comillas|
 |`\\`|Barra invertida|
 |`\t`|Tabulación|
@@ -608,7 +608,7 @@ En muchos idiomas hay símbolos que se componen del carácter base con una marca
 
 Por ejemplo, la letra `a` puede ser el carácter base para:` àáâäãåā`. Los caracteres "compuestos" más comunes tienen su propio código en la tabla UTF-16. Pero no todos ellos, porque hay demasiadas combinaciones posibles.
 
-Para mantener composiciones arbitrarias, UTF-16 nos permite usar varios caracteres unicode. El carácter base y uno o varios caracteres de "marca" que lo "decoran".
+Para mantener composiciones arbitrarias, UTF-16 nos permite usar varios caracteres Unicode. El carácter base y uno o varios caracteres de "marca" que lo "decoran".
 
 Por ejemplo, si tenemos `S` seguido del carácter especial" punto arriba "(código` \ u0307`), se muestra como Ṡ.
 
@@ -626,7 +626,7 @@ Por ejemplo:
 alert('S\u0307\u0323'); // Ṩ
 ```
 
-Esto proporciona una gran flexibilidad, pero también un problema interesante: dos caracteres pueden verse visualmente iguales, pero estar representados con diferentes composiciones unicode.
+Esto proporciona una gran flexibilidad, pero también un problema interesante: dos caracteres ser visualmente iguales, pero estar representados con diferentes composiciones Unicode.
 
 Por ejemplo:
 
@@ -639,7 +639,7 @@ alert( `s1: ${s1}, s2: ${s2}` );
 alert( s1 == s2 ); // false aunque los caracteres se ven idénticos (?!)
 ```
 
-Para resolver esto, existe un algoritmo de "normalización unicode" que lleva cada cadena a la forma "normal".
+Para resolver esto, existe un algoritmo de "normalización Unicode" que lleva cada cadena a la forma "normal".
 
 Este es implementado por [str.normalize()](mdn:js/String/normalize).
 
@@ -661,14 +661,14 @@ Si desea obtener más información sobre las reglas y variantes de normalizació
 
 ## Resumen
 
-- Existen 3 tipos de comillas. Los backticks permiten que una cadena abarque varias líneas e incorpore expresiones.
+- Existen 3 tipos de entrecomillado. Los backticks permiten que una cadena abarque varias líneas e incorporar expresiones `${…}`.
 - Strings en JavaScript son codificados usando UTF-16.
 - Podemos usar caracteres especiales como `\n` e insertar letras por su código unico usando `\u ... `.
-- Para obtener un caracter, usa: `[]`.
+- Para obtener un carácter, usa: `[]`.
 - Para obtener un substring, usa: `slice` o `substring`.
 - Para convertir un string en minúsculas/mayúsculas, usa: `toLowerCase/toUpperCase`.
 - Para buscar por un substring, usa: `indexOf`, o `includes/startsWith/endsWith` para checkeos simples.
-- Para comparar strings de acuerdo al languagje, usa: `localeCompare`, de otra manera seran comparados como códigos de caracter.
+- Para comparar strings de acuerdo al languagje, usa: `localeCompare`, de otra manera seran comparados como códigos de carácter.
 
 Existen varios otros métodos útiles en cadenas:
 

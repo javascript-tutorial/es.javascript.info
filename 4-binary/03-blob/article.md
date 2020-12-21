@@ -99,7 +99,7 @@ blob:https://javascript.info/1e67e00e-860d-40a5-89ae-6ab0cbee6273
 
 Por cada URL generada por `URL.createObjectURL` el navegador almacena un URL -> `Blob` mapeado internamente. Así que las URLs son cortas, pero permiten acceder al `Blob`.
 
-Una URL generada (y su relación con ella) solo es válida en el documento actual, mientras está abierto. Y este permite referenciar al `Blob` en `<img>`, `<a>`, básicamente cualquier otro objeto que espera un URL.
+Una URL generada (y por lo tanto su enlace) solo es válida en el documento actual, mientras está abierto. Y este permite referenciar al `Blob` en `<img>`, `<a>`, básicamente cualquier otro objeto que espera un URL.
 
 También hay efectos secundarios. Mientras haya un mapeado para un `Blob`, el `Blob` en sí mismo se guarda en la memoria. El navegador no puede liberarlo.
 
@@ -155,7 +155,7 @@ Se pueden utilizar ambas maneras para hacer una URL de un `Blob` . Pero usualmen
 
 ```compare title-plus="URL.createObjectURL(blob)" title-minus="Blob a URL de datos"
 + Necesitamos revocarlos para cuidar la memoria.
-+ Acceso directo al blob, sin "condificación/decodificación"
++ Acceso directo al blob, sin "codificación/decodificación"
 - No necesitamos revocar nada.
 - Se pierde rendimiento y memoria en grandes objetos `Blob` al codificar.
 ```
