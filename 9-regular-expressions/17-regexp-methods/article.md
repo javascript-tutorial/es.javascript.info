@@ -230,17 +230,17 @@ Usando una función nos da todo el poder del reemplazo, porque obtiene toda la i
 
 ## str.replaceAll(str|regexp, str|func)
 
-This method is essentially the same as `str.replace`, with two major differences:
+Este método es escencialmente el mismo que `str.replace`, con dos diferencias principales:
 
-1. If the first argument is a string, it replaces *all occurences* of the string, while `replace` replaces only the *first occurence*.
-2. If the first argument is a regular expression without the `g` flag, there'll be an error. With `g` flag, it works the same as `replace`.
+1. Si el primer argumento es un string, reemplaza *todas las ocurrencias* del string, mientras qye `replace` solamente reemplaza la *primera ocurrencia*.
+2. Si el primer argumento es una expresión regular sin la bandera `g`, funciona igual que `replace`.
 
-The main use case for `replaceAll` is replacing all occurences of a string.
+El caso de uso principal para `replaceAll` es el reemplazo de todas las ocurrencias de un string.
 
-Like this:
+Como esto:
 
 ```js run
-// replace all dashes by a colon
+// reemplaza todos los guiones por dos puntos
 alert('12-34-56'.replaceAll("-", ":")) // 12:34:56
 ```
 
