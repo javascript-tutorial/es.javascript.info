@@ -58,7 +58,7 @@ alert(user.address ? user.address.street ? user.address.street.name : null : nul
 
 Esto es horrible, podemos tener problemas para siquiera entender tal código.
 
-Ni lo intente, hay una mejor manera de escribirlo, usando el operador  `&&`:
+Ni lo intentes, hay una mejor manera de escribirlo usando el operador  `&&`:
 
 ```js run
 let user = {}; // usuario sin dirección
