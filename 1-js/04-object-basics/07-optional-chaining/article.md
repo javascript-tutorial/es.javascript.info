@@ -36,7 +36,7 @@ Una vez más, si el elemento no existe, obtendremos un error al acceder al `.inn
 
 ¿Cómo podemos hacer esto?
 
-La solución obvia sería chequear el valor usando `if` o el operador condicional `?.` antes de usar la propiedad:
+La solución obvia sería chequear el valor usando `if` o el operador condicional `?` antes de usar la propiedad:
 
 ```js 
 let user = {};
