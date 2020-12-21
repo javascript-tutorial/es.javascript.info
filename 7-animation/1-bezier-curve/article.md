@@ -31,7 +31,11 @@ Para dos puntos tenemos una curva lineal (que es una línea recta), para tres pu
 
     ![](bezier4-e.svg) ![](bezier3-e.svg)
 
+<<<<<<< HEAD
 Debido a esa última propiedad, en gráficos por ordenador es posible optimizar las pruebas de intersección. Si los cascos convexos no se intersecan, las curvas tampoco. Por tanto, comprobar primero la intersección de los cascos convexos puede dar un resultado "sin intersección" muy rápido.  La comprobación de la intersección o los cascos convexos es mucho más fácil, porque son rectángulos, triángulos, etc. (vea la imagen de arriba), figuras mucho más simples que la curva.
+=======
+Because of that last property, in computer graphics it's possible to optimize intersection tests. If convex hulls do not intersect, then curves do not either. So checking for the convex hulls intersection first can give a very fast "no intersection" result. Checking the intersection of convex hulls is much easier, because they are rectangles, triangles and so on (see the picture above), much simpler figures than the curve.
+>>>>>>> fc3f811c03ca97ff8304271bb2b918413bed720f
 
 **El valor principal de las curvas de Bézier para dibujar: al mover los puntos, la curva cambia *de manera intuitiva*.**
 

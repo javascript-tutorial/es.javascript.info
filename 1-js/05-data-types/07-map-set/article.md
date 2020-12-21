@@ -1,10 +1,17 @@
 
 # Map y Set
 
+<<<<<<< HEAD
 Hasta este momento, hemos aprendido sobre las siguientes estructuras de datos:
 
 - Objetos para almacenar colecciones de datos ordenadas mediante una clave.
 - Arrays para almacenar colecciones ordenadas de datos.
+=======
+Till now, we've learned about the following complex data structures:
+
+- Objects are used for storing keyed collections.
+- Arrays are used for storing ordered collections.
+>>>>>>> fc3f811c03ca97ff8304271bb2b918413bed720f
 
 Pero eso no es suficiente para la vida real. Por eso también existen `Map` y `Set`.
 
@@ -41,8 +48,13 @@ alert( map.size ); // 3
 
 Como podemos ver, a diferencia de los objetos, las claves no se convierten en strings. Cualquier tipo de clave es posible en un Map.
 
+<<<<<<< HEAD
 ```smart header="map[clave] no es la forma correcta para usar Map"
 Aunque el `map[clave]` también funciona, por ejemplo, podemos establecer `map[clave]` = 2, esto es tratar a `map` como un objeto JavaScript simple, por lo que implica todas las limitaciones correspondientes (sin objetos como clave, etc.).
+=======
+```smart header="`map[key]` isn't the right way to use a `Map`"
+Although `map[key]` also works, e.g. we can set `map[key] = 2`, this is treating `map` as a plain JavaScript object, so it implies all corresponding limitations (only string/symbol keys and so on).
+>>>>>>> fc3f811c03ca97ff8304271bb2b918413bed720f
 
 Por lo tanto, deberíamos usar los métodos de `Map`: `set`, `get`, etc.
 ```
@@ -63,15 +75,21 @@ visitsCountMap.set(john, 123);
 alert( visitsCountMap.get(john) ); // 123
 ```
 
+<<<<<<< HEAD
 El uso de objetos como claves es una de las características de `Map` más notables e importantes. Para las claves de tipo string, `Object` puede estar bien, pero no para las claves de tipo objeto.
+=======
+Using objects as keys is one of the most notable and important `Map` features. The same does not count for `Object`. String as a key in `Object` is fine, but we can't use another `Object` as a key in `Object`.
+>>>>>>> fc3f811c03ca97ff8304271bb2b918413bed720f
 
 Intentémoslo:
 
 ```js run
 let john = { name: "John" };
+let ben = { name: "Ben" };
 
 let visitsCountObj = {}; // intenta usar un objeto
 
+<<<<<<< HEAD
 visitsCountObj[john] = 123; // intenta usar el objeto john como clave
 
 *!*
@@ -81,6 +99,18 @@ alert( visitsCountObj["[object Object]"] ); // 123
 ```
 
 Como `visitsCountObj` es un objeto, convierte todas las claves, como `john` en string, por lo que tenemos la clave de tipo string `"[objeto Objeto]"`. Definitivamente no es lo que queremos.
+=======
+visitsCountObj[ben] = 234; // try to use ben object as the key
+visitsCountObj[john] = 123; // try to use john object as the key, ben object will get replaced
+
+*!*
+// That's what got written!
+alert( visitsCountObj["[object Object]"] ); // 123 
+*/!*
+```
+
+As `visitsCountObj` is an object, it converts all `Object` keys, such as `john` and `ben` above, to same string `"[object Object]"`. Definitely not what we want.
+>>>>>>> fc3f811c03ca97ff8304271bb2b918413bed720f
 
 ```smart header="Cómo `Map` compara las claves" 
 Para probar la equivalencia de claves, `Map` utiliza el algoritmo [SameValueZero](https://tc39.es/ecma262/#sec-samevaluezero). Es aproximadamente lo mismo que la igualdad estricta `===`, pero la diferencia es que `NaN` se considera igual a `NaN`. Por lo tanto, `NaN` también se puede usar como clave.
@@ -303,6 +333,7 @@ También soporta los mismos métodos que `Map` tiene para los iteradores:
 
 Métodos y propiedades:
 
+<<<<<<< HEAD
 - `new Map()` -- crea el mapa.
 - `map.set(clave, valor)` -- almacena el valor para la clave.
 - `map.get(clave)` -- devuelve el valor de la clave: será `undefined` si la `clave` no exite en Map.
@@ -310,6 +341,15 @@ Métodos y propiedades:
 - `map.delete(clave)` -- elimina los valores de la clave.
 - `map.clear()` -- limpia el Map.
 - `map.size` -- retorna el número del elemento actual en el recuento de elementos en el Map.
+=======
+- `new Map([iterable])` -- creates the map, with optional `iterable` (e.g. array) of `[key,value]` pairs for initialization.
+- `map.set(key, value)` -- stores the value by the key, returns the map itself.
+- `map.get(key)` -- returns the value by the key, `undefined` if `key` doesn't exist in map.
+- `map.has(key)` -- returns `true` if the `key` exists, `false` otherwise.
+- `map.delete(key)` -- removes the value by the key, returns `true` if `key` existed at the moment of the call, otherwise `false`.
+- `map.clear()` -- removes everything from the map.
+- `map.size` -- returns the current element count.
+>>>>>>> fc3f811c03ca97ff8304271bb2b918413bed720f
 
 La diferencia con `Objeto` regular:
 

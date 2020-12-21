@@ -27,7 +27,11 @@ Entonces, coincide con el patrón `pattern:\bHello\b`, porque:
 2. Luego coincide con la palabra `pattern:Hello`.
 3. Luego, la prueba `pattern:\b` vuelve a coincidir, ya que estamos entre `subject:o` y una coma.
 
+<<<<<<< HEAD
 El patrón `pattern:\bHello\b` también coincidiría. Pero no `pattern:\bHel\b` (porque no hay límite de palabras después de `l`) y tampoco `Java!\b` (porque el signo de exclamación no es un carácter común `pattern:\w`, entonces no hay límite de palabras después de eso).
+=======
+So the pattern `pattern:\bHello\b` would match, but not `pattern:\bHell\b` (because there's no word boundary after `l`) and not `Java!\b` (because the exclamation sign is not a wordly character `pattern:\w`, so there's no word boundary after it).
+>>>>>>> fc3f811c03ca97ff8304271bb2b918413bed720f
 
 ```js run
 alert( "Hello, Java!".match(/\bHello\b/) ); // Hello

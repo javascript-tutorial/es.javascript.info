@@ -27,7 +27,11 @@ let promise = fetch(url, [options])
 - **`url`** -- representa la dirección URL a la que deseamos acceder.
 - **`options`** -- representa los parámetros opcionales, como puede ser un método o los encabezados de nuestra petición, etc.
 
+<<<<<<< HEAD
 Si no especificamos ningún `options`, se ejecutará una simple petición GET, la cual descargará el contenido de lo especificado en el `url`.
+=======
+Without `options`, this is a simple GET request, downloading the contents of the `url`.
+>>>>>>> fc3f811c03ca97ff8304271bb2b918413bed720f
 
 El navegador lanzará la petición de inmediato y devolverá una promesa (promise) que luego será utilizada por el código invocado para obtener el resultado. 
 

@@ -4,9 +4,15 @@ JavaScript utiliza [codificación Unicode](https://en.wikipedia.org/wiki/Unicode
 
 Ese rango no es lo suficientemente grande como para codificar todos los caracteres posibles, es por eso que algunos caracteres raros se codifican con 4 bytes, por ejemplo como `𝒳` (X matemática) o `😄` (una sonrisa), algunos sinogramas, etc.
 
+<<<<<<< HEAD
 Aquí los valores unicode de algunos caracteres:
 
 | Carácter  | Unicode | conteo de Bytes en unicode  |
+=======
+Here are the Unicode values of some characters:
+
+| Character  | Unicode | Bytes count in Unicode  |
+>>>>>>> fc3f811c03ca97ff8304271bb2b918413bed720f
 |------------|---------|--------|
 | a | `0x0061` |  2 |
 | ≈ | `0x2248` |  2 |
@@ -39,15 +45,25 @@ Por ejemplo, si un carácter tiene la propiedad `Letter`, significa que pertenec
 
 Podemos buscar caracteres por su propiedad, usando `pattern:\p{...}`. Para usar `pattern:\p{...}`, una expresión regular debe usar también `pattern:u`.
 
+<<<<<<< HEAD
 Por ejemplo, `\p{Letter}` denota una letra en cualquiera de los idiomas. También podemos usar `\p{L}`, ya que `L` es un alias de `Letter`. Casi todas las propiedades tienen alias cortos.
 
 En el ejemplo a continuación se encontrarán tres tipos de letras: inglés, georgiano y coreano.
+=======
+For instance, `\p{Letter}` denotes a letter in any language. We can also use `\p{L}`, as `L` is an alias of `Letter`. There are shorter aliases for almost every property.
+
+In the example below three kinds of letters will be found: English, Georgian and Korean.
+>>>>>>> fc3f811c03ca97ff8304271bb2b918413bed720f
 
 ```js run
 let str = "A ბ ㄱ";
 
 alert( str.match(/\p{L}/gu) ); // A,ბ,ㄱ
+<<<<<<< HEAD
 alert( str.match(/\p{L}/g) ); // null (sin coincidencia, como no hay bandera "u")
+=======
+alert( str.match(/\p{L}/g) ); // null (no matches, \p doesn't work without the flag "u")
+>>>>>>> fc3f811c03ca97ff8304271bb2b918413bed720f
 ```
 
 Estas son las principales categorías y subcategorías de caracteres:
@@ -120,7 +136,11 @@ alert("número: xAF".match(regexp)); // xAF
 
 Busquemos sinogramas chinos.
 
+<<<<<<< HEAD
 Hay una propiedad Unicode `Script` (un sistema de escritura), que puede tener un valor: `Cyrillic`, `Greek`, `Arabic`, `Han` (chino), etc. [lista completa](https://en.wikipedia.org/wiki/Script_(Unicode)).
+=======
+There's a Unicode property `Script` (a writing system), that may have a value: `Cyrillic`, `Greek`, `Arabic`, `Han` (Chinese) and so on, [here's the full list](https://en.wikipedia.org/wiki/Script_(Unicode)).
+>>>>>>> fc3f811c03ca97ff8304271bb2b918413bed720f
 
 Para buscar caracteres de un sistema de escritura dado, debemos usar `pattern:Script=<value>`, por ejemplo para letras cirílicas: `pattern:\p{sc=Cyrillic}`, para sinogramas chinos: `pattern:\p{sc=Han}`, y así sucesivamente:
 
@@ -134,7 +154,11 @@ alert( str.match(regexp) ); // 你,好
 
 ### Ejemplo: moneda
 
+<<<<<<< HEAD
 Los caracteres que denotan una moneda, como `$`, `€`, `¥`, tienen la propiedad unicode `pattern:\p{Currency_Symbol}`, el alias corto: `pattern:\p{Sc}`.
+=======
+Characters that denote a currency, such as `$`, `€`, `¥`, have Unicode property  `pattern:\p{Currency_Symbol}`, the short alias: `pattern:\p{Sc}`.
+>>>>>>> fc3f811c03ca97ff8304271bb2b918413bed720f
 
 Usémoslo para buscar precios en el formato "moneda, seguido de un dígito":
 

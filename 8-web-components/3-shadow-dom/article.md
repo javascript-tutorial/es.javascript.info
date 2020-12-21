@@ -37,7 +37,11 @@ input::-webkit-slider-runnable-track {
 
 De nuevo: `pseudo` no es un atributo estándar. Cronológicamente, los navegadores primero comenzaron a experimentar con estructuras DOM internas para implementar controles, y luego, con el tiempo, fue estandarizado shadow DOM que nos permite, a nosotros desarrolladores, hacer algo similar.
 
+<<<<<<< HEAD
 Seguidamente usaremos el moderno estándar shadow DOM cubierto en "otras especificaciones relacionadas" [especificación DOM](https://dom.spec.whatwg.org/#shadow-trees).
+=======
+Further on, we'll use the modern shadow DOM standard, covered by [DOM spec](https://dom.spec.whatwg.org/#shadow-trees) and other related specifications.
+>>>>>>> fc3f811c03ca97ff8304271bb2b918413bed720f
 
 ## Shadow tree (árbol oculto)
 

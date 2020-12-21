@@ -8,7 +8,11 @@ No solo podemos generar eventos completamente nuevos, que inventamos para nuestr
 
 ## Constructor de eventos
 
+<<<<<<< HEAD
 Las clases de eventos integradas forman una jerarquía, similar a las clases de elementos DOM. La raíz es la clase incorporada [Event](http://www.w3.org/TR/dom/#event).
+=======
+Built-in event classes form a hierarchy, similar to DOM element classes. The root is the built-in [Event](http://www.w3.org/TR/dom/#event) class.
+>>>>>>> fc3f811c03ca97ff8304271bb2b918413bed720f
 
 Podemos crear objetos `Event` así:
 
@@ -266,7 +270,11 @@ Entonces podemos poner el `dispatchEvent` (u otra llamada de activación de even
 </script>
 ```
 
+<<<<<<< HEAD
 Entonces podemos poner el `dispatchEvent` (u otra llamada de activación de eventos) al final de `onclick` o, mejor aún, envolverlo en el `setTimeout` de retardo cero:
+=======
+Now `dispatchEvent` runs asynchronously after the current code execution is finished, including `menu.onclick`, so event handlers are totally separate.
+>>>>>>> fc3f811c03ca97ff8304271bb2b918413bed720f
 
 El orden de salida se convierte en: 1 -> 2 -> anidado.
 

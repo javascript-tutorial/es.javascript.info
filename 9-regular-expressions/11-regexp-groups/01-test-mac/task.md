@@ -16,5 +16,9 @@ alert( regexp.test('0132546789AB') ); // false (sin dos puntos)
 
 alert( regexp.test('01:32:54:67:89') ); // false (5 números, necesita 6)
 
+<<<<<<< HEAD
 alert( regexp.test('01:32:54:67:89:ZZ') ) // false (ZZ al final)
+=======
+alert( regexp.test('01:32:54:67:89:ZZ') ) // false (ZZ at the end)
+>>>>>>> fc3f811c03ca97ff8304271bb2b918413bed720f
 ```

@@ -47,7 +47,11 @@ Tal como se puede ver, es prácticamente una línea:
 </script>
 ```
 
+<<<<<<< HEAD
 En este ejemplo, el código del servidor no es representado ya que está fuera de nuestro alcance. El servidor acepta le solicitud POST y responde "Usuario registrado".
+=======
+In this example, the server code is not presented, as it's beyond our scope. The server accepts the POST request and replies "User saved".
+>>>>>>> fc3f811c03ca97ff8304271bb2b918413bed720f
 
 ## Métodos de FormData
 
@@ -75,7 +79,11 @@ formData.append('key2', 'value2');
 
 // Se listan los pares clave/valor
 for(let [name, value] of formData) {
+<<<<<<< HEAD
   alert(`${name} = ${value}`); // key1=value1, luego key2=value2
+=======
+  alert(`${name} = ${value}`); // key1 = value1, then key2 = value2
+>>>>>>> fc3f811c03ca97ff8304271bb2b918413bed720f
 }
 ```
 

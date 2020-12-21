@@ -192,7 +192,11 @@ newWindow.onload = function () {
 ```
 
 
+<<<<<<< HEAD
 ## desplazamiento y cambio de tamaño
+=======
+## Moving and resizing
+>>>>>>> fc3f811c03ca97ff8304271bb2b918413bed720f
 
 Hay métodos para mover/redimensionar una ventana:
 

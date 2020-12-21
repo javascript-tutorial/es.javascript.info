@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 Una expresión regular para un número es: `pattern:-?\d+(\.\d+)?`. La creamos en tareas anteriores.
+=======
+A regexp for a number is: `pattern:-?\d+(\.\d+)?`. We created it in the previous task.
+>>>>>>> fc3f811c03ca97ff8304271bb2b918413bed720f
 
 Un operador es `pattern:[-+*/]`. El guión `pattern:-` va primero dentro de los corchetes porque colocado en el medio significaría un rango de caracteres, cuando nosotros queremos solamente un carácter `-`.
 

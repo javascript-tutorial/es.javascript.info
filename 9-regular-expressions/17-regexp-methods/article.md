@@ -142,7 +142,11 @@ Para encontrar todos los guiones, no necesitamos usar un cadena `"-"` sino una e
 alert( '12-34-56'.replace( *!*/-/g*/!*, ":" ) )  // 12:34:56
 ```
 
+<<<<<<< HEAD
 El segundo argumento es la cadena de reemplazo. Podemos usar caracteres especiales:
+=======
+The second argument is a replacement string. We can use special characters in it:
+>>>>>>> fc3f811c03ca97ff8304271bb2b918413bed720f
 
 | Símbolos | Acción en la cadena de reemplazo |
 |--------|--------|
@@ -227,6 +231,23 @@ alert(result); // Smith, John
 ```
 
 Usando una función nos da todo el poder del reemplazo, porque obtiene toda la información de la coincidencia, ya que tiene acceso a las variables externas y se puede hacer de todo.
+
+## str.replaceAll(str|regexp, str|func)
+
+This method is essentially the same as `str.replace`, with two major differences:
+
+1. If the first argument is a string, it replaces *all occurences* of the string, while `replace` replaces only the *first occurence*.
+2. If the first argument is a regular expression without the `g` flag, there'll be an error. With `g` flag, it works the same as `replace`.
+
+The main use case for `replaceAll` is replacing all occurences of a string.
+
+Like this:
+
+```js run
+// replace all dashes by a colon
+alert('12-34-56'.replaceAll("-", ":")) // 12:34:56
+```
+
 
 ## regexp.exec(str)
 

@@ -69,7 +69,11 @@ if (cond) {
 
 ## La clausula "else"
 
+<<<<<<< HEAD
 La sentencia `if` quizás contenga un bloque "else" opcional. Este se ejecutará cuando la condición sea falsa.
+=======
+The `if` statement may contain an optional "else" block. It executes when the condition is falsy.
+>>>>>>> fc3f811c03ca97ff8304271bb2b918413bed720f
 
 Por ejemplo:
 ```js run

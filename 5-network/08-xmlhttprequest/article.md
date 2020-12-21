@@ -90,10 +90,17 @@ xhr.send();
 
 // 4. Esto se llamará después de que la respuesta se reciba
 xhr.onload = function() {
+<<<<<<< HEAD
   if (xhr.status != 200) { // analiza el estado HTTP de la respuesta
     alert(`Error ${xhr.status}: ${xhr.statusText}`); // ej. 404: No encontrado
   } else { // muestra el resultado
     alert(`Hecho, obtenidos ${xhr.response.length} bytes`); // Respuesta del servidor
+=======
+  if (xhr.status != 200) { // analyze HTTP status of the response
+    alert(`Error ${xhr.status}: ${xhr.statusText}`); // e.g. 404: Not Found
+  } else { // show the result
+    alert(`Done, got ${xhr.response.length} bytes`); // response is the server response
+>>>>>>> fc3f811c03ca97ff8304271bb2b918413bed720f
   }
 };
 
@@ -147,12 +154,21 @@ xhr.open('GET', url); // https://google.com/search?q=test+me%21
 
 Podemos usar la propiedad `xhr.responseType` para asignar el formato de la respuesta:
 
+<<<<<<< HEAD
 - `""` (default) -- obtiene una cadena,
 - `"text"` -- obtiene una cadena,
 - `"arraybuffer"` -- obtiene un `ArrayBuffer` (para datos binarios, ve el capítulo <info:arraybuffer-binary-arrays>),
 - `"blob"` -- obtiene un `Blob` (para datos binarios, ver el capítulo <info:blob>),
 - `"document"` -- obtiene un documento XML (puede usar XPath y otros métodos XML),
 - `"json"` -- obtiene un JSON (automáticamente analizado).
+=======
+- `""` (default) -- get as string,
+- `"text"` -- get as string,
+- `"arraybuffer"` -- get as `ArrayBuffer` (for binary data, see chapter <info:arraybuffer-binary-arrays>),
+- `"blob"` -- get as `Blob` (for binary data, see chapter <info:blob>),
+- `"document"` -- get as XML document (can use XPath and other XML methods) or HTML document (based on the MIME type of the received data),
+- `"json"` -- get as JSON (parsed automatically).
+>>>>>>> fc3f811c03ca97ff8304271bb2b918413bed720f
 
 Por ejemplo, obtengamos una respuesta como JSON:
 
@@ -187,11 +203,19 @@ Existen por razones históricas, para obtener ya sea una cadena o un documento X
 Todos los estados, como en [la especificación](https://xhr.spec.whatwg.org/#states):
 
 ```js
+<<<<<<< HEAD
 UNSENT = 0; // estado inicial
 OPENED = 1; // llamada abierta
 HEADERS_RECEIVED = 2; // cabeceras de respuesta recibidas
 LOADING = 3; // la respuesta está cargando (un paquete de datos es recibido)
 DONE = 4; // solicitud completa
+=======
+UNSENT = 0; // initial state
+OPENED = 1; // open called
+HEADERS_RECEIVED = 2; // response headers received
+LOADING = 3; // response is loading (a data packet is received)
+DONE = 4; // request complete
+>>>>>>> fc3f811c03ca97ff8304271bb2b918413bed720f
 ```
 
 Un objeto `XMLHttpRequest` escala en orden `0` -> `1` -> `2` -> `3` -> ... -> `3` -> `4`. El estado `3` se repite cada vez que un paquete de datos se recibe a través de la red.
@@ -267,9 +291,15 @@ Existen 3 métodos para las cabeceras HTTP:
     xhr.setRequestHeader('Content-Type', 'application/json');
     ```
 
+<<<<<<< HEAD
     ```warn header="Limitaciones de cabeceras"
     Muchas cabeceras se administran exclusivamente por el navegador, ej. `Referer` y `Host`.
     La lista completa está [en la especificación](http://www.w3.org/TR/XMLHttpRequest/#the-setrequestheader-method).
+=======
+    ```warn header="Headers limitations"
+    Several headers are managed exclusively by the browser, e.g. `Referer` and `Host`.
+    The full list is [in the specification](https://xhr.spec.whatwg.org/#the-setrequestheader()-method).
+>>>>>>> fc3f811c03ca97ff8304271bb2b918413bed720f
 
     `XMLHttpRequest` no está permitido cambiarlos, por motivos de seguridad del usuario y la exactitud de la solicitud.
     ```
@@ -509,7 +539,11 @@ xhr.onerror = function() {
 };
 ```
 
+<<<<<<< HEAD
 De hecho hay más eventos, la [especificación moderna](http://www.w3.org/TR/XMLHttpRequest/#events) los lista (en el orden del ciclo de vida):
+=======
+There are actually more events, the [modern specification](https://xhr.spec.whatwg.org/#events) lists them (in the lifecycle order):
+>>>>>>> fc3f811c03ca97ff8304271bb2b918413bed720f
 
 - `loadstart` -- la solicitud ha empezado.
 - `progress` -- un paquete de datos de la respuesta ha llegado, el cuerpo completo de la respuesta al momento está en `response`.

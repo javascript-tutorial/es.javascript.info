@@ -30,7 +30,11 @@ En ambos casos, `regexp` se convierte en una instancia de la clase incorporada `
 
 La principal diferencia entre estas dos sintaxis es que el patrón que utiliza barras `/.../` no permite que se inserten expresiones (como los literales de plantilla de cadena con `${...}`). Son completamente estáticos.
 
+<<<<<<< HEAD
 Las barras se utilizan cuando conocemos la expresión regular en el momento de escribir el código, y esa es la situación más común. Mientras que  `new RegExp`, se usa con mayor frecuencia cuando necesitamos crear una expresión regular "sobre la marcha" a partir de una cadena generada dinámicamente. Por ejemplo:
+=======
+Slashes are used when we know the regular expression at the code writing time -- and that's the most common situation. While `new RegExp` is more often used when we need to create a regexp "on the fly" from a dynamically generated string. For instance:
+>>>>>>> fc3f811c03ca97ff8304271bb2b918413bed720f
 
 ```js
 let tag = prompt("¿Qué etiqueta quieres encontrar?", "h2");
@@ -58,7 +62,11 @@ Solo hay 6 de ellas en JavaScript:
 
 
 `pattern:u`
+<<<<<<< HEAD
 : Permite el soporte completo de Unicode. La bandera permite el procesamiento correcto de pares sustitutos. Más del tema en el capítulo <info:regexp-unicode>.
+=======
+: Enables full Unicode support. The flag enables correct processing of surrogate pairs. More about that in the chapter <info:regexp-unicode>.
+>>>>>>> fc3f811c03ca97ff8304271bb2b918413bed720f
 
 `pattern:y`
 : Modo "adhesivo": búsqueda en la posición exacta del texto (cubierto en el capítulo <info:regexp-sticky>)

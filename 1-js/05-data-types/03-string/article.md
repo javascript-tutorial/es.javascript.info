@@ -50,7 +50,11 @@ let guestList = "Invitados:  // Error: Unexpected token ILLEGAL
 
 Las comillas simples y dobles provienen de la creación de lenguaje en tiempos ancestrales, cuando la necesidad de múltiples líneas no era tomada en cuenta. Los backticks aparecieron mucho después y por ende son más versátiles.
 
+<<<<<<< HEAD
 Los backticks además nos permiten especificar una "función de plantilla" antes del primer backtick. La sintaxis es: <code>func&#96;string&#96;</code>. La función `func` es llamada automáticamente, recibe el string y la expresión insertada y los puede procesar. Puedes leer más sobre esto en [docs](mdn:/JavaScript/Reference/Template_literals#Tagged_template_literals). Eso se llama "plantillas etiquetadas". Esta característica hace que sea más fácil rodear strings en plantillas personalizadas u otra funcionalidad, pero es raramente usada.
+=======
+Backticks also allow us to specify a "template function" before the first backtick. The syntax is: <code>func&#96;string&#96;</code>. The function `func` is called automatically, receives the string and embedded expressions and can process them. This is called "tagged templates". This feature makes it easier to implement custom templating, but is rarely used in practice. You can read more about it in the [manual](mdn:/JavaScript/Reference/Template_literals#Tagged_templates).
+>>>>>>> fc3f811c03ca97ff8304271bb2b918413bed720f
 
 ## Caracteres especiales
 
@@ -80,6 +84,7 @@ Esta es la lista completa:
 
 | Carácter | Descripción |
 |-----------|-------------|
+<<<<<<< HEAD
 |`\n`|Nueva línea|
 |`\r`|Carriage return (retorno de carro): No se usa solo. Los archivos de texto de Windows usan una combinaión de dos caracteres `\r\n` para representar un corte de línea. |
 |`\'`, `\"`|Comillas|
@@ -96,6 +101,24 @@ Ejemplos con unicode:
 alert('\u00A9'); // ©
 alert('\u{20331}'); // 佫, un raro jeroglífico chino (unicode largo)
 alert('\u{1F60D}'); // 😍, un emoticón sonriendo (otro unicode largo)
+=======
+|`\n`|New line|
+|`\r`|Carriage return: not used alone. Windows text files use a combination of two characters `\r\n` to represent a line break. |
+|`\'`, `\"`|Quotes|
+|`\\`|Backslash|
+|`\t`|Tab|
+|`\b`, `\f`, `\v`| Backspace, Form Feed, Vertical Tab -- kept for compatibility, not used nowadays. |
+|`\xXX`|Unicode character with the given hexadecimal Unicode `XX`, e.g. `'\x7A'` is the same as `'z'`.|
+|`\uXXXX`|A Unicode symbol with the hex code `XXXX` in UTF-16 encoding, for instance `\u00A9` -- is a Unicode for the copyright symbol `©`. It must be exactly 4 hex digits. |
+|`\u{X…XXXXXX}` (1 to 6 hex characters)|A Unicode symbol with the given UTF-32 encoding. Some rare characters are encoded with two Unicode symbols, taking 4 bytes. This way we can insert long codes. |
+
+Examples with Unicode:
+
+```js run
+alert( "\u00A9" ); // ©
+alert( "\u{20331}" ); // 佫, a rare Chinese hieroglyph (long Unicode)
+alert( "\u{1F60D}" ); // 😍, a smiling face symbol (another long Unicode)
+>>>>>>> fc3f811c03ca97ff8304271bb2b918413bed720f
 ```
 
 Todos los caracteres especiales comienzan con una barra invertida `\`. También conocida como "carácter de escape".
@@ -239,7 +262,11 @@ alert(str.indexOf('widget')); // -1, no es encontrado, la búsqueda toma en cuen
 alert(str.indexOf('id')); // 1, "id" es encontrado en la posición 1 (..idget con id)
 ```
 
+<<<<<<< HEAD
 El segundo parámetro es opcional y nos permite buscar desde la posición entregada.
+=======
+The optional second parameter allows us to start searching from a given position.
+>>>>>>> fc3f811c03ca97ff8304271bb2b918413bed720f
 
 Por ejemplo, la primera ocurrencia de `"id"` es en la posición `1`. Para buscar por la siguiente ocurrencia, comencemos a buscar desde la posoción `2`:
 
@@ -498,8 +525,13 @@ Todos los strings son codificados usando [UTF-16](https://es.wikipedia.org/wiki/
     ```js run
     alert( String.fromCodePoint(90) ); // Z
     ```
+<<<<<<< HEAD
     
     También podemos agregar caracteres unicode por sus códigos usando `\u` seguido de un código hex:
+=======
+
+    We can also add Unicode characters by their codes using `\u` followed by the hex code:
+>>>>>>> fc3f811c03ca97ff8304271bb2b918413bed720f
 
     ```js run
     // 90 es 5a en el sistema hexadecimal
@@ -608,7 +640,11 @@ En muchos idiomas hay símbolos que se componen del carácter base con una marca
 
 Por ejemplo, la letra `a` puede ser el carácter base para:` àáâäãåā`. Los caracteres "compuestos" más comunes tienen su propio código en la tabla UTF-16. Pero no todos ellos, porque hay demasiadas combinaciones posibles.
 
+<<<<<<< HEAD
 Para mantener composiciones arbitrarias, UTF-16 nos permite usar varios caracteres unicode. El carácter base y uno o varios caracteres de "marca" que lo "decoran".
+=======
+To support arbitrary compositions, UTF-16 allows us to use several Unicode characters: the base character followed by one or many "mark" characters that "decorate" it.
+>>>>>>> fc3f811c03ca97ff8304271bb2b918413bed720f
 
 Por ejemplo, si tenemos `S` seguido del carácter especial" punto arriba "(código` \ u0307`), se muestra como Ṡ.
 
@@ -626,7 +662,11 @@ Por ejemplo:
 alert('S\u0307\u0323'); // Ṩ
 ```
 
+<<<<<<< HEAD
 Esto proporciona una gran flexibilidad, pero también un problema interesante: dos caracteres pueden verse visualmente iguales, pero estar representados con diferentes composiciones unicode.
+=======
+This provides great flexibility, but also an interesting problem: two characters may visually look the same, but be represented with different Unicode compositions.
+>>>>>>> fc3f811c03ca97ff8304271bb2b918413bed720f
 
 Por ejemplo:
 
@@ -639,7 +679,11 @@ alert( `s1: ${s1}, s2: ${s2}` );
 alert( s1 == s2 ); // false aunque los caracteres se ven idénticos (?!)
 ```
 
+<<<<<<< HEAD
 Para resolver esto, existe un algoritmo de "normalización unicode" que lleva cada cadena a la forma "normal".
+=======
+To solve this, there exists a "Unicode normalization" algorithm that brings each string to the single "normal" form.
+>>>>>>> fc3f811c03ca97ff8304271bb2b918413bed720f
 
 Este es implementado por [str.normalize()](mdn:js/String/normalize).
 
@@ -661,6 +705,7 @@ Si desea obtener más información sobre las reglas y variantes de normalizació
 
 ## Resumen
 
+<<<<<<< HEAD
 - Existen 3 tipos de comillas. Los backticks permiten que una cadena abarque varias líneas e incorpore expresiones.
 - Strings en JavaScript son codificados usando UTF-16.
 - Podemos usar caracteres especiales como `\n` e insertar letras por su código unico usando `\u ... `.
@@ -669,6 +714,16 @@ Si desea obtener más información sobre las reglas y variantes de normalizació
 - Para convertir un string en minúsculas/mayúsculas, usa: `toLowerCase/toUpperCase`.
 - Para buscar por un substring, usa: `indexOf`, o `includes/startsWith/endsWith` para checkeos simples.
 - Para comparar strings de acuerdo al languagje, usa: `localeCompare`, de otra manera seran comparados como códigos de caracter.
+=======
+- There are 3 types of quotes. Backticks allow a string to span multiple lines and embed expressions `${…}`.
+- Strings in JavaScript are encoded using UTF-16.
+- We can use special characters like `\n` and insert letters by their Unicode using `\u...`.
+- To get a character, use: `[]`.
+- To get a substring, use: `slice` or `substring`.
+- To lowercase/uppercase a string, use: `toLowerCase/toUpperCase`.
+- To look for a substring, use: `indexOf`, or `includes/startsWith/endsWith` for simple checks.
+- To compare strings according to the language, use: `localeCompare`, otherwise they are compared by character codes.
+>>>>>>> fc3f811c03ca97ff8304271bb2b918413bed720f
 
 Existen varios otros métodos útiles en cadenas:
 
