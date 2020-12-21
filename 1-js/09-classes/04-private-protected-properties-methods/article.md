@@ -119,7 +119,7 @@ let coffeeMachine = new CoffeeMachine(100);
 coffeeMachine.waterAmount = -10; // Error: Agua en negativo
 ```
 
-Ahora el acceso está bajo control, por lo establecer una cantidad de agua por debajo de cero se volvió imposible.
+Ahora el acceso está bajo control, por lo que establecer una cantidad de agua por debajo de cero se volvió imposible.
 
 ## "Power" de solo lectura
 
