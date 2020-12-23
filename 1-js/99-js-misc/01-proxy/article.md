@@ -325,7 +325,7 @@ Tomemos nota de nuevo: solamente necesitamos interceptar `[[GetOwnProperty]]` si
 
 ## Propiedades protegidas con "deleteProperty" y otras trampas
 
-Hay una convención extendida que propiedades y métodos que comienzan con guion bajo`_` son de uso interno. Ellos no deberían ser accedidos desde fuera del objeto.
+Hay una convención extendida en la que propiedades y métodos que comienzan con guion bajo`_` son de uso interno. Ellos no deberían ser accedidos desde fuera del objeto.
 
 Aunque es técnicamente posible:
 
@@ -527,7 +527,7 @@ function sayHi(user) {
   alert(`Hello, ${user}!`);
 }
 
-// después de esta envoltiura, llamados a sayHi serán demorados por 3 segundos
+// después de esta envoltura, los llamados a sayHi serán demorados por 3 segundos
 sayHi = delay(sayHi, 3000);
 
 sayHi("John"); // Hello, John! (después de 3 segundos)
