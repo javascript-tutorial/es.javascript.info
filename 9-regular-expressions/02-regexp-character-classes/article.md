@@ -144,10 +144,10 @@ Eso es lo que hace la bandera `pattern:s`. Si una expresión regular la tiene, e
 alert( "A\nB".match(/A.B/s) ); // A\nB (coincide!)
 ```
 
-````warn header="El patrón (`pattern:.`) no es compatible con Firefox (< 78), IE, Edge (< 79)"
-Consulte <https://caniuse.com/#search=dotall> para conocer el soporte actualizado. Al momento de escribirse este manual, no estaban soportados.
+````warn header="No soportado en IE"
+La bandera `pattern:s` no está soportada en IE.
 
-Afortunadamente, hay una alternativa, que funciona en todas partes. Podemos usar una expresión regular como `pattern:[\s\S]` para que coincida con "cualquier carácter".
+Afortunadamente, hay una alternativa, que funciona en todas partes. Podemos usar una expresión regular como `pattern:[\s\S]` para que coincida con "cualquier carácter". (this pattern will be covered in the article <info:regexp-character-sets-and-ranges>).
 
 ```js run
 alert( "A\nB".match(/A[\s\S]B/) ); // A\nB (coincide!)
