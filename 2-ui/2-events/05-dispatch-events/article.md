@@ -266,7 +266,7 @@ Entonces podemos poner el `dispatchEvent` (u otra llamada de activación de even
 </script>
 ```
 
-Ahora `dispatchEvent` se ejecuta asincronicamente después de que la ejecución del código actual finaliza, incluyendo `menu.onclick`. Los controladores de eventos están totalmente separados.
+Ahora `dispatchEvent` se ejecuta asincrónicamente después de que la ejecución del código actual finaliza, incluyendo `menu.onclick`. Los controladores de eventos están totalmente separados.
 
 El orden de salida se convierte en: 1 -> 2 -> anidado.
 
