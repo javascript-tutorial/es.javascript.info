@@ -276,7 +276,7 @@ function onMouseMove(event) {
 }
 ```
 
-En el siguiente ejemplo cuando la pelota se arrastra sobre la protería, esta se resalta.
+En el siguiente ejemplo cuando la pelota se arrastra sobre la portería, esta se resalta.
 
 [codetabs height=250 src="ball4"]
 
