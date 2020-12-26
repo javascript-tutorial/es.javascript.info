@@ -187,7 +187,7 @@ En los ejemplos anteriores la pelota debe ser soltada simplemente "en cualquier 
 Hablando abstracto, tomamos un elemento "arrastrable" y lo soltamos sobre un elemento "receptor".
 
 Necesitamos saber:
-- donde el elemento fue soltado al final del Arrastrar y Soltar -- para hacer la acción correspondiente,
+- dónde el elemento fue soltado al final del Arrastrar y Soltar -- para hacer la acción correspondiente,
 - y, preferiblemente, saber el receptor sobre el que estamos arrastrando, para resaltarlo.
 
 La solución es algo interesante y un poco complicado, así que vamos a cubrirlo aquí.
