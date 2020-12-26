@@ -213,7 +213,7 @@ Por ejemplo, debajo hay dos elementos `<div>`, el rojo sobre el azul (totalmente
 <div style="background:red" onmouseover="alert('sobre el rojo!')"></div>
 ```
 
-Lo mismo con un elemento arrastrable. La pelota está siempre sobre los demás elementos, así que los eventos pasan en él. Cualquier que sea el manejador que pongamos en los elementos de abajo, no funcionará.
+Lo mismo con un elemento arrastrable. La pelota está siempre sobre los demás elementos, así que los eventos pasan en él. Cualquier manejador que pongamos en los elementos de abajo, no funcionará.
 
 Por eso la idea inicial de poner manejadores en receptores potenciales no funciona en práctica. No se activarán.
 
