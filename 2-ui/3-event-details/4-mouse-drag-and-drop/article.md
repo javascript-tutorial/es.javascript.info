@@ -240,7 +240,7 @@ Podemos usar este código para verificar el elemento sobre el que estamos "flota
 Un código extendido de `onMouseMove` para hallar elementos "receptores":
 
 ```js
-// arrastrable potencial sobre el que flotamos ahora mismo
+// elemento potencialmente arrastrable sobre el que flotamos ahora mismo
 let currentDroppable = null;
 
 function onMouseMove(event) {
