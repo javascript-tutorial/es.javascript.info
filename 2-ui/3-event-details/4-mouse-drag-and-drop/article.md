@@ -1,6 +1,6 @@
 # Arrastrar y Soltar con eventos del ratón
 
-Arrastrar y Soltar es una excelente solución de interfaz. Tomar algo y arrastrar y soltarlo es una forma clara y simple de hacer muchas cosas, desde copiar y mover documentos (como en los manejadores de archivos) hasta ordenar (arrastrando ítemes al carrito).
+Arrastrar y Soltar es una excelente solución de interfaz. Tomar algo, arrastrar y soltarlo es una forma clara y simple de hacer muchas cosas, desde copiar y mover documentos (como en los manejadores de archivos) hasta ordenar (arrastrando ítems al carrito).
 
 En el estándar modern de HTML hay una [sección sobre Arrastrar y Soltar](https://html.spec.whatwg.org/multipage/interaction.html#dnd) con eventos especiales tales como `dragstart`, `dragend`, y así por el estilo.
 
