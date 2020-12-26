@@ -100,7 +100,7 @@ ball.style.left = pageX - ball.offsetWidth / 2 + 'px';
 ball.style.top = pageY - ball.offsetHeight / 2 + 'px';
 ```
 
-Nada mal, pero hay un efecto secundario. Para iniciar el arrastrar y soltar, podemos `mousedown` en cualquier lugar de la pelota. Pero si la "tomamos" por el borde, entonces la pelota "salta" de repente para centrarse bajo el puntero del ratón.
+Nada mal, pero hay un efecto secundario. Para iniciar el arrastrar y soltar, podemos hacer `mousedown` en cualquier lugar de la pelota. Pero si la "tomamos" por el borde, entonces la pelota "salta" de repente para centrarse bajo el puntero del ratón.
 
 Sería mejor si mantenemos la posición inicial del elemento, relativo al puntero.
 
