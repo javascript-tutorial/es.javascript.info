@@ -300,4 +300,4 @@ Podemos poner mucho sobre esta base.
 - Podemos usar delegación de eventos para `mousedown/up`. Un manejador de eventos para un área grande que compruebe `event.target` puede manejar Arrastrar y Soltar para cientos de elementos.
 - Y así por el estilo.
 
-Hay frameworks que construyen una arquitectura sobre éste: `DragZone`, `Droppable`, `Draggable` y otras clases. La mayoría de ellos hacen cosas similares a lo que hemos descrito anteriormente, así que debe ser fácil de entenderlos ahora. O crea el tuyo, como puedes ver es suficientemente fácil de hacer, a veces es más fácil que adaptarse a una solución de terceros.
+Hay frameworks que construyen una arquitectura sobre esto: `DragZone`, `Droppable`, `Draggable` y otras clases. La mayoría de ellos hacen cosas similares a lo que hemos descrito, así que debería ser fácil entenderlos ahora. O crea el tuyo propio: como puedes ver es fácil de hacer, a veces es más fácil que adaptarse a una solución de terceros.
