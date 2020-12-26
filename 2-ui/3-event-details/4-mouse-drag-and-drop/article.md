@@ -2,7 +2,7 @@
 
 Arrastrar y Soltar es una excelente solución de interfaz. Tomar algo, arrastrar y soltarlo es una forma clara y simple de hacer muchas cosas, desde copiar y mover documentos (como en los manejadores de archivos) hasta ordenar (arrastrando ítems al carrito).
 
-En el estándar modern de HTML hay una [sección sobre Arrastrar y Soltar](https://html.spec.whatwg.org/multipage/interaction.html#dnd) con eventos especiales tales como `dragstart`, `dragend`, y así por el estilo.
+En el estándar moderno de HTML hay una [sección sobre Arrastrar y Soltar](https://html.spec.whatwg.org/multipage/interaction.html#dnd) con eventos especiales tales como `dragstart`, `dragend`, y así por el estilo.
 
 Estos eventos nos permiten soportar tipos especiales de Arrastrar y Soltar, como manejar el arrastrado de archivos desde el manejador de archivos del Sistema Operativo y soltarlo en la ventana del navegador. Así JavaScript puede acceder al contenido de dichos archivos.
 
