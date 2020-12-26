@@ -6,7 +6,7 @@ En el estándar moderno de HTML hay una [sección sobre Arrastrar y Soltar](http
 
 Estos eventos nos permiten soportar tipos especiales de Arrastrar y Soltar, como manejar el arrastrado de archivos desde el manejador de archivos del Sistema Operativo y soltarlo en la ventana del navegador. Así JavaScript puede acceder al contenido de dichos archivos.
 
-Pero los eventos de arrastrar también tienen limitaciones. Por ejemplo, no podemos prevenir el arrastrado desde cierta área. Tampoco podemos hacer el arrastre solo "horizontal" o "vertical". Y hay muchas otras tareas de "Arrastrar y Soltar" que no pueden hacerse utilizándolos. También, el soporte para dispositivos móviles para dichos eventos, es muy pobre.
+Pero los eventos de arrastrar también tienen limitaciones. Por ejemplo, no podemos evitar el arrastre desde cierta área. Tampoco podemos hacer que el arrastre solo "horizontal" o "vertical". Y hay muchas otras tareas de "Arrastrar y Soltar" que no pueden hacerse utilizándolos. También, el soporte para dispositivos móviles para dichos eventos, es muy pobre.
 
 Así que aquí veremos cómo implementar "Arrastrar y Soltar" usando eventos del ratón.
 
