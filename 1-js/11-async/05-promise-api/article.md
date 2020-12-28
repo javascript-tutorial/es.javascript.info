@@ -309,6 +309,7 @@ En la práctica este método casi nunca es usado.
 
 ## Resumen
 
+<<<<<<< HEAD
 Existen 6 métodos estáticos de la clase `Promise`:
 
 1. `Promise.all(promises)` -- espera que todas las promesas se resuelvan y devuelve un array de sus resultados. Si cualquiera es rechazada se vuelve el error de `Promise.all` y los demás resultados son ignorados.
@@ -321,3 +322,17 @@ Existen 6 métodos estáticos de la clase `Promise`:
 6. `Promise.reject(error)` -- crea una promesa rechazada con el "error" dado.
 
 `Promise.all` es probablemente el más común en la práctica.
+=======
+There are 6 static methods of `Promise` class:
+
+1. `Promise.all(promises)` -- waits for all promises to resolve and returns an array of their results. If any of the given promises rejects, it becomes the error of `Promise.all`, and all other results are ignored.
+2. `Promise.allSettled(promises)` (recently added method) -- waits for all promises to settle and returns their results as an array of objects with:
+    - `status`: `"fulfilled"` or `"rejected"`
+    - `value` (if fulfilled) or `reason` (if rejected).
+3. `Promise.race(promises)` -- waits for the first promise to settle, and its result/error becomes the outcome.
+4. `Promise.any(promises)` (recently added method) -- waits for the first promise to fulfill, and its result becomes the outcome. If all of the given promises are rejected, [`AggregateError`](mdn:js/AggregateError) becomes the error of `Promise.any`.
+5. `Promise.resolve(value)` -- makes a resolved promise with the given value.
+6. `Promise.reject(error)` -- makes a rejected promise with the given error.
+
+Of all these, `Promise.all` is probably the most common in practice.
+>>>>>>> 13da056653754765b50aa5a9f706f84a4a0d6293
