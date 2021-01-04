@@ -178,6 +178,10 @@ Pero un iterable puede no ser array-like. Y viceversa, un array-like puede no se
 
 Por ejemplo, `range` en el ejemplo anterior es iterable, pero no array-like, porque no tiene propiedades indexadas ni `longitud` o *length*.
 
+<<<<<<< HEAD
+=======
+But an iterable may be not array-like. And vice versa an array-like may be not iterable.
+>>>>>>> 039716de8a96f49b5fccd7aed5effff2e719dfe5
 
 Y aquí está el objeto que tiene forma de matriz, pero no es iterable:
 

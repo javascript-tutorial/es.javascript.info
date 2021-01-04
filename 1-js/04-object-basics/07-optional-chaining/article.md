@@ -219,4 +219,8 @@ Como podemos ver, todos ellos son sencillos y fáciles de usar. El `?.` comprueb
 
 Una cadena de `?.` permite acceder de forma segura a las propiedades anidadas.
 
+<<<<<<< HEAD
 Aún así, debemos aplicar `?.` con cuidado, solo donde está bien que la parte izquierda no exista. Para que no nos oculte errores de programación, si ocurren.
+=======
+Still, we should apply `?.` carefully, only where it's acceptable that the left part doesn't exist. So that it won't hide programming errors from us, if they occur.
+>>>>>>> 039716de8a96f49b5fccd7aed5effff2e719dfe5

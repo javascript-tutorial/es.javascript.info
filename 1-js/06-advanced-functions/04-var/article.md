@@ -52,7 +52,11 @@ if (true) {
 }
 
 *!*
+<<<<<<< HEAD
 alert(test); // Error: test no está definido
+=======
+alert(test); // ReferenceError: test is not defined
+>>>>>>> 039716de8a96f49b5fccd7aed5effff2e719dfe5
 */!*
 ```
 
@@ -82,7 +86,11 @@ function sayHi() {
 }
 
 sayHi();
+<<<<<<< HEAD
 alert(phrase); // Error: phrase no está definida
+=======
+alert(phrase); // ReferenceError: phrase is not defined
+>>>>>>> 039716de8a96f49b5fccd7aed5effff2e719dfe5
 ```
 
 Como podemos ver, `var` atraviesa `if`, `for` u otros bloques. Esto es porque mucho tiempo atrás los bloques en JavaScript no tenían ambientes léxicos. Y `var` es un remanente de aquello.
@@ -230,8 +238,13 @@ Aquí la expresión de función es creada e inmediatamente llamada. Entonces el 
 La expresión de función es encerrada entre paréntesis `(function {...})`, porque cuando JavaScript se encuentra con `"function"` en el flujo de código principal lo entiende como el principio de una declaración de función. Pero una declaración de función debe tener un nombre, entonces ese código daría error:
 
 ```js run
+<<<<<<< HEAD
 // Trata de declarar e inmediatamente llamar una función
 function() { // <-- Error: la instrucción de función requiere un nombre de función
+=======
+// Tries to declare and immediately call a function
+function() { // <-- SyntaxError: Function statements require a function name
+>>>>>>> 039716de8a96f49b5fccd7aed5effff2e719dfe5
 
   var message = "Hello";
 

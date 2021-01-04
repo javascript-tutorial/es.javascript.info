@@ -95,13 +95,21 @@ Divide la cadena usando la expresión regular (o una sub-cadena) como delimitado
 Podemos usar `split` con cadenas, así:
 
 ```js run
+<<<<<<< HEAD
 alert('12-34-56'.split('-')) // array de [12, 34, 56]
+=======
+alert('12-34-56'.split('-')) // array of ['12', '34', '56']
+>>>>>>> 039716de8a96f49b5fccd7aed5effff2e719dfe5
 ```
 
 O también dividir una cadena usando una expresión regular de la misma forma:
 
 ```js run
+<<<<<<< HEAD
 alert('12, 34, 56'.split(/,\s*/)) // array de [12, 34, 56]
+=======
+alert('12, 34, 56'.split(/,\s*/)) // array of ['12', '34', '56']
+>>>>>>> 039716de8a96f49b5fccd7aed5effff2e719dfe5
 ```
 
 ## str.search(regexp)

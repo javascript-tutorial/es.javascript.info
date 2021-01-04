@@ -383,7 +383,11 @@ JavaScript tiene un objeto incorporado [Math](https://developer.mozilla.org/es/d
 Unos ejemplos:
 
 `Math.random()`
+<<<<<<< HEAD
 : Devuelve un número aleatorio entre 0 y 1 (no incluyendo 1)
+=======
+: Returns a random number from 0 to 1 (not including 1).
+>>>>>>> 039716de8a96f49b5fccd7aed5effff2e719dfe5
 
     ```js run
     alert( Math.random() ); // 0.1234567894322
@@ -400,7 +404,11 @@ Unos ejemplos:
     ```
 
 `Math.pow(n, power)`
+<<<<<<< HEAD
 : Devuelve `n` elevado a la potencia `power` dada
+=======
+: Returns `n` raised to the given power.
+>>>>>>> 039716de8a96f49b5fccd7aed5effff2e719dfe5
 
     ```js run
     alert( Math.pow(2, 10) ); // 2 elevado a la potencia de 10 = 1024
