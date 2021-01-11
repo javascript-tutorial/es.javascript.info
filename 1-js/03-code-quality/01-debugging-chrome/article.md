@@ -125,7 +125,16 @@ Hay botones para esto en le panel superior derecho. Revisémoslos.
 
     Esto es lo que podemos ver al hacer click:
 
+<<<<<<< HEAD
     ![](chrome-sources-debugger-trace-1.svg)
+=======
+<span class="devtools" style="background-position:-62px -192px"></span> -- "Step over": run the next command, but *don't go into a function*, hotkey `key:F10`.
+: Similar to the previous "Step" command, but behaves differently if the next statement is a function call. That is: not a built-in, like `alert`, but a function of our own.
+
+    The "Step" command goes into it and pauses the execution at its first line, while "Step over" executes the nested function call invisibly, skipping the function internals.
+
+    The execution is then paused immediately after that function.
+>>>>>>> 468e3552884851fcef331fbdfd58096652964b5f
 
     La ejecución continuó, alcanzando el siguiente breakpoint dentro de `say()` y pausándose allí. Revisa el "Call stack" a la derecha. Ha incrementado su valor una llamada. Ahora estamos dentro de `say()`.
 

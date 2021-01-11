@@ -273,9 +273,15 @@ Cubrimos tres formas de crear una función en JavaScript:
     ```
 
 
+<<<<<<< HEAD
 - Las funciones pueden tener variables locales: aquellas declaradas dentro de su cuerpo. Estas variables solo son visibles dentro de la función.
 - Los parámetros pueden tener valores predeterminados: `function sum(a = 1, b = 2) {...}`.
 - Las funciones siempre devuelven algo. Si no hay `return`, entonces el resultado es `undefined`.
+=======
+- Functions may have local variables: those declared inside its body or its parameter list. Such variables are only visible inside the function.
+- Parameters can have default values: `function sum(a = 1, b = 2) {...}`.
+- Functions always return something. If there's no `return` statement, then the result is `undefined`.
+>>>>>>> 468e3552884851fcef331fbdfd58096652964b5f
 
 Más: ver <info:function-basics>, <info:arrow-functions-basics>.
 

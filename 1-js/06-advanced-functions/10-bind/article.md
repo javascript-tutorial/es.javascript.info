@@ -266,7 +266,11 @@ Eso se llama [aplicación parcial de una función](https://en.wikipedia.org/wiki
 
 Tenga en cuenta que aquí en realidad no usamos `this`. Pero `bind` lo requiere, por lo que debemos poner algo como `null`.
 
+<<<<<<< HEAD
 La función `triple` en el siguiente código triplica el valor:
+=======
+Please note that we actually don't use `this` here. But `bind` requires it, so we must put in something like `null`.
+>>>>>>> 468e3552884851fcef331fbdfd58096652964b5f
 
 
 ```js run

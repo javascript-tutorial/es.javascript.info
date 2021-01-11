@@ -155,7 +155,7 @@ function curried(...args) {
   if (args.length >= func.length) { // (1)
     return func.apply(this, args);
   } else {
-    return function pass(...args2) { // (2)
+    return function(...args2) { // (2)
       return curried.apply(this, args.concat(args2));
     }
   }
@@ -164,6 +164,7 @@ function curried(...args) {
 
 Cuando lo ejecutamos, hay dos ramas de ejecución `if`:
 
+<<<<<<< HEAD
 1. Llame ahora: si el recuento de `args` pasado es el mismo que tiene la función original en su definición (`func.length`) o más, entonces simplemente páselo.
 2. Obtenga un parcial: de lo contrario, `func` aún no se llama. En cambio, se devuelve otro contenedor `pass`, que volverá a aplicar `curried` proporcionando argumentos anteriores junto con los nuevos. Luego, en una nueva llamada, nuevamente obtendremos un nuevo parcial (si no hay suficientes argumentos) o, finalmente, el resultado.
 
@@ -176,6 +177,12 @@ Para la llamada `curried(1)(2)(3)`:
 3. El contenedor `pass` se llama nuevamente con` (3) `, para la próxima llamada` pass(3) `toma los argumentos anteriores (`1`, `2`) y agrega` 3` a ellos, haciendo la llamada `curried(1, 2, 3)` -- finalmente hay 3 argumentos , y son pasados a la función original.
 
 Si eso todavía no es obvio, solo rastrea la secuencia de llamadas en tu mente o en papel.
+=======
+1. If passed `args` count is the same or more than the original function has in its definition (`func.length`) , then just pass the call to it using `func.apply`. 
+2. Otherwise, get a partial: we don't call `func` just yet. Instead, another wrapper is returned, that will re-apply `curried` providing previous arguments together with the new ones. 
+
+Then, if we call it, again, we'll get either a new partial (if not enough arguments) or, finally, the result.
+>>>>>>> 468e3552884851fcef331fbdfd58096652964b5f
 
 ```smart header="Solo funciones de longitud fija "
 El currying requiere que la función tenga un número fijo de argumentos.

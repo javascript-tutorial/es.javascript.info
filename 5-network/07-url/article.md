@@ -65,7 +65,11 @@ Aquí está la hoja de trucos para los componentes URL:
 ```smart header="Podemos pasar objetos `URL` a métodos de red (y la mayoría de los demás) en lugar de un string"
 Podemos usar un objeto `URL` en `fetch` o `XMLHttpRequest`, casi en todas partes donde se espera un URL-string.
 
+<<<<<<< HEAD
 Generalmente, un objeto `URL` puede pasarse a cualquier método en lugar de un string, ya que la mayoría de métodos llevarán a cabo la conversión del string, eso convierte un objeto `URL` en un string con URL completa.
+=======
+Generally, the `URL` object can be passed to any method instead of a string, as most methods will perform the string conversion, that turns a `URL` object into a string with full URL.
+>>>>>>> 468e3552884851fcef331fbdfd58096652964b5f
 ```
 
 ## Parámetros de búsqueda "?..."
@@ -80,7 +84,11 @@ new URL('https://google.com/search?query=JavaScript')
 
 ...Pero los parámetros necesitan estar codificados si contienen espacios, letras no latinas, entre otros (Más sobre eso debajo).
 
+<<<<<<< HEAD
 Por lo que existe una propiedad URL para eso: `url.searchParams`, un objeto de tipo [URLSearchParams](https://url.spec.whatwg.org/#urlsearchparams).
+=======
+So there's a URL property for that: `url.searchParams`, an object of type [URLSearchParams](https://url.spec.whatwg.org/#urlsearchparams).
+>>>>>>> 468e3552884851fcef331fbdfd58096652964b5f
 
 Esta proporciona métodos convenientes para los parámetros de búsqueda:
 
@@ -201,7 +209,11 @@ Así que debemos usar solo `encodeURIComponent`para cada parámetro de búsqueda
 ````smart header="Diferencia de codificación comparado con `URL`" 
 Las clases [URL](https://url.spec.whatwg.org/#url-class) y [URLSearchParams](https://url.spec.whatwg.org/#interface-urlsearchparams) están basadas en la especificación URI mas reciente: [RFC3986](https://tools.ietf.org/html/rfc3986), mientras que las funciones `encode*` están basadas en la versión obsoleta [RFC2396](https://www.ietf.org/rfc/rfc2396.txt).
 
+<<<<<<< HEAD
 Existen algunas diferencias, por ej. las direcciones IPv6 se codifican de otra forma:
+=======
+There are a few differences, e.g. IPv6 addresses are encoded differently:
+>>>>>>> 468e3552884851fcef331fbdfd58096652964b5f
 
 ```js run
 // Url válida con dirección IPv6
