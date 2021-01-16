@@ -240,7 +240,7 @@ Hay tres motivos por los cuales esta solicitud no es simple (una es suficiente):
 
 ### Paso 1 (solicitud de pre-vuelo)
 
-Antes de enviar una solicitud de este tipo, el navegador (por su cuenta) envía una solicitud de pre-vuelo que se ve de este modo:
+Antes de enviar una solicitud de este tipo, el navegador envía una solicitud de pre-vuelo que se ve de este modo:
 
 ```http
 OPTIONS /service.json
