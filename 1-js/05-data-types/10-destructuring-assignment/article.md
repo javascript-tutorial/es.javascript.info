@@ -76,7 +76,7 @@ En el código de arriba, el segundo elemento del array es omitido, el tercero es
 let [a, b, c] = "abc"; // ["a", "b", "c"]
 let [one, two, three] = new Set([1, 2, 3]);
 ```
-That works, because internally a destructuring assignment works by iterating over the right value. It's kind of syntax sugar for calling `for..of` over the value to the right of `=` and assigning the values.
+Esto funciona porque internamente una desestruración trabaja actuando sobre el valor de la derecha. Es una clase de azúcar sintáctica de llamar `for..of` sobre el valor a la derecha el `=` y asignando los valores.
 ````
 
 
@@ -155,16 +155,16 @@ let [name1, name2] = ["Julius", "Caesar", "Consul", "of the Roman Republic"];
 
 alert(name1); // Julius
 alert(name2); // Caesar
-// Further items aren't assigned anywhere
+// items posteriores no serán asignados a ningún lugar
 ```
 
-If we'd like also to gather all that follows -- we can add one more parameter that gets "the rest" using three dots `"..."`:
+si queremos tambien obtener todo lo que sigue, podemos agregarle un parámetro que obtiene "el resto" usando puntos suspensivos "..."`:
 
 ```js run
 let [name1, name2, *!*...rest*/!*] = ["Julius", "Caesar", *!*"Consul", "of the Roman Republic"*/!*];
 
 *!*
-// `rest` es un array de items, comenzando por el tercero.
+// `rest` es un array de items, comenzando en este caso por el tercero.
 alert(rest[0]); // Consul
 alert(rest[1]); // of the Roman Republic
 alert(rest.length); // 2
@@ -182,7 +182,7 @@ let [name1, name2, *!*...titles*/!*] = ["Julius", "Caesar", "Consul", "of the Ro
 
 ### Valores predeterminados
 
-Si el array es más corto que la lista de variables a la izquierda, no habrá error. Valor ausentes son considerados undefined:
+Si el array es más corto que la lista de variables a la izquierda, no habrá error. Valores ausentes son considerados undefined:
 
 ```js run
 *!*
@@ -217,7 +217,7 @@ alert(name);    // Julius (desde array)
 alert(surname); // lo que reciba la captura
 ```
 
-Please note: the `prompt` will run only for the missing value (`surname`).
+Ten en cuenta: el `prompt` funcionará solamente para el valor faltante (`surname`).
 
 ## Desestructuración de Objeto
 
