@@ -260,8 +260,8 @@ function onMouseMove(event) {
   if (currentDroppable != droppableBelow) {
     // estamos flotando dentro o afuera
     // nota: ambos valores puden ser null
-    //   currentDroppable=null si no estábamos sobre un receptor antes de éste evento (ej. sobre un espacio en blanco)
-    //   droppableBelow=null si no estamos sobre un receptor ahora, durante éste evento
+    //   currentDroppable=null si no estábamos sobre un receptor antes de este evento (ej. sobre un espacio en blanco)
+    //   droppableBelow=null si no estamos sobre un receptor ahora, durante este evento
 
     if (currentDroppable) {
       // la lógica para procesar "flying out" del receptor (elimina el resaltado)
