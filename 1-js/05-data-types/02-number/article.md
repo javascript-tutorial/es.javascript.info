@@ -31,14 +31,14 @@ En JavaScript, acortamos un número agregando la letra `"e"` y especificando la 
 ```js run
 let billion = 1e9;  // 1 billion, literalmente: 1 y 9 ceros
 
-alert( 7.3e9 );  // 7.3 billions (same as 7300000000 or 7_300_000_000)
+alert( 7.3e9 );  // 7.3 billions (tanto 7300000000 como 7_300_000_000)
 ```
 
 En otras palabras, `"e"` multiplica el número por el `1` seguido de la cantidad de ceros dada.
 
 ```js
-1e3 = 1 * 1000 // e3 means *1000
-1.23e6 = 1.23 * 1000000 // e6 means *1000000
+1e3 = 1 * 1000 // e3 significa *1000
+1.23e6 = 1.23 * 1000000 // e6 significa *1000000
 ```
 
 Ahora escribamos algo muy pequeño. Digamos 1 microsegundo (un millonésimo de segundo):
