@@ -182,13 +182,11 @@ Un elemento `<select>` tiene 3 propiedades importantes:
 
 Ellas proveen tres formas diferentes de asignar un valor para un elemento `<select>`:
 
-1. Encontrar el elemento `<option>` correspondiente y asignarle a `option.selected` un `true`.
-2. Asignar el valor a `select.value`.
-3. Asignar el número de la opción a `select.selectedIndex`.
+1. Encontrar el elemento `<option>` correspondiente (por ejemplo entre `select.options`) y asignar a su `option.selected` un `true`.
+2. Si conocemos un nuevo valor: Asignar tal valor a `select.value`.
+3. Si conocemos el nuevo número de opción: Asignar tal número a `select.selectedIndex`.
 
-La primera forma es la más obvia, pero `(2)` y `(3)` usualmente son más convenientes.
-
-Aquí hay un ejemplo:
+Aquí hay un ejemplo de los tres métodos:
 
 ```html run
 <select id="select">
@@ -202,6 +200,7 @@ Aquí hay un ejemplo:
   select.options[2].selected = true;
   select.selectedIndex = 2;
   select.value = 'banana';
+  // please note: options start from zero, so index 2 means the 3rd option.
 </script>
 ```
 
@@ -232,31 +231,31 @@ La especificación completa del elemento `<select>` está disponible en la espec
 
 ### new Option
 
-Esto es raramente utilizado como tal. Pero sigue siendo algo interesante.
-
 En la [especificación](https://html.spec.whatwg.org/multipage/forms.html#the-option-element) hay una sintaxis muy corta para crear elementos `<option>`:
 
 ```js
 option = new Option(text, value, defaultSelected, selected);
 ```
 
-Parámetros:
+Esta sintaxis es opcional. Podemos usar `document.createElement('option')` y asignar atributos manualmente. Aún puede ser más corta, aquí los parámetros:
 
 - `text` -- el texto dentro del option,
 - `value` -- el valor del option,
 - `defaultSelected` -- si es `true`, entonces se le crea el atributo HTML `selected`,
 - `selected` -- si es `true`, el option se selecciona.
 
-Puede haber una pequeña confusión con `defaultSelected` y `selected`. Es simple: `defaultSelected` asigna el atributo HTML, el que podemos obtener usando `option.getAttribute('selected')`. Y `selected` - hace que el option esté o no seleccionado, este es más importante. Usualmente ambos valores son igualmente asignados como `true` o no asignados (igual a `false`).
+La diferencia entre `defaultSelected` y `selected` es que `defaultSelected` asigna el atributo HTML, el que podemos obtener usando `option.getAttribute('selected')`,  mientras que `selected` hace que el option esté o no seleccionado. 
 
-Por ejemplo:
+Usualmente ambos valores son igualmente asignados como `true` o no asignados (igual a `false`).
+
+Por ejemplo, aquí cramos un nuevo Option "unselected":
 
 ```js
 let option = new Option("Text", "value");
 // crea <option value="value">Text</option>
 ```
 
-El mismo elemento seleccionado:
+El mismo elemento, pero seleccionado:
 
 ```js
 let option = new Option("Text", "value", true, true);

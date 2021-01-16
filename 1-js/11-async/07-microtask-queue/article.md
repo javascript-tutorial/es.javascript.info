@@ -23,7 +23,7 @@ Es algo extraño, porque la promesa se realiza por completo desde el principio.
 
 ## Cola de microtareas (Microtasks queue)
 
-Las tareas asincrónicas necesitan una gestión adecuada. Para ello, el estándar ECMA especifica una cola interna `PromiseJobs`, en ocasiones más conocida como "cola de microtareas" (término ES8).
+Las tareas asincrónicas necesitan una gestión adecuada. Para ello, el estándar ECMA especifica una cola interna `PromiseJobs`, en ocasiones más conocida como "cola de microtareas" (término de V8).
 
 Como se indica en la [especificación](https://tc39.github.io/ecma262/#sec-jobs-and-job-queues):
 
@@ -103,7 +103,7 @@ En el ejemplo anterior, `.catch` agregado por `setTimeout` también se dispara. 
 
 ## Resumen
 
-El control de promesas siempre es asíncrono, ya que todas las acciones de promesa pasan por la cola interna de "PromiseJobs", también llamada "cola de microtareas" (término ES8).
+El control de promesas siempre es asíncrono, ya que todas las acciones de promesa pasan por la cola interna de "PromiseJobs", también llamada "cola de microtareas" (término de V8).
 
 Entonces, los controladores `.then/catch/finally` siempre se llaman después de que el código actual ha finalizado.
 

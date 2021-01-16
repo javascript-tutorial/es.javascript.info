@@ -155,7 +155,7 @@ function curried(...args) {
   if (args.length >= func.length) { // (1)
     return func.apply(this, args);
   } else {
-    return function pass(...args2) { // (2)
+    return function(...args2) { // (2)
       return curried.apply(this, args.concat(args2));
     }
   }
@@ -164,18 +164,10 @@ function curried(...args) {
 
 Cuando lo ejecutamos, hay dos ramas de ejecución `if`:
 
-1. Llame ahora: si el recuento de `args` pasado es el mismo que tiene la función original en su definición (`func.length`) o más, entonces simplemente páselo.
-2. Obtenga un parcial: de lo contrario, `func` aún no se llama. En cambio, se devuelve otro contenedor `pass`, que volverá a aplicar `curried` proporcionando argumentos anteriores junto con los nuevos. Luego, en una nueva llamada, nuevamente obtendremos un nuevo parcial (si no hay suficientes argumentos) o, finalmente, el resultado.
+1. Si el recuento de `args` pasado es el mismo que tiene la función original en su definición (`func.length`), entonces simplemente páselo usando `func.apply`.
+2. De lo contrario, obtenga un parcial: No llamamos a `func` aún. En cambio, se devuelve otro contenedor que volverá a aplicar `curried` proporcionando los argumentos anteriores junto con los nuevos. 
 
-Por ejemplo, veamos qué sucede en el caso de `sum(a, b, c)`. Tres argumentos, entonces `sum.length = 3`.
-
-Para la llamada `curried(1)(2)(3)`:
-
-1. La primera llamada `curried(1)` recuerda `1` en su entorno léxico, y devuelve un contenedor` pass`.
-2. El contenedor `pass` se llama con `(2)`: toma los argumentos anteriores `(1)`, los concatena con lo que obtuvo `(2)` y llama `curried(1, 2)` con ambos argumentos. Como el recuento de argumentos es aún menor que 3, `curry` devuelve `pass`.
-3. El contenedor `pass` se llama nuevamente con` (3) `, para la próxima llamada` pass(3) `toma los argumentos anteriores (`1`, `2`) y agrega` 3` a ellos, haciendo la llamada `curried(1, 2, 3)` -- finalmente hay 3 argumentos , y son pasados a la función original.
-
-Si eso todavía no es obvio, solo rastrea la secuencia de llamadas en tu mente o en papel.
+Luego, en una nueva llamada, nuevamente obtendremos un nuevo parcial (si no hay suficientes argumentos) o, finalmente, el resultado.
 
 ```smart header="Solo funciones de longitud fija "
 El currying requiere que la función tenga un número fijo de argumentos.

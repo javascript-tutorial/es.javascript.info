@@ -52,7 +52,7 @@ if (true) {
 }
 
 *!*
-alert(test); // Error: test no está definido
+alert(test); // ReferenceError: test no está definido
 */!*
 ```
 
@@ -82,7 +82,7 @@ function sayHi() {
 }
 
 sayHi();
-alert(phrase); // Error: phrase no está definida
+alert(phrase); // ReferenceError: phrase no está definida
 ```
 
 Como podemos ver, `var` atraviesa `if`, `for` u otros bloques. Esto es porque mucho tiempo atrás los bloques en JavaScript no tenían ambientes léxicos. Y `var` es un remanente de aquello.
@@ -231,7 +231,7 @@ La expresión de función es encerrada entre paréntesis `(function {...})`, por
 
 ```js run
 // Trata de declarar e inmediatamente llamar una función
-function() { // <-- Error: la instrucción de función requiere un nombre de función
+function() { // <-- SyntaxError: la instrucción de función requiere un nombre de función
 
   var message = "Hello";
 

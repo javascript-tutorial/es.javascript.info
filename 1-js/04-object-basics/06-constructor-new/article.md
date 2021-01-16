@@ -91,7 +91,7 @@ La sintaxis a partir de esta sección es raramente utilizada, puedes omitirla a 
 
 Dentro de una función, podemos verificar si ha sido llamada con o sin el `new`, utilizando una propiedad especial `new.target`.
 
-Está vacía para llamadas normales y es equivalente a la función si es llamada con `new`:
+Es "undefined" para llamadas normales y es equivalente a la función si es llamada con `new`:
 
 ```js run
 function User() {
