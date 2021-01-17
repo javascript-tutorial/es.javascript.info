@@ -601,7 +601,7 @@ El objeto `Reflect` hace de alguna manera esto posible. Sus métodos son envolto
 
 Aquí hay ejemplos de operaciones y llamados a `Reflect` que hacen lo mismo:
 
-| Operación |  Llamado a `Reflect` | Método interno |
+| Operación |  Llamada `Reflect` | Método interno |
 |-----------------|----------------|-------------|
 | `obj[prop]` | `Reflect.get(obj, prop)` | `[[Get]]` |
 | `obj[prop] = value` | `Reflect.set(obj, prop, value)` | `[[Set]]` |
