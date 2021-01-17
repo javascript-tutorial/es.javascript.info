@@ -788,7 +788,7 @@ Proxy brinda una manera única de alterar o ajustar el comportamiento de objetos
 
 ### Objetos nativos: slots internos
 
-Muchos objetos nativos –por ejemplo `Map`, `Set`, `Date`, `Promise`, etc.– hacen uso de los llamados "slots internos".
+Muchos objetos nativos, por ejemplo `Map`, `Set`, `Date`, `Promise`, etc,  hacen uso de los llamados "slots internos".
 
 Los slots (hueco, celda) son como propiedades pero están reservados para uso interno, con propósito de especificación únicamente. Por ejemplo, `Map` almacena items en el slot interno `[[MapData]]`. Los métodos nativos los acceden directamente, sin usar los métodos internos `[[Get]]/[[Set]]`. Entonces `Proxy` no puede interceptar eso.
 
