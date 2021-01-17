@@ -1,11 +1,11 @@
 
-Opening tag is `pattern:\[(b|url|quote)\]`.
+La etiqueta de apertura es `pattern:\[(b|url|quote)\]`.
 
-Then to find everything till the closing tag -- let's use the pattern `pattern:.*?` with flag `pattern:s` to match any character including the newline and then add a backreference to the closing tag.
+Luego, para encontrar todo hasta la etiqueta de cierre, usemos el patrón`pattern:.*?` con la bandera `pattern:s` para que coincida con cualquier carácter, incluida la nueva línea, y luego agreguemos una referencia inversa a la etiqueta de cierre.
 
-The full pattern: `pattern:\[(b|url|quote)\].*?\[/\1\]`.
+El patrón completo: `pattern:\[(b|url|quote)\].*?\[/\1\]`.
 
-In action:
+En acción:
 
 ```js run
 let regexp = /\[(b|url|quote)\].*?\[\/\1\]/gs;
@@ -20,4 +20,4 @@ let str = `
 alert( str.match(regexp) ); // [b]hello![/b],[quote][url]http://google.com[/url][/quote]
 ```
 
-Please note that besides escaping `pattern:[` and `pattern:]`, we had to escape a slash for the closing tag `pattern:[\/\1]`, because normally the slash closes the pattern.
+Tenga en cuenta que además de escapar `pattern:[` y `pattern:]`, tuvimos que escapar de una barra para la etiqueta de cierre `pattern:[\/\1]`, porque normalmente la barra cierra el patrón.

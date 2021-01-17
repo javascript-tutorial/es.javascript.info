@@ -1,28 +1,28 @@
-# Find quoted strings
+# Encuentra cadenas entre comillas
 
-Create a regexp to find strings in double quotes `subject:"..."`.
+Crea una expresión regular para encontrar cadenas entre comillas dobles `subject:"..."`.
 
-The strings should support escaping, the same way as JavaScript strings do. For instance, quotes can be inserted as `subject:\"` a newline as `subject:\n`, and the slash itself as `subject:\\`.
+Las cadenas deben admitir el escape, de la misma manera que lo hacen las cadenas de JavaScript. Por ejemplo, las comillas se pueden insertar como `subject:\"` ,una nueva línea como `subject:\n`, y la doble sbarra invertida como `subject:\\`.
 
 ```js
 let str = "Just like \"here\".";
 ```
 
-Please note, in particular, that an escaped quote `subject:\"` does not end a string.
+Tenga en cuenta, en particular, que una comilla doble `subject:\"` no termina una cadena.
 
-So we should search from one quote to the other ignoring escaped quotes on the way.
+Por lo tanto, deberíamos buscar de una cita a otra ignorando las comillas dobles en el camino.
 
-That's the essential part of the task, otherwise it would be trivial.
+Esa es la parte esencial de la tarea, de lo contrario sería trivial.
 
-Examples of strings to match:
+Ejemplos de cadenas para hacer coincidir:
 ```js
 .. *!*"test me"*/!* ..  
-.. *!*"Say \"Hello\"!"*/!* ... (escaped quotes inside)
-.. *!*"\\"*/!* ..  (double slash inside)
-.. *!*"\\ \""*/!* ..  (double slash and an escaped quote inside)
+.. *!*"Say \"Hello\"!"*/!* ... (comillas dobles dentro)
+.. *!*"\\"*/!* ..  (doble barra invertida dentro)
+.. *!*"\\ \""*/!* ..  (doble barra lateral dentro y comilla doble.)
 ```
 
-In JavaScript we need to double the slashes to pass them right into the string, like this:
+En JavaScript, necesitamos duplicar las barras para pasarlas directamente a la cadena, así:
 
 ```js run
 let str = ' .. "test me" .. "Say \\"Hello\\"!" .. "\\\\ \\"" .. ';
