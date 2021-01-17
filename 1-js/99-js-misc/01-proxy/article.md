@@ -862,7 +862,7 @@ alert(user.getName()); // Error
 */!*
 ```
 
-La razón es que los campos privados son implementados usando slots internos. JavaScript no usa `[[Get]]/[[Set]]` cuando los accede.
+La razón es que los campos privados son implementados usando slots internos. JavaScript no usa `[[Get]]/[[Set]]` cuando accede a ellos.
 
 En la llamada a `getName()`, el valor de `this` es el proxy `user`que no tiene el slot con campos privados.
 
