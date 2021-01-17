@@ -110,3 +110,5 @@ Expliquemos eso paso a paso:
 Al final tenemos el resultado (como un string o un blob, lo que sea conveniente) y el seguimiento del progreso en el proceso.
 
 Una vez más, ten en cuenta que eso no es para el progreso de *carga* (hasta ahora eso no es posible con `fetch`), solo para el progreso de *descarga*.
+
+Además, si el tamaño es desconocido, deberíamos chequear `receivedLength` en el bucle y cortarlo en cuanto alcance cierto límite, así los `chunks` no agotarán la memoria. 

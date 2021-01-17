@@ -20,7 +20,7 @@ Tiene 3 modos:
     alert( result.length ); // 2
 
     // Additional information:
-    alert( result.index );  // 0 (match position)
+    alert( result.index );  // 7 (match position)
     alert( result.input );  // I love JavaScript (cadena de entrada)
     ```
 
@@ -227,6 +227,23 @@ alert(result); // Smith, John
 ```
 
 Usando una función nos da todo el poder del reemplazo, porque obtiene toda la información de la coincidencia, ya que tiene acceso a las variables externas y se puede hacer de todo.
+
+## str.replaceAll(str|regexp, str|func)
+
+Este método es escencialmente el mismo que `str.replace`, con dos diferencias principales:
+
+1. Si el primer argumento es un string, reemplaza *todas las ocurrencias* del string, mientras qye `replace` solamente reemplaza la *primera ocurrencia*.
+2. Si el primer argumento es una expresión regular sin la bandera `g`, funciona igual que `replace`.
+
+El caso de uso principal para `replaceAll` es el reemplazo de todas las ocurrencias de un string.
+
+Como esto:
+
+```js run
+// reemplaza todos los guiones por dos puntos
+alert('12-34-56'.replaceAll("-", ":")) // 12:34:56
+```
+
 
 ## regexp.exec(str)
 

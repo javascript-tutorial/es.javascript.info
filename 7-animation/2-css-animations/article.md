@@ -74,9 +74,9 @@ Ahora cubramos las propiedades de animación una por una.
 
 ## transition-property
 
-En `transition-property` escribimos una lista de propiedades para animar, por ejemplo: `left`, `margin-left`, `height`, `color`.
+En `transition-property` escribimos una lista de propiedades para animar, por ejemplo: `left`, `margin-left`, `height`, `color`. O podemos escribir `all`, que significa "animar todas las propiedades".
 
-No todas las propiedades pueden ser animadas, sí [muchas de ellas](http://www.w3.org/TR/css3-transitions/#animatable-properties-). El valor `all` significa "animar todas las propiedades".
+No todas las propiedades pueden ser animadas, pero sí [la mayoría de las generalmente usadas](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties). 
 
 ## transition-duration
 
@@ -84,9 +84,9 @@ En `transition-duration` podemos especificar cuánto tiempo debe durar la animac
 
 ## transition-delay
 
-En `transition-delay` podemos especificar el retraso *antes* de la animación. Por ejemplo, si `transition-delay: 1s`, la animación comienza después de 1 segundo tras el cambio.
+En `transition-delay` podemos especificar el retraso *antes* de la animación. Por ejemplo, si `transition-delay` es `1s` y `transition-duration` es `2s`, la animación comienza después de 1 segundo tras el cambio de la propiedad y la duración total será de 2 segundos.
 
-Los valores negativos también son posibles. Entonces la animación comienza desde el medio. Por ejemplo, si `transition-duration` es `2s`, y el retraso es `-1s`, entonces la animación toma 1 segundo y comienza desde la mitad.
+Los valores negativos también son posibles. Entonces la animación comienza inmediatamente, pero el punto de inicio de la animación sera el del valor dado (tiempo). Por ejemplo, si `transition-delay` es `-1s` y `transition-duration` es `2s`, entonces la animación comienza desde la mitad y la duración total será de 1 segundo.
 
 Aquí la animación cambia los números de `0` a `9` usando la propiedad CSS `translate`:
 
@@ -145,7 +145,7 @@ La función de temporización se puede establecer como una [curva de Bézier](/b
 
 La sintaxis de una curva de Bézier en CSS: `cubic-bezier(x2, y2, x3, y3)`. Aquí necesitamos especificar solo los puntos de control segundo y tercero, porque el primero está fijado a `(0,0)` y el cuarto es `(1,1)`.
 
-La función de temporización determina qué tan rápido ocurre el proceso de animación a lo largo del tiempo.
+La función de temporización determina qué tan rápido ocurre el proceso de animación.
 
 - El eje `x` es el tiempo: `0` -- el momento inicial, `1` -- el último momento de `transition-duration`.
 - El eje `y` especifica la finalización del proceso: `0` -- el valor inicial de la propiedad, `1` -- el valor final.

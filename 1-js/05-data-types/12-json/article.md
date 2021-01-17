@@ -276,6 +276,7 @@ name:         John
 name:         Alice
 place:        [object Object]
 number:       23
+occupiedBy: [object Object]
 */
 ```
 
@@ -327,6 +328,8 @@ alert(JSON.stringify(user, null, 2));
 }
 */
 ```
+
+El tercer argumento puede ser también string. En ese caso el string será usado como indentación en lugar de un número de espacios.
 
 El argumento `space` es utilizado únicamente para propósitos de registro y agradable impresión.
 

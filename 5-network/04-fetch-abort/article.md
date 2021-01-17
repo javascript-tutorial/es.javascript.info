@@ -50,7 +50,7 @@ Como podemos ver, `AbortController` es simplemente la via para pasar eventos `ab
 
 Podríamos implementar alguna clase de escucha de evento en nuestro código por nuestra cuenta, sin el objeto `AbortController` en absoluto.
 
-Poro lo valioso es que `fetch` sabe cómo trabajar con el objeto `AbortController`, está integrado con él. 
+Pero lo valioso es que `fetch` sabe cómo trabajar con el objeto `AbortController`, está integrado con él. 
 
 ## Uso con fetch
 
@@ -65,7 +65,7 @@ fetch(url, {
 
 El método `fetch` conoce cómo trabajar con `AbortController`. Este escuchará eventos `abort` sobre `signal`.
 
-Ahora, para abortar, llamamo `controller.abort()`:
+Ahora, para abortar, llamamos `controller.abort()`:
 
 ```js
 controller.abort();

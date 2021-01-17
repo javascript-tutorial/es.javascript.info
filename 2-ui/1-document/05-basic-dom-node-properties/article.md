@@ -198,7 +198,7 @@ En el modo XML, el caso se mantiene "tal cual". Hoy en día, el modo XML rara ve
 
 ## innerHTML: los contenidos
 
-La propiedad [innerHTML](https://w3c.github.io/DOM-Parsing/#widl-Element-innerHTML) permite obtener el HTML dentro del elemento como un string.
+La propiedad [innerHTML](https://w3c.github.io/DOM-Parsing/#the-innerhtml-mixin) permite obtener el HTML dentro del elemento como un string.
 
 También podemos modificarlo. Así que es una de las formas más poderosas de cambiar la página.
 
@@ -397,7 +397,7 @@ Compara los dos:
 <div id="elem2"></div>
 
 <script>
-  let name = prompt("¿Cuál es tu nombre?", "<b>¡Winnie-pooh!</b>");
+  let name = prompt("¿Cuál es tu nombre?", "<b>¡Winnie-Pooh!</b>");
 
   elem1.innerHTML = name;
   elem2.textContent = name;
@@ -405,7 +405,7 @@ Compara los dos:
 ```
 
 1. El primer `<div>` obtiene el nombre "como HTML": todas las etiquetas se convierten en etiquetas, por lo que vemos el nombre en negrita.
-2. El segundo `<div>` obtiene el nombre "como texto", así que literalmente vemos `<b>¡Winnie-pooh!</b>`.
+2. El segundo `<div>` obtiene el nombre "como texto", así que literalmente vemos `<b>¡Winnie-Pooh!</b>`.
 
 En la mayoría de los casos, esperamos el texto de un usuario y queremos tratarlo como texto. No queremos HTML inesperado en nuestro sitio. Una asignación a `textContent` hace exactamente eso.
 

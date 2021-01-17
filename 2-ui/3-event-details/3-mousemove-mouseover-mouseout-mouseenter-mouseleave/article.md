@@ -80,7 +80,7 @@ Una característica importante de `mouseout` -- se activa cuando el cursor se mu
 </div>
 ```
 
-Si estamos sobre `#parent` y luego movemos el cursor hacia dentro de `#child`, ¡vamos a obtener `mouseout` en`#parent`!
+Si estamos sobre `#parent` y luego movemos el cursor hacia dentro de `#child`, ¡vamos a obtener `mouseout` en `#parent`!
 
 ![](mouseover-to-child.svg)
 

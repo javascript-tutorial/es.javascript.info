@@ -1,3 +1,4 @@
+
 # Polyfills
 
 El lenguaje JavaScript evoluciona constantemente. Nuevas propuestas al lenguaje aparecen regularmente, son analizadas y, si se consideran valiosas, se agregan a la lista en <https://tc39.github.io/ecma262/> y luego avanzan hasta [specification](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
@@ -22,7 +23,8 @@ En realidad, hay dos partes en Babel:
 
 2. Segundo, el polyfill.
 
-    El transpiler reescribe el código, por lo que se cubren las características de la sintaxis. Pero para funciones nuevas tenemos que escribir un script especial que las implemente. JavaScript es un lenguaje muy dinámico, puede que los scripts no solo agreguen nuevas funciones, sino también modifiquen las funciones incorporadas, para que actúen de forma correspondiente al estándar moderno.
+    Nuevas características del lenguaje pueden incluir no solo contrucciones sintácticas sino también funciones incorporadas.
+    El transpilador reescribe el código, transformando las contrucciones sintácticas nuevas al viejo formato. Pero para funciones nuevas, necesitamos implementarlas. JavaScript es un lenguaje muy dinámico, los scripts pueden agregar o modificar cualquier función para que actúen acorde al estándar moderno.
 
     Existe el término "polyfill" para scripts que "llenan"(fill in) el vacío y agregan las implementaciones que faltan.
 

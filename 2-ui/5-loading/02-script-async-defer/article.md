@@ -83,7 +83,7 @@ Digamos que tenemos dos scripts diferidos, `long.js` (largo) y luego `small.js` 
 
 Los navegadores analizan la página en busca de scripts y los descarga en paralelo para mejorar el rendimiento. Entonces en el ejemplo superior ambos scripts se descargan en paralelo, el `small.js` probablemente lo haga primero.
 
-...Pero el atributo `defer`, además de decirle al navegador "no bloquear", se asegura que el orden relativo se mantiene. Entonces incluso si `small.js` se carga primero, aún espera a hasta después que `long.js` se ejecuta.
+...Pero el atributo `defer`, además de decirle al navegador "no bloquear", asegura que el orden relativo se mantenga. Entonces incluso si `small.js` se carga primero, aún espera y se ejecuta después de `long.js`.
 
 Por ello es importante para casos donde necesitamos cargar un librería JavaScript y entonces un script que depende de ella.
 
@@ -99,11 +99,11 @@ El atributo `async` significa que el script es completamente independiente:
 
 - El navegador no se bloquea con scripts `async` (como `defer`).
 - Otros scripts no esperan por scripts `async`, y scripts `async` no espera por ellos.
-- El evento `DOMContentLoaded` y los scripts asincrónicos no se esperan entre sí:
-    - El evento `DOMContentLoaded` puede suceder antes que un script asincrónico (si un script asincrónico termina de cargar una vez la página está completa)
+- `DOMContentLoaded` y los scripts asincrónicos no se esperan entre sí:
+    - `DOMContentLoaded` puede suceder antes que un script asincrónico (si un script asincrónico termina de cargar una vez la página está completa)
     - ...o después de un script asincrónico (si tal script asincrónico es pequeño o está en cache)
 
-En otras palabras, los scripts `async` cargan en segundo plano y se ejecutan cuando están listos. El DOM y otros scripts no esperan por ellos, y ellos no esperan por nada. Un totalmente independiente script que se ejecuta en cuanto se ha cargado. Tan simple como es posible, ¿cierto? 
+En otras palabras, los scripts `async` cargan en segundo plano y se ejecutan cuando están listos. El DOM y otros scripts no esperan por ellos, y ellos no esperan por nada. Un script totalmente independiente que se ejecuta en cuanto se ha cargado. Tan simple como es posible, ¿cierto? 
 
 Aquí hay un ejemplo similar al que vimos con `defer`: Dos scripts `long.js` y `small.js`, pero ahora con `async` en lugar de `defer`.
 
