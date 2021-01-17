@@ -217,7 +217,7 @@ alert( x ); // 5
 
 ### Asignación = devuelve un valor
 
-El hecho de que `=` sea un operador, no un construcción "mágica" del lenguaje, tiene un implicanción interesante.
+El hecho de que `=` sea un operador, no una construcción "mágica" del lenguaje, tiene un implicanción interesante.
 
 Todos los operadores en JavaScript devuelven un valor. Esto es obvio para `+` y `-`, pero también es cierto para `=`.
 
