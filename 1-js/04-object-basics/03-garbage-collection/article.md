@@ -14,8 +14,8 @@ Simple, los valores "alcanzables" son aquellos que son accesibles o se pueden ut
  
     Por ejemplo:
 
-    - Variables locales y parámetros de la función actual.
-    - Variables y parámetros para otras funciones en la cadena actual de llamadas anidadas.
+    - La función ejecutándose actualmente, sus variables locales y parámetros.
+    - Otras funciones en la cadena actual de llamadas anidadas, sus variables y parámetros.
     - Variables Globales
     - (Hay algunos otros internos también)
 

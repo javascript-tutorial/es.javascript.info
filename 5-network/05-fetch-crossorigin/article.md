@@ -28,7 +28,7 @@ En verdad... Déjame contarte un breve resumen de esta historia.
 
 **Durante muchos años un script de un sitio no podía acceder al contenido de otro sitio.**
 
-Esta simple, pero poderosa regla, fue parte fundacional de la seguridad de Internet. Ej: Un script malicioso desde el sitio `hacker.com` no podía acceder a la casilla de correo en el sitio `gmail.com`. La gente se podía sentir segura.
+Esta simple, pero poderosa regla, fue parte fundacional de la seguridad de Internet. Por ejemplo, un script malicioso desde el sitio `hacker.com` no podía acceder a la casilla de correo en el sitio `gmail.com`. La gente se podía sentir segura.
 
 Así mismo en ese momento, JavaScript no tenía ningún método especial para realizar solicitudes de red. Simplemente era un lenguaje juguete para decorar páginas web.
 
@@ -125,7 +125,7 @@ Contrario a esto, las solicitudes con cabeceras no estándar o métodos como el 
 
 Cuando intentamos realizar una solicitud "no simple", el navegador envía una solicitud especial de "pre-vuelo" consultándole al servidor si está de acuerdo en aceptar ese tipo de solicitud de origen cruzado, o no.
 
-Y, sólo en caso de que el servidor confirme de forma explícita, la solicitud "no simple" es enviada.
+Y, salvo que el servidor lo confirme de forma explícita, cualquier solicitud "no segura" no es enviada.
 
 Vayamos ahora a los detalles.
 
@@ -182,7 +182,7 @@ Como se puede ver, ¡no está la cabecera `Content-Length` en la lista!
 Esta cabecera contiene el tamaño total de la respuesta. Por lo que si queremos mostrar el progreso de la descarga, en ese caso necesitaremos un permiso adicional para acceder a ese campo de la cabecera.
 ```
 
-Para permitirle a JavaScript acceso a otros tipos de cabeceras, el servidor debe incluir la cabecera `Access-Control-Expose-Headers`. Este campo contiene una lista separada por comas de las cabeceras no simples que podrán ser accesibles.
+Para permitirle a JavaScript acceso a otros tipos de cabeceras, el servidor debe incluir la cabecera `Access-Control-Expose-Headers`. Este campo contiene una lista separada por comas de las cabeceras no seguras que podrán ser accesibles.
 
 Por ejemplo:
 
@@ -197,7 +197,7 @@ Access-Control-Expose-Headers: Content-Length,API-Key
 */!*
 ```
 
-Con éste valor de `Access-Control-Expose-Headers`, el script tendrá permitido acceder a los valores de las cabeceras `Content-Length` y `API-Key` de la respuesta.
+Con este valor de `Access-Control-Expose-Headers`, el script tendrá permitido acceder a los valores de las cabeceras `Content-Length` y `API-Key` de la respuesta.
 
 ## Solicitudes "No simples"
 
@@ -205,7 +205,7 @@ Podemos utilizar cualquier método HTTP: no únicamente `GET/POST`, sino tambié
 
 Hace algún tiempo nadie podía siquiera imaginar que un sitio web pudiera realizar ese tipo de solicitudes. Por lo que aún existen servicios web que cuando reciben un método no estándar los consideran como una señal de que: "Del otro lado no hay un navegador". Ellos pueden tener en cuenta esto cuando revisan los derechos de acceso.
 
-Por lo tanto, para evitar malentendidos, cualquier solicitud "no simple" (Estas que no podían ser realizadas en los viejos tiempos), no será realizada por el navegador en forma directa. Antes, enviará una solicitud preliminar llamada solicitud de "pre-vuelo", solicitando se le conceda los permisos.
+Por lo tanto, para evitar malentendidos, cualquier solicitud "no segura" (Estas que no podían ser realizadas en los viejos tiempos), no será realizada por el navegador en forma directa. Antes, enviará una solicitud preliminar llamada solicitud de "pre-vuelo", solicitando se le conceda los permisos.
 
 Una solicitud de "pre-vuelo" utiliza el método `OPTIONS`, sin contenido en el cuerpo y con dos cabeceras:
 
@@ -221,7 +221,7 @@ Si el servidor está de acuerdo con lo solicitado, entonces responderá con el c
 
 ![](xhr-preflight.svg)
 
-Vamos a ver como funciona paso a paso, mediante un ejemplo para una solicitud de origen cruzado `PATCH` (este método suele utilizarse para actualizar datos):
+Vamos a ver cómo funciona paso a paso, mediante un ejemplo para una solicitud de origen cruzado `PATCH` (este método suele utilizarse para actualizar datos):
 
 ```js
 let response = await fetch('https://site.com/service.json', {
@@ -240,7 +240,7 @@ Hay tres motivos por los cuales esta solicitud no es simple (una es suficiente):
 
 ### Paso 1 (solicitud de pre-vuelo)
 
-Antes de enviar una solicitud de este tipo, el navegador, por si mismo, envía una solicitud de pre-vuelo que se ve de este modo:
+Antes de enviar una solicitud de este tipo, el navegador envía una solicitud de pre-vuelo que se ve de este modo:
 
 ```http
 OPTIONS /service.json
@@ -284,7 +284,7 @@ Si se encuentra con una cabecera `Access-Control-Max-Age` con determinada cantid
 
 ### Paso 3 (solicitud real)
 
-Una vez el pre-vuelo se realiza de forma satisfactoria, el navegador realiza la solicitud principal. El algoritmo aquí es el mismo que el utilizado para una solicitud simple.
+Una vez el pre-vuelo se realiza de forma satisfactoria, el navegador realiza la solicitud principal. El algoritmo aquí es el mismo que el utilizado para una solicitud segura.
 
 La solicitud principal tiene la cabecera `Origin` (ya que se trata de una solicitud de origen cruzado):
 
@@ -362,14 +362,14 @@ Desde el punto de vista del navegador, existen dos tipos de solicitudes de orige
 
 La diferencia escencial es que las solicitudes simples eran posibles desde los viejos tiempos utilizando las etiquetas `<form>` o `<script>`, mientras que las solicitudes "no simples" fueron imposibles para el navegador durante mucho tiempo.
 
-Por lo tanto, en la práctica, la diferencia se encuentra en que las solicitudes simples son realizadas de forma directa, utilizando la cabecera `Origin`, mientras que para las otras el navegador realiza una solicitud extra de "pre-vuelo" para requerir la autorización.
+Por lo tanto, en la práctica, la diferencia se encuentra en que las solicitudes seguras son realizadas de forma directa, utilizando la cabecera `Origin`, mientras que para las otras el navegador realiza una solicitud extra de "pre-vuelo" para requerir la autorización.
 
 **Para una solicitud simple:**
 
 - → El navegador envía una cabecera `Origin` con el origen.
-- ← Para solicitudes sin credenciales (no enviadas por defecto), el servidor debe enviar:
+- ← Para solicitudes sin credenciales (no enviadas por defecto), el servidor debe establecer:
     - `Access-Control-Allow-Origin` como `*` o el mismo valor que en `Origin`.
-- ← Para solicitudes con credenciales, el servidor deberá agregar:
+- ← Para solicitudes con credenciales, el servidor deberá establecer:
     - `Access-Control-Allow-Origin` con el mismo valor que en `Origin`.
     - `Access-Control-Allow-Credentials` en `true`
 
@@ -378,10 +378,10 @@ Adicionalmente, para garantizar a JavaScript acceso a cualquier cabecera de la r
 **Para solicitudes no simples, se utiliza una solicitud preliminar "pre-vuelo"  antes de la solicitud principal:**
 
 - → El navegador envía una solicitud del tipo `OPTIONS` a la misma URL, con las cabeceras:
-    - `Access-Control-Request-Method` con el método de la solicitud.
-    - `Access-Control-Request-Headers` listado de las cabeceras no simples.
+    - `Access-Control-Request-Method` con el método requerido.
+    - `Access-Control-Request-Headers` listado de las cabeceras no seguras.
 - ← El servidor debe responder con el código de estado 200 y las cabeceras:
     - `Access-Control-Allow-Methods` con la lista de todos los métodos permitidos,
     - `Access-Control-Allow-Headers` con una lista de cabeceras permitidas,
     - `Access-Control-Max-Age` con los segundos en los que se podrá almacenar la autorización en caché.
-- Tras lo cual la solicitud es enviada, y se aplica el esquema previo utilizado para las solicitudes "simples".
+- Tras lo cual la solicitud es enviada, y se aplica el esquema previo "seguro".

@@ -74,7 +74,7 @@ Es por ello que el encadenamiento opcional `?.` fue agregado al lenguaje. ¡Para
 
 ## Encadenamiento opcional
 
-El encadenamiento opcional `?.` detiene la evaluación si la parte anterior a `?.` es ` undefined` o `null` y devuelve esa parte. 
+El encadenamiento opcional `?.` detiene la evaluación si la parte anterior a `?.` es ` undefined` o `null` y devuelve `undefined`. 
 
 **De aquí en adelante en este artículo, por brevedad, diremos que algo "existe" si no es `null` o `undefined`.**
 
@@ -103,7 +103,7 @@ alert( user?.address.street ); // undefined
 
 Tenga en cuenta: la sintaxis `?.` hace opcional el valor delante de él, pero no más allá.
 
-Por ejemplo en `user?.address.street.name` el `?.` permite a `user` ser `null/undefined`, pero es todo lo que hace. El resto de las propiedades son accedidas de la manera normal.  Si queremos que algunas de ellas sean opcionales, necesitamos reemplazar más `.` con `?.`.
+Por ejemplo en `user?.address.street.name` el `?.` permite a `user` ser `null/undefined` (y devuelve `undefined` en tal caso), pero solo para `user`. El resto de las propiedades son accedidas de la manera normal.  Si queremos que algunas de ellas sean opcionales, necesitamos reemplazar más `.` con `?.`.
 
 ```warn header="No abuses del encadenamiento opcional"
 Deberíamos usar `?.` solo donde está bien que algo no exista.
@@ -173,18 +173,16 @@ Entonces `?.()` Comprueba la parte izquierda: si la función admin existe, enton
 La sintaxis `?.[]` también funciona si quisiéramos usar corchetes `[]` para acceder a las propiedades en lugar de punto `.`. Al igual que en casos anteriores, permite leer de forma segura una propiedad de un objeto que puede no existir.
 
 ```js run
+let key = "firstName";
+
 let user1 = {
   firstName: "John"
 };
 
-let user2 = null; // Imagine, no podríamos autorizar al usuario
-
-let key = "firstName";
+let user2 = null; 
 
 alert( user1?.[key] ); // John
 alert( user2?.[key] ); // undefined
-
-alert( user1?.[key]?.something?.not?.existing); // undefined
 ```
 
 También podemos usar `?.` con `delete`:

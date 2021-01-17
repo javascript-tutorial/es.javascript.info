@@ -107,7 +107,7 @@ No habrá conflicto porque los Symbols siempre son diferentes, incluso si tienen
 
 Ahora ten en cuenta que si utilizamos un string `"id"` en lugar de un Symbol para el mismo propósito, entonces SÍ *habría* un conflicto:
 
-```js run
+```js
 let user = { name: "John" };
 
 // Nuestro script usa la clave "id" 

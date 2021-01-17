@@ -111,6 +111,7 @@ Ejemplos de tales lenguajes:
 -[FLow](https://flow.org/) también agrega la escritura de datos, pero de una manera diferente. Desarrollado por Facebook.
 - [Dart](https://www.dartlang.org/) es un lenguaje independiente que tiene su propio motor que se ejecuta en entornos que no son de navegador (como aplicaciones móviles), pero que también se puede convertir/transpilar a JavaScript. Desarrollado por Google.
 - [Brython](https://brython.info/) es un transpilador de Python a JavaScript que permite escribir aplicaciones en Python puro sin JavaScript.
+- [Kotlin](https://kotlinlang.org/docs/reference/js-overview.html) es un lenguaje moderno, seguro y conciso que puede apuntar al navegador o a Node.
 
 Hay más. Por supuesto, incluso si nosotros usamos alguno de estos lenguajes, deberíamos conocer también JavaScript para realmente entender qué estamos haciendo.
 
