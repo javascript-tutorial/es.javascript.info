@@ -14,6 +14,7 @@ Pero esto es muy fácil:
 o 
 - Usamos el BLAME, vemos el articulo completo y remarcadas las ultimas modificaciones (fecha y autor) 
 
+Y llevamos los cambios al repo español.
 Las líneas modificadas se marcan como coautoría y también se cuentan. 
 ```
 
