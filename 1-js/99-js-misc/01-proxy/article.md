@@ -963,13 +963,13 @@ revoke();
 alert(proxy.data); // Error
 ```
 
-Llamar a `revoke()` quitará al proxy todas las referencias internas hacie el objeto target, ya no estarán conectados. 
+La llamada a `revoke()` quita al proxy todas las referencias internas hacia el objeto target, ya no estarán conectados. 
 
 En principio `revoke` está separado de `proxy`, así que podemos pasar `proxy` alerededor mientras mantenemos `revoke` en la vista actual.
 
 También podemos vincular el método `revoke` al proxy asignándolo como propiedad: `proxy.revoke = revoke`.
 
-Otra opción es crear un `WeakMap` que tenga a `proxy` como su clave y su correspondiente `revoke` como valor, esto permite fácilmente encontrar el `revoke` para un proxy:
+Otra opción es crear un `WeakMap` que tenga a `proxy` como clave y su correspondiente `revoke` como valor, esto permite fácilmente encontrar el `revoke` para un proxy:
 
 ```js run
 *!*
