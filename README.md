@@ -1,5 +1,22 @@
 # Bienvenidos nuevos contribuidores
 ## Tutorial Moderno de JavaScript en Español
+
+```
+Novedades:
+solo quedan 10 articulos sin traducir, y ya estan reclamados por un traductor
+
+Pero el trabajo no acaba, la gran ventaja de este tutorial es mantenerse actualizado y actualizaciones hay montones: 
+Pueden seguir contribuyendo yendo a ISSUES y seleccinando uno de ellos. 
+
+La mecánica es diferente porque ya no se traduce un archivo local sino que hay que comparar con el repo inglés.
+Pero esto es muy fácil:
+- Usamos HISTORY, vemos sus últimos commits (siempre muy pocos), exactamente qué lineas cambiaron. 
+o 
+- Usamos el BLAME, vemos el articulo completo y remarcadas las ultimas modificaciones (fecha y autor) 
+
+Las líneas modificadas se marcan como coautoría y también se cuentan. 
+```
+
 Abajo se les dan las instrucciones para comenzar a contribuir. Recuerden que al seleccionar un artículo, **deberán traducir todo su contenido**, incluidos los tasks y soluciones. No deben hacer PR si no está todo el artículo seleccionado traducido, haciendo esto, nos ayudarán a hacer mejores y más rápidas las revisiones.
 
 También aconsejamos cuidar la **ortografía**, lo que incluye no olvidar los acentos en las traducciones.
