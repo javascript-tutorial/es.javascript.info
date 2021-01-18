@@ -67,7 +67,7 @@ Para cada método interno, existe una "trampa" en esta tabla: es el nombre del m
 | `[[PreventExtensions]]` | `preventExtensions` | [Object.preventExtensions](mdn:/JavaScript/Reference/Global_Objects/Object/preventExtensions) |
 | `[[DefineOwnProperty]]` | `defineProperty` | [Object.defineProperty](mdn:/JavaScript/Reference/Global_Objects/Object/defineProperty), [Object.defineProperties](mdn:/JavaScript/Reference/Global_Objects/Object/defineProperties) |
 | `[[GetOwnProperty]]` | `getOwnPropertyDescriptor` | [Object.getOwnPropertyDescriptor](mdn:/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor), `for..in`, `Object.keys/values/entries` |
-| `[[OwnPropertyKeys]]` | `ownKeys` | [Object.getOwnPropertyNames](mdn:/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames), [Object.getOwnPropertySymbols](mdn:/JavaScript/Reference/Global_Objects/Object/getOwnPropertySymbols), `for..in`, `Object/keys/values/entries` |
+| `[[OwnPropertyKeys]]` | `ownKeys` | [Object.getOwnPropertyNames](mdn:/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames), [Object.getOwnPropertySymbols](mdn:/JavaScript/Reference/Global_Objects/Object/getOwnPropertySymbols), `for..in`, `Object.keys/values/entries` |
 
 ```warn header="Invariantes"
 JavaScript impone algunas invariantes: condiciones que deben ser satisfechas por métodos internos y trampas.
@@ -963,9 +963,13 @@ revoke();
 alert(proxy.data); // Error
 ```
 
-La llamada a `revoke()` quita al proxy todas las referencias internas al objeto target, ya no estarán conectados. 
+Llamar a `revoke()` quitará al proxy todas las referencias internas hacie el objeto target, ya no estarán conectados. 
 
-También podemos almacenar `revoke` en un `WeakMap` para encontrarlo fácilmente con el proxy como clave:
+En principio `revoke` está separado de `proxy`, así que podemos pasar `proxy` alerededor mientras mantenemos `revoke` en la vista actual.
+
+También podemos vincular el método `revoke` al proxy asignándolo como propiedad: `proxy.revoke = revoke`.
+
+Otra opción es crear un `WeakMap` que tenga a `proxy` como su clave y su correspondiente `revoke` como valor, esto permite fácilmente encontrar el `revoke` para un proxy:
 
 ```js run
 *!*
@@ -980,14 +984,12 @@ let {proxy, revoke} = Proxy.revocable(object, {});
 
 revokes.set(proxy, revoke);
 
-// ..luego en nuestro código...
+// ...en algún otro lado de nuestro código...
 revoke = revokes.get(proxy);
 revoke();
 
 alert(proxy.data); // Error (revocado)
 ```
-
-El beneficio de tal enfoque es que no necesitamos acarrear `revoke`. Podemos obtenerlo del map por `proxy` cuando queramos.
 
 Usamos `WeakMap` en lugar de `Map` aquí porque no bloqueará la recolección de basura. Si el objeto proxy se vuelve inalcanzable (es decir, ya ninguna variable hace referencia a él), `WeakMap` permite eliminarlo junto con su `revoke` que no necesitaremos más.
 

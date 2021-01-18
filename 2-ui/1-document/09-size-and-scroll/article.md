@@ -1,16 +1,16 @@
-# Element size and scrolling
+# Elementos de tamaño y desplazamiento
 
-There are many JavaScript properties that allow us to read information about element width, height and other geometry features.
+Estas son muchas de las propiedades de JavaScript que nos permiten leer información de los elementos sobre el ancho, alto y otras características geométricas.
 
-We often need them when moving or positioning elements in JavaScript.
+Nosotros a menudo necesitamos de ellas cuando movemos o posicionamos un elemento en JavaScript.
 
-## Sample element
+## Elemento de muestra
 
-As a sample element to demonstrate properties we'll use the one given below:
+Como un elemento de muestra para demostrar las propiedades, usaremos el que se indica acontinuación:
 
 ```html no-beautify
 <div id="example">
-  ...Text...
+  ...Texto...
 </div>
 <style>
   #example {
@@ -23,49 +23,49 @@ As a sample element to demonstrate properties we'll use the one given below:
 </style>
 ```
 
-It has the border, padding and scrolling. The full set of features. There are no margins, as they are not the part of the element itself, and there are no special properties for them.
+Este tiene el borde, relleno y desplazamiento. El conjunto completo de funciones. No hay margenes, ya que no son parte del elemento en sí, y estos no tiene propiedades especiales.
 
-The element looks like this:
+El elemento tiene este aspecto:
 
 ![](metric-css.svg)
 
-You can [open the document in the sandbox](sandbox:metric).
+Tu puedes [abrir el documento en la zona de pruebas](sandbox:metric).
 
 ```smart header="Mind the scrollbar"
-The picture above demonstrates the most complex case when the element has a scrollbar. Some browsers (not all) reserve the space for it by taking it from the content (labeled as "content width" above).
+La imagen de arriba muestra el caso más complejo cuando el elemento tiene una barra de desplazamiento. Algunos navegadores (no todos) reservan espacio para tomarlo del contenido (etiquedado como "content width" arriba).
 
-So, without scrollbar the content width would be `300px`, but if the scrollbar is `16px` wide (the width may vary between devices and browsers) then only `300 - 16 = 284px` remains, and we should take it into account. That's why examples from this chapter assume that there's a scrollbar. Without it, some calculations are simpler.
+Entonces, sin la barra de desplazamiento el ancho del contenido sería `300px`, pero si la barra de desplazamiento tiene un ancho de `16px` (el ancho puede variar entre dispositivos y navegadores) entonces solo queda `300 - 16 = 284px`, y deberíamos tenerlo en cuenta. Es por eso que los ejemplos de este capítulo asumen que hay una barra de desplazamiento. Sin él, algunos cálculos son más sencillos.
 ```
 
-```smart header="The `padding-bottom` area may be filled with text"
-Usually paddings are shown empty on our illustrations, but if there's a lot of text in the element and it overflows, then browsers show the "overflowing" text at `padding-bottom`, that's normal.
+```smart header="El área `padding-bottom` puede estar lleno de texto"
+Por lo general, los rellenos se muestran vacíos en nuestras ilustraciones, pero si hay mucho texto en el elemento y se desborda, los navegadores muestran el texto "desbordado" en `padding-bottom`, eso es normal.
 ```
 
-## Geometry
+## Geometría
 
-Here's the overall picture with geometry properties:
+Aquí está la iamgen gereal con propiedades geométricas:
 
 ![](metric-all.svg)
 
-Values of these properties are technically numbers, but these numbers are "of pixels", so these are pixel measurements.
+Los valores de estas propiedades son tecnicamente números, pero estos numeros son "de píxeles", así que estas son medidas de píxeles.
 
-Let's start exploring the properties starting from the outside of the element.
+Comencemos a explotar las propiedades, iniciando desde el interior del elemento.
 
 ## offsetParent, offsetLeft/Top
 
-These properties are rarely needed, but still they are the "most outer" geometry properties, so we'll start with them.
+Estas propiedades son raramente necesarias, pero aún son las propiedades de geometría "más externas", así que comenzaremos con ellas.
 
-The `offsetParent` is the nearest ancestor that the browser uses for calculating coordinates during rendering.
+El `offsetParent` es el antepasado más cercano que usa el navegador para calcular las coordenadas durante el renderizado.
 
-That's the nearest ancestor that is one of the following:
+Ese es el antepasado más cercano que es uno de los siguientes:
 
 1. CSS-positioned (`position` is `absolute`, `relative`, `fixed` or `sticky`),  or
 2. `<td>`, `<th>`, or `<table>`,  or
 3. `<body>`.
 
-Properties `offsetLeft/offsetTop` provide x/y coordinates relative to `offsetParent` upper-left corner.
+Las propiedades `offsetLeft/offsetTop` proporcionan coordenadas x/y relativas a la esquina superior izquierda de `offsetParent`.
 
-In the example below the inner `<div>` has `<main>` as `offsetParent` and `offsetLeft/offsetTop` shifts from its upper-left corner (`180`):
+En el siguiente ejemplo el `<div>` interno tiene `<main>` como `offsetParent` y `offsetLeft/offsetTop` se desplaza desde su esquina superior izquierda (`180`):
 
 ```html run height=10
 <main style="position: relative" id="main">
@@ -82,33 +82,33 @@ In the example below the inner `<div>` has `<main>` as `offsetParent` and `offse
 
 ![](metric-offset-parent.svg)
 
-There are several occasions when `offsetParent` is `null`:
+Hay varias ocaciones en la que `offsetParent` es `null`:
 
-1. For not shown elements (`display:none` or not in the document).
-2. For `<body>` and `<html>`.
-3. For elements with `position:fixed`.
+1. Para elmentos no mostrados (`display:none` o no en el documento).
+2. Para `<body>` y `<html>`.
+3. Para elementos con `position:fixed`.
 
 ## offsetWidth/Height
 
-Now let's move on to the element itself.
+Ahora pasemos al elemento en sí.
 
-These two properties are the simplest ones. They provide the "outer" width/height of the element. Or, in other words, its full size including borders.
+Estas dos propiedades son las más simples. Proporcionan el ancho y alto "exterior" del elemento. O, en otras palabras, su tamaño completo, incluidos los bordes.
 
 ![](metric-offset-width-height.svg)
 
-For our sample element:
+Para nuestro elemento de muestra:
 
-- `offsetWidth = 390` -- the outer width, can be calculated as inner CSS-width (`300px`) plus paddings (`2 * 20px`) and borders (`2 * 25px`).
-- `offsetHeight = 290` -- the outer height.
+- `offsetWidth = 390` -- el ancho exterior, puede ser calculado como CSS-width interno (`300px`) más acolchonados (`2 * 20px`) y bordes (`2 * 25px`).
+- `offsetHeight = 290` -- el alto exterior.
 
 ````smart header="Geometry properties are zero/null for elements that are not displayed"
-Geometry properties are calculated only for displayed elements.
+Las propiedades geomátricas son calculadas solo para elementos mostrados.
 
-If an element (or any of its ancestors) has `display:none` or is not in the document, then all geometry properties are zero (or `null` for `offsetParent`).
+En un elemento (o cualquiera de sus antepasados) tiene `display:none` o no está en el documento, entonces las propiedades geométricas son cero (o `null` para `offsetParent`).
 
-For example, `offsetParent` is `null`, and `offsetWidth`, `offsetHeight` are `0` when we created an element, but haven't inserted it into the document yet, or it (or it's ancestor) has `display:none`.
+Por ejemplo, `offsetParent` es `null`, y `offsetWidth`, `offsetHeight` son `0` cuando creamos un elemento, pero aún no lo han insertado en el documento, o eso (o su antecesor) tiene `display:none`.
 
-We can use this to check if an element is hidden, like this:
+Nosotros podemos usar esto para verificar si un elemento está oculto, así: 
 
 ```js
 function isHidden(elem) {
@@ -116,76 +116,76 @@ function isHidden(elem) {
 }
 ```
 
-Please note that such `isHidden` returns `true` for elements that are on-screen, but have zero sizes (like an empty `<div>`).
+Por favor ten en cuenta que `isHidden` retorna `true` para elementos que están en pantalla, pero tienen tamaño cero (como un `<div>` vacío).
 ````
 
 ## clientTop/Left
 
-Inside the element we have the borders.
+Dentro del elemento, nosotros tenemos los bordes.
 
-To measure them, there are properties `clientTop` and `clientLeft`.
+Para medirlos, están las propiedades `clientTop` y `clientLeft`.
 
-In our example:
+En nuestro ejemplo:
 
-- `clientLeft = 25` -- left border width
-- `clientTop = 25` -- top border width
+- `clientLeft = 25` -- ancho del borde izquierdo
+- `clientTop = 25` -- ancho del borde superior
 
 ![](metric-client-left-top.svg)
 
-...But to be precise -- these properties are not border width/height, but rather relative coordinates of the inner side from the outer side.
+...Para ser precisos -- Estas propiedades no son el ancho/alto del borde, sino las coordenadas relativas del lado interior del lado exterior.
 
-What's the difference?
+Cuál es la diferencia?
 
-It becomes visible when the document is right-to-left (the operating system is in Arabic or Hebrew languages). The scrollbar is then not on the right, but on the left, and then `clientLeft` also includes the scrollbar width.
+Se vuelve visible cuando el documento está de derecha a izquierda (el sistema operativo está en idioma Árabe o Hebreo). La barra de desplazamiento no está a la derecha, sino a la izquierda, y luego `clientLeft` también incluye el ancho de la barra de desplazamiento.
 
-In that case, `clientLeft` would be not `25`, but with the scrollbar width `25 + 16 = 41`.
+En este caso, `clientLeft` no sería `25`, pero con ancho de la barra de desplazamiento `25 + 16 = 41`.
 
-Here's the example in hebrew:
+Aquí está el ejemplo en hebreo:
 
 ![](metric-client-left-top-rtl.svg)
 
 ## clientWidth/Height
 
-These properties provide the size of the area inside the element borders.
+Esta propiedad proporciona el tamaño del área dentro del los bordes del elemento.
 
-They include the content width together with paddings, but without the scrollbar:
+Incluyen el ancho del contenido junto con los rellenos, pero sin la barra de desplazamiento:
 
 ![](metric-client-width-height.svg)
 
-On the picture above let's first consider `clientHeight`.
+En la imagen de arriba, consideramos primero `clientHeight`.
 
-There's no horizontal scrollbar, so it's exactly the sum of what's inside the borders: CSS-height `200px` plus top and bottom paddings (`2 * 20px`) total `240px`.
+No hay barra de desplazamiento horizontal, por lo que es exactamente la suma de lo que está dentro de los bordes: CSS-height `200px` más relleno superior e inferior (`2 * 20px`) total `240px`.
 
-Now `clientWidth` -- here the content width is not `300px`, but `284px`, because `16px` are occupied by the scrollbar. So the sum is `284px` plus left and right paddings, total `324px`.
+Ahora `clientWidth` -- aquí el ancho del contenido no es `300px`, sino `284px`, porque los `16px` son ocupados por la barra de desplazamiento. Entonces la suma es `284px` más los rellenos de izquierda y derecha, total `324px`.
 
-**If there are no paddings, then `clientWidth/Height` is exactly the content area, inside the borders and the scrollbar (if any).**
+**Si no hay rellenos, entonces `clientWidth/Height` es exactamente el área de contenido, dentro de los bordes y la barra de desplazamiento (si la hay).**
 
 ![](metric-client-width-nopadding.svg)
 
-So when there's no padding we can use `clientWidth/clientHeight` to get the content area size.
+Entonces, cuando no hay relleno, podremos usar `clientWidth/clientHeight` para obtener el tamaño del área de contenido.
 
 ## scrollWidth/Height
 
-These properties are like `clientWidth/clientHeight`, but they also include the scrolled out (hidden) parts:
+Estas propiedades son como `clientWidth/clientHeight`, pero también incluyen las partes desplazadas (ocultas):
 
 ![](metric-scroll-width-height.svg)
 
-On the picture above:
+En la imagen de arriba:
 
-- `scrollHeight = 723` -- is the full inner height of the content area including the scrolled out parts.
-- `scrollWidth = 324` -- is the full inner width, here we have no horizontal scroll, so it equals `clientWidth`.
+- `scrollHeight = 723` -- es la altura interior completa del área de contenido, incluyendo las partes desplazadas.
+- `scrollWidth = 324` -- es el ancho interior completo, aqui no tenemos desplazamiento horizontal, por lo que es igual a `clientWidth`.
 
-We can use these properties to expand the element wide to its full width/height.
+Podemos usar estas propiedades para expandir el elemento a su ancho/alto completo.
 
-Like this:
+Como esto:
 
 ```js
-// expand the element to the full content height
+// expanda el elemento a la altura completa del contenido
 element.style.height = `${element.scrollHeight}px`;
 ```
 
 ```online
-Click the button to expand the element:
+Clic en el botón para expandir el elemento:
 
 <div id="element" style="width:300px;height:200px; padding: 0;overflow: auto; border:1px solid black;">text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</div>
 
@@ -194,47 +194,47 @@ Click the button to expand the element:
 
 ## scrollLeft/scrollTop
 
-Properties `scrollLeft/scrollTop` are the width/height of the hidden, scrolled out part of the element.
+Las propiedades `scrollLeft/scrollTop` son el ancho/alto de la parte oculta y desplazada del elemento.
 
-On the picture below we can see `scrollHeight` and `scrollTop` for a block with a vertical scroll.
+En la imagen abajo podemos ver `scrollHeight` y `scrollTop` para un bloque con un desplazamiento vertical.
 
 ![](metric-scroll-top.svg)
 
-In other words, `scrollTop` is "how much is scrolled up".
+En otras palabras, `scrollTop` es "cuánto se desplaza hacia arriba".
 
-````smart header="`scrollLeft/scrollTop` can be modified"
-Most of the geometry properties here are read-only, but `scrollLeft/scrollTop` can be changed, and the browser will scroll the element.
+````smart header="`scrollLeft/scrollTop` puede ser modificado"
+La mayoría de las propiedades aquí son solo lectura, pero `scrollLeft/scrollTop` se puede cambiar, y el navegador desplazará el elemento.
 
 ```online
-If you click the element below, the code `elem.scrollTop += 10` executes. That makes the element content scroll `10px` down.
+Si haces clic en el elemento de abajo, se ejecuta el código `elem.scrollTop += 10`. Eso hace que el contenido del elemento se desplace `10px` abajo.
 
 <div onclick="this.scrollTop+=10" style="cursor:pointer;border:1px solid black;width:100px;height:80px;overflow:auto">Click<br>Me<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</div>
 ```
 
-Setting `scrollTop` to `0` or a big value, such as `1e9` will make the element scroll to the very top/bottom respectively.
+Establecer `scrollTop` en `0` o un valor grande, como `1e9` hará que el elemento se desplace hacia arriba/abajo respectivamente.
 ````
 
-## Don't take width/height from CSS
+## No uses width/height de CSS
 
-We've just covered geometry properties of DOM elements, that can be used to get widths, heights and calculate distances.
+Acabamos de cubrir las propiedades geométricas de los elementos DOM, que se pueden usar para obtener anchos, alturas y calcular distancias.
 
-But as we know from the chapter <info:styles-and-classes>, we can read CSS-height and width using `getComputedStyle`.
+Pero como sabemos por el capítulo <info:styles-and-classes>, podemos leer CSS-height y width usando `getComputedStyle`.
 
-So why not to read the width of an element with `getComputedStyle`, like this?
+Entonces, ¿Por qué no leer el ancho de un elemento con `getComputedStyle`, como este?
 
 ```js run
 let elem = document.body;
 
-alert( getComputedStyle(elem).width ); // show CSS width for elem
+alert( getComputedStyle(elem).width ); // muestra CSS width por elemento
 ```
 
-Why should we use geometry properties instead? There are two reasons:
+¿Por qué deberíamos usar propiedades geométricas en su lugar? Hay dos razones:
 
-1. First, CSS `width/height` depend on another property: `box-sizing` that defines "what is" CSS width and height. A change in `box-sizing` for CSS purposes may break such JavaScript.
-2. Second, CSS `width/height` may be `auto`, for instance for an inline element:
+1. Primero, CSS `width/height` dependen de otra propiedad: `box-sizing` que define "qué es" CSS width y height. Un cambio en `box-sizing` para propósitos de CSS puede romper dicho JavaScript.
+2. Segundo, CSS `width/height` puede ser `auto`, por ejemplo para un elemento en linea:
 
     ```html run
-    <span id="elem">Hello!</span>
+    <span id="elem">Hola!</span>
 
     <script>
     *!*
@@ -243,34 +243,34 @@ Why should we use geometry properties instead? There are two reasons:
     </script>
     ```
 
-    From the CSS standpoint, `width:auto` is perfectly normal, but in JavaScript we need an exact size in `px` that we can use in calculations. So here CSS width is useless.
+    Desde el punto de vista de CSS, `width:auto` es perfectamente normal, pero en JavaScript necesitamos un tamaño exacto en `px` que podríamos usar en los cálculos. Entonces, aquí el ancho de CSS width es inútil.
 
-And there's one more reason: a scrollbar. Sometimes the code that works fine without a scrollbar becomes buggy with it, because a scrollbar takes the space from the content in some browsers. So the real width available for the content is *less* than CSS width. And `clientWidth/clientHeight` take that into account.
+Y hay una razón más: una barra de desplazamiento. A veces, el código que funcionaba bien sin una barra de desplazamiento tiene errores, porque una barra de desplazmiento toma el espacio del contenido en algunos navegadores. Entonces, el ancho real disponible para el contenido es *menor* que el ancho de CSS. Y `clientWidth/clientHeight` tiene eso en cuenta.
 
-...But with `getComputedStyle(elem).width` the situation is different. Some browsers (e.g. Chrome) return the real inner width, minus the scrollbar, and some of them (e.g. Firefox) -- CSS width (ignore the scrollbar). Such cross-browser differences is the reason not to use `getComputedStyle`, but rather rely on geometry properties.
+...Pero con `getComputedStyle(elem).width` la situación es diferente. Algunos navegadores (p.e. Chrome) devuelven el ancho interno real, menos la barra de desplazamiento, y algunos de ellos (p.e. Firefox) -- CSS width (ignora la barra de desplazamiento). Estas diferencias entre los navegadores son la razón para no usar `getComputedStyle`, sino confiar en las propiedades geométricas.
 
 ```online
-If your browser reserves the space for a scrollbar (most browsers for Windows do), then you can test it below.
+Si tu navegador reserva el espacio para la barra de desplazamiento (la mayoría de navegadores para Windows lo hacen), pueden probarlo a continuación.
 
 [iframe src="cssWidthScroll" link border=1]
 
-The element with text has CSS `width:300px`.
+El elemento con texto tiene CSS `width:300px`.
 
-On a Desktop Windows OS, Firefox, Chrome, Edge all reserve the space for the scrollbar. But  Firefox shows `300px`, while Chrome and Edge show less. That's because Firefox returns the CSS width and other browsers return the "real" width.
+En un Windows OS de escritorio, Firefox, Chrome, Edge reservan el espacio para la barra de desplazamiento. Pero Firefox muestra `300px`, mientras que Chrome y Edge muestran menos. Eso es por que Firefox devuelve el ancho del CSS y otros navegadores devuelven el ancho "real".
 ```
 
-Please note that the described difference is only about reading `getComputedStyle(...).width` from JavaScript, visually everything is correct.
+Tenga en cuenta que la diferencia descrita es solo de leer `getComputedStyle(...).width` de JavaScript, visualmente todo es correcto.
 
-## Summary
+## Resumen
 
-Elements have the following geometry properties:
+Los elementos tienen las siguientes propiedades geométricas:
 
-- `offsetParent` -- is the nearest positioned ancestor or `td`, `th`, `table`, `body`.
-- `offsetLeft/offsetTop` -- coordinates relative to the upper-left edge of `offsetParent`.
-- `offsetWidth/offsetHeight` -- "outer" width/height of an element including borders.
-- `clientLeft/clientTop` -- the distances from the upper-left outer corner to the upper-left inner (content + padding) corner. For left-to-right OS they are always the widths of left/top borders. For right-to-left OS the vertical scrollbar is on the left so `clientLeft` includes its width too.
-- `clientWidth/clientHeight` -- the width/height of the content including paddings, but without the scrollbar.
-- `scrollWidth/scrollHeight` -- the width/height of the content, just like `clientWidth/clientHeight`, but also include scrolled-out, invisible part of the element.
-- `scrollLeft/scrollTop` -- width/height of the scrolled out upper part of the element, starting from its upper-left corner.
+- `offsetParent` -- es el ancestro posicionado más cercano o `td`, `th`, `table`, `body`.
+- `offsetLeft/offsetTop` -- coordenadas relativas al borde superior izquierdo de `offsetParent`.
+- `offsetWidth/offsetHeight` -- ancho/alto "exterior" de un elemento, incluidos los bordes.
+- `clientLeft/clientTop` -- las distancias desde la esquina exterior superior izquierda a la esquina interior superior izquierda (contenido + relleno). Para los Sistemas Operativos de izquierda a derecha, siempre son los anchos de los bordes izquierdo/superior. Para los Sistemas Operativos de derecha a izquierda, la barra de desplazamiento está a la izquierda, por lo que `clientLeft` también incluye su ancho.
+- `clientWidth/clientHeight` -- el ancho/alto del contenido incluyendo rellenos, pero sin la barra de desplazamiento.
+- `scrollWidth/scrollHeight` -- el ancho/alto del contenido, al igual que `clientWidth/clientHeight`, pero también incluye la parte invisible desplazada del elemento.
+- `scrollLeft/scrollTop` -- ancho/alto de la parte superior desplazada del elemento, comenzando desde la esquina superior izquierda.
 
-All properties are read-only except `scrollLeft/scrollTop` that make the browser scroll the element if changed.
+Todas las propiedades son solo lectura excepto `scrollLeft/scrollTop` que hacen que el navegador desplace el elemento si se cambia.

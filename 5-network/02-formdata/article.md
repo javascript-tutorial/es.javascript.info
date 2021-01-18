@@ -75,7 +75,7 @@ formData.append('key2', 'value2');
 
 // Se listan los pares clave/valor
 for(let [name, value] of formData) {
-  alert(`${name} = ${value}`); // key1=value1, luego key2=value2
+  alert(`${name} = ${value}`); // key1 = value1, luego key2 = value2
 }
 ```
 

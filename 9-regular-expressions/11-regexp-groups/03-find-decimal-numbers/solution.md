@@ -1,4 +1,4 @@
-Un número positivo con una parte decimal opcional es (de acuerdo a la tarea anterior): `pattern:\d+(\.\d+)?`.
+Un número positivo con una parte decimal opcional es: `pattern:\d+(\.\d+)?`.
 
 Agreguemos el opcional al comienzo `pattern:-`:
 

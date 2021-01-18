@@ -2,32 +2,32 @@ importance: 5
 
 ---
 
-# Modal form
+# Formulario modal
 
-Create a function `showPrompt(html, callback)` that shows a form with the message `html`, an input field and buttons `OK/CANCEL`.
+Crea una función `showPrompt(html, callback)`  que muestre un formulario con el mensaje `html`, un campo input y botones `OK/CANCELAR`.
 
-- A user should type something into a text field and press `key:Enter` or the OK button, then `callback(value)` is called with the value they entered.
-- Otherwise if the user presses `key:Esc` or CANCEL, then `callback(null)` is called.
+- Un usuario debe escribir algo en el campo de texto y pulsar `key:Enter` o el botón OK, entonces `callback(value)` es llamado con el valor introducido.
+- En caso contrario, si el usuario pulsa `key:Esc` o CANCELAR, entonces `callback(null)` es llamado.
 
-In both cases that ends the input process and removes the form.
+En ambos casos se finaliza el proceso se y borra el formulario.
 
-Requirements:
+Requisitos:
 
-- The form should be in the center of the window.
-- The form is *modal*. In other words, no interaction with the rest of the page is possible until the user closes it.
-- When the form is shown, the focus should be inside the `<input>` for the user.
-- Keys `key:Tab`/`key:Shift+Tab` should shift the focus between form fields, don't allow it to leave for other page elements.
+- El formulario debe estar en el centro de la ventana.
+- El formulario es *modal*. Es decir que no habrá interacción con el resto de la página, siempre que sea posible, hasta que el usuario lo cierre.
+- Cuando se muestra el formulario, el foco debe estar en el `<input>` del usuario.
+- Las teclas `key:Tab`/`key:Shift+Tab` deben alternar el foco entre los diferentes campos del formulario, no se permite cambiar el foco a otros elementos de la página. 
 
-Usage example:
+Ejemplo de uso:
 
 ```js
-showPrompt("Enter something<br>...smart :)", function(value) {
+showPrompt("Escribe algo<br>...inteligente :)", function(value) {
   alert(value);
 });
 ```
 
-A demo in the iframe:
+Demo en el iframe:
 
 [iframe src="solution" height=160 border=1]
 
-P.S. The source document has HTML/CSS for the form with fixed positioning, but it's up to you to make it modal.
+P.S. El código fuente tiene el HTML/CSS para el formulario con posición fija. Pero tú decides cómo haces el modal.

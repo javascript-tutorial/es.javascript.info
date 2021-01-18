@@ -114,7 +114,7 @@ Por favor abre el desplegable de informacion de la derecha (etiquetado con flech
 
     Tambien tenemos la palabra `this` la cual no estudiaremos ahora, pero pronto lo haremos.
 
-## Tazado de la ejecución
+## Trazado de la ejecución
 
 Ahora es tiempo de *trazar* el script.
 

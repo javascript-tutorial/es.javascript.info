@@ -106,6 +106,11 @@ alert(2 + 2 + '1' ); // "41" y no "221"
 
 Aquí, los operandores trabajan uno después de otro. El primer `+` suma dos números entonces devuelve `4`, luego el siguiente `+` le agrega la cadena `1`, así que se evalúa como `4 + '1' = 41`.
 
+```js run
+alert('1' + 2 + 2); // "122", no es "14"
+```
+Aquí el primer operando es una cadena, el compilador trata los otros dos operandos como cadenas también. El `2` es concatenado a `'1'`, entonces es como `'1' + 2 = "12"` y `"12" + 2 = "122"`.
+
 El binario `+` es el único operador que soporta cadenas en esa forma. Otros operadores matemáticos trabajan solamente con números y siempre convierten sus operandos a números.
 
 Por ejemplo, resta y división:
@@ -212,9 +217,9 @@ alert( x ); // 5
 
 ### Asignación = devuelve un valor
 
-El hecho de que `=` sea un operador, no un construcción "mágica" del lenguaje, tiene un implicanción interesante.
+El hecho de que `=` sea un operador, no una construcción "mágica" del lenguaje, tiene un implicanción interesante.
 
-La mayoría de los operadores en JavaScript devuelven un valor. Esto es obvio para `+` y `-`, pero también es cierto para `=`.
+Todos los operadores en JavaScript devuelven un valor. Esto es obvio para `+` y `-`, pero también es cierto para `=`.
 
 La llamada `x = value` escribe el `value` en `x` *y luego lo devuelve*.
 

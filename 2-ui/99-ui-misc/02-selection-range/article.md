@@ -30,7 +30,7 @@ Entonces podemos establecer los límites de selección usando `range.setStart(no
 
 Por ejemplo, considere este fragmento de HTML:
 
-```html
+```html autorun
 <p id="p">Example: <i>italic</i> and <b>bold</b></p>
 ```
 
@@ -75,6 +75,11 @@ drawHtmlTree(selectPDomtree, 'div.select-p-domtree', 690, 320);
 Seleccionamos `"Example: <i>italic</i>"`. Son los dos primeros hijos de `<p>` (contando nodos de texto):
 
 ![](range-example-p-0-1.svg)
+
+- The starting point has `<p>` as the parent `node`, and `0` as the offset.
+- The ending point also has `<p>` as the parent `node`, but `2` as the offset (it specifies the range up to, but not including `offset`).
+
+Here's the demo, if you run it, you can see that the text gets selected:
 
 ```html run
 <p id="p">Example: <i>italic</i> and <b>bold</b></p>
@@ -237,7 +242,7 @@ Haga clic en los botones para ejecutar métodos en la selección, "resetExample"
       let newNode = document.createElement('u');
       try {
         range.surroundContents(newNode);
-      } catch(e) { alert(e) }
+      } catch(e) { console.log(e) }
     },
     resetExample() {
       p.innerHTML = `Example: <i>italic</i> and <b>bold</b>`;
@@ -494,7 +499,7 @@ Focus on me, the cursor will be at position 10.
     // zero delay setTimeout to run after browser "focus" action finishes
     setTimeout(() => {
       // we can set any selection
-      // if start=end, the cursor it exactly at that place
+      // if start=end, the cursor is exactly at that place
       area.selectionStart = area.selectionEnd = 10;
     });
   };

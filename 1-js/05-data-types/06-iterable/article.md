@@ -26,7 +26,7 @@ let range = {
 // for(let num of range) ... num=1,2,3,4,5
 ```
 
-Para hacer que el `range` sea iterable (y así permitir que `for..of` funcione) necesitamos agregar un método al objeto llamado `Symbol.iterator` (un símbolo incorporado especial usado solo para realizar esa función, proporcionar iterabilidad).
+Para hacer que el objeto `range` sea iterable (y así permitir que `for..of` funcione) necesitamos agregarle un método llamado `Symbol.iterator` (un símbolo incorporado especial usado solo para realizar esa función).
 
 1. Cuando se inicia el `for..of`, éste llama al método `Symbol.iterator` una vez (o genera un error si no lo encuentra). El método debe devolver un *iterador* --un objeto con el método `next()`.
 2.  En adelante, `for..of` trabaja *solo con ese objeto devuelto*.
@@ -115,6 +115,7 @@ No hay limitaciones en `next`, puede devolver más y más valores, eso es normal
 Por supuesto, el bucle `for..of` sobre un iterable de este tipo sería interminable. Pero siempre podemos detenerlo usando `break`.
 ```
 
+
 ## *String* es iterable
 
 Las matrices y cadenas son los iterables integrados más utilizados.
@@ -164,7 +165,7 @@ Rara vez se necesita esto, pero nos da más control sobre el proceso que `for..o
  
 ## Iterables y array-likes [#array-like]
 
-Hay dos términos oficiales que se parecen, pero son muy diferentes. Asegúrese de comprenderlos bien para evitar confusiones.
+Los dos son términos oficiales que se parecen, pero son muy diferentes. Asegúrese de comprenderlos bien para evitar confusiones.
  
 - *Iterables* son objetos que implementan el método `Symbol.iterator`, como se describió anteriormente.
 - *Array-likes* son objetos que tienen índices y `longitud` o *length*, por lo que se ven como matrices.
@@ -173,11 +174,9 @@ Cuando usamos JavaScript para tareas prácticas en el navegador u otros entornos
 
 Por ejemplo, las cadenas son iterables (`for..of` funciona en ellas) y array-like (tienen índices numéricos y `length`).
 
-Pero un iterable puede no ser array-like. Y viceversa, un array-like puede no ser iterable.
+Pero un iterable puede que no sea array-like. Y viceversa, un array-like puede no ser iterable.
 
-
-Por ejemplo, `range` en el ejemplo anterior es iterable, pero no array-like, porque no tiene propiedades indexadas ni `longitud` o *length*.
-
+Por ejemplo, `range` en el ejemplo anterior es iterable, pero no es array-like, porque no tiene propiedades indexadas ni `longitud` o *length*.
 
 Y aquí está el objeto que tiene forma de matriz, pero no es iterable:
 
@@ -295,7 +294,7 @@ alert( str.slice(1, 3) ); // garbage (dos piezas de diferentes pares sustitutos)
 Los objetos que se pueden usar en `for..of` se denominan *iterables*.
 
 - Técnicamente, los iterables deben implementar el método llamado `Symbol.iterator`.
-    - El resultado de `obj[Symbol.iterator]` se llama *iterador*. Maneja el proceso de iteración adicional.
+    - El resultado de `obj[Symbol.iterator]()` se llama *iterador*. Maneja el proceso de iteración adicional.
     - Un iterador debe tener el método llamado `next()` que devuelve un objeto `{done: Boolean, value: any}`, donde `done: true` denota el final de la iteración, de lo contrario, `value` es el siguiente valor.
 - El método `Symbol.iterator` se llama automáticamente por `for..of`, pero también podemos hacerlo directamente.
 - Los iterables integrados, como cadenas o matrices, también implementan `Symbol.iterator`.

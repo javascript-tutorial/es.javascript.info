@@ -50,7 +50,7 @@ Estas opciones gobiernan cómo `fetch` establece el encabezado HTTP `Referer`.
 
 Por lo general, ese encabezado se establece automáticamente y contiene la URL de la página que realizó la solicitud. En la mayoría de los escenarios, no es importante en absoluto, a veces, por motivos de seguridad, tiene sentido eliminarlo o acortarlo.
 
-**La opción `referrer` permite establecer cualquier `Referer` dentro del origen actual) o eliminarlo.**
+**La opción `referrer` permite establecer cualquier `Referer` (dentro del origen actual) o eliminarlo.**
 
 Para no enviar ningún referer, establece un string vacío:
 ```js
@@ -136,9 +136,9 @@ En particular, es posible establecer la política predeterminada para toda la p�
 
 La opción `mode` es una protección que evita solicitudes cross-origin ocasionales:
 
-- **`"cors"`** -- se permiten las solicitudes cross-origin predeterminadas, como se describe en <info:fetch-crossorigin>,
+- **`"cors"`** -- por defecto, se permiten las solicitudes cross-origin predeterminadas, como se describe en <info:fetch-crossorigin>,
 - **`"same-origin"`** -- las solicitudes cross-origin están prohibidas,
-- **`"no-cors"`** -- solo se permiten solicitudes cross-origin simples.
+- **`"no-cors"`** -- solo se permiten solicitudes cross-origin seguras.
 
 Esta opción puede ser útil cuando la URL de `fetch` proviene de un tercero y queremos un "interruptor de apagado" para limitar las capacidades cross-origin.
 
@@ -218,8 +218,8 @@ Normalmente, cuando se descarga un documento, se cancelan todas las solicitudes 
 
 Tiene algunas limitaciones:
 
-- No podemos enviar megabytes: el límite de cuerpo para las solicitudes `keepalive` es de 64 kb.
+- No podemos enviar megabytes: el límite de cuerpo para las solicitudes `keepalive` es de 64 KB.
     - Si necesitamos recopilar muchas estadísticas sobre la visita, deberíamos enviarlas regularmente en paquetes, de modo que no quede mucho para la última solicitud `onunload`.
-    - Este límite se aplica a todas las solicitudes `keepalive` juntas. En otras palabras, podemos realizar múltiples solicitudes `keepalive` en paralelo, pero la suma de las longitudes de sus cuerpos no debe exceder los 64kb.
+    - Este límite se aplica a todas las solicitudes `keepalive` juntas. En otras palabras, podemos realizar múltiples solicitudes `keepalive` en paralelo, pero la suma de las longitudes de sus cuerpos no debe exceder los 64 KB.
 - No podemos manejar la respuesta del servidor si el documento no está cargado. Entonces, en nuestro ejemplo, `fetch` tendrá éxito debido a `keepalive`, pero las funciones posteriores no funcionarán.
     - En la mayoría de los casos, como enviar estadísticas, no es un problema, ya que el servidor simplemente acepta los datos y generalmente envía una respuesta vacía a tales solicitudes.

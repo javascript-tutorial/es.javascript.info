@@ -16,6 +16,14 @@ Imagina que necesitamos escribir mil millones (En inglés "1 billion"). La forma
 let billion = 1000000000;
 ```
 
+También podemos usar guion bajo `_` como separador:
+
+```js
+let billion = 1_000_000_000;
+```
+
+Aquí `_` es "azúcar sintáctica", hace el número más legible. El motor JavaScript simplemente ignora `_` entre dígitos asi que es exactamente e igual al billion de más arriba.
+
 Pero en la vida real tratamos de evitar esribir una larga cadena de ceros porque es fácil tipear mal. 
 
 En JavaScript, acortamos un número agregando la letra `"e"` y especificando la cantidad de ceros:
@@ -23,14 +31,14 @@ En JavaScript, acortamos un número agregando la letra `"e"` y especificando la 
 ```js run
 let billion = 1e9;  // 1 billion, literalmente: 1 y 9 ceros
 
-alert( 7.3e9 );  // 7.3 billions (7,300,000,000)
+alert( 7.3e9 );  // 7.3 billions (tanto 7300000000 como 7_300_000_000)
 ```
 
 En otras palabras, `"e"` multiplica el número por el `1` seguido de la cantidad de ceros dada.
 
 ```js
-1e3 = 1 * 1000
-1.23e6 = 1.23 * 1000000
+1e3 = 1 * 1000 // e3 significa *1000
+1.23e6 = 1.23 * 1000000 // e6 significa *1000000
 ```
 
 Ahora escribamos algo muy pequeño. Digamos 1 microsegundo (un millonésimo de segundo):
@@ -125,7 +133,7 @@ Hay varias funciones incorporadas para el redondeo:
 : Redondea hacia arriba: `3.1` torna en `4`, y `-1.1` torna en `-1`.
 
 `Math.round`
-: Redondea hacia el entero más cercano: `3.1` torna en `3`, `3.6` torna en `4` y `-1.1` torna en `-1`.
+: Redondea hacia el entero más cercano: `3.1` redondea a `3`, `3.6` redondea a `4`, el caso medio `3.5` redondea a `4` también.
 
 `Math.trunc` (no soportado en Internet Explorer)
 : Remueve lo que haya tras el punto decimal sin redondear: `3.1` torna en `3`, `-1.1` torna en `-1`.
