@@ -17,7 +17,7 @@ Esa es la parte esencial de la tarea, de lo contrario sería trivial.
 Ejemplos de cadenas para hacer coincidir:
 ```js
 .. *!*"test me"*/!* ..  
-.. *!*"Say \"Hello\"!"*/!* ... (comillas dobles dentro)
+.. *!*"Say \"Hello\"!"*/!* ... (comillas escapadas dentro)
 .. *!*"\\"*/!* ..  (doble barra invertida dentro)
 .. *!*"\\ \""*/!* ..  (doble barra lateral dentro y comilla doble.)
 ```
