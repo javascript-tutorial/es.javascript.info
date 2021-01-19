@@ -19,7 +19,7 @@ Ejemplos de cadenas para hacer coincidir:
 .. *!*"test me"*/!* ..  
 .. *!*"Say \"Hello\"!"*/!* ... (comillas escapadas dentro)
 .. *!*"\\"*/!* ..  (doble barra invertida dentro)
-.. *!*"\\ \""*/!* ..  (doble barra lateral dentro y comilla doble.)
+.. *!*"\\ \""*/!* ..  (doble barra y comilla escapada dentro.)
 ```
 
 En JavaScript, necesitamos duplicar las barras para pasarlas directamente a la cadena, así:
