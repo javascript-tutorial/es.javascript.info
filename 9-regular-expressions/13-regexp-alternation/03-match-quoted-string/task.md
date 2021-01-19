@@ -8,7 +8,7 @@ Las cadenas deben admitir el escape, de la misma manera que lo hacen las cadenas
 let str = "Just like \"here\".";
 ```
 
-Tenga en cuenta, en particular, que una comilla doble `subject:\"` no termina una cadena.
+Tenga en cuenta, en particular, que una comilla escapada `subject:\"` no termina una cadena.
 
 Por lo tanto, deberíamos buscar de una cita a otra ignorando las comillas dobles en el camino.
 
