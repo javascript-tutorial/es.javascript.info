@@ -10,7 +10,7 @@ let str = "Just like \"here\".";
 
 Tenga en cuenta, en particular, que una comilla escapada `subject:\"` no termina una cadena.
 
-Por lo tanto, deberíamos buscar de una cita a otra ignorando las comillas dobles en el camino.
+Por lo tanto, deberíamos buscar de una comilla a otra (la de cierre), ignorando las comillas escapadas en el camino.
 
 Esa es la parte esencial de la tarea, de lo contrario sería trivial.
 
