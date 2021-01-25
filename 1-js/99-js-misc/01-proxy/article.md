@@ -842,7 +842,7 @@ Así que no hay problema en usar proxy con un array.
 
 Algo similar ocurre con los "campos privados" usados en las clases.
 
-Por ejemplo, el método `getName()` accede a la propiedad privada `#name` y falla por hacerlo proxy:
+Por ejemplo, el método `getName()` accede a la propiedad privada `#name` y falla cuando lo proxificamos:
 
 ```js run
 class User {
