@@ -53,7 +53,7 @@ Las trampas del proxy interceptan la invocación a estos métodos. Están listad
 
 Para cada método interno, existe una "trampa" en esta tabla: es el nombre del método que podemos agregar al parámetro `handler` de `new Proxy` para interceptar la operación:
 
-| Método interno | Método manejador | Se dispara cuando... |
+| Método interno | Método manejador | Cuándo se dispara |
 |-----------------|----------------|-------------|
 | `[[Get]]` | `get` | leyendo una propiedad |
 | `[[Set]]` | `set` | escribiendo una propiedad |
@@ -61,13 +61,13 @@ Para cada método interno, existe una "trampa" en esta tabla: es el nombre del m
 | `[[Delete]]` | `deleteProperty` | operador `delete`|
 | `[[Call]]` | `apply` | llamado a función |
 | `[[Construct]]` | `construct` | operador `new` |
-| `[[GetPrototypeOf]]` | `getPrototypeOf` | [Object.getPrototypeOf](mdn:/JavaScript/Reference/Global_Objects/Object/getPrototypeOf) |
-| `[[SetPrototypeOf]]` | `setPrototypeOf` | [Object.setPrototypeOf](mdn:/JavaScript/Reference/Global_Objects/Object/setPrototypeOf) |
-| `[[IsExtensible]]` | `isExtensible` | [Object.isExtensible](mdn:/JavaScript/Reference/Global_Objects/Object/isExtensible) |
-| `[[PreventExtensions]]` | `preventExtensions` | [Object.preventExtensions](mdn:/JavaScript/Reference/Global_Objects/Object/preventExtensions) |
-| `[[DefineOwnProperty]]` | `defineProperty` | [Object.defineProperty](mdn:/JavaScript/Reference/Global_Objects/Object/defineProperty), [Object.defineProperties](mdn:/JavaScript/Reference/Global_Objects/Object/defineProperties) |
-| `[[GetOwnProperty]]` | `getOwnPropertyDescriptor` | [Object.getOwnPropertyDescriptor](mdn:/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor), `for..in`, `Object.keys/values/entries` |
-| `[[OwnPropertyKeys]]` | `ownKeys` | [Object.getOwnPropertyNames](mdn:/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames), [Object.getOwnPropertySymbols](mdn:/JavaScript/Reference/Global_Objects/Object/getOwnPropertySymbols), `for..in`, `Object.keys/values/entries` |
+| `[[GetPrototypeOf]]` | `getPrototypeOf` | [Object.getPrototypeOf](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/getPrototypeOf) |
+| `[[SetPrototypeOf]]` | `setPrototypeOf` | [Object.setPrototypeOf](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/setPrototypeOf) |
+| `[[IsExtensible]]` | `isExtensible` | [Object.isExtensible](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/isExtensible) |
+| `[[PreventExtensions]]` | `preventExtensions` | [Object.preventExtensions](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/preventExtensions) |
+| `[[DefineOwnProperty]]` | `defineProperty` | [Object.defineProperty](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/defineProperty), [Object.defineProperties](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/defineProperties) |
+| `[[GetOwnProperty]]` | `getOwnPropertyDescriptor` | [Object.getOwnPropertyDescriptor](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/getOwnPropertyDescriptor), `for..in`, `Object.keys/values/entries` |
+| `[[OwnPropertyKeys]]` | `ownKeys` | [Object.getOwnPropertyNames](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/getOwnPropertyNames), [Object.getOwnPropertySymbols](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/getOwnPropertySymbols), `for..in`, `Object.keys/values/entries` |
 
 ```warn header="Invariantes"
 JavaScript impone algunas invariantes: condiciones que deben ser satisfechas por métodos internos y trampas.
