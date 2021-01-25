@@ -996,7 +996,7 @@ Usamos `WeakMap` en lugar de `Map` aquí porque no bloqueará la recolección de
 ## References
 
 - Specification: [Proxy](https://tc39.es/ecma262/#sec-proxy-object-internal-methods-and-internal-slots).
-- MDN: [Proxy](mdn:/JavaScript/Reference/Global_Objects/Proxy).
+- MDN: [Proxy](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Proxy).
 
 ## Resumen
 
@@ -1018,13 +1018,13 @@ Podemos atrapar:
 - Lectura (`get`), escritura (`set`), eliminación de propiedad (`deleteProperty`) (incluso si no existe).
 - Llamadas a función (trampa `apply`).
 - El operador `new` (trampa `construct`).
-- Muchas otras operaciones (la lista completa al principio del artículo y en [docs](mdn:/JavaScript/Reference/Global_Objects/Proxy)).
+- Muchas otras operaciones (la lista completa al principio del artículo y en [docs](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Proxy)).
 
 Esto nos permite crear propiedades y métodos "virtuales", implementar valores por defecto, objetos observables, decoradores de función y mucho más.
 
 También podemos atrapar un objeto múltiples veces en proxys diferentes, decorándolos con varios aspectos de funcionalidad.
 
-La API de [Reflect](mdn:/JavaScript/Reference/Global_Objects/Reflect) está diseñada para complementar [Proxy](mdn:/JavaScript/Reference/Global_Objects/Proxy). Para cada trampa de `Proxy` hay una llamada `Reflect` con los mismos argumentos. Deberíamos usarlas para redirigir llamadas hacia los objetos target.
+La API de [Reflect](mdn:/JavaScript/Reference/Global_Objects/Reflect) está diseñada para complementar [Proxy](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Proxy). Para cada trampa de `Proxy` hay una llamada `Reflect` con los mismos argumentos. Deberíamos usarlas para redirigir llamadas hacia los objetos target.
 
 Los proxys tienen algunas limitaciones:
 
