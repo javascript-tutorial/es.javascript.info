@@ -140,7 +140,7 @@ Pero podemos envolverlo dentro de una función async anónima, como esto:
 })();
 ```
 
-P.S. La excepción notable es el motor V8 de JS versión 8.9+, donde await funciona en el nivel superior de los [módulos](info:modules).
+P.S. A partir de la versión 8.9+ del motor V8 de JS, await funciona en el nivel superior de los [módulos](info:modules).
 ````
 
 ````smart header="*await* acepta \"thenables\""
