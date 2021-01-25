@@ -6,7 +6,7 @@ En el estándar moderno de HTML hay una [sección sobre Arrastrar y Soltar](http
 
 Estos eventos nos permiten soportar tipos especiales de Arrastrar y Soltar, como manejar el arrastrado de archivos desde el manejador de archivos del Sistema Operativo y soltarlo en la ventana del navegador. Así JavaScript puede acceder al contenido de dichos archivos.
 
-Pero los eventos de arrastrar también tienen limitaciones. Por ejemplo, no podemos evitar el arrastre desde cierta área. Tampoco podemos hacer que el arrastre solo "horizontal" o "vertical". Y hay muchas otras tareas de "Arrastrar y Soltar" que no pueden hacerse utilizándolos. También, el soporte para dispositivos móviles para dichos eventos, es muy pobre.
+Pero los eventos nativos de arrastrar tienen limitaciones. Por ejemplo, no nos deja evitar el arrastre desde cierta área. Tampoco podemos hacer que el arrastre sea solamente "horizontal" o "vertical". Y hay muchas otras tareas de "Arrastrar y Soltar" que no pueden hacerse utilizándolos. Además, el soporte para dichos eventos es muy pobre en dispositivos móviles.
 
 Así que aquí veremos cómo implementar "Arrastrar y Soltar" usando eventos del ratón.
 
@@ -14,9 +14,9 @@ Así que aquí veremos cómo implementar "Arrastrar y Soltar" usando eventos del
 
 El algoritmo básico de Arrastrar y Soltar se ve así:
 
-1. Con un `mousedown` - preparar el elemento para moverlo, si es necesario (quiza crear un clon de este, añadirle una clase o lo que sea).
-2. Entonces con `mousemove` moverlo cambiando `left/top` con `position:absolute`.
-3. Con `mouseup` - realizar todas las acciones relacionadas con finalizar el Arrastrar y Soltar.
+1. En `mousedown` - preparar el elemento para moverlo, si es necesario (quizá creando un clon de este, añadiéndole una clase, o lo que sea).
+2. En `mousemove` - moverlo cambiando `left/top` con `position:absolute`.
+3. En `mouseup` - realizar todas las acciones relacionadas con finalizar el Arrastrar y Soltar.
 
 Esto es lo básico. Luego veremos como añadir características, como resaltar los elementos subyacentes mientras arrastramos sobre ellos.
 
@@ -28,7 +28,7 @@ ball.onmousedown = function(event) {
   ball.style.position = 'absolute';
   ball.style.zIndex = 1000;
 
-  // moverlo fuera de cualquier padre actual directamente en el body
+  // quitar cualquier padre actual y moverlo directamente a body
   // para posicionarlo relativo al body
   document.body.append(ball);  
 
@@ -260,8 +260,8 @@ function onMouseMove(event) {
   if (currentDroppable != droppableBelow) {
     // estamos flotando dentro o afuera
     // nota: ambos valores puden ser null
-    //   currentDroppable=null si no estábamos sobre un receptor antes de éste evento (ej. sobre un espacio en blanco)
-    //   droppableBelow=null si no estamos sobre un receptor ahora, durante éste evento
+    //   currentDroppable=null si no estábamos sobre un receptor antes de este evento (ej. sobre un espacio en blanco)
+    //   droppableBelow=null si no estamos sobre un receptor ahora, durante este evento
 
     if (currentDroppable) {
       // la lógica para procesar "flying out" del receptor (elimina el resaltado)
