@@ -55,7 +55,11 @@ rabbit.run(5); // Conejo Blanco corre a una velocidad de 5.
 rabbit.hide(); // ¡Conejo Blanco se esconde!
 ```
 
+<<<<<<< HEAD
 Los objetos de la clase `Rabbit` tienen acceso a los métodos de `Rabbit`, como `rabbit.hide()`, y también a los métodos `Animal`, como `rabbit.run()`.
+=======
+Object of `Rabbit` class have access both to `Rabbit` methods, such as `rabbit.hide()`, and also to `Animal` methods, such as `rabbit.run()`.
+>>>>>>> 97ef86242f9f236b13152e1baf52a55c4db8728a
 
 Internamente, la palabra clave `extends` funciona con la buena mecánica de prototipo: establece `Rabbit.prototype.[[Prototype]]` a `Animal.prototype`. Entonces, si no se encuentra un método en `Rabbit.prototype`, JavaScript lo toma de `Animal.prototype`.
 
