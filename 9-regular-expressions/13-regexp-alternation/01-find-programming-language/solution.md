@@ -13,7 +13,7 @@ alert( str.match(regexp) ); // Java,Java,PHP,C,C
 
 El motor de expresiones regulares busca las alternancias una por una. Es decir: primero verifica si tenemos `match: Java`, de lo contrario - busca `match: JavaScript` y así sucesivamente.
 
-Como resultado, nunca se puede encontrar `match: JavaScript`, solo porque` match: Java` se marca primero.
+Como resultado, nunca se puede encontrar `match: JavaScript`, simplemente porque encuentra primero `match: Java`.
 
 Lo mismo con `match: C` y `match: C++ `.
 
