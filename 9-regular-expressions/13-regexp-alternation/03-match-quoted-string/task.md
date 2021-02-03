@@ -2,7 +2,7 @@
 
 Crea una expresión regular para encontrar cadenas entre comillas dobles `subject:"..."`.
 
-Las cadenas deben admitir el escape, de la misma manera que lo hacen las cadenas de JavaScript. Por ejemplo, las comillas se pueden insertar como `subject:\"` ,una nueva línea como `subject:\n`, y la doble sbarra invertida como `subject:\\`.
+Las cadenas deben admitir el escape, de la misma manera que lo hacen las cadenas de JavaScript. Por ejemplo, las comillas se pueden insertar como `subject:\"` ,una nueva línea como `subject:\n`, y la doble barra invertida como `subject:\\`.
 
 ```js
 let str = "Just like \"here\".";
