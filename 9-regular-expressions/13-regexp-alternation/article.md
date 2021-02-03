@@ -1,4 +1,4 @@
-# Altarnancia (OR (O)) |
+# Alternancia (O) |
 
 Alternancia es un término en expresión regular que simplemente significa "O".
 
