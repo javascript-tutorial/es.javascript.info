@@ -219,7 +219,7 @@ La primera promesa fue la más rápida, por lo que se vuelve resultado. En cuant
 
 ## Promise.any
 
-Es similar a `Promise.race`, pero espera solamente por la primera promesa cumplida y obtiene su resultado. Si todas la promesas fueron rechazadas, entonces la promesa que devuelve es rechazada con [`AggregateError`](mdn:js/AggregateError), un error especial que almacena los errores de todas las promesas en su propiedad `errors`.
+Es similar a `Promise.race`, pero espera solamente por la primera promesa cumplida y obtiene su resultado. Si todas la promesas fueron rechazadas, entonces la promesa que devuelve es rechazada con [`AggregateError`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/AggregateError), un error especial que almacena los errores de todas las promesas en su propiedad `errors`.
 
 La sintaxis es:
 
@@ -316,7 +316,7 @@ Existen 6 métodos estáticos de la clase `Promise`:
     - `status`: `"fulfilled"` o `"rejected"`
     - `value` (si fulfilled) o `reason` (si rejected).
 3. `Promise.race(promises)` -- espera a la primera promesa que responda y aquel resultado o error se vuelve su resultado o error.
-4. `Promise.any(promises)` (método recientemente añadido) -- espera por la primera promesa que se cumpla y devuelve su resultado. Si todas las promesas son rechazadas, [`AggregateError`](mdn:js/AggregateError) se vuelve el error de `Promise.any`.
+4. `Promise.any(promises)` (método recientemente añadido) -- espera por la primera promesa que se cumpla y devuelve su resultado. Si todas las promesas son rechazadas, [`AggregateError`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/AggregateError) se vuelve el error de `Promise.any`.
 5. `Promise.resolve(value)` -- crea una promesa resuelta con el "value" dado.
 6. `Promise.reject(error)` -- crea una promesa rechazada con el "error" dado.
 

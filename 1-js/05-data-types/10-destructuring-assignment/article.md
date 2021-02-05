@@ -95,7 +95,7 @@ alert(user.surname); // Smith
 ````
 
 ````smart header="Bucle con .entries()"
-En el capítulo anterior vimos el método [Object.entries(obj)](mdn:js/Object/entries).
+En el capítulo anterior vimos el método [Object.entries(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/entries).
 
 Podemos usarlo con la desestructuración para recorrer propiedades-y-valores de un objeto:
 

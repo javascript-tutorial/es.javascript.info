@@ -103,13 +103,13 @@ Más en: <info:variables> y <info:types>.
 
 Estamos utilizando un navegador como entorno de trabajo, por lo que las funciones básicas de la interfaz de usuario serán:
 
-[`prompt(question, [default])`](mdn:api/Window/prompt)
+[`prompt(question, [default])`](https://developer.mozilla.org/es/docs/Web/API/Window/prompt)
 : Hace una pregunta `question`, y devuelve lo que ingresó el visitante o`null` si presionaron "cancelar".
 
-[`confirm(question)`](mdn:api/Window/confirm)
+[`confirm(question)`](https://developer.mozilla.org/es/docs/Web/API/Window/confirm)
 : Hace una pregunta `question`, y sugiere elegir entre Aceptar y Cancelar. La eleccion se devuelve como booleano `true/false`.
 
-[`alert(message)`](mdn:api/Window/alert)
+[`alert(message)`](https://developer.mozilla.org/es/docs/Web/API/Window/alert)
 : Muestra un `message`.
 
 Todas estas funciones son *modales*, pausan la ejecución del código y evitan que el visitante interactúe con la página hasta que responda.
@@ -144,7 +144,7 @@ Asignaciones
 : He aqui una asignacion simple: `a = b` y una combinada `a *= 2`.
 
 Operador bit a bit
-: Los operadores bit a bit funcionan con enteros de 32 bits al más bajo nivel, el de bit: mire la [documentación](mdn:/JavaScript/Reference/Operators/Bitwise_Operators) cuando sea necesario.
+: Los operadores bit a bit funcionan con enteros de 32 bits al más bajo nivel, el de bit: mire la [documentación](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators) cuando sea necesario.
 
 Condicional
 : El único operador con 3 parametros: `cond ? resultA : resultB`. Sí `cond` es verdadera, devuelve `resultA`, de lo contrario `resultB`.

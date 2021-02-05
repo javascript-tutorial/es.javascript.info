@@ -214,7 +214,7 @@ También que `event.storageArea` contiene el objeto de almacenaje -- el evento e
 
 **Esto permite que distintas ventanas del mismo orígen puedan intercambiar mensajes.**
 
-Los navegadores modernos también soportan la [API de Broadcast channel API](mdn:/api/Broadcast_Channel_API), la API específica para la comunicación entre ventanas del mismo orígen. Es más completa, pero tiene menos soporte. Hay librerías que añaden polyfills para ésta API basados en `localStorage` para que se pueda utilizar en cualquier entorno.
+Los navegadores modernos también soportan la [API de Broadcast channel API](https://developer.mozilla.org/en-US/docs/Web/API/Broadcast_Channel_API), la API específica para la comunicación entre ventanas del mismo orígen. Es más completa, pero tiene menos soporte. Hay librerías que añaden polyfills para ésta API basados en `localStorage` para que se pueda utilizar en cualquier entorno.
 
 ## Resumen
 

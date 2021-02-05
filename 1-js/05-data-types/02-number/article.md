@@ -332,7 +332,7 @@ Ten en cuenta que un valor vacío o un string de solo espacios es tratado como `
 
 ```smart header="Comparación con `Object.is`"
 
-Hay un método especial incorporado [Object.is](mdn:js/Object/is) que compara valores como el `===`, pero es más confiable para dos casos extremos:
+Hay un método especial incorporado [Object.is](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/is) que compara valores como el `===`, pero es más confiable para dos casos extremos:
 
 1. Funciona con `NaN`: `Object.is(NaN, NaN) === true`, lo que es una buena cosa.
 2. Los valores `0` y `-0` son diferentes: `Object.is(0, -0) === false`. `false` es técnicamente correcto, porque internamente el número puede tener el bit de signo diferente incluso aunque todos los demás sean ceros.

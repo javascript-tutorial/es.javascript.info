@@ -264,7 +264,7 @@ Haga clic en los botones para ejecutar métodos en la selección, "resetExample"
 </script>
 ```
 
-También existen métodos para comparar rangos, pero rara vez se utilizan. Cuando los necesite, consulte el [spec](https://dom.spec.whatwg.org/#interface-range) o [MDN manual](mdn:/api/Range).
+También existen métodos para comparar rangos, pero rara vez se utilizan. Cuando los necesite, consulte el [spec](https://dom.spec.whatwg.org/#interface-range) o [MDN manual](https://developer.mozilla.org/es/docs/Web/API/Range).
 
 
 ## Selection

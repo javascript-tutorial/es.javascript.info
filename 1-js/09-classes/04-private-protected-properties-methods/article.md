@@ -284,7 +284,7 @@ Con campos privados eso es imposible: `this['#name']` no funciona. Esa es una li
 
 ## Resumen
 
-En términos de POO, la delimitación de la interfaz interna de la externa se llama [encapsulamiento] (https://es.wikipedia.org/wiki/Encapsulamiento_(inform%C3%A1tica)).
+En términos de POO, la delimitación de la interfaz interna de la externa se llama [encapsulamiento](https://es.wikipedia.org/wiki/Encapsulamiento_(inform%C3%A1tica)).
 
 Ofrece los siguientes beneficios:
 

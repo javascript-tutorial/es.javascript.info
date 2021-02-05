@@ -85,7 +85,7 @@ Los elementos regulares se pueden desplazar cambiando `scrollTop/scrollLeft`.
 
 Nosotros podemos hacer lo mismo para la página usando `document.documentElement.scrollTop/Left` (excepto Safari, donde `document.body.scrollTop/Left` debería usarse en su lugar).
 
-Alternativamente, hay una solución más simple y universal: métodos especiales [window.scrollBy(x,y)](mdn:api/Window/scrollBy) y [window.scrollTo(pageX,pageY)](mdn:api/Window/scrollTo).
+Alternativamente, hay una solución más simple y universal: métodos especiales [window.scrollBy(x,y)](https://developer.mozilla.org/es/docs/Web/API/Window/scrollBy) y [window.scrollTo(pageX,pageY)](https://developer.mozilla.org/es/docs/Web/API/Window/scrollTo).
 
 - El método `scrollBy(x, y)` desplaza la página *en relación con su posición actual*. Por ejemplo, `scrollBy(0,10)` desplaza la página `10px` hacia abajo.
 
@@ -106,7 +106,7 @@ Estos métodos funcionan para todos los navegadores de la misma manera.
 
 ## scrollIntoView
 
-Para completar, cubramos un método más: [elem.scrollIntoView(top)](mdn:api/Element/scrollIntoView).
+Para completar, cubramos un método más: [elem.scrollIntoView(top)](https://developer.mozilla.org/es/docs/Web/API/Element/scrollIntoView).
 
 La llamada a `elem.scrollIntoView(top)` desplaza la página para hacer visible `elem`. Tiene un argumento:
 

@@ -179,7 +179,7 @@ try {
 
 Exploremos un caso de uso de la vida real de `try..catch`.
 
-Como ya sabemos, JavaScript admite el método [JSON.parse(str)](mdn:js/JSON/parse) para leer valores codificados con JSON.
+Como ya sabemos, JavaScript admite el método [JSON.parse(str)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/JSON/parse) para leer valores codificados con JSON.
 
 Por lo general, se utiliza para decodificar datos recibidos a través de la red, desde el servidor u otra fuente.
 
@@ -590,7 +590,7 @@ Imaginemos que tenemos un error fatal fuera de `try..catch`, y el script murió.
 
 ¿Hay alguna manera de reaccionar ante tales ocurrencias? Es posible que queramos registrar el error, mostrarle algo al usuario (normalmente no ve mensajes de error), etc.
 
-No hay ninguna en la especificación, pero los entornos generalmente lo proporcionan, porque es realmente útil. Por ejemplo, Node.js tiene [`process.on("uncaughtException")`](https://nodejs.org/api/process.html#process_event_uncaughtexception) para eso. Y en el navegador podemos asignar una función a la propiedad especial [window.onerror](mdn:api/GlobalEventHandlers/onerror), que se ejecutará en caso de un error no detectado.
+No hay ninguna en la especificación, pero los entornos generalmente lo proporcionan, porque es realmente útil. Por ejemplo, Node.js tiene [`process.on("uncaughtException")`](https://nodejs.org/api/process.html#process_event_uncaughtexception) para eso. Y en el navegador podemos asignar una función a la propiedad especial [window.onerror](https://developer.mozilla.org/es/docs/Web/API/GlobalEventHandlers/onerror), que se ejecutará en caso de un error no detectado.
 
 La sintaxis:
 

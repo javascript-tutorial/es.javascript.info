@@ -50,7 +50,7 @@ let guestList = "Invitados:  // Error: Unexpected token ILLEGAL
 
 Las comillas simples y dobles provienen de la creación de lenguaje en tiempos ancestrales, cuando la necesidad de múltiples líneas no era tomada en cuenta. Los backticks aparecieron mucho después y por ende son más versátiles.
 
-Los backticks además nos permiten especificar una "función de plantilla" antes del primer backtick. La sintaxis es: <code>func&#96;string&#96;</code>. La función `func` es llamada automáticamente, recibe el string y la expresión insertada y los puede procesar. Eso se llama "plantillas etiquetadas". Esta característica hace que sea más fácil implementar plantillas personalizadas, pero es raramente usada en la práctica. Puedes leer más sobre esto en [docs](mdn:/JavaScript/Reference/Template_literals#Tagged_templates). 
+Los backticks además nos permiten especificar una "función de plantilla" antes del primer backtick. La sintaxis es: <code>func&#96;string&#96;</code>. La función `func` es llamada automáticamente, recibe el string y la expresión insertada y los puede procesar. Eso se llama "plantillas etiquetadas". Esta característica hace que sea más fácil implementar plantillas personalizadas, pero es raramente usada en la práctica. Puedes leer más sobre esto en [docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates). 
 
 ## Caracteres especiales
 
@@ -144,7 +144,7 @@ Por favor notar que `str.length` es una propiedad numérica, no una función. No
 
 ## Accediendo caracteres
 
-Para acceder a un carácter en la posición `pos`, se debe usar paréntesis cuadrados `[pos]` o llamar al método [str.charAt(pos)](mdn:js/String/charAt). El primer carácter comienza desde la posición cero:
+Para acceder a un carácter en la posición `pos`, se debe usar paréntesis cuadrados `[pos]` o llamar al método [str.charAt(pos)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/charAt). El primer carácter comienza desde la posición cero:
 
 ```js run
 let str = `Hola`;
@@ -205,7 +205,7 @@ En la sección siguiente veremos más ejemplos de esto.
 
 ## Cambiando mayúsculas y minúsuculas
 
-Los métodos [toLowerCase()](mdn:js/String/toLowerCase) y [toUpperCase()](mdn:js/String/toUpperCase) cambian los caracteres a minúscula y mayúscula respectivamente:
+Los métodos [toLowerCase()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/toLowerCase) y [toUpperCase()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/toUpperCase) cambian los caracteres a minúscula y mayúscula respectivamente:
 
 ```js run
 alert('Interfaz'.toUpperCase()); // INTERFAZ
@@ -224,7 +224,7 @@ Existen muchas formas de buscar por subcadenas de caracteres dentro de una caden
 
 ### str.indexOf
 
-El primer método es [str.indexOf(substr, pos)](mdn:js/String/indexOf).
+El primer método es [str.indexOf(substr, pos)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/indexOf).
 
 Este busca un `substr` en `str`, comenzando desde la posición entregada `pos`, y retorna la posición donde es encontrada la coincidencia o `-1` en caso de no encontrar nada.
 
@@ -281,7 +281,7 @@ while ((pos = str.indexOf(target, pos + 1)) != -1) {
 ```
 
 ```smart header="`str.lastIndexOf(substr, position)`"
-Existe también un método similar [str.lastIndexOf(substr, position)](mdn:js/String/lastIndexOf) que busca desde el final del string hasta el comienzo.
+Existe también un método similar [str.lastIndexOf(substr, position)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/lastIndexOf) que busca desde el final del string hasta el comienzo.
 
 Este imprimirá las ocurrencias en orden invertido.
 ```
@@ -351,7 +351,7 @@ Ahora podemos ver este truco solo en código viejo, porque JavaScript moderno pr
 
 ### includes, startsWith, endsWith
 
-El método más moderno [str.includes(substr, pos)](mdn:js/String/includes) retorna `true/false` dependiendo si `str` contiene `substr` dentro.
+El método más moderno [str.includes(substr, pos)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/includes) retorna `true/false` dependiendo si `str` contiene `substr` dentro.
 
 Es la opción correcta si lo que necesitamos es encontrar el `substr` pero no necesitamos la posición.
 
@@ -368,7 +368,7 @@ alert('Midget'.includes('id')); // true
 alert('Midget'.includes('id', 3)); // false, desde la posición 3 no hay "id"
 ```
 
-Los métodos [str.startsWith](mdn:js/String/startsWith) (comienza con) y [str.endsWith](mdn:js/String/endsWith) (termina con) hacen exactamente lo que dicen:
+Los métodos [str.startsWith](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/startsWith) (comienza con) y [str.endsWith](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/endsWith) (termina con) hacen exactamente lo que dicen:
 
 ```js run
 alert('Widget'.startsWith('Wid')); // true, "Widget" comienza con "Wid"
@@ -538,7 +538,7 @@ Por suerte, todos los navegadores modernos (IE10- requiere adicionalmente la bib
 
 Este provee un método especial para comparar strings en distintos lenguajes, siguiendo sus reglas.
 
-El llamado [str.localeCompare(str2)](mdn:js/String/localeCompare):
+El llamado [str.localeCompare(str2)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/localeCompare):
 
 - Retorna `1` si `str` es mayor que `str2` de acuerdo a las reglas del lenguaje.
 - Retorna `-1` si `str` es menor que `str2`.
@@ -550,7 +550,7 @@ Por ejemplo:
 alert('Österreich'.localeCompare('Zealand')); // -1
 ```
 
-Este método tiene dos argumentos adicionales especificados en [la documentación](mdn:js/String/localeCompare), la cual le permite especificar el languaje (por defeto lo toma del entorno) y configura reglas adicionales como sensibilidad a las mayúsculas y minúsculas o si debe `"a"` y `"á"` ser tratadas como iguales, etc.
+Este método tiene dos argumentos adicionales especificados en [la documentación](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/localeCompare), la cual le permite especificar el languaje (por defeto lo toma del entorno) y configura reglas adicionales como sensibilidad a las mayúsculas y minúsculas o si debe `"a"` y `"á"` ser tratadas como iguales, etc.
 
 ## Internals, Unicode
 
@@ -578,7 +578,7 @@ Notar que los pares sustitutos no existían en el tiempo que JavaScript fue crea
 
 De hecho, tenemos un solo símbolo en cada string más arriba, pero el `length` (largo) muestra `2`.
 
-`String.fromCodePoint` y `str.codePointAt` son algunos métodos extraños que tratan con pares sustitutos. Aparecieron recientemente en el lenguaje. Antes de ellos, existían sólo [String.fromCharCode](mdn:js/String/fromCharCode) y [str.charCodeAt](mdn:js/String/charCodeAt). Estos métodos son actualmente lo mismo que `fromCodePoint/codePointAt`, pero no funcionan con pares sustitutos.
+`String.fromCodePoint` y `str.codePointAt` son algunos métodos extraños que tratan con pares sustitutos. Aparecieron recientemente en el lenguaje. Antes de ellos, existían sólo [String.fromCharCode](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/fromCharCode) y [str.charCodeAt](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/charCodeAt). Estos métodos son actualmente lo mismo que `fromCodePoint/codePointAt`, pero no funcionan con pares sustitutos.
 
 Obtener un símbolo puede ser dificil, ya que los pares substitutos son tratados como dos caracteres:
 
@@ -641,7 +641,7 @@ alert( s1 == s2 ); // false aunque los caracteres se ven idénticos (?!)
 
 Para resolver esto, existe un algoritmo de "normalización Unicode" que lleva cada cadena a la forma "normal".
 
-Este es implementado por [str.normalize()](mdn:js/String/normalize).
+Este es implementado por [str.normalize()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/normalize).
 
 ```js run
 alert('S\u0307\u0323'.normalize() == 'S\u0323\u0307'.normalize()); // true
@@ -674,6 +674,6 @@ Existen varios otros métodos útiles en cadenas:
 
 - `str.trim()` -- remueve ("recorta") espacios desde el comienzo y final de un string.
 - `str.repeat(n)` -- repite el string `n` veces.
-- ...y más. Mira el [manual](mdn:js/String) para más detalles.
+- ...y más. Mira el [manual](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String) para más detalles.
 
 Strings también tienen métodos con expresiones regulares para buscar/reemplazar. Es un tema importante, así que es explicado en su propia sección <info:regular-expressions> .

@@ -128,7 +128,7 @@ Acabamos de ver cómo obtener un array de la lista de parámetros.
 
 Pero a veces necesitamos hacer exactamente lo opuesto.
 
-Por ejemplo, existe una función nativa [Math.max](mdn:js/Math/max) que devuelve el número más grande de una lista:
+Por ejemplo, existe una función nativa [Math.max](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Math/max) que devuelve el número más grande de una lista:
 
 ```js run
 alert( Math.max(3, 5, 1) ); // 5

@@ -7,9 +7,9 @@ En el primer capítulo de esta sección, mencionamos que existen métodos modern
 
 Los métodos modernos son:
 
-- [Object.create(proto, [descriptors])](mdn:js/Object/create) -- crea un objeto vacío con el "proto" dado como `[[Prototype]]` y descriptores de propiedad opcionales.
-- [Object.getPrototypeOf(obj)](mdn:js/Object/getPrototypeOf) -- devuelve el `[[Prototype]]` de `obj`.
-- [Object.setPrototypeOf(obj, proto)](mdn:js/Object/setPrototypeOf) -- establece el `[[Prototype]]` de `obj` en `proto`.
+- [Object.create(proto, [descriptors])](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/create) -- crea un objeto vacío con el "proto" dado como `[[Prototype]]` y descriptores de propiedad opcionales.
+- [Object.getPrototypeOf(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/getPrototypeOf) -- devuelve el `[[Prototype]]` de `obj`.
+- [Object.setPrototypeOf(obj, proto)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/setPrototypeOf) -- establece el `[[Prototype]]` de `obj` en `proto`.
 
 Estos deben usarse en lugar de `__proto__`.
 
@@ -175,9 +175,9 @@ alert(Object.keys(chineseDictionary)); // hola,adios
 
 Los métodos modernos para configurar y acceder directamente al prototipo son:
 
-- [Object.create(proto, [descriptores])](mdn:js/Object/create) -- crea un objeto vacío con un `proto` dado como `[[Prototype]]` (puede ser `nulo`) y descriptores de propiedad opcionales.
-- [Object.getPrototypeOf(obj)](mdn:js/Object.getPrototypeOf) -- devuelve el `[[Prototype]]` de `obj` (igual que el getter de `__proto__`).
-- [Object.setPrototypeOf(obj, proto)](mdn:js/Object.setPrototypeOf) -- establece el `[[Prototype]]` de `obj` en `proto` (igual que el setter de `__proto__`).
+- [Object.create(proto, [descriptores])](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/create) -- crea un objeto vacío con un `proto` dado como `[[Prototype]]` (puede ser `nulo`) y descriptores de propiedad opcionales.
+- [Object.getPrototypeOf(obj)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf) -- devuelve el `[[Prototype]]` de `obj` (igual que el getter de `__proto__`).
+- [Object.setPrototypeOf(obj, proto)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf) -- establece el `[[Prototype]]` de `obj` en `proto` (igual que el setter de `__proto__`).
 
 El getter/setter incorporado de `__proto__` no es seguro si queremos poner claves generadas por el usuario en un objeto. Aunque un usuario puede ingresar `"__proto __"` como clave, y habrá un error, con consecuencias levemente dañinas, pero generalmente impredecibles.
 
@@ -195,10 +195,10 @@ Podemos crear un objeto sin prototipo mediante `Object.create(null)`. Dichos obj
 
 Otros métodos:
 
-- [Object.keys(obj)](mdn:js/Object/keys) / [Object.values(obj)](mdn:js/Object/values) / [Object.entries(obj)](mdn:js/Object/entries): devuelve una arreglo de pares clave-valor: nombres/valores, de propiedades de cadena propios enumerables.
-- [Object.getOwnPropertySymbols(obj)](mdn:js/Object/getOwnPropertySymbols): devuelve un arreglo de todas las claves simbólicas propias.
-- [Object.getOwnPropertyNames(obj)](mdn:js/Object/getOwnPropertyNames): devuelve un arreglo de todas las claves de cadena propias.
-- [Reflect.ownKeys(obj)](mdn:js/Reflect/ownKeys): devuelve un arreglo de todas las claves propias.
-- [obj.hasOwnProperty(key)](mdn:js/Object/hasOwnProperty): devuelve `true` si `obj` tiene su propia clave (no heredada) llamada `key`.
+- [Object.keys(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/keys) / [Object.values(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/values) / [Object.entries(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/entries): devuelve una arreglo de pares clave-valor: nombres/valores, de propiedades de cadena propios enumerables.
+- [Object.getOwnPropertySymbols(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/getOwnPropertySymbols): devuelve un arreglo de todas las claves simbólicas propias.
+- [Object.getOwnPropertyNames(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/getOwnPropertyNames): devuelve un arreglo de todas las claves de cadena propias.
+- [Reflect.ownKeys(obj)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/ownKeys): devuelve un arreglo de todas las claves propias.
+- [obj.hasOwnProperty(key)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/hasOwnProperty): devuelve `true` si `obj` tiene su propia clave (no heredada) llamada `key`.
 
 Todos los métodos que devuelven propiedades de objeto (como `Object.keys` y otros) - devuelven propiedades "propias". Si queremos heredados, podemos usar `for..in`.

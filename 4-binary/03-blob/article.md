@@ -119,7 +119,7 @@ Una alternativa a `URL.createObjectURL` es convertir un `Blob` en una cadena cod
 
 Esa codificación representa datos binarios como una cadena ultra segura de caractéres "legibles" con códigos ASCII desde el 0 al 64. Y lo que es más importante, podemos utilizar codificación en las "URLs de datos".
 
-Un [URL de datos](mdn:/http/Data_URIs) tiene la forma `data:[<mediatype>][;base64],<data>`. Podemos usar suficientes URLs por doquier, junto a URLs "regulares".
+Un [URL de datos](https://developer.mozilla.org/es/docs/Web/HTTP/Basics_of_HTTP/Datos_URIs) tiene la forma `data:[<mediatype>][;base64],<data>`. Podemos usar suficientes URLs por doquier, junto a URLs "regulares".
 
 Por ejemplo, aquí hay una sonrisa:
 
@@ -166,8 +166,8 @@ Podemos crear un `Blob` de una imagen, una parte de una imagen, o incluso hacer 
 
 Las operaciones de imágenes se hacen a través del elemento `<canvas>`:
 
-1. Dibuja una imagen (o una parte) en el canvas utilizando [canvas.drawImage](mdn:/api/CanvasRenderingContext2D/drawImage).
-2. Llama el método de canvas [.toBlob(callback, format, quality)](mdn:/api/HTMLCanvasElement/toBlob) que crea un `Blob` y llama el `callback` cuando termina.
+1. Dibuja una imagen (o una parte) en el canvas utilizando [canvas.drawImage](https://developer.mozilla.org/es/docs/Web/API/CanvasRenderingContext2D/drawImage).
+2. Llama el método de canvas [.toBlob(callback, format, quality)](https://developer.mozilla.org/es/docs/Web/API/HTMLCanvasElement/toBlob) que crea un `Blob` y llama el `callback` cuando termina.
 
 En el ejemplo siguiente, un imagen se copia, pero no podemos cortarla o transformarla en el canvas hasta convertirla en blob:
 

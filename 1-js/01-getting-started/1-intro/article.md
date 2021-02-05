@@ -15,7 +15,7 @@ En este aspecto, JavaScript es muy diferente a otro lenguaje llamado [Java](<htt
 ```smart header="¿Por qué se llama <u>Java</u>Script?"
 Cuando JavaScript fue creado, inicialmente tenía otro nombre: "LiveScript". Pero Java era muy popular en ese momento, así que se decidió que el posicionamiento de un nuevo lenguaje como un "Hermano menor" de Java ayudaría.
 
-Pero a medida que evolucionaba, JavaScript se convirtió en un lenguaje completamente independiente con su propia especificación llamada [ECMAScript] (https://es.wikipedia.org/wiki/ECMAScript), y ahora no tiene ninguna relación con Java.
+Pero a medida que evolucionaba, JavaScript se convirtió en un lenguaje completamente independiente con su propia especificación llamada [ECMAScript](https://es.wikipedia.org/wiki/ECMAScript), y ahora no tiene ninguna relación con Java.
 ```
 
 Hoy, JavaScript puede ejecutarse no solo en los navegadores, sino también en servidores o incluso en cualquier dispositivo que cuente con un programa especial llamado [El motor o intérprete de JavaScript](https://es.wikipedia.org/wiki/Int%C3%A9rprete_de_JavaScript).

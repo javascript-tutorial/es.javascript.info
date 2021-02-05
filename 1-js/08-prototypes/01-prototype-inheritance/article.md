@@ -287,7 +287,7 @@ for(let prop in rabbit) alert(prop); // jumps, despues eats
 */!*
 ```
 
-Si no queremos eso, y quisiéramos excluir las propiedades heredadas, hay un método incorporado [obj.hasOwnProperty(key)](mdn:js/Object/hasOwnProperty): devuelve `true` si `obj` tiene la propiedad interna (no heredada) llamada `key`.
+Si no queremos eso, y quisiéramos excluir las propiedades heredadas, hay un método incorporado [obj.hasOwnProperty(key)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/hasOwnProperty): devuelve `true` si `obj` tiene la propiedad interna (no heredada) llamada `key`.
 
 Entonces podemos filtrar las propiedades heredadas (o hacer algo más con ellas):
 
