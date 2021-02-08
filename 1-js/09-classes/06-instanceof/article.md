@@ -104,7 +104,7 @@ Aquí está la ilustración de lo que `rabbit instanceof Animal` compara con `An
 
 ![](instanceof.svg)
 
-Por cierto, también hay un método [objA.isPrototypeOf(objB)] (mdn:js/object/isPrototypeOf), que devuelve `true` si `objA` está en algún lugar de la cadena de prototipos para `objB`. Por lo tanto, la prueba de `obj instanceof Class` se puede reformular como `Class.prototype.isPrototypeOf(obj)`.
+Por cierto, también hay un método [objA.isPrototypeOf(objB)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/object/isPrototypeOf), que devuelve `true` si `objA` está en algún lugar de la cadena de prototipos para `objB`. Por lo tanto, la prueba de `obj instanceof Class` se puede reformular como `Class.prototype.isPrototypeOf(obj)`.
 
 Es divertido, ¡pero el constructor `Class` en sí mismo no participa en el chequeo! Solo importa la cadena de prototipos y `Class.prototype`.
 
@@ -161,7 +161,7 @@ let arr = [];
 alert( objectToString.call(arr) ); // [object *!*Array*/!*]
 ```
 
-Aquí usamos [call](mdn:js/function/call) como se describe en el capítulo [](info:call-apply-decorators) para ejecutar la función `objectToString` en el contexto `this=arr`.
+Aquí usamos [call](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/function/call) como se describe en el capítulo [](info:call-apply-decorators) para ejecutar la función `objectToString` en el contexto `this=arr`.
 
 Internamente, el algoritmo `toString` examina `this` y devuelve el resultado correspondiente. Más ejemplos:
 

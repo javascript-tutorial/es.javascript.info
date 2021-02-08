@@ -1,6 +1,6 @@
 # Fecha y Hora
 
-Ahora conozcamos un nuevo objeto incorporado de JS: [Date](mdn:js/Date). Este objeto contiene la fecha, la hora, y brinda métodos para administrarlas.
+Ahora conozcamos un nuevo objeto incorporado de JS: [Date](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Date). Este objeto contiene la fecha, la hora, y brinda métodos para administrarlas.
 
 Por ejemplo, podemos usarlo para almacenar horas de creación/modificación, medir tiempo, o simplemente mostrar en pantalla la fecha actual.
 
@@ -80,16 +80,16 @@ Para crear un nuevo objeto `Date` se lo instancia con `new Date()` junto con uno
 
 Existen métodos que sirven para obtener el año, el mes, y los demás componentes a partir de un objeto de tipo `Date`:
 
-[getFullYear()](mdn:js/Date/getFullYear)
+[getFullYear()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Date/getFullYear)
 : Devuelve el año (4 dígitos)
 
-[getMonth()](mdn:js/Date/getMonth)
+[getMonth()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Date/getMonth)
 : Devuelve el mes, **de 0 a 11**.
 
-[getDate()](mdn:js/Date/getDate)
+[getDate()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Date/getDate)
 : Devuelve el día del mes desde 1 a 31. Nótese que el nombre del método no es muy intuitivo.
 
-[getHours()](mdn:js/Date/getHours), [getMinutes()](mdn:js/Date/getMinutes), [getSeconds()](mdn:js/Date/getSeconds), [getMilliseconds()](mdn:js/Date/getMilliseconds)
+[getHours()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Date/getHours), [getMinutes()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Date/getMinutes), [getSeconds()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Date/getSeconds), [getMilliseconds()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Date/getMilliseconds)
 : Devuelve los componentes del horario correspondientes.
 
 ```warn header="No `getYear()`, sino `getFullYear()`"
@@ -98,12 +98,12 @@ Algunos motores de JavaScript poseen implementado un método no estándar llamad
 
 Además, podemos obtener un día de la semana:
 
-[getDay()](mdn:js/Date/getDay)
+[getDay()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Date/getDay)
 : Devuelve el día de la semana, partiendo de `0` (Domingo) hasta `6` (Sábado). El primer día siempre es el Domingo. Por más que en algunos países no sea así, no se puede modificar.
 
 **Todos los métodos mencionados anteriormente devuelven los componentes correspondientes a la zona horaria local.**
 
-También existen sus contrapartes UTC, que devuelven el día, mes, año, y demás componentes, para la zona horaria UTC+0: [getUTCFullYear()](mdn:js/Date/getUTCFullYear), [getUTCMonth()](mdn:js/Date/getUTCMonth), [getUTCDay()](mdn:js/Date/getUTCDay). Solo debemos agregarle el `"UTC"` justo después de `"get"`.
+También existen sus contrapartes UTC, que devuelven el día, mes, año, y demás componentes, para la zona horaria UTC+0: [getUTCFullYear()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Date/getUTCFullYear), [getUTCMonth()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCMonth), [getUTCDay()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCDay). Solo debemos agregarle el `"UTC"` justo después de `"get"`.
 
 Si tu zona horaria está desplazada respecto de UTC el código de abajo va a mostrar horas diferentes:
 
@@ -120,10 +120,10 @@ alert( date.getUTCHours() );
 
 Además de los anteriormente mencionados, hay dos métodos especiales que no poseen una variante de UTC:
 
-[getTime()](mdn:js/Date/getTime)
+[getTime()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Date/getTime)
 : Devuelve el _timestamp_ para una fecha determinada -- cantidad de milisegundos transcurridos a partir del 1° de Enero de 1970 UTC+0.
 
-[getTimezoneOffset()](mdn:js/Date/getTimezoneOffset)
+[getTimezoneOffset()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTimezoneOffset)
 : Devuelve la diferencia entre UTC y el huso horario de la zona actual, en minutos:
 
     ```js run
@@ -137,14 +137,14 @@ Además de los anteriormente mencionados, hay dos métodos especiales que no pos
 
 Los siguientes métodos permiten establecer los componentes de fecha y hora:
 
-- [`setFullYear(year, [month], [date])`](mdn:js/Date/setFullYear)
-- [`setMonth(month, [date])`](mdn:js/Date/setMonth)
-- [`setDate(date)`](mdn:js/Date/setDate)
-- [`setHours(hour, [min], [sec], [ms])`](mdn:js/Date/setHours)
-- [`setMinutes(min, [sec], [ms])`](mdn:js/Date/setMinutes)
-- [`setSeconds(sec, [ms])`](mdn:js/Date/setSeconds)
-- [`setMilliseconds(ms)`](mdn:js/Date/setMilliseconds)
-- [`setTime(milliseconds)`](mdn:js/Date/setTime) (Establece la cantidad de segundos transcurridos desde 01.01.1970 GMT+0)
+- [`setFullYear(year, [month], [date])`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Date/setFullYear)
+- [`setMonth(month, [date])`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Date/setMonth)
+- [`setDate(date)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/setDate)
+- [`setHours(hour, [min], [sec], [ms])`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/setHours)
+- [`setMinutes(min, [sec], [ms])`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/setMinutes)
+- [`setSeconds(sec, [ms])`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/setSeconds)
+- [`setMilliseconds(ms)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/setMilliseconds)
+- [`setTime(milliseconds)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/setTime) (Establece la cantidad de segundos transcurridos desde 01.01.1970 GMT+0)
 
 A excepción de `setTime()`, todos los demás métodos poseen una variante UTC, por ejemplo: `setUTCHours()`.
 
@@ -381,7 +381,7 @@ Se pueden encontrar una gran cantidad de artículos acerca del motor V8 en <http
 
 ## Date.parse a partir de un string
 
-El método [Date.parse(str)](mdn:js/Date/parse) permite leer una fecha desde un string.
+El método [Date.parse(str)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Date/parse) permite leer una fecha desde un string.
 
 El formato del string debe ser: `YYYY-MM-DDTHH:mm:ss.sssZ`, donde:
 
@@ -412,7 +412,7 @@ alert(date);
 
 ## Resumen
 
-- En JavaScript, la fecha y la hora se representan con el objeto [Date](mdn:js/Date). No es posible obtener sólo la fecha o sólo la hora: los objetos `Date` incluyen ambas.
+- En JavaScript, la fecha y la hora se representan con el objeto [Date](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Date). No es posible obtener sólo la fecha o sólo la hora: los objetos `Date` incluyen ambas.
 - Los meses se cuentan desde el cero (siendo Enero el mes cero).
 - Los días de la semana en `getDay()` también se cuentan desde el cero (que corresponde al día Domingo).
 - El objeto `Date` se autocorrije cuando recibe un componente fuera de rango. Es útil para sumar o restar días/meses/horas.
@@ -421,7 +421,7 @@ alert(date);
 
 Nótese que, a diferencia de otros sistemas, los _timestamps_ en JavaScript están representados en milisegundos (ms), no en segundos.
 
-Suele suceder que necesitemos tomar medidas de tiempo más precisas. En sí, JavaScript no tiene incorporada una manera de medir el tiempo en microsegundos (1 millonésima parte de segundo), pero la mayoría de los entornos de ejecución sí lo permiten. Por ejemplo, el navegador posee [performance.now()](mdn:api/Performance/now) que nos permite saber la cantidad de milisegundos que tarda una página en cargar, con una precisión de microsegundos (3 dígitos después del punto):
+Suele suceder que necesitemos tomar medidas de tiempo más precisas. En sí, JavaScript no tiene incorporada una manera de medir el tiempo en microsegundos (1 millonésima parte de segundo), pero la mayoría de los entornos de ejecución sí lo permiten. Por ejemplo, el navegador posee [performance.now()](https://developer.mozilla.org/es/docs/Web/API/Performance/now) que nos permite saber la cantidad de milisegundos que tarda una página en cargar, con una precisión de microsegundos (3 dígitos después del punto):
 
 ```js run
 alert(`La carga de la página comenzó hace ${performance.now()}ms`);

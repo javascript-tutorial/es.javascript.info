@@ -296,7 +296,7 @@ Para manejar clases, hay dos propiedades del DOM:
 Para cambiar los estilos:
 
 - La propiedad `style` es un objeto con los estilos en `camelcase`. 
-Leer y escribir tiene el mismo significado que modificar propiedades individuales en el atributo `"style"`. Para ver cómo aplicar `important` y otras cosas raras, hay una lista de métodos en [MDN](mdn:api/CSSStyleDeclaration).
+Leer y escribir tiene el mismo significado que modificar propiedades individuales en el atributo `"style"`. Para ver cómo aplicar `important` y otras cosas raras, hay una lista de métodos en [MDN](https://developer.mozilla.org/es/docs/Web/API/CSSStyleDeclaration).
 
 - La propiedad `style.cssText` corresponde a todo el atributo `"style"`, la cadena completa de estilos.
 

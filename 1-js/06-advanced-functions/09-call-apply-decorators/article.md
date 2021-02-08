@@ -119,7 +119,7 @@ Entonces, el contenedor pasa la llamada al método original, pero sin el context
 
 Vamos a solucionar esto: 
 
-Hay un método de función  especial incorporado [func.call(context, ...args)](mdn:js/Function/call) que permite llamar a una función que establece explícitamente `this`.
+Hay un método de función  especial incorporado [func.call(context, ...args)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Function/call) que permite llamar a una función que establece explícitamente `this`.
 
 La sintaxis es:
 
@@ -287,7 +287,7 @@ Hay dos cambios:
 
 En vez de `func.call(this, ...arguments)` nosotros podríamos usar `func.apply(this, arguments)`.
 
-La sintaxis del método incorporado [func.apply](mdn:js/Function/apply) es:
+La sintaxis del método incorporado [func.apply](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Function/apply) es:
 
 ```js
 func.apply(context, args)
@@ -337,7 +337,7 @@ function hash(args) {
 
 A partir de ahora, funciona solo en dos argumentos. Sería mejor si pudiera adherir (*glue*) cualquier número de `args`.
 
-La solución natural sería usar el método [arr.join](mdn:js/Array/join):
+La solución natural sería usar el método [arr.join](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/join):
 
 ```js
 function hash(args) {
@@ -410,8 +410,8 @@ Los decoradores se pueden ver como "características" o "aspectos" que se pueden
 
 Para implementar `cachingDecorator`, estudiamos los siguientes métodos:
 
-- [func.call(context, arg1, arg2...)](mdn:js/Function/call) -- llama a `func` con el contexto y argumentos dados.
-- [func.apply(context, args)](mdn:js/Function/apply) -- llama a `func` pasando `context` como `this` y array-like `args` en una lista de argumentos.
+- [func.call(context, arg1, arg2...)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Function/call) -- llama a `func` con el contexto y argumentos dados.
+- [func.apply(context, args)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Function/apply) -- llama a `func` pasando `context` como `this` y array-like `args` en una lista de argumentos.
 
 La *redirección de llamadas* genérica generalmente se realiza con `apply`:
 

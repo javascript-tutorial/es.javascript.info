@@ -2,7 +2,7 @@
 
 Las expresiones regulares son patrones que proporcionan una forma poderosa de buscar y reemplazar texto.
 
-En JavaScript, están disponibles a través del objeto [RegExp](mdn:js/RegExp), además de integrarse en métodos de cadenas.
+En JavaScript, están disponibles a través del objeto [RegExp](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/RegExp), además de integrarse en métodos de cadenas.
 
 ## Expresiones Regulares
 

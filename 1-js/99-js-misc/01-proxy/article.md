@@ -1024,7 +1024,7 @@ Esto nos permite crear propiedades y métodos "virtuales", implementar valores p
 
 También podemos atrapar un objeto múltiples veces en proxys diferentes, decorándolos con varios aspectos de funcionalidad.
 
-La API de [Reflect](mdn:/JavaScript/Reference/Global_Objects/Reflect) está diseñada para complementar [Proxy](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Proxy). Para cada trampa de `Proxy` hay una llamada `Reflect` con los mismos argumentos. Deberíamos usarlas para redirigir llamadas hacia los objetos target.
+La API de [Reflect](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Reflect) está diseñada para complementar [Proxy](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Proxy). Para cada trampa de `Proxy` hay una llamada `Reflect` con los mismos argumentos. Deberíamos usarlas para redirigir llamadas hacia los objetos target.
 
 Los proxys tienen algunas limitaciones:
 

@@ -66,7 +66,7 @@ Los valores posibles para `event.button` son:
 
 La mayoría de los dispositivos de ratón sólo tienen los botones izquierdo y derecho, por lo que los valores posibles son `0` o `2`. Los dispositivos táctiles también generan eventos similares cuando se toca sobre ellos.
 
-También hay una propiedad `event.buttons` que guarda todos los botones presionados actuales en un solo entero, un bit por botón. En la práctica, esta propiedad es raramente utilizada. Puedes encontrar más detalles en [MDN](mdn:/api/MouseEvent/buttons) si alguna vez lo necesitas.
+También hay una propiedad `event.buttons` que guarda todos los botones presionados actuales en un solo entero, un bit por botón. En la práctica, esta propiedad es raramente utilizada. Puedes encontrar más detalles en [MDN](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/buttons) si alguna vez lo necesitas.
 
 ```warn header="El obsoleto `event.which`"
 El código puede utilizar la propiedad `event.which` que es una forma antigua no estándar de obtener un botón con los valores posibles:

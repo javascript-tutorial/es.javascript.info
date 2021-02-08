@@ -96,7 +96,7 @@ El valor devuelto `requestId` se puede utilizar para cancelar la llamada:
 cancelAnimationFrame(requestId);
 ```
 
-El `callback` obtiene un argumento: el tiempo transcurrido desde el inicio de la carga de la página en microsegundos. Este tiempo también se puede obtener llamando a [performance.now()](mdn:api/Performance/now).
+El `callback` obtiene un argumento: el tiempo transcurrido desde el inicio de la carga de la página en microsegundos. Este tiempo también se puede obtener llamando a [performance.now()](https://developer.mozilla.org/es/docs/Web/API/Performance/now).
 
 Por lo general, el `callback` se ejecuta muy pronto, a menos que el CPU esté sobrecargado o la batería de la laptop esté casi descargada, o haya otra razón.
 
