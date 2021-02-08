@@ -122,7 +122,7 @@ Como recordamos, las funciones flecha no tienen su propio `this`. Ahora sabemos 
 ````
 
 
-## Operador Spread [#spread-operator]
+## Sintaxis Spread [#spread-syntax]
 
 Acabamos de ver cómo obtener un array de la lista de parámetros.
 
@@ -227,7 +227,7 @@ Por lo tanto, para la tarea de convertir algo en un array, `Array.from` tiende a
 
 ## Obtener una copia de un objeto array
 
-¿Recuerdas cuando hablamos acerca de `Object.assign()` [anteriormente](https://javascript.info/object#cloning-and-merging-object-assign)?
+¿Recuerdas cuando hablamos acerca de `Object.assign()` [anteriormente](info:object-copy#cloning-and-merging-object-assign)?
 
 Es posible hacer lo mismo con la sintaxis de spread
 
