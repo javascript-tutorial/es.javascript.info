@@ -10,9 +10,9 @@ El resultado de `a ?? b`:
 - si `a` está "definida", será `a`, 
 - si `a` no está "definida", será `b`.
 
-En otras palabras `??` devuelve el primer argumento si este no es `null/undefined`. En caso contrario, el segundo.
+Es decir, `??` devuelve el primer argumento cuando este no es `null` ni `undefined`. En caso contrario, devuelve el segundo.
 
-El operador "nullish coalescing" no es algo completamente nuevo. Es solamente una sintaxis agradable para obtener el primer valor "definido" entre dos.
+El operador "nullish coalescing" no es algo completamente nuevo. Es solamente una sintaxis agradable para obtener el primer valor "definido" de entre dos.
 
 Podemos reescribir `result = a ?? b` usando los operadores que ya conocemos:
 
@@ -40,7 +40,7 @@ let user = "John";
 alert(user ?? "Anonymous"); // John (user definido)
 ```
 
-También podemos usar una secuencia de `??` para seleccionar, de una lista, el primer valor que no sea `null/undefined`.
+También podemos usar una secuencia de `??` para seleccionar el primer valor que no sea `null/undefined` de una lista.
 
 Digamos que tenemos los datos de un usuario en las variables `firstName`, `lastName` y `nickName`. Todos ellos podrían ser indefinidos si el usuario decide no ingresarlos.
 
@@ -106,7 +106,7 @@ En la práctica, una altura cero es a menudo un valor válido que no debería se
 
 ## Precedencia
 
-La precedencia del operador `??` es baja, y apenas menor a `||`. En la [Tabla MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Operator_Precedence#Table) la de `??` es `5` y la de `||` es `6`.
+La precedencia del operador `??` es baja, y apenas menor a `||`. En la [Tabla MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Operator_Precedence#Table), la de `??` es `5` y la de `||` es `6`.
 
 Esto significa que ambos operadores, `||` y `??`, son evaluados antes que `=` y `?`, pero después de la mayoría de las demás operaciones como `+` y `*`. 
 
@@ -142,7 +142,7 @@ El siguiente código desencadena un error de sintaxis:
 let x = 1 && 2 ?? 3; // Syntax error
 ```
 
-La limitación es sin duda alguna debatible. Fue agregada a la especificación del lenguaje con propósito de evitar equivocaciones cuando la gente comenzara a reemplazar `||` por `??`.
+La limitación es debatible. Fue agregada a la especificación del lenguaje con propósito de evitar equivocaciones cuando la gente comenzara a reemplazar `||` por `??`.
 
 Usa paréntesis explícitos para solucionarlo:
 
