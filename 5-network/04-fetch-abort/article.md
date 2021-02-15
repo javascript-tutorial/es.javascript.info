@@ -17,8 +17,13 @@ let controller = new AbortController();
 
 Este controlador es un objeto extremadamente simple.
 
+<<<<<<< HEAD
 - Tiene un único método `abort()`
 - Y una única propiedad `signal`.
+=======
+- It has a single method `abort()`,
+- And a single property `signal` that allows to set event listeners on it.
+>>>>>>> 7533c719fbf62ba57188d6d51fe4c038b282bd0c
 
 Cuando `abort()` es invocado:
 - `controller.signal` emite el evento `"abort"`.

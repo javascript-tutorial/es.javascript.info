@@ -1,10 +1,18 @@
 # Promesa
 
+<<<<<<< HEAD
 Imagina que eres un gran cantante y los fanáticos te preguntan día y noche por tu próximo sencillo.
+=======
+Imagine that you're a top singer, and fans ask day and night for your upcoming song.
+>>>>>>> 7533c719fbf62ba57188d6d51fe4c038b282bd0c
 
 Para obtener algo de alivio, prometes enviárselos cuando se publique. Le das a tus fans una lista. Pueden completar sus direcciones de correo electrónico, de modo que cuando la canción esté disponible, todas las partes suscritas la reciban instantáneamente. E incluso si algo sale muy mal, digamos, un incendio en el estudio, para que no puedas publicar la canción, aún se les notificará.
 
+<<<<<<< HEAD
 Todos están felices: tú, porque la gente ya no te abruma, y los fanáticos, porque no se perderán el sencillo.
+=======
+Everyone is happy: you, because the people don't crowd you anymore, and fans, because they won't miss the song.
+>>>>>>> 7533c719fbf62ba57188d6d51fe4c038b282bd0c
 
 Esta es una analogía de la vida real para las cosas que a menudo tenemos en la programación:
 

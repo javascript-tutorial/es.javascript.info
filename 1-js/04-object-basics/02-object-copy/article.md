@@ -186,7 +186,13 @@ let clone = Object.assign({}, user);
 
 Copia todas las propiedades de `user` en un objeto vacío y lo devuelve.
 
+<<<<<<< HEAD
 ## Clonación anidada
+=======
+There are also other methods of cloning an object, e.g. using the [spread operator](info:rest-parameters-spread) `clone = {...user}`, covered later in the tutorial.
+
+## Nested cloning
+>>>>>>> 7533c719fbf62ba57188d6d51fe4c038b282bd0c
 
 Hasta ahora asumimos que todas las propiedades de `user` son primitivas. Pero las propiedades pueden ser referencias a otros objetos. ¿Qué hacer con ellas?
 

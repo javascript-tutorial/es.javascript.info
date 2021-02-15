@@ -11,7 +11,11 @@ Una buena página para ver el estado actual de soporte para características del
 
 ## Babel
 
+<<<<<<< HEAD
 Cuando usamos características modernas del lenguaje, puede que algunos intérpretes no soporten dicho código. Como hemos dicho, no todas las características están implementadas en todas partes.
+=======
+On the other hand, how to make our modern code work on older engines that don't understand recent features yet?
+>>>>>>> 7533c719fbf62ba57188d6d51fe4c038b282bd0c
 
 Aquí Babel viene al rescate.
 

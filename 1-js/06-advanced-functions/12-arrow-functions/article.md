@@ -56,7 +56,7 @@ let group = {
 *!*
     this.students.forEach(function(student) {
       // Error: Cannot read property 'title' of undefined
-      alert(this.title + ': ' + student)
+      alert(this.title + ': ' + student);
     });
 */!*
   }
@@ -91,7 +91,7 @@ Por ejemplo, `defer (f, ms)` obtiene una función y devuelve un contenedor que r
 ```js run
 function defer(f, ms) {
   return function() {
-    setTimeout(() => f.apply(this, arguments), ms)
+    setTimeout(() => f.apply(this, arguments), ms);
   };
 }
 

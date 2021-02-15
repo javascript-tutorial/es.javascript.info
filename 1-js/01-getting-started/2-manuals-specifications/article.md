@@ -13,7 +13,11 @@ Una nueva versión de la especificación del lenguaje es publicada anualmente. E
 
 Para leer acerca de las nuevas prestaciones de vanguardia del lenguaje, incluyendo aquellas que son "cuasi-estándar" (apodado "stage 3"), encuentra las propuestas en <https://github.com/tc39/proposals>.
 
+<<<<<<< HEAD
 Si estás desarrollando para navegadores web, se mencionan otras especificaciones en la [segunda parte](info:browser-environment) del tutorial.
+=======
+Also, if you're developing for the browser, then there are other specifications covered in the [second part](info:browser-environment) of the tutorial.
+>>>>>>> 7533c719fbf62ba57188d6d51fe4c038b282bd0c
 
 ## Manuales
 

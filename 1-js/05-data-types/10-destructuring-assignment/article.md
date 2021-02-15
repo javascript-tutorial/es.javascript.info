@@ -146,7 +146,11 @@ Podemos intercambiar más que dos variables de este modo.
 
 ### El resto '...'
 
+<<<<<<< HEAD
 Usualmente, si el array es mayor que la lista de la izquierda, los items extras son omitidos.
+=======
+Usually, if the array is longer than the list at the left, the "extra" items are omitted.
+>>>>>>> 7533c719fbf62ba57188d6d51fe4c038b282bd0c
 
 Por ejemplo, aquí solo dos items son tomados, el resto simplemente es ignorado:
 
