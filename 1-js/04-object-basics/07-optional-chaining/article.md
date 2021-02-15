@@ -74,12 +74,12 @@ Es por ello que el encadenamiento opcional `?.` fue agregado al lenguaje. ¡Para
 
 ## Encadenamiento opcional
 
-El encadenamiento opcional `?.` detiene la evaluación si la parte anterior a `?.` es ` undefined` o `null` y devuelve `undefined`. 
+El encadenamiento opcional `?.` detiene la evaluación y devuelve `undefined` si el valor antes del `?.` es ` undefined` o `null`. 
 
 **De aquí en adelante en este artículo, por brevedad, diremos que algo "existe" si no es `null` o `undefined`.**
 
 En otras palabras, `value?.prop`:
-- es lo mismo que `value.prop` si `value` existe,
+- funciona como `value.prop` si `value` existe,
 - de otro modo (cuando `value` es `undefined/null`) devuelve `undefined`.
 
 Aquí está la forma segura de acceder a `user.address.street` usando `?.`:
@@ -103,7 +103,7 @@ alert( user?.address.street ); // undefined
 
 Tenga en cuenta: la sintaxis `?.` hace opcional el valor delante de él, pero no más allá.
 
-Por ejemplo en `user?.address.street.name` el `?.` permite a `user` ser `null/undefined` (y devuelve `undefined` en tal caso), pero solo para `user`. El resto de las propiedades son accedidas de la manera normal.  Si queremos que algunas de ellas sean opcionales, necesitamos reemplazar más `.` con `?.`.
+Por ejemplo, en `user?.address.street.name`, el `?.` permite que `user` sea `null/undefined` (y devuelve `undefined` en tal caso), pero solo a `user`. El resto de las propiedades son accedidas de la manera normal.  Si queremos que algunas de ellas sean opcionales, necesitamos reemplazar más `.` con `?.`.
 
 ```warn header="No abuses del encadenamiento opcional"
 Deberíamos usar `?.` solo donde está bien que algo no exista.
