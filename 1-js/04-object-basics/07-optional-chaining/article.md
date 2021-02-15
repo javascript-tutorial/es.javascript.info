@@ -74,7 +74,7 @@ Es por ello que el encadenamiento opcional `?.` fue agregado al lenguaje. ¡Para
 
 ## Encadenamiento opcional
 
-El encadenamiento opcional `?.` detiene la evaluación y devuelve `undefined` si el valor antes del `?.` es ` undefined` o `null`. 
+El encadenamiento opcional `?.` detiene la evaluación y devuelve `undefined` si el valor antes del `?.` es `undefined` o `null`. 
 
 **De aquí en adelante en este artículo, por brevedad, diremos que algo "existe" si no es `null` o `undefined`.**
 
