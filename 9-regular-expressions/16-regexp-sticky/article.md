@@ -5,7 +5,7 @@ EL indicador `pattern:y` permite realizar la búsqueda en una posición dada en 
 
 Para entender el caso de uso del indicador `pattern:y` exploremos un ejemplo práctico.
 
-Una tarea común para regexps es el "Análisis léxico": tenemos un texto, por ej. en un lenguaje de programación, y analiza sus elementos estructurales. Por ejemplo, HTML tiene etiquetas y atributos, el código JavaScript tiene funciones, variables, etc.
+Una tarea común para regexps es el "Análisis léxico": tomar un texto (como el de un lenguaje de programación), y analizar sus elementos estructurales. Por ejemplo, HTML tiene etiquetas y atributos, el código JavaScript tiene funciones, variables, etc.
 
 Escribir analizadores léxicos es un área especial, con sus propias herramientas y algoritmos, así que no profundizaremos en ello; pero existe una tarea común: leer algo en una posición dada.
 
@@ -14,7 +14,7 @@ Por ej. tenemos una cadena de código `subject:let varName = "value"`, y necesit
 Buscaremos el nombre de la variable usando regexp `pattern:\w+`. En realidad, el nombre de la variable de JavaScript necesita un regexp un poco más complejo para un emparejamiento más preciso, pero aquí eso no importa.
 
 Una llamada a `str.match(/\w+/)` solo encontrará la primera palabra de la línea (`let`). No es la que queremos.
-Podemos añadir el indicador `pattern:g`, pero llamando a `str.match(/\w+/g)` buscará todas las palabras del texto y solo necesitamos una palabra en la posición `4`. De nuevo, no es lo que necesitamos.
+Podríamos añadir el indicador `pattern:g`, pero al llamar a `str.match(/\w+/g)` buscará todas las palabras del texto y solo necesitamos una y en la posición `4`. De nuevo, no es lo que necesitamos.
 
 **Entonces, ¿cómo buscamos exactamente en un posición deterninada?** 
 
@@ -22,7 +22,7 @@ Usemos el método `regexp.exec(str)`.
 
 Para un `regexp` sin los indicadores `pattern:g` y `pattern:y`, este método busca la primera coincidencia y funciona exactamente igual a `str.match(regexp)`.
 
-...Pero si existe el indicador `pattern:g`, realiza la búsqueda en el string `str` empezando desde la posición almacenada en su propiedad `regexp.lastIndex`. Y si encuentra una coincidencia, establece `regexp.lastIndex` en el index inmediatamente posterior a la coincidencia.
+...Pero si existe el indicador `pattern:g`, realiza la búsqueda en `str` empezando desde la posición almacenada en su propiedad `regexp.lastIndex`. Y si encuentra una coincidencia, establece `regexp.lastIndex` en el index inmediatamente posterior a la coincidencia.
 
 En otras palabras, `regexp.lastIndex` funciona como punto de partida para la búsqueda, cada llamada lo reestablece a un nuevo valor: el posterior a la última coincidencia. 
 
