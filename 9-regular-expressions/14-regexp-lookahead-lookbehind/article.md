@@ -104,7 +104,7 @@ Recuerda,`str.match` (sin el indicador `pattern:g`) y `str.matchAll` (siempre) r
 Pero generalmente mirar alrededor es mas conveniente.
 tipos de mirar alrededor:
 
-| Patron             | tipo             | coincidencias |
+| Patrón             | Tipo             | Coincidencias |
 |--------------------|------------------|---------|
 | `X(?=Y)`   | Mirar adelante positivo | `pattern:X` si es seguido por `pattern:Y` |
 | `X(?!Y)`   | Mirar adelante negativo | `pattern:X` si no es seguido por `pattern:Y` |
