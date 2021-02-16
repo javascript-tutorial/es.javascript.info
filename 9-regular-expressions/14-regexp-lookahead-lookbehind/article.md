@@ -3,7 +3,7 @@
 A veces necesitamos buscar solo aquella coincidencia en un patrón que es precedida o antecedida por otro patrón.
 
 Existe una sintaxis especial para eso, llamada "mirar adelante" y "mirar atras" (del ingles: _"lookahead" and "lookbehind"_ ) ,juntas conocidas como "mirar alrededor"
-para empezar, busquemos el precio de la cadena siguente `subject:1 pavo cuesta 30€`. eso es: un numero, seguido de `subject:€` signo  
+Para empezar, busquemos el precio de la cadena siguiente `subject:1 pavo cuesta 30€`. Eso es: un número, seguido por el signo `subject:€`.
 ## mirar adelante
 
 La sintaxis es: `pattern:X(?=Y)`. esto significa "mirar por `pattern:X`, pero encontrar una coincidencia solo si es seguido por `pattern:Y`". Deben haber algun patron en lugar de `pattern:X` and `pattern:Y`.  
