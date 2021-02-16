@@ -1,6 +1,6 @@
 # Operadores Lógicos
 
-Hay tres operadores lógicos en JavaScript: `||` (O), `&&` (Y), `!` (NO).
+Hay cuatro operadores lógicos en JavaScript: `||` (O), `&&` (Y), `!` (NO), `??` (Fusión de nulos). Aquí cubrimos los primeros tres, el operador  `??` se verá en el siguiente artículo. 
 
 Aunque sean llamados lógicos, pueden ser aplicados a valores de cualquier tipo, no solo booleanos. El resultado también puede ser de cualquier tipo.
 

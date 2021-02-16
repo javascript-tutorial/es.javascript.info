@@ -222,10 +222,10 @@ Pero hay una sutil diferencia entre `Array.from(obj)` y `[...obj]`:
 - `Array.from` opera con símil-arrays e iterables.
 - El operador spread solo opera con iterables.
 
-Por lo tanto, para la tarea de convertir algo en un array, `Array.from` tiende a ser mas universal.
+Por lo tanto, para la tarea de convertir algo en un array, `Array.from` tiende a ser más universal.
 
 
-## Obtener una copia de un objeto array
+## Copia de un objeto array
 
 ¿Recuerdas cuando hablamos acerca de `Object.assign()` [anteriormente](info:object-copy#cloning-and-merging-object-assign)?
 
@@ -233,8 +233,11 @@ Es posible hacer lo mismo con la sintaxis de spread
 
 ```js run
 let arr = [1, 2, 3];
+
+*!*
 let arrCopy = [...arr]; // separa el array en una lista de parameters
                         // luego pone el resultado en un nuevo array
+*/!*
 
 // ¿los arrays tienen el mismo contenido?
 alert(JSON.stringify(arr) === JSON.stringify(arrCopy)); // true
@@ -252,8 +255,11 @@ Nota que es posible hacer lo mismo para hacer una copia de un objeto:
 
 ```js run
 let obj = { a: 1, b: 2, c: 3 };
+
+*!*
 let objCopy = { ...obj }; // separa el objeto en una lista de parámetros
                           // luego devuelve el resultado en un nuevo objeto
+*/!*
 
 // ¿tienen los objetos el mismo contenido?
 alert(JSON.stringify(obj) === JSON.stringify(objCopy)); // true
