@@ -2,10 +2,10 @@ importance: 5
 
 ---
 
-# What's the scroll from the bottom?
+# ¿Qué es el desplazamiento desde la parte inferior? 
 
-The `elem.scrollTop` property is the size of the scrolled out part from the top. How to get the size of the bottom scroll (let's call it `scrollBottom`)?
+La propiedad `elem.scrollTop` es el tamaño desplazado desde la parte superior. ¿Cómo obtener el tamaño de la parte inferior desplazada (vamos a llamarlo `scrollBottom`)?
 
-Write the code that works for an arbitrary `elem`.
+Escribe el código que funcione para un `elem` arbitrario.
 
-P.S. Please check your code: if there's no scroll or the element is fully scrolled down, then it should return `0`.
+P.S. Por favor revisa tu código: si no hay desplazamiento o el elemento está complemamente desplazado, debería retornar `0`.

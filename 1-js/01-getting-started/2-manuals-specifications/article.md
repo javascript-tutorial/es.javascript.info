@@ -17,16 +17,11 @@ Si estás desarrollando para navegadores web, se mencionan otras especificacione
 
 ## Manuales
 
-- **MDN (Mozilla) JavaScript Reference** es un manual con ejemplos y otras informaciones. Es fantástico para obtener información exhaustiva sobre funciones individuales del lenguaje, métodos, etc.
+- **MDN (Mozilla) JavaScript Reference** es el manual principal, con ejemplos y otras informaciones. Es fantástico para obtener información exhaustiva sobre funciones individuales del lenguaje, métodos, etc.
 
     Se puede acceder en <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference>.
 
-    Aunque a menudo es mejor hace una búsqueda en internet, adicionando "MDN [término]" como parte de la *query* en el motor de búsqueda, e.g. <https://google.com/search?q=MDN+parseInt> para buscar la función `parseInt`.
-
-
-- **MSDN** – Manual de Microsoft con mucha información, incluyendo JavaScript (a menudo denominado JScript). Si se necesita información específica de Internet Explorer, es el mejor lugar a consultar: <http://msdn.microsoft.com/>.
-
-    También podemos hacer una búsqueda con frases tales como "RegExp MSDN" o "RegExp MSDN jscript".
+Aunque a menudo es preferible una búsqueda en internet. Simplemente añade "MDN [término]" en la consulta, por ejemplo <https://google.com/search?q=MDN+parseInt> para buscar la función `parseInt`.
 
 ## Tablas de compatibilidad
 

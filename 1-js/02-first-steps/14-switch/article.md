@@ -2,7 +2,7 @@
 
 Una sentencia `switch` puede reemplazar múltiples condiciones `if`.
 
-Provee una mejor manera de comparar un valor con sus múltiples variantes.
+Provee una mejor manera de comparar un valor con múltiples variantes.
 
 ## La sintaxis
 
@@ -87,7 +87,7 @@ alert( 'Muy grande' );
 alert( "Desconozco estos valores" );
 ```
 
-````encabezado inteligente="Cualquier expresión puede ser un argumento `switch/case`"
+````smart header="Cualquier expresión puede ser un argumento `switch/case`"
 Ambos `switch` y `case` permiten expresiones arbitrarias.
 
 Por ejemplo:

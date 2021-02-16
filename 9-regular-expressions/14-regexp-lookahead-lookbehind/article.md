@@ -42,7 +42,7 @@ La sintaxis es: `pattern:X(?!Y)`, que significa "busca `pattern:X`, pero solo si
 ```js run
 let str = "2 pavos cuestan 60€";
 
-alert( str.match(/\d+(?!€)/) ); // 2 (el precio es omitido)
+alert( str.match(/\d+\b(?!€)/g) ); // 2 (el precio es omitido)
 ```
 
 ## Mirar atras
@@ -65,7 +65,7 @@ Y, si necesitamos la cantidad -- un número, no precedida por  `subject:$`,enton
 ```js run
 let str = "2 pavos cuestan $60";
 
-alert( str.match(/(?<!\$)\d+/) ); // 2 (precio omitido)
+alert( str.match(/(?<!\$)\b\d+/g) ); // 2 (el precio es omitido)
 ```
 
 ## Atrapando grupos

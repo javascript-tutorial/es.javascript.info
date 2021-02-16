@@ -1,63 +1,63 @@
-# JavaScript animations
+# Animaciones JavaScript
 
-JavaScript animations can handle things that CSS can't.
+Las animaciones de JavaScript pueden manejar cosas que CSS no puede.
 
-For instance, moving along a complex path, with a timing function different from Bezier curves, or an animation on a canvas.
+Por ejemplo, moverse a lo largo de una ruta compleja, con una función de sincronización diferente a las curvas de Bézier, o una animación en un canvas.
 
-## Using setInterval
+## Usando setInterval
 
-An animation can be implemented as a sequence of frames -- usually small changes to HTML/CSS properties.
+Una animación se puede implementar como una secuencia de frames, generalmente pequeños cambios en las propiedades de HTML/CSS.
 
-For instance, changing `style.left` from `0px` to `100px` moves the element. And if we increase it in `setInterval`, changing by `2px` with a tiny delay, like 50 times per second, then it looks smooth. That's the same principle as in the cinema: 24 frames per second is enough to make it look smooth.
+Por ejemplo, cambiar `style.left` de `0px` a `100px` mueve el elemento. Y si lo aumentamos en `setInterval`, cambiando en `2px` con un pequeño retraso, como 50 veces por segundo, entonces se ve suave. Ese es el mismo principio que en el cine: 24 frames por segundo son suficientes para que se vea suave.
 
-The pseudo-code can look like this:
+El pseudocódigo puede verse así:
 
 ```js
 let timer = setInterval(function() {
   if (animation complete) clearInterval(timer);
   else increase style.left by 2px
-}, 20); // change by 2px every 20ms, about 50 frames per second
+}, 20); // cambiar en 2px cada 20ms, aproximadamente 50 frames por segundo
 ```
 
-More complete example of the animation:
+Ejemplo más completo de la animación:
 
 ```js
-let start = Date.now(); // remember start time
+let start = Date.now(); // recordar la hora de inicio
 
 let timer = setInterval(function() {
-  // how much time passed from the start?
+  // ¿Cuánto tiempo pasó desde el principio?
   let timePassed = Date.now() - start;
 
   if (timePassed >= 2000) {
-    clearInterval(timer); // finish the animation after 2 seconds
+    clearInterval(timer); // terminar la animación después de 2 segundos
     return;
   }
 
-  // draw the animation at the moment timePassed
+  // dibujar la animación en el momento timePassed
   draw(timePassed);
 
 }, 20);
 
-// as timePassed goes from 0 to 2000
-// left gets values from 0px to 400px
+// mientras timePassed va de 0 a 2000
+// left obtiene valores de 0px a 400px
 function draw(timePassed) {
   train.style.left = timePassed / 5 + 'px';
 }
 ```
 
-Click for the demo:
+Haz clic para ver la demostración:
 
 [codetabs height=200 src="move"]
 
-## Using requestAnimationFrame
+## Usando requestAnimationFrame
 
-Let's imagine we have several animations running simultaneously.
+Imaginemos que tenemos varias animaciones ejecutándose simultáneamente.
 
-If we run them separately, then even though each one has `setInterval(..., 20)`, then the browser would have to repaint much more often than every `20ms`.
+Si las ejecutamos por separado, aunque cada una tenga `setInterval (..., 20)`, el navegador tendría que volver a pintar con mucha más frecuencia que cada `20ms`.
 
-That's because they have different starting time, so "every 20ms" differs between different animations. The intervals are not aligned. So we'll have several independent runs within `20ms`.
+Eso es porque tienen un tiempo de inicio diferente, por lo que "cada 20ms" difiere entre las diferentes animaciones. Los intervalos no están alineados. Así que tendremos varias ejecuciones independientes dentro de `20ms`.
 
-In other words, this:
+En otras palabras, esto:
 
 ```js
 setInterval(function() {
@@ -67,40 +67,40 @@ setInterval(function() {
 }, 20)
 ```
 
-...Is lighter than three independent calls:
+...Es más ligero que tres llamadas independientes:
 
 ```js
-setInterval(animate1, 20); // independent animations
-setInterval(animate2, 20); // in different places of the script
+setInterval(animate1, 20); // animaciones independientes
+setInterval(animate2, 20); // en diferentes lugares del script
 setInterval(animate3, 20);
 ```
 
-These several independent redraws should be grouped together, to make the redraw easier for the browser and hence load less CPU load and look smoother.
+Estos varios redibujos independientes deben agruparse para facilitar el redibujado al navegador y, por lo tanto, cargar menos CPU y verse más fluido.
 
-There's one more thing to keep in mind. Sometimes when CPU is overloaded, or there are other reasons to redraw less often (like when the browser tab is hidden), so we really shouldn't run it every `20ms`.
+Hay una cosa más a tener en cuenta. A veces, cuando el CPU está sobrecargado, o hay otras razones para volver a dibujar con menos frecuencia (como cuando la pestaña del navegador está oculta), no deberíamos ejecutarlo cada `20ms`.
 
-But how do we know about that in JavaScript? There's a specification [Animation timing](http://www.w3.org/TR/animation-timing/) that provides the function `requestAnimationFrame`. It addresses all these issues and even more.
+Pero, ¿cómo sabemos eso en JavaScript? Hay una especificación [Sincronización de animación](http://www.w3.org/TR/animation-timing/) que proporciona la función `requestAnimationFrame`. Aborda todos estos problemas y aún más.
 
-The syntax:
+La sintaxis:
 ```js
 let requestId = requestAnimationFrame(callback)
 ```
 
-That schedules the `callback` function to run in the closest time when the browser wants to do animation.
+Eso programa la función `callback` para que se ejecute en el tiempo más cercano cuando el navegador quiera hacer una animación.
 
-If we do changes in elements in `callback` then they will be grouped together with other `requestAnimationFrame` callbacks and with CSS animations. So there will be one geometry recalculation and repaint instead of many.
+Si hacemos cambios en los elementos dentro de `callback`, entonces se agruparán con otros callbacks de `requestAnimationFrame` y con animaciones CSS. Así que habrá un recálculo y repintado de geometría en lugar de muchos.
 
-The returned value `requestId` can be used to cancel the call:
+El valor devuelto `requestId` se puede utilizar para cancelar la llamada:
 ```js
-// cancel the scheduled execution of callback
+// cancelar la ejecución programada del callback
 cancelAnimationFrame(requestId);
 ```
 
-The `callback` gets one argument -- the time passed from the beginning of the page load in microseconds. This time can also be obtained by calling [performance.now()](mdn:api/Performance/now).
+El `callback` obtiene un argumento: el tiempo transcurrido desde el inicio de la carga de la página en microsegundos. Este tiempo también se puede obtener llamando a [performance.now()](https://developer.mozilla.org/es/docs/Web/API/Performance/now).
 
-Usually `callback` runs very soon, unless the CPU is overloaded or the laptop battery is almost discharged, or there's another reason.
+Por lo general, el `callback` se ejecuta muy pronto, a menos que el CPU esté sobrecargado o la batería de la laptop esté casi descargada, o haya otra razón.
 
-The code below shows the time between first 10 runs for `requestAnimationFrame`. Usually it's 10-20ms:
+El siguiente código muestra el tiempo entre las primeras 10 ejecuciones de `requestAnimationFrame`. Por lo general, son 10-20ms:
 
 ```html run height=40 refresh
 <script>
@@ -116,9 +116,9 @@ The code below shows the time between first 10 runs for `requestAnimationFrame`.
 </script>
 ```
 
-## Structured animation
+## Animación estructurada
 
-Now we can make a more universal animation function based on `requestAnimationFrame`:
+Ahora podemos hacer una función de animación más universal basada en `requestAnimationFrame`:
 
 ```js
 function animate({timing, draw, duration}) {
@@ -126,14 +126,14 @@ function animate({timing, draw, duration}) {
   let start = performance.now();
 
   requestAnimationFrame(function animate(time) {
-    // timeFraction goes from 0 to 1
+    // timeFraction va de 0 a 1
     let timeFraction = (time - start) / duration;
     if (timeFraction > 1) timeFraction = 1;
 
-    // calculate the current animation state
+    // calcular el estado actual de la animación
     let progress = timing(timeFraction)
 
-    draw(progress); // draw it
+    draw(progress); // dibujar
 
     if (timeFraction < 1) {
       requestAnimationFrame(animate);
@@ -143,15 +143,15 @@ function animate({timing, draw, duration}) {
 }
 ```
 
-Function `animate` accepts 3 parameters that essentially describes the animation:
+La función `animate` acepta 3 parámetros que básicamente describen la animación:
 
 `duration`
-: Total time of animation. Like, `1000`.
+: Tiempo total de animación. Como: `1000`.
 
 `timing(timeFraction)`
-: Timing function, like CSS-property `transition-timing-function` that gets the fraction of time that passed (`0` at start, `1` at the end) and returns the animation completion (like `y` on the Bezier curve).
+: Función de sincronización, como la propiedad CSS `transition-timing-function` que obtiene la fracción de tiempo que pasó (`0` al inicio, `1` al final) y devuelve la finalización de la animación (como `y` en la curva de Bézier).
 
-    For instance, a linear function means that the animation goes on uniformly with the same speed:
+    Por ejemplo, una función lineal significa que la animación continúa uniformemente con la misma velocidad:
 
     ```js
     function linear(timeFraction) {
@@ -159,33 +159,33 @@ Function `animate` accepts 3 parameters that essentially describes the animation
     }
     ```
 
-    It's graph:
+    Su gráfico:
     ![](linear.svg)
 
-    That's just like `transition-timing-function: linear`. There are more interesting variants shown below.
+    Eso es como `transition-timing-function: linear`. A continuación se muestran variantes más interesantes.
 
 `draw(progress)`
-: The function that takes the animation completion state and draws it. The value `progress=0` denotes the beginning animation state, and `progress=1` -- the end state.
+: La función que toma el estado de finalización de la animación y la dibuja. El valor `progress=0` denota el estado inicial de la animación y `progress=1` -- el estado final.
 
-    This is that function that actually draws out the animation.
+    Esta es la función que realmente dibuja la animación.
 
-    It can move the element:
+    Puede mover el elemento:
     ```js
     function draw(progress) {
       train.style.left = progress + 'px';
     }
     ```
 
-    ...Or do anything else, we can animate anything, in any way.
+    ...O hacer cualquier otra cosa, podemos animar cualquier cosa, de cualquier forma.
 
 
-Let's animate the element `width` from `0` to `100%` using our function.
+Vamos a animar el elemento `width` de `0` a `100%` usando nuestra función.
 
-Click on the element for the demo:
+Haz clic en el elemento de la demostración:
 
 [codetabs height=60 src="width"]
 
-The code for it:
+El código para ello:
 
 ```js
 animate({
@@ -199,19 +199,19 @@ animate({
 });
 ```
 
-Unlike CSS animation, we can make any timing function and any drawing function here. The timing function is not limited by Bezier curves. And `draw` can go beyond properties, create new elements for like fireworks animation or something.
+A diferencia de la animación CSS, aquí podemos hacer cualquier función de sincronización y cualquier función de dibujo. La función de sincronización no está limitada por las curvas de Bézier. Y `draw` puede ir más allá de las propiedades, crear nuevos elementos para la animación de fuegos artificiales o algo así.
 
-## Timing functions
+## Funciones de sincronización
 
-We saw the simplest, linear timing function above.
+Vimos arriba la función de sincronización lineal más simple.
 
-Let's see more of them. We'll try movement animations with different timing functions to see how they work.
+Veamos más de ellas. Intentaremos animaciones de movimiento con diferentes funciones de sincronización para ver cómo funcionan.
 
-### Power of n
+### Potencia de n
 
-If we want to speed up the animation, we can use `progress` in the power `n`.
+Si queremos acelerar la animación, podemos usar `progress` en la potencia `n`.
 
-For instance, a parabolic curve:
+Por ejemplo, una curva parabólica:
 
 ```js
 function quad(timeFraction) {
@@ -219,27 +219,27 @@ function quad(timeFraction) {
 }
 ```
 
-The graph:
+La gráfica:
 
 ![](quad.svg)
 
-See in action (click to activate):
+Velo en acción (haz clic para activar):
 
 [iframe height=40 src="quad" link]
 
-...Or the cubic curve or event greater `n`. Increasing the power makes it speed up faster.
+...O la curva cúbica o incluso mayor `n`. Aumentar la potencia hace que se acelere más rápido.
 
-Here's the graph for `progress` in the power `5`:
+Aquí está el gráfico de `progress` en la potencia `5`:
 
 ![](quint.svg)
 
-In action:
+En acción:
 
 [iframe height=40 src="quint" link]
 
-### The arc
+### El arco
 
-Function:
+Función:
 
 ```js
 function circ(timeFraction) {
@@ -247,19 +247,19 @@ function circ(timeFraction) {
 }
 ```
 
-The graph:
+La gráfica:
 
 ![](circ.svg)
 
 [iframe height=40 src="circ" link]
 
-### Back: bow shooting
+### Back: tiro con arco
 
-This function does the "bow shooting". First we "pull the bowstring", and then "shoot".
+Esta función realiza el "tiro con arco". Primero "tiramos de la cuerda del arco", y luego "disparamos".
 
-Unlike previous functions, it depends on an additional parameter `x`, the "elasticity coefficient". The distance of "bowstring pulling" is defined by it.
+A diferencia de las funciones anteriores, depende de un parámetro adicional `x`, el "coeficiente de elasticidad". La distancia de "tirar de la cuerda del arco" está definida por él.
 
-The code:
+El código:
 
 ```js
 function back(x, timeFraction) {
@@ -271,15 +271,15 @@ function back(x, timeFraction) {
 
 ![](back.svg)
 
-For animation we use it with a specific value of `x`. Example for `x = 1.5`:
+Para la animación lo usamos con un valor específico de `x`. Ejemplo de `x = 1.5`:
 
 [iframe height=40 src="back" link]
 
-### Bounce
+### Rebotar
 
-Imagine we are dropping a ball. It falls down, then bounces back a few times and stops.
+Imagina que dejamos caer una pelota. Se cae, luego rebota unas cuantas veces y se detiene.
 
-The `bounce` function does the same, but in the reverse order: "bouncing" starts immediately. It uses few special coefficients for that:
+La función `bounce` hace lo mismo, pero en orden inverso: el "rebote" comienza inmediatamente. Utiliza algunos coeficientes especiales para eso:
 
 ```js
 function bounce(timeFraction) {
@@ -291,13 +291,13 @@ function bounce(timeFraction) {
 }
 ```
 
-In action:
+En acción:
 
 [iframe height=40 src="bounce" link]
 
-### Elastic animation
+### Animación elástica
 
-One more "elastic" function that accepts an additional parameter `x` for the "initial range".
+Una función "elástica" más que acepta un parámetro adicional `x` para el "rango inicial".
 
 ```js
 function elastic(x, timeFraction) {
@@ -305,31 +305,31 @@ function elastic(x, timeFraction) {
 }
 ```
 
-**The graph for `x=1.5`:**
+**La gráfica para `x=1.5`:**
 ![](elastic.svg)
 
-In action for `x=1.5`:
+En acción para `x=1.5`:
 
 [iframe height=40 src="elastic" link]
 
-## Reversal: ease*
+## Inversión: ease*
 
-So we have a collection of timing functions. Their direct application is called "easeIn".
+Entonces tenemos una colección de funciones de sincronización. Su aplicación directa se llama "easyIn".
 
-Sometimes we need to show the animation in the reverse order. That's done with the "easeOut" transform.
+A veces necesitamos mostrar la animación en orden inverso. Eso se hace con la transformación "easyOut".
 
 ### easeOut
 
-In the "easeOut" mode the `timing` function is put into a wrapper `timingEaseOut`:
+En el modo "easyOut", la función `de sincronización` se coloca en un wrapper `timingEaseOut`:
 
 ```js
 timingEaseOut(timeFraction) = 1 - timing(1 - timeFraction)
 ```
 
-In other words, we have a "transform" function `makeEaseOut` that takes a "regular" timing function and returns the wrapper around it:
+En otras palabras, tenemos una función de "transformación" `makeEaseOut` que toma una función de sincronización "regular" y devuelve el wrapper envolviendola:
 
 ```js
-// accepts a timing function, returns the transformed variant
+// acepta una función de sincronización, devuelve la variante transformada
 function makeEaseOut(timing) {
   return function(timeFraction) {
     return 1 - timing(1 - timeFraction);
@@ -337,42 +337,42 @@ function makeEaseOut(timing) {
 }
 ```
 
-For instance, we can take the `bounce` function described above and apply it:
+Por ejemplo, podemos tomar la función `bounce` descrita anteriormente y aplicarla:
 
 ```js
 let bounceEaseOut = makeEaseOut(bounce);
 ```
 
-Then the bounce will be not in the beginning, but at the end of the animation. Looks even better:
+Entonces el rebote no estará al principio, sino al final de la animación. Se ve aún mejor:
 
 [codetabs src="bounce-easeout"]
 
-Here we can see how the transform changes the behavior of the function:
+Aquí podemos ver cómo la transformación cambia el comportamiento de la función:
 
 ![](bounce-inout.svg)
 
-If there's an animation effect in the beginning, like bouncing -- it will be shown at the end.
+Si hay un efecto de animación al principio, como rebotar, se mostrará al final.
 
-In the graph above the <span style="color:#EE6B47">regular bounce</span> has the red color, and the <span style="color:#62C0DC">easeOut bounce</span> is blue.
+En el gráfico anterior, el <span style="color:#EE6B47">rebote regular</span> tiene el color rojo y el <span style="color:#62C0DC">rebote easyOut</span> es azul.
 
-- Regular bounce -- the object bounces at the bottom, then at the end sharply jumps to the top.
-- After `easeOut` -- it first jumps to the top, then bounces there.
+- Rebote regular: el objeto rebota en la parte inferior y luego, al final, salta bruscamente hacia la parte superior.
+- Después de `easyOut` -- primero salta a la parte superior, luego rebota allí.
 
 ### easeInOut
 
-We also can show the effect both in the beginning and the end of the animation. The transform is called "easeInOut".
+También podemos mostrar el efecto tanto al principio como al final de la animación. La transformación se llama "easyInOut".
 
-Given the timing function, we calculate the animation state like this:
+Dada la función de tiempo, calculamos el estado de la animación de la siguiente manera:
 
 ```js
-if (timeFraction <= 0.5) { // first half of the animation
+if (timeFraction <= 0.5) { // primera mitad de la animación
   return timing(2 * timeFraction) / 2;
-} else { // second half of the animation
+} else { // segunda mitad de la animación
   return (2 - timing(2 * (1 - timeFraction))) / 2;
 }
 ```
 
-The wrapper code:
+El código wrapper:
 
 ```js
 function makeEaseInOut(timing) {
@@ -387,37 +387,37 @@ function makeEaseInOut(timing) {
 bounceEaseInOut = makeEaseInOut(bounce);
 ```
 
-In action, `bounceEaseInOut`:
+En acción, `bounceEaseInOut`:
 
 [codetabs src="bounce-easeinout"]
 
-The "easeInOut" transform joins two graphs into one: `easeIn` (regular) for the first half of the animation and `easeOut` (reversed) -- for the second part.
+La transformación "easyInOut" une dos gráficos en uno: `easyIn` (regular) para la primera mitad de la animación y `easyOut` (invertido) -- para la segunda parte.
 
-The effect is clearly seen if we compare the graphs of `easeIn`, `easeOut` and `easeInOut` of the `circ` timing function:
+El efecto se ve claramente si comparamos las gráficas de `easyIn`, `easyOut` y `easyInOut` de la función de sincronización `circ`:
 
 ![](circ-ease.svg)
 
-- <span style="color:#EE6B47">Red</span> is the regular variantof `circ` (`easeIn`).
-- <span style="color:#8DB173">Green</span> -- `easeOut`.
-- <span style="color:#62C0DC">Blue</span> -- `easeInOut`.
+- <span style="color:#EE6B47">Rojo</span> es la variante regular de `circ` (`easeIn`).
+- <span style="color:#8DB173">Verde</span> -- `easeOut`.
+- <span style="color:#62C0DC">Azul</span> -- `easeInOut`.
 
-As we can see, the graph of the first half of the animation is the scaled down `easeIn`, and the second half is the scaled down `easeOut`. As a result, the animation starts and finishes with the same effect.
+Como podemos ver, el gráfico de la primera mitad de la animación es el `easyIn` reducido y la segunda mitad es el `easyOut` reducido. Como resultado, la animación comienza y termina con el mismo efecto.
 
-## More interesting "draw"
+## "Dibujar" más interesante
 
-Instead of moving the element we can do something else. All we need is to write the write the proper `draw`.
+En lugar de mover el elemento podemos hacer otra cosa. Todo lo que necesitamos es escribir la función `draw` adecuada.
 
-Here's the animated "bouncing" text typing:
+Aquí está la escritura de texto animada "rebotando":
 
 [codetabs src="text"]
 
-## Summary
+## Resumen
 
-For animations that CSS can't handle well, or those that need tight control, JavaScript can help. JavaScript animations should be implemented via `requestAnimationFrame`. That built-in method allows to setup a callback function to run when the browser will be preparing a repaint. Usually that's very soon, but the exact time depends on the browser.
+Para animaciones que CSS no puede manejar bien, o aquellas que necesitan un control estricto, JavaScript puede ayudar. Las animaciones de JavaScript deben implementarse a través de `requestAnimationFrame`. Ese método integrado permite configurar una función callback para que se ejecute cuando el navegador esté preparando un repintado. Por lo general, es muy pronto, pero el tiempo exacto depende del navegador.
 
-When a page is in the background, there are no repaints at all, so the callback won't run: the animation will be suspended and won't consume resources. That's great.
+Cuando una página está en segundo plano, no se repinta en absoluto, por lo que el callback no se ejecutará: la animación se suspenderá y no consumirá recursos. Eso es genial.
 
-Here's the helper `animate` function to setup most animations:
+Aquí está la función auxiliar `animate` para configurar la mayoría de las animaciones:
 
 ```js
 function animate({timing, draw, duration}) {
@@ -425,14 +425,14 @@ function animate({timing, draw, duration}) {
   let start = performance.now();
 
   requestAnimationFrame(function animate(time) {
-    // timeFraction goes from 0 to 1
+    // timeFraction va de 0 a 1
     let timeFraction = (time - start) / duration;
     if (timeFraction > 1) timeFraction = 1;
 
-    // calculate the current animation state
+    // calcular el estado actual de la animación
     let progress = timing(timeFraction);
 
-    draw(progress); // draw it
+    draw(progress); // dibujar
 
     if (timeFraction < 1) {
       requestAnimationFrame(animate);
@@ -442,14 +442,14 @@ function animate({timing, draw, duration}) {
 }
 ```
 
-Options:
+Opciones:
 
-- `duration` -- the total animation time in ms.
-- `timing` -- the function to calculate animation progress. Gets a time fraction from 0 to 1, returns the animation progress, usually from 0 to 1.
-- `draw` -- the function to draw the animation.
+- `duration` -- el tiempo total de animación en ms.
+- `timing` -- la función para calcular el progreso de la animación. Obtiene una fracción de tiempo de 0 a 1, devuelve el progreso de la animación, generalmente de 0 a 1.
+- `draw` -- la función para dibujar la animación.
 
-Surely we could improve it, add more bells and whistles, but JavaScript animations are not applied on a daily basis. They are used to do something interesting and non-standard. So you'd want to add the features that you need when you need them.
+Seguramente podríamos mejorarlo, agregar más campanas y silbidos, pero las animaciones de JavaScript no se aplican a diario. Se utilizan para hacer algo interesante y no estándar. Por lo tanto, querrás agregar las funciones que necesitas cuando las necesites.
 
-JavaScript animations can use any timing function. We covered a lot of examples and transformations to make them even more versatile. Unlike CSS, we are not limited to Bezier curves here.
+Las animaciones JavaScript pueden utilizar cualquier función de sincronización. Cubrimos muchos ejemplos y transformaciones para hacerlos aún más versátiles. A diferencia de CSS, aquí no estamos limitados a las curvas de Bézier.
 
-The same is about `draw`: we can animate anything, not just CSS properties.
+Lo mismo ocurre con `draw`: podemos animar cualquier cosa, no solo propiedades CSS.

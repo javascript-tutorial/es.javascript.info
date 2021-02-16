@@ -69,6 +69,7 @@ Intentémoslo:
 
 ```js run
 let john = { name: "John" };
+let ben = { name: "Ben" };
 
 let visitsCountObj = {}; // intenta usar un objeto
 

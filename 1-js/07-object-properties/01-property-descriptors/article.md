@@ -19,7 +19,7 @@ Aun no los vemos, porque generalmente no se muestran. Cuando creamos una propied
 
 Primero, veamos como conseguir estos indicadores.
 
-El método [Object.getOwnPropertyDescriptor](mdn:js/Object/getOwnPropertyDescriptor) permite consultar *toda* la información sobre una propiedad.
+El método [Object.getOwnPropertyDescriptor](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/getOwnPropertyDescriptor) permite consultar *toda* la información sobre una propiedad.
 
 La sintaxis es ésta:
 ```js
@@ -54,7 +54,7 @@ alert( JSON.stringify(descriptor, null, 2 ) );
 */
 ```
 
-Para cambiar los indicadores, podemos usar [Object.defineProperty](mdn:js/Object/defineProperty).
+Para cambiar los indicadores, podemos usar [Object.defineProperty](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/defineProperty).
 
 La sintaxis es ésta:
 
@@ -222,41 +222,51 @@ Math.PI = 3; // Error
 Convertir una propiedad en no configurable es hacer una calle de una vía. No podremos cambiarla de vuelta, porque `defineProperty` no funciona en propiedades no configurables.
 
 Para ser precisos, la no configurabilidad impone varias restricciones a `defineProperty`:
-- 1. No se puede cambiar el indicador `configurable`.
-- 2. No se puede cambiar el indicador `enumerable`.
-- 3. No se puede cambiar `writable: false` a `true` (al revés funciona).
-- 4. No se puede cambiar `get/set` por una propiedad accesoria (pero puede asignarlos si está ausente).
+1. No se puede cambiar el indicador `configurable`.
+2. No se puede cambiar el indicador `enumerable`.
+3. No se puede cambiar `writable: false` a `true` (al revés funciona).
+4. No se puede cambiar `get/set` por una propiedad accesoria (pero puede asignarlos si está ausente).
 
-Aquí estamos haciendo `user.name` una constante "sellada por siempre":
+**La idea de "configurable: false" es prevenir cambios en los indicadores de la propiedad y su eliminación mientras que permite el cambio de su valor.**
+
+Aquí `user.name` es "non-configurable", pero aún puede cambiarse (por ser "writable"):
 
 ```js run
-let user = { };
+let user = {
+  name: "John"
+};
 
 Object.defineProperty(user, "name", {
-  value: "Juan",
+  configurable: false
+});
+
+user.name = "Pete"; // funciona
+delete user.name; // Error
+```
+
+Y aquí hacemos `user.name` una constante "sellada para siempre":
+
+```js run
+let user = {
+  name: "John"
+};
+
+Object.defineProperty(user, "name", {
   writable: false,
   configurable: false
 });
 
-*!*
-// No seremos capaces de cambiar usuario.nombre o su identificador
+// No seremos capaces de cambiar usuario.nombre o sus identificadores
 // Nada de esto funcionará:
-//   user.name = "Pedro"
-//   delete user.name
-//   defineProperty(user, "name", { value: "Pete" })
-Object.defineProperty(user, "name", {writable: true}); // Error
-*/!*
+user.name = "Pedro";
+delete user.name;
+Object.defineProperty(user, "name", { value: "Pedro" });
 ```
 
-```smart header="\"Non-configurable\" no significa \"non-writable\""
-Excepción notable: un valor de propiedad no-configurable pero writable puede ser cambiado.
-
-La idea de `configurable: false` is para evitar cambios a los indicadores de propiedad y su borrado, no cambios a su valor.
-```
 
 ## Object.defineProperties
 
-Hay un método [Object.defineProperties(obj, descriptors)](mdn:js/Object/defineProperties) que permite definir varias propiedades de una sola vez.
+Hay un método [Object.defineProperties(obj, descriptors)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/defineProperties) que permite definir varias propiedades de una sola vez.
 
 La sintaxis es esta:
 
@@ -282,7 +292,7 @@ Entonces, podemos asignar varias propiedades al mismo tiempo.
 
 ## Object.getOwnPropertyDescriptors
 
-Para obtener todos los descriptores al mismo tiempo, podemos usar el método [Object.getOwnPropertyDescriptors(obj)](mdn:js/Object/getOwnPropertyDescriptors).
+Para obtener todos los descriptores al mismo tiempo, podemos usar el método [Object.getOwnPropertyDescriptors(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/getOwnPropertyDescriptors).
 
 Junto con `Object.defineProperties` puede ser usado como una forma de "indicadores-conscientes" al clonar un objeto:
 
@@ -308,25 +318,25 @@ Los descriptores de propiedad trabajan al nivel de propiedades individuales.
 
 También hay métodos que limitan el acceso al objeto *completo*:
 
-[Object.preventExtensions(obj)](mdn:js/Object/preventExtensions)
+[Object.preventExtensions(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/preventExtensions)
 
 : Prohíbe añadir propiedades al objeto.
 
-[Object.seal(obj)](mdn:js/Object/seal)
+[Object.seal(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/seal)
 : Prohíbe añadir/eliminar propiedades, establece todas las propiedades existentes como `configurable: false`.
 
-[Object.freeze(obj)](mdn:js/Object/freeze)
+[Object.freeze(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/freeze)
 : Prohíbe añadir/eliminar/cambiar propiedades, establece todas las propiedades existentes como `configurable: false, writable: false`.
 
 Y también hay pruebas para ellos:
 
-[Object.isExtensible(obj)](mdn:js/Object/isExtensible)
+[Object.isExtensible(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/isExtensible)
 : Devuelve `false` si esta prohibido añadir propiedades, si no `true`.
 
-[Object.isSealed(obj)](mdn:js/Object/isSealed)
+[Object.isSealed(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/isSealed)
 : Devuelve `true` si añadir/eliminar propiedades está prohibido, y todas las propiedades existentes tienen `configurable: false`.
 
-[Object.isFrozen(obj)](mdn:js/Object/isFrozen)
+[Object.isFrozen(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/isFrozen)
 : Devuelve `true` si añadir/eliminar/cambiar propiedades está prohibido, y todas las propiedades son `configurable: false, writable: false`.
 
 Estos métodos son usados rara vez en la práctica.

@@ -350,7 +350,7 @@ let arr = [1, 2, 3, 4, 5];
 arr.length = 2; // truncamos a 2 elementos
 alert( arr ); // [1, 2]
 
-arr.length = 5; // reponemos la longitud length 
+arr.length = 5; // reponemos la longitud length
 alert( arr[3] ); // undefined: el valor no se recupera
 ```
 
@@ -429,6 +429,53 @@ alert( "1" + 1 ); // "11"
 alert( "1,2" + 1 ); // "1,21"
 ```
 
+## No compares arrays con ==
+
+Las arrays en JavaScript, a diferencia de otros lenguajes de programación, no deben ser comparadas con el operador `==`.
+
+Este operador no tiene un tratamiento especial para arrays, trabaja con ellas como con cualquier objeto.
+
+Recordemos las reglas:
+
+- Dos objetos son iguales `==` solo si hacen referencia al mismo objeto.
+- Si uno de los argumentos de `==` es un objeto y el otro es un primitivo, entonces el objeto se convierte en primitivo, como se explica en el capítulo <info:object-toprimitive>.
+- ...Con la excepción de `null` y `undefined` que son iguales `==` entre sí y nada más.
+
+La comparación estricta `===` es aún más simple, ya que no convierte tipos.
+
+Entonces, si comparamos arrays con `==`, nunca son iguales, a no ser que comparemos dos variables que hacen referencia exactamente a la misma array.
+
+Por ejemplo:
+```js run
+alert( [] == [] ); // falso
+alert( [0] == [0] ); // falso
+```
+
+Estas arrays son técnicamente objetos diferentes. Así que no son iguales. El operador `==` no hace comparaciones de elemento a elemento.
+
+Comparaciones con primitivos también pueden dar resultados aparentemente extraños:
+
+```js run
+alert( 0 == [] ); // verdadero
+
+alert('0' == [] ); // falso
+```
+
+Aquí, en ambos casos, comparamos un primitivo con un objeto array. Entonces la array `[]` se convierte a primitivo para el propósito de comparar y se convierte en una string vacía `''`.
+
+Luego el proceso de comparación continúa con los primitivos, como se describe en el capítulo <info:type-conversions>:
+
+```js run
+// después de que [] se convierta en ''
+alert( 0 == '' ); // verdadero, ya que '' se convierte en el número 0
+
+alert('0' == '' ); // falso, sin conversión de tipos, strings diferentes
+```
+
+Entonces, ¿cómo comparamos arrays?
+
+Simple: no utilices el operador `==`. En lugar, compáralas elemento a elemento en un bucle o utilizando métodos de iteración explicados en el siguiente capítulo.
+
 ## Resumen
 
 Los arrays son una clase especial de objeto, adecuados para almacenar y manejar items de datos ordenados.
@@ -459,5 +506,9 @@ Para iterar sobre los elementos de un array:
   - `for (let i=0; i<arr.length; i++)` -- lo más rápido, compatible con viejos navegadores.
   - `for (let item of arr)` -- la sintaxis moderna para items solamente.
   - `for (let i in arr)` -- nunca lo uses.
+
+Para comparar arrays, no uses el operador `==` (como tampoco `>`, `<` y otros), ya que no tienen un tratamiento especial para arrays. Lo manejan como cualquier objeto y no es lo que normalmente queremos.
+
+En su lugar puedes utilizar el bucle `for..of` para comparar arrays elemento a elemento.
 
 Volveremos a los arrays y estudiaremos más métodos para agregar, quitar, extraer elementos y ordenar arrays en el capítulo <info:array-methods>.

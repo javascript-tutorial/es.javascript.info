@@ -2,11 +2,14 @@
 
 Las dos estructuras de datos más usadas en JavaScript son `Objetos` y `Array`.
 
-Los objetos nos permiten crear una entidad individual que almacena elementos de información por propiedad, y los arrays nos permiten reunir elementos de información en una colección ordenada.
+- Los objetos nos permiten crear una entidad individual que almacena elementos de información con una clave.
+- los arrays nos permiten reunir elementos de información en una colección ordenada.
 
 Pero cuando pasamos estos a una función, tal vez no necesite un objeto/array como un conjunto, sino más bien piezas individuales.
 
-*Asignación Desestructurante* es una sintaxis especial que nos permite "vaciar" arrays u objetos en varias variables, ya que esto a veces es más conveniente. La desestructuración también funciona bien con funciones complejas que tienen muchos argumentos, valores por defecto, etcétera.
+La *asignación desestructurante* es una sintaxis especial que nos permite "desempaquetar" arrays u objetos en varias variables, ya que esto a veces es más conveniente. 
+
+La desestructuración también funciona bien con funciones complejas que tienen muchos argumentos, valores por defecto, etcétera. Pronto lo veremos.
 
 ## Desestructuración  de Arrays
 
@@ -14,7 +17,7 @@ Un ejemplo de cómo el array es desestructurado en variables:
 
 ```js
 // tenemos un array con el nombre y apellido
-let arr = ["Ilya", "Kantor"]
+let arr = ["John", "Smith"]
 
 *!*
 // asignación desestructurante
@@ -23,17 +26,21 @@ let arr = ["Ilya", "Kantor"]
 let [firstName, surname] = arr;
 */!*
 
-alert(firstName); // Ilya
-alert(surname);  // Kantor
+alert(firstName); // John
+alert(surname);  // Smith
 ```
 
 Ahora podemos trabajar con variables en lugar de miembros de array.
 
 Se ve genial cuando se combina con `split` u otro método que devuelva un array:
 
-```js
-let [firstName, surname] = "Ilya Kantor".split(' ');
+```js run
+let [firstName, surname] = "John Smith".split(' ');
+alert(firstName); // John
+alert(surname);  // Smith
 ```
+
+Como puedes ver, la sintaxis es simple. Aunque hay varios detalles peculiares. Veamos más ejemplos para entenderlo mejor.
 
 ````smart header="\"Desestructuración\" no significa \"destructivo\"."
 Se llama "asignación desestructurante," porque "desestructura" al copiar elementos dentro de variables. Pero el array en sí no es modificado.
@@ -69,27 +76,26 @@ En el código de arriba, el segundo elemento del array es omitido, el tercero es
 let [a, b, c] = "abc"; // ["a", "b", "c"]
 let [one, two, three] = new Set([1, 2, 3]);
 ```
-
+Esto funciona porque internamente una desestruración trabaja actuando sobre el valor de la derecha. Es una clase de azúcar sintáctica de llamar `for..of` sobre el valor a la derecha el `=` y asignando los valores.
 ````
 
 
 ````smart header="Asignar a cualquier cosa en el lado izquierdo"
-
 Podemos usar cualquier "asignable" en el lado izquierdo.
 
 Por ejemplo, una propiedad de objeto:
 ```js run
 let user = {};
-[user.name, user.surname] = "Ilya Kantor".split(' ');
+[user.name, user.surname] = "John Smith".split(' ');
 
-alert(user.name); // Ilya
+alert(user.name); // John
+alert(user.surname); // Smith
 ```
 
 ````
 
 ````smart header="Bucle con .entries()"
-
-En el capítulo anterior vimos el método [Object.entries(obj)](mdn:js/Object/entries).
+En el capítulo anterior vimos el método [Object.entries(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/entries).
 
 Podemos usarlo con la desestructuración para recorrer propiedades-y-valores de un objeto:
 
@@ -107,43 +113,76 @@ for (let [key, value] of Object.entries(user)) {
 }
 ```
 
-...Y lo mismo para map:
-
-```js run
-let user = new Map();
-user.set("name", "John");
 user.set("age", "30");
 
 *!*
+// Map itera como pares [key, value], muy conveniente para desestructurar
 for (let [key, value] of user) {
 */!*
   alert(`${key}:${value}`); // name:John, luego age:30
 }
 ```
 ````
+
+````smart header="Truco para intercambiar variables"
+Hay un conocido truco para intercambiar los valores de dos variables usando asignación desestructurante:
+
+```js run
+let guest = "Jane";
+let admin = "Pete";
+
+// Intercambiemos valores: hagamos guest=Pete, admin=Jane
+*!*
+[guest, admin] = [admin, guest];
+*/!*
+
+alert(`${guest} ${admin}`); // Pete Jane (¡intercambiados con éxito!)
+```
+
+Aquí creamos un array temporal de dos variables e inmediatamente lo desestructuramos con orden cambiado.
+
+Podemos intercambiar más que dos variables de este modo.
+````
+
 ### El resto '...'
 
-Si queremos no sólo obtener los primeros valores, pero también reunir todo lo que sigue -- podemos agregar un argumento más que obtiene "el resto" utilizando tres puntos `"..."`:
+Usualmente, si el array es mayor que la lista de la izquierda, los items extras son omitidos.
+
+Por ejemplo, aquí solo dos items son tomados, el resto simplemente es ignorado:
+
+```js run
+let [name1, name2] = ["Julius", "Caesar", "Consul", "of the Roman Republic"];
+
+alert(name1); // Julius
+alert(name2); // Caesar
+// items posteriores no serán asignados a ningún lugar
+```
+
+si queremos tambien obtener todo lo que sigue, podemos agregarle un parámetro que obtiene "el resto" usando puntos suspensivos "..."`:
 
 ```js run
 let [name1, name2, *!*...rest*/!*] = ["Julius", "Caesar", *!*"Consul", "of the Roman Republic"*/!*];
 
-alert(name1); // Julius
-alert(name2); // Caesar
-
 *!*
-// Notar que el tipo de `rest` es Array.
-alert(resto[0]); // Consul
-alert(resto[1]); // of the Roman Republic
+// `rest` es un array de items, comenzando en este caso por el tercero.
+alert(rest[0]); // Consul
+alert(rest[1]); // of the Roman Republic
 alert(rest.length); // 2
 */!*
 ```
 
-El valor de `rest` es un array de los elementos restantes. Podemos usar cualquier otro nombre de variable en lugar de `rest`, sólo hay que asegurar que tenga tres puntos que lo antecedan y que esté último en la asignación desestructurante.
+El valor de `rest` es un array de los elementos restantes. 
+
+Podemos usar cualquier otro nombre de variable en lugar de `rest`, sólo hay que asegurar que tenga tres puntos que lo antecedan y que esté último en la asignación desestructurante.
+
+```js run
+let [name1, name2, *!*...titles*/!*] = ["Julius", "Caesar", "Consul", "of the Roman Republic"];
+// ahora titles = ["Consul", "of the Roman Republic"]
+```
 
 ### Valores predeterminados
 
-Si hay menor cantidad de valores en el array que variables en la asignación, no habrá error. Valor ausentes son considerados undefined:
+Si el array es más corto que la lista de variables a la izquierda, no habrá error. Valores ausentes son considerados undefined:
 
 ```js run
 *!*
@@ -168,7 +207,7 @@ alert(surname); // Anonymous (predeterminado utilizado)
 
 Los valores predeterminados pueden ser más complejos o incluso llamadas de función. Son evaluados sólo si el valor no ha sido proporcionado.
 
-Por ejemplo, aquí utilizamos la función `prompt` para dos valores predeterminados. Pero sólo se ejecutará para el valor faltante:
+Por ejemplo, aquí utilizamos la función `prompt` para dos valores predeterminados.
 
 ```js run
 // sólo ejecuta la captura para surname
@@ -178,7 +217,7 @@ alert(name);    // Julius (desde array)
 alert(surname); // lo que reciba la captura
 ```
 
-
+Ten en cuenta: el `prompt` funcionará solamente para el valor faltante (`surname`).
 
 ## Desestructuración de Objeto
 
@@ -210,7 +249,9 @@ alert(width);  // 100
 alert(height); // 200
 ```
 
-Las propiedades `options.title`, `options.width` y `options.height` son asignadas a las variables correspondientes. El órden no importa. Esto también funciona:
+Las propiedades `options.title`, `options.width` y `options.height` son asignadas a las variables correspondientes. 
+
+El órden no importa. Esto también funciona:
 
 ```js
 // cambiado el órden en let {...}
@@ -219,7 +260,7 @@ let {height, width, title} = { title: "Menu", height: 200, width: 100 }
 
 El patrón de la izquierda puede ser más complejo y especificar el mapeo entre propiedades y variables.
 
-Si queremos asignar una propiedad a una variable con otro nombre, por ejemplo, `options.width` que vaya en la variable llamada `w`, entonces la podemos fijar usando dos puntos:
+Si queremos asignar una propiedad a una variable con otro nombre, por ejemplo que `options.width` vaya en la variable llamada `w`, lo podemos establecer usando dos puntos:
 
 ```js run
 let options = {

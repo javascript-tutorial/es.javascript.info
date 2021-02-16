@@ -276,6 +276,7 @@ name:         John
 name:         Alice
 place:        [object Object]
 number:       23
+occupiedBy: [object Object]
 */
 ```
 
@@ -327,6 +328,8 @@ alert(JSON.stringify(user, null, 2));
 }
 */
 ```
+
+El tercer argumento puede ser también string. En ese caso el string será usado como indentación en lugar de un número de espacios.
 
 El argumento `space` es utilizado únicamente para propósitos de registro y agradable impresión.
 
@@ -398,7 +401,7 @@ Como podemos ver, `toJSON` es utilizado para ambos el llamado directo  `JSON.str
 
 ## JSON.parse
 
-Para decodificar un string JSON, necesitamos otro método llamado [JSON.parse](mdn:js/JSON/parse).
+Para decodificar un string JSON, necesitamos otro método llamado [JSON.parse](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/JSON/parse).
 
 La sintaxis:
 ```js
@@ -522,6 +525,6 @@ alert( schedule.meetups[1].date.getDate() ); // ¡Funciona!
 
 - JSON es un formato de datos que tiene su propio estándar independiente y librerías para la mayoría de los lenguajes de programación.
 - JSON admite objetos simples, arrays, strings, números, booleanos y `null`.
-- JavaScript proporciona métodos [JSON.stringify](mdn:js/JSON/stringify) para serializar en JSON y [JSON.parse](mdn: js/JSON/parse) para leer desde JSON.
+- JavaScript proporciona métodos [JSON.stringify](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/JSON/stringify) para serializar en JSON y [JSON.parse](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse) para leer desde JSON.
 - Ambos métodos admiten funciones transformadoras para lectura / escritura inteligente.
 - Si un objeto tiene `toJSON`, entonces es llamado por` JSON.stringify`.

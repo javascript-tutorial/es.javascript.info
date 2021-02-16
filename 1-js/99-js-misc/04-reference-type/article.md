@@ -93,7 +93,7 @@ Tipo de Referencia es un tipo interno de "intermediario", con el propósito de p
 
 Cualquier otra operación como la asignación `hi = user.hi` descarta el tipo de referencia como un todo, toma el valor de `user.hi` (una función) y lo pasa. Entonces cualquier operación "pierde" `this`.
 
-Entonces, como resultado, el valor de `this` solo se pasa de la manera correcta si la función se llama directamente usando una sintaxis de punto `obj.method()` o corchetes `obj['method']()` (aquí hacen lo mismo). Más adelante en este tutorial, aprenderemos varias formas de resolver este problema así como [func.bind()](/bind#solution-2-bind).
+Entonces, como resultado, el valor de `this` solo se pasa de la manera correcta si la función se llama directamente usando una sintaxis de punto `obj.method()` o corchetes `obj['method']()` (aquí hacen lo mismo). Hay varias formas de resolver este problema, como [func.bind()](/bind#solution-2-bind).
 
 ## Resumen
 

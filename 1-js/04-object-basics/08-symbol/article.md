@@ -107,7 +107,7 @@ No habrá conflicto porque los Symbols siempre son diferentes, incluso si tienen
 
 Ahora ten en cuenta que si utilizamos un string `"id"` en lugar de un Symbol para el mismo propósito, entonces SÍ *habría* un conflicto:
 
-```js run
+```js
 let user = { name: "John" };
 
 // Nuestro script usa la clave "id" 
@@ -161,7 +161,7 @@ alert( "Direct: " + user[id] );
 
 Esto forma parte del concepto general de "ocultamiento". Si otro script o si otra librería itera el objeto este no accesará a la  clave de Symbol.
 
-En contraste, [Object.assign](mdn:js/Object/assign) copia las claves tanto del string como las del symbol:
+En contraste, [Object.assign](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/assign) copia las claves tanto del string como las del symbol:
 
 ```js run
 let id = Symbol("id");
@@ -274,4 +274,4 @@ Symbols se utilizan principalmente en dos casos:
 
 2. Existen diversos symbols del sistema que utiliza Javascript, a los cuales podemos accesar por medio de `Symbol.*`. Podemos usarlos para alterar algunos comportamientos. Por ejemplo, más adelante en el tutorial, usaremos `Symbol.iterator` para [iterables](info:iterable), `Symbol.toPrimitive` para configurar [object-to-primitive conversion](info:object-toprimitive).
 
-Técnicamente, los symbols no están 100% ocultos. Existe un método incorporado [Object.getOwnPropertySymbols(obj)](mdn:js/Object/getOwnPropertySymbols) que nos permite obtener todos los symbols. También existe un método llamado [Reflect.ownKeys(obj)](mdn:js/Reflect/ownKeys) que devuelve *todas* las claves de un objeto, incluyendo las que son de tipo symbol. Por lo tanto, no están realmente ocultos, aunque la mayoría de las librerías, los métodos incorporados y las construcciones de sintaxis se adhieren a un acuerdo común de  que sí lo están. Y el que explícitamente llama a los métodos antes mencionados probablemente entiende bien lo que está haciendo.
+Técnicamente, los symbols no están 100% ocultos. Existe un método incorporado [Object.getOwnPropertySymbols(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/getOwnPropertySymbols) que nos permite obtener todos los symbols. También existe un método llamado [Reflect.ownKeys(obj)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/ownKeys) que devuelve *todas* las claves de un objeto, incluyendo las que son de tipo symbol. Por lo tanto, no están realmente ocultos, aunque la mayoría de las librerías, los métodos incorporados y las construcciones de sintaxis se adhieren a un acuerdo común de  que sí lo están. Y el que explícitamente llama a los métodos antes mencionados probablemente entiende bien lo que está haciendo.

@@ -3,7 +3,7 @@ libs:
 
 ---
 
-# Función binding (vinculadora)
+# Función bind: vinculación de funciones
 
 
 Al pasar métodos de objeto como devoluciones de llamada, por ejemplo a `setTimeout`, se genera un problema conocido: "pérdida de `this`".
@@ -102,7 +102,7 @@ La siguiente solución garantiza que tal cosa no sucederá.
 
 ## Solución 2: bind
 
-Las funciones proporcionan un método incorporado [bind](mdn:js/Function/bind) que permite encontrar a `this`.
+Las funciones proporcionan un método incorporado [bind](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Function/bind) que permite encontrar a `this`.
 
 La sintaxis básica es:
 

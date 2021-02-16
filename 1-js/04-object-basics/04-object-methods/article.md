@@ -34,7 +34,7 @@ user.sayHi(); // ¡Hola!
 
 Aquí simplemente usamos una expresión de función para crear la función y asignarla a la propiedad `user.sayHi` del objeto.
 
-Entonces la llamamos. ¡El usuario ahora puede hablar!
+Entonces la llamamos con `user.sayHi()`. ¡El usuario ahora puede hablar!
 
 Una función que es la propiedad de un objeto es denominada su *método*.
 
@@ -160,14 +160,16 @@ let user = {
 let admin = user;
 user = null; // sobrescribimos para hacer las cosas evidentes
 
-admin.sayHi(); // ¡oops! dentro de sayHi(), ¡Se usa el nombre viejo! ¡Error!
+*!*
+admin.sayHi(); // TypeError: No se puede leer la propiedad 'name' de null
+*/!*
 ```
 
 Si usamos `this.name` en vez de `user.name` dentro de `alert`, entonces el código funciona.
 
 ## "this" no es vinculado
 
-En JavaScript, la palabra clave `this` se comporta de manera distinta a la mayoría de otros lenguajes de programación. Puede ser usado en cualquier función.
+En JavaScript, la palabra clave `this` se comporta de manera distinta a la mayoría de otros lenguajes de programación. Puede ser usado en cualquier función, incluso si no es el método de un objeto.
 
 No hay error de sintaxis en el siguiente ejemplo:
 

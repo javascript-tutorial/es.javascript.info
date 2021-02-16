@@ -297,7 +297,7 @@ Por ejemplo, aquí para el estado del pedido se usa el atributo `order-state`:
 </div>
 ```
 
-¿Por qué sería preferible usar un atributo a tener clases como `.order-state-new`, `.order-state-pending`, `order-state-canceled`?
+¿Por qué sería preferible usar un atributo a tener clases como `.order-state-new`, `.order-state-pending`, `.order-state-canceled`?
 
 Porque un atributo es más conveniente de administrar. El estado se puede cambiar tan fácil como:
 

@@ -9,7 +9,7 @@ Primero, veamos cómo adjuntamos un script a una página web. Para entornos del 
 
 ## La etiqueta "script"
 
-Los programas de JavaScript se pueden insertar en cualquier parte de un documento HTML con la ayuda de la etiqueta `<script>`.
+Los programas de JavaScript se pueden insertar en casi cualquier parte de un documento HTML con el uso de la etiqueta `<script>`.
 
 Por ejemplo:
 

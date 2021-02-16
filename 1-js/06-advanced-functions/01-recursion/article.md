@@ -132,7 +132,7 @@ Podemos esbozarlo como:
   </li>
 </ul>
 
-Ahí es cuando la función comienza a ejecutarse. La condición `n == 1` es falsa, por lo que el flujo continúa en la segunda rama de` if`:
+Ahí es cuando la función comienza a ejecutarse. La condición `n == 1` es falsa, por lo que el flujo continúa en la segunda rama de `if`:
 
 ```js run
 function pow(x, n) {

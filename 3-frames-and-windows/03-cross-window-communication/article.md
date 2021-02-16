@@ -235,7 +235,7 @@ Aquí hay una lista de limitaciones:
 `allow-popups`
 : Permite `window.open` popups desde el `iframe`
 
-Consulta [el manual](mdn:/HTML/Element/iframe) para obtener más información.
+Consulta [el manual](https://developer.mozilla.org/es/docs/Web/HTML/Elemento/iframe) para obtener más información.
 
 El siguiente ejemplo muestra un iframe dentro de un entorno controlado con el conjunto de restricciones predeterminado: `<iframe sandbox src="...">`. Tiene algo de JavaScript y un formulario.
 
@@ -258,7 +258,7 @@ La interfaz tiene dos partes.
 
 ### postMessage
 
-La ventana que quiere enviar un mensaje llama al método [postMessage](mdn:api/Window.postMessage) de la ventana receptora. En otras palabras, si queremos enviar el mensaje a `win`, debemos llamar a `win.postMessage(data, targetOrigin)`.
+La ventana que quiere enviar un mensaje llama al método [postMessage](https://developer.mozilla.org/en-US/docs/Web/API/Window.postMessage) de la ventana receptora. En otras palabras, si queremos enviar el mensaje a `win`, debemos llamar a `win.postMessage(data, targetOrigin)`.
 
 Argumentos:
 

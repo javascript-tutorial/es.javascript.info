@@ -1,10 +1,10 @@
-To bounce we can use CSS property `top` and `position:absolute` for the ball inside the field with `position:relative`.
+Para rebotar podemos usar la propiedad CSS `top` y `position:absolute` para la pelota dentro del campo con `position:relative`.
 
-The bottom coordinate of the field is `field.clientHeight`. The CSS `top` property refers to the upper edge of the ball. So it should go from `0` till `field.clientHeight - ball.clientHeight`, that's the final lowest position of the upper edge of the ball.
+La coordenada inferior del campo es `field.clientHeight`. La propiedad CSS `top` se refiere al borde superior de la bola. Por lo tanto, debe ir desde `0` hasta `field.clientHeight - ball.clientHeight`, que es la posición final más baja del borde superior de la pelota.
 
-To to get the "bouncing" effect we can use the timing function `bounce` in `easeOut` mode.
+Para obtener el efecto de "rebote", podemos usar la función de sincronización `bounce` en el modo `easeOut`.
 
-Here's the final code for the animation:
+Aquí está el código final de la animación:
 
 ```js
 let to = field.clientHeight - ball.clientHeight;

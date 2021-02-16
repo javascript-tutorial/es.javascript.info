@@ -96,7 +96,9 @@ class CoffeeMachine {
   _waterAmount = 0;
 
   set waterAmount(value) {
-    if (value < 0) throw new Error("Agua en negativo");
+    if (value < 0) {
+      value = 0;
+    }
     this._waterAmount = value;
   }
 
@@ -117,7 +119,7 @@ let coffeeMachine = new CoffeeMachine(100);
 coffeeMachine.waterAmount = -10; // Error: Agua en negativo
 ```
 
-Ahora el acceso está bajo control, por lo que falla el ajuste del agua por debajo de cero.
+Ahora el acceso está bajo control, por lo que establecer una cantidad de agua por debajo de cero se volvió imposible.
 
 ## "Power" de solo lectura
 
@@ -159,7 +161,7 @@ class CoffeeMachine {
   _waterAmount = 0;
 
   *!*setWaterAmount(value)*/!* {
-    if (value < 0) throw new Error("Agua en negativo");
+    if (value < 0) value = 0;
     this._waterAmount = value;
   }
 
@@ -198,11 +200,15 @@ class CoffeeMachine {
 */!*
 
 *!*
-  #checkWater(value) {
-    if (value < 0) throw new Error("Agua en negativo");
-    if (value > this.#waterLimit) throw new Error("Demasiada agua");
+  #fixWaterAmount(value) {
+    if (value < 0) return 0;
+    if (value > this.#waterLimit) return this.#waterLimit;
   }
 */!*
+
+  setWaterAmount(value) {
+    this.#waterLimit = this.#fixWaterAmount(value);
+  }
 
 }
 
@@ -210,7 +216,7 @@ let coffeeMachine = new CoffeeMachine();
 
 *!*
 // no puede acceder a privados desde fuera de la clase
-coffeeMachine.#checkWater(); // Error
+coffeeMachine.#fixWaterAmount(123); // Error
 coffeeMachine.#waterLimit = 1000; // Error
 */!*
 ```
@@ -231,7 +237,7 @@ class CoffeeMachine {
   }
 
   set waterAmount(value) {
-    if (value < 0) throw new Error("Agua en negativo");
+    if (value < 0) value = 0;
     this.#waterAmount = value;
   }
 }
@@ -278,7 +284,7 @@ Con campos privados eso es imposible: `this['#name']` no funciona. Esa es una li
 
 ## Resumen
 
-En términos de POO, la delimitación de la interfaz interna de la externa se llama [encapsulamiento] (https://es.wikipedia.org/wiki/Encapsulamiento_(inform%C3%A1tica)).
+En términos de POO, la delimitación de la interfaz interna de la externa se llama [encapsulamiento](https://es.wikipedia.org/wiki/Encapsulamiento_(inform%C3%A1tica)).
 
 Ofrece los siguientes beneficios:
 

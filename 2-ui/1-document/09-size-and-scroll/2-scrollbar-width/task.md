@@ -2,10 +2,10 @@ importance: 3
 
 ---
 
-# What is the scrollbar width?
+# ¿Qué es el ancho de la barra de desplazamiento?
 
-Write the code that returns the width of a standard scrollbar.
+Escribe el código que retorna el tamaño de una barra de desplazamiento estándar.
 
-For Windows it usually varies between `12px` and `20px`. If the browser doesn't reserve any space for it (the scrollbar is half-translucent over the text, also happens), then it may be `0px`.
+Para Windows esto usualmente varía entre `12px` y `20px`. Si el navegador no reserva algún espacio para esto (la barra de desplazamiento es medio traslúcida sobre el texto, también pasa), entonces puede ser `0px`.
 
-P.S. The code should work for any HTML document, do not depend on its content.
+P.S. El código debería funcionar con cualquier documento HTML, no depende de su contenido.

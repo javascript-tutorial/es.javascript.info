@@ -205,7 +205,7 @@ Cuando ocurre un evento, el elemento más anidado dónde ocurrió se reconoce co
 
 - Luego el evento se mueve hacia abajo desde el documento raíz hacia `event.target`, llamando a los manejadores en el camino asignados con `addEventListener(..., true)` (`true` es una abreviación para `{capture: true}`).
 - Luego los manejadores son llamados en el elemento objetivo mismo.
-- Luego el evento se propaga hacia arriba desde `event.target` hacia la raíz, llamando a los manejadores que se asignaron usando `on<event>` and `addEventListener` sin el 3er argumento o con el 3er argumento `false/{capture:false}`.
+- Luego el evento se propaga desde `event.target` hacia la raíz, llamando a los manejadores que se asignaron usando `on<event>`, atributos HTML y `addEventListener` sin el 3er argumento o con el 3er argumento `false/{capture:false}`.
 
 Cada manejador puede acceder a las propiedades del objeto `event`:
 

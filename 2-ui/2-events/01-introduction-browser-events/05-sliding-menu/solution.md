@@ -1,12 +1,12 @@
 
 # HTML/CSS
-First let's create HTML/CSS.
+Primero hay que crear el HTML y CSS.
 
-A menu is a standalone graphical component on the page, so it's better to put it into a single DOM element.
+Un menú es un componente gráfico independiente en la página, por lo que es mejor colocarlo en un solo elemento del DOM.
 
-A list of menu items can be laid out as a list `ul/li`.
+Una lista de elementos del menú se puede diseñar como una lista `ul/li`.
 
-Here's the example structure:
+Aquí está la estructura de ejemplo:
 
 ```html
 <div class="menu">
@@ -19,29 +19,29 @@ Here's the example structure:
 </div>
 ```
 
-We use `<span>` for the title, because `<div>` has an implicit `display:block` on it, and it will occupy 100% of the horizontal width.
+Usamos `<span>` para el título, porque `<div>` tiene un `display:block` implícito en él, y va a ocupar 100% del ancho horizontal.
 
-Like this:
+Así:
 
 ```html autorun height=50
 <div style="border: solid red 1px" onclick="alert(1)">Sweeties (click me)!</div>
 ```
 
-So if we set `onclick` on it, then it will catch clicks to the right of the text.
+Entonces si establecemos `onclick` en él, detectará los clics a la derecha del texto.
 
-As `<span>` has an implicit `display: inline`, it occupies exactly enough place to fit all the text:
+Como `<span>` tiene un `display: inline` implícito, ocupa exactamente el lugar suficiente para que quepa todo el texto:
 
 ```html autorun height=50
 <span style="border: solid red 1px" onclick="alert(1)">Sweeties (click me)!</span>
 ```
 
-# Toggling the menu
+# Alternar el menú
 
-Toggling the menu should change the arrow and show/hide the menu list.
+Alternar el menú debería cambiar la flecha y mostrar/ocultar la lista del menú.
 
-All these changes are perfectly handled by CSS. In JavaScript we should label the current state of the menu by adding/removing the class `.open`.
+Todos estos cambios son perfectamente controlados con CSS. En JavaScript debemos etiquetar el estado actual del menú agregando/eliminando la clase `.open`.
 
-Without it, the menu will be closed:
+Sin él, el menú se cerrará:
 
 ```css
 .menu ul {
@@ -58,7 +58,7 @@ Without it, the menu will be closed:
 }
 ```
 
-...And with `.open` the arrow changes and the list shows up:
+...Y con `.open` la flecha cambia y aparece la lista:
 
 ```css
 .menu.open .title::before {

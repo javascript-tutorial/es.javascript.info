@@ -13,8 +13,9 @@ Simple, los valores "alcanzables" son aquellos que son accesibles o se pueden ut
 1. Hay un conjunto base de valores inherentemente accesibles, que no se pueden eliminar por razones obvias.
  
     Por ejemplo:
-    - Variables locales y parámetros de la función actual.
-    - Variables y parámetros para otras funciones en la cadena actual de llamadas anidadas.
+
+    - La función ejecutándose actualmente, sus variables locales y parámetros.
+    - Otras funciones en la cadena actual de llamadas anidadas, sus variables y parámetros.
     - Variables Globales
     - (Hay algunos otros internos también)
 
@@ -22,9 +23,9 @@ Simple, los valores "alcanzables" son aquellos que son accesibles o se pueden ut
 
 2. Cualquier otro valor se considera accesible si es accesible desde una raíz(root) por una referencia o por una cadena de referencias.
 
-Por ejemplo, si hay un objeto en una variable local, y ese objeto tiene una propiedad que hace referencia a otro objeto, ese objeto se considera accesible. Y aquellos a los que hace referencia también son accesibles. Ejemplos detallados a seguir.
+    Por ejemplo, si hay un objeto en una variable local, y ese objeto tiene una propiedad que hace referencia a otro objeto, ese objeto se considera accesible. Y aquellos a los que hace referencia también son accesibles. Ejemplos detallados a seguir.
 
-Hay un proceso en segundo plano en el motor de JavaScript que se llama [recolector de basura] (https://es.wikipedia.org/wiki/Recolector_de_basura). Monitorea todos los objetos y elimina aquellos que se han vuelto inalcanzables.
+Hay un proceso en segundo plano en el motor de JavaScript que se llama [recolector de basura](https://es.wikipedia.org/wiki/Recolector_de_basura). Monitorea todos los objetos y elimina aquellos que se han vuelto inalcanzables.
 
 ## Un ejemplo sencillo
 
@@ -96,7 +97,9 @@ let family = marry({
   name: "Ann"
 });
 ```
+
 La función `marry` "casa" dos objetos dándoles referencias entre sí y devuelve un nuevo objeto que los contiene a ambos.
+
 La estructura de memoria resultante:
 
 ![](family.svg)
@@ -178,12 +181,13 @@ Ahora los objetos que no se pudieron visitar en el proceso se consideran inalcan
 
 ![](garbage-collection-5.svg)
 
+Podemos imaginar el proceso como derramar un enorme cubo de pintura desde las raíces, que fluye a través de todas las referencias y marca todos los objetos alcanzables. Los elementos que no queden marcados son entonces eliminados.
+
 Ese es el concepto de cómo funciona la recolección de basura. El motor de JavaScript aplica muchas optimizaciones para que se ejecute más rápido y no afecte la ejecución.
 
-Algunas de las optimizaciones
+Algunas de las optimizaciones:
 
-- **Colección generacional** -- los objetos se dividen en dos conjuntos: 
-"nuevos" y "antiguos". Aparecen muchos objetos, hacen su trabajo y mueren rápido, se pueden limpiar agresivamente. Aquellos que sobreviven el tiempo suficiente, se vuelven "viejos" y son examinados con menos frecuencia.
+- **Colección generacional** -- los objetos se dividen en dos conjuntos: "nuevos" y "antiguos". Aparecen muchos objetos, hacen su trabajo y mueren rápido, se pueden limpiar agresivamente. Aquellos que sobreviven el tiempo suficiente, se vuelven "viejos" y son examinados con menos frecuencia.
 - **Colección incremental** -- Si hay muchos objetos y tratamos de caminar y marcar todo el conjunto de objetos a la vez, puede llevar algún tiempo e introducir retrasos visibles en la ejecución. Entonces el motor intenta dividir la recolección de basura en pedazos. Luego las piezas se ejecutan una por una, por separado. Eso requiere una contabilidad adicional entre ellos para rastrear los cambios, pero tenemos muchos pequeños retrasos en lugar de uno grande.
 - **Recolección de tiempo inactivo** -- el recolector de basura trata de ejecutarse solo mientras la CPU está inactiva, para reducir el posible efecto en la ejecución.
 
@@ -204,4 +208,5 @@ Un libro general "The Garbage Collection Handbook: The Art of Automatic Memory M
 Si estás familiarizado con la programación de bajo nivel, la información más detallada sobre el recolector de basura V8 se encuentra en el artículo [A tour of V8: Garbage Collection](http://jayconrod.com/posts/55/a-tour-of-v8-garbage-collection).
 
 [V8 blog](http://v8project.blogspot.com/) también publica artículos sobre cambios en la administración de memoria de vez en cuando. Naturalmente, para aprender la recolección de basura, es mejor que se prepare aprendiendo sobre los componentes internos de V8 en general y lea el blog de [Vyacheslav Egorov](http://mrale.ph) que trabajó como uno de los ingenieros de V8. Estoy diciendo: "V8", porque se cubre mejor con artículos en Internet. Para otros motores, muchos enfoques son similares, pero la recolección de basura difiere en muchos aspectos.
+
 El conocimiento profundo de los motores es bueno cuando necesita optimizaciones de bajo nivel. Sería prudente planificar eso como el siguiente paso después de que esté familiarizado con el idioma.

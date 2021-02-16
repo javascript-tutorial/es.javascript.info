@@ -174,6 +174,7 @@ let timerId = setTimeout(function request() {
 }, delay);
 ```
 
+
 Y si las funciones que estamos planificando requieren mucha CPU, entonces podemos medir el tiempo que tarda la ejecución y planificar la próxima llamada, tarde o temprano.
 
 **`setTimeout` anidado permite establecer el retraso entre las ejecuciones con mayor precisión que `setInterval`.**
@@ -232,6 +233,7 @@ setTimeout(function() {...}, 100);
 Para `setInterval`, la función permanece en la memoria hasta que se invoca `clearInterval`.
 
 Hay un efecto secundario. Una función hace referencia al entorno léxico externo, por lo tanto, mientras vive, las variables externas también viven. Pueden tomar mucha más memoria que la función misma. Entonces, cuando ya no necesitamos la función planificada, es mejor cancelarla, incluso si es muy pequeña.
+````
 
 ## Retraso cero en setTimeout
 

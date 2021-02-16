@@ -1,5 +1,5 @@
-As we can see from HTML/CSS, the slider is a `<div>` with a colored background, that contains a runner -- another `<div>` with `position:relative`.
+Como podemos ver en el HTML/CSS, la barra de desplazamiento es un `<div>` con un fondo de color, que contiene un pasador: otro `<div>` con `position:relative`.
 
-To position the runner we use `position:relative`, to provide the coordinates relative to its parent, here it's more convenient here than `position:absolute`.
+Para posicionar el pasador usamos `position:relative`, para proveer las coordenadas relativas a su padre, aquí es más conveniente que `position:absolute`.
 
-Then we implement horizontal-only Drag'n'Drop with limitation by width.
+En este caso implementamos un Arrastrar y Soltar horizontal limitado por el ancho.

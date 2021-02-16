@@ -176,15 +176,14 @@ Entonces para cada promesa obtendremos su estado y `value/error`.
 Si el browser no soporta `Promise.allSettled`, es fácil implementarlo:
 
 ```js
-if(!Promise.allSettled) {
-  Promise.allSettled = function(promises) {
-    return Promise.all(promises.map(p => Promise.resolve(p).then(value => ({
-      status: 'fulfilled',
-      value
-    }), reason => ({
-      status: 'rejected',
-      reason
-    }))));
+if (!Promise.allSettled) {
+  const rejectHandler = reason => ({ status: 'rejected', reason });
+
+  const resolveHandler = value => ({ status: 'fulfilled', value });
+
+  Promise.allSettled = function (promises) {
+    const convertedPromises = promises.map(p => Promise.resolve(p).then(resolveHandler, rejectHandler));
+    return Promise.all(convertedPromises);
   };
 }
 ```
@@ -217,6 +216,43 @@ Promise.race([
 
 La primera promesa fue la más rápida, por lo que se vuelve resultado. En cuanto una promesa responde, "gana la carrera", y todos los resultados o errores posteriores son ignorados.
 
+
+## Promise.any
+
+Es similar a `Promise.race`, pero espera solamente por la primera promesa cumplida y obtiene su resultado. Si todas la promesas fueron rechazadas, entonces la promesa que devuelve es rechazada con [`AggregateError`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/AggregateError), un error especial que almacena los errores de todas las promesas en su propiedad `errors`.
+
+La sintaxis es:
+
+```js
+let promise = Promise.any(iterable);
+```
+
+Por ejemplo, aquí el resultado será `1`:
+
+```js run
+Promise.any([
+  new Promise((resolve, reject) => setTimeout(() => reject(new Error("Whoops!")), 1000)),
+  new Promise((resolve, reject) => setTimeout(() => resolve(1), 2000)),
+  new Promise((resolve, reject) => setTimeout(() => resolve(3), 3000))
+]).then(alert); // 1
+```
+
+La primera promesa fue la más rápida, pero fue rechazada entonces devuelve el resultado de la segunda. Una vez que la primera promesa cumplida "gana la carrera", los demás resultados serán ignorados.
+
+Aquí hay un ejemplo donde todas la promesas fallab:
+
+```js run
+Promise.any([
+  new Promise((resolve, reject) => setTimeout(() => reject(new Error("Ouch!")), 1000)),
+  new Promise((resolve, reject) => setTimeout(() => reject(new Error("Error!")), 2000))
+]).catch(error => {
+  console.log(error.constructor.name); // AggregateError
+  console.log(error.errors[0]); // Error: Ouch!
+  console.log(error.errors[1]); // Error: Error
+});
+```
+
+Como puedes ver, los objetos de error de las promesas que fallaron están disponibles en la propiedad `errors` del objeto `AggregateError`.
 
 ## Promise.resolve/reject
 
@@ -273,14 +309,15 @@ En la práctica este método casi nunca es usado.
 
 ## Resumen
 
-Existen 5 métodos estáticos de la clase `Promise`:
+Existen 6 métodos estáticos de la clase `Promise`:
 
 1. `Promise.all(promises)` -- espera que todas las promesas se resuelvan y devuelve un array de sus resultados. Si cualquiera es rechazada se vuelve el error de `Promise.all` y los demás resultados son ignorados.
 2. `Promise.allSettled(promises)` (método recientemente añadido) -- espera que toda las promesas respondan y devuelve sus resultados como un array de objetos con:
     - `status`: `"fulfilled"` o `"rejected"`
     - `value` (si fulfilled) o `reason` (si rejected).
 3. `Promise.race(promises)` -- espera a la primera promesa que responda y aquel resultado o error se vuelve su resultado o error.
-4. `Promise.resolve(value)` -- crea una promesa resuelta con el "value" dado.
-5. `Promise.reject(error)` -- crea una promesa rechazada con el "error" dado.
+4. `Promise.any(promises)` (método recientemente añadido) -- espera por la primera promesa que se cumpla y devuelve su resultado. Si todas las promesas son rechazadas, [`AggregateError`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/AggregateError) se vuelve el error de `Promise.any`.
+5. `Promise.resolve(value)` -- crea una promesa resuelta con el "value" dado.
+6. `Promise.reject(error)` -- crea una promesa rechazada con el "error" dado.
 
-De las 5, `Promise.all` es probablemente la más común en la práctica.
+`Promise.all` es probablemente el más común en la práctica.

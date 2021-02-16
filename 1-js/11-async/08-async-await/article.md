@@ -139,6 +139,8 @@ Pero podemos envolverlo dentro de una función async anónima, como esto:
   ...
 })();
 ```
+
+P.S. A partir de la versión 8.9+ del motor V8 de JS, await funciona en el nivel superior de los [módulos](info:modules).
 ````
 
 ````smart header="*await* acepta \"thenables\""
@@ -156,7 +158,7 @@ class Thenable {
     // resuelve con this.num*2 después de 1000ms
     setTimeout(() => resolve(this.num * 2), 1000); // (*)
   }
-};
+}
 
 async function f() {
   // espera durante 1 segundo, entonces el resultado se vuelve 2

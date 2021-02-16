@@ -19,9 +19,9 @@ Los objetos simples también admiten métodos similares, pero la sintaxis es un 
 
 Para objetos simples, los siguientes métodos están disponibles:
 
-- [Object.keys(obj)](mdn:js/Object/keys) -- devuelve un array de propiedades.
-- [Object.values(obj)](mdn:js/Object/values) -- devuelve un array de valores.
-- [Object.entries(obj)](mdn:js/Object/entries) -- devuelve un array de pares `[propiedad, valor]`.
+- [Object.keys(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/keys) -- devuelve un array de propiedades.
+- [Object.values(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/values) -- devuelve un array de valores.
+- [Object.entries(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/entries) -- devuelve un array de pares `[propiedad, valor]`.
 
 Tenga en cuenta las distinciones (en comparación con map, por ejemplo):
 
@@ -66,7 +66,7 @@ for (let value of Object.values(user)) {
 ```warn header="Object.keys/values/entries ignoran propiedades simbólicas"
 Al igual que un bucle `for..in`, estos métodos ignoran propiedades que utilizan `Symbol(...)` como nombre de propiedades.
 
-Normalmente, esto es conveniente. Pero si también queremos propiedades simbólicas, entonces hay un método aparte [Object.getOwnPropertySymbols](mdn:js/Object/getOwnPropertySymbols) que devuelve un array de únicamente propiedades simbólicas. También existe un método [Reflect.ownKeys(obj)](mdn:js/Reflect/ownKeys) que devuelve *todas* las propiedades.
+Normalmente, esto es conveniente. Pero si también queremos propiedades simbólicas, entonces hay un método aparte [Object.getOwnPropertySymbols](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/getOwnPropertySymbols) que devuelve un array de únicamente propiedades simbólicas. También existe un método [Reflect.ownKeys(obj)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/ownKeys) que devuelve *todas* las propiedades.
 ```
 
 

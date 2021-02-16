@@ -97,9 +97,9 @@ Así es como se ve el valor de `link.href`:
 blob:https://javascript.info/1e67e00e-860d-40a5-89ae-6ab0cbee6273
 ```
 
-Por cada URL generada por `URL.createObjectURL` el navegador almacena un `Blob` en la URL mapeado internamente. Así que las URLs son cortas, pero permiten acceder al `Blob`.
+Por cada URL generada por `URL.createObjectURL` el navegador almacena un URL -> `Blob` mapeado internamente. Así que las URLs son cortas, pero permiten acceder al `Blob`.
 
-Una URL generada (y su relación con ella) solo es válida en el documento actual, mientras está abierto. Y este permite referenciar al `Blob` en `<img>`, `<a>`, básicamente cualquier otro objeto que espera un URL.
+Una URL generada (y por lo tanto su enlace) solo es válida en el documento actual, mientras está abierto. Y este permite referenciar al `Blob` en `<img>`, `<a>`, básicamente cualquier otro objeto que espera un URL.
 
 También hay efectos secundarios. Mientras haya un mapeado para un `Blob`, el `Blob` en sí mismo se guarda en la memoria. El navegador no puede liberarlo.
 
@@ -119,7 +119,7 @@ Una alternativa a `URL.createObjectURL` es convertir un `Blob` en una cadena cod
 
 Esa codificación representa datos binarios como una cadena ultra segura de caractéres "legibles" con códigos ASCII desde el 0 al 64. Y lo que es más importante, podemos utilizar codificación en las "URLs de datos".
 
-Un [URL de datos](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs) tiene la forma `data:[<mediatype>][;base64],<data>`. Podemos usar suficientes URLs por doquier, junto a URLs "regulares".
+Un [URL de datos](https://developer.mozilla.org/es/docs/Web/HTTP/Basics_of_HTTP/Datos_URIs) tiene la forma `data:[<mediatype>][;base64],<data>`. Podemos usar suficientes URLs por doquier, junto a URLs "regulares".
 
 Por ejemplo, aquí hay una sonrisa:
 
@@ -155,7 +155,7 @@ Se pueden utilizar ambas maneras para hacer una URL de un `Blob` . Pero usualmen
 
 ```compare title-plus="URL.createObjectURL(blob)" title-minus="Blob a URL de datos"
 + Necesitamos revocarlos para cuidar la memoria.
-+ Acceso directo al blob, sin "condificación/decodificación"
++ Acceso directo al blob, sin "codificación/decodificación"
 - No necesitamos revocar nada.
 - Se pierde rendimiento y memoria en grandes objetos `Blob` al codificar.
 ```
@@ -166,8 +166,8 @@ Podemos crear un `Blob` de una imagen, una parte de una imagen, o incluso hacer 
 
 Las operaciones de imágenes se hacen a través del elemento `<canvas>`:
 
-1. Dibuja una imagen (o una parte) en el canvas utilizando [canvas.drawImage](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage).
-2. Llama el método de canvas [.toBlob(callback, format, quality)](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toBlob) que crea un `Blob` y llama el `callback` cuando termina.
+1. Dibuja una imagen (o una parte) en el canvas utilizando [canvas.drawImage](https://developer.mozilla.org/es/docs/Web/API/CanvasRenderingContext2D/drawImage).
+2. Llama el método de canvas [.toBlob(callback, format, quality)](https://developer.mozilla.org/es/docs/Web/API/HTMLCanvasElement/toBlob) que crea un `Blob` y llama el `callback` cuando termina.
 
 En el ejemplo siguiente, un imagen se copia, pero no podemos cortarla o transformarla en el canvas hasta convertirla en blob:
 

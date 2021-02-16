@@ -12,13 +12,13 @@
 		const chunk = await reader.read();
 
 		if (chunk.done) {
-			console.log("done!");
+			console.log("listo!");
 			break;
 		}
 
 		chunks.push(chunk.value);
 		receivedLength += chunk.value.length;
-		console.log(`${receivedLength}/${contentLength} received`)
+		console.log(`recibí ${receivedLength}/${contentLength}`)
 	}
 
 

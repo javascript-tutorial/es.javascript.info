@@ -260,7 +260,7 @@ Abajo compare con un script normal:
 
 <script>
 *!*
-  alert(typeof button); // Error: button es indefinido, el script no puede ver los elementos de abjo
+  alert(typeof button); // button es indefinido, el script no puede ver los elementos de abajo
 */!*
   // los scripts normales corren inmediatamente, antes que el resto de la página sea procesada
 </script>
@@ -307,7 +307,7 @@ Los scripts externos que tengan `type="module"` son diferentes en dos aspectos:
     <script type="module" src="my.js"></script>
     ```
 
-2. Los scripts externos que se buscan desde otro origen (p.ej. otra sitio web) require encabezados [CORS](mdn:Web/HTTP/CORS), como se describe en el capítulo <info:fetch-crossorigin>. En otras palabras, si un script de módulo es extraido desde otro origen, el servidor remoto debe proporcionar un encabezado `Access-Control-Allow-Origin` permitiendo la búsqueda.
+2. Los scripts externos que se buscan desde otro origen (p.ej. otra sitio web) require encabezados [CORS](https://developer.mozilla.org/es/docs/Web/HTTP/Access_control_CORS), como se describe en el capítulo <info:fetch-crossorigin>. En otras palabras, si un script de módulo es extraido desde otro origen, el servidor remoto debe proporcionar un encabezado `Access-Control-Allow-Origin` permitiendo la búsqueda.
     ```html
     <!-- otro-sitio-web.com debe proporcionar Access-Control-Allow-Origin -->
     <!-- si no, el script no se ejecutará -->
@@ -346,7 +346,7 @@ Los navegadores antiguos no entienden `type = "module"`. Los scripts de un tipo 
 
 ## Herramientas de Ensamblaje
 
-En la vida real, los módulos de navegador rara vez se usan en su forma "pura". Por lo general, los agrupamos con una herramienta especial como [Webpack] (https://webpack.js.org/) y los implementamos en el servidor de producción.
+En la vida real, los módulos de navegador rara vez se usan en su forma "pura". Por lo general, los agrupamos con una herramienta especial como [Webpack](https://webpack.js.org/) y los implementamos en el servidor de producción.
 
 Uno de los beneficios de usar empaquetadores -- dan más control sobre cómo se resuelven los módulos, permitiendo módulos simples y mucho más, como los módulos CSS/HTML.
 
@@ -386,6 +386,6 @@ Para resumir, los conceptos centrales son:
 
 Cuando usamos módulos, cada módulo implementa la funcionalidad y la exporta. Luego usamos `import` para importarlo directamente donde sea necesario. El navegador carga y evalúa los scripts automáticamente.
 
-En la producción, las personas a menudo usan paquetes como [Webpack] (https://webpack.js.org) para agrupar módulos por rendimiento y otras razones.
+En la producción, las personas a menudo usan paquetes como [Webpack](https://webpack.js.org) para agrupar módulos por rendimiento y otras razones.
 
 En el próximo capítulo veremos más ejemplos de módulos y cómo se pueden exportar/importar cosas.

@@ -92,30 +92,6 @@ let user = {
 ```
 Eso se llama una coma "final" o "colgante".  Facilita agregar, eliminar y mover propiedades, porque todas las líneas se vuelven similares.
 
-````smart header="Los objetos con const pueden cambiarse"
-Toma en cuenta: un objeto declarado con `const` *puede* ser modificado.
-
-Por ejemplo:
-
-```js run
-const user = {
-  name: "John"
-};
-
-*!*
-user.name = "Pete"; // (*)
-*/!*
-
-alert(user.name); // Pete
-```
-
-Puede parecer que la linea `(*)` ocasionaría un error, pero no. El `const` restablece el valor de `user` pero no su contenido.
-
-El `const` podría dar error solo si intentamos asignar `user=...` en la totalidad de su contenido.
-
-Hay otra manera de crear objetos con propiedades constantes, las veremos después en el capítulo <info:property-descriptors>.
-````
-
 ## Corchetes
 
 La notación de punto no funciona para acceder a propiedades con claves de más de una palabra:

@@ -151,7 +151,7 @@ Podemos usar la propiedad `xhr.responseType` para asignar el formato de la respu
 - `"text"` -- obtiene una cadena,
 - `"arraybuffer"` -- obtiene un `ArrayBuffer` (para datos binarios, ve el capítulo <info:arraybuffer-binary-arrays>),
 - `"blob"` -- obtiene un `Blob` (para datos binarios, ver el capítulo <info:blob>),
-- `"document"` -- obtiene un documento XML (puede usar XPath y otros métodos XML),
+- `"document"` -- obtiene un documento XML (puede usar XPath y otros métodos XML)  o un documento HTML (en base al tipo MIME del dato recibido),
 - `"json"` -- obtiene un JSON (automáticamente analizado).
 
 Por ejemplo, obtengamos una respuesta como JSON:
@@ -269,7 +269,7 @@ Existen 3 métodos para las cabeceras HTTP:
 
     ```warn header="Limitaciones de cabeceras"
     Muchas cabeceras se administran exclusivamente por el navegador, ej. `Referer` y `Host`.
-    La lista completa está [en la especificación](http://www.w3.org/TR/XMLHttpRequest/#the-setrequestheader-method).
+    La lista completa está [en la especificación](https://xhr.spec.whatwg.org/#the-setrequestheader()-method).
 
     `XMLHttpRequest` no está permitido cambiarlos, por motivos de seguridad del usuario y la exactitud de la solicitud.
     ```
@@ -509,7 +509,7 @@ xhr.onerror = function() {
 };
 ```
 
-De hecho hay más eventos, la [especificación moderna](http://www.w3.org/TR/XMLHttpRequest/#events) los lista (en el orden del ciclo de vida):
+De hecho hay más eventos, la [especificación moderna](https://xhr.spec.whatwg.org/#events) los lista (en el orden del ciclo de vida):
 
 - `loadstart` -- la solicitud ha empezado.
 - `progress` -- un paquete de datos de la respuesta ha llegado, el cuerpo completo de la respuesta al momento está en `response`.
