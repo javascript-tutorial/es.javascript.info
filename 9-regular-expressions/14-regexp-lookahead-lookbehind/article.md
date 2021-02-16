@@ -1,6 +1,6 @@
 # mirar adelante y mirar atras
 
-A veces necesitamos buscar solo aquella coincidencia en un patron que es precedida o antecedida por otro patron.
+A veces necesitamos buscar solo aquella coincidencia en un patrón que es precedida o antecedida por otro patrón.
 
 Existe una sintaxis especial para eso, llamada "mirar adelante" y "mirar atras" (del ingles: _"lookahead" and "lookbehind"_ ) ,juntas conocidas como "mirar alrededor"
 para empezar, busquemos el precio de la cadena siguente `subject:1 pavo cuesta 30€`. eso es: un numero, seguido de `subject:€` signo  
