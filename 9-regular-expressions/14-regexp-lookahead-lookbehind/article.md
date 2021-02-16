@@ -108,5 +108,5 @@ tipos de mirar alrededor:
 |--------------------|------------------|---------|
 | `X(?=Y)`   | Mirar adelante positivo | `pattern:X` si es seguido por `pattern:Y` |
 | `X(?!Y)`   | Mirar adelante negativo | `pattern:X` si no es seguido por `pattern:Y` |
-| `(?<=Y)X` |  Mirar atras positivo | `pattern:X` si es despues de `pattern:Y` |
+| `(?<=Y)X` |  Mirar hacia atrás positivo | `pattern:X` si es después de `pattern:Y` |
 | `(?<!Y)X` | Mirar atras negativo | `pattern:X` si no es despues de `pattern:Y` |
