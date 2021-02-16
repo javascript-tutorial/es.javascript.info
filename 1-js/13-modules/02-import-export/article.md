@@ -380,7 +380,7 @@ export {default as User} from './user.js';
 ...
 ```
 
-La diferencia notable de `export ... from` comparado a `import/export` es que los módulos re-exportados no están diponibles en el archivo actual. Entonces en el ajemplo anterior de `auth/index.js` no podemos usar las funciones re-exportadas `login/logout`. 
+La diferencia notable de `export ... from` comparado a `import/export` es que los módulos re-exportados no están diponibles en el archivo actual. Entonces en el ejemplo anterior de `auth/index.js` no podemos usar las funciones re-exportadas `login/logout`. 
 
 ### Reexportando la exportación predeterminada
 
