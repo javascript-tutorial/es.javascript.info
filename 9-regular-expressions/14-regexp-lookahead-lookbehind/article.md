@@ -1,6 +1,6 @@
 # Ver delante (lookahead) y ver detrás (lookbehind)
 
-A veces necesitamos buscar únicamente aquellas coincidencias donde un patrón sea precedido o seguido por otro patrón.
+A veces necesitamos buscar únicamente aquellas coincidencias donde un patrón es precedido o seguido por otro patrón.
 
 Existe una sintaxis especial para eso llamada "ver delante" y "ver detrás" (del ingles: "lookahead" y "lookbehind"), juntas son conocidas como "ver alrededor" ("lookaround").
 

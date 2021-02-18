@@ -337,11 +337,17 @@ auth/
         ...
 ```
 
-Nos gustaría exponer la funcionalidad del paquete a través de un único punto de entrada, el "archivo principal" `auth/index.js`, para ser utilizado así:
+Nos gustaría exponer la funcionalidad del paquete a través de un único punto de entrada.
+
+En otras palabras, una persona que quiera usar nuestro paquete, debería importar solamente el archivo principal `auth/index.js`.
+
+Como esto:
 
 ```js
 import {login, logout} from 'auth/index.js'
 ```
+
+El "archivo principal", `auth/index.js`, exporta toda la funcionalidad que queremos brindar en nuestro paquete.
 
 La idea es que los extraños, los desarrolladores que usan nuestro paquete, no deben entrometerse con su estructura interna, buscar archivos dentro de nuestra carpeta de paquetes. Exportamos solo lo que es necesario en `auth/index.js` y mantenemos el resto oculto a miradas indiscretas.
 
@@ -366,13 +372,15 @@ La sintáxis `export ... from ...` es solo una notación más corta para tales i
 
 ```js
 // 📁 auth/index.js
-// importar login/logout e inmediatamente exportarlos
+// re-exportar login/logout
 export {login, logout} from './helpers.js';
 
-// importar default como User y exportarlo
+// re-exportar export default como User
 export {default as User} from './user.js';
 ...
 ```
+
+La diferencia notable de `export ... from` comparado a `import/export` es que los módulos re-exportados no están diponibles en el archivo actual. Entonces en el ejemplo anterior de `auth/index.js` no podemos usar las funciones re-exportadas `login/logout`. 
 
 ### Reexportando la exportación predeterminada
 
