@@ -376,10 +376,10 @@ Dicho esto, los módulos nativos también se pueden utilizar. Por lo tanto no es
 Para resumir, los conceptos centrales son:
 
 1. Un módulo es un archivo. Para que funcione `import/export`, los navegadores necesitan `<script type="module">`. Los módulos tienen varias diferencias:
-    - Diferido por defecto.
-    - Async funciona en scripts en línea.
-    - Para cargar scripts externos de otro origen (dominio/protocolo/puerto), se necesitan encabezados CORS.
-    - Se ignoran los scripts externos duplicados.
+    - Diferido por defecto.
+    - Async funciona en scripts en línea. 
+    - Para cargar scripts externos de otro origen (dominio/protocolo/puerto), se necesitan encabezados CORS. 
+    - Se ignoran los scripts externos duplicados.
 2. Los módulos tienen su propio alcance local de alto nivel y funcionalidad de intercambio a través de 'import/export'.
 3. Los módulos siempre usan `use strict`.
 4. El código del módulo se ejecuta solo una vez. Las exportaciones se crean una vez y se comparten entre los importadores.
