@@ -152,11 +152,11 @@ Todos los importadores obtienen exactamente el único objeto `admin`:
 
 ```js
 // 📁 1.js
-import {admin} desde './admin.js';
+import {admin} from './admin.js';
 admin.name = "Pete";
 
 // 📁 2.js
-import {admin} desde './admin.js';
+import {admin} from './admin.js';
 alert(admin.name); // Pete
 
 *!*
@@ -184,7 +184,7 @@ En `init.js`, el primer script de nuestra app, establecemos `admin.name`. Luego,
 
 ```js
 // 📁 init.js
-import {admin} desde './admin.js';
+import {admin} from './admin.js';
 admin.name = "Pete";
 ```
 
@@ -192,7 +192,7 @@ Otro módulo también puede ver `admin.name`:
 
 ```js
 // 📁 other.js
-import {admin, sayHi} desde './admin.js';
+import {admin, sayHi} from './admin.js';
 
 alert(admin.name); // *!*Pete*/!*
 
