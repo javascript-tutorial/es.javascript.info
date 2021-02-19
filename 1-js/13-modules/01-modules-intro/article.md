@@ -39,7 +39,7 @@ export function sayHi(user) {
 
 ```js
 // 📁 main.js
-import {sayHi} desde'./sayHi.js';
+import {sayHi} from './sayHi.js';
 
 alert(sayHi); // function...
 sayHi('John'); // Hello, John!
