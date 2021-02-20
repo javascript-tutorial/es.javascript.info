@@ -38,7 +38,7 @@ Por lo tanto, necesitamos utilizar métodos especiales.
 
 El método [arr.splice](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/splice) funciona como una navaja suiza para arrays. Puede hacer todo: insertar, remover y remplazar elementos.
 
-La sintáxis es:
+La sintaxis es:
 
 ```js
 arr.splice(start[, deleteCount, elem1, ..., elemN])
@@ -116,13 +116,13 @@ alert( arr ); // 1,2,3,4,5
 
 El método [arr.slice](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/slice) es mucho más simple que `arr.splice`.
 
-La sintáxis es:
+La sintaxis es:
 
 ```js
 arr.slice([principio], [final])
 ```
 
-Devuelve un nuevo array copiando en el mismo todos los elementos desde `principio` hasta `final` (sin incluir `final`). Ambos `principio` y `final` pueden ser negativos en cuyo caso si se incluye la posición final del array.
+Devuelve un nuevo array copiando en el mismo todos los elementos desde `principio` hasta `final` (sin incluir `final`). Ambos `principio` y `final` pueden ser negativos en cuyo caso sí se incluye la posición final del array.
 
 Es similar al método para strings `str.slice`, pero en lugar de substrings genera subarrays.
 
@@ -270,7 +270,7 @@ Imaginemos que tenemos un array de objetos. ¿Cómo podríamos encontrar un obje
 
 Para este tipo de casos es útil el método [arr.find(fn)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/find) 
 
-La sintáxis es:
+La sintaxis es:
 ```js
 let result = arr.find(function(item, index, array) {
   // si true es devuelto, se devuelve el item y la iteración se detiene
