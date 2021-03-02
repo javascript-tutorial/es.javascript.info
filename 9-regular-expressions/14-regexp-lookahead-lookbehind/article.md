@@ -33,7 +33,7 @@ En otras palabras, dicho patrón significa que estamos buscando por `pattern:X` 
 
 Eso es posible solamente si los patrones `pattern:Y` y `pattern:Z` no se excluyen mutuamente.
 
-Por ejemplo, `pattern:\d+(?=\s)(?=.*30)` busca por `pattern:\d+` y reconoce coincidencia solo si es seguido por un espacio y además hay un `30` en algún lugar después del número encontrado:
+Por ejemplo, `pattern:\d+(?=\s)(?=.*30)` busca un `pattern:\d+` que sea seguido por un espacio y además haya un `30` en algún lugar después de él `pattern:(?=.*30)`:
 
 ```js run
 let str = "1 pavo cuesta 30€";
