@@ -2,13 +2,13 @@
 
 A veces necesitamos buscar únicamente aquellas coincidencias donde un patrón es precedido o seguido por otro patrón.
 
-Existe una sintaxis especial para eso llamada "ver delante" y "ver detrás" (del ingles: "lookahead" y "lookbehind"), juntas son conocidas como "ver alrededor" ("lookaround").
+Existe una sintaxis especial para eso llamada "ver delante" y "ver detrás" (del ingles: "lookahead" y "lookbehind"), juntas son conocidas como "ver alrededor" ("lookaround"). Nota en español: se considera el flujo de lectura, "ahead" o "delante" es lo que tiene a la derecha (lo siguiente por leer), mientras que "behind" o "detrás" es lo que tiene a la izquierda (lo ya leido, no lo que viene "después"). 
 
 Para empezar, busquemos el precio de la cadena siguiente `subject:1 pavo cuesta 30€`. Eso es: un número, seguido por el signo `subject:€`.
 
 ## Ver delante
 
-La sintaxis es: `pattern:X(?=Y)`. Esto significa "buscar `pattern:X`, pero encontrar una coincidencia solo si es seguido por `pattern:Y`". Puede haber cualquier patrón en `pattern:X` y `pattern:Y`.
+La sintaxis es: `pattern:X(?=Y)`. Esto significa "buscar `pattern:X`, pero considerarlo una coincidencia solo si es seguido por `pattern:Y`". Puede haber cualquier patrón en `pattern:X` y `pattern:Y`.
 
 Para un número entero seguido de `subject:€`, la expresión regular será `pattern:\d+(?=€)`:
 
@@ -33,7 +33,7 @@ En otras palabras, dicho patrón significa que estamos buscando por `pattern:X` 
 
 Eso es posible solamente si los patrones `pattern:Y` y `pattern:Z` no se excluyen mutuamente.
 
-Por ejemplo, `pattern:\d+(?=\s)(?=.*30)` busca un `pattern:\d+` que sea seguido por un espacio y además haya un `30` en algún lugar después de él `pattern:(?=.*30)`:
+Por ejemplo, `pattern:\d+(?=\s)(?=.*30)` busca un `pattern:\d+` que sea seguido por un espacio `pattern:(?=\s)` y que también tenga un `30` en algún lugar después de él `pattern:(?=.*30)`:
 
 ```js run
 let str = "1 pavo cuesta 30€";
@@ -61,13 +61,13 @@ alert( str.match(/\d+\b(?!€)/g) ); // 2 (el precio es omitido)
 
 "Ver delante" permite agregar una condicion para "lo que sigue".
 
-"Ver detrás" es similar. Permite coincidir un patrón solo si hay algo antes de él.
+"Ver detrás" es similar. Permite coincidir un patrón solo si hay algo anterior a él.
 
 La sintaxis es:
 - Ver detrás positivo: `pattern:(?<=Y)X`, coincide `pattern:X`, pero solo si hay `pattern:Y` antes de él.
 - Ver detrás negativo: `pattern:(?<!Y)X`, coincide `pattern:X`, pero solo si no hay `pattern:Y` antes de él.
 
-Por ejemplo, cambiemos el precio a dólares estadounidenses. El signo de dólar usualmente va antes del número, entonces para buscar `$30` usaremos `pattern:(?<=\$)\d+` -- una cantidad precedida por `subject:$`: 
+Por ejemplo, cambiemos el precio a dólares estadounidenses. El signo de dólar usualmente va antes del número, entonces para buscar `$30` usaremos `pattern:(?<=\$)\d+`: una cantidad precedida por `subject:$`: 
 
 ```js run
 let str = "1 pavo cuesta $30";
@@ -88,7 +88,7 @@ alert( str.match(/(?<!\$)\b\d+/g) ); // 2 (el precio es omitido)
 
 Generalmente, los contenidos dentro de los paréntesis de "ver alrededor" (lookaround) no se convierten en parte del resultado.
 
-Ejemplo en el patrón `pattern:\d+(?=€)`, el signo `pattern:€`  no es capturado como parte de la coincidencia. Eso es esperado: buscamos un número `pattern:\d+`, mientras `pattern:(?=€)` es solo una prueba que debería ser seguida por `subject:€`.
+Ejemplo en el patrón `pattern:\d+(?=€)`, el signo `pattern:€`  no es capturado como parte de la coincidencia. Eso es esperado: buscamos un número `pattern:\d+`, mientras `pattern:(?=€)` es solo una prueba que indica que debe ser seguida por `subject:€`.
 
 Pero en algunas situaciones nosotros podríamos querer capturar también la expresión "ver alrededor", o parte de ella. Eso es posible. Solo hay que rodear esa parte con paréntesis adicionales.
 
