@@ -2,7 +2,7 @@
 
 A veces necesitamos buscar únicamente aquellas coincidencias donde un patrón es precedido o seguido por otro patrón.
 
-Existe una sintaxis especial para eso llamada "ver delante" y "ver detrás" (del ingles: "lookahead" y "lookbehind"), juntas son conocidas como "ver alrededor" ("lookaround"). Nota en español: se considera el flujo de lectura, "ahead" o "delante" es lo que tiene a la derecha (lo siguiente por leer), mientras que "behind" o "detrás" es lo que tiene a la izquierda (lo ya leido, no lo que viene "después"). 
+Existe una sintaxis especial para eso llamada "ver delante" y "ver detrás" (del ingles: "lookahead" y "lookbehind"), juntas son conocidas como "ver alrededor" ("lookaround"). 
 
 Para empezar, busquemos el precio de la cadena siguiente `subject:1 pavo cuesta 30€`. Eso es: un número, seguido por el signo `subject:€`.
 
