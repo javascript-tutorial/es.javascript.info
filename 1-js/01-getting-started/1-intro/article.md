@@ -34,9 +34,9 @@ Los términos anteriores es bueno recordarlos porque son usados en artículos pa
 
 Los motores son complicados, pero los fundamentos son fáciles.
 
-1.- El motor (embebido si es un navegador) lee ("analiza") el script.
-2.- Entonces convierte ("compila") el script a lenguaje máquina.
-3.- y por último el código maquina se ejecuta muy rápido.
+1. El motor (embebido si es un navegador) lee ("analiza") el script.
+2. Entonces convierte ("compila") el script a lenguaje máquina.
+3. y por último el código maquina se ejecuta muy rápido.
 
 El motor aplica optimizaciones en cada paso del proceso. Incluso observa como el script compilado se ejecuta, analiza los datos que fluyen a través de él y aplica optimizaciones al código maquina basadas en ese conocimiento.
 ```
