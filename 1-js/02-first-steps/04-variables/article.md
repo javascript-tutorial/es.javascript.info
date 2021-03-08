@@ -8,7 +8,7 @@ Utilizamos las variables para almacenar esta información.
 
 ## Una variable
 
-Una [variable](https://es.wikipedia.org/wiki/Variable_(programaci%C3%B3n))) es un "almacenaje nombrado" para datos. Podemos usar variables para almacenar golosinas, visitantes, y otros datos.
+Una [variable](https://es.wikipedia.org/wiki/Variable_(programaci%C3%B3n)) es un "almacenaje nombrado" para datos. Podemos usar variables para almacenar golosinas, visitantes, y otros datos.
 
 
 Para generar una variable en JavaScript, se usa la palabra clave `let`.
@@ -89,7 +89,7 @@ En scripts más viejos, a veces se encuentra otra palabra clave: `var` en lugar 
 
 La palabra clave `var` es *casi* lo mismo que `let`. También hace la declaración de una variable, aunque de un modo ligeramente distinto, y más antiguo.
 
-Existen sutiles diferencias entre `let` y `var`, pero no nos constan en este momento. Cubriremos el tema a detalle en el capítulo <info:var>.
+Existen sutiles diferencias entre `let` y `var`, pero no nos interesan en este momento. Cubriremos el tema a detalle en el capítulo <info:var>.
 ````
 
 ## Una analogía de la vida real
