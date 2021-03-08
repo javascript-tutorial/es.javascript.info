@@ -11,7 +11,7 @@ La sentencia `if(...)` evalúa la condición en los paréntesis, y si el resulta
 Por ejemplo:
 
 ```js run
-let year = prompt('¿En que año la fué publicada la especificación ECMAScript-2015?', '');
+let year = prompt('¿En que año fué publicada la especificación ECMAScript-2015?', '');
 
 *!*
 if (year == 2015) alert( '¡Estás en lo cierto!' );
