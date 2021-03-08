@@ -129,7 +129,7 @@ En el capítulo <info:string> trataremos más a fondo las cadenas.
 
 ```smart header="No existe el tipo *carácter*".
 En algunos lenguajes, hay un tipo especial "carácter" para un solo carácter. Por ejemplo, en el lenguaje C y en Java es `char`.
-En JavaScript no existe tal tipo. Sólo hay un tipo: `string`. Un string puede estar formado por un solo carácter o por varios de ellos.
+En JavaScript no existe tal tipo. Sólo hay un tipo: `string`. Un string puede estar formado por un solo carácter, por ninguno, o por varios de ellos.
 ```
 
 ## Booleano (tipo lógico)
