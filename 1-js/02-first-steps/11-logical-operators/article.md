@@ -188,7 +188,7 @@ El operador AND `&&` realiza lo siguiente:
 
 En otras palabras, AND retorna el primer valor falso o el último valor si ninguno fue encontrado.
 
-Las reglas anteriores son similares a las de OR. La difierence es que AND retorna el primer valor *falso* mientras que OR retorna el primer valor *verdadero*.
+Las reglas anteriores son similares a las de OR. La diferencia es que AND retorna el primer valor *falso* mientras que OR retorna el primer valor *verdadero*.
 
 Ejemplo:
 
