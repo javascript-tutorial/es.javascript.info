@@ -106,7 +106,7 @@ La variable externa solo se usa si no hay una local. Por lo tanto, puede ocurrir
 Si una variable con el mismo nombre se declara dentro de la función, entonces *hace shadowing* a la externa. Por ejemplo, en el siguiente código, la función usa el `userName` local. El exterior se ignora:
 
 ```js run
-let userName = 'Juan';
+let userName = 'John';
 
 function showMessage() {
 *!*
