@@ -20,7 +20,7 @@ Podemos reescribir `result = a ?? b` usando los operadores que ya conocemos:
 result = (a !== null && a !== undefined) ? a : b;
 ```
 
-Ahora debería estar absolutamente claro lo que `??` hace. Veamos ahora dónde es de ayuda.
+Ahora debería estar absolutamente claro lo que `??` hace. Veamos dónde podemos utilizarlo.
 
 Un uso típico de `??` es brindar un valor predeterminado a una variable potencialmente indefinida.
 
