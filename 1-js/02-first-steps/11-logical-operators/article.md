@@ -1,6 +1,6 @@
 # Operadores Lógicos
 
-Hay tres operadores lógicos en JavaScript: `||` (O), `&&` (Y), `!` (NO).
+Hay cuatro operadores lógicos en JavaScript: `||` (O), `&&` (Y), `!` (NO), `??` (Fusión de nulos). Aquí cubrimos los primeros tres, el operador  `??` se verá en el siguiente artículo. 
 
 Aunque sean llamados lógicos, pueden ser aplicados a valores de cualquier tipo, no solo booleanos. El resultado también puede ser de cualquier tipo.
 
@@ -188,7 +188,7 @@ El operador AND `&&` realiza lo siguiente:
 
 En otras palabras, AND retorna el primer valor falso o el último valor si ninguno fue encontrado.
 
-Las reglas anteriores son similares a las de OR. La difierence es que AND retorna el primer valor *falso* mientras que OR retorna el primer valor *verdadero*.
+Las reglas anteriores son similares a las de OR. La diferencia es que AND retorna el primer valor *falso* mientras que OR retorna el primer valor *verdadero*.
 
 Ejemplo:
 
