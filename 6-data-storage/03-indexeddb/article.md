@@ -5,57 +5,57 @@ libs:
 
 # IndexedDB
 
-IndexedDB is a database that is built into browser, much more powerful than `localStorage`.
+IndexedDB es una base de datos construida dentro del navegador, mucho más poderosa que `localStorage`.
 
-- Stores almost any kind of values by keys, multiple key types.
-- Supports transactions for reliability.
-- Supports key range queries, indexes.
-- Can store much bigger volumes of data than `localStorage`.
+- Almacena casi todo tipo de valores por claves, tipos de clave múltiple.
+- Soporta transacciones para confiabilidad.
+- Soporta consultas de rango por clave, e índices.
+- Puede almacenar mucho mayor volumen de datos que `localStorage`.
 
-That power is usually excessive for traditional client-server apps. IndexedDB is intended for offline apps, to be combined with ServiceWorkers and other technologies.
+Tal poder usualmente es excesivo para las aplicaciones tradicionales cliente-servidor. IndexedDB está previsto para aplicaciones fuera de línea, para ser combinado con ServiceWorkers y otras tecnologías.
 
-The native interface to IndexedDB, described in the specification <https://www.w3.org/TR/IndexedDB>, is event-based.
+La interfaz nativa de IndexedDB, descrita en la [especificación](https://www.w3.org/TR/IndexedDB), está basada en eventos.
 
-We can also use `async/await` with the help of a promise-based wrapper, like <https://github.com/jakearchibald/idb>. That's pretty convenient, but the wrapper is not perfect, it can't replace events for all cases. So we'll start with events, and then, after we gain an understanding of IndexedDb, we'll use the wrapper.
+También podemos usar `async/await` con la ayuda de un contenedor basado en promesas como [jakearchibald's idb](https://github.com/jakearchibald/idb). Es muy conveniente, pero el contenedor no es perfecto y no puede reemplazar los eventos en todos los casos. Así que comenzaremos con eventos, y, cuando hayamos avanzado en el entendimiento de IndexedDb, usaremos el contenedor.
 
-## Open database
+## Abrir una base de datos, "open"
 
-To start working with IndexedDB, we first need to `open` (connect to) a database.
+Para empezar a trabajar con IndexedDB, primero necesitamos conectarnos o "abrir" (`open`) una base de datos.
 
-The syntax:
+La sintaxis:
 
 ```js
 let openRequest = indexedDB.open(name, version);
 ```
 
-- `name` -- a string, the database name.
-- `version` -- a positive integer version, by default `1` (explained below).
+- `name` -- un string, el nombre de la base de datos.
+- `version` -- un entero positivo, predeterminado en `1` (explicado más abajo).
 
-We can have many databases with different names, but all of them exist within the current origin (domain/protocol/port). Different websites can't access each other's databases.
+Podemos tener muchas bases de datos con nombres diferentes, pero todas deben existir dentro del mismo origen (dominio/protocolo/puerto). Un sitio web no puede acceder bases de datos de otro.
 
-The call returns `openRequest` object, we should listen to events on it:
-- `success`: database is ready, there's the "database object" in `openRequest.result`, we should use it for further calls.
-- `error`: opening failed.
-- `upgradeneeded`: database is ready, but its version is outdated (see below).
+La llamada devuelve un objeto `openRequest`, debemos escuchar en él los eventos:
+- `success`: la base de datos está lista. Hay un "objeto database" en `openRequest.result`, el que debemos usar en las llamadas que sigan.
+- `error`: Apertura fallida.
+- `upgradeneeded`: La base de datos está lista, pero su versión es obsoleta (ver abajo).
 
-**IndexedDB has a built-in mechanism of "schema versioning", absent in server-side databases.**
+**IndexedDB tiene incorporado un mecanismo de "versión de esquema", ausente en bases de datos de servidor.**
 
-Unlike server-side databases, IndexedDB is client-side, the data is stored in the browser, so we, developers, don't have full-time access to it. So, when we have published a new version of our app, and the user visits our webpage, we may need to update the database.
+Contrario a las bases de datos del lado del servidor, IndexedDB está del lado del cliente y los datos son almacenados en el navegador, así que nosotros, desarrolladores, no tenemos acceso permanente a esas bases. Entonces, cuando publicamos una nueva versión de nuestra app y el usuario visita nuestra página web, podemos necesitar actualizar la estructura de su base de datos.
 
-If the local database version is less than specified in `open`, then a special event `upgradeneeded` is triggered, and we can compare versions and upgrade data structures as needed.
+Si la versión de la base es menor a la especificada en `open`, entonces se dispara un evento especial `upgradeneeded` (actualización-requerida), donde podemos comparar versiones y hacer la actualización de la estructura de datos que se necesite.
 
-The `upgradeneeded` event also triggers when the database doesn't yet exist (technically, it's version is `0`), so we can perform the initialization.
+El evento `upgradeneeded` también se dispara cuando la base aún no existe (técnicamente, su versión es `0`), entonces podemos ejecutar su inicialización.
 
-Let's say we published the first version of our app.
+Digamos que publicamos la primera versión de nuestra app.
 
-Then we can open the database with version `1` and perform the initialization in an `upgradeneeded` handler like this:
+Entonces podemos abrir la base con version `1` y hacer la inicialización en un manejador `upgradeneeded`:
 
 ```js
 let openRequest = indexedDB.open("store", *!*1*/!*);
 
 openRequest.onupgradeneeded = function() {
-  // triggers if the client had no database
-  // ...perform initialization...
+  // se dispara si el cliente no tiene la base de datos
+  // ...ejecuta la inicialización...
 };
 
 openRequest.onerror = function() {
@@ -64,70 +64,70 @@ openRequest.onerror = function() {
 
 openRequest.onsuccess = function() {
   let db = openRequest.result;
-  // continue working with database using db object
+  // continúa trabajando con la base de datos usando el objeto db
 };
 ```
 
-Then, later, we publish the 2nd version.
+Luego, más tarde, publicamos la segunda versión.
 
-We can open it with version `2` and perform the upgrade like this:
+Podemos abrirla con version `2` y ejecutar la actualización así:
 
 ```js
 let openRequest = indexedDB.open("store", *!*2*/!*);
 
 openRequest.onupgradeneeded = function(event) {
-  // the existing database version is less than 2 (or it doesn't exist)
+  // la versión de la base existente en menor que 2 (o ni siquiera existe)
   let db = openRequest.result;
-  switch(event.oldVersion) { // existing db version
+  switch(event.oldVersion) { // versión de db existente
     case 0:
-      // version 0 means that the client had no database
-      // perform initialization
+      // version 0 significa que el cliente no tiene base de datos
+      // ejecutar inicialización
     case 1:
-      // client had version 1
-      // update
+      // el cliente tiene la versión 1
+      // actualizar
   }
 };
 ```
 
-Please note: as our current version is `2`, `onupgradeneeded` handler has a code branch for version `0`, suitable for users that are accessing for the first time and have no database, and also for version `1`, for upgrades.
+Tenlo en cuenta: como nuestra versión actual es `2`, el manejador `onupgradeneeded` tiene una rama de código para la versión `0`, adecuada para usuarios que acceden por primera vez y no tienen una base de datos, y otra rama para la versión `1`, para su actualización.
 
-And then, only if `onupgradeneeded` handler finishes without errors, `openRequest.onsuccess` triggers, and the database is considered successfully opened.
+Entonces, y solamente si el manejador de `onupgradeneeded` finaliza sin errores, se dispara el evento `openRequest.onsuccess` y se considera que la base de datos fue abierta con éxito.
 
-To delete a database:
+Para borrar una base de datos:
 
 ```js
 let deleteRequest = indexedDB.deleteDatabase(name)
-// deleteRequest.onsuccess/onerror tracks the result
+// deleteRequest.onsuccess/onerror para rastrear el resultado
 ```
 
-```warn header="We can't open an older version of the database"
-If the current user database has a higher version than in the `open` call, e.g. the existing DB version is `3`, and we try to `open(...2)`, then that's an error, `openRequest.onerror` triggers.
+```warn header="No se puede abrir una versión más vieja de la base de datos"
+Si la base del usuario tiene una versión mayor que el `open` que la abre, por ejemplo la base existente tiene versión `3`, e intentamos `open(...2)`, entonces habrá un error que disparará `openRequest.onerror`.
 
-That's rare, but such a thing may happen when a visitor loads outdated JavaScript code, e.g. from a proxy cache. So the code is old, but his database is new.
+Esto es raro, pero puede ocurrir cuando un visitante carga código JavaScript viejo, por ejemplo desde un caché proxy. Entonces el código es viejo pero la base de datos nueva.
 
-To protect from errors, we should check `db.version` and suggest a page reload. Use proper HTTP caching headers to avoid loading the old code, so that you'll never have such problems.
+Para prevenir errores, debemos verificar `db.version` y sugerir la recarga de página. Usa cabeceras HTTP de caché apropiadas para evitar la carga de código viejo, así nunca tendrás tales problemas.
 ```
 
-### Parallel update problem
+### El problema de la actualización paralela
 
-As we're talking about versioning, let's tackle a small related problem.
+Hablando de versionado, encaremos un pequeño problema relacionado.
 
-Let's say:
-1. A visitor opened our site in a browser tab, with database version `1`.
-2. Then we rolled out an update, so our code is newer.
-3. And then the same visitor opens our site in another tab.
+Supongamos que:
+1. Un visitante, en una pestaña de su navegador, abrió nuestro sitio con un base de datos con la versión `1`.
+2. Luego publicamos una actualización, así que nuestro código en más nuevo.
+3. Y el mismo visitante abre nuestro sitio en otra pestaña.
 
-So there's a tab with an open connection to DB version `1`, while the second one attempts to update it to version `2` in its `upgradeneeded` handler.
+Entonces hay una primera pestaña con una conexión abierta a una base con versión `1`, mientras la segunda intenta actualizarla a la versión `2` en su manejador `upgradeneeded`.
 
-The problem is that a database is shared between two tabs, as it's the same site, same origin. And it can't be both version `1` and `2`. To perform the update to version `2`, all connections to version 1 must be closed, including the one in the first tab.
+El problema es que la misma base está compartida entre las dos pestañas, por ser del mismo sitio y origen. Y no puede ser versión `1` y `2` al mismo tiempo. Para ejecutar la actualización a la versión `2`, todas las conexiones a la versión 1 deben ser cerradas, incluyendo las de la primera pestaña.
 
-In order to organize that, the `versionchange` event triggers on the "outdated" database object. We should listen for it and close the old database connection (and probably suggest a page reload, to load the updated code).
+Para organizar esto, se dispara el evento `versionchange` (cambio-de-versión) en el objeto de base de datos. Debemos escucharlo y cerrar la conexión vieja (y probablemente sugerir una recarga de página, para cargar el código actualizado).
 
-If we don't listen for the `versionchange` event and don't close the old connection, then the second, new connection won't be made. The `openRequest` object will emit the `blocked` event instead of `success`. So the second tab won't work.
+Si no escuchamos el evento `versionchange` y no cerramos la conexión vieja, entonces la segunda y más nueva no se podrá hacer. El objeto `openRequest` emitirá el evento `blocked` en lugar de `success`. Entonces la segunda pestaña no funcionará.
 
-Here's the code to correctly handle the parallel upgrade.
+Aquí tenemos el código para manejar correctamente la actualización paralela.
 
-It installs an `onversionchange` handler after the database is opened, that closes the old connection:
+Este instala, después de que la base fue abierta, un manejador `onversionchange` que cierra la conexión actual por quedarse vieja:
 
 ```js
 let openRequest = indexedDB.open("store", 2);
@@ -141,149 +141,149 @@ openRequest.onsuccess = function() {
   *!*
   db.onversionchange = function() {
     db.close();
-    alert("Database is outdated, please reload the page.")
+    alert("La base de datos está desactualizada, por favor recargue la página.")
   };
   */!*
 
-  // ...the db is ready, use it...
+  // ...la base db está lista, úsala...
 };
 
 *!*
 openRequest.onblocked = function() {
-  // this event shouldn't trigger if we handle onversionchange correctly
+  // este evento no debería dispararse si hemos manejado onversionchange correctamente
 
-  // it means that there's another open connection to same database
-  // and it wasn't closed after db.onversionchange triggered for it
+  // significa que hay otra conexión abierta a la misma base
+  // que no fue cerrada después de que se disparó db.onversionchange
 };
 */!*
 ```
 
-Here we do two things:
+Aquí hacemos dos cosas:
 
-1. Add `db.onversionchange` listener after a successful opening, to be informed about a parallel update attempt.
-2. Add `openRequest.onblocked` listener to handle the case when an old connection wasn't closed. This doesn't happen if we close it in `db.onversionchange`.
+1. Agregamos una escucha a `db.onversionchange` después de una apertura exitosa para estar informados de un intento de actualización paralela.
+2. Agregamos una escucha a `openRequest.onblocked` para manejar el caso de una vieja conexión que no fue cerrada. Esto no ocurre si la cerramos en `db.onversionchange`.
 
-There are other variants. For example, we can take the time to close things gracefully in `db.onversionchange`, and prompt the visitor to save the data before the connection is closed. The new updating connection will be blocked immediately after `db.onversionchange` has finished without closing, and we can ask the visitor in the new tab to close other tabs for the update.
+Hay otras variantes. Por ejemplo, podemos tomar un tiempo para cerrar las cosas prolijamente en `db.onversionchange`, y pedir al visitante que guarde los datos antes de cerrar la conexión vieja. La nueva conexión que requirió la actualización será bloqueada inmediatamente después de que `db.onversionchange` termine sin cerrar, podemos allí pedir al visitante en la nueva pestaña que cierre las otras pestañas para la actualización.
 
-These update collisions happen rarely, but we should at least have some handling for them, e.g. `onblocked` handler, so that our script doesn't surprise the user by dying silently.
+Estas colisiones ocurren raramente, pero debemos al menos tener algún manejo de ella, por ejemplo con un manejador `onblocked`, así el script no sorprende al usuario muriendo silenciosamente.
 
-## Object store
+## Almacén de objetos, "store"
 
-To store something in IndexedDB, we need an *object store*.
+Para almacenar algo en IndexedDB, necesitamos un "almacén de objetos" *object store*.
 
-An object store is a core concept of IndexedDB. Counterparts in other databases are called "tables" or "collections". It's where the data is stored. A database may have multiple stores: one for users, another one for goods, etc.
+Un almacén de objetos es un concepto central de IndexedDB. Contrapartes en otras bases de datos tienen "tablas" o "colecciones". Es donde los datos son almacenados. Una base de datos puede tener múltiples almacenes: una para usuarios, otra para bienes, etc.
 
-Despite being named an "object store", primitives can be stored too.
+A pesar de llamarse "almacén de objetos", también puede almacenar tipos primitivos.
 
-**We can store almost any value, including complex objects.**
+**Podemos almacenar casi cualquier valor, incluyendo objetos complejos.**
 
-IndexedDB uses the [standard serialization algorithm](https://www.w3.org/TR/html53/infrastructure.html#section-structuredserializeforstorage) to clone-and-store an object. It's like `JSON.stringify`, but more powerful, capable of storing much more datatypes.
+IndexedDB usa el [algoritmo de serialización estándar](https://www.w3.org/TR/html53/infrastructure.html#section-structuredserializeforstorage) para clonar-y-almacenar un objeto. Es como `JSON.stringify` pero más poderoso, capaz de almacenar muchos tipos de datos más.
 
-An example of an object that can't be stored: an object with circular references. Such objects are not serializable. `JSON.stringify` also fails for such objects.
+Hay objetos que no puede ser almacenados, por ejemplo los que tienen referencias circulares. Tales objetos no son serializables. `JSON.stringify` también falla con ellos.
 
-**There must be a unique `key` for every value in the store.**     
+**Debe haber una clave `key` única para cada valor del almacén.**     
 
-A key must be one of the these types - number, date, string, binary, or array. It's a unique identifier, so we can search/remove/update values by the key.
+Una clave debe ser de uno de estos tipos: number, date, string, binary, o array. Es un identificador único, así podemos buscar/borrar/modificar valores por medio de la clave.
 
 ![](indexeddb-structure.svg)
 
 
-As we'll see very soon, we can provide a key when we add a value to the store, similar to `localStorage`. But when we store objects, IndexedDB allows setting up an object property as the key, which is much more convenient. Or we can auto-generate keys.
+De forma similar a `localStorage`, podemos proporcionar una clave cuando agregamos un valor al almacén. Cuando lo que almacenamos son objetos, IndexedDB permite asignar una propiedad del objeto como clave, lo que es mucho más conveniente. También podemos usar claves que se genera automáticamente.
 
-But we need to create an object store first.
+Pero necesitamos crear el almacén de objetos primero.
 
 
-The syntax to create an object store:
+La sintaxis para crear un almacén de objetos "object store":
 ```js
 db.createObjectStore(name[, keyOptions]);
 ```
 
-Please note, the operation is synchronous, no `await` needed.
+Ten en cuenta que esta operación es sincrónica, no requiere `await`.
 
-- `name` is the store name, e.g. `"books"` for books,
-- `keyOptions` is an optional object with one of two properties:
-  - `keyPath` -- a path to an object property that IndexedDB will use as the key, e.g. `id`.
-  - `autoIncrement` -- if `true`, then the key for a newly stored object is generated automatically, as an ever-incrementing number.
+- `name` es el nombre del almacén, por ejemplo `"books"`,
+- `keyOptions` es un objeto opcional con una de estas dos propiedades:
+  - `keyPath` -- la ruta a un propiedad de objeto que IndexedDB usará como clave, por ejemplo `id`.
+  - `autoIncrement` -- si es `true`, la clave para el objeto nuevo que se almacene se generará automáticamente con un número autoincremental.
 
-If we don't supply `keyOptions`, then we'll need to provide a key explicitly later, when storing an object.
+Si no establecemos `keyOptions`, necesitaremos proporcionar una clave explícitamente luego, al momento de almacenar un objeto.
 
-For instance, this object store uses `id` property as the key:
+Por ejemplo, este objeto usa la propiedad `id` como clave:
 ```js
 db.createObjectStore('books', {keyPath: 'id'});
 ```
 
-**An object store can only be created/modified while updating the DB version, in `upgradeneeded` handler.**
+**Un almacén de objetos solo puede ser creado o modificado durante la actualización de su versión. Esto es en el manejador `upgradeneeded`.**
 
-That's a technical limitation. Outside of the handler we'll be able to add/remove/update the data, but object stores can only be created/removed/altered during a version update.
+Esto es una limitación técnica. Fuera del manejador podremos agregar/borrar/modificar los datos, pero los almacenes de objetos solo pueden ser creados/borrados/alterados durante la actualización de versión.
 
-To perform a database version upgrade, there are two main approaches:
-1. We can implement per-version upgrade functions: from 1 to 2, from 2 to 3, from 3 to 4 etc. Then, in `upgradeneeded` we can compare versions (e.g. old 2, now 4) and run per-version upgrades step by step, for every intermediate version (2 to 3, then 3 to 4).
-2. Or we can just examine the database: get a list of existing object stores as `db.objectStoreNames`. That object is a [DOMStringList](https://html.spec.whatwg.org/multipage/common-dom-interfaces.html#domstringlist) that provides `contains(name)` method to check for existance. And then we can do updates depending on what exists and what doesn't.
+Para hacer una actualización de base de datos, hay principalmente dos enfoques:
+1. Podemos implementar una función de actualización por versión: desde 1 a 2, de 2 a 3, de 3 a 4, etc. Así en `upgradeneeded` podemos comparar versiones (supongamos: vieja 2, ahora 4) y ejecutar actualizaciones por versión paso a paso para cada versión intermedia (2 a 3, luego 3 a 4).
+2. O podemos simplemente examinar la base y alterarla en un paso. Obtenemos una lista de los almacenes existentes como `db.objectStoreNames`. Este objeto es un [DOMStringList](https://html.spec.whatwg.org/multipage/common-dom-interfaces.html#domstringlist) que brinda el método `contains(name)` para chequear existencias. Y podemos entonces hacer actualizaciones dependiendo de lo que existe y lo que no.
 
-For small databases the second variant may be simpler.
+En bases de datos pequeñas la segunda variante puede ser más simple.
 
-Here's the demo of the second approach:
+Aquí hay un demo del segundo enfoque:
 
 ```js
 let openRequest = indexedDB.open("db", 2);
 
-// create/upgrade the database without version checks
+// crea/actualiza la base de datos sin chequeo de versiones
 openRequest.onupgradeneeded = function() {
   let db = openRequest.result;
-  if (!db.objectStoreNames.contains('books')) { // if there's no "books" store
-    db.createObjectStore('books', {keyPath: 'id'}); // create it
+  if (!db.objectStoreNames.contains('books')) { // si no hay un almacén de libros ("books"),
+    db.createObjectStore('books', {keyPath: 'id'}); // crearlo
   }
 };
 ```
 
 
-To delete an object store:
+Para borrar un almacén de objetos:
 
 ```js
 db.deleteObjectStore('books')
 ```
 
-## Transactions
+## Transacciones
 
-The term "transaction" is generic, used in many kinds of databases.
+El término transacción es genérico, usado por muchos tipos de bases de datos.
 
-A transaction is a group operations, that should either all succeed or all fail.
+Una transacción es un grupo de operaciones cuyos resultados están vinculados: todas deben ser exitosas o todas fallar.
 
-For instance, when a person buys something, we need to:
-1. Subtract the money from their account.
-2. Add the item to their inventory.
+Por ejemplo, cuando una persona compra algo, necesitamos:
+1. Restar el dinero de su cuenta personal.
+2. Agregar el ítem a su inventario.
 
-It would be pretty bad if we complete the 1st operation, and then something goes wrong, e.g. lights out, and we fail to do the 2nd. Both should either succeed (purchase complete, good!) or both fail (at least the person kept their money, so they can retry).
+Sería muy malo que si se completara la primera operación y algo saliera mal (como un corte de luz), fallara la segunda. Ambas deberían ser exitosas (compra completa, ¡bien!) o ambas fallar (al menos la persona mantuvo su dinero y puede reintentar).
 
-Transactions can guarantee that.
+Las transacciones garantizan eso.
 
-**All data operations must be made within a transaction in IndexedDB.**
+**Todas las operaciones deben ser hechas dentro de una transacción en IndexedDB.**
 
-To start a transaction:
+Para iniciar una transacción:
 
 ```js
 db.transaction(store[, type]);
 ```
 
-- `store` is a store name that the transaction is going to access, e.g. `"books"`. Can be an array of store names if we're going to access multiple stores.
-- `type` – a transaction type, one of:
-  - `readonly` -- can only read, the default.
-  - `readwrite` -- can only read and write the data, but not create/remove/alter object stores.
+- `store` – el nombre de almacén al que la transacción va a acceder, por ejemplo `"books"`. Puede ser un array de nombres de almacenes si vamos a acceder a múltiples almacenes.
+- `type` – el tipo de transacción, uno de estos dos:
+  - `readonly` -- solo puede leer (es el predeterminado).
+  - `readwrite` -- puede leer o escribir datos (pero no crear/quitar/alterar almacenes de objetos).
 
-There's also `versionchange` transaction type: such transactions can do everything, but we can't create them manually. IndexedDB automatically creates a `versionchange` transaction when opening the database, for `updateneeded` handler. That's why it's a single place where we can update the database structure, create/remove object stores.
+También existe el tipo de transacción `versionchange`: tal transacción puede hacer de todo, pero no podemos crearla nosotros a mano. IndexedDB la crea automáticamente cuando abre la base de datos para el manejador `updateneeded`. Por ello es el único lugar donde podemos actualizar la estructura de base de datos, crear o quitar almacenes de objetos.
 
-```smart header="Why are there different types of transactions?"
-Performance is the reason why transactions need to be labeled either `readonly` and `readwrite`.
+```smart header="¿Por qué hay diferentes tipos de transacciones?"
+El rendimiento es la razón por la que necesitamos identificar las transacciones como `readonly` (lectura solamente) o `readwrite` (lectura y escritura).
 
-Many `readonly` transactions are able to access the same store concurrently, but `readwrite` transactions can't. A `readwrite` transaction "locks" the store for writing. The next transaction must wait before the previous one finishes before accessing the same store.
+Muchas transacciones `readonly` pueden leer en un mismo almacén concurrentemente, en cambio las transacciones de escritura `readwrite`, no. Una transacción `readwrite` bloquea el almacén para escribir en él. La siguiente transacción debe esperar a que la anterior termine antes de acceder al mismo almacén.
 ```
 
-After the transaction is created, we can add an item to the store, like this:
+Una vez que la transacción es creada, podemos agregar un ítem al almacén:
 
 ```js
 let transaction = db.transaction("books", "readwrite"); // (1)
 
-// get an object store to operate on it
+// obtiene un almacén de objetos para operar con él
 *!*
 let books = transaction.objectStore("books"); // (2)
 */!*
@@ -299,7 +299,7 @@ let request = books.add(book); // (3)
 */!*
 
 request.onsuccess = function() { // (4)
-  console.log("Book added to the store", request.result);
+  console.log("Libro agregado al almacén", request.result);
 };
 
 request.onerror = function() {
@@ -307,43 +307,43 @@ request.onerror = function() {
 };
 ```
 
-There were basically four steps:
+Básicamente, hay cuatro pasos:
 
-1. Create a transaction, mentioning all the stores it's going to access, at `(1)`.
-2. Get the store object using `transaction.objectStore(name)`, at `(2)`.
-3. Perform the request to the object store `books.add(book)`, at `(3)`.
-4. ...Handle request success/error `(4)`, then we can make other requests if needed, etc.
+1. Crea una transacción, mencionando todos los almacenes que irá a acceder, en `(1)`.
+2. Obtiene el almacén usando `transaction.objectStore(name)`, en `(2)`.
+3. Ejecuta lo petición al almacén `books.add(book)`, en `(3)`.
+4. ...Maneja el éxito o fracaso de la petición `(4)`, entonces podemos hacer otras peticiones si lo necesitamos, etc.
 
-Object stores support two methods to store a value:
+Los almacenes de objetos soportan dos métodos para almacenar un valor:
 
 - **put(value, [key])**
-    Add the `value` to the store. The `key` is supplied only if the object store did not have `keyPath` or `autoIncrement` option. If there's already a value with the same key, it will be replaced.
+    Agrega `value` al almacén. La clave `key` debe ser suministrada solo si al almacén no se le asignó la opción `keyPath` o `autoIncrement`. Si ya hay un valor con la misma clave, este será reemplazado.
 
 - **add(value, [key])**
-    Same as `put`, but if there's already a value with the same key, then the request fails, and an error with the name `"ConstraintError"` is generated.
+    Lo mismo que `put`, pero si ya hay un valor con la misma clave, la petición falla y se genera un error con el nombre `"ConstraintError"`.
 
-Similar to opening a database, we can send a request: `books.add(book)`, and then wait for `success/error` events.
+Al igual que al abrir una base de datos, podemos enviar una petición: `books.add(book)`, y esperar por los eventos `success/error`.
 
-- The `request.result` for `add` is the key of the new object.
-- The error is in `request.error` (if any).
+- El resultado `request.result` de `add` es la clave del nuevo objeto.
+- El error, si lo hay, está en `request.error`.
 
-## Transactions' autocommit
+## Commit, culminación automática de las transacciones
 
-In the example above we started the transaction and made `add` request. But as we stated previously, a transaction may have multiple associated requests, that must either all succeed or all fail. How do we mark the transaction as finished, with no more requests to come?
+En el ejemplo anterior empezamos la transacción e hicimos una petición `add`. Pero como explicamos antes, una transacción puede tener muchas peticiones asociadas, que deben todas ser exitosas o todas fallar. ¿Cómo marcamos que una transacción como finalizada, que no tendrá más peticiones asociadas?
 
-The short answer is: we don't.
+Respuesta corta: no lo hacemos.
 
-In the next version 3.0 of the specification, there will probably be a manual way to finish the transaction, but right now in 2.0 there isn't.
+En la siguiente versión 3.0 de la especificación, probablemente haya una manera de finalizarla manualmente, pero ahora mismo en la 2.0 no la hay.
 
-**When all transaction requests are finished, and the [microtasks queue](info:microtask-queue) is empty, it is committed automatically.**
+**Cuando todas las peticiones de una transacción terminaron y la [cola de microtareas](info:microtask-queue) está vacía, se hace un commit (consumación) automático.**
 
-Usually, we can assume that a transaction commits when all its requests are complete, and the current code finishes.
+Usualmente podemos asumir que una transacción se consuma cuando todas sus peticiones fueron completadas, y el código actual finaliza.
 
-So, in the example above no special call is needed to finish the transaction.
+Entonces, en el ejemplo anterior no se necesita una llamada especial para finalizar la transacción.
 
-Transactions auto-commit principle has an important side effect. We can't insert an async operation like `fetch`, `setTimeout` in the middle of transaction. IndexedDB will not keep the transaction waiting till these are done.
+El principio de auto-commit de las transacciones tiene un efecto colateral importante. No podemos insertar una operación asincrónica como `fetch`, `setTimeout` en el medio de la transacción. IndexedDB no mantendrá la transacción esperando a que terminen.
 
-In the code below, `request2` in line `(*)` fails, because the transaction is already committed, and can't make any request in it:
+En el código debajo, `request2` en la línea `(*)` falla, porque la transacción ya está finalizada y no podemos hacer más peticiones sobre ella:
 
 ```js
 let request1 = books.add(book);
@@ -360,54 +360,54 @@ request1.onsuccess = function() {
 };
 ```
 
-That's because `fetch` is an asynchronous operation, a macrotask. Transactions are closed before the browser starts doing macrotasks.
+Esto es porque `fetch` es una operación asincrónica, una macrotarea. Las transacciones son cerradas antes de que el navegador comience con las macrotareas.
 
-Authors of IndexedDB spec believe that transactions should be short-lived. Mostly for performance reasons.
+Los autores de la especificación de IndexedDB creen que las transacciones deben ser de corta vida. Mayormente por razones de rendimiento.
 
-Notably, `readwrite` transactions "lock" the stores for writing. So if one part of application initiated `readwrite` on `books` object store, then another part that wants to do the same has to wait: the new transaction "hangs" till the first one is done. That can lead to strange delays if transactions take a long time.
+Es de notar que las transacciones `readwrite` "traban" los almacenes para escritura. Entonces si una parte de la aplicación inició `readwrite` en el almacén `books`, cuando otra parte quiera hacer lo mismo tendrá que esperar: la nueva transacción "se cuelga" hasta que la primera termine. Esto puede llevar a extraños retardos si las transacciones toman un tiempo largo.
 
-So, what to do?
+Entonces, ¿qué hacer?
 
-In the example above we could make a new `db.transaction` right before the new request `(*)`.
+En el ejemplo de arriba podemos hacer una nueva `db.transaction` justo antes de la nueva petición `(*)`.
 
-But it will be even better, if we'd like to keep the operations together, in one transaction, to split apart IndexedDB transactions and "other" async stuff.
+Pero será mucho mejor, si queremos mantener las operaciones juntas en una transacción, separar las transacciones IndexedDB de la parte asincrónica.
 
-First, make `fetch`, prepare the data if needed, afterwards create a transaction and perform all the database requests, it'll work then.
+Primero, hacer `fetch` y preparar todos los datos que fueran necesarios, y solo entonces crear una transacción y ejecutar todas las peticiones de base de datos. Así, funcionaría.
 
-To detect the moment of successful completion, we can listen to `transaction.oncomplete` event:
+Para detectar el momento de finalización exitosa, podemos escuchar al evento `transaction.oncomplete`:
 
 ```js
 let transaction = db.transaction("books", "readwrite");
 
-// ...perform operations...
+// ...ejecutar las operaciones...
 
 transaction.oncomplete = function() {
-  console.log("Transaction is complete");
+  console.log("Transacción completa");
 };
 ```
 
-Only `complete` guarantees that the transaction is saved as a whole. Individual requests may succeed, but the final write operation may go wrong (e.g. I/O error or something).
+Solo `complete` garantiza que la transacción fue guardada como un todo. Las peticiones Individuales pueden ser exitosas, pero la operación final de escritura puede ir mal (por ejemplo por un error de Entrada/Salida u otra cosa).
 
-To manually abort the transaction, call:
+Para abortar una transacción manualmente:
 
 ```js
 transaction.abort();
 ```
 
-That cancels all modification made by the requests in it and triggers `transaction.onabort` event.
+Esto cancela todas las modificaciones hechas por las peticiones y dispara el evento `transaction.onabort`.
 
 
-## Error handling
+## Manejo de error
 
-Write requests may fail.
+Las peticiones de escritura pueden fallar.
 
-That's to be expected, not only because of possible errors at our side, but also for reasons not related to the transaction itself. For instance, the storage quota may be exceeded. So we must be ready to handle such case.
+Esto es esperable, no solo por posibles errores de nuestro lado, sino también por razones no relacionadas a la transacción misma. Por ejemplo, la cuota de almacenamiento exedida. Entonces debemos estar preparados para manejar tal caso.
 
-**A failed request automatically aborts the transaction, canceling all its changes.**
+**Una petición fallida automáticamente aborta la transacción, cancelando todos sus cambios.**
 
-In some situations, we may want to handle the failure (e.g. try another request), without canceling existing changes, and continue the transaction. That's possible. The `request.onerror` handler is able to prevent the transaction abort by calling `event.preventDefault()`.
+En algunas situaciones, podemos querer manejar el fallo (por ejemplo, intentar otra petición), sin cancelar los cambios en curso, y continuar la transacción. Eso es posible. El manejador `request.onerror` está habilitado a evitar el aborto de la transacción llamando a `event.preventDefault()`.
 
-In the example below a new book is added with the same key (`id`) as the existing one. The `store.add` method generates a `"ConstraintError"` in that case. We handle it without canceling the transaction:
+En el ejemplo que sigue, un libro nuevo es agregado con la misma clave (`id`) que otro existente. El método `store.add` genera un `"ConstraintError"` en ese caso. Lo manejamos sin cancelar la transacción:
 
 ```js
 let transaction = db.transaction("books", "readwrite");
@@ -417,14 +417,14 @@ let book = { id: 'js', price: 10 };
 let request = transaction.objectStore("books").add(book);
 
 request.onerror = function(event) {
-  // ConstraintError occurs when an object with the same id already exists
+  // ConstraintError ocurre cuando un objeto con el mismo id ya existe
   if (request.error.name == "ConstraintError") {
-    console.log("Book with such id already exists"); // handle the error
-    event.preventDefault(); // don't abort the transaction
-    // use another key for the book?
+    console.log("Ya existe un libro con ese id"); // manejo del error
+    event.preventDefault(); // no abortar la transacción
+    // ¿usar otra clave para el libro?
   } else {
-    // unexpected error, can't handle it
-    // the transaction will abort
+    // error inesperado, no podemos manejarlo
+    // la transacción se abortará
   }
 };
 
@@ -433,122 +433,122 @@ transaction.onabort = function() {
 };
 ```
 
-### Event delegation
+### Delegación de eventos
 
-Do we need onerror/onsuccess for every request? Not every time. We can use event delegation instead.
+¿Necesitamos onerror/onsuccess en cada petición? No siempre. Podemos en cambio usar la delegación de eventos.
 
-**IndexedDB events bubble: `request` -> `transaction` -> `database`.**
+**Propagación de eventos IndexedDB: `request` -> `transaction` -> `database`.**
 
-All events are DOM events, with capturing and bubbling, but usually only bubbling stage is used.
+Todos los eventos son eventos DOM, con captura y propagación, pero usualmente solo se usa el escenario de la propagación.
 
-So we can catch all errors using `db.onerror` handler, for reporting or other purposes:
+Así que podemos capturar todos los errores usando el manejador `db.onerror`, para reportarlos u otros propósitos:
 
 ```js
 db.onerror = function(event) {
-  let request = event.target; // the request that caused the error
+  let request = event.target; // la petición (request) que causó el error
 
   console.log("Error", request.error);
 };
 ```
 
-...But what if an error is fully handled? We don't want to report it in that case.
+...Pero ¿y si el error fue completamente manejado? No queremos elevarlo en ese caso.
 
-We can stop the bubbling and hence `db.onerror` by using `event.stopPropagation()` in `request.onerror`.
+Podemos detener la propagación y en consecuencia `db.onerror` usando `event.stopPropagation()` en `request.onerror`.
 
 ```js
 request.onerror = function(event) {
   if (request.error.name == "ConstraintError") {
-    console.log("Book with such id already exists"); // handle the error
-    event.preventDefault(); // don't abort the transaction
-    event.stopPropagation(); // don't bubble error up, "chew" it
+    console.log("Ya existe un libro con ese id"); // manejo de error
+    event.preventDefault(); // no abortar la transacción
+    event.stopPropagation(); // no propagar el error
   } else {
-    // do nothing
-    // transaction will be aborted
-    // we can take care of error in transaction.onabort
+    // no hacer nada
+    // la transacción será abortada
+    // podemos encargarnos del error en transaction.onabort
   }
 };
 ```
 
-## Searching by keys
+## Buscando por claves
 
-There are two main types of search in an object store:
-1. By a key or a key range. That is: by `book.id` in our "books" storage.
-2. By another object field, e.g. `book.price`.
+Hay dos maneras principales de buscar en un almacén de objetos:
+1. Por clave o por rango de clave. Ejemplo, por `book.id` en nuestro almacén "books".
+2. Por algún otro campo del objeto, por ejemplo `book.price`.
 
-First let's deal with the keys and key ranges `(1)`.
+Veamos la primera: búsqueda por clave o por rango de claves.
 
-Methods that involve searching support either exact keys or so-called "range queries" -- [IDBKeyRange](https://www.w3.org/TR/IndexedDB/#keyrange) objects that specify a "key range".
+Los métodos de búsqueda soportan tanto las claves exactas como las denominadas "consultas por rango": objetos [IDBKeyRange](https://www.w3.org/TR/IndexedDB/#keyrange) que especifican un "rango de claves".
 
-Ranges are created using following calls:
+Creamos los rangos llamando a métodos IDBKeyRange y definiendo sus límites:
 
-- `IDBKeyRange.lowerBound(lower, [open])` means: `≥lower` (or `>lower` if `open` is true)
-- `IDBKeyRange.upperBound(upper, [open])` means: `≤upper` (or `<upper` if `open` is true)
-- `IDBKeyRange.bound(lower, upper, [lowerOpen], [upperOpen])` means: between `lower` and `upper`. If the open flags is true, the corresponding key is not included in the range.
-- `IDBKeyRange.only(key)` -- a range that consists of only one `key`, rarely used.
+- `IDBKeyRange.lowerBound(lower, [open])` significa: `≥ lower` (o `> lower` si `open` es true)
+- `IDBKeyRange.upperBound(upper, [open])` significa: `≤ upper` (o `< upper` si `open` es true)
+- `IDBKeyRange.bound(lower, upper, [lowerOpen], [upperOpen])` significa: entre `lower` y `upper`. Si el indicador "open" es true, la clave correspondiente no es incluida en el rango.
+- `IDBKeyRange.only(key)` -- es un rango que consiste de solamente una clave `key`, es raramente usado.
 
-All searching methods accept a `query` argument that can be either an exact key or a key range:
+Todos los métodos de búsqueda aceptan un argumento `query` que puede ser una clave exacta o un rango de claves:
 
-- `store.get(query)` -- search for the first value by a key or a range.
-- `store.getAll([query], [count])` -- search for all values, limit by `count` if given.
-- `store.getKey(query)` -- search for the first key that satisfies the query, usually a range.
-- `store.getAllKeys([query], [count])` -- search for all keys that satisfy the query, usually a range, up to `count` if given.
-- `store.count([query])` -- get the total count of keys that satisfy the query, usually a range.
+- `store.get(query)` -- busca el primer valor, por clave o por rango.
+- `store.getAll([query], [count])` -- busca todos los valores, limitado a la cantidad `count` si esta se especifica.
+- `store.getKey(query)` -- busca la primera clave que satisface la consulta, usualmente un rango.
+- `store.getAllKeys([query], [count])` -- busca todas las claves que satisfacen la consulta, usualmente un rango, hasta la cantidad `count` si es suministrada.
+- `store.count([query])` -- obtiene la cantidad de claves que satisfacen la consulta, usualmente un rango.
 
-For instance, we have a lot of books in our store. Remember, the `id` field is the key, so all these methods can search by `id`.
+Por ejemplo, tenemos un montón de libros en nuestro almacén. Recuerda, el campo `id` es la clave, así que todos estos métodos pueden buscar por `id`.
 
-Request examples:
+Ejemplos de peticiones:
 
 ```js
-// get one book
+// obtiene un libro
 books.get('js')
 
-// get books with 'css' <= id <= 'html'
+// obtiene libros con: 'css' <= id <= 'html'
 books.getAll(IDBKeyRange.bound('css', 'html'))
 
-// get books with id < 'html'
+// obtiene libros con  id < 'html'
 books.getAll(IDBKeyRange.upperBound('html', true))
 
-// get all books
+// obtiene todos los libros
 books.getAll()
 
-// get all keys: id > 'js'
+// obtiene todas las claves donde id > 'js'
 books.getAllKeys(IDBKeyRange.lowerBound('js', true))
 ```
 
-```smart header="Object store is always sorted"
-Object store sorts values by key internally.
+```smart header="El almacén de objetos siempre está ordenado"
+El almacén internamente guarda los valores ordenados por clave.
 
-So requests that return many values always return them in sorted by key order.
+Entonces, las peticiones que que devuelvan muchos valores siempre serán devueltos ordenados por clave.
 ```
 
 
-## Searching by any field with an index
+## Buscando por cualquier campo con un índice
 
-To search by other object fields, we need to create an additional data structure named "index".
+Para buscar por otro campo del objeto, necesitamos crear una estructura de datos adicional llamada "índice (index)".
 
-An index is an "add-on" to the store that tracks a given object field. For each value of that field, it stores a list of keys for objects that have that value. There will be a more detailed picture below.
+Un índice es un agregado al almacén que rastrea un campo determinado del objeto dado. Para cada valor de ese campo, almacena una lista de claves de objetos que tienen ese valor. Veremos una imagen más detallada abajo.
 
-The syntax:
+La sintaxis:
 
 ```js
 objectStore.createIndex(name, keyPath, [options]);
 ```
 
-- **`name`** -- index name,
-- **`keyPath`** -- path to the object field that the index should track (we're going to search by that field),
-- **`option`** -- an optional object with properties:
-  - **`unique`** -- if true, then there may be only one object in the store with the given value at the `keyPath`. The index will enforce that by generating an error if we try to add a duplicate.
-  - **`multiEntry`** -- only used if the value on `keyPath` is an array. In that case, by default, the index will treat the whole array as the key. But if `multiEntry` is true, then the index will keep a list of store objects for each value in that array. So array members become index keys.
+- **`name`** -- nombre del índice,
+- **`keyPath`** -- ruta al campo del objeto que el índice debe seguir (vamos a buscar por ese campo),
+- **`option`** -- un objeto opcional con las propiedades:
+  - **`unique`** -- si es true, un valor no podrá repetirse en el índice. Solamente puede haber un único objeto en el almacén con un valor dado de su `keyPath`. El índice forzará esto generando un error si intentamos agregar un duplicado.
+  - **`multiEntry`** -- solo se usa si el valor en `keyPath` es un array. En ese caso, de manera predeterminada, el índice tratará el array completo como clave. Pero si `multiEntry` es true, entonces el índice mantendrá una lista de objetos almacenados para cada valor en ese array. Así los miembros del array se vuelven claves de ese índice.
 
-In our example, we store books keyed by `id`.
+En nuestro ejemplo, almacenamos libros usando la propiedad `id` como clave.
 
-Let's say we want to search by `price`.
+Digamos que queremos buscar por precio `price`.
 
-First, we need to create an index. It must be done in `upgradeneeded`, just like an object store:
+Primero necesitamos crear un índice. Esto debe hacerse en `upgradeneeded`, igual que ObjectStore.
 
 ```js
 openRequest.onupgradeneeded = function() {
-  // we must create the index here, in versionchange transaction
+  // debemos crear el índice aquí, en la transacción versionchange
   let books = db.createObjectStore('books', {keyPath: 'id'});
 *!*
   let index = books.createIndex('price_idx', 'price');
@@ -556,19 +556,19 @@ openRequest.onupgradeneeded = function() {
 };
 ```
 
-- The index will track `price` field.
-- The price is not unique, there may be multiple books with the same price, so we don't set `unique` option.
-- The price is not an array, so `multiEntry` flag is not applicable.
+- El índice hará seguimiento del campo `price`.
+- El precio no es único, puede haber múltiples libros con el mismo precio así que no establecemos la opción `unique`.
+- El precio no es un array, entonces el indicador `multiEntry` no es aplicable.
 
-Imagine that our `inventory` has 4 books. Here's the picture that shows exactly what the `index` is:
+Imagine que nuestro `inventory` tiene 4 libros. Aquí la imagen muestra exactamente lo que es el `índice`:
 
 ![](indexeddb-index.svg)
 
-As said, the index for each value of `price` (second argument) keeps the list of keys that have that price.
+Como se dijo, el índice para cada valor de `price` (segundo argumento) mantiene la lista de claves que tienen ese precio.
 
-The index keeps itself up to date automatically, we don't have to care about it.
+El índice se mantiene actualizado automáticamente, no necesitamos preocuparnos de eso.
 
-Now, when we want to search for a given price, we simply apply the same search methods to the index:
+Ahora, cuando queremos buscar por un determinado precio, simplemente aplicamos el mismo método de búsqueda al índice:
 
 ```js
 let transaction = db.transaction("books"); // readonly
@@ -581,38 +581,38 @@ let request = priceIndex.getAll(10);
 
 request.onsuccess = function() {
   if (request.result !== undefined) {
-    console.log("Books", request.result); // array of books with price=10
+    console.log("Books", request.result); // array de libros con precio = 10
   } else {
-    console.log("No such books");
+    console.log("No hay libros así");
   }
 };
 ```
 
-We can also use `IDBKeyRange` to create ranges and looks for cheap/expensive books:
+También podemos usar `IDBKeyRange` para crear rangos y vistas de libros baratos/caros:
 
 ```js
-// find books where price <= 5
+// encontrar libros donde price <= 5
 let request = priceIndex.getAll(IDBKeyRange.upperBound(5));
 ```
 
-Indexes are internally sorted by the tracked object field, `price` in our case. So when we do the search, the results are also sorted by `price`.
+Los índices están ordenados internamente por el campo del índice, en nuestro caso `price`. Entonces cuando hacemos la búsqueda, los resultados también estarán ordenados por `price`.
 
-## Deleting from store
+## Borrando del almacén
 
-The `delete` method looks up values to delete by a query, the call format is similar to `getAll`:
+El método `delete` (eliminar) busca a través de una consulta valores para borrarlos. El formato de la llamada es similar a `getAll`:
 
-- **`delete(query)`** -- delete matching values by query.
+- **`delete(query)`** -- elimina valores coincidentes con una consulta (query).
 
-For instance:
+Por ejemplo:
 ```js
-// delete the book with id='js'
+// borra el libro cuyo id='js'
 books.delete('js');
 ```
 
-If we'd like to delete books based on a price or another object field, then we should first find the key in the index, and then call `delete`:
+Si queremos borrar libros basados en un precio u otro campo del objeto, debemos primero encontrar la clave en el índice, luego llamar a `delete` con él:
 
 ```js
-// find the key where price = 5
+// encuentra la clave donde price = 5
 let request = priceIndex.getKey(5);
 
 request.onsuccess = function() {
@@ -621,42 +621,42 @@ request.onsuccess = function() {
 };
 ```
 
-To delete everything:
+Para borrar todo:
 ```js
-books.clear(); // clear the storage.
+books.clear(); // clear "limpia" el almacén.
 ```
 
-## Cursors
+## Cursores
 
-Methods like `getAll/getAllKeys` return an array of keys/values.
+Métodos como `getAll/getAllKeys` devuelven un array de claves/valores.
 
-But an object storage can be huge, bigger than the available memory. Then `getAll` will fail to get all records as an array.
+Pero un almacén de objetos puede ser enorme, incluso más que la memoria disponible. Entonces `getAll` fallaría al tratar de llenar de registros el array.
 
-What to do?
+¿Qué hacer?
 
-Cursors provide the means to work around that.
+Los cursores brindan los medios para trabajar con eso.
 
-**A *cursor* is a special object that traverses the object storage, given a query, and returns one key/value at a time, thus saving memory.**
+**Un *cursor* es un objeto especial que, dada una consulta, recorre el almacén y devuelve un par clave/valor a la vez, así ahorrando memoria.**
 
-As an object store is sorted internally by key, a cursor walks the store in key order (ascending by default).
+Como un almacén está ordenado internamente por clave, un cursor lo recorre en el orden de la clave (ascendende de forma predeterminada).
 
-The syntax:
+La sintaxis:
 ```js
-// like getAll, but with a cursor:
+// como getAll, pero con un cursor:
 let request = store.openCursor(query, [direction]);
 
-// to get keys, not values (like getAllKeys): store.openKeyCursor
+// para obtener las claves y no sus valores (como getAllKeys): store.openKeyCursor
 ```
 
-- **`query`** is a key or a key range, same as for `getAll`.
-- **`direction`** is an optional argument, which order to use:
-  - `"next"` -- the default, the cursor walks up from the record with the lowest key.
-  - `"prev"` -- the reverse order: down from the record with the biggest key.
-  - `"nextunique"`, `"prevunique"` -- same as above, but skip records with the same key (only for cursors over indexes, e.g. for multiple books with price=5 only the first one will be returned).
+- **`query`** (consulta) es una clave o un rango de claves, al igual que para `getAll`.
+- **`direction`** es un argumento opcional, el orden que se va a usar:
+  - `"next"` -- el predeterminado: el cursor recorre en orden ascendente comenzando por la clave más baja.
+  - `"prev"` -- el orden inverso: decrece comenzando con el registro con la clave más alta.
+  - `"nextunique"`, `"prevunique"` -- igual que las anteriores, pero saltando los registros con la misma clave (válido solo para cursores sobre índices. Por ejemplo, de múltiples libros con price=5, solamente el primero será devuelto).
 
-**The main difference of the cursor is that `request.onsuccess` triggers multiple times: once for each result.**
+**La diferencia principal del cursor es que `request.onsuccess` se dispara múltiples veces: una por cada resultado.**
 
-Here's an example of how to use a cursor:
+Aquí hay un ejemplo de cómo usar un cursor:
 
 ```js
 let transaction = db.transaction("books");
@@ -664,63 +664,63 @@ let books = transaction.objectStore("books");
 
 let request = books.openCursor();
 
-// called for each book found by the cursor
+// llamado por cada libro encontrado por el cursor
 request.onsuccess = function() {
   let cursor = request.result;
   if (cursor) {
-    let key = cursor.key; // book key (id field)
-    let value = cursor.value; // book object
+    let key = cursor.key; // clave del libro (el campo id)
+    let value = cursor.value; // el objeto libro
     console.log(key, value);
     cursor.continue();
   } else {
-    console.log("No more books");
+    console.log("No hay más libros");
   }
 };
 ```
 
-The main cursor methods are:
+Los principales métodos de cursor son:
 
-- `advance(count)` -- advance the cursor `count` times, skipping values.
-- `continue([key])` -- advance the cursor to the next value in range matching (or immediately after `key` if given).
+- `advance(count)` -- avanza el cursor `count` veces, saltando valores.
+- `continue([key])` -- avanza el cursor al siguiente valor en el rango o, si se provee la clave `key`, al valor inmediatamente posterior a `key`.
 
-Whether there are more values matching the cursor or not -- `onsuccess` gets called, and then in `result` we can get the cursor pointing to the next record, or `undefined`.
+El evento `onsuccess` será llamado haya o no más valores coincidentes, y en `result` obtenemos el cursor apuntando al siguiente registro, o `undefined`.
 
-In the example above the cursor was made for the object store.
+En el ejemplo anterior el cursor fue hecho sobre el almacén de objetos.
 
-But we also can make a cursor over an index. As we remember, indexes allow to search by an object field. Cursors over indexes do precisely the same as over object stores -- they save memory by returning one value at a time.
+Pero también podemos hacerlo sobre un índice. Recordamos, los índices nos permiten buscar por los campos del objeto. Los cursores sobre índices hacen precisamente lo mismo que sobre el almacén de objetos: Ahorran memoria al devolver una valor a la vez.
 
-For cursors over indexes, `cursor.key` is the index key (e.g. price), and we should use `cursor.primaryKey` property for the object key:
+Para cursores sobre índices, `cursor.key` es la clave del índice (es decir "price"), y debemos usar la propiedad `cursor.primaryKey` para la clave del objeto:
 
 ```js
 let request = priceIdx.openCursor(IDBKeyRange.upperBound(5));
 
-// called for each record
+// es llamado para cada registro
 request.onsuccess = function() {
   let cursor = request.result;
   if (cursor) {
-    let primaryKey = cursor.primaryKey; // next object store key (id field)
-    let value = cursor.value; // next object store object (book object)
-    let key = cursor.key; // next index key (price)
+    let primaryKey = cursor.primaryKey; // la siguiente clave (campo id) del almacén 
+    let value = cursor.value; // el siguiente objeto (objeto book) del almacén
+    let key = cursor.key; // siguiente clave del índice (price)
     console.log(key, value);
     cursor.continue();
   } else {
-    console.log("No more books");
+    console.log("No hay más libros");
   }
 };
 ```
 
-## Promise wrapper
+## Contenedor promisificador 
 
-Adding `onsuccess/onerror` to every request is quite a cumbersome task. Sometimes we can make our life easier by using event delegation, e.g. set handlers on the whole transactions, but `async/await` is much more convenient.
+Agregar `onsuccess/onerror` a cada petición es una tarea agobiante. A veces podemos hacernos la vida más fácil usando delegación de eventos, es decir establecer manejadores para las transacciones completas, pero `async/await` es mucho más conveniente.
 
-Let's use a thin promise wrapper <https://github.com/jakearchibald/idb> further in this chapter. It creates a global `idb` object with [promisified](info:promisify) IndexedDB methods.
+Usemos en adelante para este capítulo un contenedor (wrapper) liviano que añade promesas [idb](https://github.com/jakearchibald/idb). Este crea un objeto global `idb` con métodos IndexedDB [promisificados](info:promisify).
 
-Then, instead of `onsuccess/onerror` we can write like this:
+Entonces, en lugar de `onsuccess/onerror`, podemos escribir:
 
 ```js
 let db = await idb.openDB('store', 1, db => {
   if (db.oldVersion == 0) {
-    // perform the initialization
+    // ejecuta la inicialización
     db.createObjectStore('books', {keyPath: 'id'});
   }
 });
@@ -741,33 +741,33 @@ try {
 
 ```
 
-So we have all the sweet "plain async code" and "try..catch" stuff.
+Así tenemos todo lo dulce de "código async plano" y "try..catch".
 
-### Error handling
+### Manejo de Error
 
-If we don't catch an error, then it falls through, till the closest outer `try..catch`.
+Si no atrapamos un error, este se propaga hasta el más `try..catch` externo más cercano.
 
-An uncaught error becomes an "unhandled promise rejection" event on `window` object.
+Un error no atrapado se vuelve un evento "rechazo de promesa no manejado" sobre el objeto `window`.
 
-We can handle such errors like this:
+Podemos manejar tales errores así:
 
 ```js
 window.addEventListener('unhandledrejection', event => {
-  let request = event.target; // IndexedDB native request object
-  let error = event.reason; //  Unhandled error object, same as request.error
-  ...report about the error...
+  let request = event.target; // objeto request nativo de IndexedDB
+  let error = event.reason; //  objeto error no manejado, igual que request.error
+  ...reportar el error...
 });
 ```
 
-### "Inactive transaction" pitfall
+### La trampa "transacción inactiva"
 
 
-As we already know, a transaction auto-commits as soon as the browser is done with the current code and microtasks. So if we put a *macrotask* like `fetch` in the middle of a transaction, then the transaction won't wait for it to finish. It just auto-commits. So the next request in it would fail.
+Como sabemos, una transacción se autofinaliza tan pronto como el navegador termina el código actual y las microtareas. Entonces si ponemos una *macrotarea* como `fetch` en el medio de una transacción, la transacción no esperará a que termine. Simplemente se autofinaliza. Así la siguiente petición fallaría.
 
 
-For a promise wrapper and `async/await` the situation is the same.
+Para el contenedor de promisificación y `async/await` la situación es la misma.
 
-Here's an example of `fetch` in the middle of the transaction:
+Este es un ejemplo de `fetch` en el medio de una transacción:
 
 ```js
 let transaction = db.transaction("inventory", "readwrite");
@@ -780,49 +780,49 @@ await fetch(...); // (*)
 await inventory.add({ id: 'js', price: 10, created: new Date() }); // Error
 ```
 
-The next `inventory.add` after `fetch` `(*)` fails with an "inactive transaction" error, because the transaction is already committed and closed at that time.
+El `inventory.add` que sigue a `fetch` `(*)` falla con el error "transacción inactiva", porque la transacción se autocompletó y para ese momento ya está cerrada.
 
-The workaround is same as when working with native IndexedDB: either make a new transaction or just split things apart.
-1. Prepare the data and fetch all that's needed first.
-2. Then save in the database.
+La forma de sortear esto es la misma que con el IndexedDB nativo: Hacer una nueva transacción o simplemente partir las cosas.
+1. Preparar los datos y buscar todo lo que sea necesario primero.
+2. Solo entonces, grabar en la base de datos.
 
-### Getting native objects
+### Obtener objetos nativos
 
-Internally, the wrapper performs a native IndexedDB request, adding `onerror/onsuccess` to it, and returns a promise that rejects/resolves with the result.
+Internamente, el contenedor ejecuta una petición IndexedDB nativa, agregándole `onerror/onsuccess` y devolviendo una promesa que rechaza/resuelve con el resultado.
 
-That works fine most of the time. The examples are at the lib page <https://github.com/jakearchibald/idb>.
+Esto funciona bien la mayor parte del tiempo. Los ejemplos están en la página lib de [idb](https://github.com/jakearchibald/idb).
 
-In few rare cases, when we need the original `request` object, we can access it as `promise.request` property of the promise:
+En algunos raros casos necesitamos el objeto `request` original. Podemos accederlo con la propiedad `promise.request` de la promesa:
 
 ```js
-let promise = books.add(book); // get a promise (don't await for its result)
+let promise = books.add(book); // obtener una promesa (no espera por su resultado)
 
-let request = promise.request; // native request object
-let transaction = request.transaction; // native transaction object
+let request = promise.request; // objeto request nativo
+let transaction = request.transaction; // objeto transaction nativo
 
-// ...do some native IndexedDB voodoo...
+// ...hace algún vudú IndexedDB...
 
-let result = await promise; // if still needed
+let result = await promise; // si aún se necesita
 ```
 
-## Summary
+## Resumen
 
-IndexedDB can be thought of as a "localStorage on steroids". It's a simple key-value database, powerful enough for offline apps, yet simple to use.
+IndexedDB puede ser pensado como "localStorage con esteroides". Es una simple base de datos de clave-valor, suficientemente poderosa para apps fuera de línea y fácil de usar.
 
-The best manual is the specification, [the current one](https://www.w3.org/TR/IndexedDB-2/) is 2.0, but few methods from [3.0](https://w3c.github.io/IndexedDB/) (it's not much different) are partially supported.
+El mejor manual es la especificación, [la actual](https://www.w3.org/TR/IndexedDB-2/) es 2.0, pero algunos métodos de [3.0](https://w3c.github.io/IndexedDB/) (no muy diferente) están soportados parcialmente.
 
-The basic usage can be described with a few phrases:
+El uso básico puede ser descrito en pocas frases:
 
-1. Get a promise wrapper like [idb](https://github.com/jakearchibald/idb).
-2. Open a database: `idb.openDb(name, version, onupgradeneeded)`
-    - Create object storages and indexes in `onupgradeneeded` handler or perform version update if needed.
-3. For requests:
-    - Create transaction `db.transaction('books')` (readwrite if needed).
-    - Get the object store `transaction.objectStore('books')`.
-4. Then, to search by a key, call methods on the object store directly.
-    - To search by an object field, create an index.
-5. If the data does not fit in memory, use a cursor.
+1. Obtenga un contenedor promisificador como [idb](https://github.com/jakearchibald/idb).
+2. Abra la base de datos: `idb.openDb(name, version, onupgradeneeded)`
+    - Cree almacenes de objetos e índices en el manejador `onupgradeneeded` o ejecute la actualización de versión cuando sea necesario.
+3. Para peticiones:
+    - Cree una transacción `db.transaction('books')` (readwrite si es necesario).
+    - Obtenga el almacén de objetos `transaction.objectStore('books')`.
+4. Entonces, para buscar por clave, llame métodos sobre el almacén directamente.
+    - Para buscar por un campo de objeto, cree un índice.
+5. Si los datos son demasiados para la memoria, use un cursor.
 
-Here's a small demo app:
+Una pequeña app de demo:
 
 [codetabs src="books" current="index.html"]
