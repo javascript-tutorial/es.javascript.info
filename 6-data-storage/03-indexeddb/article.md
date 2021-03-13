@@ -14,9 +14,9 @@ IndexedDB es una base de datos construida dentro del navegador, mucho más poder
 
 Tal poder usualmente es excesivo para las aplicaciones tradicionales cliente-servidor. IndexedDB está previsto para aplicaciones fuera de línea, para ser combinado con ServiceWorkers y otras tecnologías.
 
-La interfaz nativa de IndexedDB, descrita en la [especificación](https://www.w3.org/TR/IndexedDB), está basada en eventos.
+La interfaz nativa de IndexedDB, descrita en la <https://www.w3.org/TR/IndexedDB>, está basada en eventos.
 
-También podemos usar `async/await` con la ayuda de un contenedor basado en promesas como [jakearchibald's idb](https://github.com/jakearchibald/idb). Es muy conveniente, pero el contenedor no es perfecto y no puede reemplazar los eventos en todos los casos. Así que comenzaremos con eventos, y, cuando hayamos avanzado en el entendimiento de IndexedDb, usaremos el contenedor.
+También podemos usar `async/await` con la ayuda de un contenedor basado en promesas como idb <https://github.com/jakearchibald/idb>. Es muy conveniente, pero el contenedor no es perfecto y no puede reemplazar los eventos en todos los casos. Así que comenzaremos con eventos, y, cuando hayamos avanzado en el entendimiento de IndexedDb, usaremos el contenedor.
 
 ## Abrir una base de datos, "open"
 
@@ -790,7 +790,7 @@ La forma de sortear esto es la misma que con el IndexedDB nativo: Hacer una nuev
 
 Internamente, el contenedor ejecuta una petición IndexedDB nativa, agregándole `onerror/onsuccess` y devolviendo una promesa que rechaza/resuelve con el resultado.
 
-Esto funciona bien la mayor parte del tiempo. Los ejemplos están en la página lib de [idb](https://github.com/jakearchibald/idb).
+Esto funciona bien la mayor parte del tiempo. Los ejemplos están en la página lib de idb <https://github.com/jakearchibald/idb>.
 
 En algunos raros casos necesitamos el objeto `request` original. Podemos accederlo con la propiedad `promise.request` de la promesa:
 
@@ -813,7 +813,7 @@ El mejor manual es la especificación, [la actual](https://www.w3.org/TR/Indexed
 
 El uso básico puede ser descrito en pocas frases:
 
-1. Obtenga un contenedor promisificador como [idb](https://github.com/jakearchibald/idb).
+1. Obtenga un contenedor promisificador como idb <https://github.com/jakearchibald/idb>.
 2. Abra la base de datos: `idb.openDb(name, version, onupgradeneeded)`
     - Cree almacenes de objetos e índices en el manejador `onupgradeneeded` o ejecute la actualización de versión cuando sea necesario.
 3. Para peticiones:
