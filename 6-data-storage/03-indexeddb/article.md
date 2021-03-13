@@ -713,7 +713,7 @@ request.onsuccess = function() {
 
 Agregar `onsuccess/onerror` a cada petición es una tarea agobiante. A veces podemos hacernos la vida más fácil usando delegación de eventos, es decir establecer manejadores para las transacciones completas, pero `async/await` es mucho más conveniente.
 
-Usemos en adelante para este capítulo un contenedor (wrapper) liviano que añade promesas [idb](https://github.com/jakearchibald/idb). Este crea un objeto global `idb` con métodos IndexedDB [promisificados](info:promisify).
+Usemos en adelante para este capítulo un contenedor (wrapper) liviano que añade promesas <https://github.com/jakearchibald/idb>. Este crea un objeto global `idb` con métodos IndexedDB [promisificados](info:promisify).
 
 Entonces, en lugar de `onsuccess/onerror`, podemos escribir:
 
@@ -813,7 +813,7 @@ El mejor manual es la especificación, [la actual](https://www.w3.org/TR/Indexed
 
 El uso básico puede ser descrito en pocas frases:
 
-1. Obtenga un contenedor promisificador como idb <https://github.com/jakearchibald/idb>.
+1. Obtenga un contenedor promisificador como [idb](https://github.com/jakearchibald/idb).
 2. Abra la base de datos: `idb.openDb(name, version, onupgradeneeded)`
     - Cree almacenes de objetos e índices en el manejador `onupgradeneeded` o ejecute la actualización de versión cuando sea necesario.
 3. Para peticiones:
