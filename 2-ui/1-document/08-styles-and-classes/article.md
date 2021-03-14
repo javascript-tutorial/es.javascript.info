@@ -282,8 +282,7 @@ Los enlaces visitados pueden ser coloreados usando la pseudo-clase `:visited` de
 
 Pero `getComputedStyle` no da acceso a ese color, porque de lo contrario una página cualquiera podría averiguar si el usuario visitó un enlace creándolo en la página y verificar los estilos.
 
-JavaScript puede que no vea los estilos aplicados por `:visited`. Y también, 
-hay una limitación en CSS que prohíbe la aplicación de estilos de cambio de geometría en `:visited`. Eso es para garantizar que no haya forma para que una página maligna pruebe si un enlace fue visitado y rompa la privacidad.
+JavaScript no puede ver los estilos aplicados por `:visited`. También hay una limitación en CSS que prohíbe la aplicación de estilos de cambio de geometría en `:visited`. Eso es para garantizar que no haya forma para que una página maligna pruebe si un enlace fue visitado y vulnere la privacidad.
 ```
 
 ## Resumen
