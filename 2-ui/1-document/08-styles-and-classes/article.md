@@ -148,7 +148,7 @@ Para establecer todo el estilo como una cadena, hay una propiedad especial: `sty
 </script>
 ```
 
-Esta propiedad es rara vez usada, porque tal asignación remueve todo los estilos: no agrega, pero si las reemplaza. Lo que ocasionalmente puede eliminar algo necesario. Pero podemos usarlo de manera segura para nuevos elementos, cuando sabemos que no vamos a eliminar un estilo existente.
+Esta propiedad es rara vez usada, porque tal asignación remueve todo los estilos: no agrega estilos sino que los reemplaza en su totalidad. Ocasionalmente podría eliminar algo necesario. Pero podemos usarlo de manera segura para nuevos elementos, cuando sabemos que no vamos a eliminar un estilo existente.
 
 Lo mismo se puede lograr estableciendo un atributo: `div.setAttribute('style', 'color: red...')`.
 ````
