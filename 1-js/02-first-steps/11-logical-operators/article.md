@@ -64,7 +64,11 @@ if (hour < 10 || hour > 18 || isWeekend) {
 }
 ```
 
+<<<<<<< HEAD
 ## OR "||" encuentra el primer valor verdadero [#or-finds-the-first-truthy-value]
+=======
+## OR "||" finds the first truthy value [#or-finds-the-first-truthy-value]
+>>>>>>> e01998baf8f85d9d6cef9f1add6c81b901f16d69
 
 La lógica descrita arriba es algo clásica. Ahora, mostremos las características "extra" de JavaScript.
 
