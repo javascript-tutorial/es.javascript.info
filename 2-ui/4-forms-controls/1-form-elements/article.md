@@ -11,8 +11,8 @@ Los formularios del documento son miembros de la colección especial `document.f
 Esa es la llamada "Colección nombrada": es ambas cosas, nombrada y ordenada. Podemos usar el nombre o el número  en el documento para conseguir el formulario.
 
 ```js no-beautify
-document.forms.my - el formulario con name="my"
-document.forms[0] - el primar formulario en el documento
+document.forms.my; // el formulario con name="my"
+document.forms[0]; // el primar formulario en el documento
 ```
 
 Cuando tenemos un formulario, cualquier elemento se encuentra disponible en la colección nombrada `form.elements`.
@@ -36,9 +36,9 @@ Por ejemplo:
 </script>
 ```
 
-Puede haber múltiples elementos con el mismo nombre, tal es el caso de los controles tipo radio.
+Puede haber múltiples elementos con el mismo nombre. Esto es típico en el caso de los botones de radio y checkboxes.
 
-En ese caso `form.elements[name]` es una colección, por ejemplo:
+En ese caso `form.elements[name]` es una *colección*. Por ejemplo:
 
 ```html run height=40
 <form>
@@ -200,11 +200,11 @@ Aquí hay un ejemplo de los tres métodos:
   select.options[2].selected = true;
   select.selectedIndex = 2;
   select.value = 'banana';
-  // please note: options start from zero, so index 2 means the 3rd option.
+  // Recuerda que las opciones comienzan en cero, así que index 2 significa la tercera opción.
 </script>
 ```
 
-A diferencia de la mayoría de controles, `<select>` permite seleccionar multiples opciones a la vez si tiene el atributo `multiple`. Esta característica es raramente utilizada. 
+A diferencia de la mayoría de controles, `<select>` permite seleccionar múltiples opciones a la vez si tiene el atributo `multiple`. Esta característica es raramente utilizada. 
 
 En ese caso, necesitamos usar la primera forma: Añade/elimina la propiedad `selected` de los subelementos `<option>`.
 
@@ -246,7 +246,7 @@ Esta sintaxis es opcional. Podemos usar `document.createElement('option')` y asi
 
 La diferencia entre `defaultSelected` y `selected` es que `defaultSelected` asigna el atributo HTML, el que podemos obtener usando `option.getAttribute('selected')`,  mientras que `selected` hace que el option esté o no seleccionado. 
 
-Usualmente ambos valores son igualmente asignados como `true` o no asignados (igual a `false`).
+En la práctica, une debería usualmente establecer _ambos_ valores en `true` o `false`. O simplemente omitirlos, quedarán con el predeterminado `false`.
 
 Por ejemplo, aquí cramos un nuevo Option "unselected":
 
@@ -289,7 +289,7 @@ Navegación de formularios:
 `element.form`
 : Los elementos referencian a su formulario en la propiedad `form`.
 
-El valor está disponible con `input.value`, `textarea.value`, `select.value` etc, o `input.checked` para checkboxes y radios.
+El valor está disponible con `input.value`, `textarea.value`, `select.value` etc.  Para checkboxes y radios, usa `input.checked` para determinar si el valor está seleccionado.
 
 Para `<select>` también podemos obtener el valor con el índice `select.selectedIndex` o a través de la colección de opciones `select.options`.
 

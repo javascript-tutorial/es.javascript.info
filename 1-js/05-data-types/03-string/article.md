@@ -8,7 +8,7 @@ El formato interno para strings es siempre [UTF-16](https://es.wikipedia.org/wik
 
 Recordemos los tipos de comillas.
 
-Los strings pueden estar entre comillas simples, comilllas dobles o backticks (acento grave):
+Los strings pueden estar entre comillas simples, comillas dobles o backticks (acento grave):
 
 ```js
 let single = 'comillas simples';
@@ -17,7 +17,7 @@ let double = "comillas dobles";
 let backticks = `backticks`;
 ```
 
-Comillas simples y dobles son escencialmente lo mismo. Sin embargo los "backticks" nos permiten ingresar expresiones dentro del string, envolviéndolos en `${…}`:
+Comillas simples y dobles son esencialmente lo mismo. Sin embargo los "backticks" nos permiten ingresar expresiones dentro del string, envolviéndolos en `${…}`:
 
 ```js run
 function sum(a, b) {
@@ -108,7 +108,7 @@ Por ejemplo:
 alert('Yo soy \'Walrus\''); // Yo soy 'Walrus'
 ```
 
-Como puedes ver, debimos anteponer un caracter de escape `\` antes de cada comilla ya que de otra manera hubiera indicado el final del string.
+Como puedes ver, debimos anteponer un carácter de escape `\` antes de cada comilla ya que de otra manera hubiera indicado el final del string.
 
 Obviamente, eso se refiere sólo a las comillas que son iguales a las que están rodeando al string. Una solución más elegante sería cambiar a comillas dobles o backticks:
 
@@ -116,7 +116,7 @@ Obviamente, eso se refiere sólo a las comillas que son iguales a las que están
 alert(`Yo soy "Walrus"`); // Yo soy "Walrus"
 ```
 
-Notar que el caracter de escape `\` sirve para la correcta lectura del string por JavaScript, luego desaparece. El string que quedó en la memoria no incluye `\`. Lo puedes ver claramente en el `alert` del ejemplo anterior.
+Notar que el carácter de escape `\` sirve para la correcta lectura del string por JavaScript, luego desaparece. El string que quedó en la memoria no incluye `\`. Lo puedes ver claramente en el `alert` del ejemplo anterior.
 
 ¿Pero qué pasa si necesitamos incluir un carácter de escape `\` en el string?
 
@@ -159,7 +159,7 @@ alert( str[str.length - 1] ); // a
 
 Los corchetes son una forma moderna de acceder a los caracteres, mientras que `charAt` existe principalmente por razones históricas.
 
-La única diferencia entre ellos es que si no se encuentra un caracter, `[]` devuelve `undefined`, y `charAt` devuelve un string vacío.
+La única diferencia entre ellos es que si no se encuentra un carácter, `[]` devuelve `undefined`, y `charAt` devuelve un string vacío.
 
 ```js run
 let str = `Hola`;
@@ -189,7 +189,7 @@ str[0] = 'h'; // error
 alert(str[0]); // no funciona
 ```
 
-La solución alternativa es crear un nuevo string y asignarlo a `str` en vez de aisgnarlo al anterior.
+La solución alternativa es crear un nuevo string y asignarlo a `str` en vez de asignarlo al anterior.
 
 Por ejemplo:
 
@@ -212,7 +212,7 @@ alert('Interfaz'.toUpperCase()); // INTERFAZ
 alert('Interfaz'.toLowerCase()); // interfaz
 ```
 
-Si queremos un solo caractér en minúscula:
+Si queremos un solo carácter en minúscula:
 
 ```js
 alert('Interfaz'[0].toLowerCase()); // 'i'
@@ -241,7 +241,7 @@ alert(str.indexOf('id')); // 1, "id" es encontrado en la posición 1 (..idget co
 
 El segundo parámetro es opcional y nos permite buscar desde la posición entregada.
 
-Por ejemplo, la primera ocurrencia de `"id"` es en la posición `1`. Para buscar por la siguiente ocurrencia, comencemos a buscar desde la posoción `2`:
+Por ejemplo, la primera ocurrencia de `"id"` es en la posición `1`. Para buscar por la siguiente ocurrencia, comencemos a buscar desde la posición `2`:
 
 ```js run
 let str = 'Widget con id';
@@ -296,7 +296,7 @@ if (str.indexOf("Widget")) {
 }
 ```
 
-La `alerta` en el ejemplo anterior no se muestra ya que `str.indexOf("Widget")` retorna `0` (lo que significa que encontró el string en la posoción inicial). Correcto pero `if` considera `0` como `falso`.
+La `alerta` en el ejemplo anterior no se muestra ya que `str.indexOf("Widget")` retorna `0` (lo que significa que encontró el string en la posición inicial). Correcto pero `if` considera `0` como `falso`.
 
 Por lo que debemos buscar por `-1` como sigue:
 
@@ -387,7 +387,7 @@ Existen 3 métodos en JavaScript para obtener un substring: `substring`, `substr
     ```js run
     let str = "stringify";
     alert( str.slice(0, 5) ); // 'strin', el substring desde 0 hasta 5 (sin incluir 5)
-    alert( str.slice(0, 1) ); // 's', desde 0 hasta 1, pero sin incluir 1, por lo que sólo el caracter en 0
+    alert( str.slice(0, 1) ); // 's', desde 0 hasta 1, pero sin incluir 1, por lo que sólo el carácter en 0
     ```
 
     Si no existe segundo argumento, entonces `slice` va hasta el final del string:
@@ -456,7 +456,7 @@ Recapitulemos los métodos para evitar confusiones:
 ```smart header="¿Cuál elegir?"
 Todos son capaces de hacer el trabajo. Formalmente, `substr` tiene una pequeña desventaja: no es descrito en la especificación central de JavaScript, sino en el anexo B, el cual cubre características sólo de navegadores, que existen principalmente por razones históricas. Por lo que entornos sin navegador pueden fallar en compatibilidad. Pero en la práctica funciona en todos lados.
 
-De las otras dos variantes, `slice` es algo más flexible, permite argumentos negativos y es más corta. Entones, es sufuciente con, de estos tres métodos, recordar únicamente `slice`.
+De las otras dos variantes, `slice` es algo más flexible, permite argumentos negativos y es más corta. Entones, es suficiente con, de estos tres métodos, recordar únicamente `slice`.
 ```
 
 ## Comparando strings
@@ -479,12 +479,12 @@ Aunque existen algunas singularidades.
 
    Esto puede conducir a resultados extraños si clasificamos los nombres de estos países. Usualmente, la gente esperaría que `Zealand` apareciera después de `Österreich` en la lista.
 
-Para entender qué pasa, revisemos la representaciín interna de strings en JavaScript.
+Para entender qué pasa, revisemos la representación interna de strings en JavaScript.
 
 Todos los strings son codificados usando [UTF-16](https://es.wikipedia.org/wiki/UTF-16). Esto significa: cada carácter tiene un código numérico correspondiente. Existen métodos especiales que permiten obtener el carácter para el código y viceversa.
 
 `str.codePointAt(pos)`
-: Retorna el código para el caracter en la posición `pos`:
+: Retorna el código para el carácter en la posición `pos`:
 
     ```js run
     // mayúsculas y minúsculas tienen códigos diferentes
@@ -493,7 +493,7 @@ Todos los strings son codificados usando [UTF-16](https://es.wikipedia.org/wiki/
     ```
 
 `String.fromCodePoint(code)`
-: Crea un caracter por su `código` numérico:
+: Crea un carácter por su `código` numérico:
 
     ```js run
     alert( String.fromCodePoint(90) ); // Z
@@ -523,10 +523,10 @@ alert(str);
 
 Ahora se vuelve obvio por qué `a > Z`.
 
-Los caracteres son comparados por su código numérico. Código mayor significa que el caracter es mayor. El código para `a` (97) es mayor que el código para `Z` (90).
+Los caracteres son comparados por su código numérico. Código mayor significa que el carácter es mayor. El código para `a` (97) es mayor que el código para `Z` (90).
 
 - Todas las letras minúsculas van después de las mayúsculas ya que sus códigos son mayores.
-- Algunas letras como `Ö` se mantienen apartadas del alfabeto principal. Aquí el codigo es mayor que cualquiera desde `a` hasta `z`.
+- Algunas letras como `Ö` se mantienen apartadas del alfabeto principal. Aquí el código es mayor que cualquiera desde `a` hasta `z`.
 
 ### Comparaciones correctas [#correct-comparisons]
 
