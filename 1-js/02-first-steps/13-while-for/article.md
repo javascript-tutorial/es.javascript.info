@@ -367,15 +367,9 @@ break label;  // ¿saltar a label? No funciona.
 label: for (...)
 ```
 
-<<<<<<< HEAD
 Una llamada a `break/continue` solo es posible desde el interior del bucle.
 
- y la etiqueta debe estar en alguna parte arriba de la directiva.
-=======
-A call to `continue` is only possible from inside the loop.
-
-The `break` directive may be placed before code blocks too, as `label: { ... }`, but it's almost never used like that. And it also works only inside-out.
->>>>>>> enstream/master
+La directiva puede ser ubicada ante bloques de código también como `label: { ... }`, pero no es algo común. Y también funciona solamente de adentro hacia afuera.
 ````
 
 ## Resumen
