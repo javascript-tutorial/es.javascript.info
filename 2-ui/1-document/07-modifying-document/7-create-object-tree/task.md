@@ -2,11 +2,11 @@ importance: 5
 
 ---
 
-# Create a tree from the object
+# Crea un árbol desde el objeto
 
-Write a function `createTree` that creates a nested `ul/li` list from the nested object.
+Escribe una función `createTree` que crea una lista ramificada `ul/li` desde un objeto ramificado.
 
-For instance:
+Por ejemplo:
 
 ```js
 let data = {
@@ -28,24 +28,24 @@ let data = {
 };
 ```
 
-The syntax:
+La sintaxis:
 
 ```js
 let container = document.getElementById('container');
 *!*
-createTree(container, data); // creates the tree in the container
+createTree(container, data); // crea el árbol en el contenedor
 */!*
 ```
 
-The result (tree) should look like this:
+El árbol resultante debe verse así:
 
 [iframe border=1 src="build-tree-dom"]
 
-Choose one of two ways of solving this task:
+Elige una de estas dos formas para resolver esta tarea:
 
-1. Create the HTML for the tree and then assign to `container.innerHTML`.
-2. Create tree nodes and append with DOM methods.
+1. Crear el HTML para el árbol y entonces asignarlo a `container.innerHTML`.
+2. Crear los nodos del árbol y añadirlos con métodos DOM.
 
-Would be great if you could do both.
+Sería muy bueno que hicieras ambos.
 
-P.S. The tree should not have "extra" elements like empty `<ul></ul>` for the leaves.
+P.S. El árbol no debe tener elementos "extras" como `<ul></ul>` vacíos para las hojas.

@@ -2,13 +2,13 @@ importance: 1
 
 ---
 
-# Why does "aaa" remain?
+# Por qué "aaa" permanece?
 
-In the example below, the call `table.remove()` removes the table from the document.
+En el ejemplo de abajo, la llamada `table.remove()` remueve la tabla del documento.
 
-But if you run it, you can see that the text `"aaa"` is still visible.
+Pero si la ejecutas, puedes ver que el texto "aaa"` es aún visible.
 
-Why does that happen?
+¿Por qué ocurre esto?
 
 ```html height=100 run
 <table id="table">
@@ -19,9 +19,9 @@ Why does that happen?
 </table>
 
 <script>
-  alert(table); // the table, as it should be
+  alert(table); // la tabla, tal como debería ser
 
   table.remove();
-  // why there's still aaa in the document?
+  // ¿Por qué aún está aaa en el documento?
 </script>
 ```
