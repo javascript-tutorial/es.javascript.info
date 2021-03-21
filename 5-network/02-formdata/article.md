@@ -47,7 +47,7 @@ Tal como se puede ver, es prácticamente una línea:
 </script>
 ```
 
-En este ejemplo, el código del servidor no es representado ya que está fuera de nuestro alcance. El servidor acepta le solicitud POST y responde "Usuario registrado".
+En este ejemplo, el código del servidor no es representado ya que está fuera de nuestro alcance. El servidor acepta la solicitud POST y responde "Usuario registrado".
 
 ## Métodos de FormData
 
