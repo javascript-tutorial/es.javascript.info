@@ -158,7 +158,7 @@ Para un control de igualdad estricto `===`
     alert( null === undefined ); // false
     ```
 
-Para una camparación no estricta `==`
+Para una comparación no estricta `==`
 : Hay una regla especial. Estos dos son una " pareja dulce ": son iguales entre sí (en el sentido de `==`), pero no a ningún otro valor.
 
     ```js run
