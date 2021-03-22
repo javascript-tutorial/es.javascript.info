@@ -317,7 +317,11 @@ alert('Listo!');
 
 Necesitamos una manera de detener el proceso si el usuario cancela la entrada.
 
+<<<<<<< HEAD
 El `break` ordinario después de `input` solo nos sacaría del bucle interno. Eso no es suficiente--etiquetas, vengan al rescate!
+=======
+The ordinary `break` after `input` would only break the inner loop. That's not sufficient -- labels, come to the rescue!
+>>>>>>> d4b3c135ccf80914f59677803e64ebc832d165e3
 
 Una *etiqueta* es un identificar con dos puntos antes de un bucle:
 ```js
@@ -362,12 +366,22 @@ Las etiquetas no nos permiten saltar a un lugar arbitrario en el código.
 
 Por ejemplo, es imposible hacer esto:
 ```js
+<<<<<<< HEAD
 break label;  // saltar a label? No.
+=======
+break label; // jump to the label below (doesn't work)
+>>>>>>> d4b3c135ccf80914f59677803e64ebc832d165e3
 
 label: for (...)
 ```
 
+<<<<<<< HEAD
 Una llamada a `break/continue` solo es posible desde el interior del bucle y la etiqueta debe estar en alguna parte arriba de la directiva.
+=======
+A call to `continue` is only possible from inside the loop.
+
+The `break` directive may be placed before code blocks too, as `label: { ... }`, but it's almost never used like that. And it also works only inside-out.
+>>>>>>> d4b3c135ccf80914f59677803e64ebc832d165e3
 ````
 
 ## Resumen

@@ -528,7 +528,11 @@ Los caracteres son comparados por su código numérico. Código mayor significa 
 - Todas las letras minúsculas van después de las mayúsculas ya que sus códigos son mayores.
 - Algunas letras como `Ö` se mantienen apartadas del alfabeto principal. Aquí el codigo es mayor que cualquiera desde `a` hasta `z`.
 
+<<<<<<< HEAD
 ### Comparaciones correctas [#correct-comparisons]
+=======
+### Correct comparisons [#correct-comparisons]
+>>>>>>> d4b3c135ccf80914f59677803e64ebc832d165e3
 
 El algoritmo "correcto" para realizar comparaciónes de strings es más complejo de lo que parece, debido a que los alfabetos son diferentes para diferentes lenguajes. Una letra que se ve igual en dos alfabetos distintos, pueden tener distintas posiciones.
 

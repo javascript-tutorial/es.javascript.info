@@ -1,6 +1,10 @@
 # Promise API
 
+<<<<<<< HEAD
 Hay 6 métodos estáticos en la clase `Promise`. Veremos sus casos de uso aquí.
+=======
+There are 6 static methods in the `Promise` class. We'll quickly cover their use cases here.
+>>>>>>> d4b3c135ccf80914f59677803e64ebc832d165e3
 
 ## Promise.all
 

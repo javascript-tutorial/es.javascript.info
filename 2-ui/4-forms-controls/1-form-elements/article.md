@@ -8,11 +8,19 @@ Trabajar con formularios será mucho más conveniente cuando los aprendamos.
 
 Los formularios del documento son miembros de la colección especial `document.forms`.
 
+<<<<<<< HEAD
 Esa es la llamada "Colección nombrada": es ambas cosas, nombrada y ordenada. Podemos usar el nombre o el número  en el documento para conseguir el formulario.
 
 ```js no-beautify
 document.forms.my - el formulario con name="my"
 document.forms[0] - el primar formulario en el documento
+=======
+That's a so-called *"named collection"*: it's both named and ordered. We can use both the name or the number in the document to get the form.
+
+```js no-beautify
+document.forms.my; // the form with name="my"
+document.forms[0]; // the first form in the document
+>>>>>>> d4b3c135ccf80914f59677803e64ebc832d165e3
 ```
 
 Cuando tenemos un formulario, cualquier elemento se encuentra disponible en la colección nombrada `form.elements`.
@@ -36,9 +44,15 @@ Por ejemplo:
 </script>
 ```
 
+<<<<<<< HEAD
 Puede haber múltiples elementos con el mismo nombre, tal es el caso de los controles tipo radio.
 
 En ese caso `form.elements[name]` es una colección, por ejemplo:
+=======
+There may be multiple elements with the same name. This is typical with radio buttons and checkboxes.
+
+In that case, `form.elements[name]` is a *collection*. For instance:
+>>>>>>> d4b3c135ccf80914f59677803e64ebc832d165e3
 
 ```html run height=40
 <form>
@@ -119,7 +133,11 @@ Esto es fácil de ver en un ejemplo:
 </script>
 ```
 
+<<<<<<< HEAD
 Esto usualmente no es un problema, porque raramente se cambian los nombres de los elementos de un formulario.
+=======
+That's usually not a problem, however, because we rarely change names of form elements.
+>>>>>>> d4b3c135ccf80914f59677803e64ebc832d165e3
 
 ````
 
@@ -204,7 +222,11 @@ Aquí hay un ejemplo de los tres métodos:
 </script>
 ```
 
+<<<<<<< HEAD
 A diferencia de la mayoría de controles, `<select>` permite seleccionar multiples opciones a la vez si tiene el atributo `multiple`. Esta característica es raramente utilizada. 
+=======
+Unlike most other controls, `<select>` allows to select multiple options at once if it has `multiple` attribute. This attribute is rarely used, though.
+>>>>>>> d4b3c135ccf80914f59677803e64ebc832d165e3
 
 En ese caso, necesitamos usar la primera forma: Añade/elimina la propiedad `selected` de los subelementos `<option>`.
 
@@ -246,7 +268,11 @@ Esta sintaxis es opcional. Podemos usar `document.createElement('option')` y asi
 
 La diferencia entre `defaultSelected` y `selected` es que `defaultSelected` asigna el atributo HTML, el que podemos obtener usando `option.getAttribute('selected')`,  mientras que `selected` hace que el option esté o no seleccionado. 
 
+<<<<<<< HEAD
 Usualmente ambos valores son igualmente asignados como `true` o no asignados (igual a `false`).
+=======
+In practice, one should usually set _both_ values to `true` or `false`. (Or, simply omit them; both default to `false`.)
+>>>>>>> d4b3c135ccf80914f59677803e64ebc832d165e3
 
 Por ejemplo, aquí cramos un nuevo Option "unselected":
 
@@ -289,9 +315,15 @@ Navegación de formularios:
 `element.form`
 : Los elementos referencian a su formulario en la propiedad `form`.
 
+<<<<<<< HEAD
 El valor está disponible con `input.value`, `textarea.value`, `select.value` etc, o `input.checked` para checkboxes y radios.
 
 Para `<select>` también podemos obtener el valor con el índice `select.selectedIndex` o a través de la colección de opciones `select.options`.
+=======
+Value is available as `input.value`, `textarea.value`, `select.value`, etc. (For checkboxes and radio buttons, use `input.checked` to determine whether a value is selected.)
+
+For `<select>`, one can also get the value by the index `select.selectedIndex` or through the options collection `select.options`.
+>>>>>>> d4b3c135ccf80914f59677803e64ebc832d165e3
 
 Esto es lo básico para empezar a trabajar con formularios. Conoceremos muchos ejemplos más adelante en el tutorial.
 
