@@ -269,7 +269,7 @@ Pero como efecto secundario, esto crearía un nivel más de anidación (la llama
 ````
 
 ````warn header="No `break/continue` a la derecha de '?'"
-Por favor, nota que las construcciones de sintaxis que no son expresiones no pueden user usadas con el operador terniario `?`. En particular, directivas como `break/continue` no son permitidas aquí.
+Por favor, nota que las construcciones de sintaxis que no son expresiones no pueden user usadas con el operador ternario `?`. En particular, directivas como `break/continue` no son permitidas aquí.
 
 Por ejemplo, si tomamos este código:
 
@@ -344,7 +344,7 @@ La declaración `break <labelName>` en el bucle debajo nos saca hacia la etiquet
 alert('Listo!');
 ```
 
-En el código de arriba, `break outer` mira hacia arriba por la etiquieta llamada `outer` y nos saca de dicho bucle.
+En el código de arriba, `break outer` mira hacia arriba por la etiqueta llamada `outer` y nos saca de dicho bucle.
 
 Así que el control va directamente de `(*)` a `alert('Listo!')`.
 
