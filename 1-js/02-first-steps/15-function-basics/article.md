@@ -303,7 +303,7 @@ function showMovie(age) {
 
 En el código de arriba, si `checkAge(age)` devuelve `false`, entonces `showMovie` no mostrará la `alert`.
 
-````smart header="Una función con un `return` vacio o sin el devuelve `undefined`"
+````smart header="Una función con un valor de `return` vacío o sin él devuelve `undefined`"
 Si una función no devuelve un valor, es lo mismo que si devuelve `undefined`:
 
 ```js run
@@ -383,7 +383,7 @@ Estos ejemplos asumen significados comunes de prefijos. Lo que significan para t
 ```smart header="Nombres de funciones ultracortos"
 Las funciones que se utilizan *muy a menudo* algunas veces tienen nombres ultracortos.
 
-Por ejemplo, el framework [jQuery](http://jquery.com) define una función con `$`. La librería [LoDash](http://lodash.com/) tiene como nombre de funccion principal `_`.
+Por ejemplo, el framework [jQuery](http://jquery.com) define una función con `$`. La librería [LoDash](http://lodash.com/) tiene como nombre de función principal `_`.
 
 Estas son excepciones. En general, los nombres de las funciones deben ser concisos y descriptivos.
 ```
