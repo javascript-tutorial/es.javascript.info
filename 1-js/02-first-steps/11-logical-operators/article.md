@@ -8,13 +8,13 @@ Veamos los detalles.
 
 ## || (OR)
 
-El operador `OR` se representa con dos simbolos de linea vertical:
+El operador `OR` se representa con dos símbolos de linea vertical:
 
 ```js
 result = a || b;
 ```
 
-En la programación clasica, el OR lógico esta pensado para manipular solo valores booleanos. Si cualquiera de sus argumentos es `true`, retorna `true`, de lo contrario retorna `false`.
+En la programación clásica, el OR lógico esta pensado para manipular solo valores booleanos. Si cualquiera de sus argumentos es `true`, retorna `true`, de lo contrario retorna `false`.
 
 En JavaScript, el operador es un poco más complicado y poderoso. Pero primero, veamos qué pasa con los valores booleanos.
 
@@ -78,8 +78,8 @@ result = value1 || value2 || value3;
 
 El operador OR `||` realiza lo siguiente:
 
--  Evalua los operandos de izquierda a derecha.
--  Para cada operando, convierte el valor a booleano. Si el resultado es `true`, se detiene y retorna el valor orginal de ese operando.
+-  Evalúa los operandos de izquierda a derecha.
+-  Para cada operando, convierte el valor a booleano. Si el resultado es `true`, se detiene y retorna el valor original de ese operando.
 -  Si todos los operandos han sido evaluados (todos eran `false`), retorna el ultimo operando.
 
 Un valor es retornado en su forma original, sin la conversión.
@@ -89,7 +89,7 @@ En otras palabras, una cadena de OR `"||"` devuelve el primer valor verdadero o 
 Por ejemplo:
 
 ```js run
-alert(1 || 0); // 1 (1 es un valor verdado)
+alert(1 || 0); // 1 (1 es un valor verdadero)
 
 alert(null || 1); // 1 (1 es el primer valor verdadero)
 alert(null || 0 || 1); // 1 (el primer valor verdadero)
@@ -144,7 +144,7 @@ El operador AND es representado con dos ampersands `&&`:
 result = a && b;
 ```
 
-En la programación clasica, AND retorna `true` si ambos operandos son valores verdaderos y `false` en cualquier otro caso.
+En la programación clásica, AND retorna `true` si ambos operandos son valores verdaderos y `false` en cualquier otro caso.
 
 ```js run
 alert(true && true); // true
@@ -182,7 +182,7 @@ result = value1 && value2 && value3;
 
 El operador AND `&&` realiza lo siguiente:
 
--  Evalua los operandos de izquierda a derecha.
+-  Evalúa los operandos de izquierda a derecha.
 -  Para cada operando, los convierte a un booleano. Si el resultado es `false`, se detiene y retorna el valor original de dicho operando.
 -  Si todos los operandos han sido evaluados (todos fueron valores verdaderos), retorna el último operando.
 
