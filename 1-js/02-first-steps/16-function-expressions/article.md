@@ -80,7 +80,7 @@ Todo funcionaría igual.
 
 
 ````smart header="Por qué hay un punto y coma al final?"
-Talvez te preguntes, por qué la Expresión de Función tiene un punto y coma `;` al final, pero la Declaración de Función no:
+Tal vez te preguntes, por qué la Expresión de Función tiene un punto y coma `;` al final, pero la Declaración de Función no:
 
 ```js
 function sayHi() {
@@ -94,7 +94,7 @@ let sayHi = function() {
 
 La respuesta es simple:
 - No hay necesidad de un `;` al final de los bloques de código y estructuras de sintaxis que los utilizan tales como `if { ... }`, `for {  }`, `function f { }` etc.
-- Una Expresión de Función es utilizada dentro de la declaración: `let sayHi = ...;`, como un valor. No es un bloque de código. El punto y coma `;` es recomendado al final de declaraciones, sin importar cúal es el valor. Por lo tanto el punto y coma de aquí no se relaciona con la Expresión de Función en sí en ninuguna forma, sólo termina la declaración.
+- Una Expresión de Función es utilizada dentro de la declaración: `let sayHi = ...;`, como un valor. No es un bloque de código. El punto y coma `;` es recomendado al final de declaraciones, sin importar cúal es el valor. Por lo tanto el punto y coma de aquí no se relaciona con la Expresión de Función en sí en ninguna forma, sólo termina la declaración.
 ````
 
 ## Funciones Callback
@@ -136,7 +136,7 @@ ask("Estás de acuerdo?", showOk, showCancel);
 
 En la práctica, tales funciones son bastante útiles. La mayor diferencia entre la función `ask` en la vida real y el ejemplo anterior es que las funciones de la vida real utilizan formas para interactuar con el usuario más complejas que un simple `confirme`. En el navegador, una función como tal normalmente dibuja una ventana de pregunta atractiva. Pero esa es otra historia.
 
-**Los argumentos de `ask` se llaman *funcinoes callback* o simplemente *callbacks*.**
+**Los argumentos de `ask` se llaman *funciones callback* o simplemente *callbacks*.**
 
 La idea es que pasamos una función y esperamos que se "vuelva a llamar" más tarde si es necesario. En nuestro caso, `showOk` se convierte en la callback para la respuesta "Yes", y `showCancel` para la respuesta "No".
 
