@@ -96,7 +96,7 @@ Dicho esto, JavaScript también permite crear servidores, aplicaciones móviles,
 
 ## Lenguajes "por arriba de" JavaScript
 
-La sintaxis de JavaScript no se adapta a las necesidades de todos. Personas diferentes querrán diferentes caracteristicas.
+La sintaxis de JavaScript no se adapta a las necesidades de todos. Personas diferentes querrán diferentes características.
 
 Esto es algo obvio, porque los proyectos y requerimientos son diferentes para cada persona.
 
