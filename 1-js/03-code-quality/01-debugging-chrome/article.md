@@ -63,9 +63,9 @@ Siempre podemos encontrar una lista de los breakpoints en el panel derecho. Esto
 - ...y mucho más.
 
 ```smart header="Breakpoints Condicionales"
-*Click derecho* en el número de línea nos permite crear un breakpoint *concional*. Solo se ejecutará cuando la expresión sea verdadera.
+*Click derecho* en el número de línea nos permite crear un breakpoint *condional*. Solo se ejecutará cuando la expresión sea verdadera.
 
-Esto es útil cuando necesitamos detener la ejecución para cierto valor de variable o para ciertos párametros de función.
+Esto es útil cuando necesitamos detener la ejecución para cierto valor de variable o para ciertos parámetros de función.
 ```
 
 ## Comando debugger 
@@ -95,11 +95,11 @@ Como el breakpoint está definido, la ejecución se detiene en la línea 4:
 
 ![](chrome-sources-debugger-pause.svg)
 
-Por favor abre el desplegable de informacion de la derecha (etiquetado con flechas). Este nos permite examinar el estado del código actual:
+Por favor abre el desplegable de información de la derecha (etiquetado con flechas). Este nos permite examinar el estado del código actual:
 
 1. **`Watch` -- muestra el valor actual de cualquier expresión.**
 
-    Puedes hacer click en el màs `+` y agregar una expresión. El debugger mostrará su valor en cualquier momento, y se recalcurará automáticamente en el proceso de ejecución.
+    Puedes hacer click en el màs `+` y agregar una expresión. El debugger mostrará su valor en cualquier momento, y se recalculará automáticamente en el proceso de ejecución.
 
 2. **`Call Stack` -- muestra las llamadas anidadas en la cadena.**
 
@@ -112,7 +112,7 @@ Por favor abre el desplegable de informacion de la derecha (etiquetado con flech
 
     `Global` contiene las variables globales (fuera de cualquier función).
 
-    Tambien tenemos la palabra `this` la cual no estudiaremos ahora, pero pronto lo haremos.
+    También tenemos la palabra `this` la cual no estudiaremos ahora, pero pronto lo haremos.
 
 ## Trazado de la ejecución
 
@@ -136,7 +136,7 @@ Hay botones para esto en le panel superior derecho. Revisémoslos.
 : Es lo mismo que la anterior, pero "Entras" en las funciones anidadas. Haciendo click en este caminarás por todos los pasos uno por uno.
 
 <span class="devtools" style="background-position:-104px -76px"></span> -- continuar la ejecución hasta el final de la función actual, hotkey `key:Shift+F11`.
-: La ejecucion se detendrá en la última línea de la función actual. Esto es útil cuando accidentalmente entramos en una llamada anidada usando <span class="devtools" style="background-position:-72px -76px"></span>, pero esto no nos interesa, y queremos continuar hasta el final tan rápido como se pueda.
+: La ejecución se detendrá en la última línea de la función actual. Esto es útil cuando accidentalmente entramos en una llamada anidada usando <span class="devtools" style="background-position:-72px -76px"></span>, pero esto no nos interesa, y queremos continuar hasta el final tan rápido como se pueda.
 
 <span class="devtools" style="background-position:-7px -28px"></span> -- activar/desactivar todos los breakpoints.
 : Este botón no mueve la ejecución. Solo prende y apaga los breakpoints.
@@ -180,4 +180,4 @@ Hay muchas más opciones en la consola de desarrollo que las que se cubren aquí
 
 La información de este capítulo es suficiente para debuggear, pero luego, especialmente si hacemos muchas cosas con el explorador, por favor revisa las capacidades avanzadas de la consola de desarrolladores.
 
-Ah, y también puedes hacer click en todos lados en la consola a ver qué pasa. Esta es probablemente la ruta más rapida para aprender a usar la consola de desarrolladores. ¡Tampoco olvides el click derecho!
+Ah, y también puedes hacer click en todos lados en la consola a ver qué pasa. Esta es probablemente la ruta más rápida para aprender a usar la consola de desarrolladores. ¡Tampoco olvides el click derecho!
