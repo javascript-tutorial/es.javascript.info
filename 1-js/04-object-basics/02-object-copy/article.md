@@ -232,7 +232,7 @@ Para corregir esto, debemos usar un bucle de clonación que examine cada valor d
 Podemos usar recursividad para implementarlo. O, para no inventar la rueda, tomar una implementación existente, por ejemplo [_.cloneDeep(obj)](https://lodash.com/docs#cloneDeep) de la librería JavaScript [lodash](https://lodash.com).
 
 ````smart header="Los objetos con const pueden cambiarse"
-Un efecto secundario importante de almacentar objetos como referencias es que un objeto declarado con `const` *puede* ser modificado.
+Un efecto secundario importante de almacenar objetos como referencias es que un objeto declarado con `const` *puede* ser modificado.
 
 Por ejemplo:
 
@@ -257,7 +257,7 @@ Si realmente queremos hacer constantes las propiedades del objeto, es también p
 
 ## Resumen
 
-Los objetos son asignados y copiados por referencia. En otras palabras, una variable almacena no el valor del objeto sino una referencia (dirección de memoria) del valor. Entoncess copiar tal variable o pasarla como argumento de función copia la referencia, no el objeto.
+Los objetos son asignados y copiados por referencia. En otras palabras, una variable almacena no el valor del objeto sino una referencia (dirección de memoria) del valor. Entonces copiar tal variable o pasarla como argumento de función copia la referencia, no el objeto.
 
 Todas la operaciones a través de referencias copiadas (como agregar y borrar propiedades) son efectuadas en el mismo y único objeto .
 

@@ -283,7 +283,7 @@ alert(Object.keys(rabbit)); // jumps
 
 *!*
 // for..in recorre las claves propias y heredadas
-for(let prop in rabbit) alert(prop); // jumps, despues eats
+for(let prop in rabbit) alert(prop); // jumps, después eats
 */!*
 ```
 
@@ -312,7 +312,7 @@ for(let prop in rabbit) {
 }
 ```
 
-Aquí tenemos la siguiente cadena de herencia: `rabbit` hereda de `animal`, que hereda de `Object.prototype` (porque `animal` es un objetc `{...}` literal, entonces es por defecto), y luego `null` encima de él:
+Aquí tenemos la siguiente cadena de herencia: `rabbit` hereda de `animal`, que hereda de `Object.prototype` (porque `animal` es un objeto `{...}` literal, entonces es por defecto), y luego `null` encima de él:
 
 ![](rabbit-animal-object.svg)
 

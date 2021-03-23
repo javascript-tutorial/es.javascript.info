@@ -267,7 +267,7 @@ let times = [];
 setTimeout(function run() {
   times.push(Date.now() - start); // recuerda el retraso de la llamada anterior
 
-  if (start + 100 < Date.now()) alert(times); // smostrar los retrasos después de 100 ms
+  if (start + 100 < Date.now()) alert(times); // mostrar los retrasos después de 100 ms
   else setTimeout(run); // de lo contrario replanificar
 });
 
@@ -292,7 +292,7 @@ Para JavaScript del lado del servidor, esa limitación no existe, y existen otra
 - La programación de retardo cero con `setTimeout(func, 0) `(lo mismo que `setTimeout(func)`) se usa para programar la llamada "lo antes posible, pero después de que se complete el script actual".
 - El navegador limita la demora mínima para cinco o más llamadas anidadas de `setTimeout` o para `setInterval` (después de la quinta llamada) a 4 ms. Eso es por razones históricas.
 
-Tenga en cuenta que todos los métodos de planifiación no *garantizan* el retraso exacto.
+Tenga en cuenta que todos los métodos de planificación no *garantizan* el retraso exacto.
 
 Por ejemplo, el temporizador en el navegador puede ralentizarse por muchas razones:
 - La CPU está sobrecargada.

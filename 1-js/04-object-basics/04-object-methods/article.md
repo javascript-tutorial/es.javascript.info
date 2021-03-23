@@ -220,7 +220,7 @@ sayHi(); // undefined
 
 En este caso `this` es `undefined` en el modo estricto. Si tratamos de acceder a `this.name`, habrá un error.
 
-En modo no estricto el valor de `this` en tal caso será el *objeto global* (`window` en un navegador, llegaremos a ello en el capítulo [](info:global-object)). Este es un comportamiento histórico que `"use strict"` corrije.
+En modo no estricto el valor de `this` en tal caso será el *objeto global* (`window` en un navegador, llegaremos a ello en el capítulo [](info:global-object)). Este es un comportamiento histórico que `"use strict"` corrige.
 
 Usualmente tal llamado es un error de programa. Si hay `this` dentro de una función, se espera que sea llamada en un contexto de objeto.
 ````

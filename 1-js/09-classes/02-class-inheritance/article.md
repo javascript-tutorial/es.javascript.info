@@ -294,7 +294,7 @@ Si lo encuentras difícil de entender, simplemente sigue adelante, continúa ley
 
 Podemos sobrescribir no solo métodos, sino también los campos de la clase.
 
-Pero hay un comportamiento peculiar cuando accedemos a los campos sobrescritos en el contructor padre, muy diferente a de la mayoría de los demás lenguajes de programación.
+Pero hay un comportamiento peculiar cuando accedemos a los campos sobrescritos en el constructor padre, muy diferente a de la mayoría de los demás lenguajes de programación.
 
 Considera este ejemplo:
 
@@ -323,9 +323,9 @@ Aquí, la clase `Rabbit` extiende `Animal` y sobrescribe el campo `name` con un 
 
 Lo interesante es que en ambos casos: `new Animal()` y `new Rabbit()`, el `alert` en la línea `(*)` muestra `animal`.
 
-**En otras palabras, el contructor padre siempre usa el valor de su propios campo de clase, no el sobrescrito.**
+**En otras palabras, el constructor padre siempre usa el valor de su propios campo de clase, no el sobrescrito.**
 
-¿Qué es lo extrañoo de esto?
+¿Qué es lo extraño de esto?
 
 Si esto aún no está claro, compara con métodos.
 
@@ -338,7 +338,7 @@ class Animal {
   }
 
   constructor() {
-    this.showName(); // instead of alert(this.name);
+    this.showName(); // en vez de alert(this.name);
   }
 }
 
@@ -358,17 +358,17 @@ Observa que ahora la salida es diferente.
 
 Y es lo que esperamos naturalmente. Cuando el constructor padre es llamado en la clase derivada, usa el método sobrescrito.
 
-...Pero con los campos esto no es así. Como dijimos antes, el contructor padre siempre utiliza el campo padre.
+...Pero con los campos esto no es así. Como dijimos antes, el constructor padre siempre utiliza el campo padre.
 
 ¿Por que existe la diferencia?
 
 Bien, la razón está en el orden de inicialización, El campo de clase es inicializado:
-- Antes del contructor para la clase de base (que no extiende nada),
-- Inmediatamente depué de `super()` para la clase derivada.
+- Antes del constructor para la clase de base (que no extiende nada),
+- Inmediatamente depués de `super()` para la clase derivada.
 
 En nuestro caso, `Rabbit` es la clase derivada. No hay `constructor()` en ella. Como establecimos previamente, es lo mismo que si hubiera un constructor vacío con solamente `super(...args)`.
 
-Entonces, `new Rabbit()` llama a `super()` y se ejecuta el contructor padre, y (por la regla de la clase derivada) solamente después de que sus campos de clase sean inicializados. En el momento de la ejecución del contructor padre, todavía no existen los campos de clase de `Rabbit`, por ello los campos de `Animal` son los usado.
+Entonces, `new Rabbit()` llama a `super()` y se ejecuta el constructor padre, y (por la regla de la clase derivada) solamente después de que sus campos de clase sean inicializados. En el momento de la ejecución del constructor padre, todavía no existen los campos de clase de `Rabbit`, por ello los campos de `Animal` son los usado.
 
 Esta sutil diferencia entre campos y métodos es particular de JavaScript
 

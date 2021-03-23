@@ -163,7 +163,7 @@ Coloca guiones bajos `_` y `__` antes de los nombres de las variables. Como `_na
 
 Matarás dos pájaros de un solo tiro. Primero, el código se hará más largo y menos legible, y segundo, un colega desarrollador podría gastar una gran cantidad de tiempo intentado entender el significado del guion bajo.
 
-Un ninja inteligente coloca los guiones bajos en un solo lugar del código y los evita en otros lugars. Eso hace que el código sea mucho más frágil y aumenta la probabilidad de errores futuros.
+Un ninja inteligente coloca los guiones bajos en un solo lugar del código y los evita en otros lugares. Eso hace que el código sea mucho más frágil y aumenta la probabilidad de errores futuros.
 
 ## Muestra tu amor
 
@@ -224,7 +224,7 @@ Por ejemplo, una función `validarEmail(email)` podría (además de comprobar el
 
 Acciones adicionales no deberían ser obvias por el nombre de la función. Un verdadero programador ninja no las hará obvias por el código tampoco.  
 
-**Uniendo muchas acciones en una proteje tu código de reusos.**
+**Uniendo muchas acciones en una protege tu código de reúsos.**
 
 Imagina, otro desarrollador quiere solo comprobar el correo, y no mostrar ningún mensaje. Tu función `validarEmail(email)` que hace ambas no le será de utilidad. Así que no romperán tu meditación preguntando cualquier cosa sobre ello.
 

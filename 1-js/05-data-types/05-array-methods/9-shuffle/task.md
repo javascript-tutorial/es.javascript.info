@@ -6,7 +6,7 @@ importance: 3
 
 Escribe la función `shuffle(array)` que baraje (reordene de forma aleatoria) los elementos del array.
 
-Multiples ejecuciones de `shuffle` puede conducir a diferentes órdenes de elementos. Por ejemplo:
+Múltiples ejecuciones de `shuffle` puede conducir a diferentes órdenes de elementos. Por ejemplo:
 
 ```js
 let arr = [1, 2, 3];
