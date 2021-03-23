@@ -13,7 +13,7 @@ function f(a, b) {
   alert( a + b );
 }
 
-f.defer(1000)(1, 2); // muestra 3 despues de 1 segundo
+f.defer(1000)(1, 2); // muestra 3 después de 1 segundo
 ```
 
 Tenga en cuenta que los argumentos deben pasarse a la función original.

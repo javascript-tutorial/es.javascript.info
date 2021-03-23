@@ -100,7 +100,7 @@ Como ya vimos, el `.catch` del final es similar a `try..catch`. Podemos tener ta
 
 En un `try..catch` normal, podemos analizar el error y quizá volver a lanzarlo si no se puede manejar. Lo mismo podemos hacer con las promesas.
 
-Si hacemos `throw` dentro de `.catch`, el control pasa a otro manejador de errores más cercano. Y, si manejamos el error y terminamos de forma correcta, entonces se continúa con el siguiente manejador `.then` existoso.
+Si hacemos `throw` dentro de `.catch`, el control pasa a otro manejador de errores más cercano. Y, si manejamos el error y terminamos de forma correcta, entonces se continúa con el siguiente manejador `.then` exitoso.
 
 En el ejemplo de abajo, el `.catch` maneja el error de forma exitosa:
 
@@ -117,7 +117,7 @@ new Promise((resolve, reject) => {
 }).then(() => alert("El siguiente manejador exitoso se ejecuta"));
 ```
 
-Aqui el `.catch` termina de forma correcta. Entonces se ejecuta el siguiente manejador exitoso `.then`.
+Aquí el `.catch` termina de forma correcta. Entonces se ejecuta el siguiente manejador exitoso `.then`.
 
 En el siguiente ejemplo podemos ver otra situación con `.catch`. El manejador `(*)` detecta el error y simplemente no puede manejarlo (en el ejemplo solo sabe que hacer con un `URIError`), por lo que lo lanza nuevamente:
 
@@ -160,7 +160,7 @@ new Promise(function() {
   noSuchFunction(); // Aquí hay un error (no existe la función)
 })
   .then(() => {
-    // manejador de una o más promesas existosas
+    // manejador de una o más promesas exitosas
   }); // sin .catch al final!
 ```
 

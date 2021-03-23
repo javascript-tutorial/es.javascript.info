@@ -9,7 +9,7 @@ Veamos primero un ejemplo simple, para comprender la sintaxis y luego revisar un
 
 Repasemos el tópico acerca de iterables. 
 
-La idea es que tenemo un objeto, tal como `range` aquí:
+La idea es que tenemos un objeto, tal como `range` aquí:
 ```js
 let range = {
   from: 1,
@@ -24,7 +24,7 @@ En otras palabras, queremos agregar la habilidad de iteración al objeto.
 Eso puede ser implementado usando un método especial con el nombre `Symbol.iterator`:
 
 - Este método es llamado por la construcción `for..of` cuando comienza el bucle, y debe devolver un objeto con el método `next`.
-- Para cada iteración, el método `next()` es invocado para el siguinte valor.
+- Para cada iteración, el método `next()` es invocado para el siguiente valor.
 - El `next()` debe devolver un valor en el formato `{done: true/false, value:<loop value>}`, donde `done:true` significa el fin del bucle.
 
 Aquí hay una implementación de `range` iterable:
@@ -136,7 +136,7 @@ Aquí hay una pequeña tabla con las diferencias:
 | `next()` el valor de retorno es              | cualquier valor        | `Promise`  |
 | en bucle, usar                          | `for..of`         | `for await..of` |
 
-````warn header="La sintaxis de propagacón o spread (...) no funciona de forma asíncrona"
+````warn header="La sintaxis de propagación o spread (...) no funciona de forma asíncrona"
 Las características que requieren iteradores normales y sincrónicos no funcionan con los asincrónicos.
 
 Por ejemplo, una sintaxis de propagación no funciona:
@@ -214,7 +214,7 @@ Cambiemos a generadores asincrónicos para hacerlo posible.
 
 ## Generadores asíncronos (finalmente)
 
-Para aplicaciones más prácticas, cuando queremos hacer un objeto que genere una secuencia de valores asincrónicamente, podemos usar un generador aincrónico.
+Para aplicaciones más prácticas, cuando queremos hacer un objeto que genere una secuencia de valores asincrónicamente, podemos usar un generador asincrónico.
 
 La sintaxis es simple: anteponga `async` a `function*`. Esto hace al generador asincrónico.
 
@@ -252,7 +252,7 @@ Técnicamente, si eres un lector avanzado que recuerda los detalles de los gener
 
 En los generadores asincrónicos, el método `generator.next()` es asincrónico, devuelve promesas.
 
-En un generador normal usariamos `result = generator.next()` para obtener valores. En un generador asíncrono debemos agregar `await`, así:
+En un generador normal usaríamos `result = generator.next()` para obtener valores. En un generador asíncrono debemos agregar `await`, así:
 
 ```js
 result = await generator.next(); // resultado = {value: ..., done: true/false}
@@ -273,7 +273,7 @@ let range = {
   from: 1,
   to: 5,
 
-  // esta línea es la miema que [Symbol.asyncIterator]: async function*() {
+  // esta línea es la misma que [Symbol.asyncIterator]: async function*() {
 *!*
   async *[Symbol.asyncIterator]() { 
 */!*

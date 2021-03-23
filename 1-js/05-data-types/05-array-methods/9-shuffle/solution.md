@@ -14,7 +14,7 @@ alert(arr);
 
 Eso funciona de alguna manera, porque `Math.random() - 0.5` es un número aleatorio que puede ser positivo o negativo, por lo tanto, la función de ordenamiento reordena los elementos de forma aleatoria.
 
-Pero debido a que la función de ordenamiento no está hecha para ser usada de esta manera, no todas las permutaciónes tienen la misma probabilidad.
+Pero debido a que la función de ordenamiento no está hecha para ser usada de esta manera, no todas las permutaciones tienen la misma probabilidad.
 
 Por ejemplo, consideremos el código siguiente. Ejecuta `shuffle` 1000000 veces y cuenta las apariciones de todos los resultados posibles:
 
@@ -58,9 +58,8 @@ Un resultado de ejemplo (depende del motor JS):
 
 Podemos ver una clara tendencia: `123` y `213` aparecen mucho más seguido que otros.
 
-El resultado del código puede variar entre distitos motores JavaScript pero ya podemos ver que esta forma de abordar el problema es poco confiable.
+El resultado del código puede variar entre distintos motores JavaScript pero ya podemos ver que esta forma de abordar el problema es poco confiable.
 
-Why it doesn't work? Generally speaking, `sort` is a "black box": we throw an array and a comparison function into it and expect the array to be sorted. But due to the utter randomness of the comparison the black box goes mad, and how exactly it goes mad depends on the concrete implementation that differs between engines.
 ¿Por qué no funciona? Generalmente hablando, `sort` es una "caja negra": tiramos dentro un array y una función de ordenamiento y esperamos que el array se ordene. Pero debido a la total aleatoriedad de la comparación, la caja negra se vuelve loca y exactamente en que sentido se vuelve loca depende de la implementación específica, que difiere de un motor a otro.
 
 Existen otra formas mejores de realizar la tarea. Por ejemplo, hay un excelente algorítmo llamado [Algoritmo de Fisher-Yates](https://es.wikipedia.org/wiki/Algoritmo_de_Fisher-Yates). La idea es recorrer el array en sentido inverso e intercambiar cada elemento con un elemento aleatorio anterior:
@@ -72,7 +71,7 @@ function shuffle(array) {
 
     // intercambia elementos array[i] y array[j]
     // usamos la sintáxis "asignación de desestructuración" para lograr eso
-    // encontrarás más información acerca de esa sntáxis en los capítulos siguientes
+    // encontrarás más información acerca de esa sintaxis en los capítulos siguientes
     // lo mismo puede ser escrito como:
     // let t = array[i]; array[i] = array[j]; array[j] = t
     [array[i], array[j]] = [array[j], array[i]];

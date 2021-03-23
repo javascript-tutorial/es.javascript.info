@@ -15,16 +15,16 @@ Cuando usamos características modernas del lenguaje, puede que algunos intérpr
 
 Aquí Babel viene al rescate.
 
-[Babel](https://babeljs.io) es un [transpiler](https://en.wikipedia.org/wiki/Source-to-source_compiler). Reescribe código JavaScript moderno en el estándar anterior.
+[Babel](https://babeljs.io) es un [transpilador](https://en.wikipedia.org/wiki/Source-to-source_compiler). Reescribe código JavaScript moderno en el estándar anterior.
 
 En realidad, hay dos partes en Babel:
 
-1. Primero, el programa transpiler, que reescribe código. El desarrollador lo ejecuta en su propio ordenador. Reescribe el código al viejo estándar. Y entonces el código es entregado al navegador para los usuarios. Proyectos modernos para construcción de sistemas como [webpack](http://webpack.github.io/) o [brunch](http://brunch.io/), proporcionan medios para ejecutar el transpiler automáticamente en cada cambio al código, de modo que no implique ninguna perdida de tiempo de nuestra parte.
+1. Primero, el programa transpilador, que reescribe código. El desarrollador lo ejecuta en su propio ordenador. Reescribe el código al viejo estándar. Y entonces el código es entregado al navegador para los usuarios. Proyectos modernos para construcción de sistemas como [webpack](http://webpack.github.io/) o [brunch](http://brunch.io/), proporcionan medios para ejecutar el transpilador automáticamente en cada cambio al código, de modo que no implique ninguna perdida de tiempo de nuestra parte.
 
 2. Segundo, el polyfill.
 
-    Nuevas características del lenguaje pueden incluir no solo contrucciones sintácticas sino también funciones incorporadas.
-    El transpilador reescribe el código, transformando las contrucciones sintácticas nuevas al viejo formato. Pero para funciones nuevas, necesitamos implementarlas. JavaScript es un lenguaje muy dinámico, los scripts pueden agregar o modificar cualquier función para que actúen acorde al estándar moderno.
+    Nuevas características del lenguaje pueden incluir no solo construcciones sintácticas sino también funciones incorporadas.
+    El transpilador reescribe el código, transformando las construcciones sintácticas nuevas al viejo formato. Pero para funciones nuevas, necesitamos implementarlas. JavaScript es un lenguaje muy dinámico, los scripts pueden agregar o modificar cualquier función para que actúen acorde al estándar moderno.
 
     Existe el término "polyfill" para scripts que "llenan"(fill in) el vacío y agregan las implementaciones que faltan.
 
@@ -48,7 +48,7 @@ Ejemplos que usan JS moderno solo funcionarán si tu navegador lo soporta.
 ````
 
 ```offline
-Como estás leyendo la verión offline, en PDF los ejemplos no se pueden ejecutar. En EPUB algunos pueden ejecutarse.
+Como estás leyendo la versión offline, en PDF los ejemplos no se pueden ejecutar. En EPUB algunos pueden ejecutarse.
 ```
 
-Generalmente, Google Chrome está actualizado con las últimas características del lenguaje, funciona bien para ejecutar demos con tecnología puntera sin ningún transpiler, pero otros navegadores modernos también funcionan bien.
+Generalmente, Google Chrome está actualizado con las últimas características del lenguaje, funciona bien para ejecutar demos con tecnología puntera sin ningún transpilador, pero otros navegadores modernos también funcionan bien.

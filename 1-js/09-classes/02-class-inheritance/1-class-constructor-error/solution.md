@@ -1,6 +1,6 @@
 Eso es porque el constructor hijo debe llamar a `super()`.
 
-Aqui el código corregido:
+Aquí el código corregido:
 
 ```js run
 class Animal {

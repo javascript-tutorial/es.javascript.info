@@ -4,7 +4,7 @@ Los objetos te permiten almacenar colecciones de datos a través de nombres. Eso
 
 Pero a menudo necesitamos una *colección ordenada*, donde tenemos un 1ro, un 2do, un 3er elemento y así sucesivamente. Por ejemplo, necesitamos almacenar una lista de algo: usuarios, bienes, elementos HTML, etc.
 
-No es conveniente usar objetos aquí, porque no proveen métodos para manejar el orden de los elementos. No podemos insertar una nueva propiedad “entre” los exitentes. Los objetos no están hechos para eso.
+No es conveniente usar objetos aquí, porque no proveen métodos para manejar el orden de los elementos. No podemos insertar una nueva propiedad “entre” los existentes. Los objetos no están hechos para eso.
 
 Existe una estructura llamada `Array` (llamada en español arreglo o matriz/vector) para almacenar colecciones ordenadas.
 
@@ -241,7 +241,7 @@ Los métodos `push/pop` son rápidos, mientras que `shift/unshift` son lentos.
 
 ![](array-speed.svg)
 
-¿Por qué es más rapido trabajar con el final del array que con el principio? Veamos qué pasa durante la ejecución:
+¿Por qué es más rápido trabajar con el final del array que con el principio? Veamos qué pasa durante la ejecución:
 
 ```js
 fruits.shift(); // toma 1 elemento del principio

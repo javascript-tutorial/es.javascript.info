@@ -8,7 +8,7 @@ Escriba la función `sum` que funcione así: `sum(a)(b) = a+b`.
 
 Sí, exactamente de esta manera, usando paréntesis dobles (no es un error de tipeo).
 
-Por ejemeplo:
+Por ejemplo:
 
 
 ```js

@@ -179,14 +179,14 @@ alert(user.name); // Pete
 user.name = ""; // El nombre es demasiado corto...
 ```
 
-Entonces, el nombre es almacenado en la propiedad `_name`, y el acceso se hace a traves de getter y setter.
+Entonces, el nombre es almacenado en la propiedad `_name`, y el acceso se hace a través de getter y setter.
 
 Técnicamente, el código externo todavía puede acceder al nombre directamente usando "usuario._nombre". Pero hay un acuerdo ampliamente conocido de que las propiedades que comienzan con un guión bajo "_" son internas y no deben ser manipuladas desde el exterior del objeto.
 
 
 ## Using for compatibility
 
-Una de los grandes usos de los getters y setters es que permiten tomar el control de una propiedad de datos "normal" y reemplazarla con getter y setter y así refinar su coportamiento.
+Una de los grandes usos de los getters y setters es que permiten tomar el control de una propiedad de datos "normal" y reemplazarla con getter y setter y así refinar su comportamiento.
 
 Imagina que empezamos a implementar objetos usuario usando las propiedades de datos "nombre" y "edad":
 

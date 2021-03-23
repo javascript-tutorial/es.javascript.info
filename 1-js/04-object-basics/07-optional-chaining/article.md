@@ -125,7 +125,7 @@ La variable debe ser declarada (con `let/const/var user` o como parámetro de fu
 
 ## Short-circuiting (Cortocircuitos)
 
-Como se dijo antes, el `?.` detiene inmediatamente ("cotocircuito") la evaluación si la parte izquierda no existe.
+Como se dijo antes, el `?.` detiene inmediatamente ("cortocircuito") la evaluación si la parte izquierda no existe.
 
 Entonces, si hay más llamadas a funciones o efectos secundarios, estos no suceden:
 

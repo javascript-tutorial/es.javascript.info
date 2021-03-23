@@ -14,6 +14,6 @@ let salaries = {
 }
 ```
 
-Escribe el código para sumar todos los salarios y almacenarl el resultado en la variable `sum`. En el ejemplo de arriba nos debería dar `390`.
+Escribe el código para sumar todos los salarios y almacenar el resultado en la variable `sum`. En el ejemplo de arriba nos debería dar `390`.
 
-Si `salaries` está vacio entonces el resultado será `0`.
+Si `salaries` está vacío entonces el resultado será `0`.

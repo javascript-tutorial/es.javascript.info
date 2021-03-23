@@ -66,7 +66,7 @@ Para crear un nuevo objeto `Date` se lo instancia con `new Date()` junto con uno
 
     ```js run
     new Date(2011, 0, 1, 0, 0, 0, 0); // 1 Jan 2011, 00:00:00
-    new Date(2011, 0, 1); // Igual que la línea de arriba, sólo que a los ultimos 4 parámetros se les asigna '0' por default.
+    new Date(2011, 0, 1); // Igual que la línea de arriba, sólo que a los últimos 4 parámetros se les asigna '0' por default.
     ```
 
     La precisión máxima es de 1 ms (1/1000 de segundo):
@@ -216,9 +216,9 @@ let date = new Date();
 alert(+date); // devuelve el número de milisegundos, al igual que date.getTime()
 ```
 
-The important side effect: dates can be subtracted, the result is their difference in ms.
+El efecto secundario importante: las fechas pueden ser restadas, el resultado es su diferencia en ms.
 
-That can be used for time measurements:
+Esto puede ser usado para medición de tiempo:
 
 ```js run
 let start = new Date(); // comienza a medir el tiempo (valor inicial)
@@ -374,7 +374,7 @@ for (let i = 0; i < 10; i++) {
 ```
 
 ```warn header="Cuidado con los micro-benchmarks"
-Los motores Modernos de JavaScript realizan varias optimizaciones al ejecutar código. Esto podría alterar los resultados de las "pruebas artificiales" respecto del "uso normal", especialmente cuando hacemos un *benchmark* tan pequeño, como por ejemplo: el funcionamiento de un operador o una funcion incorporada de JavaScript. Por esta razón, si se quiere entender más en profundidad cómo funciona la performance, se recomienda estudiar el funcionamiento del motor de JavaScript. Probablemente no necesites realizar *microbenchmarks* en absoluto.
+Los motores Modernos de JavaScript realizan varias optimizaciones al ejecutar código. Esto podría alterar los resultados de las "pruebas artificiales" respecto del "uso normal", especialmente cuando hacemos un *benchmark* tan pequeño, como por ejemplo: el funcionamiento de un operador o una función incorporada de JavaScript. Por esta razón, si se quiere entender más en profundidad cómo funciona la performance, se recomienda estudiar el funcionamiento del motor de JavaScript. Probablemente no necesites realizar *microbenchmarks* en absoluto.
 
 Se pueden encontrar una gran cantidad de artículos acerca del motor V8 en <http://mrale.ph>.
 ```
@@ -386,11 +386,11 @@ El método [Date.parse(str)](https://developer.mozilla.org/es/docs/Web/JavaScrip
 El formato del string debe ser: `YYYY-MM-DDTHH:mm:ss.sssZ`, donde:
 
 - `YYYY-MM-DD` -- es la fecha: año-mes-día.
-- El caracter `"T"` se usa como delimitador.
+- El carácter `"T"` se usa como delimitador.
 - `HH:mm:ss.sss` -- es la hora: horas, minutos, segundos y milisegundos.
-- El caracter `'Z'` es opcional y especifica la zona horaria, con el formato `+-hh:mm`. Si se incluye únicamente la letra `Z` equivale a UTC+0.
+- El carácter `'Z'` es opcional y especifica la zona horaria, con el formato `+-hh:mm`. Si se incluye únicamente la letra `Z` equivale a UTC+0.
 
-Tambien es posible pasar como string variantes abreviadas, tales como `YYYY-MM-DD` o `YYYY-MM` o incluso `YYYY`.
+También es posible pasar como string variantes abreviadas, tales como `YYYY-MM-DD` o `YYYY-MM` o incluso `YYYY`.
 
 La llamada del método `Date.parse(str)` convierte el string en el formato especificado y nos devuelve un _timestamp_ (cantidad de milisegundos transcurridos desde el 1° de Enero de 1970 UTC+0). Si el formato del string no es válido, devuelve es `NaN`.
 
@@ -415,7 +415,7 @@ alert(date);
 - En JavaScript, la fecha y la hora se representan con el objeto [Date](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Date). No es posible obtener sólo la fecha o sólo la hora: los objetos `Date` incluyen ambas.
 - Los meses se cuentan desde el cero (siendo Enero el mes cero).
 - Los días de la semana en `getDay()` también se cuentan desde el cero (que corresponde al día Domingo).
-- El objeto `Date` se autocorrije cuando recibe un componente fuera de rango. Es útil para sumar o restar días/meses/horas.
+- El objeto `Date` se autocorrige cuando recibe un componente fuera de rango. Es útil para sumar o restar días/meses/horas.
 - Las fechas se pueden restar entre sí, con su resultado expresado en milisegundos. Esto se debe a que el objeto `Date` toma el valor del _timestamp_ cuando es convertido a número.
 - Para obtener el _timestamp_ actual de manera inmediata se utiliza `Date.now()`.
 

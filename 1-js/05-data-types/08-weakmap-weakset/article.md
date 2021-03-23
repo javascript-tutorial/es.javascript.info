@@ -194,7 +194,7 @@ function process(obj) {
 // 📁 main.js
 let obj = {/* let's say we have an object */};
 
-let result1 = process(obj); // calculated
+let result1 = process(obj); // calculado
 
 // ...después, en otro lugar del código...
 let result2 = process(obj); // resultado recordado tomado de la memoria caché
