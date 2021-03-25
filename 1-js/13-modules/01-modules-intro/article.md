@@ -307,7 +307,7 @@ Los scripts externos que tengan `type="module"` son diferentes en dos aspectos:
     <script type="module" src="my.js"></script>
     ```
 
-2. Los scripts externos que se buscan desde otro origen (p.ej. otra sitio web) require encabezados [CORS](https://developer.mozilla.org/es/docs/Web/HTTP/Access_control_CORS), como se describe en el capítulo <info:fetch-crossorigin>. En otras palabras, si un script de módulo es extraido desde otro origen, el servidor remoto debe proporcionar un encabezado `Access-Control-Allow-Origin` permitiendo la búsqueda.
+2. Los scripts externos que se buscan desde otro origen (p.ej. otra sitio web) require encabezados [CORS](https://developer.mozilla.org/es/docs/Web/HTTP/Access_control_CORS), como se describe en el capítulo <info:fetch-crossorigin>. En otras palabras, si un script de módulo es extraído desde otro origen, el servidor remoto debe proporcionar un encabezado `Access-Control-Allow-Origin` permitiendo la búsqueda.
     ```html
     <!-- otro-sitio-web.com debe proporcionar Access-Control-Allow-Origin -->
     <!-- si no, el script no se ejecutará -->
@@ -358,7 +358,7 @@ Las herramientas de compilación hacen lo siguiente:
 4. Durante el proceso, otras transformaciones y optimizaciones se pueden aplicar:
     - Se elimina código inaccesible.
     - Se elimina exportaciones sin utilizar ("tree-shaking").
-    - Sentencias específicas de dessarrollo tales como `console` y `debugger` se eliminan.
+    - Sentencias específicas de desarrollo tales como `console` y `debugger` se eliminan.
     - La sintaxis JavaScript moderna puede transformarse en una sintaxis más antigua con una funcionalidad similar utilizando [Babel](https://babeljs.io/).
     - El archivo resultante se minimiza. (se eliminan espacios, las variables se reemplazan con nombres cortos, etc).
 

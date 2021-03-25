@@ -24,7 +24,7 @@ let billion = 1_000_000_000;
 
 Aquí `_` es "azúcar sintáctica", hace el número más legible. El motor JavaScript simplemente ignora `_` entre dígitos asi que es exactamente e igual al billion de más arriba.
 
-Pero en la vida real tratamos de evitar esribir una larga cadena de ceros porque es fácil tipear mal. 
+Pero en la vida real tratamos de evitar escribir una larga cadena de ceros porque es fácil tipear mal. 
 
 En JavaScript, acortamos un número agregando la letra `"e"` y especificando la cantidad de ceros:
 
@@ -160,7 +160,7 @@ Hay dos formas de hacerlo:
     ```js run
     let num = 1.23456;
 
-    alert( Math.floor(num * 100) / 100 ); // 1.23456 -> 123.456 -> 123 -> 1.23
+    alert( Math.round(num * 100) / 100 ); // 1.23456 -> 123.456 -> 123 -> 1.23
     ```
 
 2. El método [toFixed(n)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Number/toFixed) redondea el número a `n` dígitos después del punto decimal y devuelve una cadena que representa el resultado.
@@ -351,7 +351,7 @@ La conversión numérica usando un más `+` o `Number()` es estricta. Si un valo
 alert( +"100px" ); // NaN
 ```
 
-Siendo la única exepción los espacios al principio y al final del string, pues son ignorados.
+Siendo la única excepción los espacios al principio y al final del string, pues son ignorados.
 
 Pero en la vida real a menudo tenemos valores en unidades como `"100px"` o `"12pt"` en CSS.  También el símbolo de moneda que en varios países va después del monto, tenemos `"19€"` y queremos extraerle la parte numérica.
 
@@ -374,7 +374,7 @@ alert( parseInt('a123') ); // NaN, el primer símbolo detiene la lectura
 ```
 
 ````smart header="El segundo argumento de `parseInt(str, radix)`"
-La función `parseInt()` tiene un segundo parámetro opcional. Este especifica la base de sistema numérico, entonces `parseInt` puede también analizar cadenas de numeros hexa, binarios y otros:
+La función `parseInt()` tiene un segundo parámetro opcional. Este especifica la base de sistema numérico, entonces `parseInt` puede también analizar cadenas de números hexa, binarios y otros:
 
 ```js run
 alert( parseInt('0xff', 16) ); // 255

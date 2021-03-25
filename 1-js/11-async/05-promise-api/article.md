@@ -1,6 +1,6 @@
 # Promise API
 
-Hay 5 métodos estáticos en la clase `Promise`. Veremos sus casos de uso aquí.
+Hay 6 métodos estáticos en la clase `Promise`. Veremos sus casos de uso aquí.
 
 ## Promise.all
 
@@ -190,7 +190,7 @@ if (!Promise.allSettled) {
 
 En este código, `promises.map` toma los valores de entrada, los transforma en promesas (por si no lo eran) con `p => Promise.resolve(p)`, entonces agrega un manejador `.then` a cada una.
 
-Este manejador ("handler") transforma un resultado extitoso `value` en `{status:'fulfilled', value}`, y un error `reason` en `{status:'rejected', reason}`. Ese es exactamente el formato de `Promise.allSettled`.
+Este manejador ("handler") transforma un resultado exitoso `value` en `{status:'fulfilled', value}`, y un error `reason` en `{status:'rejected', reason}`. Ese es exactamente el formato de `Promise.allSettled`.
 
 Ahora podemos usar `Promise.allSettled` para obtener el resultado de *todas* las promesas dadas incluso si algunas son rechazadas.
 
@@ -239,7 +239,7 @@ Promise.any([
 
 La primera promesa fue la más rápida, pero fue rechazada entonces devuelve el resultado de la segunda. Una vez que la primera promesa cumplida "gana la carrera", los demás resultados serán ignorados.
 
-Aquí hay un ejemplo donde todas la promesas fallab:
+Aquí hay un ejemplo donde todas la promesas fallan:
 
 ```js run
 Promise.any([

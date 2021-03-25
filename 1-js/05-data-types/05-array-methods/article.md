@@ -32,7 +32,7 @@ alert( arr.length ); // 3
 
 El elemento fue removido pero el array todavía tiene 3 elementos, podemos comprobarlo en la línea `arr.length == 3`.
 
-Esto es porque `delete obj.key` borra el valor de `key`. Es todo lo que hace. Funciona bien para objetos pero para arrays usualmente lo que buscamos es que el resto de los elemetos se muevan y ocupen el lugar libre. Lo que esperamos es un array más corto.
+Esto es porque `delete obj.key` borra el valor de `key`. Es todo lo que hace. Funciona bien para objetos pero para arrays usualmente lo que buscamos es que el resto de los elementos se muevan y ocupen el lugar libre. Lo que esperamos es un array más corto.
 
 Por lo tanto, necesitamos utilizar métodos especiales.
 
@@ -304,7 +304,7 @@ En la vida real los arrays de objetos son bastante comúnes por lo que el métod
 
 Ten en cuenta que en el ejemplo anterior le pasamos a `find` la función `item => item.id == 1` con un argumento. Esto es lo más común, otros argumentos son raramente usados en esta función.
 
-El método [arr.findIndex](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/findIndex) es escencialmente lo mismo, pero devuelve el índice donde el elemento fue encontrado en lugar del elemento en sí y devuelve `-1` cuando no encuentra nada.
+El método [arr.findIndex](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/findIndex) es esencialmente lo mismo, pero devuelve el índice donde el elemento fue encontrado en lugar del elemento en sí y devuelve `-1` cuando no encuentra nada.
 
 ### filter
 
@@ -419,7 +419,7 @@ Ahora sí funciona como esperábamos.
 
 Demos un paso al costado un momento y pensemos que es lo que está pasando. El array `arr` puede ser un array de cualquier cosa, ¿no? Puede contener números, strings, objetos o lo que sea. Podemos decir que tenemos un conjunto de *ciertos items*. Para ordenarlos, necesitamos una *función de orden* que sepa cómo comparar los elementos. El orden por defecto es hacerlo como strings.
 
-El método `arr.sort(fn)` implementa un algorito genérico de orden. No necesitamos preocuparnos de cómo funciona internamente (la mayoría de las veces es una forma optimizada del algoritmo [quicksort](https://es.wikipedia.org/wiki/Quicksort) o [Timsort](https://en.wikipedia.org/wiki/Timsort)). Este método va a recorrer el array, comparar sus elementos usando la función dada y, finalmente, reordenarlos. Todo los que necesitamos hacer es proveer la `fn` que realiza la comparación.
+El método `arr.sort(fn)` implementa un algoritmo genérico de orden. No necesitamos preocuparnos de cómo funciona internamente (la mayoría de las veces es una forma optimizada del algoritmo [quicksort](https://es.wikipedia.org/wiki/Quicksort) o [Timsort](https://en.wikipedia.org/wiki/Timsort)). Este método va a recorrer el array, comparar sus elementos usando la función dada y, finalmente, reordenarlos. Todo los que necesitamos hacer es proveer la `fn` que realiza la comparación.
 
 Por cierto, si alguna vez queremos saber qué elementos son comparados -- nada nos impide ejecutar alert() en ellos:
 
@@ -514,7 +514,7 @@ alert(arr); // Bilbo, Gandalf
 ```
 
 ````smart header="Separar en letras"
-El llamado a `split(s)` con un `s` vacío separará el strign en un array de letras:
+El llamado a `split(s)` con un `s` vacío separará el string en un array de letras:
 
 ```js run
 let str = "test";
@@ -590,7 +590,7 @@ El flujo de cálculos:
 
 ![](reduce.svg)
 
-O en la forma de una tabla, donde cada fila representa un llamado a una función en el pŕoximo elemento del array:
+O en la forma de una tabla, donde cada fila representa un llamado a una función en el próximo elemento del array:
 
 |   |`sum`|`current`|result|
 |---|-----|---------|---------|

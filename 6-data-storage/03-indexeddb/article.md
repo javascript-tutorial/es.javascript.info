@@ -18,6 +18,12 @@ La interfaz nativa de IndexedDB, descrita en la <https://www.w3.org/TR/IndexedDB
 
 También podemos usar `async/await` con la ayuda de un contenedor basado en promesas como idb <https://github.com/jakearchibald/idb>. Es muy conveniente, pero el contenedor no es perfecto y no puede reemplazar los eventos en todos los casos. Así que comenzaremos con eventos, y, cuando hayamos avanzado en el entendimiento de IndexedDb, usaremos el contenedor.
 
+```smart header="¿Dónde están los datos?"
+Técnicamente, los datos son almacenados bajo el directorio raíz del usuario junto con la configuración personal del navegador, extensiones, etc.
+
+Navegadores y usuarios diferentes tendrán cada uno su propio almacenamiento independiente.
+```
+
 ## Abrir una base de datos, "open"
 
 Para empezar a trabajar con IndexedDB, primero necesitamos conectarnos o "abrir" (`open`) una base de datos.
@@ -125,9 +131,7 @@ Para organizar esto, se dispara el evento `versionchange` (cambio-de-versión) e
 
 Si no escuchamos el evento `versionchange` y no cerramos la conexión vieja, entonces la segunda y más nueva no se podrá hacer. El objeto `openRequest` emitirá el evento `blocked` en lugar de `success`. Entonces la segunda pestaña no funcionará.
 
-Aquí tenemos el código para manejar correctamente la actualización paralela.
-
-Este instala, después de que la base fue abierta, un manejador `onversionchange` que cierra la conexión actual por quedarse vieja:
+Aquí tenemos el código para manejar correctamente la actualización paralela. Este instala un manejador `onversionchange` que se dispara si la conexión actual queda obsoleta y la cierra (la versión se actualiza en algún otro lado):
 
 ```js
 let openRequest = indexedDB.open("store", 2);
@@ -160,12 +164,14 @@ openRequest.onblocked = function() {
 
 Aquí hacemos dos cosas:
 
-1. Agregamos una escucha a `db.onversionchange` después de una apertura exitosa para estar informados de un intento de actualización paralela.
-2. Agregamos una escucha a `openRequest.onblocked` para manejar el caso de una vieja conexión que no fue cerrada. Esto no ocurre si la cerramos en `db.onversionchange`.
+1. La escucha a `db.onversionchange` nos informa de un intento de actualización paralela si la conexión actual se volvió obsoleta.
+2. La escucha a `openRequest.onblocked` nos informa la situación opuesta: hay una conexión obsoleta en algún otro lugar que no fue cerrada y por eso la conexión nueva no se pudo realizar.
 
-Hay otras variantes. Por ejemplo, podemos tomar un tiempo para cerrar las cosas prolijamente en `db.onversionchange`, y pedir al visitante que guarde los datos antes de cerrar la conexión vieja. La nueva conexión que requirió la actualización será bloqueada inmediatamente después de que `db.onversionchange` termine sin cerrar, podemos allí pedir al visitante en la nueva pestaña que cierre las otras pestañas para la actualización.
+Podemos manejar las cosas más suavemente en `db.onversionchange`, como pedirle al visitante que guarde los datos antes de cerrar la conexión.
 
-Estas colisiones ocurren raramente, pero debemos al menos tener algún manejo de ella, por ejemplo con un manejador `onblocked`, así el script no sorprende al usuario muriendo silenciosamente.
+Como alternativa podríamos no cerrar la base en `db.onversionchange` sino usar `onblocked` de la nueva pestaña para advertirle que no puede crear una nueva conexión hasta que cierre las viejas.
+
+Estas colisiones ocurren raramente, pero debemos al menos tener algún manejo de ella, como mínimo un manejador `onblocked` para evitar que nuestro script muera silenciosamente.
 
 ## Almacén de objetos, "store"
 
@@ -469,24 +475,29 @@ request.onerror = function(event) {
 };
 ```
 
-## Buscando por claves
+## Búsquedas
 
 Hay dos maneras principales de buscar en un almacén de objetos:
-1. Por clave o por rango de clave. Ejemplo, por `book.id` en nuestro almacén "books".
-2. Por algún otro campo del objeto, por ejemplo `book.price`.
 
-Veamos la primera: búsqueda por clave o por rango de claves.
+1. Por clave o por rango de clave. En nuestro almacén "books", puede ser por un valor o por un rando de `book.id`.
+2. Por algún otro campo del objeto, por ejemplo `book.price`. Esto requiere una estructura de datos adicional llamada índice "index".
 
-Los métodos de búsqueda soportan tanto las claves exactas como las denominadas "consultas por rango": objetos [IDBKeyRange](https://www.w3.org/TR/IndexedDB/#keyrange) que especifican un "rango de claves".
+### Por clave
 
-Creamos los rangos llamando a métodos IDBKeyRange y definiendo sus límites:
+Veamos el primer tipo de búqueda: por clave.
+
+Los métodos de búsqueda soportan tanto las claves exactas como las denominadas "consultas por rango" que son objetos [IDBKeyRange](https://www.w3.org/TR/IndexedDB/#keyrange) que especifican un "rango de claves" aceptable.
+
+Los objetos `IDBKeyRange` son creados con las siguientes llamadas:
 
 - `IDBKeyRange.lowerBound(lower, [open])` significa: `≥ lower` (o `> lower` si `open` es true)
 - `IDBKeyRange.upperBound(upper, [open])` significa: `≤ upper` (o `< upper` si `open` es true)
 - `IDBKeyRange.bound(lower, upper, [lowerOpen], [upperOpen])` significa: entre `lower` y `upper`. Si el indicador "open" es true, la clave correspondiente no es incluida en el rango.
 - `IDBKeyRange.only(key)` -- es un rango que consiste de solamente una clave `key`, es raramente usado.
 
-Todos los métodos de búsqueda aceptan un argumento `query` que puede ser una clave exacta o un rango de claves:
+Veremos ejemplos prácticos de uso muy pronto.
+
+Para efectuar la búsqueda, existen los siguientes métodos. Ellos aceptan un argumento `query` que puede ser una clave exacta o un rango de claves:
 
 - `store.get(query)` -- busca el primer valor, por clave o por rango.
 - `store.getAll([query], [count])` -- busca todos los valores, limitado a la cantidad `count` si esta se especifica.
@@ -520,7 +531,6 @@ El almacén internamente guarda los valores ordenados por clave.
 
 Entonces, las peticiones que que devuelvan muchos valores siempre serán devueltos ordenados por clave.
 ```
-
 
 ## Buscando por cualquier campo con un índice
 

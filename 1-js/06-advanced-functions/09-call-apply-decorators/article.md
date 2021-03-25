@@ -37,7 +37,7 @@ function cachingDecorator(func) {
 slow = cachingDecorator(slow);
 
 alert( slow(1) ); // slow(1) es cacheado y se devuelve el resultado
-alert( "Again: " + slow(1) ); // el resultaado slow(1) es devuelto desde cache
+alert( "Again: " + slow(1) ); // el resultado slow(1) es devuelto desde cache
 
 alert( slow(2) ); // slow(2) es cacheado y devuelve el resultado
 alert( "Again: " + slow(2) ); // el resultado slow(2) es devuelto desde caché
@@ -389,14 +389,14 @@ Tomado de la especificación casi "tal cual":
 6. ...hazlo hasta que los elementos `this.length` estén adheridos.
 7. Devuelva `result`.
 
-Entones, tecnicamente `this` une `this[0]`, `this[1]` ...etc. Está escrito intencionalmente de una manera que permite cualquier tipo de array `this` (no es una coincidencia, muchos métodos siguen esta práctica). Es por eso que también funciona con `this = arguments`
+Entones, técnicamente `this` une `this[0]`, `this[1]` ...etc. Está escrito intencionalmente de una manera que permite cualquier tipo de array `this` (no es una coincidencia, muchos métodos siguen esta práctica). Es por eso que también funciona con `this = arguments`
 
 ## Decoradores y propiedades de funciones
 
 Por lo general, es seguro reemplazar una función o un método con un decorador, excepto por una pequeña cosa. Si la función original tenía propiedades, como `func.calledCount` o cualquier otra, entonces la función decoradora no las proporcionará. Porque eso es una envoltura. Por lo tanto, se debe tener cuidado al usarlo.
 
 
-E.j. en el ejemplo anterior, si la función `slow` tenía propiedades, entonces `cachingDecorator(slow)` sería un contendor, pero sin contener dichas propiedades.
+E.j. en el ejemplo anterior, si la función `slow` tenía propiedades, entonces `cachingDecorator(slow)` sería un contenedor, pero sin contener dichas propiedades.
 
 Algunos decoradores pueden proporcionar sus propias propiedades. P.ej. un decorador puede contar cuántas veces se invocó una función y cuánto tiempo tardó, y exponer esta información a través de propiedades de envoltura.
 
@@ -423,4 +423,4 @@ let wrapper = function() {
 
 También vimos un ejemplo de *préstamo de método* cuando tomamos un método de un objeto y lo `llamamos` en el contexto de otro objeto. Es bastante común tomar métodos de array y aplicarlos a `argumentos`. La alternativa es utilizar el objeto de parámetros rest que es un array real.
 
-Hay muchos decoradores a tu alrededor. Verifique si es bueno encuentrándolos resolviendo las tareas de este capítulo.
+Hay muchos decoradores a tu alrededor. Verifica si eres bueno resolviendo las tareas de este capítulo.

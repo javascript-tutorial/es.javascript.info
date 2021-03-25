@@ -54,7 +54,7 @@ Una forma de comunicarse con otros servidores es y era utilizando un `<form>`. L
 
 Entonces, de este modo era posible realizar solicitudes GET/POST hacia otro sitio, incluso sin métodos de red, ya que los formularios pueden enviar mensajes a cualquier sitio. Pero ya que no es posible acceder al contenido de un `<iframe>` de otro sitio, esto evita que sea posible leer la respuesta.
 
-Para ser precisos, en realidad había trucos para eso, requerían scripts especiales tanto en el iframe como en la página. Entonces la comunicación con el iframe era técnicamente posible. Pero ya no hay necesidad de entrar en detalles, dejemos a los dinosaurios descanzar en paz.
+Para ser precisos, en realidad había trucos para eso, requerían scripts especiales tanto en el iframe como en la página. Entonces la comunicación con el iframe era técnicamente posible. Pero ya no hay necesidad de entrar en detalles, dejemos a los dinosaurios descansar en paz.
 
 ### Utilizando scripts
 
@@ -205,7 +205,7 @@ Podemos utilizar cualquier método HTTP: no únicamente `GET/POST`, sino tambié
 
 Hace algún tiempo nadie podía siquiera imaginar que un sitio web pudiera realizar ese tipo de solicitudes. Por lo que aún existen servicios web que cuando reciben un método no estándar los consideran como una señal de que: "Del otro lado no hay un navegador". Ellos pueden tener en cuenta esto cuando revisan los derechos de acceso.
 
-Por lo tanto, para evitar malentendidos, cualquier solicitud "no segura" (Estas que no podían ser realizadas en los viejos tiempos), no será realizada por el navegador en forma directa. Antes, enviará una solicitud preliminar llamada solicitud de "pre-vuelo", solicitando se le conceda los permisos.
+Por lo tanto, para evitar malentendidos, cualquier solicitud "no segura" (Estas que no podían ser realizadas en los viejos tiempos), no será realizada por el navegador en forma directa. Antes, enviará una solicitud preliminar llamada solicitud de "pre-vuelo", solicitando que se le concedan los permisos.
 
 Una solicitud de "pre-vuelo" utiliza el método `OPTIONS`, sin contenido en el cuerpo y con dos cabeceras:
 
@@ -280,7 +280,7 @@ Access-Control-Max-Age: 86400
 
 Ahora el navegador puede ver que `PATCH` se encuentra dentro de la cabecera `Access-Control-Allow-Methods` y `Content-Type,API-Key` dentro de la lista `Access-Control-Allow-Headers`, por lo que permitirá enviar la solicitud principal.
 
-Si se encuentra con una cabecera `Access-Control-Max-Age` con determinada cantidad de segundos, entonces los permisos son almacenados en el caché por ese determinado tiempo. La solicitud anterior será cacheada por 86400 segundos (un día). Durante ese marco de tiempo, las solicitudes siguientes no requerirán la solicitud de pre-vuelo. Asumiendo que estén dentro de lo permitido en la respuesta cacheada, serán enviadas de forma directa.
+Si se encuentra con una cabecera `Access-Control-Max-Age` con determinada cantidad de segundos, entonces los permisos son almacenados en el caché por ese determinado tiempo. La solicitud anterior será cacheada por 86400 segundos (un día). Durante ese marco de tiempo, las solicitudes siguientes no requerirán la solicitud de pre-vuelo. Asumiendo que están dentro de lo permitido en la respuesta cacheada, serán enviadas de forma directa.
 
 ### Paso 3 (solicitud real)
 
@@ -336,7 +336,7 @@ fetch('http://another.com', {
 
 Ahora `fetch` envía cookies originadas desde `another.com` con las solicitudes a ese sitio.
 
-Si el servidor está de acuerdo en aceptar solicitudes *with credentials*, debe agregar la cabecera `Access-Control-Allow-Credentials: true` a la respuesta, además de `Access-Control-Allow-Origin`.
+Si el servidor está de acuerdo en aceptar solicitudes *con credenciales*, debe agregar la cabecera `Access-Control-Allow-Credentials: true` a la respuesta, además de `Access-Control-Allow-Origin`.
 
 Por ejemplo:
 
@@ -346,25 +346,25 @@ Access-Control-Allow-Origin: https://javascript.info
 Access-Control-Allow-Credentials: true
 ```
 
-Cabe destacar que: `Access-Control-Allow-Origin` no se puede utilizar con un asterisco `*` para solicitudes con credenciales. Tal como se muestra a continuación debe proveer el origen exacto. Esto es una medida adicional de seguridad, para asegurar de que el servidor conozca exactamente en quién confiar para que le envíe este tipo de solicitudes.
+Cabe destacar que: `Access-Control-Allow-Origin` no se puede utilizar con un asterisco `*` para solicitudes con credenciales. Tal como se muestra a arriba debe proveer el origen exacto. Esto es una medida adicional de seguridad, para asegurar de que el servidor conozca exactamente en quién confiar para que le envíe este tipo de solicitudes.
 
 ## Resumen
 
-Desde el punto de vista del navegador, existen dos tipos de solicitudes de origen cruzado: solicitudes "simple" y todas las demás.
+Desde el punto de vista del navegador, existen dos tipos de solicitudes de origen cruzado: solicitudes "seguras" y todas las demás.
 
-[Solicitudes simple](http://www.w3.org/TR/cors/#terminology) deben cumplir las siguientes condiciones:
+[Solicitudes seguras](http://www.w3.org/TR/cors/#terminology) deben cumplir las siguientes condiciones:
 - Método: GET, POST o HEAD.
-- Cabeceras -- únicamente puede contener:
+- Cabeceras -- solo podemos establecer:
     - `Accept`
     - `Accept-Language`
     - `Content-Language`
     - `Content-Type` con el valor `application/x-www-form-urlencoded`, `multipart/form-data` o `text/plain`.
 
-La diferencia escencial es que las solicitudes simples eran posibles desde los viejos tiempos utilizando las etiquetas `<form>` o `<script>`, mientras que las solicitudes "no simples" fueron imposibles para el navegador durante mucho tiempo.
+La diferencia escencial es que las solicitudes seguras eran posibles desde los viejos tiempos utilizando las etiquetas `<form>` o `<script>`, mientras que las solicitudes "no seguras" fueron imposibles para el navegador durante mucho tiempo.
 
 Por lo tanto, en la práctica, la diferencia se encuentra en que las solicitudes seguras son realizadas de forma directa, utilizando la cabecera `Origin`, mientras que para las otras el navegador realiza una solicitud extra de "pre-vuelo" para requerir la autorización.
 
-**Para una solicitud simple:**
+**Para una solicitud segura:**
 
 - → El navegador envía una cabecera `Origin` con el origen.
 - ← Para solicitudes sin credenciales (no enviadas por defecto), el servidor debe establecer:
@@ -375,7 +375,7 @@ Por lo tanto, en la práctica, la diferencia se encuentra en que las solicitudes
 
 Adicionalmente, para garantizar a JavaScript acceso a cualquier cabecera de la respuesta, con excepción de `Cache-Control`, `Content-Language`, `Content-Type`, `Expires`, `Last-Modified` o `Pragma`, el servidor debe agregarlas como permitidas en la lista de la cabecera `Access-Control-Expose-Headers`.
 
-**Para solicitudes no simples, se utiliza una solicitud preliminar "pre-vuelo"  antes de la solicitud principal:**
+**Para solicitudes inseguras, se utiliza una solicitud preliminar "pre-vuelo"  antes de la solicitud principal:**
 
 - → El navegador envía una solicitud del tipo `OPTIONS` a la misma URL, con las cabeceras:
     - `Access-Control-Request-Method` con el método requerido.

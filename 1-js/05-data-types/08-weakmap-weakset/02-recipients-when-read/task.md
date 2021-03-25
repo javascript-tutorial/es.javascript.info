@@ -4,7 +4,7 @@ importance: 5
 
 # Almacenar fechas de lectura
 
-Hay un array semejante al de la actividad anterior [previous task](info:task/recipients-read). La sitación es similar:
+Hay un array semejante al de la  [actividad anterior](info:task/recipients-read). La situación es similar:
 
 ```js
 let messages = [
