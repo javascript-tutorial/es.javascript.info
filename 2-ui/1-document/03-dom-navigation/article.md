@@ -31,7 +31,7 @@ Los tres nodos superiores están disponibles como propiedades de `document`:
 : La etiqueta `<head>` está disponible como `document.head`.
 
 ````warn header="Hay una trampa: `document.body` puede ser `null`"
-Un script no puede acceder a un elemento que no existe en el momento de su ejecucción.
+Un script no puede acceder a un elemento que no existe en el momento de su ejecución.
 
 Por ejemplo, si un script está dentro de `<head>`, entonces `document.body` no está disponible, porque el navegador no lo ha leído aún.
 
@@ -43,7 +43,7 @@ Entonces, en el siguiente ejemplo `alert` muestra `null`:
 <head>
   <script>
 *!*
-    alert( "From HEAD: " + document.body ); // null, there's no <body> yet
+    alert( "From HEAD: " + document.body ); // null, no hay  <body> aún
 */!*
   </script>
 </head>
@@ -51,7 +51,7 @@ Entonces, en el siguiente ejemplo `alert` muestra `null`:
 <body>
 
   <script>
-    alert( "From BODY: " + document.body ); // HTMLBodyElement, now it exists
+    alert( "From BODY: " + document.body ); // HTMLBodyElement, ahora existe
   </script>
 
 </body>
@@ -195,7 +195,7 @@ Por ejemplo, aquí `<head>` y `<body>` son hermanos:
 - `<body>` se dice que es el hermano "siguiente" o a la "derecha" de `<head>`,
 - `<head>` se dice que es el hermano "anterior" o a la "izquierda" de `<body>`.
 
-El hermano siguente está en la propiedad `nextSibling` y el anterior - en `previousSibling`.
+El hermano siguiente está en la propiedad `nextSibling` y el anterior - en `previousSibling`.
 
 El padre está disponible en `parentNode`.
 
@@ -232,7 +232,7 @@ Los enlaces son similares a los de arriba, solo que tienen dentro la palabra `El
 ````smart header="¿Por qué `parentElement`? ¿Puede el padre *no* ser un elemento?"
 La propiedad `parentElement` devuelve el "elemento" padre, mientras `parentNode` devuelve "cualquier nodo" padre. Estas propiedades son normalmente las mismas: ambas seleccionan el padre.
 
-Con la excepcion de `document.documentElement`:
+Con la excepción de `document.documentElement`:
 
 ```js run
 alert( document.documentElement.parentNode ); // documento
