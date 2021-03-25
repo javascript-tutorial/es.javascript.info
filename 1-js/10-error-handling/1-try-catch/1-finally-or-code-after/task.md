@@ -11,7 +11,7 @@ Compara los dos fragmentos de código.
     ```js
     try {
       trabajo trabajo
-    } catch (e) {
+    } catch (err) {
       maneja errores
     } finally {
     *!*
@@ -24,7 +24,7 @@ Compara los dos fragmentos de código.
     ```js
     try {
       trabajo trabajo
-    } catch (e) {
+    } catch (err) {
       manejo de errores
     }
 
