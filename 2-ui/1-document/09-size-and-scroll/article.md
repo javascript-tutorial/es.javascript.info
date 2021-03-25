@@ -6,7 +6,7 @@ Nosotros a menudo necesitamos de ellas cuando movemos o posicionamos un elemento
 
 ## Elemento de muestra
 
-Como un elemento de muestra para demostrar las propiedades, usaremos el que se indica acontinuación:
+Como un elemento de muestra para demostrar las propiedades, usaremos el que se indica a continuación:
 
 ```html no-beautify
 <div id="example">
@@ -32,7 +32,7 @@ El elemento tiene este aspecto:
 Tu puedes [abrir el documento en la zona de pruebas](sandbox:metric).
 
 ```smart header="Mind the scrollbar"
-La imagen de arriba muestra el caso más complejo cuando el elemento tiene una barra de desplazamiento. Algunos navegadores (no todos) reservan espacio para tomarlo del contenido (etiquedado como "content width" arriba).
+La imagen de arriba muestra el caso más complejo cuando el elemento tiene una barra de desplazamiento. Algunos navegadores (no todos) reservan espacio para tomarlo del contenido (etiquetado como "content width" arriba).
 
 Entonces, sin la barra de desplazamiento el ancho del contenido sería `300px`, pero si la barra de desplazamiento tiene un ancho de `16px` (el ancho puede variar entre dispositivos y navegadores) entonces solo queda `300 - 16 = 284px`, y deberíamos tenerlo en cuenta. Es por eso que los ejemplos de este capítulo asumen que hay una barra de desplazamiento. Sin él, algunos cálculos son más sencillos.
 ```
@@ -43,11 +43,11 @@ Por lo general, los rellenos se muestran vacíos en nuestras ilustraciones, pero
 
 ## Geometría
 
-Aquí está la iamgen gereal con propiedades geométricas:
+Aquí está la imagen general con propiedades geométricas:
 
 ![](metric-all.svg)
 
-Los valores de estas propiedades son tecnicamente números, pero estos numeros son "de píxeles", así que estas son medidas de píxeles.
+Los valores de estas propiedades son técnicamente números, pero estos números son "de píxeles", así que estas son medidas de píxeles.
 
 Comencemos a explotar las propiedades, iniciando desde el interior del elemento.
 
@@ -101,8 +101,8 @@ Para nuestro elemento de muestra:
 - `offsetWidth = 390` -- el ancho exterior, puede ser calculado como CSS-width interno (`300px`) más acolchonados (`2 * 20px`) y bordes (`2 * 25px`).
 - `offsetHeight = 290` -- el alto exterior.
 
-````smart header="Geometry properties are zero/null for elements that are not displayed"
-Las propiedades geomátricas son calculadas solo para elementos mostrados.
+````smart header="Las propiedades geométricas para elementos no mostrados son cero o null"
+Las propiedades geométricas son calculadas solo para elementos mostrados.
 
 En un elemento (o cualquiera de sus antepasados) tiene `display:none` o no está en el documento, entonces las propiedades geométricas son cero (o `null` para `offsetParent`).
 
@@ -245,7 +245,7 @@ alert( getComputedStyle(elem).width ); // muestra CSS width por elemento
 
     Desde el punto de vista de CSS, `width:auto` es perfectamente normal, pero en JavaScript necesitamos un tamaño exacto en `px` que podríamos usar en los cálculos. Entonces, aquí el ancho de CSS width es inútil.
 
-Y hay una razón más: una barra de desplazamiento. A veces, el código que funcionaba bien sin una barra de desplazamiento tiene errores, porque una barra de desplazmiento toma el espacio del contenido en algunos navegadores. Entonces, el ancho real disponible para el contenido es *menor* que el ancho de CSS. Y `clientWidth/clientHeight` tiene eso en cuenta.
+Y hay una razón más: una barra de desplazamiento. A veces, el código que funcionaba bien sin una barra de desplazamiento tiene errores, porque una barra de desplazamiento toma el espacio del contenido en algunos navegadores. Entonces, el ancho real disponible para el contenido es *menor* que el ancho de CSS. Y `clientWidth/clientHeight` tiene eso en cuenta.
 
 ...Pero con `getComputedStyle(elem).width` la situación es diferente. Algunos navegadores (p.e. Chrome) devuelven el ancho interno real, menos la barra de desplazamiento, y algunos de ellos (p.e. Firefox) -- CSS width (ignora la barra de desplazamiento). Estas diferencias entre los navegadores son la razón para no usar `getComputedStyle`, sino confiar en las propiedades geométricas.
 

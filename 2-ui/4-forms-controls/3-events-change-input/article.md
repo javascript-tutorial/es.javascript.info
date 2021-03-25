@@ -29,7 +29,7 @@ Para otros elementos: `select`, `input type=checkbox/radio` ocurre justo despué
 
 ## Evento: input
 
-El evento `input` ocurre cada vez que un valor es modificado por el ususario.
+El evento `input` ocurre cada vez que un valor es modificado por el usuario.
 
 A diferencia de los eventos de teclado, ocurre con el cambio a cualquier valor, incluso aquellos no que involucran acciones de teclado: copiar/pegar con el mouse o usar reconocimiento de voz para dictar texto.
 

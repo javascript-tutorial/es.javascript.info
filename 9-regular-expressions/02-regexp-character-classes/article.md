@@ -147,7 +147,7 @@ alert( "A\nB".match(/A.B/s) ); // A\nB (coincide!)
 ````warn header="No soportado en IE"
 La bandera `pattern:s` no está soportada en IE.
 
-Afortunadamente, hay una alternativa, que funciona en todas partes. Podemos usar una expresión regular como `pattern:[\s\S]` para que coincida con "cualquier carácter". (this pattern will be covered in the article <info:regexp-character-sets-and-ranges>).
+Afortunadamente, hay una alternativa, que funciona en todas partes. Podemos usar una expresión regular como `pattern:[\s\S]` para que coincida con "cualquier carácter". (Este patrón será cubierto en el artículo <info:regexp-character-sets-and-ranges>).
 
 ```js run
 alert( "A\nB".match(/A[\s\S]B/) ); // A\nB (coincide!)
@@ -194,7 +194,7 @@ Existen las siguientes clases de caracteres:
 - `pattern:\S` -- todo menos `pattern:\s`.
 - `pattern:\w` -- letras latinas, dígitos, guión bajo `'_'`.
 - `pattern:\W` -- todo menos `pattern:\w`.
-- `pattern:.` -- cualquier caracter, si la expresión regular usa la bandera `'s'`, de otra forma cualquiera excepto **línea nueva** `\n`.
+- `pattern:.` -- cualquier carácter, si la expresión regular usa la bandera `'s'`, de otra forma cualquiera excepto **línea nueva** `\n`.
 
 ...¡Pero eso no es todo!
 

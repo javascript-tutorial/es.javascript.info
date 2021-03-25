@@ -1,6 +1,6 @@
 # Carga de recursos: onload y onerror
 
-El navegador nos permite hacer seguimiento de la carga de recursos externos: scripts, iframes, imagenes y más.
+El navegador nos permite hacer seguimiento de la carga de recursos externos: scripts, iframes, imágenes y más.
 
 Hay dos eventos para eso:
 
@@ -49,7 +49,7 @@ script.onload = function() {
 
 Entonces en `onload` podemos usar variables, ejecutar funciones, etc.
 
-...¿y si la carga falla? Por ejemplo: no hay tal script (error 404) en el servidor o el servidor está caído (no diponible).
+...¿y si la carga falla? Por ejemplo: no hay tal script (error 404) en el servidor o el servidor está caído (no disponible).
 
 ### script.onerror
 
@@ -107,7 +107,7 @@ Esto es por razones históricas.
 
 Hay una regla: los scripts de un sitio no pueden acceder al contenido de otro sitio. Por ejemplo: un script de `https://facebook.com` no puede leer la bandeja de correos del usuario en `https://gmail.com`.
 
-O para ser más precisos, un origen (el trío dominio/puerto/protocolo) no puede acceder al contenido de otro. Entonces, incluso si tenemos un sub-dominio o solo un puerto distinto, son considerados origenes diferentes sin acceso al otro.
+O para ser más precisos, un origen (el trío dominio/puerto/protocolo) no puede acceder al contenido de otro. Entonces, incluso si tenemos un sub-dominio o solo un puerto distinto, son considerados orígenes diferentes sin acceso al otro.
 
 Esta regla también afecta a recursos de otros dominios.
 
@@ -163,7 +163,7 @@ Hay muchos servicios (y podemos construir uno nuestro) que escuchan los errores 
 
 También se aplican políticas similares de origen cruzado (CORS) a otros tipos de recursos.
 
-**Para permitir el accesso de origen cruzado, la etiqueta `<script>` necesita tener el atributo `crossorigin`, además el servidor remoto debe proporcionar cabeceras especiales.**
+**Para permitir el acceso de origen cruzado, la etiqueta `<script>` necesita tener el atributo `crossorigin`, además el servidor remoto debe proporcionar cabeceras especiales.**
 
 Hay 3 niveles de acceso de origen cruzado:
 
@@ -174,12 +174,12 @@ Hay 3 niveles de acceso de origen cruzado:
 ```smart
 Puedes leer más sobre accesos de origen cruzado  en el capítulo <info:fetch-crossorigin>. Este describe el método `fetch` para requerimientos de red, pero la política es exactamente la misma.
 
-Cosas como las "cookies" estan fuera de nuestro alcance, pero podemos leer sobre ellas en <info:cookie>.
+Cosas como las "cookies" están fuera de nuestro alcance, pero podemos leer sobre ellas en <info:cookie>.
 ```
 
-En nuetro caso no teníamos ningún atributo de origen cruzado (`cross-origin`). Por lo que se prohibió el acceso de origen cruzado. Vamos a agregarlo.
+En nuestro caso no teníamos ningún atributo de origen cruzado (`cross-origin`). Por lo que se prohibió el acceso de origen cruzado. Vamos a agregarlo.
 
-Podemos elegir entre `"anonymous"` (no se envian las cookies, una sola cabecera esa necesaria en el lado del servidor) y `"use-credentials"` (envias las cookies, dos cabeceras son necesarias en el lado del servidor).
+Podemos elegir entre `"anonymous"` (no se envían las cookies, una sola cabecera esa necesaria en el lado del servidor) y `"use-credentials"` (envía las cookies, dos cabeceras son necesarias en el lado del servidor).
 
 Si no nos importan las `cookies`, entonces `"anonymous"` es el camino a seguir:
 

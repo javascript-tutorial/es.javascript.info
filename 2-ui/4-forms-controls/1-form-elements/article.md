@@ -248,7 +248,7 @@ La diferencia entre `defaultSelected` y `selected` es que `defaultSelected` asig
 
 En la práctica, uno debería usualmente establecer _ambos_ valores en `true` o `false`. O simplemente omitirlos, quedarán con el predeterminado `false`.
 
-Por ejemplo, aquí cramos un nuevo Option "unselected":
+Por ejemplo, aquí creamos un nuevo Option "unselected":
 
 ```js
 let option = new Option("Text", "value");
