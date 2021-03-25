@@ -3,7 +3,7 @@
 
 ```
 Novedades:
-solo quedan 10 articulos sin traducir, y ya estan reclamados por un traductor
+solo quedan 10 articulos sin traducir
 
 Pero el trabajo no acaba, la gran ventaja de este tutorial es mantenerse actualizado y actualizaciones hay montones: 
 Pueden seguir contribuyendo yendo a ISSUES y seleccinando uno de ellos. 

@@ -32,7 +32,7 @@ Hay muchas soluciones correctas para la tarea. una es ajustar los bordes del int
 ```js run
 *!*
 function randomInteger(min, max) {
-  // now rand is from  (min-0.5) to (max+0.5)
+  // ahora rand es desde  (min-0.5) hasta (max+0.5)
   let rand = min - 0.5 + Math.random() * (max - min + 1);
   return Math.round(rand);
 }
@@ -46,7 +46,7 @@ Una alternativa es el uso de `Math.floor` para un número aleatorio entre `min` 
 ```js run
 *!*
 function randomInteger(min, max) {
-  // here rand is from min to (max+1)
+  // aquí rand es desde min a (max+1)
   let rand = min + Math.random() * (max + 1 - min);
   return Math.floor(rand);
 }

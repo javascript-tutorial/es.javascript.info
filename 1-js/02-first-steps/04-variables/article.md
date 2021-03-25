@@ -145,7 +145,7 @@ let message = "This";
 // 'let' repetidos lleva a un error
 let message = "That"; // SyntaxError: 'message' ya fue declarado
 ```
-Debermos declarar una variable una sola vez y desde entonces referirnos a ella sin `let`.
+Debemos declarar una variable una sola vez y desde entonces referirnos a ella sin `let`.
 ````
 
 ```smart header="Lenguajes funcionales"

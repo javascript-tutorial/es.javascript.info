@@ -1,6 +1,6 @@
 # Export e Import
 
-Las directivas export e import tienen varias variantes de sintáxis.
+Las directivas export e import tienen varias variantes de sintaxis.
 
 En el artículo anterior vimos un uso simple, ahora exploremos más ejemplos.
 
@@ -103,7 +103,7 @@ Pues hay algunas razones.
     export function becomeSilent() { ... }
     ```
 
-    Ahora si solamnente utilizamos una de las funciones de `say.js` en nuestro proyecto:
+    Ahora si solamente utilizamos una de las funciones de `say.js` en nuestro proyecto:
     ```js
     // 📁 main.js
     import {sayHi} from './say.js';
@@ -286,7 +286,7 @@ import {User} from './user.js';
 // import {MyUser} no funcionará, el nombre debe ser {User}
 ```
 
-...Mientras que para una exporación predeterminada siempre elegimos el nombre al importar:
+...Mientras que para una exportación predeterminada siempre elegimos el nombre al importar:
 
 ```js
 import User from './user.js'; // funciona
@@ -380,7 +380,7 @@ export {default as User} from './user.js';
 ...
 ```
 
-La diferencia notable de `export ... from` comparado a `import/export` es que los módulos re-exportados no están diponibles en el archivo actual. Entonces en el ejemplo anterior de `auth/index.js` no podemos usar las funciones re-exportadas `login/logout`. 
+La diferencia notable de `export ... from` comparado a `import/export` es que los módulos re-exportados no están disponibles en el archivo actual. Entonces en el ejemplo anterior de `auth/index.js` no podemos usar las funciones re-exportadas `login/logout`. 
 
 ### Reexportando la exportación predeterminada
 
@@ -428,14 +428,14 @@ Puede comprobarlo al leerlos y recordar lo que significan:
 
 Importación:
 
-- Exportación con nombre desde módulo:
+- Importa las exportaciones con nombre:
   - `import {x [as y], ...} from "module"`
-- Exportación predeterminada:  
+- Importa la exportación predeterminada:  
   - `import x from "module"`
   - `import {default as x} from "module"`
-- Todo:
+- Importa todo:
   - `import * as obj from "module"`
-- Importar el módulo (su código se ejecuta), pero no lo asigna a una variable:
+- Importa el módulo (su código se ejecuta), pero no asigna ninguna de las exportaciones a variables:
   - `import "module"`
 
 Podemos poner las declaraciones `import/export` en la parte superior o inferior de un script, eso no importa.

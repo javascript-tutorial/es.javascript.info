@@ -269,7 +269,7 @@ Pero como efecto secundario, esto crearía un nivel más de anidación (la llama
 ````
 
 ````warn header="No `break/continue` a la derecha de '?'"
-Por favor, nota que las construcciones de sintaxis que no son expresiones no pueden user usadas con el operador terniario `?`. En particular, directivas como `break/continue` no son permitidas aquí.
+Por favor, nota que las construcciones de sintaxis que no son expresiones no pueden user usadas con el operador ternario `?`. En particular, directivas como `break/continue` no son permitidas aquí.
 
 Por ejemplo, si tomamos este código:
 
@@ -317,7 +317,7 @@ alert('Listo!');
 
 Necesitamos una manera de detener el proceso si el usuario cancela la entrada.
 
-El `break` ordinario después de `input` solo nos sacaría del bucle interno. Eso no es suficiente--etiquetas, vengan al rescate!
+El `break` ordinario después de `input` solo nos sacaría del bucle interno. Eso no es suficiente. ¡Etiquetas, vengan al rescate!
 
 Una *etiqueta* es un identificar con dos puntos antes de un bucle:
 ```js
@@ -344,7 +344,7 @@ La declaración `break <labelName>` en el bucle debajo nos saca hacia la etiquet
 alert('Listo!');
 ```
 
-En el código de arriba, `break outer` mira hacia arriba por la etiquieta llamada `outer` y nos saca de dicho bucle.
+En el código de arriba, `break outer` mira hacia arriba por la etiqueta llamada `outer` y nos saca de dicho bucle.
 
 Así que el control va directamente de `(*)` a `alert('Listo!')`.
 
@@ -362,12 +362,14 @@ Las etiquetas no nos permiten saltar a un lugar arbitrario en el código.
 
 Por ejemplo, es imposible hacer esto:
 ```js
-break label;  // saltar a label? No.
+break label;  // ¿saltar a label? No funciona.
 
 label: for (...)
 ```
 
-Una llamada a `break/continue` solo es posible desde el interior del bucle y la etiqueta debe estar en alguna parte arriba de la directiva.
+Una llamada a `break/continue` solo es posible desde el interior del bucle.
+
+La directiva puede ser ubicada ante bloques de código también como `label: { ... }`, pero no es algo común. Y también funciona solamente de adentro hacia afuera.
 ````
 
 ## Resumen

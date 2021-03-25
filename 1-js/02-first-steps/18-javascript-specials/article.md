@@ -27,7 +27,7 @@ alert("Habrá un error después de este mensaje.")
 
 La mayoría de las guías de estilo de código coinciden en que debemos poner un punto y coma después de cada declaración.
 
-Los puntos y comas no son necesarios después los bloques de codigo `{...}` y los constructores de sintaxis como los bucles:
+Los puntos y comas no son necesarios después de los bloques de código `{...}` y los constructores de sintaxis como los bucles:
 
 ```js
 function f() {
@@ -39,7 +39,7 @@ for(;;) {
 }
 ```
 
-...Pero incluso si colocasemos un punto y coma "extra" en alguna parte, eso no es un error. Solo sería ignorado.
+...Pero incluso si colocásemos un punto y coma "extra" en alguna parte, eso no es un error. Solo sería ignorado.
 
 Más en: <info:structure>.
 
@@ -130,8 +130,8 @@ Más en: <info:alert-prompt-confirm>.
 
 JavaScript soporta los siguientes operadores:
 
-Aritmeticos
-: Regulares: `* + - /`, tambien `%` para los restos y `**` para aplicar potencia de un número.
+Aritméticos
+: Regulares: `* + - /`, también `%` para los restos y `**` para aplicar potencia de un número.
 
     El binario más `+` concatena textos. Y si alguno de los operandos es un texto, el otro también se convierte en texto:
 
@@ -141,13 +141,13 @@ Aritmeticos
     ```
 
 Asignaciones
-: He aqui una asignacion simple: `a = b` y una combinada `a *= 2`.
+: He aquí una asignación simple: `a = b` y una combinada `a *= 2`.
 
 Operador bit a bit
 : Los operadores bit a bit funcionan con enteros de 32 bits al más bajo nivel, el de bit: mire la [documentación](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators) cuando sea necesario.
 
 Condicional
-: El único operador con 3 parametros: `cond ? resultA : resultB`. Sí `cond` es verdadera, devuelve `resultA`, de lo contrario `resultB`.
+: El único operador con 3 parámetros: `cond ? resultA : resultB`. Sí `cond` es verdadera, devuelve `resultA`, de lo contrario `resultB`.
 
 Operadores Lógicos
 : Los operadores lógicos Y `&&` y Ó `||` realizan una evaluación de circuito corto y luego devuelven el valor donde se detuvo. El operador lógico NOT `!` convierte el operando a tipo booleano y devuelve el valor inverso.
@@ -204,9 +204,9 @@ Detalles en: <info:while-for>.
 
 Más adelante estudiaremos más tipos de bucles para tratar con objetos.
 
-## El constructo "switch"
+## La construcción "switch"
 
-El constructo "switch" puede reemplazar múltiples revisiones con `if`. Utiliza `===` (igualdad estricta) para comparar.
+La construcción "switch" puede reemplazar múltiples revisiones con `if`. Utiliza `===` (igualdad estricta) para comparar.
 
 Por ejemplo:
 

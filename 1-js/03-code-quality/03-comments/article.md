@@ -8,7 +8,7 @@ A primera vista, los comentarios pueden ser obvios, pero los principiantes en pr
 
 ## Comentarios incorrectos
 
-Los rincipiantes tienden a utilizar los comentarios para explicar "lo que está pasando en el código". Así:
+Los principiantes tienden a utilizar los comentarios para explicar "lo que está pasando en el código". Así:
 
 ```js
 // Este código hará esto (...) y esto (...)

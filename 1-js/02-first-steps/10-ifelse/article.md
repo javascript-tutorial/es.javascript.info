@@ -2,7 +2,7 @@
 
 Algunas veces, necesitamos ejecutar diferentes acciones basadas en diferentes condiciones.
 
-Para hacer esto, nosotros utilizaremos la sentencia `if` y el operador condicional (ternario) al cual nos referiremos de aqui en adelante como operador de “signo de interrogación” `?` por simplicidad.
+Para hacer esto, nosotros utilizaremos la sentencia `if` y el operador condicional (ternario) al cual nos referiremos de aquí en adelante como operador de “signo de interrogación” `?` por simplicidad.
 
 ## La sentencia "if"
 
@@ -38,10 +38,10 @@ La sentencia `if (…)` evalúa la expresión dentro de sus paréntesis y convie
 Recordemos las reglas de conversión del capítulo.
 <info:type-conversions>:
 
-- El número `0`, un string vacio `""`, `null`, `undefined`, y `NaN` se convierte en `false`. Por esto son llamados valores "falso".
+- El número `0`, un string vacío `""`, `null`, `undefined`, y `NaN` se convierte en `false`. Por esto son llamados valores "falso".
 - El resto de los valores se convierten en  `true`, entonces los llamaremos valores "verdadero".
 
-Entonces, el código que vemos a continuación nunca se ejecutaria:
+Entonces, el código que vemos a continuación nunca se ejecutaría:
 
 ```js
 if (0) { // 0 es falso
@@ -155,7 +155,7 @@ let accessAllowed = age > 18 ? true : false;
 Pero los paréntesis hacen el código mas legible, asi que recomendamos utilizarlos.
 
 ````smart
-En el ejemplo de arriba, podrias evitar utilizar el operador de signo de interrogación porque esta comparación devuelve directamente `true/false`:
+En el ejemplo de arriba, podrías evitar utilizar el operador de signo de interrogación porque esta comparación devuelve directamente `true/false`:
 ````
 ```js
 // es lo mismo que
@@ -218,7 +218,7 @@ Aquí no asignamos el resultado de una variable. En vez de esto, ejecutamos dife
 
 **No se recomienda el uso del operador de signo de interrogación de esta forma.**
 
-La notacion es mas corta que la sentencia equivalente con `if`, lo cual seduce a algunos programadores. Pero es menos legible.
+La notación es mas corta que la sentencia equivalente con `if`, lo cual seduce a algunos programadores. Pero es menos legible.
 
 Aquí está el mismo código utilizando la sentencia `if` para comparar:
 
