@@ -1,21 +1,21 @@
 # Bienvenidos nuevos contribuidores
 ## Tutorial Moderno de JavaScript en Español
 
+`Marzo 2021:` [¡85%!](https://javascript.info/translate) (aunque sospecho que el tope es 90%) y aún hay `Formas de colaborar:`
 ```
-Novedades:
-solo quedan 10 articulos sin traducir
+* Traduccíón: 
+  Quedan 11 artículos por incorporar (de 173), 4 por revisar y 4 sin traductor.
 
-Pero el trabajo no acaba, la gran ventaja de este tutorial es mantenerse actualizado y actualizaciones hay montones: 
-Pueden seguir contribuyendo yendo a ISSUES y seleccinando uno de ellos. 
+* Actualización: 
+  El original inglés agrega, quita, renumera, mejora constantemente.
+  Algunos de los cambios en inglés son pasados como ISSUES,
+  es solo revisar el commit history inglés (hago un issue por artículo para hacerlo más manejable), 
+  ver si los cambios son pertinentes y hacer el PR correspondiente o comentar el issue. 
 
-La mecánica es diferente porque ya no se traduce un archivo local sino que hay que comparar con el repo inglés.
-Pero esto es muy fácil:
-- Usamos HISTORY, vemos sus últimos commits (siempre muy pocos), exactamente qué lineas cambiaron. 
-o 
-- Usamos el BLAME, vemos el articulo completo y remarcadas las ultimas modificaciones (fecha y autor) 
-
-Y llevamos los cambios al repo español.
-Las líneas modificadas se marcan como coautoría y también se cuentan. 
+* Revisión de PR: 
+  Todos pueden revisar. Se puede editar el texto con una sugerencia precisa, o pueden dejar un comentario.
+  typos, gramática, fluidez, glosario, tecnicismos, bugs y conceptos técnicos. Todo amerita corrección. 
+  Las líneas modificadas en revisión se marcan como coautoría, cuentan como contribución y mejoran el karma.
 ```
 
 Abajo se les dan las instrucciones para comenzar a contribuir. Recuerden que al seleccionar un artículo, **deberán traducir todo su contenido**, incluidos los tasks y soluciones. No deben hacer PR si no está todo el artículo seleccionado traducido, haciendo esto, nos ayudarán a hacer mejores y más rápidas las revisiones.
