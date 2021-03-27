@@ -80,7 +80,7 @@ loadScriptPromise(...).then(...);
 
 El código puede verse complicado, pero es esencialmente lo mismo que escribimos arriba al promisificar la función `loadScript`.
 
-Una llamada a `promisify(f)` devuelve una función contenedora que envuelve `f` `(*)`. Este contenedor devuelve una promesa y redirige el llamado a la `f` original, siguiendo el resultado en el callback personalizado `(**)`.
+Una llamada a `promisify(f)` devuelve una función contenedora que envuelve a `f` `(*)`. Este contenedor devuelve una promesa y redirige el llamado a la `f` original, siguiendo el resultado en el callback personalizado `(**)`.
 
 Aquí `promisify` asume que la función original espera un callback con dos argumentos `(err, result)`. Eso es lo que usualmente encontramos. Entonces nuestro callback personalizado está exactamente en el formato correcto, y `promisify` funciona muy bien para tal caso.
 
