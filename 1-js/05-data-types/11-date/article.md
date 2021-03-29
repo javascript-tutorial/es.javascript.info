@@ -203,7 +203,7 @@ let date = new Date(2016, 0, 2); // 2 Jan 2016
 date.setDate(1); // Fija '1' día del mes
 alert( date );
 
-date.setDate(0); // el día mínimo es 1, entonces asume el último dia del mess anterior
+date.setDate(0); // el día mínimo es 1, entonces asume el último dia del mes anterior
 alert( date ); // 31 Dec 2015
 ```
 
