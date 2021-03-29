@@ -71,8 +71,8 @@ Enfaticemos: `await` literalmente suspende la ejecución de la función hasta qu
 
 Es simplemente una sintaxis más elegante para tener el resultado de una promesa que `promise.then`, es más fácil de leer y de escribir.
 
-````warn header="No se puede usar *await* en funciones regulares"
-Si tratamos de usar `await` en una función no async, habría un error de sintaxis:
+````warn header="No se puede usar `await` en funciones comunes"
+Si tratamos de usar `await` en una función no async, tendremos un error de sintaxis:
 
 ```js run
 function f() {
@@ -186,7 +186,7 @@ class Waiter {
 
 new Waiter()
   .wait()
-  .then(alert); // 1
+  .then(alert); // 1 (this is the same as (result => alert(result)))
 ```
 El significado es el mismo: Asegura que el valor devuelto es una promesa y habilita `await`.
 

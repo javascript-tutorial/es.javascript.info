@@ -367,9 +367,18 @@ break label;  // ¿saltar a label? No funciona.
 label: for (...)
 ```
 
-Una llamada a `break/continue` solo es posible desde el interior del bucle.
+Una directiva `break` debe estar en el interior del bucle. Técnicamente, cualquier bloque de código etiquetado:
+```js
+label: {
+  // ...
+  break label; // funciona
+  // ...
+}
+```
 
-La directiva puede ser ubicada ante bloques de código también como `label: { ... }`, pero no es algo común. Y también funciona solamente de adentro hacia afuera.
+...Aunque 99.9% del tiempo `break` se usa dentro de bucles, como hemos visto en ejemplos previos.
+
+Un `continue` es solo posible dentro de un bucle.
 ````
 
 ## Resumen
