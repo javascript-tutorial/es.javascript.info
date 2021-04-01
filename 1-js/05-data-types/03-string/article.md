@@ -196,7 +196,7 @@ Por ejemplo:
 ```js run
 let str = 'Hola';
 
-str = 'h' + str[1]; // reemplaza el string
+str = 'h' + str[1] + str[2] + str[3]; // reemplaza el string
 
 alert( str ); // hola
 ```
