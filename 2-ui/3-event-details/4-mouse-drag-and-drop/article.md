@@ -124,7 +124,11 @@ Vamos a actualizar nuestro algoritmo:
 
     ```js
     // onmousemove
+<<<<<<< HEAD
     // la pelota tiene position:absolute
+=======
+    // ball has position:absolute
+>>>>>>> 7b76185892aa9798c3f058256aed44a9fb413cc3
     ball.style.left = event.pageX - *!*shiftX*/!* + 'px';
     ball.style.top = event.pageY - *!*shiftY*/!* + 'px';
     ```

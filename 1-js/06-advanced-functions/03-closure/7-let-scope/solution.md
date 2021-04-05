@@ -26,10 +26,16 @@ El código anterior lo demuestra.
 ```js
 function func() {
 *!*
+<<<<<<< HEAD
 
 // la variable local x es conocida por el motor desde el comienzo de la función,
 // pero "unitialized" (inutilizable) hasta let ("zona muerta")
 // de ahí el error
+=======
+  // the local variable x is known to the engine from the beginning of the function,
+  // but "uninitialized" (unusable) until let ("dead zone")
+  // hence the error
+>>>>>>> 7b76185892aa9798c3f058256aed44a9fb413cc3
 */!*
 
   console.log(x); // ReferenceError: No se puede acceder a 'x' antes de la inicialización

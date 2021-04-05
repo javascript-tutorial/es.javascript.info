@@ -146,7 +146,11 @@ A pesar de ser simples, las variantes ligeramente modificadas de ese código tie
 
 ¿Cómo funciona esto? Si creamos múltiples contadores, ¿serán independientes? ¿Qué está pasando con las variables aquí?
 
+<<<<<<< HEAD
 Entender tales cosas es excelente para el conocimiento general de JavaScript y beneficioso para escenarios más complejos. Así que vamos a profundizar un poco.
+=======
+Understanding such things is great for the overall knowledge of JavaScript and beneficial for more complex scenarios. So let's go a bit in-depth.
+>>>>>>> 7b76185892aa9798c3f058256aed44a9fb413cc3
 
 ## Ámbito o alcance léxico
 
