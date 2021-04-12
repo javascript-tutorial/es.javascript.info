@@ -365,7 +365,7 @@ Our new button extends the built-in one. So it keeps the same styles and standar
 ## References
 
 - HTML Living Standard: <https://html.spec.whatwg.org/#custom-elements>.
-- Compatiblity: <https://caniuse.com/#feat=custom-elements>.
+- Compatiblity: <https://caniuse.com/#feat=custom-elementsv1>.
 
 ## Summary
 
@@ -397,4 +397,4 @@ Custom elements can be of two types:
     /* <button is="my-button"> */
     ```
 
-Custom elements are well-supported among browsers. Edge is a bit behind, but there's a polyfill <https://github.com/webcomponents/polyfills/tree/master/packages/webcomponentsjs>.
+Custom elements are well-supported among browsers. There's a polyfill <https://github.com/webcomponents/polyfills/tree/master/packages/webcomponentsjs>.

@@ -56,17 +56,34 @@ alert( 8 % 3 ); // 2 es un resto de 8 dividido por 3
 
 ## Exponenciación **
 
+<<<<<<< HEAD
 El operador de exponenciación `**` es una inclusión reciente al lenguaje.
+=======
+The exponentiation operator `a ** b` raises `a` to the power of `b`.
+
+In school maths, we write that as a<sup>b</sup>.
+>>>>>>> 7b76185892aa9798c3f058256aed44a9fb413cc3
 
 Por ejemplo:
 
 ```js run
+<<<<<<< HEAD
 alert( 2 ** 2 ); // 4  (2 * 2)
 alert( 2 ** 3 ); // 8  (2 * 2 * 2)
 alert( 2 ** 4 ); // 16 (2 * 2 * 2 * 2)
 ```
 
 Matemáticamente, la exponenciación es definida para números no enteros también, Por ejemplo la raíz cuadrada es el exponente `1/2`:
+=======
+alert( 2 ** 2 ); // 2² = 4  
+alert( 2 ** 3 ); // 2³ = 8 
+alert( 2 ** 4 ); // 2⁴ = 16
+```
+
+Just like in maths, the exponentiation operator is defined for non-integer numbers as well. 
+
+For example, a square root is an exponentiation by ½:
+>>>>>>> 7b76185892aa9798c3f058256aed44a9fb413cc3
 
 ```js run
 alert( 4 ** (1/2) ); // 2 (potencia de 1/2 es lo mismo que raíz cuadrada, eso es matemáticas)

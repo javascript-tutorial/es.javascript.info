@@ -85,6 +85,7 @@ Examinemos lo que sucede dentro de `makeArmy`, y la solución será obvia.
     army[0](); // 0
     army[5](); // 5
     ```
+<<<<<<< HEAD
 
     Aquí `let j = i` declara una variable de iteración local `j` y copia `i` en ella. Las primitivas son copiadas por valor, así que realmente obtenemos una copia independiente de `i`, perteneciente a la iteración del bucle actual.
 
@@ -94,6 +95,17 @@ Examinemos lo que sucede dentro de `makeArmy`, y la solución será obvia.
 
     Tal problema habría sido evitado si hubiéramos usado `for` desde el principio:
 
+=======
+    
+    Here `let j = i` declares an "iteration-local" variable `j` and copies `i` into it. Primitives are copied "by value", so we actually get an independent copy of `i`, belonging to the current loop iteration.
+    
+    The shooters work correctly, because the value of `i` now lives a little bit closer. Not in `makeArmy()` Lexical Environment, but in the Lexical Environment that corresponds to the current loop iteration:
+    
+    ![](lexenv-makearmy-while-fixed.svg)
+    
+    Such a problem could also be avoided if we used `for` in the beginning, like this:
+    
+>>>>>>> 7b76185892aa9798c3f058256aed44a9fb413cc3
     ```js run demo
     function makeArmy() {
 
