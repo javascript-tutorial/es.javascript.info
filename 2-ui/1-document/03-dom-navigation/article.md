@@ -214,7 +214,11 @@ alert( document.body.previousSibling ); // HTMLHeadElement
 
 ## Navegación solo por elementos
 
+<<<<<<< HEAD
 Las propiedades de navegación enumeradas abajo se refieren a *todos* los nodos. Por ejemplo, en `childNodes` podemos ver ambos nodos de texto, nodos elementos, e incluso si existen los nodos de comentarios.
+=======
+Navigation properties listed above refer to *all* nodes. For instance, in `childNodes` we can see both text nodes, element nodes, and even comment nodes if they exist.
+>>>>>>> 6ab384f2512902d74e4b0ff5a6be60e48ab52e96
 
 Pero para muchas tareas no queremos los nodos de texto o comentarios. Queremos manipular el nodo que representa las etiquetas y formularios de la estructura de la página. 
 

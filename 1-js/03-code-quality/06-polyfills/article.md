@@ -32,7 +32,29 @@ En realidad, hay dos partes en Babel:
     - [babel polyfill](https://babeljs.io/docs/usage/polyfill/) que soporta mucho, pero es muy grande.
     - [polyfill.io](http://polyfill.io) servicio que nos permite cargar/construir polyfills bajo demanda, dependiendo de las características que necesitemos.
 
+<<<<<<< HEAD
 Así que, si queremos usar características modernas del lenguaje, el transpiler y polyfill son necesarios.
+=======
+// after running the transpiler
+height = (height !== undefined && height !== null) ? height : 100;
+```
+
+Now the rewritten code is suitable for older JavaScript engines.
+
+Usually, a developer runs the transpiler on their own computer, and then deploys the transpiled code to the server.
+
+Speaking of names, [Babel](https://babeljs.io) is one of the most prominent transpilers out there. 
+
+Modern project build systems, such as [webpack](http://webpack.github.io/), provide means to run transpiler automatically on every code change, so it's very easy to integrate into development process.
+
+## Polyfills
+
+New language features may include not only syntax constructs and operators, but also built-in functions.
+
+For example, `Math.trunc(n)` is a function that "cuts off" the decimal part of a number, e.g `Math.trunc(1.23)` returns `1`.
+
+In some (very outdated) JavaScript engines, there's no `Math.trunc`, so such code will fail.
+>>>>>>> 6ab384f2512902d74e4b0ff5a6be60e48ab52e96
 
 ## Ejemplos en el tutorial
 

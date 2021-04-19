@@ -9,7 +9,11 @@ Para rastrear el progreso de la descarga, podemos usar la propiedad `response.bo
 
 A diferencia de `response.text()`, `response.json()` y otros métodos, `response.body` da control total sobre el proceso de lectura, y podemos contar cuánto se consume en cualquier momento.
 
+<<<<<<< HEAD
 Aquí está el bosquejo del código que lee la respuesta de `response.body`:
+=======
+Here's the sketch of code that reads the response from `response.body`:
+>>>>>>> 6ab384f2512902d74e4b0ff5a6be60e48ab52e96
 
 ```js
 // en lugar de response.json() y otros métodos

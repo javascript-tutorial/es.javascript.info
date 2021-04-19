@@ -88,11 +88,19 @@ Sec-WebSocket-Key: Iv8io/9s+lYFgZWcXczP8Q==
 Sec-WebSocket-Version: 13
 ```
 
+<<<<<<< HEAD
 - `Origin` -- La página de origen del cliente, ej. `https://javascript.info`. Los objetos WebSocket son cross-origin por naturaleza. No existen las cabeceras especiales ni otras limitaciones. De cualquier manera los servidores viejos son incapaces de manejar WebSocket, asi que no hay problemas de compatibilidad. Pero la cabecera `Origin` es importante, pues habilita al servidor decidir si permite o no la comunicación WebSocket con el sitio web.
 - `Connection: Upgrade` -- señaliza que el cliente quiere cambiar el protocolo.
 - `Upgrade: websocket` -- el protocolo requerido es "websocket".
 - `Sec-WebSocket-Key` -- una clave de seguridad aleatoria generada por el navegador.
 - `Sec-WebSocket-Version` -- Versión del protocolo WebSocket, 13 es la actual.
+=======
+- `Origin` -- the origin of the client page, e.g. `https://javascript.info`. WebSocket objects are cross-origin by nature. There are no special headers or other limitations. Old servers are unable to handle WebSocket anyway, so there are no compatibility issues. But `Origin` header is important, as it allows the server to decide whether or not to talk WebSocket with this website.
+- `Connection: Upgrade` -- signals that the client would like to change the protocol.
+- `Upgrade: websocket` -- the requested protocol is "websocket".
+- `Sec-WebSocket-Key` -- a random browser-generated key for security.
+- `Sec-WebSocket-Version` -- WebSocket protocol version, 13 is the current one.
+>>>>>>> 6ab384f2512902d74e4b0ff5a6be60e48ab52e96
 
 ```smart header="El intercambio WebSocket no puede ser emulado"
 No podemos usar `XMLHttpRequest` o `fetch` para hacer este tipo de peticiones HTTP, porque JavaScript no tiene permitido establecer esas cabeceras.

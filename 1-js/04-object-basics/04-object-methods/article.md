@@ -81,7 +81,11 @@ user = {
 // la forma abreviada se ve mejor, ¿verdad?
 user = {
 *!*
+<<<<<<< HEAD
   sayHi() { // igual que "sayHi: function()"
+=======
+  sayHi() { // same as "sayHi: function(){...}"
+>>>>>>> 6ab384f2512902d74e4b0ff5a6be60e48ab52e96
 */!*
     alert("Hello");
   }

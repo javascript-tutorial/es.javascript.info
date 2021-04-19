@@ -14,4 +14,8 @@ function checkAge(age) {
 }
 ```
 
+<<<<<<< HEAD
 Tenga en cuenta que los paréntesis alrededor de `age > 18` no son requeridos acá. Existen para una mejor legibilidad.
+=======
+Note that the parentheses around `age > 18` are not required here. They exist for better readability.
+>>>>>>> 6ab384f2512902d74e4b0ff5a6be60e48ab52e96

@@ -35,7 +35,11 @@ alert( str.match(/^\d/g) ); // 1
 Esto se debe a que, de forma predeterminada, un caret `pattern:^` solo coincide al inicio del texto y en el modo multilínea, al inicio de cualquier línea.
 
 ```smart
+<<<<<<< HEAD
 "Inicio de una línea" significa formalmente "inmediatamente después de un salto de línea": la prueba `pattern:^` en modo multilínea coincide en todas las posiciones precedidas por un carácter de línea nueva `\n`.
+=======
+"Start of a line" formally means "immediately after a line break": the test  `pattern:^` in multiline mode matches at all positions preceded by a newline character `\n`.
+>>>>>>> 6ab384f2512902d74e4b0ff5a6be60e48ab52e96
 
 Y al comienzo del texto.
 ```

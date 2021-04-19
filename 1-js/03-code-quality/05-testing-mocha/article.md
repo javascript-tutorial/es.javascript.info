@@ -2,7 +2,11 @@
 
 Los tests automáticos deben ser considerados como una tarea más, y son ampliamente usados en proyectos reales.
 
+<<<<<<< HEAD
 ## ¿Por qué necesitamos tests?
+=======
+## Why do we need tests?
+>>>>>>> 6ab384f2512902d74e4b0ff5a6be60e48ab52e96
 
 Cuando escribimos una función, normalmente imaginamos qué debe hacer: Para ciertos parámetros, qué resultado.
 

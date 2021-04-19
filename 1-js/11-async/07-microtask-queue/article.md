@@ -30,7 +30,11 @@ Como se indica en la [especificación](https://tc39.github.io/ecma262/#sec-jobs-
 - La cola es first-in-first-out (FIFO), es decir, primero en entrar primero en salir: la tarea que entró primero en la cola, será la primera en ejecutarse.
 - La ejecución de una tarea se inicia sólo cuando *no* se está ejecutando nada más.
 
+<<<<<<< HEAD
 O, en palabras más simples, cuando una promesa está lista, sus controladores `.then/catch/finally` se ponen en la cola; ellos aún no se ejecutan. Cuando el motor de Javascript se libera del código actual, toma una tarea de la cola y la ejecuta.
+=======
+Or, to put it more simply, when a promise is ready, its `.then/catch/finally` handlers are put into the queue; they are not executed yet. When the JavaScript engine becomes free from the current code, it takes a task from the queue and executes it.
+>>>>>>> 6ab384f2512902d74e4b0ff5a6be60e48ab52e96
 
 Es por eso que el "código finalizado" en el ejemplo anterior se muestra primero.
 
@@ -40,7 +44,11 @@ Los controladores de promesas siempre pasan por esta cola interna.
 
 Si hay una cadena con múltiples `.then/catch/finally`, entonces cada uno de ellos se ejecuta de forma asincrónica. Es decir, primero se pone en la cola, luego se ejecuta cuando se completa el código actual y se finalizan los controladores previamente en la cola.
 
+<<<<<<< HEAD
 **¿Qué pasa si lo que estamos pidiendo es importante? ¿Cómo podemos hacer que `código finalizado` se ejecute después de `¡promesa realizada!`?**
+=======
+**What if the order matters for us? How can we make `code finished` appear after `promise done`?**
+>>>>>>> 6ab384f2512902d74e4b0ff5a6be60e48ab52e96
 
 Fácil, solo ponlo en la cola con `.then`:
 

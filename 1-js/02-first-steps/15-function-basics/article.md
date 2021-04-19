@@ -385,7 +385,11 @@ Las funciones que se utilizan *muy a menudo* algunas veces tienen nombres ultrac
 
 Por ejemplo, el framework [jQuery](http://jquery.com) define una función con `$`. La librería [LoDash](http://lodash.com/) tiene como nombre de función principal `_`.
 
+<<<<<<< HEAD
 Estas son excepciones. En general, los nombres de las funciones deben ser concisos y descriptivos.
+=======
+These are exceptions. Generally function names should be concise and descriptive.
+>>>>>>> 6ab384f2512902d74e4b0ff5a6be60e48ab52e96
 ```
 
 ## Funciones == Comentarios
