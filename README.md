@@ -1,10 +1,11 @@
 # Bienvenidos nuevos contribuidores
 ## Tutorial Moderno de JavaScript en Español
 
-`Marzo 2021:` [¡85%!](https://javascript.info/translate) (aunque sospecho que el tope es 90%) y aún hay `Formas de colaborar:`
 ```
+Novedades abril 2021: ¡85%!(https://javascript.info/translate) y aún hay Formas de colaborar:
+
 * Traduccíón: 
-  Quedan 11 artículos por incorporar (de 173), 4 por revisar y 4 sin traductor.
+  Quedan 11 artículos por incorporar (de 173), de ellos 5 para revisión y 1 sin traductor.
 
 * Actualización: 
   El original inglés agrega, quita, renumera, mejora constantemente.
