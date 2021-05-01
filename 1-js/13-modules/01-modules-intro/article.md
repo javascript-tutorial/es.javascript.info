@@ -268,7 +268,7 @@ Abajo compare con un script normal:
 <button id="button">Button</button>
 ```
 
-Tenga en cuenta: en realidad el segundo script se ejecuta antes que el primero! Entonces veremos primero `undefined`, y después `object`.
+Note que: ¡el segundo script se ejecuta antes que el primero! Entonces vemos primero `undefined`, y después `object`.
 
 Esto se debe a que los módulos están diferidos, por lo que esperamos a que se procese el documento. El script normal se ejecuta inmediatamente, por lo que vemos su salida primero.
 
