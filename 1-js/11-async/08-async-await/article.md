@@ -186,7 +186,7 @@ class Waiter {
 
 new Waiter()
   .wait()
-  .then(alert); // 1 (this is the same as (result => alert(result)))
+  .then(alert); // 1 (lo mismo que (result => alert(result)))
 ```
 El significado es el mismo: Asegura que el valor devuelto es una promesa y habilita `await`.
 
