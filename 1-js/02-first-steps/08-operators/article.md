@@ -70,7 +70,7 @@ alert( 2 ** 4 ); // 2⁴ = 16
 
 Matemáticamente, la exponenciación es definida para números no enteros también.
 
-Por ejemplo la raíz cuadrada es una exponenciación de ½:
+Por ejemplo, la raíz cuadrada es el exponente ½:
 
 ```js run
 alert( 4 ** (1/2) ); // 2 (potencia de 1/2 es lo mismo que raíz cuadrada, eso es matemáticas)
