@@ -67,9 +67,9 @@ Si intenta abrir una página web localmente a través del protocolo `file://`, e
 
 Hay características principales, válidas tanto para el navegador como para JavaScript del lado del servidor.
 
-### Siempre "use strict"
+### Siempre en modo estricto
 
-Los módulos siempre llevan `use strict` de forma predeterminada. Por ejemplo, asignar a una variable sin declarar nos dará un error.
+Los módulos siempre trabajan con `use strict` de forma predeterminada. Por ejemplo, asignar a una variable sin declarar nos dará un error.
 
 ```html run
 <script type="module">
