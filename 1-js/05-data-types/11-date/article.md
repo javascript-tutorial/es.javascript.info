@@ -60,7 +60,7 @@ Para crear un nuevo objeto `Date` se lo instancia con `new Date()` junto con uno
     - El `año` debe tener 4 dígitos: `2013` es correcto, `98` no.
     - La cuenta del `mes` comienza desde el `0` (enero), y termina en el `11` (diciembre).
     - El parámetro `fecha` efectivamente es el día del mes, si está ausente se asume su valor en `1`.
-    - Si los parámetros `hours/minutes/seconds/ms` están ausentes, se asumen sus valores iguales a `0`.
+    - Si los parámetros `horas/minutos/segundos/ms` están ausentes, se asumen sus valores iguales a `0`.
 
     Por ejemplo:
 
@@ -93,7 +93,7 @@ Existen métodos que sirven para obtener el año, el mes, y los demás component
 : Devuelve los componentes del horario correspondientes.
 
 ```warn header="No `getYear()`, sino `getFullYear()`"
-Algunos motores de JavaScript poseen implementado un método no estándar llamado `getYear()`. Este método actualmente está obsoleto. A veces devuelve un año de 2 digitos. Por favor, nunca lo uses. Usa `getFullYear()` para obtener el año.
+Algunos motores de JavaScript poseen implementado un método no estándar llamado `getYear()`. Este método actualmente está obsoleto. A veces devuelve un año de 2 dígitos. Por favor, nunca lo uses. Usa `getFullYear()` para obtener el año.
 ```
 
 Además, podemos obtener un día de la semana:
@@ -203,7 +203,7 @@ let date = new Date(2016, 0, 2); // 2 Jan 2016
 date.setDate(1); // Fija '1' día del mes
 alert( date );
 
-date.setDate(0); // min day is 1, so the last day of the previous month is assumed
+date.setDate(0); // el día mínimo es 1, entonces asume el último día del mes anterior
 alert( date ); // 31 Dec 2015
 ```
 
@@ -348,7 +348,7 @@ let time1 = 0;
 let time2 = 0;
 
 *!*
-// ejecuta bench(upperSlice) y bench(upperLoop) cada 10 iteraciones, alternando entre cada una.
+// ejecuta bench(diffSubtract) y bench(diffGetTime) cada 10 iteraciones alternándolas
 for (let i = 0; i < 10; i++) {
   time1 += bench(diffSubtract);
   time2 += bench(diffGetTime);

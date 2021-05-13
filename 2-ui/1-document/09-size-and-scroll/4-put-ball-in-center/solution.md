@@ -37,7 +37,7 @@ El código no funcionará seguramente mientras `<img>` no tenga width/height:
 
 Cuando el navegador no conoce el ancho/alto de una imagen (de un atributo o CSS), entonces este asume que es igual a `0` hasta que la imagen termine de cargarse.
 
-Entonces el valor de `ball.offsetWidth` deberá ser `0` hasta que la imagen carge. Eso conduce a coordinadas incorrectas en el código anterior.
+Entonces el valor de `ball.offsetWidth` deberá ser `0` hasta que la imagen cargue. Eso conduce a coordinadas incorrectas en el código anterior.
 
 Después de la primera carga, el navegador usualmente almacena en caché la imagen, y cuando se vuelva a cargar esta tendrá el tamaño inmediatamente. Pero en la primera carga el valor de `ball.offsetWidth` es `0`.
 

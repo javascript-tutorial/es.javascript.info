@@ -104,7 +104,7 @@ Existen dos tipos de solicitudes de origen cruzado:
 1. Solicitudes seguras.
 2. Todas las demás.
 
-Las solicitudes seguras son más simples de hacer, comencemos con ellas.
+Las solicitudes seguras son más fáciles de hacer, comencemos con ellas.
 
 Una solicitud es segura si cumple dos condiciones:
 
@@ -115,17 +115,17 @@ Una solicitud es segura si cumple dos condiciones:
     - `Content-Language`,
     - `Content-Type` con el valor `application/x-www-form-urlencoded`, `multipart/form-data` o `text/plain`.
 
-Cualquier otra solicitud es considerada "no simple". Por lo tanto, una solicitud con el método `PUT` o con una cabecera HTTP `API-Key` no cumple con las limitaciones.
+Cualquier otra solicitud es considerada "insegura". Por lo tanto, una solicitud con el método `PUT` o con una cabecera HTTP `API-Key` no cumple con las limitaciones.
 
-**La diferencia esencial es que una "solicitud simple" puede ser realizada mediante un `<form>` o un `<script>`, sin la necesidad de utilizar un método especial.**
+**La diferencia esencial es que una solicitud segura puede ser realizada mediante un `<form>` o un `<script>`, sin la necesidad de utilizar un método especial.**
 
-Por lo tanto, incluso un servidor obsoleto debería ser capaz de aceptar una solicitud simple.
+Por lo tanto, incluso un servidor obsoleto debería ser capaz de aceptar una solicitud segura.
 
 Contrario a esto, las solicitudes con cabeceras no estándar o métodos como el `DELETE` no pueden ser creados de este modo. Durante mucho tiempo no fue posible para JavaScript realizar este tipo de solicitudes. Por lo que un viejo servidor podía asumir que ese tipo de solicitudes provenía desde una fuente privilegiada, "ya que una página web es incapaz de enviarlas".
 
-Cuando intentamos realizar una solicitud "no simple", el navegador envía una solicitud especial de "pre-vuelo" consultándole al servidor si está de acuerdo en aceptar ese tipo de solicitud de origen cruzado, o no.
+Cuando intentamos realizar una solicitud insegura, el navegador envía una solicitud especial de "pre-vuelo" consultando al servidor: ¿está de acuerdo en aceptar tal solicitud de origen cruzado o no?
 
-Y, salvo que el servidor lo confirme de forma explícita, cualquier solicitud "no segura" no es enviada.
+Y, salvo que el servidor lo confirme de forma explícita, cualquier solicitud insegura no es enviada.
 
 Vayamos ahora a los detalles.
 
@@ -165,7 +165,7 @@ Access-Control-Allow-Origin: https://javascript.info
 
 ## Cabeceras de respuesta
 
-Para las respuestas de origen cruzado, por defecto JavaScript sólo puede acceder a las cabeceras llamadas "simples":
+Para las respuestas de origen cruzado, por defecto JavaScript sólo puede acceder a las cabeceras llamadas "seguras":
 
 - `Cache-Control`
 - `Content-Language`
@@ -182,7 +182,7 @@ Como se puede ver, ¡no está la cabecera `Content-Length` en la lista!
 Esta cabecera contiene el tamaño total de la respuesta. Por lo que si queremos mostrar el progreso de la descarga, en ese caso necesitaremos un permiso adicional para acceder a ese campo de la cabecera.
 ```
 
-Para permitirle a JavaScript acceso a otros tipos de cabeceras, el servidor debe incluir la cabecera `Access-Control-Expose-Headers`. Este campo contiene una lista separada por comas de las cabeceras no seguras que podrán ser accesibles.
+Para permitirle a JavaScript acceso a otros tipos de cabeceras, el servidor debe incluir la cabecera `Access-Control-Expose-Headers`. Este campo contiene una lista separada por comas de las cabeceras inseguras que podrán ser accesibles.
 
 Por ejemplo:
 
@@ -199,18 +199,18 @@ Access-Control-Expose-Headers: Content-Length,API-Key
 
 Con este valor de `Access-Control-Expose-Headers`, el script tendrá permitido acceder a los valores de las cabeceras `Content-Length` y `API-Key` de la respuesta.
 
-## Solicitudes "No simples"
+## Solicitudes "inseguras"
 
 Podemos utilizar cualquier método HTTP: no únicamente `GET/POST`, sino también `PATCH`, `DELETE` y otros.
 
 Hace algún tiempo nadie podía siquiera imaginar que un sitio web pudiera realizar ese tipo de solicitudes. Por lo que aún existen servicios web que cuando reciben un método no estándar los consideran como una señal de que: "Del otro lado no hay un navegador". Ellos pueden tener en cuenta esto cuando revisan los derechos de acceso.
 
-Por lo tanto, para evitar malentendidos, cualquier solicitud "no segura" (Estas que no podían ser realizadas en los viejos tiempos), no será realizada por el navegador en forma directa. Antes, enviará una solicitud preliminar llamada solicitud de "pre-vuelo", solicitando que se le concedan los permisos.
+Por lo tanto, para evitar malentendidos, cualquier solicitud "insegura" (Estas que no podían ser realizadas en los viejos tiempos), no será realizada por el navegador en forma directa. Antes, enviará una solicitud preliminar llamada solicitud de "pre-vuelo", solicitando que se le concedan los permisos.
 
 Una solicitud de "pre-vuelo" utiliza el método `OPTIONS`, sin contenido en el cuerpo y con dos cabeceras:
 
-- `Access-Control-Request-Method`, cabecera que contiene el método de la solicitud "no simple".
-- `Access-Control-Request-Headers` provee una lista separada por comas de las cabeceras no simples de la solicitud.
+- `Access-Control-Request-Method`, cabecera que contiene el método de la solicitud "insegura".
+- `Access-Control-Request-Headers` provee una lista separada por comas de las cabeceras inseguras de la solicitud.
 
 Si el servidor está de acuerdo con lo solicitado, entonces responderá con el código de estado 200 y un cuerpo vacío:
 
@@ -233,10 +233,10 @@ let response = await fetch('https://site.com/service.json', {
 });
 ```
 
-Hay tres motivos por los cuales esta solicitud no es simple (una es suficiente):
+Hay tres motivos por los cuales esta solicitud no es segura (una es suficiente):
 - Método `PATCH`
 - `Content-Type` no es del tipo: `application/x-www-form-urlencoded`, `multipart/form-data`, `text/plain`.
-- Cabecera `API-Key` "No simple".
+- Cabecera `API-Key` "insegura".
 
 ### Paso 1 (solicitud de pre-vuelo)
 
@@ -255,7 +255,7 @@ Access-Control-Request-Headers: Content-Type,API-Key
 - Cabeceras especiales de origen cruzado (Cross-origin):
     - `Origin` -- el origen de la fuente.
     - `Access-Control-Request-Method` -- método solicitado.
-    - `Access-Control-Request-Headers` -- listado separado por comas de las cabeceras "no simples".
+    - `Access-Control-Request-Headers` -- listado separado por comas de las cabeceras "inseguras".
 
 ### Paso 2 (solicitud de pre-vuelo)
 
@@ -360,7 +360,7 @@ Desde el punto de vista del navegador, existen dos tipos de solicitudes de orige
     - `Content-Language`
     - `Content-Type` con el valor `application/x-www-form-urlencoded`, `multipart/form-data` o `text/plain`.
 
-La diferencia escencial es que las solicitudes seguras eran posibles desde los viejos tiempos utilizando las etiquetas `<form>` o `<script>`, mientras que las solicitudes "no seguras" fueron imposibles para el navegador durante mucho tiempo.
+La diferencia esencial es que las solicitudes seguras eran posibles desde los viejos tiempos utilizando las etiquetas `<form>` o `<script>`, mientras que las solicitudes "inseguras" fueron imposibles para el navegador durante mucho tiempo.
 
 Por lo tanto, en la práctica, la diferencia se encuentra en que las solicitudes seguras son realizadas de forma directa, utilizando la cabecera `Origin`, mientras que para las otras el navegador realiza una solicitud extra de "pre-vuelo" para requerir la autorización.
 
@@ -379,7 +379,7 @@ Adicionalmente, para garantizar a JavaScript acceso a cualquier cabecera de la r
 
 - → El navegador envía una solicitud del tipo `OPTIONS` a la misma URL, con las cabeceras:
     - `Access-Control-Request-Method` con el método requerido.
-    - `Access-Control-Request-Headers` listado de las cabeceras no seguras.
+    - `Access-Control-Request-Headers` listado de las cabeceras inseguras.
 - ← El servidor debe responder con el código de estado 200 y las cabeceras:
     - `Access-Control-Allow-Methods` con la lista de todos los métodos permitidos,
     - `Access-Control-Allow-Headers` con una lista de cabeceras permitidas,

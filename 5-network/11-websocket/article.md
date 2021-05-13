@@ -199,7 +199,7 @@ La propiedad `socket.bufferedAmount` registra cuántos bytes quedan almacenados 
 Podemos examinarla  para ver si el "socket" está disponible para transmitir.
 
 ```js
-// examina el socket cada 100ms y envia más datos   
+// examina el socket cada 100ms y envía más datos   
 // solamente si todos los datos existentes ya fueron enviados
 setInterval(() => {
   if (socket.bufferedAmount == 0) {

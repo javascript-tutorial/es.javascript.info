@@ -124,7 +124,7 @@ Vamos a actualizar nuestro algoritmo:
 
     ```js
     // onmousemove
-    // la pelota tiene position:absoute
+    // la pelota tiene position:absolute
     ball.style.left = event.pageX - *!*shiftX*/!* + 'px';
     ball.style.top = event.pageY - *!*shiftY*/!* + 'px';
     ```
@@ -259,7 +259,7 @@ function onMouseMove(event) {
 
   if (currentDroppable != droppableBelow) {
     // estamos flotando dentro o afuera
-    // nota: ambos valores puden ser null
+    // nota: ambos valores pueden ser null
     //   currentDroppable=null si no estábamos sobre un receptor antes de este evento (ej. sobre un espacio en blanco)
     //   droppableBelow=null si no estamos sobre un receptor ahora, durante este evento
 

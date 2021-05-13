@@ -148,7 +148,7 @@ newWindow.onload = function() {
 
 Por favor, tenga en cuenta: inmediatamente después de `window.open` la nueva ventana no está cargada aún. Esto queda demostrado por el `alert` en la linea `(*)`. Así que esperamos a que `onload` lo modifique. También podríamos usar `DOMContentLoaded` de los manejadores de `newWin.document`.
 
-```warn header="Same origin policy"
+```warn header="Política mismo origen"
 Las ventanas pueden acceder libremente a los contenidos de las demás sólo si provienen del mismo origen (el mismo protocolo://domain:port).
 
 De lo contrario es imposible por razones de seguridad del usuario, por ejemplo si la ventana principal es de `site.com` y la ventana emergente (popup) es de  `gmail.com`. Para los detalles, ver capitulo <info:cross-window-communication>.

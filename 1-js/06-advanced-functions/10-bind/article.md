@@ -5,17 +5,13 @@ libs:
 
 # Función bind: vinculación de funciones
 
-
 Al pasar métodos de objeto como devoluciones de llamada, por ejemplo a `setTimeout`, se genera un problema conocido: "pérdida de `this`".
 
 En este capítulo veremos las formas de solucionarlo.
 
-
 ## Pérdida de "this"
 
-
 Ya hemos visto ejemplos de pérdida de `this`. Una vez que se pasa un método en algún lugar separado del objeto -- `this` se pierde.
-
 
 Así es como puede suceder con `setTimeout`:
 
@@ -41,9 +37,7 @@ let f = user.sayHi;
 setTimeout(f, 1000); // user pierde el contexto
 ```
 
-
 El método `setTimeout` en el navegador es un poco especial: establece `this = window` para la llamada a la función (para Node.js, `this` se convierte en el objeto temporizador (timer), pero realmente no importa aquí). Entonces, en `this.firstName` intenta obtener `window.firstName`, que no existe. En otros casos similares, `this` simplemente se vuelve `undefined`.
-
 
 La tarea es bastante típica --queremos pasar un método de objeto a otro lugar (aquí --al planificador) donde se llamará. ¿Cómo asegurarse de que se llamará en el contexto correcto?
 
@@ -89,7 +83,6 @@ let user = {
 
 setTimeout(() => user.sayHi(), 1000);
 
-
 // ...el valor de user cambia en 1 segundo
 user = {
   sayHi() { alert("Another user in setTimeout!"); }
@@ -107,9 +100,7 @@ Las funciones proporcionan un método incorporado [bind](https://developer.mozil
 La sintaxis básica es:
 
 ```js
-
 // la sintaxis más compleja vendrá un poco más tarde
-
 let boundFunc = func.bind(context);
 ```
 
@@ -171,14 +162,12 @@ let sayHi = user.sayHi.bind(user); // (*)
 */!*
 
 // puede ejecutarlo sin un objeto
-
 sayHi(); // Hello, John!
 
 setTimeout(sayHi, 1000); // Hello, John!
 
 // incluso si el valor del usuario cambia en 1 segundo
 // sayHi usa el valor pre-enlazado
-
 user = {
   sayHi() { alert("Another user in setTimeout!"); }
 };
@@ -224,16 +213,13 @@ Podemos vincular no solo `this`, sino también argumentos. Es algo que no suele 
 
 Sintáxis completa de `bind`:
 
-
 ```js
 let bound = func.bind(context, [arg1], [arg2], ...);
 ```
 
-
 Permite vincular el contexto como `this` y los argumentos iniciales de la función.
 
 Por ejemplo, tenemos una función de multiplicación `mul(a, b)`:
-
 
 ```js
 function mul(a, b) {
@@ -241,9 +227,7 @@ function mul(a, b) {
 }
 ```
 
-
 Usemos `bind` para crear una función` double` en su base:
-
 
 ```js run
 function mul(a, b) {
@@ -259,7 +243,6 @@ alert( double(4) ); // = mul(2, 4) = 8
 alert( double(5) ); // = mul(2, 5) = 10
 ```
 
-
 La llamada a `mul.bind(null, 2)` crea una nueva función `double` que pasa las llamadas a `mul`, fijando `null` como contexto y `2` como primer argumento. Otros argumentos se pasan "tal cual".
 
 Eso se llama [aplicación parcial de una función](https://en.wikipedia.org/wiki/Partial_application) -- creamos una nueva función arreglando algunos parámetros de la existente.
@@ -267,7 +250,6 @@ Eso se llama [aplicación parcial de una función](https://en.wikipedia.org/wiki
 Tenga en cuenta que aquí en realidad no usamos `this`. Pero `bind` lo requiere, por lo que debemos poner algo como `null`.
 
 La función `triple` en el siguiente código triplica el valor:
-
 
 ```js run
 function mul(a, b) {
@@ -310,16 +292,13 @@ function partial(func, ...argsBound) {
 }
 */!*
 
-
 // Uso:
-
 let user = {
   firstName: "John",
   say(time, phrase) {
     alert(`[${time}] ${this.firstName}: ${phrase}!`);
   }
 };
-
 
 // agregar un método parcial con tiempo fijo
 user.sayNow = partial(user.say, new Date().getHours() + ':' + new Date().getMinutes());
@@ -344,9 +323,6 @@ El método `func.bind(context, ... args)` devuelve una "variante ligada" de la f
 
 Por lo general, aplicamos `bind` para fijar `this` a un método de objeto, de modo que podamos pasarlo en otro lugar. Por ejemplo, en `setTimeout`.
 
-
 Cuando fijamos algunos argumentos de una función existente, la función resultante (menos universal) se llama *aplicación parcial* o *parcial*.
 
-
 Los parciales son convenientes cuando no queremos repetir el mismo argumento una y otra vez. Al igual que si tenemos una función `send(from, to)`, y `from` siempre debe ser igual para nuestra tarea, entonces, podemos obtener un parcial y continuar la tarea con él.
-

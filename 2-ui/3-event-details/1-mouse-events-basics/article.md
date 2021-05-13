@@ -32,7 +32,7 @@ Ya hemos visto algunos de estos eventos:
 
 Como pudiste ver en la lista anterior, una acción del usuario puede desencadenar varios eventos.
 
-Por ejemlo , un click izquierdo primero activa `mousedown`cuando se presiona el botón, enseguida `mouseup` y `click` cuando se suelta.
+Por ejemplo , un click izquierdo primero activa `mousedown`cuando se presiona el botón, enseguida `mouseup` y `click` cuando se suelta.
 
 En casos así, el orden es fijo. Es decir, los controladores son llamados en el siguiente orden `mousedown` -> `mouseup` -> `click`. 
 
@@ -116,7 +116,7 @@ Es decir: cuando un usuario de Windows usa `key:Ctrl+Enter` o `key:Ctrl+A`, un u
 
 Entonces si queremos darle soporte a combinaciones como `key:Ctrl`+click, entonces para Mac tendría más sentido usar `key:Cmd`+click. Esto es más cómodo para los usuarios de Mac.
 
-Incluso si quisieramos obligar a los usuarios de Mac a hacer `key:Ctrl`+click -- esto supone algo de dificultad. El problema es que: un click izquierdo con `key:Ctrl` es intrepetado como  *click derecho* en MacOS, y esto genera un evento `contextmenu`, no un `click` como en Windows/Linux.
+Incluso si quisieramos obligar a los usuarios de Mac a hacer `key:Ctrl`+click -- esto supone algo de dificultad. El problema es que: un click izquierdo con `key:Ctrl` es interpretado como  *click derecho* en MacOS, y esto genera un evento `contextmenu`, no un `click` como en Windows/Linux.
 
 Así que si queremos que los usuarios de todos los sistemas operativos se sientan cómodos, entonces junto con `ctrlKey` debemos verificar `metaKey`.
 

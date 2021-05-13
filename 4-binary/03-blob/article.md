@@ -62,7 +62,7 @@ Gracias al `tipo`, también podemos descargar/cargar objetos `Blob`, y el `tipo`
 Empecemos con un ejemplo simple. Al hacer click en un link, descargas un `Blob` dinámicamente generado con contenido `hello world` en forma de archivo:
 
 ```html run
-<!-- descargar atributos forza el navegador a descargar en lugar de navegar -->
+<!-- descargar atributos fuerza al navegador a descargar en lugar de navegar -->
 <a download="hello.txt" href='#' id="link">Descargar</a>
 
 <script>
@@ -103,7 +103,7 @@ Una URL generada (y por lo tanto su enlace) solo es válida en el documento actu
 
 También hay efectos secundarios. Mientras haya un mapeado para un `Blob`, el `Blob` en sí mismo se guarda en la memoria. El navegador no puede liberarlo.
 
-El mapeado se limpia automáticamente al vaciar un documento, así los objetos `Blob` son liberados. Pero si una applicación es de larga vida, entonces eso no va a pasar pronto.
+El mapeado se limpia automáticamente al vaciar un documento, así los objetos `Blob` son liberados. Pero si una aplicación es de larga vida, entonces eso no va a pasar pronto.
 
 **Entonces, si creamos una URL, este `Blob` se mantendrá en la memoria, incluso si ya no se necesita.**
 
@@ -186,7 +186,7 @@ let context = canvas.getContext('2d');
 context.drawImage(img, 0, 0);
 // podemos hacer un context.rotate(), y muchas otras cosas en canvas
 
-// toBlob es una operación sincrónica, callback es llamada al terminar
+// toBlob es una operación asincrónica, callback es llamada al terminar
 canvas.toBlob(function(blob) {
   // blob listo, descárgalo
   let link = document.createElement('a');

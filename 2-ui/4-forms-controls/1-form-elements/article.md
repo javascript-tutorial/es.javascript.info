@@ -12,7 +12,7 @@ Esa es la llamada "Colección nombrada": es ambas cosas, nombrada y ordenada. Po
 
 ```js no-beautify
 document.forms.my; // el formulario con name="my"
-document.forms[0]; // el primar formulario en el documento
+document.forms[0]; // el primer formulario en el documento
 ```
 
 Cuando tenemos un formulario, cualquier elemento se encuentra disponible en la colección nombrada `form.elements`.
@@ -248,7 +248,7 @@ La diferencia entre `defaultSelected` y `selected` es que `defaultSelected` asig
 
 En la práctica, uno debería usualmente establecer _ambos_ valores en `true` o `false`. O simplemente omitirlos, quedarán con el predeterminado `false`.
 
-Por ejemplo, aquí cramos un nuevo Option "unselected":
+Por ejemplo, aquí creamos un nuevo Option "unselected":
 
 ```js
 let option = new Option("Text", "value");
