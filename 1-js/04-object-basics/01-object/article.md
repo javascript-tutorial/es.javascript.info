@@ -14,7 +14,7 @@ Podemos imaginar un objeto como un gabinete con archivos firmados. Cada pieza de
 Se puede crear un objeto vacío ("gabinete vacío") utilizando una de dos sintaxis:
 
 ```js
-let user = new Object(); // sintaxis de "construtor de objetos"
+let user = new Object(); // sintaxis de "constructor de objetos"
 let user = {};  // sintaxis de "objeto literal"
 ```
 
@@ -392,7 +392,7 @@ Además podríamos usar otros nombres de variables en lugar de `key`. Por ejempl
 
 ¿Los objetos están ordenados? Es decir, si creamos un bucle sobre un objeto, ¿obtenemos todas las propiedades en el mismo orden en el que se agregaron? ¿Podemos confiar en ello?
 
-La respuesta corta es: "ordenados de una forma especial": las propiedades de números números enteros se ordenan, los demás aparecen en el orden de la creación. Entremos en detalle.
+La respuesta corta es: "ordenados de una forma especial": las propiedades de números enteros se ordenan, los demás aparecen en el orden de la creación. Entremos en detalle.
 
 Como ejemplo, consideremos un objeto con códigos telefónicos:
 
@@ -417,12 +417,12 @@ El objeto puede usarse para sugerir una lista de opciones al usuario. Si estamos
 Pero si ejecutamos el código, veremos una imagen totalmente diferente:
 
 - USA (1) va primero
-- Luego Switzerland (41) y así sucecivamente.
+- Luego Switzerland (41) y así sucesivamente.
 
 Los códigos telefónicos van en orden ascendente porque son números enteros. Entonces vemos  `1, 41, 44, 49`.
 
 ````smart header="¿Propiedades de números enteros? ¿Qué es eso?"
-El término "propiedad de números enteros" aquí significa que una cadena se puede convertir a y desde desde un entero sin nigún cambio.
+El término "propiedad de números enteros" aquí significa que una cadena se puede convertir a y desde desde un entero sin ningún cambio.
 
 Entonces, "49" es un nombre de propiedad entero, porque cuando este se transforma a un entero y viceversa continua siendo el mismo. Pero "+49" y "1.2" no lo son:
 
@@ -486,7 +486,7 @@ Para acceder a una propiedad, podemos usar:
 Operadores adicionales:
 - Para eliminar una propiedad: `delete obj.prop`.
 - Para comprobar si existe una propiedad con la clave proporcionada: `"key" in obj`.
-- Para crear bluces sobre un objeto: bucle `for (let key in obj)`.
+- Para crear bucles sobre un objeto: bucle `for (let key in obj)`.
 
 Lo que hemos estudiado en este capítulo se llama "objeto simple", o solamente `Object`.
 
@@ -497,6 +497,6 @@ Hay muchos otros tipos de objetos en JavaScript:
 - `Error` para almacenar información sobre un error.
 - ...Y así.
 
-Tienen sus características especiales que estudiaremos más adelante. A veces las personas dicen algo como "Tipo `array`" o "Tipo `date`", pero formalmente no son tipos en sí, sino que pertenecen a un tipo de datos de "objeto" simple y lo amplian a varias maneras.
+Tienen sus características especiales que estudiaremos más adelante. A veces las personas dicen algo como "Tipo `array`" o "Tipo `date`", pero formalmente no son tipos en sí, sino que pertenecen a un tipo de datos de "objeto" simple y lo amplían a varias maneras.
 
 Los objetos en JavaScript son muy poderosos. Aquí acabamos de arañar la superficie de un tema que es realmente enorme. Trabajaremos estrechamente con los objetos y aprenderemos más sobre ellos en otras partes del tutorial.

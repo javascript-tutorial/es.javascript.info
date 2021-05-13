@@ -8,7 +8,7 @@ Se puede utilizar JavaScript para controlar la animación CSS y mejorarla con un
 
 La idea de las transiciones CSS es simple. Describimos una propiedad y cómo se deberían animar sus cambios. Cuando la propiedad cambia, el navegador pinta la animación.
 
-Es decir: todo lo que necesitamos es cambiar la propiedad. Y la transición fluida es realizada por el navegador.
+Es decir: todo lo que necesitamos es cambiar la propiedad, y la transición fluida la hará el navegador.
 
 Por ejemplo, el CSS a continuación anima los cambios de `background-color` durante 3 segundos:
 
@@ -221,7 +221,7 @@ Por lo tanto, podríamos usar `ease-out` para nuestro tren desacelerando:
 
 Pero se ve un poco diferente.
 
-**Una curva de Bézier puede hacer que la animación "salte fuera" de su rango.**
+**Una curva de Bézier puede hacer que la animación exceda su rango.**
 
 Los puntos de control en la curva pueden tener cualquier coordenada `y`: incluso negativa o enorme. Entonces la curva de Bézier también saltaría muy bajo o alto, haciendo que la animación vaya más allá de su rango normal.
 

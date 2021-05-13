@@ -104,7 +104,7 @@ Los comentarios se pueden poner en cualquier lugar de un script. No afectan su e
 
 El resto de la línea es un comentario. Puede ocupar una línea completa propia o seguir una sentencia.
 
-Como aqui:
+Como aquí:
 ```js run
 // Este comentario ocupa una línea propia.
 alert('Hello');

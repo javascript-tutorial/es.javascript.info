@@ -134,7 +134,7 @@ Object.defineProperty(user, "name", {
 *!*
 
   value: "Pedro",
-  // para las nuevas propiedades se necesita listarlas explicitamente como true
+  // para las nuevas propiedades se necesita listarlas explícitamente como true
   enumerable: true,
   configurable: true
 */!*
@@ -310,7 +310,7 @@ for (let key in user) {
 
 ...Pero eso no copia los identificadores. Así que si queremos un "mejor" clon entonces se prefiere `Object.defineProperties`.
 
-Otra diferencia es que `for..in` ignora propiedades simbólicas, pero `Object.getOwnPropertyDescriptors` retorna *todos* los descriptores de propiedades incluyendo los simbolicos.
+Otra diferencia es que `for..in` ignora propiedades simbólicas, pero `Object.getOwnPropertyDescriptors` retorna *todos* los descriptores de propiedades incluyendo los simbólicos.
 
 ## Sellando un objeto globalmente
 

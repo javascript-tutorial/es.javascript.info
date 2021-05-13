@@ -23,4 +23,4 @@ switch (a) {
 
 Nota: El `break` al final no es requerido. Pero lo agregamos para preparar el código para el futuro.
 
-En el futuro existe una probabilidad de que querramos agregar un `case` adicional, por ejemplo `case 4`. Y si olvidamos agregar un break antes, al final de `case 3`, habrá un error. Por tanto, es una forma de auto-asegurarse.
+En el futuro existe una probabilidad de que queramos agregar un `case` adicional, por ejemplo `case 4`. Y si olvidamos agregar un break antes, al final de `case 3`, habrá un error. Por tanto, es una forma de auto-asegurarse.

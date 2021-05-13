@@ -69,10 +69,10 @@ La ejecución de la función es pausada en la línea `(*)` y se reanuda cuando l
 
 Enfaticemos: `await` literalmente suspende la ejecución de la función hasta que se establezca la promesa, y luego la reanuda con el resultado de la promesa. Eso no cuesta ningún recurso de CPU, porque el motor de JavaScript puede hacer otros trabajos mientras tanto: ejecutar otros scripts, manejar eventos, etc.
 
-Es simplemente una sintaxis más elegante para tener el resultado de una promesa que `promise.then`, es más facil de leer y de escribir.
+Es simplemente una sintaxis más elegante para tener el resultado de una promesa que `promise.then`, es más fácil de leer y de escribir.
 
-````warn header="No se puede usar *await* en funciones regulares"
-Si tratamos de usar `await` en una función no async, habría un error de sintaxis:
+````warn header="No se puede usar `await` en funciones comunes"
+Si tratamos de usar `await` en una función no async, tendremos un error de sintaxis:
 
 ```js run
 function f() {
@@ -186,14 +186,14 @@ class Waiter {
 
 new Waiter()
   .wait()
-  .then(alert); // 1
+  .then(alert); // 1 (lo mismo que (result => alert(result)))
 ```
 El significado es el mismo: Asegura que el valor devuelto es una promesa y habilita `await`.
 
 ````
 ## Manejo de Error
 
-Si una promesa se resuelve normalmente, entonces `await promise` devuelve el resultado. Pero en caso de rechazo, dispara un error, tal como si hubiera una intrucción `throw` en aquella línea.
+Si una promesa se resuelve normalmente, entonces `await promise` devuelve el resultado. Pero en caso de rechazo, dispara un error, tal como si hubiera una instrucción `throw` en aquella línea.
 
 Este código:
 
@@ -234,7 +234,7 @@ async function f() {
 f();
 ```
 
-En el casso de un error, el control salta al bloque `catch`. Podemos también envolver múltiples líneas:
+En el caso de un error, el control salta al bloque `catch`. Podemos también envolver múltiples líneas:
 
 ```js run
 async function f() {
@@ -264,7 +264,7 @@ f().catch(alert); // TypeError: failed to fetch // (*)
 */!*
 ```
 
-Si olvidamos añadir `.catch` allí, obtendrenos un error de promesa no manejado (visible en consola). Podemos atrapar tales errores usando un manejador de evento global `unhandledrejection` como está descrito en el capítulo <info:promise-error-handling>.
+Si olvidamos añadir `.catch` allí, obtendremos un error de promesa no manejado (visible en consola). Podemos atrapar tales errores usando un manejador de evento global `unhandledrejection` como está descrito en el capítulo <info:promise-error-handling>.
 
 
 ```smart header="`async/await` y `promise.then/catch`"

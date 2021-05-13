@@ -254,7 +254,7 @@ Aquí hay un documento con `<iframe>`, `<img>` y controladores que registran eve
 El ejemplo práctico está [en el sandbox](sandbox:readystate).
 
 La salida típica:
-1. [1] readyState incial: loading
+1. [1] readyState inicial: loading
 2. [2] readyState: interactive
 3. [2] DOMContentLoaded
 4. [3] iframe onload
@@ -279,6 +279,6 @@ Eventos de carga de página:
 - El evento `beforeunload` en `window` se activa cuando el usuario quiere salir de la página. Si cancelamos el evento, el navegador pregunta si el usuario realmente quiere irse (por ejemplo, tenemos cambios sin guardar).
 - El evento `unload` en `window` se dispara cuando el usuario finalmente se está yendo, en el controlador solo podemos hacer cosas simples que no impliquen demoras o preguntas al usuario. Debido a esa limitación, rara vez se usa. Podemos enviar una solicitud de red con `navigator.sendBeacon`.
 - `document.readyState` es el estado actual del documento, los cambios se pueden rastrear con el evento `readystatechange`:
-  - `loading` -- el documetno esta cargando.
+  - `loading` -- el documento esta cargando.
   - `interactive` -- el documento se analiza, ocurre aproximadamente casi al mismo tiempo que `DOMContentLoaded`, pero antes.
   - `complete` -- el documento y los recursos se cargan, ocurre aproximadamente casi al mismo tiempo que `window.onload`, pero antes.

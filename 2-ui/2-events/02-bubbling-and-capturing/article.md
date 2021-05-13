@@ -16,7 +16,7 @@ Este manejador está asignado a `<div>`, pero también se ejecuta si haces clic 
 
 El principio de propagación es simple.
 
-**Cuando un evento ocurre en un elemento, este primero ejecuta los manejadores que tiene asignados, luego los manejadores de su padre, y así hasta otros ancentros.**
+**Cuando un evento ocurre en un elemento, este primero ejecuta los manejadores que tiene asignados, luego los manejadores de su padre, y así hasta otros ancestros.**
 
 Dígamos que tenemos 3 elementos anidados `FORM > DIV > P` con un manejador en cada uno de ellos:
 
@@ -126,7 +126,7 @@ El estándar de [eventos del DOM](http://www.w3.org/TR/DOM-Level-3-Events/) desc
 2. Fase de objetivo -- el evento alcanza al elemento.
 3. Fase de propagación -- el evento se propaga hacia arriba del elemento.
 
-Aquí está la imagen de un clic en `<td>` dentro de una tabla, tomada desde la específicación:
+Aquí está la imagen de un clic en `<td>` dentro de una tabla, tomada desde la especificación:
 
 ![](eventflow.svg)
 
@@ -191,7 +191,7 @@ Si nosotros `addEventListener(..., true)`, entonces deberíamos mencionar la mis
 ```
 
 ````smart header="Detectores de eventos en el mismo elemento y en la misma fase se ejecutan en el orden de asignación"
-Si tenemos multiples manejadores de eventos en la misma fase, asignados al mismo elemento con `addEventListener`, se ejecutarán en el orden que fueron creados:
+Si tenemos múltiples manejadores de eventos en la misma fase, asignados al mismo elemento con `addEventListener`, se ejecutarán en el orden que fueron creados:
 
 ```js
 elem.addEventListener("click", e => alert(1)); // garantizado que se ejecutará primero

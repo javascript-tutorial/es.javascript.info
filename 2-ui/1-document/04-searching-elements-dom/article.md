@@ -57,7 +57,7 @@ Existe además una variable global nombrada por el `id` que hace referencia al e
 ```warn header="Por favor, no utilice variables globales nombradas por id para acceder a los elementos"
 Este comportamiento se encuentra descrito [en la especificación](http://www.whatwg.org/specs/web-apps/current-work/#dom-window-nameditem), por lo que es una especie de estándar. Pero está soportado principalmente para compatibilidad.
 
-El navegador intenta ayudarnos mezclando espacios de nombres (*namespaces*) de JS y DOM. Esto está bien para los scripts simples, incrustrados en HTML, pero generalmente no es una buena práctica. Puede haber conflictos de nombres. Además, cuando uno lee el código de JS y no tiene el HTML a la vista, no es obvio de dónde viene la variable. 
+El navegador intenta ayudarnos mezclando espacios de nombres (*namespaces*) de JS y DOM. Esto está bien para los scripts simples, incrustados en HTML, pero generalmente no es una buena práctica. Puede haber conflictos de nombres. Además, cuando uno lee el código de JS y no tiene el HTML a la vista, no es obvio de dónde viene la variable. 
 
 Aquí en el tutorial usamos `id` para referirnos directamente a un elemento por brevedad, cuando es obvio de dónde viene el elemento.
 
@@ -140,7 +140,7 @@ Por ejemplo:
 
 ## closest
 
-Los *ancestros* de un elmento son: el padre, el padre del padre, su padre y así sucesivamente. Todos los ancestros juntos forman la cadena de padres desde el elemento hasta la cima.
+Los *ancestros* de un elemento son: el padre, el padre del padre, su padre y así sucesivamente. Todos los ancestros juntos forman la cadena de padres desde el elemento hasta la cima.
 
 El método `elem.closest(css)` busca el ancestro más cercano que coincide con el selector CSS. El propio `elem` también se incluye en la búsqueda.
 

@@ -396,4 +396,4 @@ Los elementos personalizados pueden ser de dos tipos:
     /* <button is="my-button"> */
     ```
 
-Los elementos personalizados tienen muy buen soporte entre los navegadores.
+Los elementos personalizados tienen muy buen soporte entre los navegadores. Hay un polyfill <https://github.com/webcomponents/polyfills/tree/master/packages/webcomponentsjs>.

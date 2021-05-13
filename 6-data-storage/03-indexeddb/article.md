@@ -18,6 +18,12 @@ The native interface to IndexedDB, described in the specification <https://www.w
 
 We can also use `async/await` with the help of a promise-based wrapper, like <https://github.com/jakearchibald/idb>. That's pretty convenient, but the wrapper is not perfect, it can't replace events for all cases. So we'll start with events, and then, after we gain an understanding of IndexedDb, we'll use the wrapper.
 
+```smart header="Where's the data?"
+Technically, the data is usually stored in the visitor's home directory, along with browser settings, extensions, etc.
+
+Different browsers and OS-level users have each their own independant storage.
+```
+
 ## Open database
 
 To start working with IndexedDB, we first need to `open` (connect to) a database.
@@ -89,7 +95,7 @@ openRequest.onupgradeneeded = function(event) {
 };
 ```
 
-Please note: as our current version is `2`, `onupgradeneeded` handler has a code branch for version `0`, suitable for users that are accessing for the first time and have no database, and also for version `1`, for upgrades.
+Please note: as our current version is `2`, the `onupgradeneeded` handler has a code branch for version `0`, suitable for users that are accessing for the first time and have no database, and also for version `1`, for upgrades.
 
 And then, only if `onupgradeneeded` handler finishes without errors, `openRequest.onsuccess` triggers, and the database is considered successfully opened.
 
@@ -125,9 +131,7 @@ In order to organize that, the `versionchange` event triggers on the "outdated" 
 
 If we don't listen for the `versionchange` event and don't close the old connection, then the second, new connection won't be made. The `openRequest` object will emit the `blocked` event instead of `success`. So the second tab won't work.
 
-Here's the code to correctly handle the parallel upgrade.
-
-It installs an `onversionchange` handler after the database is opened, that closes the old connection:
+Here's the code to correctly handle the parallel upgrade. It installs the `onversionchange` handler, that triggers if the current database connection becomes outdated (db version is updated elsewhere) and closes the connection.
 
 ```js
 let openRequest = indexedDB.open("store", 2);
@@ -152,20 +156,22 @@ openRequest.onsuccess = function() {
 openRequest.onblocked = function() {
   // this event shouldn't trigger if we handle onversionchange correctly
 
-  // it means that there's another open connection to same database
+  // it means that there's another open connection to the same database
   // and it wasn't closed after db.onversionchange triggered for it
 };
 */!*
 ```
 
-Here we do two things:
+...In other words, here we do two things:
 
-1. Add `db.onversionchange` listener after a successful opening, to be informed about a parallel update attempt.
-2. Add `openRequest.onblocked` listener to handle the case when an old connection wasn't closed. This doesn't happen if we close it in `db.onversionchange`.
+1. The `db.onversionchange` listener informs us about a parallel update attempt, if the current database version becomes outdated.
+2. The `openRequest.onblocked` listener informs us about the opposite situation: there's a connection to an outdated version elsewhere, and it doesn't close, so the newer connection can't be made.
 
-There are other variants. For example, we can take the time to close things gracefully in `db.onversionchange`, and prompt the visitor to save the data before the connection is closed. The new updating connection will be blocked immediately after `db.onversionchange` has finished without closing, and we can ask the visitor in the new tab to close other tabs for the update.
+We can handle things more gracefully in `db.onversionchange`, prompt the visitor to save the data before the connection is closed and so on. 
 
-These update collisions happen rarely, but we should at least have some handling for them, e.g. `onblocked` handler, so that our script doesn't surprise the user by dying silently.
+Or, an alternative approach would be to not close the database in `db.onversionchange`, but instead use the `onblocked` handler (in the new tab) to alert the visitor, tell him that the newer version can't be loaded until they close other tabs.
+
+These update collisions happen rarely, but we should at least have some handling for them, at least an `onblocked` handler, to prevent our script from dying silently.
 
 ## Object store
 
@@ -183,7 +189,7 @@ An example of an object that can't be stored: an object with circular references
 
 **There must be a unique `key` for every value in the store.**     
 
-A key must be one of the these types - number, date, string, binary, or array. It's a unique identifier, so we can search/remove/update values by the key.
+A key must be one of these types - number, date, string, binary, or array. It's a unique identifier, so we can search/remove/update values by the key.
 
 ![](indexeddb-structure.svg)
 
@@ -247,7 +253,7 @@ db.deleteObjectStore('books')
 
 The term "transaction" is generic, used in many kinds of databases.
 
-A transaction is a group operations, that should either all succeed or all fail.
+A transaction is a group of operations, that should either all succeed or all fail.
 
 For instance, when a person buys something, we need to:
 1. Subtract the money from their account.
@@ -341,9 +347,9 @@ Usually, we can assume that a transaction commits when all its requests are comp
 
 So, in the example above no special call is needed to finish the transaction.
 
-Transactions auto-commit principle has an important side effect. We can't insert an async operation like `fetch`, `setTimeout` in the middle of transaction. IndexedDB will not keep the transaction waiting till these are done.
+Transactions auto-commit principle has an important side effect. We can't insert an async operation like `fetch`, `setTimeout` in the middle of a transaction. IndexedDB will not keep the transaction waiting till these are done.
 
-In the code below, `request2` in line `(*)` fails, because the transaction is already committed, and can't make any request in it:
+In the code below, `request2` in the line `(*)` fails, because the transaction is already committed, and can't make any request in it:
 
 ```js
 let request1 = books.add(book);
@@ -364,7 +370,7 @@ That's because `fetch` is an asynchronous operation, a macrotask. Transactions a
 
 Authors of IndexedDB spec believe that transactions should be short-lived. Mostly for performance reasons.
 
-Notably, `readwrite` transactions "lock" the stores for writing. So if one part of application initiated `readwrite` on `books` object store, then another part that wants to do the same has to wait: the new transaction "hangs" till the first one is done. That can lead to strange delays if transactions take a long time.
+Notably, `readwrite` transactions "lock" the stores for writing. So if one part of the application initiated `readwrite` on `books` object store, then another part that wants to do the same has to wait: the new transaction "hangs" till the first one is done. That can lead to strange delays if transactions take a long time.
 
 So, what to do?
 
@@ -469,24 +475,29 @@ request.onerror = function(event) {
 };
 ```
 
-## Searching by keys
+## Searching
 
 There are two main types of search in an object store:
-1. By a key or a key range. That is: by `book.id` in our "books" storage.
-2. By another object field, e.g. `book.price`.
 
-First let's deal with the keys and key ranges `(1)`.
+1. By a key value or a key range. In our "books" storage that would be a value or range of values of `book.id`.
+2. By another object field, e.g. `book.price`. This required an additional data structure, named "index".
 
-Methods that involve searching support either exact keys or so-called "range queries" -- [IDBKeyRange](https://www.w3.org/TR/IndexedDB/#keyrange) objects that specify a "key range".
+### By key
 
-Ranges are created using following calls:
+First let's deal with the first type of search: by key.
+
+Searching methods support both exact key values and so-called "ranges of values" -- [IDBKeyRange](https://www.w3.org/TR/IndexedDB/#keyrange) objects that specify an acceptable "key range".
+
+`IDBKeyRange` objects are created using following calls:
 
 - `IDBKeyRange.lowerBound(lower, [open])` means: `≥lower` (or `>lower` if `open` is true)
 - `IDBKeyRange.upperBound(upper, [open])` means: `≤upper` (or `<upper` if `open` is true)
 - `IDBKeyRange.bound(lower, upper, [lowerOpen], [upperOpen])` means: between `lower` and `upper`. If the open flags is true, the corresponding key is not included in the range.
 - `IDBKeyRange.only(key)` -- a range that consists of only one `key`, rarely used.
 
-All searching methods accept a `query` argument that can be either an exact key or a key range:
+We'll see practical examples of using them very soon.
+
+To perform the actual search, there are following methods. They accept a `query` argument that can be either an exact key or a key range:
 
 - `store.get(query)` -- search for the first value by a key or a range.
 - `store.getAll([query], [count])` -- search for all values, limit by `count` if given.
@@ -511,18 +522,17 @@ books.getAll(IDBKeyRange.upperBound('html', true))
 // get all books
 books.getAll()
 
-// get all keys: id > 'js'
+// get all keys, where id > 'js'
 books.getAllKeys(IDBKeyRange.lowerBound('js', true))
 ```
 
 ```smart header="Object store is always sorted"
-Object store sorts values by key internally.
+An object store sorts values by key internally.
 
 So requests that return many values always return them in sorted by key order.
 ```
 
-
-## Searching by any field with an index
+### By a field using an index
 
 To search by other object fields, we need to create an additional data structure named "index".
 
@@ -782,7 +792,7 @@ await inventory.add({ id: 'js', price: 10, created: new Date() }); // Error
 
 The next `inventory.add` after `fetch` `(*)` fails with an "inactive transaction" error, because the transaction is already committed and closed at that time.
 
-The workaround is same as when working with native IndexedDB: either make a new transaction or just split things apart.
+The workaround is the same as when working with native IndexedDB: either make a new transaction or just split things apart.
 1. Prepare the data and fetch all that's needed first.
 2. Then save in the database.
 

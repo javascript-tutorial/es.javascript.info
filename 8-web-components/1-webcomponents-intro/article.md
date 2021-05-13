@@ -54,7 +54,7 @@ Naturalmente está divido en componentes:
 
 Los componentes pueden tener subcomponentes, p.ej. los mensajes pueden ser parte de un componente "lista de mensajes" de nivel superior. Una imagen de usuario en sí puede ser un componente, y así sucesivamente.
 
-¿Cómo decidimos qué es un componente? Eso viene de la intuición, la experiencia y el sentido común. Normalmente es una entidad visual separada que podemos describir en términos de lo que hace y cómo interactua con la página. En el caso anterior, la página tiene bloques, cada uno de ellos juega su propio papel, es lógico crear esos componentes.
+¿Cómo decidimos qué es un componente? Eso viene de la intuición, la experiencia y el sentido común. Normalmente es una entidad visual separada que podemos describir en términos de lo que hace y cómo interactúa con la página. En el caso anterior, la página tiene bloques, cada uno de ellos juega su propio papel, es lógico crear esos componentes.
 
 Un componente tiene:
 - Su propia clase de JavaScript.

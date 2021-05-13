@@ -10,7 +10,7 @@ Hagamos una pequeña descripción general para que comprenda la imagen general y
 
     Luego aparecieron los dispositivos táctiles. Para que el código antiguo funcione, también generan eventos de mouse. Por ejemplo, tocar genera `mousedown`. 
     
-    Pero los dispositivos táctiles tienen más capacidadess que un mouse. Por ejemplo, es posible tocar múltiples puntos al mismo ("multi-touch"). Los eventos del mouse no tienen las propiedades necesariass para manejar tal multi-touch.
+    Pero los dispositivos táctiles tienen más capacidades que un mouse. Por ejemplo, es posible tocar múltiples puntos al mismo ("multi-touch"). Los eventos del mouse no tienen las propiedades necesarias para manejar tal multi-touch.
 
 - Por lo tanto, se introdujeron eventos táctiles, como `touchstart`,`touchend`, `touchmove`, que tienen propiedades específicas de toque (no los cubrimos en detalle aquí, porque los eventos de puntero son aún mejores).
 
@@ -189,7 +189,7 @@ Esta solución se ve un poco "sucia". Uno de los problemas es que los movimiento
 La captura de puntero provee un medio de vincular `pointermove` a `thumb` y evitar cualquiera de tales problemas:
 
 - Podemos llamar `thumb.setPointerCapture(event.pointerId)` en el controlador`pointerdown`,
-- Entoncess futuros eventos de puntero hasta `pointerup/cancel` serán redirigidos a `thumb`. 
+- Entonces futuros eventos de puntero hasta `pointerup/cancel` serán redirigidos a `thumb`. 
 - Cuando ocurre `pointerup` (arrastre finalizado), el vínculo se deshace automáticamente, no necesitamos atender eso.
 
 Entonces, incluso si el usuario mueve el puntero alrededor de todo el documento, los controladores de eventos serán llamados sobre `thumb`. Además las propiedades de coordenadas de los eventos, tales como `clientX/clientY` aún serán correctas, la captura solo afecta a `target/currentTarget`.

@@ -66,9 +66,9 @@ Reglas de conversión numérica:
 |`undefined`|`NaN`|
 |`null`|`0`|
 |<code>true&nbsp;and&nbsp;false</code> | `1` y `0` |
-| `string` | Se eliminan los espacios al inicio y final del texto. Si el string resultante es vacío, el resultado es `0`, en caso contario el número es "leído" del string. Un error devuelve `NaN`. |
+| `string` | Se eliminan los espacios al inicio y final del texto. Si el string resultante es vacío, el resultado es `0`, en caso contrario el número es "leído" del string. Un error devuelve `NaN`. |
 
-Examples:
+Ejemplos:
 
 ```js run
 alert( Number("   123   ") ); // 123
@@ -86,10 +86,10 @@ Luego, los concatena (une):
 
 ```js run
 alert( 1 + '2' ); // '12' (string a la derecha)
-alert( '1' + 2 ); // '12' (string a la izqueirda)
+alert( '1' + 2 ); // '12' (string a la izquierda)
 ```
 
-Esto ocurre solo si al menos uno de los argumentos es un string, en caso contario los valores son convertidos a número.
+Esto ocurre solo si al menos uno de los argumentos es un string, en caso contrario los valores son convertidos a número.
 ````
 
 ## ToBoolean

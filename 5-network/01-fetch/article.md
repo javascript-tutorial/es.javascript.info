@@ -192,7 +192,7 @@ Estos encabezados nos aseguran que nuestras peticiones HTTP sean controladas exc
 
 Para ejecutar una petición `POST`, o cualquier otro método, utilizaremos las opciones de `fetch`:
 
-- **`method`** -- metodo HTTP, por ej: `POST`,
+- **`method`** -- método HTTP, por ej: `POST`,
 - **`body`** -- cuerpo de la respuesta, cualquiera de las siguientes:
   - cadena de texto (e.g. JSON),
   - Objeto `FormData`, para enviar información como `form/multipart`,

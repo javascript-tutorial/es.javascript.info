@@ -261,7 +261,7 @@ input.removeEventListener("click", handler);
 Por favor nota que si no almacenamos la función en una variable entonces no podremos removerla. No hay forma de "volver a leer" los handlers asignados por `addEventListener`.
 ````
 
-Multiples llamadas a `addEventListener`permiten agregar multiples handlers, como este:
+Múltiples llamadas a `addEventListener`permiten agregar múltiples handlers, como este:
 
 ```html run no-beautify
 <input id="elem" type="button" value="Haz click en mí"/>

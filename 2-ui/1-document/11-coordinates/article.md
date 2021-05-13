@@ -91,7 +91,7 @@ Pero en la práctica `elem.getBoundingClientRect()` siempre devuelve el ancho y 
 ```warn header="En Internet Explorer no hay soporte para `x/y`"
 Internet Explorer no tiene soporte para las propiedades `x/y` por razones históricas.
 
-De manera que podemos crear un polyfill y (obtenerlo con `DomRect.prototype`) o solo usar `top/left`, as they are always the same as `x/y` for positive `width/height`, in particular in the result of `elem.getBoundingClientRect()`.
+De manera que podemos crear un polyfill y (obtenerlo con `DomRect.prototype`) o solo usar `top/left`, ya que son siempre las mismas que `x/y` para `width/height` positivos, en particular en el resultado de `elem.getBoundingClientRect()`.
 ```
 
 ```warn header="Las coordenadas right/bottom son diferentes a las propiedades de posición en CSS"
@@ -173,7 +173,7 @@ function createMessageUnder(elem, html) {
 }
 
 // Uso:
-// agregarlo por 5 seconds en el documento
+// agregarlo por 5 segundos en el documento
 let message = createMessageUnder(elem, '¡Hola, mundo!');
 document.body.append(message);
 setTimeout(() => message.remove(), 5000);

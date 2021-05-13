@@ -1,6 +1,6 @@
 # WeakMap y WeakSet
 
-Como sabemos por el capítulo  <info:garbage-collection>, el motor de JavaScript almacena un valor en la memoria mientras es accesible (y puede ser potencialmente usado).
+Como sabemos por el capítulo  <info:garbage-collection>, el motor de JavaScript mantiene un valor en la memoria mientras sea accesible (y potencialmente usable).
 
 Por ejemplo:
 ```js
@@ -194,7 +194,7 @@ function process(obj) {
 // 📁 main.js
 let obj = {/* let's say we have an object */};
 
-let result1 = process(obj); // calculated
+let result1 = process(obj); // calculado
 
 // ...después, en otro lugar del código...
 let result2 = process(obj); // resultado recordado tomado de la memoria caché

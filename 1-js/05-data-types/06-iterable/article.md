@@ -1,18 +1,18 @@
 
 # Iterables
 
-Los objetos *iterables* son una generalización de matrices. Este es un concepto que permite que cualquier objeto pueda ser utilizado en un blucle `for..of`.
+Los objetos *iterables* son una generalización de matrices. Este es un concepto que permite que cualquier objeto pueda ser utilizado en un bucle `for..of`.
 
 Por supuesto, las matrices o *arrays* son iterables. Pero hay muchos otros objetos integrados, que también lo son. Por ejemplo, las cadenas o *strings* son iterables también. Como veremos, muchos operadores y métodos se basan en la iterabilidad.
 
 Si un objeto no es técnicamente una matriz, pero representa una colección (lista, conjunto) de algo, entonces el uso de la sintaxis `for..of` es una gran forma de recorrerlo, así que veamos cómo funciona.
+
 
 ## Symbol.iterator
 
 Podemos comprender fácilmente el concepto de iterables por medio de la práctica.
 
 Por ejemplo, tenemos un objeto, que no es una matriz, pero parece adecuado para `for..of`.
-
 
 Como un objeto `range` que representa un intervalo de números:
 
@@ -64,7 +64,7 @@ range[Symbol.iterator] = function() {
 
 // ¡Ahora funciona!
 for (let num of range) {
-  alert(num); // 1, then 2, 3, 4, 5
+  alert(num); // 1, luego 2, 3, 4, 5
 }
 ```
 
@@ -99,7 +99,7 @@ let range = {
 };
 
 for (let num of range) {
-  alert(num); // 1, then 2, 3, 4, 5
+  alert(num); // 1, luego 2, 3, 4, 5
 }
 ```
 
@@ -124,7 +124,7 @@ En una cadena o *string*, el bucle `for..of` recorre sus caracteres:
 
 ```js run
 for (let char of "test") {
-  // Se dispara 4 veces: una vez por cada caracter
+  // Se dispara 4 veces: una vez por cada carácter
   alert( char ); // t, luego e, luego s, luego t
 }
 ```
@@ -247,7 +247,7 @@ Aquí usamos `Array.from` para convertir una cadena en una matriz de caracteres:
 ```js run
 let str = '𝒳😂';
 
-// splits str into array of characters
+// separa str en un array de caracteres
 let chars = Array.from(str);
 
 alert(chars[0]); // 𝒳
@@ -263,7 +263,6 @@ Técnicamente aquí hace lo mismo que:
 let str = '𝒳😂';
 
 let chars = []; // Array.from internamente hace el mismo bucle
-
 for (let char of str) {
   chars.push(char);
 }

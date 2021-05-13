@@ -8,7 +8,7 @@ Tomemos la siguiente tarea como ejemplo.
 
 Tenemos un texto y necesitamos reemplazar todas las comillas `"..."` con comillas latinas: `«...»`. En muchos paises los tipógrafos las prefieren.
 
-Por ejemplo: `"Hola, mundo"` debe ser `«Hola, mundo»`. Existen otras commillas, como `„Witam, świat!”` (Polaco) o `「你好，世界」` (Chino), pero para nuestra tarea elegimos `«...»`.
+Por ejemplo: `"Hola, mundo"` debe ser `«Hola, mundo»`. Existen otras comillas, como `„Witam, świat!”` (Polaco) o `「你好，世界」` (Chino), pero para nuestra tarea elegimos `«...»`.
 
 Lo primero que debe hacer es ubicar las cadenas entre comillas, y luego podemos reemplazarlas.
 
@@ -98,7 +98,7 @@ En nuestro caso queremos otra cosa. Es entonces donde el modo perezoso puede ayu
 
 El modo perezoso de los cuantificadores es lo opuesto del modo codicioso. Eso significa: "repite el mínimo número de veces".
 
-Podemos habilitarlo poniendo un signo de interrogación `pattern:'?'` después del cuantificador, entonces tendriamos `pattern:*?` o `pattern:+?` o incluso `pattern:??` para `pattern:'?'`.
+Podemos habilitarlo poniendo un signo de interrogación `pattern:'?'` después del cuantificador, entonces tendríamos `pattern:*?` o `pattern:+?` o incluso `pattern:??` para `pattern:'?'`.
 
 Aclarando las cosas: generalmente un signo de interrogación `pattern:?` es un cuantificador por si mismo (cero o uno), pero si se agrega *despues de otro cuantificador (o incluso el mismo)* toma otro significado, alterna el modo de coincidencia de codicioso a perezoso.
 
@@ -290,7 +290,7 @@ alert( str2.match(regexp) ); // <a href="link1" class="doc">, <a href="link2" cl
 
 ## Resumen
 
-Los cuantfiadores tienen dos modos de funcionamiento:
+Los cuantificadores tienen dos modos de funcionamiento:
 
 Codiciosa
 : Por defecto el motor de expresión regular prueba repetir el carácter cuantificado tantas veces como sea posible. Por ejemplo, `pattern:\d+` consume todos los posibles dígitos. Cuando es imposible consumir más (no hay más dígitos o es el fin de la cadena), entonces continúa hasta coincidir con el resto del patrón. Si no hay coincidencia entonces se decrementa el número de repeticiones (reinicios) y prueba de nuevo.
