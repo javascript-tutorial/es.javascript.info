@@ -7,12 +7,12 @@ Por supuesto, las matrices o *arrays* son iterables. Pero hay muchos otros objet
 
 Si un objeto no es técnicamente una matriz, pero representa una colección (lista, conjunto) de algo, entonces el uso de la sintaxis `for..of` es una gran forma de recorrerlo, así que veamos cómo funciona.
 
+
 ## Symbol.iterator
 
 Podemos comprender fácilmente el concepto de iterables por medio de la práctica.
 
 Por ejemplo, tenemos un objeto, que no es una matriz, pero parece adecuado para `for..of`.
-
 
 Como un objeto `range` que representa un intervalo de números:
 
@@ -263,7 +263,6 @@ Técnicamente aquí hace lo mismo que:
 let str = '𝒳😂';
 
 let chars = []; // Array.from internamente hace el mismo bucle
-
 for (let char of str) {
   chars.push(char);
 }

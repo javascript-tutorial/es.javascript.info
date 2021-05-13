@@ -392,7 +392,7 @@ Además podríamos usar otros nombres de variables en lugar de `key`. Por ejempl
 
 ¿Los objetos están ordenados? Es decir, si creamos un bucle sobre un objeto, ¿obtenemos todas las propiedades en el mismo orden en el que se agregaron? ¿Podemos confiar en ello?
 
-La respuesta corta es: "ordenados de una forma especial": las propiedades de números números enteros se ordenan, los demás aparecen en el orden de la creación. Entremos en detalle.
+La respuesta corta es: "ordenados de una forma especial": las propiedades de números enteros se ordenan, los demás aparecen en el orden de la creación. Entremos en detalle.
 
 Como ejemplo, consideremos un objeto con códigos telefónicos:
 

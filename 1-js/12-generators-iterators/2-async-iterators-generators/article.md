@@ -384,6 +384,8 @@ Un ejemplo de uso (muestra autores de commit en la consola):
   }
 
 })();
+
+// Nota: Si ejecutas este código en una caja de pruebas externa, necesitas copiar aquí la función fetchCommits descrita más arriba 
 ```
 
 Eso es justo lo que queríamos. 

@@ -67,7 +67,7 @@ En el DOM, el valor `null` significa que "no existe" o "no hay tal nodo".
 
 Existen dos términos que vamos a utilizar de ahora en adelante:
 
-- **Nodos hijos (o hijos)** -- elementos que son directamente hijos. En otras palabras, están anidados exactamente en el mismo lado. Por ejemplo, `<head>` y `<body>` son hijos del elemento `<html>`.
+- **Nodos hijos (childNodes)** -- elementos que son hijos directos, es decir sus descendientes inmediatos. Por ejemplo, `<head>` y `<body>` son hijos del elemento `<html>`.
 - **Descendientes** -- todos los elementos anidados de un elemento dado, incluyendo los hijos, sus hijos y así sucesivamente. 
 
 Por ejemplo, aquí `<body>` tiene de hijos `<div>` y `<ul>` (y unos pocos nodos de texto en blanco):
@@ -214,7 +214,7 @@ alert( document.body.previousSibling ); // HTMLHeadElement
 
 ## Navegación solo por elementos
 
-Las propiedades de navegación enumeradas abajo se refieren a *todos* los nodos. Por ejemplo, en `childNodes` podemos ver ambos nodos de texto, nodos elementos, e incluso si existen los nodos de comentarios.
+Las propiedades de navegación enumeradas abajo se refieren a *todos* los nodos. Por ejemplo, en `childNodes` podemos ver nodos de texto, nodos elementos; y si existen, incluso los nodos de comentarios.
 
 Pero para muchas tareas no queremos los nodos de texto o comentarios. Queremos manipular el nodo que representa las etiquetas y formularios de la estructura de la página. 
 

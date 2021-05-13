@@ -56,17 +56,21 @@ alert( 8 % 3 ); // 2 es un resto de 8 dividido por 3
 
 ## Exponenciación **
 
-El operador de exponenciación `**` es una inclusión reciente al lenguaje.
+El operador exponenciación `a ** b` eleva `a` a la potencia de `b`.
+
+En matemáticas de la escuela, lo escribimos como a<sup>b</sup>.
 
 Por ejemplo:
 
 ```js run
-alert( 2 ** 2 ); // 4  (2 * 2)
-alert( 2 ** 3 ); // 8  (2 * 2 * 2)
-alert( 2 ** 4 ); // 16 (2 * 2 * 2 * 2)
+alert( 2 ** 2 ); // 2² = 4  
+alert( 2 ** 3 ); // 2³ = 8 
+alert( 2 ** 4 ); // 2⁴ = 16
 ```
 
-Matemáticamente, la exponenciación es definida para números no enteros también, Por ejemplo la raíz cuadrada es el exponente `1/2`:
+Matemáticamente, la exponenciación es definida para números no enteros también.
+
+Por ejemplo, la raíz cuadrada es el exponente ½:
 
 ```js run
 alert( 4 ** (1/2) ); // 2 (potencia de 1/2 es lo mismo que raíz cuadrada, eso es matemáticas)
@@ -319,7 +323,7 @@ Entonces, hay operadores especiales para ello:
     counter++;      // funciona igual que counter = counter + 1, pero es más corto
     alert( counter ); // 3
     ```
-- **Decrement** `--` decrementa una variable por 1:
+- **Decremento** `--` decrementa una variable por 1:
 
     ```js run no-beautify
     let counter = 2;
