@@ -31,7 +31,7 @@ Cuando el ejecutor obtiene el resultado, ya sea pronto o tarde, no importa, debe
 - `resolve(value)` - si el trabajo finalizó con éxito, con el resultado `value`.
 - `reject(error)` - si ocurrió un error, `error` es el objeto error.
 
-Para resumir: el ejecutor corre automáticamente e intenta realizar una tarea. Cuando termina con el intento, llama a 'resolve' si fue exitoso o 'reject' si hubo un error.
+Para resumir: el ejecutor corre automáticamente e intenta realizar una tarea. Cuando termina con el intento, llama a `resolve` si fue exitoso o `reject` si hubo un error.
 
 El objeto `promise` devuelto por el constructor `new Promise` tiene estas propiedades internas:
 
