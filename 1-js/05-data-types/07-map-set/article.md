@@ -16,8 +16,8 @@ Los métodos y propiedades son:
 
 - `new Map()` -- crea el mapa.
 - `map.set(clave, valor)` -- almacena el valor para la clave.
-- `map.get(clave)` -- devuelve el valor de la clave: será `undefined` si la `clave` no exite en Map.
-- `map.has(clave)` -- devuelve `true` si la `clave` exite, y `false` si no existe.
+- `map.get(clave)` -- devuelve el valor de la clave: será `undefined` si la `clave` no existe en Map.
+- `map.has(clave)` -- devuelve `true` si la `clave` existe, y `false` si no existe.
 - `map.delete(clave)` -- elimina los valores de la clave.
 - `map.clear()` -- limpia el Map.
 - `map.size` -- retorna el número actual de elementos.
@@ -306,15 +306,15 @@ Métodos y propiedades:
 
 - `new Map()` -- crea el mapa.
 - `map.set(clave, valor)` -- almacena el valor para la clave.
-- `map.get(clave)` -- devuelve el valor de la clave: será `undefined` si la `clave` no exite en Map.
-- `map.has(clave)` -- devuelve`true` si la `clave` exite, y `false` si no existe.
+- `map.get(clave)` -- devuelve el valor de la clave: será `undefined` si la `clave` no existe en Map.
+- `map.has(clave)` -- devuelve`true` si la `clave` existe, y `false` si no existe.
 - `map.delete(clave)` -- elimina los valores de la clave.
 - `map.clear()` -- limpia el Map.
 - `map.size` -- retorna el número del elemento actual en el recuento de elementos en el Map.
 
 La diferencia con `Objeto` regular:
 
-- Cualquier clave, los objetos tambien pueden ser claves.
+- Cualquier clave, los objetos también pueden ser claves.
 - Adicionalmente tiene métodos que nos convienen, como la clave `size`.
 
 `Set`: es una colección de valores únicos.

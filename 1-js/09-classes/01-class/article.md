@@ -84,7 +84,7 @@ alert(typeof User); // function
 */!*
 ```
 
-Lo que la contrucción `class User {...}` hace realmente es:
+Lo que la construcción `class User {...}` hace realmente es:
 
 1. Crea una función llamada `User`, la que se vuelve el resultado de la declaración de la clase. El código de la función es tomado del método `constructor` (se asume vacío si no se escribe tal método).
 2. Almacena los métodos de clase, tales como `sayHi`, en `User.prototype`.
@@ -106,11 +106,11 @@ class User {
 // una clase es una función
 alert(typeof User); // function
 
-// ...o, más precisamente, el método contructor
+// ...o, más precisamente, el método constructor
 alert(User === User.prototype.constructor); // true
 
 // Los métodos están en User.prototype, por ejemplo:
-alert(User.prototype.sayHi); // alert(this.name);
+alert(User.prototype.sayHi); // el código del método sayHi
 
 // Hay exactamente dos métodos en el prototipo
 alert(Object.getOwnPropertyNames(User.prototype)); // constructor, sayHi
@@ -154,10 +154,10 @@ Aún así hay diferencias importantes.
     }
 
     alert(typeof User); // function
-    User(); // Error: El contructor de clase User no puede ser invocado sin 'new'
+    User(); // Error: El constructor de clase User no puede ser invocado sin 'new'
     ```
 
-    Además una representación string de un contructor de clase en la mayoría de los motores JavaScript comienzan con "class..."
+    Además una representación string de un constructor de clase en la mayoría de los motores JavaScript comienzan con "class..."
 
     ```js run
     class User {
@@ -174,7 +174,7 @@ Aún así hay diferencias importantes.
     Esto es bueno porque si hacemos `for..in` a un objeto usualmente no queremos sus métodos de clase.
 
 3. Las clases siempre asumen `use strict`.
-    Todo el código dentro del contructor de clase está automáticamente en modo estricto.
+    Todo el código dentro del constructor de clase está automáticamente en modo estricto.
 
 Además la sintaxis de `class` brinda muchas otras características que exploraremos luego.
 

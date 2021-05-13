@@ -6,7 +6,7 @@ Lo que es interesante sobre ellos es que los datos sobreviven a una recarga de p
 
 Ya tenemos cookies. ¿Por qué tener objetos adicionales?
 
-- Al contrario que las cookies, los objetos de almacenaje web no se envian al servidor en cada petición. Debido a esto, podemos almacenar mucha más información. La mayoría de navegadores permiten almacenar, como mínimo, 2 megabytes de datos (o más) y tienen opciones para configurar éstos límites.
+- Al contrario que las cookies, los objetos de almacenaje web no se envían al servidor en cada petición. Debido a esto, podemos almacenar mucha más información. La mayoría de navegadores permiten almacenar, como mínimo, 2 megabytes de datos (o más) y tienen opciones para configurar éstos límites.
 - El servidor no puede manipular los objetos de almacenaje via cabeceras HTTP, todo se hace via JavaScript.
 - El almacenaje está vinculado al orígen (al triplete dominio/protocolo/puerto). Esto significa que distintos protocolos o subdominios tienen distintos objetos de almacenaje, no pueden acceder a otros datos que no sean los suyos.
 
@@ -19,7 +19,7 @@ Ya tenemos cookies. ¿Por qué tener objetos adicionales?
 - `key(índice)` -- obtener la clave de una posición dada.
 - `length` -- el número de ítems almacenados.
 
-Como puedes ver, es como una colección `Map` (`setItem/getItem/removeItem`), pero también permite el accesso a través de index con `key(index)`.
+Como puedes ver, es como una colección `Map` (`setItem/getItem/removeItem`), pero también permite el acceso a través de index con `key(index)`.
 
 Vamos a ver cómo funciona.
 
@@ -47,7 +47,7 @@ Solo tenemos que estar en el mismo dominio/puerto/protocolo, la url puede ser di
 
 ## Acceso tipo Objeto
 
-Tambien podemos utilizar un modo de acceder/guardar claves del mismo modo que se hace con objetos, así:
+También podemos utilizar un modo de acceder/guardar claves del mismo modo que se hace con objetos, así:
 
 ```js run
 // guarda una clave

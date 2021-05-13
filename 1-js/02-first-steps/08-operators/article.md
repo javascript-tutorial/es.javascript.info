@@ -56,17 +56,21 @@ alert( 8 % 3 ); // 2 es un resto de 8 dividido por 3
 
 ## Exponenciación **
 
-El operador de exponenciación `**` es una inclusión reciente al lenguaje.
+El operador exponenciación `a ** b` eleva `a` a la potencia de `b`.
+
+En matemáticas de la escuela, lo escribimos como a<sup>b</sup>.
 
 Por ejemplo:
 
 ```js run
-alert( 2 ** 2 ); // 4  (2 * 2)
-alert( 2 ** 3 ); // 8  (2 * 2 * 2)
-alert( 2 ** 4 ); // 16 (2 * 2 * 2 * 2)
+alert( 2 ** 2 ); // 2² = 4  
+alert( 2 ** 3 ); // 2³ = 8 
+alert( 2 ** 4 ); // 2⁴ = 16
 ```
 
-Matemáticamente, la exponenciación es definida para números no enteros también, Por ejemplo la raíz cuadrada es el exponente `1/2`:
+Matemáticamente, la exponenciación es definida para números no enteros también.
+
+Por ejemplo, la raíz cuadrada es el exponente ½:
 
 ```js run
 alert( 4 ** (1/2) ); // 2 (potencia de 1/2 es lo mismo que raíz cuadrada, eso es matemáticas)
@@ -104,7 +108,7 @@ Aquí hay un ejemplo algo más complejo:
 alert(2 + 2 + '1' ); // "41" y no "221"
 ```
 
-Aquí, los operandores trabajan uno después de otro. El primer `+` suma dos números entonces devuelve `4`, luego el siguiente `+` le agrega la cadena `1`, así que se evalúa como `4 + '1' = 41`.
+Aquí, los operadores trabajan uno después de otro. El primer `+` suma dos números entonces devuelve `4`, luego el siguiente `+` le agrega la cadena `1`, así que se evalúa como `4 + '1' = 41`.
 
 ```js run
 alert('1' + 2 + 2); // "122", no es "14"
@@ -194,7 +198,7 @@ Aquí hay un extracto de la [tabla de precedencia](https://developer.mozilla.org
 | 16 | negación unaria | `-` |
 | 16 | exponenciación | `**` |
 | 14 | multiplicación | `*` |
-| 14 | division | `/` |
+| 14 | división | `/` |
 | 13 | suma | `+` |
 | 13 | resta | `-` |
 | ... | ... | ... |
@@ -217,7 +221,7 @@ alert( x ); // 5
 
 ### Asignación = devuelve un valor
 
-El hecho de que `=` sea un operador, no una construcción "mágica" del lenguaje, tiene un implicanción interesante.
+El hecho de que `=` sea un operador, no una construcción "mágica" del lenguaje, tiene un implicación interesante.
 
 Todos los operadores en JavaScript devuelven un valor. Esto es obvio para `+` y `-`, pero también es cierto para `=`.
 
@@ -319,7 +323,7 @@ Entonces, hay operadores especiales para ello:
     counter++;      // funciona igual que counter = counter + 1, pero es más corto
     alert( counter ); // 3
     ```
-- **Decrement** `--` decrementa una variable por 1:
+- **Decremento** `--` decrementa una variable por 1:
 
     ```js run no-beautify
     let counter = 2;
@@ -456,7 +460,7 @@ Aquí, se evalúa la primera expresión `1 + 2` y se desecha su resultado. Luego
 ```smart header="Coma tiene muy baja precedencia"
 Tenga en cuenta que el operador coma tiene una precedencia muy baja, inferior a `=`, por lo que los paréntesis son importantes en el ejemplo anterior.
 
-Sin ellos: `a = 1 + 2, 3 + 4` se evalua primero el `+`, sumando los números a `a = 3, 7`, luego el operador de asignación `=` asigna `a = 3`, y el resto es ignorado. Es igual que `(a = 1 + 2), 3 + 4`.
+Sin ellos: `a = 1 + 2, 3 + 4` se evalúa primero el `+`, sumando los números a `a = 3, 7`, luego el operador de asignación `=` asigna `a = 3`, y el resto es ignorado. Es igual que `(a = 1 + 2), 3 + 4`.
 ```
 
 ¿Por qué necesitamos un operador que deseche todo excepto la última expresión?

@@ -326,7 +326,7 @@ En el modo "easyOut", la función `de sincronización` se coloca en un wrapper `
 timingEaseOut(timeFraction) = 1 - timing(1 - timeFraction)
 ```
 
-En otras palabras, tenemos una función de "transformación" `makeEaseOut` que toma una función de sincronización "regular" y devuelve el wrapper envolviendola:
+En otras palabras, tenemos una función de "transformación" `makeEaseOut` que toma una función de sincronización "regular" y devuelve el wrapper envolviéndola:
 
 ```js
 // acepta una función de sincronización, devuelve la variante transformada

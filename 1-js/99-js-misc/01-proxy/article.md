@@ -37,7 +37,7 @@ Como no hay trampas, todas las operaciones sobre `proxy` son redirigidas a `targ
 2. Una operación de lectura `proxy.test` devuelve el valor desde `target`.
 3. La iteración sobre `proxy` devuelve valores de `target`.
 
-Como podemos ver, sin ninguna trampa, `proxy` es un envoltorio transparende alrededor de `target`.
+Como podemos ver, sin ninguna trampa, `proxy` es un envoltorio transparente alrededor de `target`.
 
 ![](proxy.svg)
 
@@ -77,7 +77,7 @@ La mayor parte de ellos son para devolver valores:
 - `[[Delete]]` debe devolver `true` si el valor fue borrado correctamente, de otro modo `false`.
 - ...y otros, veremos más ejemplos abajo.
 
-Existen algunas otras invarientes, como:
+Existen algunas otras invariantes, como:
 - `[[GetPrototypeOf]]`, aplicado al proxy, debe devolver el mismo valor que `[[GetPrototypeOf]]` aplicado al "target" del proxy. En otras palabras, leer el prototipo de un proxy debe devolver siempre el prototipo de su objeto target.
 
 Las trampas pueden interceptar estas operaciones, pero deben seguir estas reglas.
@@ -246,7 +246,7 @@ Si olvidamos hacerlo o si devolvemos false, la operación dispara `TypeError`.
 Tales métodos difieren en detalles:
 - `Object.getOwnPropertyNames(obj)` devuelve claves no symbol.
 - `Object.getOwnPropertySymbols(obj)` devuelve claves symbol.
-- `Object.keys/values()` devuelve claves/valorer no symbol con indicador `enumerable` (los indicadores de propiedad fueron explicados en el artículo <info:property-descriptors>).
+- `Object.keys/values()` devuelve claves/valores no symbol con indicador `enumerable` (los indicadores de propiedad fueron explicados en el artículo <info:property-descriptors>).
 - `for..in` itera sobre claves no symbol con el indicador `enumerable`, y también claves prototípicas.
 
 ...Pero todos ellos comienzan con aquella lista.
@@ -294,7 +294,7 @@ user = new Proxy(user, {
 alert( Object.keys(user) ); // <vacío>
 ```
 
-¿Por qué? La razón es simpe: `Object.keys` devuelve solamente propiedades con el indicador `enumerable`. Para verificarlo, llama el método interno `[[GetOwnProperty]]` en cada propiedad para obtener [su descriptor](info:property-descriptors). Y aquí, como no hay propiedad, su descriptor está vacío, no existe el indicador `enumerable`, entonces lo salta.
+¿Por qué? La razón es simple: `Object.keys` devuelve solamente propiedades con el indicador `enumerable`. Para verificarlo, llama el método interno `[[GetOwnProperty]]` en cada propiedad para obtener [su descriptor](info:property-descriptors). Y aquí, como no hay propiedad, su descriptor está vacío, no existe el indicador `enumerable`, entonces lo salta.
 
 Para que `Object.keys` devuelva una propiedad, necesitamos que, o bien exista en el objeto, con el indicador `enumerable`, o interceptamos llamadas a `[[GetOwnProperty]]` (la trampa `getOwnPropertyDescriptor` lo hace), y devolver un descriptor con `enumerable: true`.
 
@@ -625,7 +625,7 @@ En particular, `Reflect` nos permite llamar a los operadores (`new`, `delete`, .
 
 Entonces podemos usar `Reflect` para redirigir una operación al objeto original.
 
-En este ejemplo, ambas trampas `get` y `set` transparently (as if they didn't exist) forward reading/writing operations to the object, showing a message:
+En este ejemplo, ambas trampas `get` y `set` transparentemente (como si no existieran) reenvían las operaciones de lectura y escritura al objeto, mostrando un mensaje:
 
 ```js run
 let user = {
@@ -965,7 +965,7 @@ alert(proxy.data); // Error
 
 La llamada a `revoke()` quita al proxy todas las referencias internas hacia el objeto target, ya no estarán conectados. 
 
-En principio `revoke` está separado de `proxy`, así que podemos pasar `proxy` alerededor mientras mantenemos `revoke` en la vista actual.
+En principio `revoke` está separado de `proxy`, así que podemos pasar `proxy` alrededor mientras mantenemos `revoke` en la vista actual.
 
 También podemos vincular el método `revoke` al proxy asignándolo como propiedad: `proxy.revoke = revoke`.
 

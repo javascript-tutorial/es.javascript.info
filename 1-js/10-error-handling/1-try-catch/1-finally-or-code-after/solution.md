@@ -11,7 +11,7 @@ function f() {
 *!*
     return "resultado";
 */!*
-  } catch (e) {
+  } catch (err) {
     /// ...
   } finally {
     alert('limpieza!');
@@ -28,11 +28,11 @@ function f() {
   try {
     alert('inicio');
     throw new Error("un error");
-  } catch (e) {
+  } catch (err) {
     // ...
     if("no puede manejar el error") {
 *!*
-      throw e;
+      throw err;
 */!*
     }
 

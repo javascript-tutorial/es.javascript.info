@@ -1,6 +1,6 @@
 # Test automatizados con mocha
 
-Los tests automáticos deben ser considerados como una tarea más, y son ampliamente usasdos en proyectos reales.
+Los tests automáticos deben ser considerados como una tarea más, y son ampliamente usados en proyectos reales.
 
 ## ¿Por qué necesitamos tests?
 
@@ -87,7 +87,7 @@ En éste tutorial estamos usando las siguientes librerías JavaScript para los t
 
 - [Mocha](http://mochajs.org/) -- el framework central: provee de funciones para test comunes como `describe` e `it` y la función principal que ejecuta los tests.
 - [Chai](http://chaijs.com) -- una librería con muchas funciones de comprobación (assertions). Permite el uso de diferentes comprobaciones. De momento usaremos `assert.equal`.
-- [Sinon](http://sinonjs.org/) -- una libraería para espiar funciones. Simula funciones incorparadas al lenguaje y mucho más. La necesitaremos a menudo más adelante.
+- [Sinon](http://sinonjs.org/) -- una librería para espiar funciones. Simula funciones incorporadas al lenguaje y mucho más. La necesitaremos a menudo más adelante.
 
 Estas librerías son adecuadas tanto para tests en el navegador como en el lado del servidor. Aquí nos enfocaremos en el lado del navegador.
 
@@ -99,7 +99,7 @@ La página HTML con estos frameworks y la spec de `pow`:
 La página puede ser dividida en cinco partes:
 
 1. El `<head>` -- importa librerías de terceros y estilos para los tests.
-2. El `<script>` con la función a comprobar, en nuesro caso -- con el código de `pow`.
+2. El `<script>` con la función a comprobar, en nuestro caso -- con el código de `pow`.
 3. Los tests -- en nuestro caso un fichero externo `test.js` que contiene un sentencia `describe("pow", ...)`al inicio.
 4. El elemento HTML `<div id="mocha">` utilizado para la salida de los resultados.
 5. Los test se inician con el comando `mocha.run()`.
@@ -225,7 +225,7 @@ El resultado:
 
 ## `Describe` anidados
 
-Vamos a añadir más tests. Pero antes, hay que apuntar que la función `makeTest` y la instrución `for` deben ser agrupados juntos. No queremos `makeTest` en otros tests, solo se necesita en el `for`: su tarea común es comprobar cómo `pow` eleva a una potencia concreta.
+Vamos a añadir más tests. Pero antes, hay que apuntar que la función `makeTest` y la instrucción `for` deben ser agrupados juntos. No queremos `makeTest` en otros tests, solo se necesita en el `for`: su tarea común es comprobar cómo `pow` eleva a una potencia concreta.
 
 Agrupar tests se realiza con `describe`:
 
@@ -255,7 +255,7 @@ describe("pow", function() {
 });
 ```
 
-El `describe` anidado define un nuevo subgrupo de tests. En la salida podemos ver la identación en los títulos:
+El `describe` anidado define un nuevo subgrupo de tests. En la salida podemos ver la indentación en los títulos:
 
 [iframe height=250 src="pow-4" edit border="1"]
 
@@ -389,7 +389,7 @@ Esto es especialmente importante en proyectos largos cuando una función es usad
 
 Sin tests, la gente tiene dos opciones:
 
-1. Realizar el cambio, no importa nada más. Luego nuestros usuarios encontrán errores porque probablemente fallemos en encontrarlos.
+1. Realizar el cambio, no importa nada más. Luego nuestros usuarios encontrarán errores porque probablemente fallemos en encontrarlos.
 2. Si el castigo por errores es duro, la gente tendrá miedo de hacer cambios en las funciones. Entonces el código envejecerá, nadie querrá meterse en él y eso no es bueno para el desarrollo.
 
 **¡El test automatizado ayuda a evitar estos problemas!**
@@ -406,4 +406,4 @@ En la vida real a veces no es tan fácil. A veces es difícil escribir una espec
 
 En el tutorial encontrarás más adelante muchas tareas respaldadas con pruebas. Veremos más ejemplos prácticos de tests.
 
-Escribir tests requiere un buen conocimiento de JavaScript. Pero nosotros justo acabamos de empezar a aprenderlo. Así que para comenzar no es necesario que escribas tests, pero deberías ser capaz de leerlos incluso si son más compleos que en este capítulo.
+Escribir tests requiere un buen conocimiento de JavaScript. Pero nosotros justo acabamos de empezar a aprenderlo. Así que para comenzar no es necesario que escribas tests, pero deberías ser capaz de leerlos incluso si son más complejos que en este capítulo.

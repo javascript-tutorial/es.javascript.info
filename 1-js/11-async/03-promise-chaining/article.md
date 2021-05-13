@@ -191,7 +191,7 @@ A veces está bien escribir `.then` directamente, porque la función anidada tie
 ````smart header="Objetos Thenables"
 Para ser precisos, un controlador puede devolver no exactamente una promesa, sino un objeto llamado "thenable", un objeto arbitrario que tiene un método `.then`. Será tratado de la misma manera que una promesa.
 
-La idea es que las librerias de terceros puedan implementar sus propios objetos "compatibles con la promesa". Pueden tener un conjunto extendido de métodos, pero también pueden ser compatibles con las promesas nativas, porque implementan `.then`.
+La idea es que las librerías de terceros puedan implementar sus propios objetos "compatibles con la promesa". Pueden tener un conjunto extendido de métodos, pero también pueden ser compatibles con las promesas nativas, porque implementan `.then`.
 
 Aquí hay un ejemplo de un objeto que se puede guardar:
 

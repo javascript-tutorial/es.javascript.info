@@ -248,15 +248,15 @@ El entorno léxico interno tiene una referencia al `externo`.
 
 Si no se encuentra una variable en ninguna parte, se trata de un error en modo estricto (sin `use strict`, una asignación a una variable no existente crea una nueva variable global, por compatibilidad con el código antiguo).
 
-In this example the search proceeds as follows:
+En este ejemplo la búsqueda procede como sigue:
 
-- Para la variable `name`, la `alert` dentro de `say` lo enuentra inmediatamente en el entorno léxico interno.
+- Para la variable `name`, la `alert` dentro de `say` lo encuentra inmediatamente en el entorno léxico interno.
 - Cuando quiere acceder a `phrase`, entonces no hay `phrase` localmente, por lo que sigue la referencia al entorno léxico externo y lo encuentra allí.
 
 ![lexical environment lookup](lexical-environment-simple-lookup.svg)
 
 
-### Paso 4. Returning a function
+### Paso 4. Devolviendo a function
 
 Volvamos al ejemplo de `makeCounter`.
 
@@ -286,7 +286,7 @@ Todas las funciones recuerdan el entorno léxico en el que fueron realizadas. T�
 
 Entonces, `counter.[[Environment]]` tiene la referencia a `{count: 0}` Entorno léxico.  Así es como la función recuerda dónde se creó, sin importar dónde se llame. La referencia `[[Environment]]` se establece una vez y para siempre en el momento de creación de la función.
 
-Luego, cuando `counter()` es llamado, un nuevo Entorno Lexico es creado por la llamada, y su referencia externa del entorno léxico se toma de `counter.[[Environment]]`:
+Luego, cuando `counter()` es llamado, un nuevo Entorno Léxico es creado por la llamada, y su referencia externa del entorno léxico se toma de `counter.[[Environment]]`:
 
 ![](closure-makecounter-nested-call.svg)
 
@@ -403,7 +403,7 @@ function f() {
   let value = "the closest value";
 
   function g() {
-    debugger; // in console: type alert(value); Surprise!
+    debugger; // en la consola escriba: alert(value); Surprise!
   }
 
   return g;

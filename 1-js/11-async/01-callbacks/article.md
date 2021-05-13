@@ -140,7 +140,7 @@ loadScript('/my/script.js', function(script) {
 
 *!*
     loadScript('/my/script3.js', function(script) {
-      // ...continua despues que se han cargado todos los scripts
+      // ...continua después que se han cargado todos los scripts
     });
 */!*
 
@@ -194,7 +194,7 @@ Por lo tanto, la única función de 'callback' se usa tanto para informar errore
 
 ## Pirámide de funciones callback
 
-A primvera vista, es una forma viable de codificación asincrónica. Y de hecho lo es. Para una o quizás dos llamadas anidadas, se ve bien.
+A primera vista, es una forma viable de codificación asincrónica. Y de hecho lo es. Para una o quizás dos llamadas anidadas, se ve bien.
 
 Pero para múltiples acciones asincrónicas que van una tras otra, tendremos un código como este:
 
@@ -215,7 +215,7 @@ loadScript('1.js', function(error, script) {
             handleError(error);
           } else {
   *!*
-            // ...continua después que se han cargado todos los script (*)
+            // ...continua después de que se han cargado todos los script (*)
   */!*
           }
         });
@@ -317,7 +317,7 @@ function step3(error, script) {
   if (error) {
     handleError(error);
   } else {
-    // ...continua despues que se han cargado todos los scripts (*)
+    // ...continua después de que se han cargado todos los scripts (*)
   }
 }
 ```

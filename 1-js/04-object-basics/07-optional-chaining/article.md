@@ -125,7 +125,7 @@ La variable debe ser declarada (con `let/const/var user` o como parámetro de fu
 
 ## Short-circuiting (Cortocircuitos)
 
-Como se dijo antes, el `?.` detiene inmediatamente ("cotocircuito") la evaluación si la parte izquierda no existe.
+Como se dijo antes, el `?.` detiene inmediatamente ("cortocircuito") la evaluación si la parte izquierda no existe.
 
 Entonces, si hay más llamadas a funciones o efectos secundarios, estos no suceden:
 
@@ -142,7 +142,7 @@ alert(x); // 0, el valor no se incrementa
 
 ## Otros casos: ?.(), ?.[]
 
-El encadenamiento opcional `?.` no es un operador, sino una construcción de sintaxis especial, que también funciona con funciones y corchetes.
+El encadenamiento opcional `?.` no es un operador, es una construcción de sintaxis especial que también funciona con funciones y corchetes.
 
 Por ejemplo, `?.()` se usa para llamar a una función que puede no existir.
 

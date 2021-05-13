@@ -76,7 +76,7 @@ En el código de arriba, el segundo elemento del array es omitido, el tercero es
 let [a, b, c] = "abc"; // ["a", "b", "c"]
 let [one, two, three] = new Set([1, 2, 3]);
 ```
-Esto funciona porque internamente una desestruración trabaja actuando sobre el valor de la derecha. Es una clase de azúcar sintáctica de llamar `for..of` sobre el valor a la derecha el `=` y asignando los valores.
+Esto funciona porque internamente una desestructuración trabaja actuando sobre el valor de la derecha. Es una clase de azúcar sintáctica de llamar `for..of` sobre el valor a la derecha el `=` y asignando los valores.
 ````
 
 
@@ -158,7 +158,7 @@ alert(name2); // Caesar
 // items posteriores no serán asignados a ningún lugar
 ```
 
-si queremos tambien obtener todo lo que sigue, podemos agregarle un parámetro que obtiene "el resto" usando puntos suspensivos "..."`:
+si queremos también obtener todo lo que sigue, podemos agregarle un parámetro que obtiene "el resto" usando puntos suspensivos "..."`:
 
 ```js run
 let [name1, name2, *!*...rest*/!*] = ["Julius", "Caesar", *!*"Consul", "of the Roman Republic"*/!*];
@@ -193,7 +193,7 @@ alert(firstName); // undefined
 alert(surname); // undefined
 ```
 
-Si queremos un valor "predeterminado" para reemplzar el valor faltante, podemos proporcionarlo utilizando `=`:
+Si queremos un valor "predeterminado" para reemplazar el valor faltante, podemos proporcionarlo utilizando `=`:
 
 ```js run
 *!*
@@ -431,11 +431,11 @@ let options {
 
 // asignación desestructurante dividida en varias líneas para mayor claridad
 let {
-  size: { // colocar tamaño aqui
+  size: { // colocar tamaño aquí
     width,
     height
   },
-  items: [item1, item2], // asignar items aqui
+  items: [item1, item2], // asignar items aquí
   title = "Menu" // no se encuentra en el objeto (se utiliza valor predeterminado)
 } = options;
 
@@ -475,7 +475,7 @@ Así?
 showMenu("My Menu", undefined, undefined, ["Item1", "Item2"])
 ```
 
-Esto es nada grato. Y se torna ilegible cuando tratamos con muchos argumentos.
+Esto no es nada grato. Y se torna ilegible cuando tratamos con muchos argumentos.
 
 ¡La desestructuración llega al rescate!
 

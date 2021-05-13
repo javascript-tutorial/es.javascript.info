@@ -43,7 +43,7 @@ alert( sumAll(1, 2) ); // 3
 alert( sumAll(1, 2, 3) ); // 6
 ```
 
-Podermos elegir obtener los primeros parámetros como variables, y juntar solo el resto.
+Podemos elegir obtener los primeros parámetros como variables, y juntar solo el resto.
 
 Aquí los primeros dos argumentos van a variables y el resto va al array `titles`:
 
@@ -65,7 +65,7 @@ showName("Julio", "Cesar", "Cónsul", "Emperador");
 Los parámetros rest recogen todos los argumentos sobrantes, por lo que el siguiente código no tiene sentido y causa un error:
 
 ```js
-function f(arg1, ...rest, arg2) { // arg2 despues de ...rest ?!
+function f(arg1, ...rest, arg2) { // arg2 después de ...rest ?!
   // error
 }
 ```
@@ -204,7 +204,7 @@ alert( [...str] ); // H,o,l,a
 
 El operador spread utiliza internamente iteradores para iterar los elementos, de la misma manera que `for..of` hace.
 
-Entones, para una cadena `for..of` retorna characters y `...str` se convierte en `"H","o","l","a"`. La lista de caracteres es pasada a la inicialización del array `[...str]`.
+Entonces, para una cadena `for..of` retorna caracteres y `...str` se convierte en `"H","o","l","a"`. La lista de caracteres es pasada a la inicialización del array `[...str]`.
 
 Para esta tarea en particular también podríamos haber usado `Array.from`, ya que convierte un iterable (como una cadena de caracteres) en un array:
 

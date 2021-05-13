@@ -27,7 +27,7 @@ let sayHiMixin = {
     alert(`Hola ${this.name}`);
   },
   sayBye() {
-    alert(`Adios ${this.name}`);
+    alert(`Adiós ${this.name}`);
   }
 };
 

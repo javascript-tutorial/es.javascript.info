@@ -68,9 +68,9 @@ Para hacer la petición, necesitamos seguir 3 pasos:
       alert(`Error de red`);
     };
 
-    xhr.onprogress = function(event) { // se dispara periodicamente
+    xhr.onprogress = function(event) { // se dispara periódicamente
       // event.loaded - cuántos bytes se han descargado
-      // event.lengthComputable = devuelve true si el servidor envia la cabecera Content-Length (longitud del contenido)
+      // event.lengthComputable = devuelve true si el servidor envía la cabecera Content-Length (longitud del contenido)
       // event.total - número total de bytes (si `lengthComputable` es `true`)
       alert(`Recibido ${event.loaded} of ${event.total}`);
     };
@@ -315,7 +315,7 @@ Existen 3 métodos para las cabeceras HTTP:
 
     Así, si queremos obtener un objeto con pares nombre/valor, necesitamos tratarlas con un poco de JS.
 
-    Como esto (asumiendo que si dos cabeceras tienen el mismo nombre, entonces el útimo sobreecribe al primero):
+    Como esto (asumiendo que si dos cabeceras tienen el mismo nombre, entonces el último sobreescribe al primero):
 
     ```js
     let headers = xhr
@@ -405,7 +405,7 @@ Hay otro objeto, sin métodos, exclusivamente para rastrear los eventos de subid
 Este genera eventos similares a `xhr`, pero `xhr.upload` se dispara solo en las subidas:
 
 - `loadstart` -- carga iniciada.
-- `progress` -- se dispara periodicamente durante la subida.
+- `progress` -- se dispara periódicamente durante la subida.
 - `abort` -- carga abortada.
 - `error` -- error no HTTP.
 - `load` -- carga finalizada con éxito.
@@ -505,7 +505,7 @@ xhr.onprogress = function(event) {
 };
 
 xhr.onerror = function() {
-  // manejo de un error no HTTP (ej. red caida)
+  // manejo de un error no HTTP (ej. red caída)
 };
 ```
 

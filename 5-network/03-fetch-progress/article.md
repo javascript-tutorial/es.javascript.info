@@ -84,7 +84,7 @@ let commits = JSON.parse(result);
 alert(commits[0].author.login);
 ```
 
-Expliquemos eso paso a paso:
+Expliquemos esto paso a paso:
 
 1. Realizamos `fetch` como de costumbre, pero en lugar de llamar a `response.json()`, obtenemos un lector de transmisión `response.body.getReader()`.
 
