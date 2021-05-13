@@ -110,7 +110,7 @@ alert(typeof User); // function
 alert(User === User.prototype.constructor); // true
 
 // Los métodos están en User.prototype, por ejemplo:
-alert(User.prototype.sayHi); // alert(this.name);
+alert(User.prototype.sayHi); // el código del método sayHi
 
 // Hay exactamente dos métodos en el prototipo
 alert(Object.getOwnPropertyNames(User.prototype)); // constructor, sayHi

@@ -12,7 +12,7 @@ Esa es la llamada "Colección nombrada": es ambas cosas, nombrada y ordenada. Po
 
 ```js no-beautify
 document.forms.my; // el formulario con name="my"
-document.forms[0]; // el primar formulario en el documento
+document.forms[0]; // el primer formulario en el documento
 ```
 
 Cuando tenemos un formulario, cualquier elemento se encuentra disponible en la colección nombrada `form.elements`.

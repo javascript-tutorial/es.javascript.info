@@ -77,9 +77,13 @@ Seleccionamos `"Example: <i>italic</i>"`. Son los dos primeros hijos de `<p>` (c
 ![](range-example-p-0-1.svg)
 
 - The starting point has `<p>` as the parent `node`, and `0` as the offset.
+
+    So we can set it as `range.setStart(p, 0)`.
 - The ending point also has `<p>` as the parent `node`, but `2` as the offset (it specifies the range up to, but not including `offset`).
 
-Here's the demo, if you run it, you can see that the text gets selected:
+    So we can set it as `range.setEnd(p, 2)`.
+
+Here's the demo. If you run it, you can see that the text gets selected:
 
 ```html run
 <p id="p">Example: <i>italic</i> and <b>bold</b></p>
@@ -331,10 +335,13 @@ Aquí hay una pequeña demostración que muestra los límites de selección de f
 From <input id="from" disabled> – To <input id="to" disabled>
 <script>
   document.onselectionchange = function() {
-    let {anchorNode, anchorOffset, focusNode, focusOffset} = document.getSelection();
+    let selection = document.getSelection();
 
-    from.value = `${anchorNode && anchorNode.data}:${anchorOffset}`;
-    to.value = `${focusNode && focusNode.data}:${focusOffset}`;
+    let {anchorNode, anchorOffset, focusNode, focusOffset} = selection;
+
+    // anchorNode and focusNode are text nodes usually
+    from.value = `${anchorNode?.data}, offset ${anchorOffset}`;
+    to.value = `${focusNode?.data}, offset ${focusOffset}`;
   };
 </script>
 ```
