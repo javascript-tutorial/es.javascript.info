@@ -81,7 +81,7 @@ user = {
 // la forma abreviada se ve mejor, ¿verdad?
 user = {
 *!*
-  sayHi() { // igual que "sayHi: function()"
+  sayHi() {   // igual que "sayHi: function(){...}"
 */!*
     alert("Hello");
   }
