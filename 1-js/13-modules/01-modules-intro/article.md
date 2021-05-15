@@ -57,8 +57,8 @@ Asi:
 
 El navegador busca y evalúa automáticamente el módulo importado (y sus importaciones si es necesario), y luego ejecuta el script.
 
-```warn header="Los módulos funcionan solo a través de HTTP(s), no en archivos locales"
-Si intenta abrir una página web localmente a través del protocolo `file://`, encontrará que las directivas `import / export` no funcionan. Use un servidor web local, como [static-server](https://www.npmjs.com/package/static-server#getting-started)  o use la capacidad de "servidor en vivo" de su editor, como VS Code [Live Server Extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) para probar los módulos.
+```warn header="Los módulos funcionan solo a través de HTTP(s), no localmente"
+Si intenta abrir una página web localmente a través del protocolo `file://`, encontrará que las directivas `import y export` no funcionan. Use un servidor web local, como [static-server](https://www.npmjs.com/package/static-server#getting-started)  o use la capacidad de "servidor en vivo" de su editor, como VS Code [Live Server Extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) para probar los módulos.
 ```	
 
 ## Características del módulo central
@@ -67,9 +67,9 @@ Si intenta abrir una página web localmente a través del protocolo `file://`, e
 
 Hay características principales, válidas tanto para el navegador como para JavaScript del lado del servidor.
 
-### Siempre "use strict"
+### Siempre en modo estricto
 
-Los módulos siempre llevan `use strict` de forma predeterminada. Por ejemplo, asignar a una variable sin declarar nos dará un error.
+Los módulos siempre trabajan en modo estricto. Por ejemplo, asignar a una variable sin declarar nos dará un error.
 
 ```html run
 <script type="module">
@@ -268,7 +268,7 @@ Abajo compare con un script normal:
 <button id="button">Button</button>
 ```
 
-Tenga en cuenta: en realidad el segundo script se ejecuta antes que el primero! Entonces veremos primero `undefined`, y después `object`.
+Note que: ¡el segundo script se ejecuta antes que el primero! Entonces vemos primero `undefined`, y después `object`.
 
 Esto se debe a que los módulos están diferidos, por lo que esperamos a que se procese el documento. El script normal se ejecuta inmediatamente, por lo que vemos su salida primero.
 

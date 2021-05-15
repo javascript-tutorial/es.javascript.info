@@ -39,7 +39,7 @@ Los objetos son más "pesados" que los primitivos. Ellos requieren recursos adic
 
 Aquí el dilema que enfrentó el creador de JavaScript:
 
-- Hay muchas cosas que uno querría hacer con los primitivos como string o number. Sería grandioso accederlas como métodos.
+- Hay muchas cosas que uno querría hacer con los tipos primitivos como string o number. Sería grandioso accederlas usando métodos.
 - Los Primitivos deben ser tan rápidos y livianos como sea posible
 
 La solución es algo enrevesada, pero aquí está:

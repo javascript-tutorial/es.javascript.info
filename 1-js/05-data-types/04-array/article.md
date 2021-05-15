@@ -379,8 +379,6 @@ alert( arr[0] ); // undefined! sin elementos.
 alert( arr.length ); // longitud 2
 ```
 
-En el código anterior, `new Array(number)` tiene todos los elementos `undefined`.
-
 Para evitar sorpresas solemos usar corchetes, salvo que sepamos lo que estamos haciendo.
 
 ## Arrays multidimensionales

@@ -247,8 +247,11 @@ Pero cualquier cosa más complicada, como solicitudes de red desde otro sitio o 
 
 Si esto es adecuado para ti, entonces agregar `samesite=lax` probablemente no dañe la experiencia de usuario y agrega protección.
 
-Por sobretodo, `samesite` es una excelente opción, pero tiene una importante debilidad:
-- `samesite` es ignorado (no soportado) por navegadores viejos.
+Por sobre todo, `samesite` es una excelente opción.
+
+Tiene una importante debilidad:
+
+- `samesite` es ignorado (no soportado) por navegadores viejos, de alrededor de 2017.
 
 **Así que si solo confiamos en `samesite` para brindar protección, habrá navegadores que serán vulnerables.**
 

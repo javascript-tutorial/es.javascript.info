@@ -125,17 +125,17 @@ Hay que tener en cuenta que tanto la clave como el valor deben ser strings.
 Cualquier otro tipo, como un número o un objeto, se convierte a cadena de texto automáticamente:
 
 ```js run
-sessionStorage.user = {name: "John"};
-alert(sessionStorage.user); // [object Object]
+localStorage.user = {name: "John"};
+alert(localStorage.user); // [object Object]
 ```
 
 A pesar de eso, podemos utilizar `JSON` para almacenar objetos:
 
 ```js run
-sessionStorage.user = JSON.stringify({name: "John"});
+localStorage.user = JSON.stringify({name: "John"});
 
 // en algún momento más tarde
-let user = JSON.parse( sessionStorage.user );
+let user = JSON.parse( localStorage.user );
 alert( user.name ); // John
 ```
 
