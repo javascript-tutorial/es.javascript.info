@@ -144,7 +144,7 @@ El resultado de esta definición es el mismo. Así, efectivamente hay razones pa
 
 Aún así hay diferencias importantes.
 
-1. Primero, una función creada por `class` es etiquetada por una propiedad interna especial `[[FunctionKind]]:"classConstructor"`. Entones no es exactamente lo mismo que crearla manualmente.
+1. Primero, una función creada por `class` es etiquetada por una propiedad interna especial `[[IsClassConstructor]]:true`. Entones no es exactamente lo mismo que crearla manualmente.
 
     El lenguaje verifica esa propiedad en varios lugares. Por ejemplo, a diferencia de las funciones regulares, esta debe ser llamada con `new`:
 
