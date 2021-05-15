@@ -5,7 +5,7 @@ libs:
 
 # IndexedDB
 
-IndexedDB is a database that is built into browser, much more powerful than `localStorage`.
+IndexedDB is a database that is built into a browser, much more powerful than `localStorage`.
 
 - Stores almost any kind of values by keys, multiple key types.
 - Supports transactions for reliability.
@@ -50,7 +50,7 @@ Unlike server-side databases, IndexedDB is client-side, the data is stored in th
 
 If the local database version is less than specified in `open`, then a special event `upgradeneeded` is triggered, and we can compare versions and upgrade data structures as needed.
 
-The `upgradeneeded` event also triggers when the database doesn't yet exist (technically, it's version is `0`), so we can perform the initialization.
+The `upgradeneeded` event also triggers when the database doesn't yet exist (technically, its version is `0`), so we can perform the initialization.
 
 Let's say we published the first version of our app.
 
