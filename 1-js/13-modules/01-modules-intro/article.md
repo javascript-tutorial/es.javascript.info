@@ -69,7 +69,7 @@ Hay características principales, válidas tanto para el navegador como para Jav
 
 ### Siempre en modo estricto
 
-Los módulos siempre trabajan de forma estrict. Por ejemplo, asignar a una variable sin declarar nos dará un error.
+Los módulos siempre trabajan en modo estricto. Por ejemplo, asignar a una variable sin declarar nos dará un error.
 
 ```html run
 <script type="module">
