@@ -66,6 +66,7 @@ Para resumir, hay varios beneficios de usar un `cachingDecorator` separado en lu
 El decorador de caché mencionado anteriormente no es adecuado para trabajar con métodos de objetos.
 
 Por ejemplo, en el siguiente código, `worker.slow()` deja de funcionar después de la decoración:
+
 ```js run
 // // haremos el trabajo en caché de .slow 
 let worker = {
@@ -300,16 +301,16 @@ La única diferencia de sintaxis entre `call` y `apply` es que `call` espera una
 Entonces estas dos llamadas son casi equivalentes:
 
 ```js
-func.call(context, ...args); // pasar un array como lista con sintaxis extendida
-func.apply(context, args);   // es lo mismo que usar call
+func.call(context, ...args);
+func.apply(context, args);
 ```
 
-Solo hay una sutil diferencia:
+Estas hacen la misma llamada de `func` con el contexto y argumento dados. 
+
+Solo hay una sutil diferencia con respect○ a `args`:
 
 - La sintáxis extendida `...` permite pasar un *iterable* `args` como una lista para `call`.
 - La opción `apply` acepta solo `args` como *array-like*.
-
-Entonces, cuando esperamos un iterable, `call` funciona, y donde esperamos un array, `apply` funciona.
 
 Y para los objetos que son iterables y array-like, como un array real, podemos usar cualquiera de ellos, pero `apply` probablemente será más rápido, porque la mayoría de los motores de JavaScript lo optimizan mejor internamente.
 
