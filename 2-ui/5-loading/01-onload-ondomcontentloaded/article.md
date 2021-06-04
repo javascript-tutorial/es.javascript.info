@@ -45,7 +45,7 @@ Por ejemplo:
 <img id="img" src="https://en.js.cx/clipart/train.gif?speed=1&cache=0">
 ```
 
-En el ejemplo, el controlador `DOMContentLoaded` se ejecuta cuando se carga el documento, por lo que puede ver todos los elementos, incluido `<img>` a continuación.
+En el ejemplo, el controlador de `DOMContentLoaded` se ejecuta cuando el documento está cargado, por lo que puede ver todos los elementos, incluido `<img>` a continuación.
 
 Pero no espera a que se cargue la imagen. Entonces, `alert` muestra los tamaños en cero.
 
@@ -53,7 +53,7 @@ A primera vista, el evento `DOMContentLoaded` es muy simple. El árbol DOM está
 
 ### DOMContentLoaded y scripts
 
-Cuando el navegador procesa un documento HTML y se encuentra con una etiqueta `<script>`, debe ejecutarse antes de continuar construyendo el DOM. Esa es una precaución, ya que los scripts pueden querer modificar el DOM, e incluso hacer `document.write` en él, por lo que` DOMContentLoaded` tiene que esperar.
+Cuando el navegador procesa un documento HTML y se encuentra con una etiqueta `<script>`, debe ejecutarla antes de continuar construyendo el DOM. Esa es una precaución, ya que los scripts pueden querer modificar el DOM, e incluso hacer `document.write` en él, por lo que` DOMContentLoaded` tiene que esperar.
 
 Entonces DOMContentLoaded siempre ocurre después de tales scripts:
 
