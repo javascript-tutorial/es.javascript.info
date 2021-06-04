@@ -45,7 +45,7 @@ Por ejemplo:
 <img id="img" src="https://en.js.cx/clipart/train.gif?speed=1&cache=0">
 ```
 
-En el ejemplo, el controlador del evento `DOMContentLoaded` se ejecuta cuando el documento está cargado, por lo que puede ver todos los elementos, incluido `<img>` a continuación.
+En el ejemplo, el controlador del evento `DOMContentLoaded` se ejecuta cuando el documento está cargado, por lo que puede ver todos los elementos, incluido el `<img>` que está después de él.
 
 Pero no espera a que se cargue la imagen. Entonces, `alert` muestra los tamaños en cero.
 
