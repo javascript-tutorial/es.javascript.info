@@ -123,7 +123,7 @@ Dicho esto, hacer este tipo de variables globales está muy mal visto. Por favor
 
 ### Un código de módulo se evalúa solo la primera vez cuando se importa
 
-Si el mismo módulo se importa en varios otros módulos, su código se ejecuta solo una vez, en el primer import. Luego, sus exportaciones se otorgan a todos los importadores que siguen.
+Si el mismo módulo se importa en varios otros módulos, su código se ejecuta solo una vez: en el primer import. Luego, sus exportaciones se otorgan a todos los importadores que siguen.
 
 Eso tiene consecuencias importantes para las que debemos estar prevenidos. 
 
@@ -148,7 +148,7 @@ import `./alert.js`; // (no muestra nada)
 
 El segundo import no muestra nada, porque el módulo ya fue evaluado.
 
-Existe una regla: el código de módulos del nivel superior debe ser usado para la inicialización, y la creación de estructuras de datos internas específicas del módulo. Si necesitamos algo que pueda ser llamado varias veces debemos exportarlo como una función, como hicimos con el `sayHi` de arriba.
+Existe una regla: el código de módulos del nivel superior debe ser usado para la inicialización y creación de estructuras de datos internas específicas del módulo. Si necesitamos algo que pueda ser llamado varias veces debemos exportarlo como una función, como hicimos con el `sayHi` de arriba.
 
 Consideremos un ejemplo más avanzado.
 
