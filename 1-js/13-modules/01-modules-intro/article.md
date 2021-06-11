@@ -90,7 +90,7 @@ Los módulos deben hacer `export` a lo que ellos quieren que esté accesible des
 - `user.js` debe exportar la variable `user` .
 - `hello.js` debe importarla desde el módulo `user.js`.
 
-En otra palabras, con módulos usamos import/export  en lugar de depender de variables globales.
+En otra palabras, con módulos usamos import/export en lugar de depender de variables globales.
 
 Esta es la variante correcta:
 
