@@ -40,7 +40,7 @@ Así es como funciona `new user.constructor('Pete')`:
 1. Primero, busca a `constructor` en `user`. Nada.
 2. Sigue la cadena con el prototipo. El prototipo de `user` es `User.prototype`, y tampoco tiene `constructor` (¡porque "olvidamos" configurarlo correctamente!).
 3. Avanzando más en la cadena, `User.prototype` es un objeto simple, su prototipo es el `Object.prototype` incorporado. 
-4. Finalmente, para el `Object.prototype` hay un `Object.prototype.constructor == Object`. Entonces se usa.
+4. Finalmente, para el `Object.prototype` hay un `Object.prototype.constructor == Object`. Entonces es el que usa.
 
 Como resultado, tenemos `let user2 = new Object('Pete')`. 
 
