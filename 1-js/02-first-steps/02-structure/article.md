@@ -63,7 +63,7 @@ alert("Hello");
 
 No es necesario pensar en el significado de los corchetes `[]` y `forEach` todavía, los estudiaremos más adelante. Por ahora, solo recuerda el resultado del código: muestra `Hello`, luego `1`, luego `2`.
 
-Quitemos el punto y coma:
+Quitemos el punto y coma del alert:
 
 ```js run no-beautify
 alert("Hello")
