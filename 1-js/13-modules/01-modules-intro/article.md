@@ -96,7 +96,7 @@ Esta es la variante correcta:
 
 [codetabs src="scopes-working" height="140" current="hello.js"]
 
-En el navegador, si hablamos de páginas HTML, también existe el alcance independiente de alto nivel para cada `<script type="module">`:
+En el navegador, hablando de páginas HTML, también existe el alcance independiente de nivel superior para cada `<script type="module">`:
 
 Aquí hay dos scripts en la misma página, ambos `type="module"`. No ven entre sí sus variables de nivel superior:
 
