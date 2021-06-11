@@ -46,4 +46,4 @@ Como resultado, tenemos `let user2 = new Object('Pete')`.
 
 Probablemente no es lo que queremos. Buscábamos crear `new User`, no `new Object`. Este resultado se debe a la falta de  `constructor`.
 
-(Por si te interesa, la llamada `new Object(...)` convierte su argumento a un objeto. Esto en teoría, en la práctica nadie llama `new Object` con un valor, y generalmente no queremos usar `new Object` para crear objetos en absoluto).
+(Solo por si eres curioso, la llamada `new Object(...)` convierte su argumento a un objeto. Esto en teoría, en la práctica nadie llama `new Object` con un valor, y generalmente no queremos usar `new Object` para crear objetos en absoluto).
