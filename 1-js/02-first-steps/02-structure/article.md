@@ -71,7 +71,7 @@ alert("Hello")
 [1, 2].forEach(alert);
 ```
 
-La diferencia comparada al código anterior es de solo un carácter: falta el punto y coma al final de la primera línea.
+La diferencia, comparando el código anterior, es de solo un carácter: falta el punto y coma al final de la primera línea.
 
 Ahora, si ejecutamos el código, solo se ve el primer `Hello` (y un error pero necesitas abrir la consola para verlo). Los números no aparecen más.
 
