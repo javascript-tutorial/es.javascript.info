@@ -63,7 +63,7 @@ alert("Hello");
 
 No es necesario pensar en el significado de los corchetes `[]` y `forEach` todavía, los estudiaremos más adelante. Por ahora, solo recuerda el resultado del código: muestra `Hello`, luego `1`, luego `2`.
 
-Ahora quitemos el punto y coma:
+Quitemos el punto y coma:
 
 ```js run no-beautify
 alert("Hello")
@@ -71,9 +71,9 @@ alert("Hello")
 [1, 2].forEach(alert);
 ```
 
-La diferencia, comparando el código anterior, es de solo un carácter: falta el punto y coma al final de la primera línea.
+La diferencia, comparando con el código anterior, es de solo un carácter: falta el punto y coma al final de la primera línea.
 
-Ahora, si ejecutamos el código, solo se ve el primer `Hello` (y un error pero necesitas abrir la consola para verlo). Los números no aparecen más.
+Esta vez, si ejecutamos el código, solo se ve el primer `Hello` (y un error pero necesitas abrir la consola para verlo). Los números no aparecen más.
 
 Esto ocurre porque JavaScript no asume un punto y coma antes de los corchetes `[...]`, entonces el código del primer ejemplo se trata como una sola sentencia.
 
