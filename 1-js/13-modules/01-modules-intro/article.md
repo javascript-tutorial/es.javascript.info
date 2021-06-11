@@ -226,7 +226,6 @@ import {sayHi} from './admin.js';
 sayHi(); // Ready to serve, *!*Pete*/!*!
 ```
 
-
 ### import.meta
 
 El objeto `import.meta` contiene la información sobre el módulo actual.
