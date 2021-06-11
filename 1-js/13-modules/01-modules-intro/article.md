@@ -148,7 +148,7 @@ import `./alert.js`; // (no muestra nada)
 
 El segundo import no muestra nada, porque el módulo ya fue evaluado.
 
-Existe una regla: código de módulos del nivel superior debe ser usado para inicialización, creación de estructuras de datos internas específicas del módulo. Si necesitamos algo que pueda ser llamado varias veces debemos exportarlo como una función, como hicimos con el `sayHi` de arriba.
+Existe una regla: el código de módulos del nivel superior debe ser usado para la inicialización, y la creación de estructuras de datos internas específicas del módulo. Si necesitamos algo que pueda ser llamado varias veces debemos exportarlo como una función, como hicimos con el `sayHi` de arriba.
 
 Consideremos un ejemplo más avanzado.
 
