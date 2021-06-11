@@ -38,7 +38,12 @@ alert( user2.name ); // undefined
 Así es como funciona `new user.constructor('Pete')`:
 
 1. Primero, busca a `constructor` en `user`. Nada.
-2. Luego sigue la cadena de prototipo. El prototipo de `user` es `User.prototype`, y tampoco tiene nada.
-3. El valor de `User.prototype` es un objeto simple `{}`, su prototipo es `Object.prototype`. Y hay `Object.prototype.constructor == Object`. Entonces se usa.
+2. Sigue la cadena con el prototipo. El prototipo de `user` es `User.prototype`, y tampoco tiene `constructor` (¡porque "olvidamos" configurarlo correctamente!).
+3. Avanzando más en la cadena, `User.prototype` es un objeto simple, su prototipo es el `Object.prototype` incorporado. 
+4. Finalmente, para el `Object.prototype` hay un `Object.prototype.constructor == Object`. Entonces se usa.
 
-At the end, we have `let user2 = new Object('Pete')`. The built-in `Object` constructor ignores arguments, it always creates an empty object, similar to `let user2 = {}`, that's what we have in `user2` after all.
+Como resultado, tenemos `let user2 = new Object('Pete')`. 
+
+Probablemente no es lo que queremos. Buscábamos crear `new User`, no `new Object`. Esto es resultado del `constructor` faltante.
+
+(Por si te interesa, la llamada `new Object(...)` convierte su argumento a un objeto. Esto en teoría, en la práctica nadie llama `new Object` con un valor, y generalmente no usamos `new Object` para crear objetos en absoluto).
