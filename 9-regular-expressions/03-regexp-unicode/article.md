@@ -106,7 +106,7 @@ Unicode admite muchas propiedades diferentes, la lista completa es muy grande, e
 
 ### Ejemplo: números hexadecimales
 
-Por ejemplo, busquemos números hexadecimales, como `xFF`, donde` F` es un dígito hexadecimal (0..1 o A..F).
+Por ejemplo, busquemos números hexadecimales, como `xFF`, donde` F` es un dígito hexadecimal (0..9 o A..F).
 
 Un dígito hexadecimal se denota como `pattern:\p{Hex_Digit}`:
 
