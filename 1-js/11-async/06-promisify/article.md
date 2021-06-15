@@ -100,7 +100,7 @@ function promisify(f, manyArgs = false) {
         if (err) {
           reject(err);
         } else {
-          // RDevolver todos los resultados del callback si "manyArgs" es especificado
+          // Devolver todos los resultados del callback si "manyArgs" es especificado
           *!*resolve(manyArgs ? results : results[0]);*/!*
         }
       }
