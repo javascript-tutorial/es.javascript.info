@@ -64,13 +64,21 @@ Ahora si queremos crear otros usuarios, podemos llamar a `new User("Ann")`, `new
 
 Este es el principal propósito del constructor -- implementar código de creación de objetos re-utilizables.
 
+<<<<<<< HEAD
 Tomemos nota otra vez -- técnicamente cualquier función puede ser utilizada como constructor. Es decir: cualquier función puede ser ejecutada con `new`, y ejecutará el algoritmo de arriba. La "primera letra mayúscula" es un acuerdo común, para dejar en claro que la función debe ser ejecutada con `new`.
 
 ````smart header="new function() { ... }"
 Si tenemos muchas líneas de código todas sobre la creación de un único objeto complejo, podemos agruparlas en un constructor de función, de ésta manera:
+=======
+Let's note once again -- technically, any function (except arrow functions, as they don't have `this`) can be used as a constructor. It can be run with `new`, and it will execute the algorithm above. The "capital letter first" is a common agreement, to make it clear that a function is to be run with `new`.
+
+````smart header="new function() { ... }"
+If we have many lines of code all about creation of a single complex object, we can wrap them in an immediately called constructor function, like this:
+>>>>>>> fb4fc33a2234445808100ddc9f5e4dcec8b3d24c
 
 ```js
-let user = new function() {
+// create a function and immediately call it with new
+let user = new function() { 
   this.name = "John";
   this.isAdmin = false;
 
@@ -80,7 +88,11 @@ let user = new function() {
 };
 ```
 
+<<<<<<< HEAD
 El constructor no puede ser llamado de nuevo porque no es guardado en ninguna parte, sólo es creado y llamado. Por lo tanto este truco apunta a encapsular el código que construye el objeto individual, sin reutilización futura.
+=======
+This constructor can't be called again, because it is not saved anywhere, just created and called. So this trick aims to encapsulate the code that constructs the single object, without future reuse.
+>>>>>>> fb4fc33a2234445808100ddc9f5e4dcec8b3d24c
 ````
 
 ## Constructor modo test: new.target

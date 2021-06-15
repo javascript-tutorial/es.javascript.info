@@ -63,9 +63,15 @@ Es usado principalmente para buscar por todas las coincidencias con todos los gr
 
 Hay 3 diferencias con `match`:
 
+<<<<<<< HEAD
 1. Retorna un objeto iterable con las coincidencias en lugar de un array. Podemos convertirlo en un array usando el método `Array.from`.
 2. Cada coincidencia es retornada como un array con los grupos capturados (el mismo formato de `str.match` sin la bandera `pattern:g`).
 3. Si no hay resultados, no retorna `null`, pero sí un objeto iterable vacío.
+=======
+1. It returns an iterable object with matches instead of an array. We can make a regular array from it using `Array.from`.
+2. Every match is returned as an array with capturing groups (the same format as `str.match` without flag `pattern:g`).
+3. If there are no results, it returns an empty iterable object instead of `null`.
+>>>>>>> fb4fc33a2234445808100ddc9f5e4dcec8b3d24c
 
 Ejemplo de uso:
 
@@ -247,7 +253,11 @@ alert('12-34-56'.replaceAll("-", ":")) // 12:34:56
 
 ## regexp.exec(str)
 
+<<<<<<< HEAD
 El método `regexp.exec(str)` retorna una coincidencia por expresión regular (`regexp`) en la cadena (`str`). A diferencia de los métodos anteriores, se llama en una expresión regular en lugar de en una cadena.
+=======
+The `regexp.exec(str)` method returns a match for `regexp` in the string `str`.  Unlike previous methods, it's called on a regexp, not on a string.
+>>>>>>> fb4fc33a2234445808100ddc9f5e4dcec8b3d24c
 
 Se comporta de manera diferente dependiendo de si la expresión regular tiene la bandera `pattern:g` o no.
 

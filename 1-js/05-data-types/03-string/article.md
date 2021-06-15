@@ -525,8 +525,13 @@ Ahora se vuelve obvio por qué `a > Z`.
 
 Los caracteres son comparados por su código numérico. Código mayor significa que el carácter es mayor. El código para `a` (97) es mayor que el código para `Z` (90).
 
+<<<<<<< HEAD
 - Todas las letras minúsculas van después de las mayúsculas ya que sus códigos son mayores.
 - Algunas letras como `Ö` se mantienen apartadas del alfabeto principal. Aquí el código es mayor que cualquiera desde `a` hasta `z`.
+=======
+- All lowercase letters go after uppercase letters because their codes are greater.
+- Some letters like `Ö` stand apart from the main alphabet. Here, its code is greater than anything from `a` to `z`.
+>>>>>>> fb4fc33a2234445808100ddc9f5e4dcec8b3d24c
 
 ### Comparaciones correctas [#correct-comparisons]
 

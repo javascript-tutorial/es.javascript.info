@@ -111,6 +111,7 @@ customElements.define('custom-dialog', class extends HTMLElement {
 
 Ahora los estilos de centrado adicionales solo se aplican al primer diálogo: `<custom-dialog centered>`.
 
+<<<<<<< HEAD
 ## :host-context(selector)
 
 Igual que `:host`, pero se aplica solo si el shadow host o cualquiera de sus ancestros en el documento exterior coinciden con el `selector`.
@@ -127,6 +128,9 @@ p. ej. `:host-context(.dark-theme)` coincide solo si hay una clase `dark-theme` 
 ```
 
 Para resumir, podemos usar `:host`-familia de selectores para aplicar estilos al elemento principal del componente, según el contexto. Estos estilos (a menos que sea `!important`) pueden ser sobreescritos por el documento.
+=======
+To summarize, we can use `:host`-family of selectors to style the main element of the component. These styles (unless `!important`) can be overridden by the document.
+>>>>>>> fb4fc33a2234445808100ddc9f5e4dcec8b3d24c
 
 ## Estilo de contenido eslotado(cuando un elemento ha sido insertado en un slot, se dice que fue eslotado por su término en inglés slotted)
 
@@ -317,8 +321,13 @@ Shadow DOM puede incluir estilos, como `<style>` o `<link rel="stylesheet">`.
 
 Los estilos locales pueden afectar:
 - shadow tree,
+<<<<<<< HEAD
 - shadow host con `:host`-familia de pseudoclases,
 - elementos eslotados (provenientes de light DOM), `::slotted(selector)` permite seleccionar elementos eslotados, pero no a sus hijos.
+=======
+- shadow host with `:host` and `:host()` pseudoclasses,
+- slotted elements (coming from light DOM), `::slotted(selector)` allows to select  slotted elements themselves, but not their children.
+>>>>>>> fb4fc33a2234445808100ddc9f5e4dcec8b3d24c
 
 Los estilos de documentos pueden afectar:
 - shadow host (ya que vive en el documento exterior)

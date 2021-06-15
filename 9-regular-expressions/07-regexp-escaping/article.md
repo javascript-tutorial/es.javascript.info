@@ -65,7 +65,11 @@ En uno de los ejemplos anteriores funcionó la búsqueda con `pattern:/\d\.\d/`,
 
 La razón es que las barras invertidas son "consumidas" por una cadena. Como podemos recordar, las cadenas regulares tienen sus propios caracteres especiales, como `\n`, y se usa una barra invertida para escapar esos caracteres especiales de cadena.
 
+<<<<<<< HEAD
 Así es como se percibe "\d\.\d\":
+=======
+Here's how "\d\.\d" is perceived:
+>>>>>>> fb4fc33a2234445808100ddc9f5e4dcec8b3d24c
 
 ```js run
 alert("\d\.\d"); // d.d

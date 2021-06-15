@@ -191,7 +191,13 @@ Hay una propuesta de JavaScript terminada, casi en el estándar, que proporciona
 
 Los privados deberían comenzar con `#`. Solo son accesibles desde dentro de la clase.
 
+<<<<<<< HEAD
 Por ejemplo, aquí hay una propiedad privada `#waterLimit` y el método privado de control de agua `#checkWater`:
+=======
+Privates should start with `#`. They are only accessible from inside the class.
+
+For instance, here's a private `#waterLimit` property and the water-checking private method `#fixWaterAmount`:
+>>>>>>> fb4fc33a2234445808100ddc9f5e4dcec8b3d24c
 
 ```js run
 class CoffeeMachine {

@@ -108,7 +108,13 @@ Unicode admite muchas propiedades diferentes, la lista completa es muy grande, e
 
 Por ejemplo, busquemos números hexadecimales, como `xFF`, donde` F` es un dígito hexadecimal (0..9 o A..F).
 
+<<<<<<< HEAD
 Un dígito hexadecimal se denota como `pattern:\p{Hex_Digit}`:
+=======
+For instance, let's look for hexadecimal numbers, written as `xFF`, where `F` is a hex digit (0..9 or A..F).
+
+A hex digit can be denoted as `pattern:\p{Hex_Digit}`:
+>>>>>>> fb4fc33a2234445808100ddc9f5e4dcec8b3d24c
 
 ```js run
 let regexp = /x\p{Hex_Digit}\p{Hex_Digit}/u;
