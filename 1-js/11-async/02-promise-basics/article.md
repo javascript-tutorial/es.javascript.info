@@ -22,11 +22,11 @@ let promise = new Promise(function(resolve, reject) {
 });
 ```
 
-La función pasada a `new Promise` se llama *ejecutor*. Cuando se crea `new Promise`, el ejecutor corre automáticamente. Contiene el código productor que eventualmente debería producir el resultado. En términos de la analogía anterior: el ejecutor es el "cantante".
+La función pasada a `new Promise` se llama *ejecutor*. Cuando se crea `new Promise`, el ejecutor corre automáticamente. Este contiene el código productor que a la larga debería producir el resultado. En términos de la analogía anterior: el ejecutor es el "cantante".
 
 Sus argumentos `resolve` y `reject` son callbacks proporcionadas por el propio JavaScript. Nuestro código solo está dentro del ejecutor.
 
-Cuando el ejecutor obtiene el resultado, ya sea pronto o tarde, no importa, debe llamar a una de estos callbacks:
+Cuando el ejecutor obtiene el resultado, no importa si tarde o temprano, debe llamar a una de estos callbacks:
 
 - `resolve(value)` - si el trabajo finalizó con éxito, con el resultado `value`.
 - `reject(error)` - si ocurrió un error, `error` es el objeto error.
