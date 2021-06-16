@@ -218,7 +218,7 @@ Al igual que hay una cláusula `finally` en un `try {...} catch {...}` normal, h
 
 La llamada `.finally(f)` es similar a `.then(f, f)` en el sentido de que `f` siempre se ejecuta cuando se resuelve la promesa: ya sea que se resuelva o rechace.
 
-`finally` es un buen controlador para realizar la limpieza, por ejemplo, detener nuestros indicadores de carga, ya que ya no son necesarios, sin importar cuál sea el resultado.
+`finally` es un buen manejador para realizar la limpieza, por ejemplo detener nuestros indicadores de carga que ya no son necesarios sin importar cuál sea el resultado.
 
 Como esto:
 
@@ -237,7 +237,7 @@ new Promise((resolve, reject) => {
 Sin embargo, no es exactamente un alias de `then(f, f)`. Hay varias diferencias importantes:
 
 1. Un manejador `finally` no tiene argumentos. En `finally` no sabemos si la promesa es exitosa o no. Eso está bien, ya que nuestra tarea generalmente es realizar procedimientos de finalización "generales".
-2. Un controlador `finally` pasa a través de resultados y errores al siguiente controlador.
+2. Un manejador `finally` traspasa resultados y errores al siguiente manejador.
 
     Por ejemplo, aquí el resultado se pasa a través de `finally` a `then`:
     ```js run
@@ -261,7 +261,6 @@ Sin embargo, no es exactamente un alias de `then(f, f)`. Hay varias diferencias 
     Eso es muy conveniente, porque 'finally' no está destinado a procesar un resultado "promesa". Entonces lo pasa.
 
     Hablaremos más sobre el encadenamiento de promesas y la transmisión de resultados entre los manejadores en el próximo capítulo.
-
 
 ````smart header="En promesas establecidas, los manejadores se ejecutan inmediatamente"
 Si hay una promesa pendiente, los manejadores `.then/catch/finally` la esperan. De lo contrario, si una promesa ya se resolvió, se ejecutan inmediatamente:
