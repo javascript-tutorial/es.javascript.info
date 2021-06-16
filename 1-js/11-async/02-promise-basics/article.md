@@ -2,7 +2,7 @@
 
 Imagina que eres un gran cantante y los fanáticos te preguntan día y noche por tu próxima canción.
 
-Para obtener algo de alivio, prometes enviárselos cuando se publique. Le das a tus fans una lista. Pueden completar sus direcciones de correo electrónico, de modo que cuando la canción esté disponible, todas las partes suscritas la reciban instantáneamente. E incluso si algo sale muy mal, digamos, un incendio en el estudio, para que no puedas publicar la canción, aún se les notificará.
+Para obtener algo de alivio, prometes enviárselos cuando se publique. Le das a tus fans una lista donde pueden agregar sus direcciones de correo electrónico, de modo que cuando la canción esté disponible, todas las partes suscritas la reciban instantáneamente. E incluso si algo sale muy mal, digamos, un incendio en el estudio tal que no puedas publicar la canción, aún se les notificará.
 
 Todos están felices: tú, porque la gente ya no te abruma, y los fanáticos, porque no se perderán la canción.
 
