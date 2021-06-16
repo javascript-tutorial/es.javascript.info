@@ -265,9 +265,9 @@ loadScript('1.js', function(error, script) {
 
 La "pirámide" de llamadas anidadas crece hacia la derecha con cada acción asincrónica. Pronto se sale de control.
 
-Así que esta forma de codificación no es tan buena.
+Entonces esta forma de codificación no es tan buena.
 
-Podemos tratar de aliviar el problema haciendo para cada acción una función independiente, asi:
+Podemos tratar de aliviar el problema haciendo, para cada acción, una función independiente:
 
 ```js
 loadScript('1.js', step1);
