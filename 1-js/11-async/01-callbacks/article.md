@@ -14,7 +14,7 @@ Por ejemplo, una de esas funciones es la función `setTimeout`.
 
 Hay otros ejemplos del mundo real de acciones asincrónicas, p. ej.: la carga de scripts y módulos (a cubrirse en capítulos posteriores).
 
-Echa un vistazo a la función `loadScript(src)`, que carga un script dado: `src`
+Echa un vistazo a la función `loadScript(src)`, que carga un código script `src` dado: 
 
 ```js
 function loadScript(src) {
@@ -26,7 +26,7 @@ function loadScript(src) {
 }
 ```
 
-Anexa al documento la nueva etiqueta, creada dinámicamente, `<script src =" ... ">` con el `src` dado. El navegador comienza a cargarlo automáticamente y se ejecuta cuando se completa.
+Esto inserta en el documento una etiqueta nueva, creada dinámicamente, `<script src =" ... ">` con el código `src` dado. El navegador comienza a cargarlo automáticamente y lo ejecuta cuando la carga se completa.
 
 Esta función la podemos usar así:
 
