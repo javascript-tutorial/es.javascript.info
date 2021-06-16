@@ -36,7 +36,7 @@ Para resumir: el ejecutor corre automáticamente e intenta realizar una tarea. C
 El objeto `promise` devuelto por el constructor `new Promise` tiene estas propiedades internas:
 
 - `state` - inicialmente `"pendiente"`, luego cambia a `"cumplido"` cuando se llama a `resolve` o `"rechazado"` cuando se llama a `reject`.
-- `result` - inicialmente `indefinido`, luego cambia a `valor` cuando se llama a `resolve(valor)` o `error` cuando se llama a `reject(error)`.
+- `result` - inicialmente `undefined`, luego cambia a `valor` cuando se llama a `resolve(valor)` o `error` cuando se llama a `reject(error)`.
 
 Entonces el ejecutor eventualmente mueve la `promise` a uno de estos estados:
 
