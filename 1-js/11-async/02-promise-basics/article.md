@@ -26,7 +26,7 @@ La función pasada a `new Promise` se llama *ejecutor*. Cuando se crea `new Prom
 
 Sus argumentos `resolve` y `reject` son callbacks proporcionadas por el propio JavaScript. Nuestro código solo está dentro del ejecutor.
 
-Cuando el ejecutor obtiene el resultado, no importa si tarde o temprano, debe llamar a una de estos callbacks:
+Cuando el ejecutor, más tarde o más temprano, eso no importa, obtiene el resultado, debe llamar a una de estos callbacks:
 
 - `resolve(value)` - si el trabajo finalizó con éxito, con el resultado `value`.
 - `reject(error)` - si ocurrió un error, `error` es el objeto error.
