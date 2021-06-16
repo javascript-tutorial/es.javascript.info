@@ -1,4 +1,6 @@
-# Introducción: funciones de retrollamadas (callbacks)
+
+
+# Introducción: callbacks
 
 ```warn header="Usamos métodos de navegador en estos ejemplos"
 Para demostrar el uso de callbacks, promesas y otros conceptos abstractos, utilizaremos algunos métodos de navegador: específicamente, carga de scripts y simples manipulaciones de documentos.
@@ -190,9 +192,9 @@ La convención es:
 1. El primer argumento de la 'callback' está reservado para un error, si ocurre. Entonces se llama a `callback(err)`.
 2. El segundo argumento (y los siguientes si es necesario) son para el resultado exitoso. Entonces se llama a `callback(null, result1, result2 ...)`.
 
-Por lo tanto, la única función de 'callback' se usa tanto para informar errores como para transferir resultados.
+Así usamos una única función de 'callback' tanto para informar errores como para transferir resultados.
 
-## Pirámide de funciones callback
+## Pirámide infernal
 
 A primera vista, es una forma viable de codificación asincrónica. Y de hecho lo es. Para una o quizás dos llamadas anidadas, se ve bien.
 
@@ -227,14 +229,13 @@ loadScript('1.js', function(error, script) {
 ```
 
 En el código de arriba:
-1. Cargamos `1.js`, entonces si no hay error.
-2. Cargamos `2.js`, entonces si no hay error.
-3. Cargamos `3.js`, luego, si no hay ningún error, haga otra cosa `(*)`.
-
+1. Cargamos `1.js`, entonces si no hay error:
+2. Cargamos `2.js`, entonces si no hay error:
+3. Cargamos `3.js`, entonces, si no hay ningún error: haga otra cosa `(*)`.
 
 A medida que las llamadas se anidan más, el código se vuelve más profundo y difícil de administrar, especialmente si tenemos un código real en lugar de '...' que puede incluir más bucles, declaraciones condicionales, etc.
 
-A esto se le llama "callback hell" o "Pirámide de Doom".
+A esto se le llama "infierno de callbacks" o "pirámide infernal" ("callback hell", "pyramid of doom").
 
 <!--
 loadScript('1.js', function(error, script) {
@@ -260,37 +261,13 @@ loadScript('1.js', function(error, script) {
 });
 -->
 
-<!--
-loadScript('1.js', function(error, script) {
-  if (error) {
-    handleError(error);
-  } else {
-    // ...
-    loadScript('2.js', function(error, script) {
-      if (error) {
-        handleError(error);
-      } else {
-        // ...
-        loadScript('3.js', function(error, script) {
-          if (error) {
-            handleError(error);
-          } else {
-            // ...
-          }
-        });
-      }
-    });
-  }
-});
--->
-
 ![](callback-hell.svg)
 
-La "pirámide" de llamadas anidadas crece a la derecha con cada acción asincrónica. Pronto se sale de control.
+La "pirámide" de llamadas anidadas crece hacia la derecha con cada acción asincrónica. Pronto se sale de control.
 
-Entonces, esta forma de codificación no es tan buena.
+Entonces esta forma de codificación no es tan buena.
 
-Trataremos de aliviar el problema haciendo cada acción una función independiente, asi:
+Podemos tratar de aliviar el problema haciendo, para cada acción, una función independiente:
 
 ```js
 loadScript('1.js', step1);
@@ -324,10 +301,9 @@ function step3(error, script) {
 
 ¿Lo Ves? Hace lo mismo, y ahora no hay anidamiento profundo porque convertimos cada acción en una función de nivel superior separada.
 
-Funciona, pero el código parece una hoja de cálculo desgarrada. Es difícil de leer, y habrías notado que hay que saltar de un lado a otro mientras lees. Es un inconveniente, especialmente si el lector no está familiarizado con el código y no sabe dónde dirigirse.
+Funciona, pero el código parece una hoja de cálculo desgarrada. Es difícil de leer, y habrás notado que hay que saltar de un lado a otro mientras lees. Es un inconveniente, especialmente si el lector no está familiarizado con el código y no sabe dónde dirigir la mirada.
 
-
-Además, las funciones llamadas `step*` son de un solo uso, son para evitar la "Pirámide de funciones callback". Nadie los reutilizará fuera de la cadena de acción. Así que hay muchos nombres abarrotados aquí.
+Además, las funciones llamadas `step*` son de un solo uso, son para evitar la "Pirámide de callbacks". Nadie los reutilizará fuera de la cadena de acción. Así que hay muchos nombres abarrotados aquí.
 
 Nos gustaría tener algo mejor.
 
