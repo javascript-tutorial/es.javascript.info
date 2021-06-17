@@ -1,6 +1,6 @@
 # Promisificación
 
-"Promisificación" es una palabra larga para una simple transformación. Es la conversión de una función que acepta un callback a una función que devuelve una promesa.
+"Promisificación" es una simple transformación. Es la conversión de una función que acepta un callback a una función que devuelve una promesa.
 
 A menudo estas transformaciones son necesarias en la vida real ya que muchas funciones y librerías están basadas en callbacks, pero las promesas son más convenientes así que tiene sentido promisificarlas.
 
