@@ -64,7 +64,7 @@ Por ejemplo, tenemos un fragmento de documento más complejo:
 <p id="p">Example: <i>italic</i> and <b>bold</b></p>
 ```
 
-Aquí está su estructura DOM con ambos: nodos de texto y nodos de elemento:
+Aquí está su estructura DOM con ambos; nodos de texto y nodos de elemento:
 
 <div class="select-p-domtree"></div>
 
