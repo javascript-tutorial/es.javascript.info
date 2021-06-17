@@ -46,7 +46,7 @@ Sistemas de desarrollo de proyectos modernos, tales como [webpack](http://webpac
 
 ## Polyfills
 
-Nuevas características en el lenguaje pueden incluir no solo construcciones sintácticas y operadores, sino también funciones integredas.
+Nuevas características en el lenguaje pueden incluir no solo construcciones sintácticas y operadores, sino también funciones integradas.
 
 Por ejemplo, `Math.trunc(n)` es una función que corta la parte decimal de un número, ej. `Math.trunc(1.23)` devuelve `1`.
 
