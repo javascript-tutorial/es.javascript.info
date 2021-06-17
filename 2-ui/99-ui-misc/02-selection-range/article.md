@@ -251,7 +251,7 @@ Una vez creado el rango, podemos manipular su contenido usando estos métodos:
 - `extractContents()` -- eliminar el contenido de rango del documento y lo retorna como [DocumentFragment](info:modifying-document#document-fragment)
 - `cloneContents()` -- clonar el contenido del rango y lo retorna como [DocumentFragment](info:modifying-document#document-fragment)
 - `insertNode(node)` -- inserta `node` en el documento al comienzo del rango
-- `surroundContents(node)` --envuelve `node` alrededor del contenido del rango. Para que esto funcione, el rango debe contener etiquetas de apertura y cierre para todos los elementos dentro de él: no hay rangos parciales como `<i>abc`.
+- `surroundContents(node)` -- envuelve `node` alrededor del contenido del rango. Para que esto funcione, el rango debe contener etiquetas de apertura y cierre para todos los elementos dentro de él, sin rangos parciales como `<i>abc`.
 
 Con estos métodos podemos hacer básicamente cualquier cosa con los nodos seleccionados.
 
