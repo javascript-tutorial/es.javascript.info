@@ -110,7 +110,7 @@ alert(document.cookie); // no user
 
 **No hay forma de hacer que una cookie sea accesible desde otro dominio de segundo nivel, entonces `other.com` nunca recibirá una cookie establecida en `site.com`.**
 
-Es una restricción de seguridad,para permitirnos almacenar datos sensibles sin que deben estar disponibles para un sitio solamente.
+Es una restricción de seguridad, para permitirnos almacenar datos sensibles en cookies que deben estar disponibles para un único sitio solamente.
 
 ...Pero si queremos permitir que subdominios como `forum.site.com` obtengan una cookie, eso es posible. Cuando establecemos una cookie en `site.com`, debemos configurar explícitamente la opción `domain` a la raíz: `domain=site.com`:
 
