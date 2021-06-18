@@ -18,7 +18,7 @@ let str = "1 pavo cuesta 30€";
 alert( str.match(/\d+(?=€)/) ); // 30, el número 1 es ignorado porque no está seguido de €
 ```
 
-Tenga en cuenta: "lookahead" es solamente una prueba, lo contenido en los paréntesis `pattern:(?=...)` no es incluido en el resultado `match:30`.
+Tenga en cuenta que "lookahead" es solamente una prueba, lo contenido en los paréntesis `pattern:(?=...)` no es incluido en el resultado `match:30`.
 
 Cuando buscamos `pattern:X(?=Y)`, el motor de expresión regular encuentra `pattern:X` y luego verifica si existe `pattern:Y` inmediatamente después de él. Si no existe, entonces la coincidencia potencial es omitida y la búsqueda continúa.    
 
@@ -59,7 +59,7 @@ alert( str.match(/\d+\b(?!€)/g) ); // 2 (el precio es omitido)
 
 ## Lookbehind
 
-"lookahead" permite agregar una condicion para "lo que sigue".
+"lookahead" permite agregar una condición para "lo que sigue".
 
 "Lookbehind" es similar. Permite coincidir un patrón solo si hay algo anterior a él.
 
