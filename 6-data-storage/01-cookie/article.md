@@ -174,7 +174,7 @@ La cookie debe ser transferida solamente a través de HTTPS.
 
 Esto es, las cookies están basadas en el dominio, no distinguen entre protocolos.
 
-Con la opción `secure`, si una cookie se establece por `https://site.com`, entonces no aparecerá cuando el mismo sitio es accedido pot HTTP, como `http://site.com`. Así, si una cookie tiene información sensible que nunca debe ser enviada sobre HTTP sin encriptar, debe configurarse `secure`.
+Con la opción `secure`, si una cookie se establece por `https://site.com`, entonces no aparecerá cuando el mismo sitio es accedido por HTTP, como `http://site.com`. Entonces, si una cookie tiene información sensible que nunca debe ser enviada sobre HTTP sin encriptar, debe configurarse `secure`.
 
 ```js
 // asumiendo que estamos en https:// ahora
