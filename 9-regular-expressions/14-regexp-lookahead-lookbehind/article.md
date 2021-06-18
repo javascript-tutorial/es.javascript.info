@@ -1,12 +1,12 @@
-# Ver delante (lookahead) y ver detrás (lookbehind)
+# Lookahead y lookbehind (revisar delante/detrás)
 
 A veces necesitamos buscar únicamente aquellas coincidencias donde un patrón es precedido o seguido por otro patrón.
 
-Existe una sintaxis especial para eso llamada "ver delante" y "ver detrás" (del ingles: "lookahead" y "lookbehind"), juntas son conocidas como "ver alrededor" ("lookaround"). 
+Existe una sintaxis especial para eso llamadas "lookahead" y "lookbehind" ("ver delante" y "ver detrás"), juntas son conocidas como "lookaround" ("ver alrededor"). 
 
 Para empezar, busquemos el precio de la cadena siguiente `subject:1 pavo cuesta 30€`. Eso es: un número, seguido por el signo `subject:€`.
 
-## Ver delante
+## Lookahead
 
 La sintaxis es: `pattern:X(?=Y)`. Esto significa "buscar `pattern:X`, pero considerarlo una coincidencia solo si es seguido por `pattern:Y`". Puede haber cualquier patrón en `pattern:X` y `pattern:Y`.
 
@@ -18,7 +18,7 @@ let str = "1 pavo cuesta 30€";
 alert( str.match(/\d+(?=€)/) ); // 30, el número 1 es ignorado porque no está seguido de €
 ```
 
-Tenga en cuenta: "ver delante" es solamente una prueba, lo contenido en los paréntesis `pattern:(?=...)` no es incluido en el resultado `match:30`.
+Tenga en cuenta: "lookahead" es solamente una prueba, lo contenido en los paréntesis `pattern:(?=...)` no es incluido en el resultado `match:30`.
 
 Cuando buscamos `pattern:X(?=Y)`, el motor de expresión regular encuentra `pattern:X` y luego verifica si existe `pattern:Y` inmediatamente después de él. Si no existe, entonces la coincidencia potencial es omitida y la búsqueda continúa.    
 
@@ -43,11 +43,11 @@ alert( str.match(/\d+(?=\s)(?=.*30)/) ); // 1
 
 En nuestra cadena eso coincide exactamente con el número `1`.
 
-## Ver delante negativo
+## Lookahead negativo
 
 Digamos que queremos una cantidad, no un precio de la misma cadena. Eso es el número `pattern:\d+` NO seguido por `subject:€`.
 
-Para eso se puede aplicar un "ver delante negativo" ("negative lookahead").
+Para eso se puede aplicar un "lookahead negativo".
 
 La sintaxis es: `pattern:X(?!Y)`, que significa "busca `pattern:X`, pero solo si no es seguido por `pattern:Y`".
 
@@ -57,15 +57,15 @@ let str = "2 pavos cuestan 60€";
 alert( str.match(/\d+\b(?!€)/g) ); // 2 (el precio es omitido)
 ```
 
-## Ver detrás
+## Lookbehind
 
-"Ver delante" permite agregar una condicion para "lo que sigue".
+"lookahead" permite agregar una condicion para "lo que sigue".
 
-"Ver detrás" es similar. Permite coincidir un patrón solo si hay algo anterior a él.
+"Lookbehind" es similar. Permite coincidir un patrón solo si hay algo anterior a él.
 
 La sintaxis es:
-- Ver detrás positivo: `pattern:(?<=Y)X`, coincide `pattern:X`, pero solo si hay `pattern:Y` antes de él.
-- Ver detrás negativo: `pattern:(?<!Y)X`, coincide `pattern:X`, pero solo si no hay `pattern:Y` antes de él.
+- Lookbehind positivo: `pattern:(?<=Y)X`, coincide `pattern:X`, pero solo si hay `pattern:Y` antes de él.
+- Lookbehind negativo: `pattern:(?<!Y)X`, coincide `pattern:X`, pero solo si no hay `pattern:Y` antes de él.
 
 Por ejemplo, cambiemos el precio a dólares estadounidenses. El signo de dólar usualmente va antes del número, entonces para buscar `$30` usaremos `pattern:(?<=\$)\d+`: una cantidad precedida por `subject:$`: 
 
@@ -76,7 +76,7 @@ let str = "1 pavo cuesta $30";
 alert( str.match(/(?<=\$)\d+/) ); // 30 (omite los números aislados)
 ```
 
-Y si necesitamos la cantidad (un número no precedida por `subject:$`), podemos usar "ver detrás negativo" `pattern:(?<!\$)\d+`: 
+Y si necesitamos la cantidad (un número no precedida por `subject:$`), podemos usar "lookbehind negativo" `pattern:(?<!\$)\d+`: 
 
 ```js run
 let str = "2 pavos cuestan $60";
@@ -86,11 +86,11 @@ alert( str.match(/(?<!\$)\b\d+/g) ); // 2 (el precio es omitido)
 
 ## Atrapando grupos
 
-Generalmente, los contenidos dentro de los paréntesis de "ver alrededor" (lookaround) no se convierten en parte del resultado.
+Generalmente, los contenidos dentro de los paréntesis de "lookaround" (ver alrededor) no se convierten en parte del resultado.
 
 Ejemplo en el patrón `pattern:\d+(?=€)`, el signo `pattern:€`  no es capturado como parte de la coincidencia. Eso es esperado: buscamos un número `pattern:\d+`, mientras `pattern:(?=€)` es solo una prueba que indica que debe ser seguida por `subject:€`.
 
-Pero en algunas situaciones nosotros podríamos querer capturar también la expresión "ver alrededor", o parte de ella. Eso es posible. Solo hay que rodear esa parte con paréntesis adicionales.
+Pero en algunas situaciones nosotros podríamos querer capturar también la expresión en "lookaround", o parte de ella. Eso es posible: solo hay que rodear esa parte con paréntesis adicionales.
 
 En los ejemplos de abajo el signo de divisa `pattern:(€|kr)` es capturado junto con la cantidad:  
 
@@ -101,7 +101,7 @@ let regexp = /\d+(?=(€|kr))/; // paréntesis extra alrededor de €|kr
 alert( str.match(regexp) ); // 30, €
 ```
 
-Lo mismo para "ver detrás":
+Lo mismo para "lookbehind":
 
 ```js run
 let str = "1 pavo cuesta $30";
@@ -112,19 +112,19 @@ alert( str.match(regexp) ); // 30, $
 
 ## Resumen
 
-"Ver delante" y "ver detrás" (en conjunto conocidos como "ver alrededor") son útiles cuando queremos hacer coincidir algo dependiendo del contexto antes / después.
+Lookahead y lookbehind (en conjunto conocidos como "lookaround") son útiles cuando queremos hacer coincidir algo dependiendo del contexto antes/después.
 
 Para expresiones regulares simples podemos hacer lo mismo manualmente. Esto es: coincidir todo, en cualquier contexto, y luego filtrar por contexto en el bucle.
 
 Recuerda, `str.match` (sin el indicador `pattern:g`) y `str.matchAll` (siempre) devuelven las coincidencias como un array con la propiedad `index`, así que sabemos exactamente dónde están dentro del texto y podemos comprobar su contexto.
 
-Pero generalmente "ver alrededor" es más conveniente.
+Pero generalmente "lookaround" es más conveniente.
 
-Tipos de "ver alrededor":
+Tipos de "lookaround":
 
 | Patrón             | Tipo             | Coincidencias |
 |--------------------|------------------|---------|
-| `X(?=Y)`   | Ver delante positivo | `pattern:X` si está seguido por `pattern:Y` |
-| `X(?!Y)`   | Ver delante negativo | `pattern:X` si no está seguido por `pattern:Y` |
-| `(?<=Y)X` |  Ver detrás positivo | `pattern:X` si está después de `pattern:Y` |
-| `(?<!Y)X` | Ver detrás negativo | `pattern:X` si no está después de `pattern:Y` |
+| `X(?=Y)`   | lookahead positivo | `pattern:X` si está seguido por `pattern:Y` |
+| `X(?!Y)`   | lookahead negativo | `pattern:X` si no está seguido por `pattern:Y` |
+| `(?<=Y)X` | lookbehind positivo | `pattern:X` si está después de `pattern:Y` |
+| `(?<!Y)X` | lookbehind negativo | `pattern:X` si no está después de `pattern:Y` |
