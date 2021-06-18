@@ -1,13 +1,13 @@
-# Insert After Head
+# Insertar después de la cabecera
 
-We have a string with an HTML Document.
+Tenemos un string con un documento HTML.
 
-Write a regular expression that inserts `<h1>Hello</h1>` immediately after `<body>` tag. The tag may have attributes.
+Escribe una expresión regular que inserte `<h1>Hello</h1>` inmediatamente después de la etiqueta `<body>`. La etiqueta puede tener atributos.
 
-For instance:
+Por ejemplo:
 
 ```js
-let regexp = /your regular expression/;
+let regexp = /tu expresión regular/;
 
 let str = `
 <html>
@@ -20,7 +20,7 @@ let str = `
 str = str.replace(regexp, `<h1>Hello</h1>`);
 ```
 
-After that the value of `str` should be:
+Después de esto el valor de `str` debe ser:
 ```html
 <html>
   <body style="height: 200px"><h1>Hello</h1>
