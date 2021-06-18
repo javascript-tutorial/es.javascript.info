@@ -13,7 +13,7 @@ alert(str); // ...<body style="..."><h1>Hello</h1>...
 
 En el string de reemplazo, `$&` significa la coincidencia misma, la parte del texto original que corresponde a `pattern:<body.*?>`. Es reemplazada por sí misma más `<h1>Hello</h1>`.
 
-Una alternativa es el uso de "ver detrás":
+Una alternativa es el uso de "lookbehind":
 
 ```js run
 let str = '...<body style="...">...';
@@ -22,7 +22,7 @@ str = str.replace(/(?<=<body.*?>)/, `<h1>Hello</h1>`);
 alert(str); // ...<body style="..."><h1>Hello</h1>...
 ```
 
-Como puedes ver, solo está presente la parte "ver detrás" en esta expresión regular.
+Como puedes ver, solo está presente la parte "lookbehind" en esta expresión regular.
 
 Esto funciona así:
 - En cada posición en el texto.
