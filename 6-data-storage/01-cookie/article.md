@@ -393,9 +393,9 @@ Este tópico no está relacionado a JavaScript en absoluto, solo es algo para te
 
 Hay una legislación en Europa llamada GDPR que es un conjunto de reglas que fuerza a los sitios web a respetar la privacidad del usuario. Una de estas reglas es requerir un permiso explícito del usuario para el uso de cookies de seguimiento.
 
-Por favor nota que es solo para cookies acerca de seguimiento, identificación y autorización.
+Nota que esto solo se refiere a cookies de seguimiento, identificación y autorización.
 
-Asi que si configuramos una cookie que solo guarda alguna información pero no hace seguimiento ni identificación del usuario, somos libres de hacerlo.
+Así que si queremos configurar una cookie que solo guarda alguna información pero no hace seguimiento ni identificación del usuario, somos libres de hacerlo.
 
 Pero si vamos a configurar una  cookie con una sesión de autenticación o un id de seguimiento, el usuario debe dar su permiso.
 
@@ -403,14 +403,14 @@ Los sitios web generalmente tienen dos variantes para cumplir con el GDPR. Debes
 
 1. Si un sitio web quiere establecer cookies de seguimiento solo para usuarios autenticados.
 
-    Para hacerlo, el form de registro debe tener un checkbox como: "aceptar la política de privacidad" (que describe cómo las cookies son usadas), el usuario debe marcarlo, entonces el sitio wen es libre para establecer cookies de autenticación.
+    Para hacerlo, el form de registro debe tener un checkbox como: "aceptar la política de privacidad" (que describe cómo las cookies son usadas), el usuario debe marcarlo, entonces el sitio web es libre para establecer cookies de autenticación.
 
 2. Si un sitio web quiere establecer cookies de seguimiento a todo visitante.
 
     Para hacerlo legalmente, el sitio web muestra un mensaje del tipo "pantalla de bienvenida (splash screen)" a los recién llegados que les pide aceptar las cookies. Entonces el sitio web puede configurarlas y les deja ver el contenido. Esto puede ser molesto para el visitante. A nadie le gusta que aparezca una pantalla modal con la obligación de cliquear en ella en lugar del contenido. Pero el GDPR requiere el acuerdo explícito.
 
 
-El GDPR no trata solo de cookies, también es acerca de problemas relacionados a la privacidad, pero eso va más allá de nuestro objetivo.
+El GDPR no trata solo de cookies, también es acerca de otros problemas relacionados a la privacidad, pero eso va más allá de nuestro objetivo.
 
 
 ## Resumen
