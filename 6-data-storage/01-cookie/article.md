@@ -35,7 +35,7 @@ El valor de `document.cookie` consiste de pares `name=value` delimitados por `; 
 
 Para encontrar una cookie particular, podemos separar (split) `document.cookie` por `; ` y encontrar el nombre correcto. Podemos usar tanto una expresión regular como funciones de array para ello.
 
-Lo dejamos como ejercicio para el lector. Al final del artículo encontrarás funciones "helper" para manipular cookies.
+Lo dejamos como ejercicio para el lector. Al final del artículo encontrarás funciones de ayuda para manipular cookies.
 
 ## Escribiendo en document.cookie
 
