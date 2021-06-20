@@ -191,7 +191,7 @@ Hay una propuesta de JavaScript terminada, casi en el estándar, que proporciona
 
 Los privados deberían comenzar con `#`. Solo son accesibles desde dentro de la clase.
 
-Por ejemplo, aquí hay una propiedad privada `#waterLimit` y el método privado de control de agua `#checkWater`:
+Por ejemplo, aquí hay una propiedad privada `#waterLimit` y el método privado de control de agua `#fixWaterAmount`:
 
 ```js run
 class CoffeeMachine {

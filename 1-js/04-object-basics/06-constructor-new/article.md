@@ -64,13 +64,14 @@ Ahora si queremos crear otros usuarios, podemos llamar a `new User("Ann")`, `new
 
 Este es el principal propósito del constructor -- implementar código de creación de objetos re-utilizables.
 
-Tomemos nota otra vez -- técnicamente cualquier función puede ser utilizada como constructor. Es decir: cualquier función puede ser ejecutada con `new`, y ejecutará el algoritmo de arriba. La "primera letra mayúscula" es un acuerdo común, para dejar en claro que la función debe ser ejecutada con `new`.
+Tomemos nota otra vez: técnicamente cualquier función (excepto las de flecha pues no tienen this) puede ser utilizada como constructor. Puede ser llamada con `new`, y ejecutará el algoritmo de arriba. La "primera letra mayúscula" es un acuerdo general, para dejar en claro que la función debe ser ejecutada con `new`.
 
 ````smart header="new function() { ... }"
-Si tenemos muchas líneas de código todas sobre la creación de un único objeto complejo, podemos agruparlas en un constructor de función, de ésta manera:
+Si tenemos muchas líneas de código todas sobre la creación de un único objeto complejo, podemos agruparlas en un constructor de función que es llamado inmediatamente de esta manera:
 
 ```js
-let user = new function() {
+// crea una función e inmediatamente la llama con new
+let user = new function() { 
   this.name = "John";
   this.isAdmin = false;
 
@@ -80,7 +81,7 @@ let user = new function() {
 };
 ```
 
-El constructor no puede ser llamado de nuevo porque no es guardado en ninguna parte, sólo es creado y llamado. Por lo tanto este truco apunta a encapsular el código que construye el objeto individual, sin reutilización futura.
+Este constructor no puede ser llamado de nuevo porque no es guardado en ninguna parte, sólo es creado y llamado. Por lo tanto este truco apunta a encapsular el código que construye el objeto individual, sin reutilización futura.
 ````
 
 ## Constructor modo test: new.target

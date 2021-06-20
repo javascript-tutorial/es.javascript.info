@@ -663,7 +663,7 @@ Si desea obtener más información sobre las reglas y variantes de normalizació
 
 - Existen 3 tipos de entrecomillado. Los backticks permiten que una cadena abarque varias líneas e incorporar expresiones `${…}`.
 - Strings en JavaScript son codificados usando UTF-16.
-- Podemos usar caracteres especiales como `\n` e insertar letras por su código unico usando `\u ... `.
+- Podemos usar caracteres especiales como `\n` e insertar letras por su código único usando `\u ... `.
 - Para obtener un carácter, usa: `[]`.
 - Para obtener un substring, usa: `slice` o `substring`.
 - Para convertir un string en minúsculas/mayúsculas, usa: `toLowerCase/toUpperCase`.
