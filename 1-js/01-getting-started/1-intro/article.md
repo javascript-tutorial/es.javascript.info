@@ -26,7 +26,7 @@ Diferentes motores tienen diferentes "nombres en clave". Por ejemplo:
 
 - [V8](https://es.wikipedia.org/wiki/Chrome_V8) -- en Chrome y Opera.
 - [SpiderMonkey](https://es.wikipedia.org/wiki/SpiderMonkey) -- en Firefox.
-- ...Existen otros nombres en clave como "Trident" and "Chakra" para diferentes versiones de IE (Internet Explorer), "ChakraCore" para Microsoft Edge, "Nitro" y "SquirrelFish" para Safari, etc.
+- ...Existen otros nombres en clave como "Chakra" para IE , "JavaScriptCore", "Nitro" y "SquirrelFish" para Safari, etc.
 
 Los términos anteriores es bueno recordarlos porque son usados en artículos para desarrolladores en internet. También los usaremos. Por ejemplo, si "la característica X es soportada por V8", entonces probablemente funciona en Chrome y Opera.
 
@@ -102,7 +102,7 @@ Esto es algo obvio, porque los proyectos y requerimientos son diferentes para ca
 
 Así que recientemente ha aparecido una gran cantidad de nuevos lenguajes, los cuales son _Convertidos_/_Transpilados_ a JavaScript antes de ser ejecutados en el navegador.
 
-Las herramientas modernas hacen la conversión (Transpilation) muy rápida y transparente, permitiendo a los desarrolladores codificar en otros lenguajes y convertirlo automáticamente detrás de escena.
+Las herramientas modernas hacen la conversión (Transpilación) muy rápida y transparente, permitiendo a los desarrolladores codificar en otros lenguajes y convertirlo automáticamente detrás de escena.
 
 Ejemplos de tales lenguajes:
 

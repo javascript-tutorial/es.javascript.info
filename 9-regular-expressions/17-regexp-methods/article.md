@@ -65,7 +65,7 @@ Hay 3 diferencias con `match`:
 
 1. Retorna un objeto iterable con las coincidencias en lugar de un array. Podemos convertirlo en un array usando el método `Array.from`.
 2. Cada coincidencia es retornada como un array con los grupos capturados (el mismo formato de `str.match` sin la bandera `pattern:g`).
-3. Si no hay resultados, no retorna `null`, pero sí un objeto iterable vacío.
+3. Si no hay resultados devuelve un objeto iterable vacío en lugar de `null`.
 
 Ejemplo de uso:
 
@@ -230,7 +230,7 @@ Usando una función nos da todo el poder del reemplazo, porque obtiene toda la i
 
 ## str.replaceAll(str|regexp, str|func)
 
-Este método es escencialmente el mismo que `str.replace`, con dos diferencias principales:
+Este método es esencialmente el mismo que `str.replace`, con dos diferencias principales:
 
 1. Si el primer argumento es un string, reemplaza *todas las ocurrencias* del string, mientras qye `replace` solamente reemplaza la *primera ocurrencia*.
 2. Si el primer argumento es una expresión regular sin la bandera `g`, funciona igual que `replace`.
@@ -247,15 +247,15 @@ alert('12-34-56'.replaceAll("-", ":")) // 12:34:56
 
 ## regexp.exec(str)
 
-El método `regexp.exec(str)` retorna una coincidencia por expresión regular (`regexp`) en la cadena (`str`). A diferencia de los métodos anteriores, se llama en una expresión regular en lugar de en una cadena.
+El método `regexp.exec(str)` retorna una coincidencia por expresión regular `regexp` en la cadena `str`. A diferencia de los métodos anteriores, se llama en una expresión regular en lugar de en una cadena.
 
 Se comporta de manera diferente dependiendo de si la expresión regular tiene la bandera `pattern:g` o no.
 
 Si no está la bandera `pattern:g`, entonces `regexp.exec(str)` retorna la primera coincidencia igual que `str.match(regexp)`. Este comportamiento no trae nada nuevo.
 
 Pero si está la bandera `pattern:g`, entonces:
-- Una llamda a `regexp.exec(str)` retorna la primera coincidencia y guarda la posición inmediatamente después en `regexp.lastIndex`.
-- La siguente llamada de la búsqueda comienza desde la posición de `regexp.lastIndex`, retorna la siguiente coincidencia y guarda la posición inmediatamante después en `regexp.lastIndex`.
+- Una llamada a `regexp.exec(str)` retorna la primera coincidencia y guarda la posición inmediatamente después en `regexp.lastIndex`.
+- La siguiente llamada de la búsqueda comienza desde la posición de `regexp.lastIndex`, retorna la siguiente coincidencia y guarda la posición inmediatamente después en `regexp.lastIndex`.
 - ...y así sucesivamente.
 - Si no hay coincidencias, `regexp.exec` retorna `null` y resetea `regexp.lastIndex` a `0`.
 

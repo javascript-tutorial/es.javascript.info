@@ -22,7 +22,7 @@ En este artículo nuestro propósito es llegar a la esencia de cómo trabajan y 
 
 ## Transpiladores
 
-Un [transpilador](https://es.wikipedia.org/wiki/Transpilador) es un software que puede analizar ("leer y entender") código moderno y rescribirlo usando sintaxis y construcciones más viejas, y que su resultado sea el mismo.
+Un [transpilador](https://es.wikipedia.org/wiki/Transpilador) es un software que traduce un código fuente a otro código fuente. Puede analizar ("leer y entender") código moderno y rescribirlo usando sintaxis y construcciones más viejas para que también funcione en intérpretes antiguos.
 
 Por ejemplo, antes del año 2020 JavaScript no tenía el operador "nullish coalescing" `??`. Entonces, si un visitante lo usa en un navegador desactualizado, este fallaría en entender un código como `height = height ?? 100`.
 

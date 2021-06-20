@@ -46,7 +46,7 @@ alert(3 +
 + 2);
 ```
 
-El código da como resultado `6` porque JavaScript no inserta punto y coma aquí. Es intuitivamente obvio que si la línea termina con un signo más `"+"`, es una "expresión incompleta", por lo que no se requiere el punto y coma. Y en este caso eso funciona según lo previsto.
+El código da como resultado `6` porque JavaScript no inserta punto y coma aquí. Es intuitivamente obvio que si la línea termina con un signo más `"+"`, es una "expresión incompleta", un punto y coma aquí sería incorrecto. Y en este caso eso funciona según lo previsto.
 
 **Pero hay situaciones en las que JavaScript "falla" al asumir un punto y coma donde realmente se necesita.**
 
