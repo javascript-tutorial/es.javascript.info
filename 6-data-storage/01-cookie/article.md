@@ -39,7 +39,7 @@ Lo dejamos como ejercicio para el lector. Al final del artículo encontrarás fu
 
 ## Escribiendo en document.cookie
 
-Podemos escribir en `document.cookie`. Pero no es una propiedad de datos, es un accessor (getter/setter). Una asignación a él se trata especialmente.
+Podemos escribir en `document.cookie`. Pero no es una propiedad de datos, es un [accessor (getter/setter)](info:property-accessors). Una asignación a él se trata especialmente.
 
 **Una operación de escritura a `document.cookie` actualiza solo las cookies mencionadas en ella, y no toca las demás.**
 

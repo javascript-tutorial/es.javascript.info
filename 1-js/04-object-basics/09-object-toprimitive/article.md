@@ -133,8 +133,8 @@ Como podemos ver en el código, `user` se convierte en un string autodescriptivo
 
 Si no existe `Symbol.toPrimitive` entonces JavaScript trata de encontrar los métodos `toString` y `valueOf`:
 
-- Para  un hint "string": `toString`, y si no existe, entonces `valueOf` (así `toString` tiene prioridad en conversiones string.
-- Para otros hints: `valueOf`, y si no existe, entonces `toString` (así `valueOf` tiene prioridad para matemáticas).
+- Para una sugerencia "string": `toString`, y si no existe, entonces `valueOf` (así `toString` tiene prioridad en conversiones string.
+- Para otras sugerencias: `valueOf`, y si no existe, entonces `toString` (así `valueOf` tiene prioridad para matemáticas).
 
 Los métodos `toString` y `valueOf` provienen de la antigüedad. No son símbolos (los símbolos no existían en aquel tiempo), sino métodos "regulares" nombrados con strings. Proporcionan una forma alternativa "al viejo estilo" de implementar la conversión.
 
@@ -274,4 +274,4 @@ El algoritmo de conversión es:
 
 En la práctica, a menudo es suficiente implementar solo `obj.toString()` como un método "general" para todas las conversiones que devuelven una representación "legible por humanos" de un objeto, con fines de registro o depuración.
 
-Como para las operaciones matemáticas, JavaScript no brinda una forma de "sobrescribir" operadores usando métodos.Así que en proyectos de la vida real raramente se los usa en objetos.
+Como en las operaciones matemáticas, JavaScript no brinda una forma de "sobrescribir" operadores usando métodos. Así que en proyectos de la vida real raramente se los usa en objetos.

@@ -18,7 +18,7 @@ let promise = Promise.all([...promises...]);
 
 `Promise.all` toma un array de promesas (técnicamente puede ser cualquier iterable pero usualmente es un array) y devuelve una nueva promesa.
 
-Esta nueva promesa es resuelta en cuanto todas las promesas listadas se resuelven y el array de aquellos resultados se vuelve su resultado.
+Esta nueva promesa es resuelta en cuanto todas las promesas listadas se resuelven, y el array de aquellos resultados se vuelve su resultado.
 
 Por ejemplo, el `Promise.all` debajo se resuelve después de 3 segundos, y su resultado es un array `[1, 2, 3]`:
 
