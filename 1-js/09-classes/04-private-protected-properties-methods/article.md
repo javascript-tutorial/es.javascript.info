@@ -115,13 +115,8 @@ class CoffeeMachine {
 // se crea la máquina de café
 let coffeeMachine = new CoffeeMachine(100);
 
-<<<<<<< HEAD
 // agregar agua
-coffeeMachine.waterAmount = -10; // Error: Agua en negativo
-=======
-// add water
-coffeeMachine.waterAmount = -10; // _waterAmount will become 0, not -10
->>>>>>> 8558fa8f5cfb16ef62aa537d323e34d9bef6b4de
+coffeeMachine.waterAmount = -10; // _waterAmount se vuelve 0, no -10
 ```
 
 Ahora el acceso está bajo control, por lo que establecer una cantidad de agua por debajo de cero se volvió imposible.
