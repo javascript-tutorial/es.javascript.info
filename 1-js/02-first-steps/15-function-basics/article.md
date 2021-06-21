@@ -247,7 +247,11 @@ function showMessage(text) {
 showMessage(); // mensaje vacío
 ```
 
+<<<<<<< HEAD
 ...O podemos usar el operador `||`:
+=======
+...Or we could use the `||` operator:
+>>>>>>> 8558fa8f5cfb16ef62aa537d323e34d9bef6b4de
 
 ```js
 function showMessage(text) {

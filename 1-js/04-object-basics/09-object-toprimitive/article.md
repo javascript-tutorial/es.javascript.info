@@ -9,7 +9,11 @@ En ese caso, los objetos se convierten automáticamente en valores primitivos, y
 
 Esto es una limitación importante, porque el resultado de `obj1 + obj2` ¡no puede ser otro objeto!
 
+<<<<<<< HEAD
 Por ejemplo no podemos hacer objetos que representen vectores o matrices (o conquistas o lo que sea), sumarlas y esperar un objeto "sumado" como resultado. Tal objetivo arquitectural cae automáticamente "fuera del tablero".
+=======
+E.g. we can't make objects representing vectors or matrices (or achievements or whatever), add them and expect a "summed" object as the result. Such architectural feats are automatically "off the board".
+>>>>>>> 8558fa8f5cfb16ef62aa537d323e34d9bef6b4de
 
 Como no podemos hacer mucho aquí, no se hace matemáticas con objetos en proyectos reales. Cuando ocurre, usualmente es por un error de código.
 
@@ -133,8 +137,13 @@ Como podemos ver en el código, `user` se convierte en un string autodescriptivo
 
 Si no existe `Symbol.toPrimitive` entonces JavaScript trata de encontrar los métodos `toString` y `valueOf`:
 
+<<<<<<< HEAD
 - Para  un hint "string": `toString`, y si no existe, entonces `valueOf` (así `toString` tiene prioridad en conversiones string.
 - Para otros hints: `valueOf`, y si no existe, entonces `toString` (así `valueOf` tiene prioridad para matemáticas).
+=======
+- For the "string" hint: `toString`, and if it doesn't exist, then `valueOf` (so `toString` has the priority for string conversions).
+- For other hints: `valueOf`, and if it doesn't exist, then `toString` (so `valueOf` has the priority for maths).
+>>>>>>> 8558fa8f5cfb16ef62aa537d323e34d9bef6b4de
 
 Los métodos `toString` y `valueOf` provienen de la antigüedad. No son símbolos (los símbolos no existían en aquel tiempo), sino métodos "regulares" nombrados con strings. Proporcionan una forma alternativa "al viejo estilo" de implementar la conversión.
 
@@ -274,4 +283,8 @@ El algoritmo de conversión es:
 
 En la práctica, a menudo es suficiente implementar solo `obj.toString()` como un método "general" para todas las conversiones que devuelven una representación "legible por humanos" de un objeto, con fines de registro o depuración.
 
+<<<<<<< HEAD
 Como para las operaciones matemáticas, JavaScript no brinda una forma de "sobrescribir" operadores usando métodos.Así que en proyectos de la vida real raramente se los usa en objetos.
+=======
+As for math operations, JavaScript doesn't provide a way to "override" them using methods, so real life projects rarely use them on objects.
+>>>>>>> 8558fa8f5cfb16ef62aa537d323e34d9bef6b4de
