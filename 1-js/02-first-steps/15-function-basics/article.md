@@ -405,7 +405,7 @@ Algunos ejemplos de cómo se rompen estas reglas:
 - `createForm` -- está mal que modifique el documento agregándole el form (solo debe crearlo y devolverlo).
 - `checkPermission` -- está mal que muestre el mensaje `acceso otorgado/denegado`(solo debe realizar la verificación y devolver el resultado).
 
-En estos ejemplos asumimos los significados comunes de los prefijos. Tú y tu equipo pueden acordar significados diferentes, aunque usualmente no muy diferente. En cualquier caso, debe haber una compromiso firme de lo que significa un prefijo, lo que una función con prefijo puede y no puede hacer. Todas las funciones con el mismo prefijo deben obedecer las reglas. Y el equipo debe compartir ese conocimiento.
+En estos ejemplos asumimos los significados comunes de los prefijos. Tú y tu equipo pueden acordar significados diferentes, aunque usualmente no muy diferente. En cualquier caso, debe haber una compromiso firme de lo que significa un prefijo, de lo que una función con prefijo puede y no puede hacer. Todas las funciones con el mismo prefijo deben obedecer las reglas. Y el equipo debe compartir ese conocimiento.
 ```
 
 ```smart header="Nombres de funciones ultracortos"
