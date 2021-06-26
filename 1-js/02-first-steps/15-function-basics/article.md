@@ -257,7 +257,7 @@ function showMessage(text) {
 }
 ```
 
-Intérpretes JavaScript modernos soportan el [operador nullish coalescing](info:nullish-coalescing-operator) `??`, es mejor el valor de `0` debe ser considerado "normal" en lugar de falso:
+Intérpretes JavaScript modernos soportan el [operador nullish coalescing](info:nullish-coalescing-operator) `??`, es mejor cuando el valor de `0` debe ser considerado "normal" en lugar de falso:
 
 ```js run
 function showCount(count) {
