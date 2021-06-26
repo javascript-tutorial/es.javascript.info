@@ -401,9 +401,9 @@ Dos acciones independientes por lo general merecen dos funciones, incluso si gen
 
 Algunos ejemplos de cómo se rompen estas reglas:
 
-- `getAge` -- sería malo si mostrara una `alert` con la edad (solo debería obtener).
-- `createForm` -- sería malo si modifica el documento y lo agrega (solo debe crearlo y devolverlo).
-- `checkPermission` -- sería malo si mostrara el mensaje `acceso otorgado/denegado`(solo debe realizar la verificación y devolver el resultado).
+- `getAge` -- está mal que muestre una `alert` con la edad (solo debe obtenerla).
+- `createForm` -- está mal que modifique el documento agregándole el form (solo debe crearlo y devolverlo).
+- `checkPermission` -- está mal que muestre el mensaje `acceso otorgado/denegado`(solo debe realizar la verificación y devolver el resultado).
 
 Estos ejemplos asumen significados comunes de prefijos. Lo que significan para ti está determinado por ti y tu equipo. Tal vez es bastante normal que su código se comporte de manera diferente. Pero debe tener una comprensión firme de lo que significa un prefijo, lo que una función con prefijo puede y no puede hacer. Todas las funciones con el mismo prefijo deben obedecer las reglas. Y el equipo debe compartir el conocimiento.
 ```
