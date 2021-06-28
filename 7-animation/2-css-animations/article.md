@@ -503,7 +503,7 @@ Limitaciones de las animaciones CSS en comparación con las animaciones JavaScri
 - No solo cambios de propiedad. Podemos crear nuevos elementos en JavaScript para fines de animación.
 ```
 
-En los ejemplos de este artículo animamos `font-size`, `left`, `width`, `height`, etc. En proyectos de la vida real en cambio deberíamos usar `transform: scale()` y `transform: translate()` para obtener mejor performance.
+En los ejemplos de este artículo animamos `font-size`, `left`, `width`, `height`, etc. En proyectos de la vida real es preferible usar `transform: scale()` y `transform: translate()` para obtener mejor performance.
 
 La mayoría de las animaciones se pueden implementar usando CSS como se describe en este capítulo. Y el evento `transitionend` permite ejecutar JavaScript después de la animación, por lo que se integra bien con el código.
 
