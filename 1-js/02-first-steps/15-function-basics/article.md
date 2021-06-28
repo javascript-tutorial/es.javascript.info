@@ -181,7 +181,7 @@ Para poner los términos claros:
 
 Declaramos funciones listando sus parámetros, luego las llamamos pasándoles argumentos.
 
-En el ejemplo de arriba, se puede decir: "la función `sayMessage` es declarada con dos parámetros, y luego llamada con dos argumentos: `from` y `"Hello"`".
+En el ejemplo de arriba, se puede decir: "la función `showMessage` es declarada con dos parámetros, y luego llamada con dos argumentos: `from` y `"Hello"`".
 
 
 ## Valores predeterminados

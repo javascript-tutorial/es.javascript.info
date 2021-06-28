@@ -77,7 +77,7 @@ Los objetos carecen de muchos métodos que existen para los arrays, p. Ej. `map`
 Si queremos aplicarlos, entonces podemos usar `Object.entries` seguido de `Object.fromEntries`:
 
 1. Use `Object.entries(obj)` para obtener un array de pares propiedad/valor de `obj`.
-2. Use métodos de array en ese array, p.ej. `map`.
+2. Use métodos de array en ese array, p.ej. `map` para transformar estos pares clave/valor.
 3. Use `Object.fromEntries(array)` en el array resultante para convertirlo nuevamente en un objeto.
 
 Por ejemplo, tenemos un objeto con precios y nos gustaría duplicarlos:
@@ -91,12 +91,13 @@ let prices = {
 
 *!*
 let doublePrices = Object.fromEntries(
-  // convertir a array, map, y luego fromEntries nos devuelve el objeto
+  // convertir precios a array, map - cada par clave/valor en otro par
+  // y luego fromEntries nos devuelve el objeto
   Object.entries(prices).map(([key, value]) => [key, value * 2])
 );
 */!*
 
 alert(doublePrices.meat); // 8
-```   
+```
 
 Puede parecer difícil a primera vista, pero se vuelve fácil de entender después de usarlo una o dos veces. Podemos hacer poderosas cadenas de transformaciones de esta manera. 
