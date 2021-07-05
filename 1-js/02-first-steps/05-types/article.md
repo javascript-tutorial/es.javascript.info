@@ -32,13 +32,13 @@ Además de los números comunes, existen los llamados "valores numéricos especi
     Podemos obtenerlo como resultado de la división por cero:
 
     ```js run
-    alert( 1 / 0 ); // Infinito
+    alert( 1 / 0 ); // Infinity
     ```
 
     O simplemente hacer referencia a él directamente:
 
     ```js run
-    alert( Infinity ); // Infinito
+    alert( Infinity ); // Infinity
     ```
 - `NaN` representa un error de cálculo. Es el resultado de una operación matemática incorrecta o indefinida, por ejemplo:
 
