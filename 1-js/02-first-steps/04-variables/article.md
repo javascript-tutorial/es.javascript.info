@@ -8,7 +8,7 @@ Utilizamos las variables para almacenar esta información.
 
 ## Una variable
 
-Una [variable](https://es.wikipedia.org/wiki/Variable_(programaci%C3%B3n)) es un "almacenaje nombrado" para datos. Podemos usar variables para almacenar golosinas, visitantes, y otros datos.
+Una [variable](https://es.wikipedia.org/wiki/Variable_(programaci%C3%B3n)) es un "almacén con un nombre" para guardar datos. Podemos usar variables para almacenar golosinas, visitantes, y otros datos.
 
 
 Para generar una variable en JavaScript, se usa la palabra clave `let`.
