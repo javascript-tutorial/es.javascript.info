@@ -127,8 +127,8 @@ alert( "el resultado es ${1 + 2}" ); // el resultado es ${1 + 2} (las comillas d
 
 En el capítulo <info:string> trataremos más a fondo las cadenas.
 
-```smart header="No existe el tipo *carácter*".
-En algunos lenguajes, hay un tipo especial "carácter" para un solo carácter. Por ejemplo, en el lenguaje C y en Java es `char`.
+```smart header="No existe el tipo *Char*".
+En algunos lenguajes, hay un tipo especial "Char" para un solo carácter. Por ejemplo, en el lenguaje C y en Java es `char`.
 En JavaScript no existe tal tipo. Sólo hay un tipo: `string`. Un string puede estar formado por un solo carácter, por ninguno, o por varios de ellos.
 ```
 
