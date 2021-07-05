@@ -135,7 +135,7 @@ alert(message); // Hola mundo!
 ```
 
 ````warn header="Declarar dos veces lanza un error"
-Una variable debería ser declarada solamente una vez.
+Una variable debe ser declarada solamente una vez.
 
 Una declaración repetida de la misma variable es un error:
 
