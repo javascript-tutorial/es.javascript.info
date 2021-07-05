@@ -46,7 +46,7 @@ let age = prompt ('¿Cuántos años tienes?', 100);
 alert(`Tienes ${age} años!`); //Tienes 100 años!
 ```
 
-````warn header="En IE: siempre proporciona un *predeterminado*"
+````warn header="En IE: proporciónale un *predeterminado* siempre"
 El segundo parámetro es opcional, pero si no lo proporcionamos, Internet Explorer insertará el texto `"undefined"` en el prompt.
 
 Ejecuta este código en Internet Explorer para verlo:
