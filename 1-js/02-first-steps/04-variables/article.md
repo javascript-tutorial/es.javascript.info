@@ -337,7 +337,7 @@ Los minificadores de JavaScript moderno, y los navegadores optimizan el código 
 Podemos declarar variables para almacenar datos al utilizar las palabra clave `var`, `let`, o `const`.
 
 - `let` -- es la forma moderna de declaración de una variable.
-- `var` -- es la declaración de variable de vieja escuela. Normalmente no lo utilizamos en absoluto, aunque cubriremos sus sutiles diferencias con `let` en el capítulo <info:var>, en caso de que sea necesario.
+- `var` -- es la declaración de variable de vieja escuela. Normalmente no lo utilizamos en absoluto. Cubriremos sus sutiles diferencias con `let` en el capítulo <info:var>, por si lo necesitaras.
 - `const` -- es como `let`, pero el valor de la variable no puede ser alterado.
 
 Las variables deben ser nombradas de tal manera que entendamos fácilmente lo que está en su interior.
