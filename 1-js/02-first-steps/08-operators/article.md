@@ -175,7 +175,7 @@ alert( +apples + +oranges ); // 5
 // alert( Number(apples) + Number(oranges) ); // 5
 ```
 
-Desde el punto de vista de un matemático, la abundancia de signos más puede parecer extraña. Pero desde el punto de vista de un programador, no hay nada especial: primero se aplican los signos más unarias, convierten las cadenas en números, y luego el signos más binario las resume.
+Desde el punto de vista de un matemático, la abundancia de signos más puede parecer extraña. Pero desde el punto de vista de un programador no hay nada especial: primero se aplican los signos más unarios que convierten las cadenas en números, y luego el signo más binario los suma.
 
 ¿Por qué se aplican los signos más unarios a los valores antes que los binarios? Como veremos, eso se debe a su *mayor precedencia*.
 
