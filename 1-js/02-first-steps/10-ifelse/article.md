@@ -35,8 +35,7 @@ Recomendamos siempre encerrar nuestro bloque de código entre llaves `{}` siempr
 
 La sentencia `if (…)` evalúa la expresión dentro de sus paréntesis y convierte el resultado en booleano.
 
-Recordemos las reglas de conversión del capítulo.
-<info:type-conversions>:
+Recordemos las reglas de conversión del capítulo <info:type-conversions>:
 
 - El número `0`, un string vacío `""`, `null`, `undefined`, y `NaN` se convierte en `false`. Por esto son llamados valores "falso".
 - El resto de los valores se convierten en  `true`, entonces los llamaremos valores "verdadero".
@@ -134,7 +133,7 @@ La Sintaxis es:
 let result = condition ? value1 : value2;
 ```
 
-La `condition` es evaluada: si es verdadera entonces devuelve `value1` , de lo contrario -- `value2`.
+Se evalúa `condition`: si es verdadera entonces devuelve `value1` , de lo contrario `value2`.
 
 Por ejemplo:
 
@@ -156,11 +155,12 @@ Pero los paréntesis hacen el código mas legible, asi que recomendamos utilizar
 
 ````smart
 En el ejemplo de arriba, podrías evitar utilizar el operador de signo de interrogación porque esta comparación devuelve directamente `true/false`:
-````
+
 ```js
 // es lo mismo que
 let accessAllowed = age > 18;
 ```
+````
 
 ## Múltiples '?'
 
