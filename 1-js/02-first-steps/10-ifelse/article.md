@@ -218,7 +218,7 @@ Aquí no asignamos el resultado de una variable. En vez de esto, ejecutamos dife
 
 **No se recomienda el uso del operador de signo de interrogación de esta forma.**
 
-La notación es mas corta que la sentencia equivalente con `if`, lo cual seduce a algunos programadores. Pero es menos legible.
+La notación es más corta que la sentencia equivalente con `if`, lo cual seduce a algunos programadores. Pero es menos legible.
 
 Aquí está el mismo código utilizando la sentencia `if` para comparar:
 
