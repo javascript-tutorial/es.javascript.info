@@ -41,7 +41,7 @@ Recordemos las reglas de conversión del capítulo.
 - El número `0`, un string vacío `""`, `null`, `undefined`, y `NaN` se convierte en `false`. Por esto son llamados valores "falso".
 - El resto de los valores se convierten en  `true`, entonces los llamaremos valores "verdadero".
 
-Entonces, el código que vemos a continuación nunca se ejecutaría:
+Entonces, el código bajo esta condición nunca se ejecutaría:
 
 ```js
 if (0) { // 0 es falso
@@ -49,7 +49,7 @@ if (0) { // 0 es falso
 }
 ```
 
-...y dentro de esta condición -- siempre se ejecutará:
+...y dentro de esta condición siempre se ejecutará:
 
 ```js
 if (1) { // 1 es verdadero
@@ -67,7 +67,7 @@ if (cond) {
 }
 ```
 
-## La clausula "else"
+## La cláusula "else"
 
 La sentencia `if` quizás contenga un bloque "else" opcional. Este se ejecutará cuando la condición sea falsa.
 
@@ -76,9 +76,9 @@ Por ejemplo:
 let year = prompt('¿En qué año fue publicada la especificación ECMAScript-2015?', '');
 
 if (year == 2015) {
-  alert( '¡Lo adivinaste correcto!' );
+  alert( '¡Lo adivinaste, correcto!' );
 } else {
-  alert( '¿Como te puedes estar tan equivocado?' ); // cualquier valor excepto 2015
+  alert( '¿Cómo puedes estar tan equivocado?' ); // cualquier valor excepto 2015
 }
 ```
 
