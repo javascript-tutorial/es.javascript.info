@@ -205,16 +205,16 @@ Obtenemos estos resultados porque:
 
 ### Evitar los problemas
 
-¿Por qué repasamos estos ejemplos? ¿Deberíamos recordar estas peculiaridades todo el tiempo? Bueno, en realidad no. En realidad, estas cosas difíciles se volverán familiares con el tiempo, pero hay una manera sólida de evadir los problemas con ellas:
+¿Por qué repasamos estos ejemplos? ¿Deberíamos recordar estas peculiaridades todo el tiempo? Bueno, en realidad no. De hecho, estas peculiaridades se volverán familiares con el tiempo, pero hay una manera sólida de evadir los problemas con ellas:
 
-Trata cualquier comparación con `undefined/null` excepto la igualdad estricta `===` con sumo cuidado.
+- Trata cualquier comparación con `undefined/null` (excepto la igualdad estricta `===`) con sumo cuidado.
 
-No uses comparaciones `>= > < <=` con una variable que puede ser `null/undefined`, a menos que estés realmente seguro de lo que estás haciendo. Si una variable puede tener estos valores, verifícalos por separado.
+- No uses comparaciones `>= > < <=` con una variable que puede ser `null/undefined`, a menos que estés realmente seguro de lo que estás haciendo. Si una variable puede tener estos valores, verifícalos por separado.
 
 ## Resumen
 
 - Los operadores de comparación retornan un valor booleano.
 - Las cadenas se comparan letra por letra en el orden del "diccionario".
-- Cuando se comparan valores de diferentes tipos, se convierten en números (con la exclusión de un control de igualdad estricta).
+- Cuando se comparan valores de diferentes tipos, se convierten en números (excepto un control de igualdad estricta).
 - Los valores `null` y `undefined` son iguales `==` entre sí y no equivalen a ningún otro valor.
 - Ten cuidado al usar comparaciones como `>` o `<` con variables que ocasionalmente pueden ser `null/undefined`. Revisar por separado si hay `null/undefined` es una buena idea.
