@@ -2,7 +2,7 @@
 
 Algunas veces, necesitamos ejecutar diferentes acciones basadas en diferentes condiciones.
 
-Para hacer esto, nosotros utilizaremos la sentencia `if` y el operador condicional (ternario) al cual nos referiremos de aquí en adelante como operador de “signo de interrogación” `?` por simplicidad.
+Para esto podemos usar la sentencia `if` y el operador condicional `?`, también llamado operador de “signo de interrogación”.
 
 ## La sentencia "if"
 
@@ -18,7 +18,7 @@ if (year == 2015) alert( '¡Estás en lo cierto!' );
 */!*
 ```
 
-En el ejemplo de arriba, la condición es un simple signo de igualdad (`year == 2015`), pero podría ser mucho mas complejo.
+Aquí la condición es una simple igualdad (`year == 2015`), pero podría ser mucho mas complejo.
 
 Si quisiéramos ejecutar más de una sentencia, debemos encerrar nuestro bloque de código entre llaves:
 
