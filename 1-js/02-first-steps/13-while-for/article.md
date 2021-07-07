@@ -19,7 +19,7 @@ while (condition) {
 
 Mientras la condición `condition` sea verdadera, el `código` del cuerpo del bucle será ejecutado.
 
-Por ejemplo, el bucle debajo imprime `i` mientras `i < 3`:
+Por ejemplo, el bucle debajo imprime `i` mientras se cumpla `i < 3`:
 
 ```js run
 let i = 0;
@@ -29,7 +29,7 @@ while (i < 3) { // muestra 0, luego 1, luego 2
 }
 ```
 
-Cada ejecución del cuerpo del bucle es llamada *una iteración*. El bucle en el ejemplo de arriba realiza 3 iteraciones.
+Cada ejecución del cuerpo del bucle se llama *iteración*. El bucle en el ejemplo de arriba realiza 3 iteraciones.
 
 Si faltara `i++` en el ejemplo de arriba, el bucle sería repetido (en teoría) eternamente. En la práctica, el navegador tiene maneras de detener tales bucles desmedidos; y en el JavaScript del lado del servidor, podemos eliminar el proceso.
 
