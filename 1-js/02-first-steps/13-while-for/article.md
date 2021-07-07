@@ -391,6 +391,6 @@ Cubrimos 3 tipos de bucles:
 
 Para crear un bucle "infinito", usualmente se usa `while(true)`. Un bucle como este, tal y como cualquier otro, puede ser detenido con la directiva `break`.
 
-Si no queremos hacer nada con la iteración actual y queremos adelantarnos a la siguiente, podemos usar la directiva `continue`.
+Si queremos detener la iteración actual y adelantarnos a la siguiente, podemos usar la directiva `continue`.
 
 `break/continue` soportan etiquetas antes del bucle. Una etiqueta es la única forma de usar `break/continue` para escapar de un bucle anidado para ir a uno exterior.
