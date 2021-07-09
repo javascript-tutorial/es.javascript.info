@@ -130,9 +130,9 @@ alert( userName ); // *!*John*/!*, se mantiene, la función no accedió a la var
 ```smart header="Variables globales"
 Variables declaradas fuera de cualquier función, como la variable externa `userName` en el código anterior, se llaman *globales*.
 
-Las variables globales son visibles desde cualquier función (a menos que se oculten por variables locales).
+Las variables globales son visibles desde cualquier función (a menos que se les superpongan variables locales con el mismo nombre).
 
-Es una buena práctica reducir el uso de variables globales. El código moderno tiene pocos o ninguna variable global. La mayoría de las variables residen en sus funciones. Aunque a veces puede ser útil almacenar datos a nivel de proyecto.
+Es una buena práctica reducir el uso de variables globales. El código moderno tiene pocos o ninguna variable global. La mayoría de las variables residen en sus funciones. Aunque a veces puede justificarse almacenar algunos datos a nivel de proyecto.
 ```
 
 ## Parámetros
@@ -196,7 +196,7 @@ showMessage("Ann");
 
 Eso no es un error. La llamada mostraría `"Ann: undefined"`. Como no se pasa un valor de `text`, este se vuelve `undefined`.
 
-Podemos especificar un valor llamado "default" (predeterminado o "por defecto", que se usa si se omite) en la declaración de función usando `=`:
+Podemos especificar un valor llamado "default" (predeterminado o "por defecto", que se usa si fue omitido) en la declaración de función usando `=`:
 
 ```js run
 function showMessage(from, *!*text = "sin texto"*/!*) {
