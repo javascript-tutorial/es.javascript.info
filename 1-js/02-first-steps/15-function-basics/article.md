@@ -196,7 +196,7 @@ showMessage("Ann");
 
 Eso no es un error. La llamada mostraría `"Ann: undefined"`. Como no se pasa un valor de `text`, este se vuelve `undefined`.
 
-Podemos especificar un valor llamado "default" (predeterminado o "por defecto", que se usa si fue omitido) en la declaración de función usando `=`:
+Podemos especificar un valor llamado "predeterminado" o "default" (que se usa si el argumento fue omitido) en la declaración de función usando `=`:
 
 ```js run
 function showMessage(from, *!*text = "sin texto"*/!*) {
@@ -262,7 +262,7 @@ Intérpretes JavaScript modernos soportan el [operador nullish coalescing](info:
 ```js run
 function showCount(count) {
   // si count es undefined o null, muestra "desconocido"
-  alert(count ?? "unknown");
+  alert(count ?? "desconocido");
 }
 
 showCount(0); // 0
