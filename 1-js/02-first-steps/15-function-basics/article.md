@@ -181,7 +181,7 @@ Para poner los términos claros:
 
 Declaramos funciones listando sus parámetros, luego las llamamos pasándoles argumentos.
 
-En el ejemplo de arriba, se puede decir: "la función `showMessage` es declarada con dos parámetros, y luego llamada con dos argumentos: `from` y `"Hello"`".
+En el ejemplo de arriba, se puede decir: "la función `showMessage` es declarada con dos parámetros, y luego llamada con dos argumentos: `from` y `"Hola"`".
 
 
 ## Valores predeterminados
@@ -212,7 +212,7 @@ Aquí `"sin texto"` es un string, pero puede ser una expresión más compleja, l
 
 ```js run
 function showMessage(from, text = anotherFunction()) {
-  // anotherFunction() solo se ejecuta si text no fué asignado
+  // anotherFunction() solo se ejecuta si text no fue asignado
   // su resultado se convierte en el valor de texto
 }
 ```
