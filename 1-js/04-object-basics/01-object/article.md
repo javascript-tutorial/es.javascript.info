@@ -1,7 +1,7 @@
 
 # Objetos
 
-Como aprendimos desde el capítulo <info:types>, hay ocho tipos de datos en JavaScript. Siete de ellos se denominan "primitivos", porque sus valores contienen solo un dato (sea un `string`, un número o lo que sea).
+Como aprendimos en el capítulo <info:types>, hay ocho tipos de datos en JavaScript. Siete de ellos se denominan "primitivos", porque sus valores contienen solo un dato (sea un `string`, un número o lo que sea).
 
 En contraste, los objetos son usados para almacenar colecciones de varios datos y entidades más complejas asociados con un nombre clave. En JavaScript, los objetos penetran casi todos los aspectos del lenguaje. Por lo tanto, debemos comprenderlos primero antes de profundizar en cualquier otro lugar. 
 
@@ -11,7 +11,7 @@ Podemos imaginar un objeto como un gabinete con archivos firmados. Cada pieza de
 
 ![](object.svg)
 
-Se puede crear un objeto vacío ("gabinete vacío") utilizando una de dos sintaxis:
+Se puede crear un objeto vacío ("gabinete vacío") utilizando una de estas dos sintaxis:
 
 ```js
 let user = new Object(); // sintaxis de "constructor de objetos"
@@ -20,7 +20,7 @@ let user = {};  // sintaxis de "objeto literal"
 
 ![](object-user-empty.svg)
 
-Regularmente, se utilizan las llaves `{...}`. Esa declaración se llama *objeto literal*.
+Normalmente se utilizan las llaves `{...}`. Esa declaración se llama *objeto literal*.
 
 ## Literales y propiedades
 
@@ -33,7 +33,7 @@ let user = {     // un objeto
 };
 ```
 
-Una propiedad tiene una clave (también conocida como "nombre" o "identificador") antes de los dos puntos `":"` y un valor a la derecha
+Una propiedad tiene una clave (también conocida como "nombre" o "identificador") antes de los dos puntos `":"` y un valor a la derecha.
 
 En el objeto `user` hay dos propiedades:
 
