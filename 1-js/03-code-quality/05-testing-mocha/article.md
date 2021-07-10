@@ -28,7 +28,7 @@ Vamos a usar una técnica llamada [Desarrollo guiado por comportamiento](https:/
 
 PAra entender BDD, examinaremos un caso de desarrollo práctico:
 
-## Desarrollo de "pow": especificaciones
+## Desarrollo de "pow": Especificación
 
 Digamos que queremos hacer una función `pow(x, n)` que eleve `x` a la potencia de un entero `n`. Asumimos que `n≥0`.
 
@@ -54,10 +54,10 @@ Una spec tiene tres bloques principales, mostrados abajo:
 : Qué funcionalidad estamos describiendo. En nuestro caso estamos describiendo la función `pow`. Utilizado para agrupar los "workers" (trabajadores): los bloques `it`.
 
 `it("titulo", function() { ... })`
-: En el título de `it` introducimos una descripción legible por humanos del caso de uso. El segundo argumento es la función que testea eso.
+: En el título de `it` introducimos una descripción legible del caso de uso. El segundo argumento es la función que testea eso.
 
 `assert.equal(value1, value2)`
-: El código dentro del bloque `it`, que si la implementación es correcta, debe ejecutar sin errores.
+: El código dentro del bloque `it` que, si la implementación es correcta, debe ejecutar sin errores.
 
     Las funciones `assert.*` son usadas para comprobar que `pow` funcione como esperamos. Aquí mismo utilizamos una de ellas: `assert.equal`, que compara argumentos y produce un error si los mismos no son iguales. Arriba se está comprobando que el resultado de `pow(2, 3)` sea igual a `8`. Hay otros tipos de comparaciones y comprobaciones que veremos más adelante.
 
