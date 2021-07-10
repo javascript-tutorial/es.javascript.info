@@ -1,6 +1,6 @@
 # Test automatizados con mocha
 
-Los tests automáticos deben ser considerados como una tarea más, y son ampliamente usados en proyectos reales.
+Los tests automáticos serán usados en tareas que siguen, y son ampliamente usados en proyectos reales.
 
 ## ¿Por qué necesitamos tests?
 
@@ -8,15 +8,15 @@ Cuando escribimos una función, normalmente imaginamos qué debe hacer: Para cie
 
 Durante el desarrollo, podemos comprobar la función ejecutándola y comparando el resultado con la salida esperada. Por ejemplo, podemos hacer eso en la consola.
 
-Si algo está incorrecto -- entonces corregimos el código, ejecutamos de nuevo, comprobamos resultado -- y así sucesivamente hasta que funcione.
+Si algo está incorrecto corregimos el código, ejecutamos de nuevo, comprobamos resultado, y así sucesivamente hasta que funcione.
 
 Pero esas "re-ejecuciones" manuales son imperfectas.
 
 **Cuando testeamos un código re-ejecutándolo manualmente es fácil obviar algo.**
 
-Por ejemplo, estamos creando una función `f`. Escribimos algo de código, testeamos: `f(1)` funciona, pero `f(2)` no funciona. Corregimos el código y ahora funciona `f(2)`. ¿Está completo? Hemos olvidado re-testear `f(1)`. Esto puede resultar error.
+Por ejemplo, estamos creando una función `f`. Escribimos algo de código, testeamos: `f(1)` funciona, pero `f(2)` no funciona. Corregimos el código y ahora funciona `f(2)`. ¿Está completo? Hemos olvidado re-testear `f(1)`. Esto puede llevar a error.
 
-Todo esto es muy típico. Cuando desarrollamos algo, mantenemos muchos casos de uso posibles en la cabeza. Pero es complicado esperar que un/a programador/a compruebe todos después de cada cambio. Por lo que deviene fácil arreglar una cosa y romper otra.
+Todo esto es muy típico. Cuando desarrollamos algo, mantenemos muchos casos de uso posibles en la cabeza. Pero es complicado esperar que un/a programador/a los compruebe a todos después de cada cambio. Por lo que deviene fácil arreglar una cosa y romper otra.
 
 **Los tests automatizados implican escribir los tests por separado, además del código. Ellos ejecutan nuestras funciones de varias formas y comparan los resultados con los esperados.**
 
