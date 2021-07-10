@@ -1,4 +1,4 @@
-# Test automatizados con mocha
+# Test automatizados con Mocha
 
 Los tests automáticos serán usados en tareas que siguen, y son ampliamente usados en proyectos reales.
 
@@ -16,7 +16,7 @@ Pero esas "re-ejecuciones" manuales son imperfectas.
 
 Por ejemplo, estamos creando una función `f`. Escribimos algo de código, testeamos: `f(1)` funciona, pero `f(2)` no funciona. Corregimos el código y ahora funciona `f(2)`. ¿Está completo? Hemos olvidado re-testear `f(1)`. Esto puede llevar a error.
 
-Todo esto es muy típico. Cuando desarrollamos algo, mantenemos muchos casos de uso posibles en la cabeza. Pero es complicado esperar que un/a programador/a los compruebe a todos después de cada cambio. Por lo que deviene fácil arreglar una cosa y romper otra.
+Todo esto es muy típico. Cuando desarrollamos algo, mantenemos muchos casos de uso posibles en la cabeza. Pero es difícil esperar que un/a programador/a los compruebe a todos después de cada cambio. Por lo que deviene fácil arreglar una cosa y romper otra.
 
 **Los tests automatizados implican escribir los tests por separado, además del código. Ellos ejecutan nuestras funciones de varias formas y comparan los resultados con los esperados.**
 
@@ -28,7 +28,7 @@ Vamos a usar una técnica llamada [Desarrollo guiado por comportamiento](https:/
 
 PAra entender BDD, examinaremos un caso de desarrollo práctico:
 
-## Desarrollo de potencia de un número "pow": la especificación
+## Desarrollo de "pow": especificaciones
 
 Digamos que queremos hacer una función `pow(x, n)` que eleve `x` a la potencia de un entero `n`. Asumimos que `n≥0`.
 
@@ -48,24 +48,24 @@ describe("pow", function() {
 });
 ```
 
-Una spec tiene los tres bloques principales mostrados abajo:
+Una spec tiene tres bloques principales, mostrados abajo:
 
 `describe("titulo", function() { ... })`
-: Qué funcionalidad estamos describiendo. En nuestro caso estamos describiendo la función `pow`. Utilizado para agrupar los "workers" (trabajadores) -- los bloques `it`.
+: Qué funcionalidad estamos describiendo. En nuestro caso estamos describiendo la función `pow`. Utilizado para agrupar los "workers" (trabajadores): los bloques `it`.
 
 `it("titulo", function() { ... })`
-: En el título de `it` introducimos una descripción entendible en forma humana del caso de uso. El segundo argumento es la función que testea eso.
+: En el título de `it` introducimos una descripción legible por humanos del caso de uso. El segundo argumento es la función que testea eso.
 
 `assert.equal(value1, value2)`
-: El código dentro del bloque `it`, si la implementación es correcta, debe ejecutar sin errores.
+: El código dentro del bloque `it`, que si la implementación es correcta, debe ejecutar sin errores.
 
-    Las funciones `assert.*` son usadas para comprobar cuando `pow` funciona como esperamos. Justo aquí utilizamos una de ellas -- `assert.equal`, que compara argumentos y produce un error si los mismos no son iguales. Arriba se está comprobando que el resultado de `pow(2, 3)` sea igual a `8`. Hay otros tipos de comparaciones y comprobaciones que veremos más adelante.
+    Las funciones `assert.*` son usadas para comprobar que `pow` funcione como esperamos. Aquí mismo utilizamos una de ellas: `assert.equal`, que compara argumentos y produce un error si los mismos no son iguales. Arriba se está comprobando que el resultado de `pow(2, 3)` sea igual a `8`. Hay otros tipos de comparaciones y comprobaciones que veremos más adelante.
 
 La especificación puede ser ejecutada, y hará los los test dictados en el bloque `it`.  Lo veremos luego.
 
 ## El flujo de desarrollo
 
-El flujo de desarrollo podría asemejarse a:
+El flujo de desarrollo se ve así:
 
 1. Un spec inicial es escrito, con tests para la funcionalidad más básica.
 2. Una implementación inicial es creada.
@@ -79,17 +79,17 @@ De tal forma que el desarrollo es iterativo. Escribimos la especificación, la i
 
 Veamos el flujo de desarrollo en nuestro caso práctico.
 
-El primer paso esta completo: tenemos una spec inicial para `pow`. Ahora, antes de realizar la implementación, usamos algunas librería JavaScript para ejecutar los tests, solo para asegurarnos que funcionen (van a fallar todos).
+El primer paso esta completo: tenemos una spec inicial para `pow`. Ahora, antes de realizar la implementación, usamos algunas librerías JavaScript para ejecutar los tests, solo para asegurarnos que funcionen (van a fallar todos).
 
 ## La spec en acción
 
-En éste tutorial estamos usando las siguientes librerías JavaScript para los tests:
+En este tutorial estamos usando las siguientes librerías JavaScript para los tests:
 
-- [Mocha](http://mochajs.org/) -- el framework central: provee de funciones para test comunes como `describe` e `it` y la función principal que ejecuta los tests.
+- [Mocha](http://mochajs.org/) -- el framework central: provee funciones para test comunes como `describe` e `it` y la función principal que ejecuta los tests.
 - [Chai](http://chaijs.com) -- una librería con muchas funciones de comprobación (assertions). Permite el uso de diferentes comprobaciones. De momento usaremos `assert.equal`.
 - [Sinon](http://sinonjs.org/) -- una librería para espiar funciones. Simula funciones incorporadas al lenguaje y mucho más. La necesitaremos a menudo más adelante.
 
-Estas librerías son adecuadas tanto para tests en el navegador como en el lado del servidor. Aquí nos enfocaremos en el lado del navegador.
+Estas librerías son adecuadas tanto para tests en el navegador como en el lado del servidor. Aquí nos enfocaremos en el navegador.
 
 La página HTML con estos frameworks y la spec de `pow`:
 
@@ -99,7 +99,7 @@ La página HTML con estos frameworks y la spec de `pow`:
 La página puede ser dividida en cinco partes:
 
 1. El `<head>` -- importa librerías de terceros y estilos para los tests.
-2. El `<script>` con la función a comprobar, en nuestro caso -- con el código de `pow`.
+2. El `<script>` con la función a comprobar, en nuestro caso con el código de `pow`.
 3. Los tests -- en nuestro caso un fichero externo `test.js` que contiene un sentencia `describe("pow", ...)`al inicio.
 4. El elemento HTML `<div id="mocha">` utilizado para la salida de los resultados.
 5. Los test se inician con el comando `mocha.run()`.
@@ -200,7 +200,7 @@ function pow(x, n) {
 }
 ```
 
-Para estar seguros de que la función trabaja bien, vamos a hacer comprobaciones para más valores. En lugar de escribir bloques `it`s manualmente, vamos a generarlos con un `for`:
+Para estar seguros de que la función trabaja bien, vamos a hacer comprobaciones para más valores. En lugar de escribir bloques `it` manualmente, vamos a generarlos con un `for`:
 
 ```js
 describe("pow", function() {
@@ -379,18 +379,18 @@ En BDD, la especificación va primero, seguida de la implementación. Al final t
 
 El spec puede ser usado de tres formas:
 
-1. **Tests** garantizan que el código funciona correctamente.
-2. **Docs** -- los títulos de los `describe` e `it` nos dicen que hacen la función.
-3. **Ejemplos** -- los tests son también ejemplos funcionales que muestran como una función puede ser usada.
+1. Como **Tests** garantizan que el código funciona correctamente.
+2. Como **Docs** -- los títulos de los `describe` e `it` nos dicen lo que la función hace.
+3. Como **Ejemplos** -- los tests son también ejemplos funcionales que muestran cómo una función puede ser usada.
 
-Con la especificación, podemos mejorar de forma segura, cambiar, incluso reescribir la función desde cero y estar seguros que seguirá funcionando.
+Con la especificación, podemos mejorar de forma segura, cambiar, incluso reescribir la función desde cero y estar seguros de que seguirá funcionando.
 
 Esto es especialmente importante en proyectos largos cuando una función es usada en muchos sitios. Cuando cambiamos una función, no hay forma manual de comprobar si cada sitio donde se usaba sigue funcionando correctamente.
 
 Sin tests, la gente tiene dos opciones:
 
-1. Realizar el cambio, no importa nada más. Luego nuestros usuarios encontrarán errores porque probablemente fallemos en encontrarlos.
-2. Si el castigo por errores es duro, la gente tendrá miedo de hacer cambios en las funciones. Entonces el código envejecerá, nadie querrá meterse en él y eso no es bueno para el desarrollo.
+1. Realizar el cambio como sea. Luego nuestros usuarios encontrarán errores porque probablemente fallemos en encontrarlos.
+2. O, si el castigo por errores es duro, la gente tendrá miedo de hacer cambios en las funciones. Entonces el código envejecerá, nadie querrá meterse en él y eso no es bueno para el desarrollo.
 
 **¡El test automatizado ayuda a evitar estos problemas!**
 
@@ -406,4 +406,4 @@ En la vida real a veces no es tan fácil. A veces es difícil escribir una espec
 
 En el tutorial encontrarás más adelante muchas tareas respaldadas con pruebas. Veremos más ejemplos prácticos de tests.
 
-Escribir tests requiere un buen conocimiento de JavaScript. Pero nosotros justo acabamos de empezar a aprenderlo. Así que para comenzar no es necesario que escribas tests, pero deberías ser capaz de leerlos incluso si son más complejos que en este capítulo.
+Escribir tests requiere un buen conocimiento de JavaScript. Pero nosotros justo acabamos de empezar a aprenderlo. Así que para comenzar no es necesario que escribas tests, pero ahora eres capaz de leerlos incluso si son más complejos que en este capítulo.
