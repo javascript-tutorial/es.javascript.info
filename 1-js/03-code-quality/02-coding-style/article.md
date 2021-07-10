@@ -277,7 +277,7 @@ Eso es porque al leer el código, primero queremos saber *qué hace*. Si el cód
 
 ## Guías de estilo
 
-Una guía de estilo contiene reglas generales sobre "cómo escribir" el código, cúales comillas usar, cuántos espacios para endentar, la longitud máxima de la línea, etc. Muchas cosas menores.
+Una guía de estilo contiene reglas generales sobre "cómo escribir" el código, cúales comillas usar, cuántos espacios para indentar, la longitud máxima de la línea, etc. Muchas cosas menores.
 
 Cuando todos los miembros de un equipo usan la misma guía de estilo, el código se ve uniforme, independientemente de qué miembro del equipo lo haya escrito.
 
