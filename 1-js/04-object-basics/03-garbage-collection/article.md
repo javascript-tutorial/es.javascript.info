@@ -159,11 +159,11 @@ Los siguientes pasos de "recolección de basura" se realizan regularmente:
 - ...Y así sucesivamente hasta que cada referencia alcanzable (desde las raíces) sean visitadas. 
 - Todos los objetos, excepto los marcados, se eliminan.
 
-Por ejemplo, deja que nuestra estructura de objeto se vea así:
+Si por ejemplo nuestra estructura de objeto se ve así:
 
 ![](garbage-collection-1.svg)
 
-Podemos ver claramente una "isla inalcanzable" al lado derecho. Ahora veamos cómo maneja el recolector de basura "marcar y barrer"(mark-and-sweep).
+Podemos ver claramente una "isla inalcanzable" al lado derecho. Ahora veamos cómo maneja el recolector de basura "marcar y barrer".
 
 El primer paso marca las raíces:
 
@@ -187,11 +187,11 @@ Ese es el concepto de cómo funciona la recolección de basura. El motor de Java
 
 Algunas de las optimizaciones:
 
-- **Colección generacional** -- los objetos se dividen en dos conjuntos: "nuevos" y "antiguos". Aparecen muchos objetos, hacen su trabajo y mueren rápido, se pueden limpiar agresivamente. Aquellos que sobreviven el tiempo suficiente, se vuelven "viejos" y son examinados con menos frecuencia.
-- **Colección incremental** -- Si hay muchos objetos y tratamos de caminar y marcar todo el conjunto de objetos a la vez, puede llevar algún tiempo e introducir retrasos visibles en la ejecución. Entonces el motor intenta dividir la recolección de basura en pedazos. Luego las piezas se ejecutan una por una, por separado. Eso requiere una contabilidad adicional entre ellos para rastrear los cambios, pero tenemos muchos pequeños retrasos en lugar de uno grande.
+- **Colección generacional** -- los objetos se dividen en dos conjuntos: "nuevos" y "antiguos". Aparecen muchos objetos que hacen su trabajo y mueren rápido, estos se pueden limpiar agresivamente. Aquellos que sobreviven el tiempo suficiente, se vuelven "viejos" y son examinados con menos frecuencia.
+- **Colección incremental** -- Si hay muchos objetos y tratamos de recorrer y marcar todo el conjunto de objetos a la vez, puede llevar algún tiempo e introducir retrasos visibles en la ejecución. Entonces el motor intenta dividir la recolección de basura en pedazos. Luego las piezas se ejecutan una por una, por separado. Eso requiere una contabilidad adicional entre ellos para rastrear los cambios, pero tenemos muchos pequeños retrasos en lugar de uno grande.
 - **Recolección de tiempo inactivo** -- el recolector de basura trata de ejecutarse solo mientras la CPU está inactiva, para reducir el posible efecto en la ejecución.
 
-Hay otras optimizaciones y tipos de algoritmos de recolección de basura. Por mucho que me gustaría describirlos aquí, tengo que esperar, porque diferentes motores implementan diferentes ajustes y técnicas. Y, lo que es aún más importante, las cosas cambian a medida que se desarrollan los motores, por lo que probablemente no vale la pena profundizar "por adelantado", sin una necesidad real. A menos que, por supuesto, sea una cuestión de puro interés, a continuación habrá algunos enlaces para tí.
+Hay otras optimizaciones y tipos de algoritmos de recolección de basura. Por mucho que me gustaría describirlos aquí, tengo que evitarlo porque diferentes motores implementan diferentes ajustes y técnicas. Y, lo que es aún más importante, las cosas cambian a medida que se desarrollan los motores, por lo que probablemente no vale la pena profundizar sin una necesidad real. Por supuesto, si tienes verdadero interés, a continuación hay algunos enlaces para tí.
 
 ## Resumen
 
@@ -209,4 +209,4 @@ Si estás familiarizado con la programación de bajo nivel, la información más
 
 [V8 blog](http://v8project.blogspot.com/) también publica artículos sobre cambios en la administración de memoria de vez en cuando. Naturalmente, para aprender la recolección de basura, es mejor que se prepare aprendiendo sobre los componentes internos de V8 en general y lea el blog de [Vyacheslav Egorov](http://mrale.ph) que trabajó como uno de los ingenieros de V8. Estoy diciendo: "V8", porque se cubre mejor con artículos en Internet. Para otros motores, muchos enfoques son similares, pero la recolección de basura difiere en muchos aspectos.
 
-El conocimiento profundo de los motores es bueno cuando necesita optimizaciones de bajo nivel. Sería prudente planificar eso como el siguiente paso después de que esté familiarizado con el idioma.
+Es bueno tener un conocimiento profundo de los motores cuando se necesitan optimizaciones de bajo nivel. Sería prudente planificar eso como el siguiente paso después de que esté familiarizado con el lenguaje.
