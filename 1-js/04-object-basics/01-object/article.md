@@ -424,7 +424,7 @@ Los códigos telefónicos van en orden ascendente porque son números enteros. E
 ````smart header="¿Propiedades de números enteros? ¿Qué es eso?"
 El término "propiedad de números enteros" aquí significa que una cadena se puede convertir a y desde desde un entero sin ningún cambio.
 
-Entonces, "49" es un nombre de propiedad entero, porque cuando este se transforma a un entero y viceversa continua siendo el mismo. Pero "+49" y "1.2" no lo son:
+Entonces, "49" es un nombre de propiedad entero, porque cuando este se transforma a un entero y viceversa continúa siendo el mismo. Pero "+49" y "1.2" no lo son:
 
 ```js run
 // Math.trunc es una función nativa que elimina la parte decimal
