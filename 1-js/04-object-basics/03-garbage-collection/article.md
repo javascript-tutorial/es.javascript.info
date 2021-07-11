@@ -1,6 +1,6 @@
 # Garbage Collection
 
-La gestión de la memoria en JavaScript se realiza de forma automática e invisible para nosotros. Creamos datos primitivos, objetos, funciones... Todo lo que requiere memoria.
+La gestión de la memoria en JavaScript se realiza de forma automática e invisible para nosotros. Creamos datos primitivos, objetos, funciones... Todo ello requiere memoria.
 
 ¿Qué sucede cuando algo no se necesita más? ¿Cómo hace el motor de JavaScript para encontrarlo y limpiarlo?
 
@@ -8,7 +8,7 @@ La gestión de la memoria en JavaScript se realiza de forma automática e invisi
 
 El concepto principal del manejo de memoria en JavaScript es *alcance*.
 
-Simple, los valores "alcanzables" son aquellos que son accesibles o se pueden utilizar de alguna manera. Se garantiza que se guardarán en la memoria.
+Simple, los valores "alcanzables" son aquellos que son accesibles o se pueden utilizar de alguna manera. Se garantiza que serán conservados en la memoria.
 
 1. Hay un conjunto base de valores inherentemente accesibles, que no se pueden eliminar por razones obvias.
  
@@ -23,7 +23,7 @@ Simple, los valores "alcanzables" son aquellos que son accesibles o se pueden ut
 
 2. Cualquier otro valor se considera accesible si es accesible desde una raíz(root) por una referencia o por una cadena de referencias.
 
-    Por ejemplo, si hay un objeto en una variable local, y ese objeto tiene una propiedad que hace referencia a otro objeto, ese objeto se considera accesible. Y aquellos a los que hace referencia también son accesibles. Ejemplos detallados a seguir.
+    Por ejemplo, si hay un objeto en una variable global, y ese objeto tiene una propiedad que hace referencia a otro objeto, ese objeto se considera accesible. Y aquellos a los que hace referencia también son accesibles. Ejemplos detallados a seguir.
 
 Hay un proceso en segundo plano en el motor de JavaScript que se llama [recolector de basura](https://es.wikipedia.org/wiki/Recolector_de_basura). Monitorea todos los objetos y elimina aquellos que se han vuelto inalcanzables.
 
