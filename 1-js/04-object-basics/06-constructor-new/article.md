@@ -213,7 +213,7 @@ john = {
 */
 ```
 
-Para crear objetos complejos, existe una sintaxis más avanzada, [classes](info:classes), que cubriremos más adelante.
+Para crear objetos complejos existe una sintaxis más avanzada, [classes](info:classes), que cubriremos más adelante.
 
 ## Resumen
 
