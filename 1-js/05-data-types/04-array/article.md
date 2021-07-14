@@ -320,7 +320,7 @@ Pero es una mala idea. Existen problemas potenciales con esto:
 
     Existen objetos "simil-array" en el navegador y otros ambientes que *parecen arrays*. Esto es, tienen `length` y propiedades indexadas, pero pueden también tener propiedades no numéricas y métodos que usualmente no necesitemos. Y el bucle `for..in` los listará. Entonces si necesitamos trabajar con objetos simil-array, estas propiedades "extras" pueden volverse un problema.
 
-2. El bucle `for..in` está optimizado para objetos genéricos, no arrays, y es de 10 a 100 veces más lento. Por supuesto es aún muy rápido. La aceleración puede ser solamente cuestión de cuellos de botella. Pero aún necesitamos percatarnos de la diferencia.
+2. El bucle `for..in` está optimizado para objetos genéricos, no para arrays, y es de 10 a 100 veces más lento. Por supuesto es aún muy rápido. Una optimización puede que solo sea importante en cuellos de botella, pero necesitamos ser concientes de la diferencia.
 
 En general, no deberíamos usar `for..in` en arrays.
 
