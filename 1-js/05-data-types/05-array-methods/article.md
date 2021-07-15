@@ -582,9 +582,9 @@ La función pasada a `reduce` utiliza solo 2 argumentos, esto generalmente es su
 
 Veamos los detalles de lo que está pasando.
 
-1. En la primer pasada, `sum` es el valor `initial` (el último argumento de `reduce`), equivale a `0`, y `current` es el primer elemento de array, equivale a `1`. Entonces el resultado de la función es `1`.
+1. En la primera pasada, `sum` es el valor `initial` (el último argumento de `reduce`), equivale a `0`, y `current` es el primer elemento de array, equivale a `1`. Entonces el resultado de la función es `1`.
 2. En la segunda pasada, `sum = 1`, agregamos el segundo elemento del array (`2`) y devolvemos el valor.
-3. En la tercer pasada, `sum = 3` y le agregamos un elemento más, y así sucesivamente...
+3. En la tercera pasada, `sum = 3` y le agregamos un elemento más, y así sucesivamente...
 
 El flujo de cálculos:
 
