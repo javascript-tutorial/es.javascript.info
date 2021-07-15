@@ -148,7 +148,7 @@ La sintaxis es:
 arr.concat(arg1, arg2...)
 ```
 
-Este acepta cualquier número de argumentos --tanto arrays como valores.
+Este acepta cualquier número de argumentos, tanto arrays como valores.
 
 El resultado es un nuevo array que contiene elementos de `arr`, después `arg1`, `arg2` etc.
 
