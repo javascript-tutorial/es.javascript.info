@@ -300,7 +300,7 @@ let user = users.find(item => item.id == 1);
 alert(user.name); // Celina
 ```
 
-En la vida real los arrays de objetos son bastante comúnes por lo que el método `find` resulta muy útil.
+En la vida real los arrays de objetos son bastante comunes por lo que el método `find` resulta muy útil.
 
 Ten en cuenta que en el ejemplo anterior le pasamos a `find` la función `item => item.id == 1` con un argumento. Esto es lo más común, otros argumentos son raramente usados en esta función.
 
