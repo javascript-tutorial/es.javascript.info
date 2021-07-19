@@ -1,4 +1,4 @@
 
-Please note:
-1. We clear `setInterval` timer when the element is removed from the document. That's important, otherwise it continues ticking even if not needed any more. And the browser can't clear the memory from this element and referenced by it.
-2. We can access current date as `elem.date` property. All class methods and properties are naturally element methods and properties.
+Por favor ten en cuenta:
+1. Borramos el temporizador `setInterval` cuando el elemento es quitado del documento. Esto es importante, de otro modo continuará ejecutando aunque no se lo necesite más. Y el navegador no puede liberar la memoria asignada a este elemento.
+2. Podemos acceder a la fecha actual con una propiedad `elem.date`. Todos los métodos de clase y propiedades son naturalmente métodos y propiedades del elemento.
