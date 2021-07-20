@@ -189,7 +189,7 @@ Esto funcionará:
 
 <script>
 *!*
-  // pon el manejador en fase de captura (último argumento cierto)
+  // pon el manejador en fase de captura (último argumento "verdadero")
   form.addEventListener("focus", () => form.classList.add('focused'), true);
   form.addEventListener("blur", () => form.classList.remove('focused'), true);
 */!*
