@@ -107,7 +107,6 @@ Es recomendable tener cuidado al utilizar estos eventos. Si queremos rastrear p�
 Por defecto, muchos elementos no permiten enfoque.
 
 La lista varía un poco entre navegadores, pero una cosa es siempre cierta: `focus/blur` está garantizado para elementos con los que el visitante puede interactuar: `<button>`, 
-`<input>`, `<select>`, `<a>`, etc.
 
 En cambio, elementos que existen para formatear algo, tales como `<div>`, `<span>`, `<table>` -- por defecto no son posibles de enfocar. El método `elem.focus()` no funciona en ellos, y los eventos `focus/blur` no son desencadenados.
 
