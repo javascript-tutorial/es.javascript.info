@@ -196,7 +196,7 @@ Esto funcionará:
 </script>
 ```
 
-Además, existen los eventos `focusin` and `focusout` -- exactamente igual que `focus/blur` pero se propagan.
+Además, existen los eventos `focusin` and `focusout`: exactamente igual que `focus/blur` pero se propagan.
 
 Hay que tener en cuenta que han de asignarse utilizando `elem.addEventListener`, no `on<event>`.
 
