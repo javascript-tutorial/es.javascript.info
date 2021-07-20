@@ -171,7 +171,7 @@ Por ejemplo, no podemos añadir `onfocus` en <form> para resaltarlo, así:
 <style> .focused { outline: 1px solid red; } </style>
 ```
 
-El ejemplo anterior nu funciona porque cuando el usuario enfoca sobre un <input> el evento ´focus´ se inicia solamente sobre esa entrada, no se propaga, por lo que `form.onfocus` nunca se inicia.
+El ejemplo anterior no funciona porque cuando el usuario enfoca sobre un <input> el evento ´focus´ se inicia solamente sobre esa entrada, no se propaga, por lo que `form.onfocus` nunca se inicia.
 
 Existen dos soluciones.
 
