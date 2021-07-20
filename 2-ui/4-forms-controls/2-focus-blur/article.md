@@ -106,15 +106,15 @@ Es recomendable tener cuidado al utilizar estos eventos. Si queremos rastrear p�
 
 Por defecto, muchos elementos no permiten enfoque.
 
-La lista varía un poco entre navegadores, pero una cosa es siempre cierta: `focus/blur` está garantizado para elementos con los que el visitante puede interactuar: `<button>`, 
+La lista varía un poco entre navegadores, pero una cosa es siempre cierta: `focus/blur` está garantizado para elementos con los que el visitante puede interactuar: `<button>`, `<input>`, `<select>`, `<a>`, etc.
 
-En cambio, elementos que existen para formatear algo, tales como `<div>`, `<span>`, `<table>` -- por defecto no son posibles de enfocar. El método `elem.focus()` no funciona en ellos, y los eventos `focus/blur` no son desencadenados.
+En cambio, elementos que existen para formatear algo, tales como `<div>`, `<span>`, `<table>`, por defecto no son posibles de enfocar. El método `elem.focus()` no funciona en ellos, y los eventos `focus/blur` no son desencadenados.
 
 Esto puede ser modificado usando el atributo HTML `tabindex`.
 
 Cualquier elemento se vuelve enfocable si contiene `tabindex`. El valor del atributo es el orden del elemento cuando `key:Tab` (o algo similar) es utilizado para cambiar entre ellos.  
 
-Es decir: si tenemos dos elementos, el primero contiene `tabindex="1"` y el segundo contiene `tabindex="2"`, al presionar `key:Tab` estando situado sobre el primer elemento -- traslada el foco al segundo.
+Es decir: si tenemos dos elementos, el primero contiene `tabindex="1"` y el segundo contiene `tabindex="2"`, al presionar `key:Tab` estando situado sobre el primer elemento se traslada el foco al segundo.
 
 
 El orden de cambio es el siguiente: los elementos con `tabindex` desde "1" en adelante tienen prioridad (en el orden `tabindex`) y después los elementos sin `tabindex` (por ejemplo un <input> estándar). 
@@ -124,7 +124,6 @@ Elementos sin el `tabindex` correspondiente van cambiando en el orden del códig
 Existen dos valores especiales: 
 
 -`tabindex="0"` incluye al elemento entre los que carecen `tabindex`. Esto es, cuando cambiamos entre elementos, elementos con `tabindex="0"` van después de elementos con `tabindex>="1"`.
-`tabindex>="1"`.
 
 Habitualmente se utiliza para hacer que un elemento sea enfocable y a la vez mantener el orden de cambio por defecto intacto. Para hacer que un elemento sea parte del formulario a la par con <input>.
 
