@@ -19,7 +19,7 @@ Utilicémolos para la validación de un campo de entrada.
 En el ejemplo a continuación:
 
 - El manejador `blur` comprueba si se ha introducido un correo, y en caso de que no muestra un error.
-- El manejador `focus` esconde el mensaje de error (en `blur` se volveráa comprobar):
+- El manejador `focus` esconde el mensaje de error (en `blur` se volverá a comprobar):
 
 ```html run autorun height=60
 <style>
