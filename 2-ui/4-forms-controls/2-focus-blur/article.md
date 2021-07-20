@@ -6,7 +6,7 @@ Enfocarse sobre un elemento generalmente significa: "prepárate para aceptar est
 
 El momento de desenfoque ("blur") puede ser incluso más importante. Ocurre cuando un usuario clicka en otro punto o presiona `key:Tab` para ir al siguiente apartado, también hay otras maneras.
 
-Perder el foco o desenfocarse generalmente significa: "los datos ya han sidointroducidos", por lo que podemos correr el código para comprobarlo, para guardarloen el servidor, etc.
+Perder el foco o desenfocarse generalmente significa: "los datos ya han sido introducidos", por lo que podemos correr el código para comprobarlo, para guardarlo en el servidor, etc.
 
 Existen importantes peculiaridades al trabajar con eventos de enfoque. Haremoslo posible para tratarlas a continuación. 
 
