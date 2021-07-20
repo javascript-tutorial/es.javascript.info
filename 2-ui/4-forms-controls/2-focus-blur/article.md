@@ -116,7 +116,6 @@ Cualquier elemento se vuelve enfocable si contiene `tabindex`. El valor del atri
 
 Es decir: si tenemos dos elementos, el primero contiene `tabindex="1"` y el segundo contiene `tabindex="2"`, al presionar `key:Tab` estando situado sobre el primer elemento se traslada el foco al segundo.
 
-
 El orden de cambio es el siguiente: los elementos con `tabindex` desde "1" en adelante tienen prioridad (en el orden `tabindex`) y después los elementos sin `tabindex` (por ejemplo un <input> estándar). 
 
 Elementos sin el `tabindex` correspondiente van cambiando en el orden del código fuente del documento (el orden por defecto).
@@ -145,7 +144,6 @@ Clique sobre el primer ítem y pulse `key:Tab`. Fíjese en el orden. Por favor, 
   :focus { outline: 1px dashed green; }
 </style>
 ```
-
 
 El orden es el siguiente: `1 - 2 - 0`. Normalmente, `<li>` no admite enfocado pero `tabindex` lo habilita, junto con eventos y estilado con `:focus`. 
 
