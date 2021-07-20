@@ -95,8 +95,8 @@ Una pérdida de foco puede ocurrir por diversas razones.
 
 Una de ellas ocurre cuando el visitante clicka en algún otro lado. Pero el propio JavaScript podría causarlo, por ejemplo:
 
--Un `alert` traslada el foco hacia sí mismo, por lo que causa la pérdida de foco sobre el elemento (evento `blur`), y cuando `alert` es desestimado el foco vuelve (evento `focus`).
--Si un elemento es eliminado  de DOM, también causa pérdida de foco. Si es reinsertado el foco no vuelve.
+- Un `alert` traslada el foco hacia sí mismo, por lo que causa la pérdida de foco sobre el elemento (evento `blur`), y cuando `alert` es desestimado el foco vuelve (evento `focus`).
+- Si un elemento es eliminado  de DOM, también causa pérdida de foco. Si es reinsertado el foco no vuelve.
 
 Estas situaciones a veces causan que los manejadores `focus/blur` no funcionen adecuadamente y se activen cuando no son necesarios.
 
@@ -122,11 +122,11 @@ Elementos sin el `tabindex` correspondiente van cambiando en el orden del códig
 
 Existen dos valores especiales: 
 
--`tabindex="0"` incluye al elemento entre los que carecen `tabindex`. Esto es, cuando cambiamos entre elementos, elementos con `tabindex="0"` van después de elementos con `tabindex>="1"`.
+- `tabindex="0"` incluye al elemento entre los que carecen `tabindex`. Esto es, cuando cambiamos entre elementos, elementos con `tabindex="0"` van después de elementos con `tabindex>="1"`.
 
 Habitualmente se utiliza para hacer que un elemento sea enfocable y a la vez mantener el orden de cambio por defecto intacto. Para hacer que un elemento sea parte del formulario a la par con <input>.
 
--`tabindex="-1"` permite sólo enfoque programático sobre un elemento. `key:Tab` ignora esos elementos pero el método `elem.focus()` funciona.
+- `tabindex="-1"` permite sólo enfoque programático sobre un elemento. `key:Tab` ignora esos elementos pero el método `elem.focus()` funciona.
 
 Por ejemplo, he aquí una lista. Clique sobre el primer ítem y pulse `key:Tab`:
 
@@ -219,7 +219,7 @@ Aquí hay otra opción que funciona:
 Los eventos `focus` y `blur` hacen que un elemento se enfoque/pierda el foco.
 
 Se caracterizan por lo siguiente:
--No se propagan. En su lugar se puede capturar el estado o usar `focusin/focusout`.
--La mayoría de los elementos no permiten enfoque por defecto. Utliza `tabindex` para hacer cualquier elemento enfocable.
+- No se propagan. En su lugar se puede capturar el estado o usar `focusin/focusout`.
+- La mayoría de los elementos no permiten enfoque por defecto. Utliza `tabindex` para hacer cualquier elemento enfocable.
 
 El elemento enfocado actualmente se encuentra disponible en `document.activeElement`. 
