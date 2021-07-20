@@ -124,7 +124,7 @@ Elementos sin el `tabindex` correspondiente van cambiando en el orden del códig
 
 Existen dos valores especiales: 
 
--`tabindex="0"` incluye al elemento entre los que carecen `tabindex`. Esto es, cuando cambiamos entre elementos, elementos con `tabindex="0"` van después de elementos con
+-`tabindex="0"` incluye al elemento entre los que carecen `tabindex`. Esto es, cuando cambiamos entre elementos, elementos con `tabindex="0"` van después de elementos con `tabindex>="1"`.
 `tabindex>="1"`.
 
 Habitualmente se utiliza para hacer que un elemento sea enfocable y a la vez mantener el orden de cambio por defecto intacto. Para hacer que un elemento sea parte del formulario a la par con <input>.
