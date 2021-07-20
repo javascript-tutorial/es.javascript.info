@@ -12,7 +12,7 @@ Existen importantes peculiaridades al trabajar con eventos de enfoque. Haremos l
 
 ## Eventos focus/blur
 
-El evento `focus` es llamado al enfocar, y `blur` -- cuando el elemento pierde el foco.
+El evento `focus` es llamado al enfocar, y `blur` cuando el elemento pierde el foco.
 
 Utilicémolos para la validación de un campo de entrada. 
 
