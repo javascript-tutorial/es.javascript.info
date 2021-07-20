@@ -8,7 +8,7 @@ El momento de desenfoque ("blur") puede ser incluso más importante. Ocurre cuan
 
 Perder el foco o desenfocarse generalmente significa: "los datos ya han sido introducidos", por lo que podemos correr el código para comprobarlo, para guardarlo en el servidor, etc.
 
-Existen importantes peculiaridades al trabajar con eventos de enfoque. Haremoslo posible para tratarlas a continuación. 
+Existen importantes peculiaridades al trabajar con eventos de enfoque. Haremos lo posible para abarcarlas a continuación. 
 
 ## Eventos focus/blur
 
