@@ -537,9 +537,9 @@ alert( str ); // Bilbo;Gandalf;Nazgul
 
 ### reduce/reduceRight
 
-Cuando necesitamos iterar sobre un array -- podemos usar `forEach`, `for` or `for..of`.
+Cuando necesitamos iterar sobre un array podemos usar `forEach`, `for` o `for..of`.
 
-Cuando necesitamos iterar y devolver un valor por cada elemento -- podemos usar `map`.
+Cuando necesitamos iterar y devolver un valor por cada elemento podemos usar `map`.
 
 Los métodos [arr.reduce](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/reduce) y [arr.reduceRight](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/reduceRight) también pertenecen a ese grupo de acciones pero son un poco más complejos. Se los utiliza para calcular un único valor a partir del array.
 
