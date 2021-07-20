@@ -4,7 +4,7 @@ Un elemento se enfoca cuando el usuario hace click sobre él o pulsa `key:Tab`en
 
 Enfocarse sobre un elemento generalmente significa: "prepárate para aceptar estos datos", por lo que es el momento en el cual podemos correr el código para inicializar la funcionalidad requerida.
 
-El momento de desenfoque ("blur") puede ser incluso más importante. Ocurre cuandoun usuario clicka en otro punto o presiona `key:Tab` para ir al siguiente apartado, también hay otras maneras.
+El momento de desenfoque ("blur") puede ser incluso más importante. Ocurre cuando un usuario clicka en otro punto o presiona `key:Tab` para ir al siguiente apartado, también hay otras maneras.
 
 Perder el foco o desenfocarse generalmente significa: "los datos ya han sidointroducidos", por lo que podemos correr el código para comprobarlo, para guardarloen el servidor, etc.
 
