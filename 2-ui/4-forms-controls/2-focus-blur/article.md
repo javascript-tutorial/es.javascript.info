@@ -90,7 +90,7 @@ Si introducimos algo en la entrada y luego intentamos pulsar `key:Tab` o hacer c
 
 Por favor tened en cuenta que no podemos "prevenir perder el foco" llamando a `event.preventDefault()` en `onblur`, porque `onblur` funciona *después* de que el elemento haya perdido el foco.
 
-```warn header="JavaScript-initiated focus loss"
+```warn header="Pérdida de foco iniciada por JavaScript"
 Una pérdida de foco puede ocurrir por diversas razones. 
 
 Una de ellas ocurre cuando el visitante clicka en algún otro lado. Pero el propio JavaScript podría causarlo, por ejemplo:
