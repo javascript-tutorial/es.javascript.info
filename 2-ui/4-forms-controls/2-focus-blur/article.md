@@ -98,7 +98,7 @@ Una de ellas ocurre cuando el visitante clicka en algún otro lado. Pero el prop
 -Un `alert` traslada el foco hacia sí mismo, por lo que causa la pérdida de foco sobre el elemento (evento `blur`), y cuando `alert` es desestimado el foco vuelve (evento `focus`).
 -Si un elemento es eliminado  de DOM, también causa pérdida de foco. Si es reinsertado el foco no vuelve.
 
-Estas situaciones a veces causan que los manejadores `focus/blur` no funcionen adecuadamente -- que se activen cuando no son necesarios.
+Estas situaciones a veces causan que los manejadores `focus/blur` no funcionen adecuadamente y se activen cuando no son necesarios.
 
 Es recomendable tener cuidado al utilizar estos eventos. Si queremos rastrear pérdidas de foco iniciadas por el usuario deberíamos evitar causarlas nosotros mismos.
 ```
