@@ -5,7 +5,6 @@ En el desarrollo web nos encontramos con datos binarios sobre todo al tratar con
 Todo esto es posible en JavaScript y las operaciones binarias son de alto rendimiento.
 
 Aunque hay un poco de confusión porque hay muchas clases. Por nombrar algunas:
-
 - `ArrayBuffer`, `Uint8Array`, `DataView`, `Blob`, `File`, etc.
 
 Los datos binarios en JavaScript se implementan de una manera no estándar, en comparación con otros lenguajes. Pero cuando ordenamos las cosas, todo se vuelve bastante sencillo.
@@ -13,7 +12,6 @@ Los datos binarios en JavaScript se implementan de una manera no estándar, en c
 **El objeto binario básico es `ArrayBuffer` -- una referencia a un área de memoria contigua de longitud fija.**
 
 Lo creamos así:
-
 ```js run
 let buffer = new ArrayBuffer(16); // crea un buffer de longitud 16
 alert(buffer.byteLength); // 16
@@ -21,8 +19,7 @@ alert(buffer.byteLength); // 16
 
 Esto asigna un área de memoria contigua de 16 bytes y la rellena previamente con ceros.
 
-```
-warn header="`ArrayBuffer` is not an array of something"
+```warn header="`ArrayBuffer` is not an array of something"
 Eliminemos una posible fuente de confusión. `ArrayBuffer` no tiene nada en común con `Array`:
 - Tiene una longitud fija, no podemos aumentarla ni disminuirla.
 - Ocupa exactamente ese espacio en la memoria.
@@ -101,17 +98,14 @@ new TypedArray();
 2. Si se da un `Array` o cualquier objeto tipo array se crea un array tipado de la misma longitud y se copia el contenido.
 
     Podemos usarlo para pre-llenar el array con los datos:
-
     ```js run
     *!*
     let arr = new Uint8Array([0, 1, 2, 3]);
     */!*
     alert( arr.length ); // 4, creó una matriz binaria de la misma longitud
     alert( arr[1] ); // 1, rellenado con 4 bytes (enteros de 8 bits sin signo) con valores dados
-    ```
-    
+    ```  
 3. Si se suministra otro `TypedArray` hace lo mismo: crea un array tipado de la misma longitud y copia los valores. Los valores se convierten al nuevo tipo en el proceso, si es necesario.
- 
     ```js run
     let arr16 = new Uint16Array([1, 1000]);
     *!*
@@ -121,9 +115,7 @@ new TypedArray();
     alert( arr8[1] ); // 232, trató de copiar 1000, pero no puede encajar 1000 en 8 bits (explicaciones a continuación)
     ```
 
-4. Para un argumento numérico `length` : crea el array tipado para contener ese número de elementos. Su longitud en bytes será `length` multiplicada por el número de bytes de un solo elemento.
-
-    `TypedArray.BYTES_PER_ELEMENT`:
+4. Para un argumento numérico `length` : crea el array tipado para contener ese número de elementos. Su longitud en bytes será `length` multiplicada por el número de bytes de un solo elemento `TypedArray.BYTES_PER_ELEMENT`:
     ```js run
     let arr = new Uint16Array(4); // crea un array tipado para 4 enteros
     alert( Uint16Array.BYTES_PER_ELEMENT ); // 2 bytes por entero
@@ -154,13 +146,11 @@ Esta es la lista de arrays tipados:
 - `Int8Array`, `Int16Array`, `Int32Array` : para números enteros con signo (pueden ser negativos).
 - `Float32Array`, `Float64Array` : para números de punto flotante con signo de 32 y 64 bits.
 
-```
-warn header="No `int8` or similar single-valued types"
-```
-
+```warn header="No `int8` or similar single-valued types"
 Ten en cuenta que a pesar de los nombres como `Int8Array`, no hay ningún tipo de valor único como `int` o `int8` en JavaScript.
 
 Esto es lógico ya que `Int8Array` no es un array de estos valores individuales sino una vista sobre `ArrayBuffer`.
+```
 
 ### Comportamiento fuera de los límites
 
@@ -214,6 +204,8 @@ Hay dos métodos adicionales:
 - `arr.subarray([begin, end])` crea una nueva vista del mismo tipo desde `begin` hasta `end` (exclusivo). Es similar al método `slice` (que también está soportado), pero no copia nada sólo crea una nueva vista, para operar sobre el trozo de datos dado.
 
 Estos métodos nos permiten copiar arrays tipados, mezclarlos, crear nuevos arrays a partir de los existentes, etc.
+
+
 
 ## DataView
 
