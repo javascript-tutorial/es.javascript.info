@@ -93,7 +93,7 @@ new TypedArray();
 
 1. Si se suministra un argumento `ArrayBuffer`, la vista se crea sobre él. Ya usamos esa sintaxis.
 
-    Opcionalmente podemos proporcionar `byteOffset` para empezar (0 por defecto) y la `length` (hasta el final del buffer por defecto), entonces la vista cubrirá sólo una parte del `buffer`.
+    Opcionalmente podemos proporcionar `byteOffset` para empezar (0 por defecto) y la longitud o `length` (hasta el final del buffer por defecto), entonces la vista cubrirá sólo una parte del `buffer`.
 
 2. Si se da un `Array`, o cualquier objeto tipo array, se crea un array tipado de la misma longitud y se copia el contenido.
 
