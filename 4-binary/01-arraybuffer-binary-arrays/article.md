@@ -19,7 +19,7 @@ alert(buffer.byteLength); // 16
 
 Esto asigna un área de memoria contigua de 16 bytes y la rellena previamente con ceros.
 
-```warn header="`ArrayBuffer` is not an array of something"
+```warn header="`ArrayBuffer` no es un array de algo"
 Eliminemos una posible fuente de confusión. `ArrayBuffer` no tiene nada en común con `Array`:
 - Tiene una longitud fija, no podemos aumentarla ni disminuirla.
 - Ocupa exactamente ese espacio en la memoria.
@@ -30,7 +30,7 @@ Eliminemos una posible fuente de confusión. `ArrayBuffer` no tiene nada en com�
 
 **Para manipular un `ArrayBuffer`, necesitamos utilizar un objeto "vista".**
 
-Un objeto vista no almacena nada por sí mismo. Son las "gafas" las que dan una interpretación de los bytes almacenados en el `ArrayBuffer`.
+Un objeto vista no almacena nada por sí mismo. Son "gafas" que le dan una interpretación a los bytes almacenados en el `ArrayBuffer`.
 
 Por ejemplo:
 
@@ -45,7 +45,7 @@ Así, los datos binarios de un `ArrayBuffer` de 16 bytes pueden interpretarse co
 
 `ArrayBuffer` es el objeto central, la raíz de todo, los datos binarios en bruto.
 
-Pero si vamos a escribir en él o a iterar sobre él básicamente para casi cualquier operación, debemos utilizar una vista, por ejemplo:
+Pero si vamos a escribir en él, o iterar sobre él (básicamente, para casi cualquier operación), debemos utilizar una vista. Por ejemplo:
 
 ```js run
 let buffer = new ArrayBuffer(16); // crea un búfer de longitud 16
@@ -95,7 +95,7 @@ new TypedArray();
 
     Opcionalmente podemos proporcionar `byteOffset` para empezar (0 por defecto) y la `length` (hasta el final del buffer por defecto), entonces la vista cubrirá sólo una parte del `buffer`.
 
-2. Si se da un `Array` o cualquier objeto tipo array se crea un array tipado de la misma longitud y se copia el contenido.
+2. Si se da un `Array`, o cualquier objeto tipo array, se crea un array tipado de la misma longitud y se copia el contenido.
 
     Podemos usarlo para pre-llenar el array con los datos:
     ```js run
@@ -135,7 +135,7 @@ De esta forma siempre podemos pasar de una vista a otra:
 ```js
 let arr8 = new Uint8Array([0, 1, 2, 3]);
 
-// otro punto de vista sobre los mismos datos
+// otra vista sobre los mismos datos
 let arr16 = new Uint16Array(arr8.buffer);
 ```
 
@@ -201,7 +201,7 @@ Sin embargo, hay algunas cosas que no podemos hacer:
 Hay dos métodos adicionales:
 
 - `arr.set(fromArr, [offset])` copia todos los elementos de `fromArr` al `arr`, empezando en la posición `offset` (0 por defecto).
-- `arr.subarray([begin, end])` crea una nueva vista del mismo tipo desde `begin` hasta `end` (exclusivo). Es similar al método `slice` (que también está soportado), pero no copia nada sólo crea una nueva vista, para operar sobre el trozo de datos dado.
+- `arr.subarray([begin, end])` crea una nueva vista del mismo tipo desde `begin` hasta `end` (excluyéndolo). Es similar al método `slice` (que también está soportado) pero no copia nada, sólo crea una nueva vista para operar sobre el trozo de datos dado.
 
 Estos métodos nos permiten copiar arrays tipados, mezclarlos, crear nuevos arrays a partir de los existentes, etc.
 
