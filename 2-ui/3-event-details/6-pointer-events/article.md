@@ -243,11 +243,11 @@ La demostración completa:
 
 <p></p>
 
-In the demo, there's also an additional element with `onmouseover` handler showing the current date.
+En el demo, hay un elemento adicional con un controlador `onmouseover` que muestra la fecha actual.
 
-Please note: while you're dragging the thumb, you may hover over this element, and its handler *does not* trigger.
+Nota que mientras arrastras el dial, puedes pasar sobre ese elemento y su controlador *no* se dispara.
 
-So the dragging is now free of side effects, thanks to `setPointerCapture`.
+Entonces el arrastre esta ahora libre de efectos secundarios gracias a `setPointerCapture`.
 ```
 
 
