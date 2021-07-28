@@ -198,7 +198,7 @@ Esta es la lógica de funcionamientodespués de reemplazar eventos de mouse con 
 2. Entonces mueve el puntero: se dispara `pointermove` y nuestro código mueve el botón `thumb` a lo largo.
     - ...Mientras el puntero se mueve, puede salirse del control deslizante: que vaya por debajo o por encima de él. El botón debe moverse de forma estrictamente horizontal, permaneciendo alineado con el puntero.
 
-En la solución basada en eventos de mouse, para rastrear todos los movimientos del puntero, incluyendo aquellos por arriba o por debajo de `thumb`, tuvimoss que asignar el controlador de evento `mousemove` al `document` entero.
+En la solución basada en eventos de mouse, para rastrear todos los movimientos del puntero incluyendo aquellos por arriba o por debajo de `thumb`, asignamos el controlador de evento `mousemove` al `document` entero.
 
 No es la solución más limpia. Uno de los problemas es que cuando el usuario mueve el puntero por el documento puede disparar manejadores de eventos (como `mouseover`) en otros elementos invocando funcionalidad de interfaz completamente sin relación al deslizante.
 
