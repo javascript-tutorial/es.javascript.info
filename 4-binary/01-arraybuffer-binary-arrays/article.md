@@ -131,13 +131,13 @@ Para acceder al `ArrayBuffer`, hay propiedades:
 - `arr.byteLength` : la longitud del `ArrayBuffer`.
 
 De esta forma siempre podemos pasar de una vista a otra:
-
 ```js
 let arr8 = new Uint8Array([0, 1, 2, 3]);
 
 // otra vista sobre los mismos datos
 let arr16 = new Uint16Array(arr8.buffer);
 ```
+
 
 Esta es la lista de arrays tipados:
 
