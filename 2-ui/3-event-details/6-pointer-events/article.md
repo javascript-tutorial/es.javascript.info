@@ -107,7 +107,7 @@ El evento `pointercancel` se dispara cuando hay una interacción de puntero en c
 Las causas son:
 - Se deshabilitó el hardware del dispositivo de puntero.
 - La orientación del dispositivo cambió (tableta rotada).
-- El navegador decidió manejar la interacción por su cuenta, considerándolo un gesto de mouse, una acción de zoom, o alguna otra cosa.
+- El navegador decidió manejar la interacción por su cuenta: considerándolo un gesto de mouse, una acción de zoom, o alguna otra cosa.
 
 Demostraremos `pointercancel` en un ejemplo práctico para ver cómo nos afecta.
 
