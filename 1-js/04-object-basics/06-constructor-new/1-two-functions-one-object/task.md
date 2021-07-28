@@ -4,7 +4,7 @@ importance: 2
 
 # Dos funciones – un objeto
 
-Es posible crear las funciones `A` y `B` como `new A()==new B()`?
+¿Es posible crear las funciones `A` y `B` para que se cumpla `new A() == new B()`?
 
 ```js no-beautify
 function A() { ... }

@@ -46,7 +46,7 @@ alert(3 +
 + 2);
 ```
 
-El código da como resultado `6` porque JavaScript no inserta punto y coma aquí. Es intuitivamente obvio que si la línea termina con un signo más `"+"`, es una "expresión incompleta", por lo que no se requiere el punto y coma. Y en este caso eso funciona según lo previsto.
+El código da como resultado `6` porque JavaScript no inserta punto y coma aquí. Es intuitivamente obvio que si la línea termina con un signo más `"+"`, es una "expresión incompleta", un punto y coma aquí sería incorrecto. Y en este caso eso funciona según lo previsto.
 
 **Pero hay situaciones en las que JavaScript "falla" al asumir un punto y coma donde realmente se necesita.**
 
@@ -56,40 +56,36 @@ Los errores que ocurren en tales casos son bastante difíciles de encontrar y co
 Si tienes curiosidad por ver un ejemplo concreto de tal error, mira este código:
 
 ```js run
-[1, 2].forEach(alert)
+alert("Hello");
+
+[1, 2].forEach(alert);
 ```
 
-No es necesario pensar en el significado de los corchetes `[]` y `forEach` todavía, los estudiaremos más adelante. Por ahora, solo recuerda el resultado del código: muestra `1` luego `2`.
+No es necesario pensar en el significado de los corchetes `[]` y `forEach` todavía, los estudiaremos más adelante. Por ahora, solo recuerda el resultado del código: muestra `Hello`, luego `1`, luego `2`.
 
-Ahora, agreguemos un 'alert' antes del código y *no* terminemos con un punto y coma:
+Quitemos el punto y coma del alert:
 
 ```js run no-beautify
-alert("Habrá un error")
+alert("Hello")
 
-[1, 2].forEach(alert)
+[1, 2].forEach(alert);
 ```
 
-Ahora, si ejecutamos el código, ¡solo se muestra el primer `alert` y luego tenemos un error!
+La diferencia, comparando con el código anterior, es de solo un carácter: falta el punto y coma al final de la primera línea.
 
-Pero todo está bien nuevamente si agregamos un punto y coma después de `alert`:
-```js run
-alert("Todo bien ahora");
+Esta vez, si ejecutamos el código, solo se ve el primer `Hello` (y un error pero necesitas abrir la consola para verlo). Los números no aparecen más.
 
-[1, 2].forEach(alert)
-```
+Esto ocurre porque JavaScript no asume un punto y coma antes de los corchetes `[...]`, entonces el código del primer ejemplo se trata como una sola sentencia.
 
-Ahora tenemos el mensaje "Todo bien ahora" seguido de `1` y `2`.
-
-
-El error en la variante sin punto y coma se produce porque JavaScript no asume un punto y coma antes de los corchetes `[...]`.
-
-Entonces, como el punto y coma no se inserta automáticamente, el código del primer ejemplo se trata como una sola sentencia. Así es como lo ve el motor:
+Así es como lo ve el motor:
 
 ```js run no-beautify
-alert("Habrá un error")[1, 2].forEach(alert)
+alert("Hello")[1, 2].forEach(alert);
 ```
 
-Pero deberían ser dos sentencias separadas, no una. Tal unión en este caso es simplemente incorrecta, de ahí el error. Esto puede suceder en otras situaciones también.
+Se ve extraño, ¿verdad? Tal unión en este caso es simplemente incorrecta. Necesitamos poner un punto y coma después del `alert` para que el código funcione bien.
+
+Esto puede suceder en otras situaciones también.
 ````
 
 Recomendamos colocar puntos y coma entre las sentencias, incluso si están separadas por saltos de línea. Esta regla está ampliamente adoptada por la comunidad. Notemos una vez más que es posible omitir los puntos y coma la mayoría del tiempo. Pero es más seguro, especialmente para un principiante, usarlos.

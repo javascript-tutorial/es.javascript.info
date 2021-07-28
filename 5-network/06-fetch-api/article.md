@@ -147,7 +147,7 @@ Esta opción puede ser útil cuando la URL de `fetch` proviene de un tercero y q
 La opción `credentials` especifica si `fetch` debe enviar cookies y encabezados de autorización HTTP con la solicitud.
 
 - **`"same-origin"`** -- el valor predeterminado, no enviar solicitudes cross-origin,
-- **`"include"`** -- enviar siempre, requiere `Accept-Control-Allow-Credentials` del servidor cross-origin para que JavaScript acceda a la respuesta, que se cubrió en el capítulo <info:fetch-crossorigin>,
+- **`"include"`** -- enviar siempre, requiere `Access-Control-Allow-Credentials` del servidor cross-origin para que JavaScript acceda a la respuesta, que se cubrió en el capítulo <info:fetch-crossorigin>,
 - **`"omit"`** -- nunca enviar, incluso para solicitudes del mismo origen.
 
 ## cache

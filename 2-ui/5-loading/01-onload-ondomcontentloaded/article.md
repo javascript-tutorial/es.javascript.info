@@ -3,7 +3,7 @@
 El ciclo de vida de una página HTML tiene tres eventos importantes:
 
 - `DOMContentLoaded` -- el navegador HTML está completamente cargado y el árbol DOM está construido, pero es posible que los recursos externos como `<img>` y hojas de estilo aún no se hayan cargado.
-- `load` -- no solo se carga el HTML, sino también todos los recursos externos: imágenes, estilos, etc.
+- `load` -- no solo se cargó el HTML, sino también todos los recursos externos: imágenes, estilos, etc.
 - `beforeunload/unload` -- el usuario sale de la pagina.
 
 Cada evento puede ser útil:
@@ -45,7 +45,7 @@ Por ejemplo:
 <img id="img" src="https://en.js.cx/clipart/train.gif?speed=1&cache=0">
 ```
 
-En el ejemplo, el controlador `DOMContentLoaded` se ejecuta cuando se carga el documento, por lo que puede ver todos los elementos, incluido `<img>` a continuación.
+En el ejemplo, el controlador del evento `DOMContentLoaded` se ejecuta cuando el documento está cargado, por lo que puede ver todos los elementos, incluido el `<img>` que está después de él.
 
 Pero no espera a que se cargue la imagen. Entonces, `alert` muestra los tamaños en cero.
 
@@ -53,7 +53,7 @@ A primera vista, el evento `DOMContentLoaded` es muy simple. El árbol DOM está
 
 ### DOMContentLoaded y scripts
 
-Cuando el navegador procesa un documento HTML y se encuentra con una etiqueta `<script>`, debe ejecutarse antes de continuar construyendo el DOM. Esa es una precaución, ya que los scripts pueden querer modificar el DOM, e incluso hacer `document.write` en él, por lo que` DOMContentLoaded` tiene que esperar.
+Cuando el navegador procesa un documento HTML y se encuentra con una etiqueta `<script>`, debe ejecutarla antes de continuar construyendo el DOM. Esa es una precaución, ya que los scripts pueden querer modificar el DOM, e incluso hacer `document.write` en él, por lo que` DOMContentLoaded` tiene que esperar.
 
 Entonces DOMContentLoaded siempre ocurre después de tales scripts:
 
@@ -114,7 +114,7 @@ El siguiente ejemplo muestra correctamente los tamaños de las imágenes, porque
 
 ```html run height=200 refresh
 <script>
-  window.onload = function() { // similar a window.addEventListener('load', (event) => {
+  window.onload = function() { // también puede usar window.addEventListener('load', (event) => {
     alert('Página cargada');
 
     // la imagen es cargada al mismo tiempo

@@ -3,7 +3,24 @@
 
 ¿Qué sucede cuando los objetos se suman `obj1 + obj2`, se restan `obj1 - obj2` o se imprimen utilizando `alert(obj)`?
 
-En ese caso, los objetos se convierten automáticamente en valores primitivos, y luego se lleva a cabo la operación.
+JavaScript no permite exactamente personalizar cómo los operadores trabajan con los objetos. Al contrario de otros lenguajes de programación como Ruby o C++, no podemos implementer un método de objeto especial para manejar una suma (u otros operadores).
+
+En ese caso, los objetos se convierten automáticamente en valores primitivos, y luego se lleva a cabo la operación sobre esos primitivos, y resultan en un valor primitivo.
+
+Esto es una limitación importante, porque el resultado de `obj1 + obj2` ¡no puede ser otro objeto!
+
+Por ejemplo no podemos hacer objetos que representen vectores o matrices (o conquistas o lo que sea), sumarlas y esperar un objeto "sumado" como resultado. Tal objetivo arquitectural cae automáticamente "fuera del tablero".
+
+Como no podemos hacer mucho aquí, no se hace matemáticas con objetos en proyectos reales. Cuando ocurre, usualmente es por un error de código.
+
+En este capítulo cubriremos cómo un objeto se convierte a primitivo y cómo podemos personalizarlo.
+
+Tenemos dos propósitos:
+
+1. Nos permitirá entender qué ocurre en caso de errores de código, cuando tal operación ocurre accidentalmente.
+2. Hay excepciones, donde tales operaciones son posibles y se ven bien. Por ejemplo al restar o comparar fechas (objetos `Date`). Las discutiremos más adelante.
+
+## Reglas de conversión
 
 En el capítulo <info:type-conversions>, hemos visto las reglas para las conversiones de valores primitivos numéricos, strings y booleanos. Pero dejamos un hueco en los objetos. Ahora, como sabemos sobre métodos y símbolos, es posible completarlo.
 
@@ -11,11 +28,11 @@ En el capítulo <info:type-conversions>, hemos visto las reglas para las convers
 2. La conversión numérica ocurre cuando restamos objetos o aplicamos funciones matemáticas. Por ejemplo, los objetos de tipo `Date` (que se cubrirán en el capítulo <info:date>) se pueden restar, y el resultado de `date1 - date2` es la diferencia horaria entre dos fechas.
 3. En cuanto a la conversión de strings : generalmente ocurre cuando imprimimos un objeto como en `alert(obj)` y en contextos similares.
 
-## ToPrimitive
-
 Podemos ajustar la conversión de tipo string y numérica, utilizando métodos especiales del objeto.
 
-Hay tres variantes de conversión de tipos, denominadas "sugerencias", que se describen en la [especificación](https://tc39.github.io/ecma262/#sec-toprimitive):
+Hay tres variantes de conversión de tipos que ocurren en varias situaciones.
+
+Se denominan "hints", "sugerencias", que se describen en la [especificación](https://tc39.github.io/ecma262/#sec-toprimitive):
 
 `"string"`
 : Para una conversión de objeto a string, cuando hacemos una operación que espera un string en un objeto, como `alert`:
@@ -82,10 +99,13 @@ Empecemos por el primer método. Hay un símbolo incorporado llamado `Symbol.toP
 
 ```js
 obj[Symbol.toPrimitive] = function(hint) {
-  // debe regresar un valor primitivo
-  // hint = uno de "string", "number", "default"
+  // aquí va el código para convertir este objeto a un primitivo
+  // debe devolver un valor primitivo
+  // hint = "sugerencia", uno de: "string", "number", "default"
 };
 ```
+
+Si el método `Symbol.toPrimitive` existe, es usado para todos los hints y no serán necesarios más métodos.
 
 Por ejemplo, aquí el objeto `user` lo implementa:
 
@@ -111,12 +131,12 @@ Como podemos ver en el código, `user` se convierte en un string autodescriptivo
 
 ## toString/valueOf
 
+Si no existe `Symbol.toPrimitive` entonces JavaScript trata de encontrar los métodos `toString` y `valueOf`:
+
+- Para una sugerencia "string": `toString`, y si no existe, entonces `valueOf` (así `toString` tiene prioridad en conversiones string.
+- Para otras sugerencias: `valueOf`, y si no existe, entonces `toString` (así `valueOf` tiene prioridad para matemáticas).
+
 Los métodos `toString` y `valueOf` provienen de la antigüedad. No son símbolos (los símbolos no existían en aquel tiempo), sino métodos "regulares" nombrados con strings. Proporcionan una forma alternativa "al viejo estilo" de implementar la conversión.
-
-Si no hay `Symbol.toPrimitive`, JavaScript intenta encontrar las sugerencias e intenta en este orden:
-
-- `toString -> valueOf` para la sugerencia "string".
-- `valueOf -> toString` en caso contrario.
 
 Estos métodos deben devolver un valor primitivo. Si `toString` o `valueOf` devuelve un objeto, entonces se ignora (lo mismo que si no hubiera un método).
 
@@ -136,9 +156,9 @@ alert(user.valueOf() === user); // true
 
 Por lo tanto, si intentamos utilizar un objeto como un string, como en un `alert` o algo así, entonces por defecto vemos `[object Object]`.
 
-Y el `valueOf` predeterminado se menciona aquí solo en favor de la integridad, para evitar confusiones. Como puede ver, devuelve el objeto en sí, por lo que se ignora. No me pregunte por qué, es por razones históricas. Entonces podemos asumir que no existe.
+El `valueOf` predeterminado se menciona aquí solo en favor de la integridad, para evitar confusiones. Como puede ver, devuelve el objeto en sí, por lo que se ignora. No me pregunte por qué, es por razones históricas. Entonces podemos asumir que no existe.
 
-Implementemos estos métodos.
+Implementemos estos métodos para personalizar la conversión.
 
 Por ejemplo, aquí `user` hace lo mismo que el ejemplo anterior utilizando una combinación de `toString` y `valueOf` en lugar de `Symbol.toPrimitive`:
 
@@ -183,7 +203,7 @@ alert(user + 500); // toString -> John500
 
 En ausencia de `Symbol.toPrimitive` y `valueOf`, `toString` manejará todas las conversiones primitivas.
 
-## Tipos de devolución
+### Una conversión puede devolver cualquier tipo primitivo
 
 Lo importante que debe saber acerca de todos los métodos de conversión primitiva es que no necesariamente devuelven la primitiva "sugerida".
 
@@ -237,7 +257,7 @@ alert(obj + 2); // 22 ("2" + 2), la conversión a valor primitivo devolvió un s
 
 La conversión de objeto a valor primitivo es llamada automáticamente por muchas funciones y operadores incorporados que esperan un valor primitivo.
 
-Hay 3 tipos (sugerencias) de esto:
+Hay 3 tipos (hints o sugerencias) de estas:
 - `"string"` (para `alert` y otras operaciones que necesitan un string)
 - `"number"` (para matemáticas)
 - `"default"` (pocos operadores)
@@ -253,3 +273,5 @@ El algoritmo de conversión es:
     - intentar `obj.valueOf()` y `obj.toString()`, lo que exista.
 
 En la práctica, a menudo es suficiente implementar solo `obj.toString()` como un método "general" para todas las conversiones que devuelven una representación "legible por humanos" de un objeto, con fines de registro o depuración.
+
+Como en las operaciones matemáticas, JavaScript no brinda una forma de "sobrescribir" operadores usando métodos. Así que en proyectos de la vida real raramente se los usa en objetos.

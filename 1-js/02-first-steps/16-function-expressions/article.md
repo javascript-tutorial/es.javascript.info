@@ -12,7 +12,7 @@ function sayHi() {
 
 Existe otra sintaxis para crear una función que se llama una *Expresión de Función*. 
 
-Se parece a esto:
+Se ve así:
 
 ```js
 let sayHi = function() {
@@ -62,10 +62,10 @@ Esto es lo que sucede arriba en detalle:
 1. La Declaración de la Función `(1)` crea la función y la coloca dentro de la variable llamada `sayHi`.
 2. Línea`(2)` copia la función en la variable `func`.
 
-Tenga en cuenta de nuevo: no hay paréntesis después de `sayHi`. Si lo hubiera, entonces `func = sayHi()` colocaría *el resultado de la llamada* `sayHi()` en `func`, no *la función* `sayHi` en sí.
-3. Ahora la función puede ser llamada como ambas `sayHi()` y `func()`.
+Aclaremos de nuevo: no hay paréntesis después de `sayHi`. Si lo hubiera, entonces `func = sayHi()` colocaría *el resultado de la llamada* `sayHi()` en `func`, no *la función* `sayHi` en sí.
+3. Ahora la función puede ser llamada de ambas maneras, `sayHi()` y `func()`.
 
-Tenga en cuenta que también podríamos haber utilizado una Expresión de Función para declarar `sayHi`, en la primer línea:
+Tenga en cuenta que también podríamos haber utilizado una Expresión de Función para declarar `sayHi`, en la primera línea:
 
 ```js
 let sayHi = function() {
@@ -79,8 +79,8 @@ let func = sayHi;
 Todo funcionaría igual. 
 
 
-````smart header="Por qué hay un punto y coma al final?"
-Tal vez te preguntes, por qué la Expresión de Función tiene un punto y coma `;` al final, pero la Declaración de Función no:
+````smart header="¿Por qué hay un punto y coma al final?"
+Tal vez te preguntes por qué la Expresión de Función tiene un punto y coma `;` al final, pero la Declaración de Función no:
 
 ```js
 function sayHi() {

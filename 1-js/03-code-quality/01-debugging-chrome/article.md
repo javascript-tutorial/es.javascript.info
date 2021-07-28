@@ -1,4 +1,4 @@
-# Debugging en Chrome
+# Debugging en el navegador
 
 Antes de escribir código más complejo, hablemos de debugging.
 
@@ -63,7 +63,7 @@ Siempre podemos encontrar una lista de los breakpoints en el panel derecho. Esto
 - ...y mucho más.
 
 ```smart header="Breakpoints Condicionales"
-*Click derecho* en el número de línea nos permite crear un breakpoint *condional*. Solo se ejecutará cuando la expresión sea verdadera.
+*Click derecho* en el número de línea nos permite crear un breakpoint *condicional*. Solo se ejecutará cuando la expresión sea verdadera.
 
 Esto es útil cuando necesitamos detener la ejecución para cierto valor de variable o para ciertos parámetros de función.
 ```

@@ -26,7 +26,7 @@ Diferentes motores tienen diferentes "nombres en clave". Por ejemplo:
 
 - [V8](https://es.wikipedia.org/wiki/Chrome_V8) -- en Chrome y Opera.
 - [SpiderMonkey](https://es.wikipedia.org/wiki/SpiderMonkey) -- en Firefox.
-- ...Existen otros nombres en clave como "Trident" and "Chakra" para diferentes versiones de IE (Internet Explorer), "ChakraCore" para Microsoft Edge, "Nitro" y "SquirrelFish" para Safari, etc.
+- ...Existen otros nombres en clave como "Chakra" para IE , "JavaScriptCore", "Nitro" y "SquirrelFish" para Safari, etc.
 
 Los términos anteriores es bueno recordarlos porque son usados en artículos para desarrolladores en internet. También los usaremos. Por ejemplo, si "la característica X es soportada por V8", entonces probablemente funciona en Chrome y Opera.
 
@@ -70,7 +70,7 @@ Ejemplos de tales restricciones incluyen:
     Existen maneras de interactuar con la cámara, micrófono y otros dispositivos, pero eso requiere el permiso explícito del usuario. Por lo tanto, una página habilitada para JavaScript no puede habilitar una cámara web para observar el entorno y enviar la información a la [NSA](https://es.wikipedia.org/wiki/Agencia_de_Seguridad_Nacional).
 - Diferentes pestañas y ventanas generalmente no se conocen entre sí. A veces sí lo hacen, por ejemplo, cuando una ventana usa JavaScript para abrir otra. Pero incluso en este caso, JavaScript no puede acceder a la otra si provienen de diferentes sitios (de diferente dominio, protocolo o puerto).
 
-  Esto es conocido como "política del mismo origen" ("Same Origin Policy"). Para evitar eso, ambas páginas deben contener código especial de JavaScript que permita manejar el intercambio de datos. Cubriremos esto en el tutorial.
+  Esta restricción es conocida como "política del mismo origen" ("Same Origin Policy"). Es posible la comunicación, pero ambas páginas deben acordar el intercambio de datos y contener el código especial de JavaScript que permite controlarlo. Cubriremos esto en el tutorial.
 
     Esta limitación es, de nuevo, para la seguridad del usuario. Una página de `http://anysite.com` la cual el usuario ha abierto no debe ser capaz de acceder a otra pestaña del navegador con la URL `http://gmail.com` y robar información de esta otra página.
 - JavaScript puede fácilmente comunicarse a través de la red con el servidor de donde la página actual proviene. Pero su capacidad para recibir información de otros sitios y dominios esta bloqueada. Aunque sea posible, esto requiere un acuerdo explícito (expresado en los encabezados HTTP) desde el sitio remoto. Una vez más, esto es una limitación de seguridad.
@@ -102,7 +102,7 @@ Esto es algo obvio, porque los proyectos y requerimientos son diferentes para ca
 
 Así que recientemente ha aparecido una gran cantidad de nuevos lenguajes, los cuales son _Convertidos_/_Transpilados_ a JavaScript antes de ser ejecutados en el navegador.
 
-Las herramientas modernas hacen la conversión (Transpilation) muy rápida y transparente, permitiendo a los desarrolladores codificar en otros lenguajes y convertirlo automáticamente detrás de escena.
+Las herramientas modernas hacen la conversión (Transpilación) muy rápida y transparente, permitiendo a los desarrolladores codificar en otros lenguajes y convertirlo automáticamente detrás de escena.
 
 Ejemplos de tales lenguajes:
 

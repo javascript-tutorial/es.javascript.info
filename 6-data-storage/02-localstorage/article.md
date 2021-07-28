@@ -200,7 +200,7 @@ Si ambas ventanas están escuchando el evento `window.onstorage`, cada una reacc
 
 ```js run
 // se dispara en actualizaciones hechas en el mismo almacenaje, desde otros documentos
-window.onstorage = event => {  // igual que en window.addEventListener('storage', event => {
+window.onstorage = event => {  // también puede usar window.addEventListener('storage', event => {
   if (event.key != 'now') return;
   alert(event.key + ':' + event.newValue + " at " + event.url);
 };

@@ -117,15 +117,15 @@ También podríamos mirar `err.name`, así:
 // en lugar de (err instanceof SyntaxError)
 } else if (err.name == "SyntaxError") { // (*)
 // ...
-```  
+```
 
 La versión `instanceof` es mucho mejor, porque en el futuro vamos a extender `ValidationError`, haremos subtipos de ella, como `PropertyRequiredError`. Y el control `instanceof` continuará funcionando para las nuevas clases heredadas. Entonces eso es a prueba de futuro.
 
-También es importante que si `catch` encuentra un error desconocido, entonces lo vuelve a lanzar en la línea `(**)`. El bloque `catch` solo sabe cómo manejar los errores de validación y sintaxis, otros tipos (debido a un error tipográfico en el código u otros desconocidos) deben fallar.
+También es importante que si `catch` encuentra un error desconocido, entonces lo vuelva a lanzar en la línea `(**)`. El bloque `catch` solo sabe cómo manejar los errores de validación y sintaxis, otros tipos de error (como los tipográficos en el código u otros desconocidos) deben "pasar a través" y ser relanzados.
 
 ## Herencia adicional
 
-La clase `ValidationError` es muy genérica. Muchas cosas pueden salir mal. La propiedad puede estar ausente o puede estar en un formato incorrecto (como un valor de cadena para `age`). Hagamos una clase más concreta `PropertyRequiredError`, exactamente para propiedades ausentes. Llevará información adicional sobre la propiedad que falta.
+La clase `ValidationError` es demasiado genérica. Son muchas las cosas que pueden salir mal. La propiedad podría estar ausente, o puede estar en un formato incorrecto (como un valor de cadena para `age` en lugar de un número). Hagamos una clase más concreta `PropertyRequiredError` específicamente para propiedades ausentes. Esta clase llevará información adicional sobre la propiedad que falta.
 
 ```js run
 class ValidationError extends Error {

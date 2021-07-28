@@ -1,6 +1,6 @@
 # ¡Hola, mundo!
 
-Esta parte del tutorial es trata sobre el núcleo de JavaScript, el lenguaje en sí.
+Esta parte del tutorial trata sobre el núcleo de JavaScript, el lenguaje en sí.
 
 Pero necesitamos un entorno de trabajo para ejecutar nuestros scripts y, dado que este libro está en línea, el navegador es una buena opción. Mantendremos la cantidad de comandos específicos del navegador (como `alert`) al mínimo para que no pases tiempo en ellos si planeas concentrarte en otro entorno (como Node.js). Nos centraremos en JavaScript en el navegador en la [siguiente parte](/ui) del tutorial.
 

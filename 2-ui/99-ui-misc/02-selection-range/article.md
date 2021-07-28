@@ -8,19 +8,17 @@ libs:
 
 En este capítulo cubriremos la selección en el documento, así como la selección en campos de formulario, como `<input>`.
 
-JavaScript puede obtener la selección existente, seleccionar/deseleccionar tanto en su totalidad como parcialmente, eliminar la parte seleccionada del documento, envolverla en una etiqueta, etc.
+JavaScript puede acceder una selección existente, seleccionar/deseleccionar nodos DOM tanto en su totalidad como parcialmente, eliminar la parte seleccionada del documento, envolverla en una etiqueta, etc.
 
-Tu podrías usar ahora mismo las recetas que hay al final, En la sección "Resumen". Pero será mucho más beneficioso para ti si lees todo el capítulo. Los objetos subyacentes `Range` y `Selection` son fáciles de captar y, por lo tanto, no necesitará recetas para que hagan lo que deseas.
+Puedes encontrar algunas recetas para tareas comunes al final del artículo, en la sección "Resumen". Pero será mucho más beneficiosa la lectura de todo el capítulo.
+
+Los objetos subyacentes `Range` y `Selection` son fáciles de captar y no necesitarás recetas para que hagan lo que deseas.
 
 ## Range
 
 El concepto básico de selección [Range](https://dom.spec.whatwg.org/#ranges), es básicamente un par de "puntos límite": inicio y fin del rango.
 
-Cada punto es representado como un nodo DOM principal con el desplazamiento relativo desde su inicio. Si el nodo principal es un nodo de elemento, entonces el desplazamiento es un número secundario, para un nodo de texto es la posición en el texto. Ejemplos a continuación.
-
-Seleccionemos algo.
-
-Primero, podemos crear un rango (el constructor no tiene parámetros):
+Un objeto rango se crea sin parámetros:
 
 ```js
 let range = new Range();
@@ -28,13 +26,45 @@ let range = new Range();
 
 Entonces podemos establecer los límites de selección usando `range.setStart(node, offset)` y `range.setEnd(node, offset)`.
 
-Por ejemplo, considere este fragmento de HTML:
+En adelante usaremos objetos `Range` para selección, pero primero creemos algunos de ellos.
+
+### Seleccionando el texto parcialmente
+
+Lo interesante es que el primer argumento `node` en ambos métodos puede ser tanto un nodo de texto o un nodo de elemento, y el significado del segundo argumento depende de ello.
+
+**Si `node` es un nodo de texto, `offset` debe ser la posición en su texto.**
+
+Por ejemplo, dado el elemento `<p>Hello</p>`, podemos crear el rango conteniendo las letras "ll":
+
+```html run
+<p id="p">Hello</p>
+<script>
+  let range = new Range();
+  range.setStart(p.firstChild, 2);
+  range.setEnd(p.firstChild, 4);
+  
+  // toString de un rango devuelve su contenido como un texto
+  console.log(range); // ll
+</script>
+```
+
+Aquí tomamos el primer hijo de `<p>` (que es el nodo de texto) y especificamos la posición del texto dentro de él:
+
+![](range-hello-1.svg)
+
+### Seleccionando nodos de elemento
+
+**Alternativamente, si `node` es un nodo de elemento, `offset` debe ser el número de hijo.** 
+
+Esto es práctico para hacer rangos que contienen nodos como un todo, no detenerse en algún lugar dentro de su texto.
+
+Por ejemplo, tenemos un fragmento de documento más complejo:
 
 ```html autorun
 <p id="p">Example: <i>italic</i> and <b>bold</b></p>
 ```
 
-Aquí está su estructura DOM, tenga en cuenta que aquí los nodos de texto son importantes para nosotros:
+Aquí está su estructura DOM usando ambos, nodos de texto y nodos de elemento:
 
 <div class="select-p-domtree"></div>
 
@@ -72,18 +102,20 @@ let selectPDomtree = {
 drawHtmlTree(selectPDomtree, 'div.select-p-domtree', 690, 320);
 </script>
 
-Seleccionamos `"Example: <i>italic</i>"`. Son los dos primeros hijos de `<p>` (contando nodos de texto):
+Hagamos un rango para `"Example: <i>italic</i>"`.
+
+ Como podemos ver, esta frase consiste de exactamente dos hijos de `<p>` con índices `0` y `1`:
 
 ![](range-example-p-0-1.svg)
 
-- The starting point has `<p>` as the parent `node`, and `0` as the offset.
+- El punto de inicio tiene `<p>` como nodo padre `node`, y `0` como offset.
 
-    So we can set it as `range.setStart(p, 0)`.
-- The ending point also has `<p>` as the parent `node`, but `2` as the offset (it specifies the range up to, but not including `offset`).
+Así que podemos establecerlo como `range.setStart(p, 0)`.
+- El punto final también tiene `<p>` como nodo padre, but `2` como offset (especifica el rango "hasta", pero no incluyendo, `offset`).
 
-    So we can set it as `range.setEnd(p, 2)`.
+    Entonces podemos establecerlo como `range.setEnd(p, 2)`.
 
-Here's the demo. If you run it, you can see that the text gets selected:
+Aquí la demo. Si la ejeutas, puedes ver el texto siendo seleccionado::
 
 ```html run
 <p id="p">Example: <i>italic</i> and <b>bold</b></p>
@@ -104,10 +136,7 @@ Here's the demo. If you run it, you can see that the text gets selected:
 </script>
 ```
 
-- `range.setStart(p, 0)` -- establece el comienzo en el hijo 0 de `<p>` (ese es el nodo de texto `"Example: "`).
-- `range.setEnd(p, 2)` -- abarca el rango hasta (pero sin incluir) el segundo hijo de `<p>` (ese es el nodo de texto `" and "`, pero como el final no está incluido, el último nodo seleccionado es `<i>`).
-
-Aquí hay un banco de pruebas más flexible en el que probar más variantes:
+Aquí hay un banco de pruebas más flexible donde puedes establecer números de principio y fin y explorar otras variantes:
 
 ```html run autorun
 <p id="p">Example: <i>italic</i> and <b>bold</b></p>
@@ -134,7 +163,9 @@ Ej. seleccionando de `1` a `4` da como rango `<i>italic</i> and <b>bold</b>`.
 
 ![](range-example-p-1-3.svg)
 
+```smart header="Los nodos de inicio y final pueden ser diferentes" 
 No tenemos que usar el mismo nodo en `setStart` y `setEnd`. Un rango puede abarcar muchos nodos no relacionados. Solo es importante que el final sea posterior al comienzo.
+```
 
 ### Seleccionar partes de nodos de texto
 
@@ -164,7 +195,13 @@ Necesitamos crear un rango, que:
 </script>
 ```
 
-El objeto de rango tiene las siguientes propiedades:
+Como puedes ver, es fácil hacer un rango con lo que quieras.
+
+Si queremos tomar los nodos como un todo, podemos pasar los elementos en `setStart/setEnd`. Si no, podemos trabajar en el nivel de texto. 
+
+## Propiedades de Range
+
+El objeto rango que creamos arriba tiene las siguientes propiedades:
 
 ![](range-example-p-2-b-3-range.svg)
 
@@ -177,9 +214,12 @@ El objeto de rango tiene las siguientes propiedades:
 - `commonAncestorContainer` -- el ancestro común más cercano de todos los nodos dentro del rango,
   - en el ejemplo anterior: `<p>`
 
-## Métodos de Range
+
+## Métodos de selección de rango
 
 Hay muchos métodos convenientes para manipular rangos.
+
+Ya hemos visto `setStart` y `setEnd`, aquí hay otros métodos similares.
 
 Establecer inicio de rango:
 
@@ -193,27 +233,31 @@ Establecer fin de rango (métodos similares):
 - `setEndBefore(node)` establecer final en: justo antes `node`
 - `setEndAfter(node)` establecer final en: justo después `node`
 
-**Como quedó demostrado, `node` puede ser un nodo de texto o de elemento: para nodos de texto `offset` omite esa cantidad de caracteres, mientras que para los nodos de elementos esa cantidad de nodos secundarios.**
+Técnicamente, `setStart/setEnd` puede hacer cualquier cosa, pero más métodos brindan más conveniencia.
 
-Otros:
+En todos estos métodos `node` puede ser un nodo de texto o de elemento: para nodos de texto `offset` salta esa cantidad de caracteres, mientras que para los nodos de elementos es la cantidad de nodos secundarios.**
+
+Más métodos aún para crear rangos:
 - `selectNode(node)` establecer rango para seleccionar el `node`
 - `selectNodeContents(node)` establecer rango para seleccionar todo el contenido de `node` 
 - `collapse(toStart)` si `toStart=true` establece final=comienzo, de otra manera comienzo=final, colapsando así el rango
 - `cloneRange()` crea un nuevo rango con el mismo inicio/final
 
-Para manipular el contenido dentro del rango:
+## Métodos para edición en el rango:
+
+Una vez creado el rango, podemos manipular su contenido usando estos métodos: 
 
 - `deleteContents()` -- eliminar el contenido de rango del documento
 - `extractContents()` -- eliminar el contenido de rango del documento y lo retorna como [DocumentFragment](info:modifying-document#document-fragment)
 - `cloneContents()` -- clonar el contenido del rango y lo retorna como [DocumentFragment](info:modifying-document#document-fragment)
 - `insertNode(node)` -- inserta `node` en el documento al comienzo del rango
-- `surroundContents(node)` --envuelve `node` alrededor del contenido del rango. Para que esto funcione, el rango debe contener etiquetas de apertura y cierre para todos los elementos dentro de él: no hay rangos parciales como `<i>abc`.
+- `surroundContents(node)` -- envuelve `node` alrededor del contenido del rango. Para que esto funcione, el rango debe contener etiquetas de apertura y cierre para todos los elementos dentro de él, sin rangos parciales como `<i>abc`.
 
 Con estos métodos podemos hacer básicamente cualquier cosa con los nodos seleccionados.
 
 Aquí está el banco de pruebas para verlos en acción:
 
-```html run autorun height=260
+```html run refresh autorun height=260
 Haga clic en los botones para ejecutar métodos en la selección, "resetExample" para restablecerla.
 
 <p id="p">Example: <i>italic</i> and <b>bold</b></p>
@@ -268,24 +312,34 @@ Haga clic en los botones para ejecutar métodos en la selección, "resetExample"
 </script>
 ```
 
-También existen métodos para comparar rangos, pero rara vez se utilizan. Cuando los necesite, consulte el [spec](https://dom.spec.whatwg.org/#interface-range) o [MDN manual](https://developer.mozilla.org/es/docs/Web/API/Range).
+También existen métodos para comparar rangos, pero rara vez se utilizan. Cuando los necesite, consulte el [spec](https://dom.spec.whatwg.org/#interface-range) o [manual MDN](https://developer.mozilla.org/es/docs/Web/API/Range).
 
 
 ## Selection
 
-`Range` es un objeto genérico para gestionar rangos de selección. Podemos crear tales objetos, pasarlos alrededor -- no seleccionan visualmente nada por sí mismos.
+`Range` es un objeto genérico para gestionar rangos de selección. Pero crearlos no significa que podamos ver la selección en la pantalla.
 
-La selección de documentos está representada por el objeto `Selection`, que se puede obtener como `window.getSelection()` o `document.getSelection()`.
+Podemos crear objetos `Range`, pasarlos; no seleccionan nada visualmente por sí mismos.  
 
-Una selección puede incluir cero o más rangos. Al menos, el [Selection API specification](https://www.w3.org/TR/selection-api/) lo dice. Sin embargo, en la práctica, solo Firefox permite seleccionar múltiples rangos en el documento usando `key:Ctrl+click` (`key:Cmd+click` para Mac).
+La selección de documento está representada por el objeto `Selection`, que se puede obtener como `window.getSelection()` o `document.getSelection()` Una selección puede incluir cero o más rangos. Al menos, la [especificación Selection API](https://www.w3.org/TR/selection-api/) lo dice. Sin embargo, en la práctica, solo Firefox permite seleccionar múltiples rangos en el documento usando `key:Ctrl+click` (`key:Cmd+click` para Mac).
 
-Aquí hay una captura de pantalla de una selección con 3 rangos, realizada en Firefox:
+Aquí hay una captura de pantalla de una selección con 3 rangos en Firefox:
 
 ![](selection-firefox.svg)
 
 Otros navegadores admiten un rango máximo de 1. Como veremos, algunos de los métodos de `Selection` implica que puede haber muchos rangos, pero nuevamente, en todos los navegadores excepto Firefox, hay un máximo de 1.
 
+Aquí hay una pequeña demo que muestra la selección actual (selecciona algo y haz clic) como texto:
+
+<button onclick="alert(document.getSelection())">alert(document.getSelection())</button>
+
 ## Propiedades de Selection 
+
+Como dijimos antes, una selección en teoría tiene múltiples rangos. Podemos obtener estos objetos rango usando el método:
+
+- `getRangeAt(i)` -- obtiene el rango "i" comenzando desde `0`. En todos los navegadores excepto Firefox, solo `0` es usado.
+
+También existen propiedades que a menudo brindan conveniencia.
 
 Similar a Range, una selección tiene un inicio, llamado "ancla(anchor)", y un final, llamado "foco(focus)".
 
@@ -298,23 +352,26 @@ Las principales propiedades de selection son:
 - `isCollapsed` -- `true` si la selección no selecciona nada (rango vacío), o no existe.
 - `rangeCount` -- recuento de rangos en la selección, máximo "1" en todos los navegadores excepto Firefox.
 
-````smart header="El final de la selección puede estar en el documento antes del inicio"
-Hay muchas formas de seleccionar el contenido, dependiendo del agente de usuario: mouse, teclas de acceso rápido, toques en un móvil, etc.
+```smart header="Inicio/final, Selection vs. Range"
 
-Algunos de ellos, como un mouse, permiten que se pueda crear la misma selección en dos direcciones: "de izquierda a derecha" y "de derecha a izquierda".
+Hay una diferencia importante entre anchor/focus (ancla/foco) de una selección comparado al inicio/fin de un rango.
 
-Si el inicio (ancla) de la selección va en el documento antes del final (foco), se dice que esta selección tiene una dirección "hacia adelante".
+Sabemos que los objetos `Range` siempre tienen el inicio antes que el final.
+
+En las selecciones, no siempre es así.
+
+Seleccionar algo con el ratón puede hacerse en ambas direcciones: tanto de izquierda a derecha como de deracha a izquierda.
+
+Cuando el botón es presionado, cuando se mueve hacia adelante en el documento, entonces su final (foco) estará después del inicio (ancla).
 
 Ej. si el usuario comienza a seleccionar con el mouse y pasa de "Example" a "italic":
 
 ![](selection-direction-forward.svg)
 
-De lo contrario, si van desde el final de "italic" to "Example", la selección se dirige "hacia atrás", su foco estará antes del ancla:
+...Pero la selección puede hacerse hacia atrás: comenzando por "italic" terminando en "Example", su foco estará antes del ancla:
 
 ![](selection-direction-backward.svg)
-
-Eso es diferente de los objetos `Range` que siempre se dirigen hacia adelante: el inicio del rango no puede ser posterior a su final.
-````
+```
 
 ## Eventos Selection
 
@@ -339,20 +396,21 @@ From <input id="from" disabled> – To <input id="to" disabled>
 
     let {anchorNode, anchorOffset, focusNode, focusOffset} = selection;
 
-    // anchorNode and focusNode are text nodes usually
+    // anchorNode y focusNode usualmente son nodos de texto
     from.value = `${anchorNode?.data}, offset ${anchorOffset}`;
     to.value = `${focusNode?.data}, offset ${focusOffset}`;
   };
 </script>
 ```
 
-### Demostración de obtención de selección
+### Demostración de copia de selección
 
-Para obtener toda la selección:
-- Como texto: solo llama `document.getSelection().toString()`.
-- Como nodos DOM: obtenga los rangos subyacentes y llame a su método `cloneContents()` (solo el primer rango si no admitimos la selección múltiple de Firefox).
+Hay dos enfoques para la copia de contenido seleccionado:
 
-Y aquí está la demostración de cómo obtener la selección como texto y como nodos DOM:
+1. Podemos usar `document.getSelection().toString()` para obtenerlo como texto.
+2. O copiar el DOM entero, por ejemplo si necesitamos mantener el formato, podemos obtener los rangos correspondientes con `getRangesAt(...)`. Un objeto `Range`, a su vez, tiene el método `cloneContents()` que clona su contenido y devuelve un objeto `DocumentFragment`, que podemos insertar en algún otro lugar.
+
+Aquí está la demostración de cómo obtener la selección como texto y como nodos DOM:
 
 ```html run height=100
 <p id="p">Select me: <i>italic</i> and <b>bold</b></p>
@@ -388,7 +446,7 @@ Métodos de selección para agregar/eliminar rangos:
 - `removeAllRanges()` --elimina todos los rangos.
 - `empty()` -- alias para `removeAllRanges`.
 
-Además, existen métodos convenientes para manipular el rango de selección directamente, sin `Range`:
+Además, existen métodos convenientes para manipular el rango de selección directamente, sin llamadas intermedias a `Range`:
 
 - `collapse(node, offset)` -- Reemplazar el rango seleccionado con uno nuevo que comienza y termina en el `node` dado, en posición `offset`.
 - `setPosition(node, offset)` -- alias para `collapse`.

@@ -64,13 +64,14 @@ Ahora si queremos crear otros usuarios, podemos llamar a `new User("Ann")`, `new
 
 Este es el principal propósito del constructor -- implementar código de creación de objetos re-utilizables.
 
-Tomemos nota otra vez -- técnicamente cualquier función puede ser utilizada como constructor. Es decir: cualquier función puede ser ejecutada con `new`, y ejecutará el algoritmo de arriba. La "primera letra mayúscula" es un acuerdo común, para dejar en claro que la función debe ser ejecutada con `new`.
+Tomemos nota otra vez: técnicamente cualquier función (excepto las de flecha pues no tienen this) puede ser utilizada como constructor. Puede ser llamada con `new`, y ejecutará el algoritmo de arriba. La "primera letra mayúscula" es un acuerdo general, para dejar en claro que la función debe ser ejecutada con `new`.
 
 ````smart header="new function() { ... }"
-Si tenemos muchas líneas de código todas sobre la creación de un único objeto complejo, podemos agruparlas en un constructor de función, de ésta manera:
+Si tenemos muchas líneas de código todas sobre la creación de un único objeto complejo, podemos agruparlas en un constructor de función que es llamado inmediatamente de esta manera:
 
 ```js
-let user = new function() {
+// crea una función e inmediatamente la llama con new
+let user = new function() { 
   this.name = "John";
   this.isAdmin = false;
 
@@ -80,18 +81,18 @@ let user = new function() {
 };
 ```
 
-El constructor no puede ser llamado de nuevo porque no es guardado en ninguna parte, sólo es creado y llamado. Por lo tanto este truco apunta a encapsular el código que construye el objeto individual, sin reutilización futura.
+Este constructor no puede ser llamado de nuevo porque no es guardado en ninguna parte, sólo es creado y llamado. Por lo tanto este truco apunta a encapsular el código que construye el objeto individual, sin reutilización futura.
 ````
 
 ## Constructor modo test: new.target
 
 ```smart header="Temas avanzados"
-La sintaxis a partir de esta sección es raramente utilizada, puedes omitirla a menos que quieras saber todo.
+La sintaxis de esta sección es raramente utilizada, puedes omitirla a menos que quieras saber todo.
 ```
 
-Dentro de una función, podemos verificar si ha sido llamada con o sin el `new`, utilizando una propiedad especial `new.target`.
+Dentro de una función, podemos verificar si ha sido llamada con o sin el `new` utilizando una propiedad especial: `new.target`.
 
-Es "undefined" para llamadas normales y es equivalente a la función si es llamada con `new`:
+En las llamadas normales devuelve `undefined`, y cuando es llamada con `new` devuelve la función:
 
 ```js run
 function User() {
@@ -109,9 +110,9 @@ new User(); // function User { ... }
 */!*
 ```
 
-Esto puede ser utilizado dentro de la función para conocer si ha sido llamada con `new`, "en modo constructor ", o sin él, "en modo regular".
+Esto puede ser utilizado dentro de la función para conocer si ha sido llamada con `new`, "en modo constructor "; o sin él, "en modo regular".
 
-También podemos realizar ambas llamadas `new` y regular para que realicen lo mismo, de esta manera:
+También podemos hacer que ambas formas de llamarla, con `new` y "regular", realicen lo mismo:
 
 ```js run
 function User(name) {
@@ -126,17 +127,17 @@ let john = User("John"); // redirige llamado a new User
 alert(john.name); // John
 ```
 
-Este enfoque es utilizado aveces en las librerías para hacer el sintaxis más flexible. Para que la gente pueda llamar a la función con o sin `new`, y aun funciona.
+Este enfoque es utilizado aveces en las librerías para hacer el sintaxis más flexible. Así la gente puede llamar a la función con o sin `new` y aún funciona.
 
 Sin embargo, probablemente no sea algo bueno para usar en todas partes, porque omitir `new` hace que sea un poco menos obvio lo que está sucediendo. Con `new` todos sabemos que se está creando el nuevo objeto.
 
 ## Return desde constructores
 
-Normalmente, los constructores no tienen una sentencia `return`. Su tarea es escribir todo lo necesario al `this`, y automáticamente se convierte en el resultado.
+Normalmente, los constructores no tienen una sentencia `return`. Su tarea es escribir todo lo necesario al `this`, y automáticamente este se convierte en el resultado.
 
 Pero si hay una sentencia `return`, entonces la regla es simple:
 
-- Si `return` es llamado con un objeto, entonces se devuelve el objeto en vez de `this`.
+- Si `return` es llamado con un objeto, entonces se devuelve tal objeto en vez de `this`.
 - Si `return` es llamado con un tipo de dato primitivo, es ignorado.
 
 En otras palabras, `return` con un objeto devuelve ese objeto, en todos los demás casos se devuelve `this`.
@@ -178,7 +179,7 @@ let user = new User; // <-- sin paréntesis
 let user = new User();
 ```
 
-Omitir paréntesis aquí no se considera "buen estilo", pero el sintaxis es permitido por especificación.
+Omitir paréntesis aquí no se considera "buen estilo", pero la especificación permite esa sintaxis.
 ````
 
 ## Métodos en constructor
@@ -212,7 +213,7 @@ john = {
 */
 ```
 
-Para crear objetos complejos, existe una sintaxis más compleja, [classes](info:classes), que cubriremos más adelante.
+Para crear objetos complejos existe una sintaxis más avanzada, [classes](info:classes), que cubriremos más adelante.
 
 ## Resumen
 
@@ -221,10 +222,10 @@ Para crear objetos complejos, existe una sintaxis más compleja, [classes](info:
 
 Podemos utilizar funciones constructoras para crear múltiples objetos similares.
 
-JavaScript proporciona funciones constructoras para varios objetos de lenguaje incorporados: como `Date` para fechas, `Set` para sets (conjuntos) y otros que planeamos estudiar.
+JavaScript proporciona funciones constructoras para varios objetos de lenguaje incorporados: como `Date` para fechas, `Set` para conjuntos y otros que planeamos estudiar.
 
-```smart header="Objetos, volveremos!"
+```smart header="Objetos, ¡volveremos!"
 En este capítulo solo cubrimos los conceptos básicos sobre objetos y constructores. Son esenciales para aprender más sobre tipos de datos y funciones en los próximos capítulos.
 
-Después de aprender eso, volvemos a los objetos y los cubrimos en profundidad en los capítulos <info:prototypes> y <info:classes>.
+Después de aprender aquello, volvemos a los objetos y los cubrimos en profundidad en los capítulos <info:prototypes> y <info:classes>.
 ```

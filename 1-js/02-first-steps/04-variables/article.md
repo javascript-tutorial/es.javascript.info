@@ -8,7 +8,7 @@ Utilizamos las variables para almacenar esta información.
 
 ## Una variable
 
-Una [variable](https://es.wikipedia.org/wiki/Variable_(programaci%C3%B3n)) es un "almacenaje nombrado" para datos. Podemos usar variables para almacenar golosinas, visitantes, y otros datos.
+Una [variable](https://es.wikipedia.org/wiki/Variable_(programaci%C3%B3n)) es un "almacén con un nombre" para guardar datos. Podemos usar variables para almacenar golosinas, visitantes, y otros datos.
 
 
 Para generar una variable en JavaScript, se usa la palabra clave `let`.
@@ -24,7 +24,7 @@ Ahora podemos introducir datos en ella al utilizar el operador de asignación `=
 let message;
 
 *!*
-message = 'Hola'; // almacena la cadena
+message = 'Hola'; // almacenar la cadena 'Hola' en la variable llamada message
 */!*
 ```
 
@@ -135,7 +135,7 @@ alert(message); // Hola mundo!
 ```
 
 ````warn header="Declarar dos veces lanza un error"
-Una variable debería ser declarada solamente una vez.
+Una variable debe ser declarada solamente una vez.
 
 Una declaración repetida de la misma variable es un error:
 
@@ -316,7 +316,7 @@ Algunas reglas buenas para seguir:
 - Use términos legibles para humanos como `userName` p `shoppingCart`.
 - Evite abreviaciones o nombres cortos `a`, `b`, `c`, al menos que en serio sepa lo que está haciendo.
 - Cree nombres que describen al máximo lo que son y sean concisos. Ejemplos que no son adecuados son `data` y `value`. Estos nombres no nos dicen nada. Estos solo está bien usarlos en el contexto de un código que deje excepcionalmente obvio cuál valor o cuales datos está referenciando la variable.
-- Se debe estar de acuerdo cuáles términos utilizara un equipo y uno mismo. Si un visitante se le llamara "user", deberíamos llamar las variables relacionadas `currentUser` o `newUser` en vez de `currentVisitor` o `newManInTown`.
+- Acuerda en tu propia mente y con tu equípo cuáles términos se utilizarán. Si a un visitante se le llamara "user", debemos llamar las variables relacionadas `currentUser` o `newUser` en vez de `currentVisitor` o `newManInTown`.
 
 ¿Suena simple? De hecho lo es, pero no es tan fácil crear nombres de variables descriptivos y concisos a la hora de practicar. Inténtelo.
 
@@ -337,7 +337,7 @@ Los minificadores de JavaScript moderno, y los navegadores optimizan el código 
 Podemos declarar variables para almacenar datos al utilizar las palabra clave `var`, `let`, o `const`.
 
 - `let` -- es la forma moderna de declaración de una variable.
-- `var` -- es la declaración de variable de vieja escuela. Normalmente no lo utilizamos en absoluto, aunque cubriremos sus sutiles diferencias con `let` en el capítulo <info:var>, en caso de que sea necesario.
+- `var` -- es la declaración de variable de vieja escuela. Normalmente no lo utilizamos en absoluto. Cubriremos sus sutiles diferencias con `let` en el capítulo <info:var>, por si lo necesitaras.
 - `const` -- es como `let`, pero el valor de la variable no puede ser alterado.
 
 Las variables deben ser nombradas de tal manera que entendamos fácilmente lo que está en su interior.

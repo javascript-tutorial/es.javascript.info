@@ -2,7 +2,7 @@
 
 Algunas veces, necesitamos ejecutar diferentes acciones basadas en diferentes condiciones.
 
-Para hacer esto, nosotros utilizaremos la sentencia `if` y el operador condicional (ternario) al cual nos referiremos de aquí en adelante como operador de “signo de interrogación” `?` por simplicidad.
+Para esto podemos usar la sentencia `if` y el operador condicional `?`, también llamado operador de “signo de interrogación”.
 
 ## La sentencia "if"
 
@@ -18,7 +18,7 @@ if (year == 2015) alert( '¡Estás en lo cierto!' );
 */!*
 ```
 
-En el ejemplo de arriba, la condición es un simple signo de igualdad (`year == 2015`), pero podría ser mucho mas complejo.
+Aquí la condición es una simple igualdad (`year == 2015`), pero podría ser mucho mas complejo.
 
 Si quisiéramos ejecutar más de una sentencia, debemos encerrar nuestro bloque de código entre llaves:
 
@@ -35,13 +35,12 @@ Recomendamos siempre encerrar nuestro bloque de código entre llaves `{}` siempr
 
 La sentencia `if (…)` evalúa la expresión dentro de sus paréntesis y convierte el resultado en booleano.
 
-Recordemos las reglas de conversión del capítulo.
-<info:type-conversions>:
+Recordemos las reglas de conversión del capítulo <info:type-conversions>:
 
 - El número `0`, un string vacío `""`, `null`, `undefined`, y `NaN` se convierte en `false`. Por esto son llamados valores "falso".
 - El resto de los valores se convierten en  `true`, entonces los llamaremos valores "verdadero".
 
-Entonces, el código que vemos a continuación nunca se ejecutaría:
+Entonces, el código bajo esta condición nunca se ejecutaría:
 
 ```js
 if (0) { // 0 es falso
@@ -49,7 +48,7 @@ if (0) { // 0 es falso
 }
 ```
 
-...y dentro de esta condición -- siempre se ejecutará:
+...y dentro de esta condición siempre se ejecutará:
 
 ```js
 if (1) { // 1 es verdadero
@@ -67,7 +66,7 @@ if (cond) {
 }
 ```
 
-## La clausula "else"
+## La cláusula "else"
 
 La sentencia `if` quizás contenga un bloque "else" opcional. Este se ejecutará cuando la condición sea falsa.
 
@@ -76,9 +75,9 @@ Por ejemplo:
 let year = prompt('¿En qué año fue publicada la especificación ECMAScript-2015?', '');
 
 if (year == 2015) {
-  alert( '¡Lo adivinaste correcto!' );
+  alert( '¡Lo adivinaste, correcto!' );
 } else {
-  alert( '¿Como te puedes estar tan equivocado?' ); // cualquier valor excepto 2015
+  alert( '¿Cómo puedes estar tan equivocado?' ); // cualquier valor excepto 2015
 }
 ```
 
@@ -134,7 +133,7 @@ La Sintaxis es:
 let result = condition ? value1 : value2;
 ```
 
-La `condition` es evaluada: si es verdadera entonces devuelve `value1` , de lo contrario -- `value2`.
+Se evalúa `condition`: si es verdadera entonces devuelve `value1` , de lo contrario `value2`.
 
 Por ejemplo:
 
@@ -156,11 +155,12 @@ Pero los paréntesis hacen el código mas legible, asi que recomendamos utilizar
 
 ````smart
 En el ejemplo de arriba, podrías evitar utilizar el operador de signo de interrogación porque esta comparación devuelve directamente `true/false`:
-````
+
 ```js
 // es lo mismo que
 let accessAllowed = age > 18;
 ```
+````
 
 ## Múltiples '?'
 
@@ -218,7 +218,7 @@ Aquí no asignamos el resultado de una variable. En vez de esto, ejecutamos dife
 
 **No se recomienda el uso del operador de signo de interrogación de esta forma.**
 
-La notación es mas corta que la sentencia equivalente con `if`, lo cual seduce a algunos programadores. Pero es menos legible.
+La notación es más corta que la sentencia equivalente con `if`, lo cual seduce a algunos programadores. Pero es menos legible.
 
 Aquí está el mismo código utilizando la sentencia `if` para comparar:
 

@@ -6,7 +6,7 @@ Ese es en realidad el arte de la programación: tomar una tarea compleja y codif
 
 ## Sintaxis
 
-Aquí hay un cheatsheet con algunas reglas sugeridas (ver abajo para más detalles):
+Aquí hay una hoja de ayuda con algunas reglas sugeridas (ver abajo para más detalles):
 
 ![](code-style.svg)
 <!--
@@ -104,7 +104,7 @@ if (
 }
 ```
 
-La longitud máxima de la línea debe acordarse a nivel de equipo. Suele tener 80 o 120 caracteres.
+La longitud máxima de la línea debe acordarse con el equipo de trabajo. Suele tener 80 o 120 caracteres.
 
 ### Identaciones
 
@@ -145,7 +145,7 @@ Hay dos tipo de identaciones:
     }
     ```
 
-    Insertar una nueva línea extra donde ayude a hacer el código mas legible. No debe de haber más de nueve líneas de código sin una indentación vertical.
+    Insertar una nueva línea extra donde ayude a hacer el código mas legible. No debe haber más de nueve líneas de código sin una indentación vertical.
 
 ### Punto y coma
 
@@ -277,7 +277,7 @@ Eso es porque al leer el código, primero queremos saber *qué hace*. Si el cód
 
 ## Guías de estilo
 
-Una guía de estilo contiene reglas generales sobre "cómo escribir" el código, cúales comillas usar, cuántos espacios para endentar, la longitud máxima de la línea, etc. Muchas cosas menores.
+Una guía de estilo contiene reglas generales sobre "cómo escribir" el código, cúales comillas usar, cuántos espacios para indentar, la longitud máxima de la línea, etc. Muchas cosas menores.
 
 Cuando todos los miembros de un equipo usan la misma guía de estilo, el código se ve uniforme, independientemente de qué miembro del equipo lo haya escrito.
 

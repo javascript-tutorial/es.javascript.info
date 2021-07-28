@@ -37,8 +37,8 @@ alert( 7.3e9 );  // 7.3 billions (tanto 7300000000 como 7_300_000_000)
 En otras palabras, `"e"` multiplica el número por el `1` seguido de la cantidad de ceros dada.
 
 ```js
-1e3 = 1 * 1000 // e3 significa *1000
-1.23e6 = 1.23 * 1000000 // e6 significa *1000000
+1e3 === 1 * 1000; // e3 significa *1000
+1.23e6 === 1.23 * 1000000; // e6 significa *1000000
 ```
 
 Ahora escribamos algo muy pequeño. Digamos 1 microsegundo (un millonésimo de segundo):
@@ -59,10 +59,10 @@ En otras palabras, un número negativo detrás de `"e"` significa una división 
 
 ```js
 // -3 divide por 1 con 3 ceros
-1e-3 = 1 / 1000 (=0.001)
+1e-3 === 1 / 1000; // 0.001
 
 // -6 divide por 1 con 6 ceros
-1.23e-6 = 1.23 / 1000000 (=0.00000123)
+1.23e-6 === 1.23 / 1000000; // 0.00000123
 ```
 
 ### Números hexadecimales, binarios y octales
@@ -118,6 +118,7 @@ Por favor observa que los dos puntos en `123456..toString(36)` no son un error t
 Si pusiéramos un único punto: `123456.toString(36)`, habría un error, porque la sintaxis de JavaScript implica una parte decimal después del primer punto. Al poner un punto más, JavaScript reconoce que la parte decimal está vacía y luego va el método.
 
 También podríamos escribir `(123456).toString(36)`.
+
 ```
 
 ## Redondeo

@@ -1,8 +1,8 @@
-# Operador Nullish coalescing "fusión de nulos" '??'
+# Operador Nullish Coalescing '??'
 
 [recent browser="new"]
 
-El operador "nullish coalescing" se escribe con un doble signo de cierre de interrogación `??`.
+El operador "nullish coalescing" (fusión de null) se escribe con un doble signo de cierre de interrogación `??`.
 
 Como este trata a `null` y a `undefined` de forma similar, usaremos un término particular para ello en este artículo. Diremos que una expresión es `definida` cuando no es `null` ni `undefined`.
 

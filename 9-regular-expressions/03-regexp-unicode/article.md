@@ -18,7 +18,7 @@ Entonces los caracteres como `a` e `≈` ocupan 2 bytes, mientras que los códig
 
 Hace mucho tiempo, cuando se creó el lenguaje JavaScript, la codificación Unicode era más simple: no había caracteres de 4 bytes. Por lo tanto, algunas características del lenguaje aún los manejan incorrectamente.
 
-Por ejemplo, aqui `length` interpreta que hay dos caracteres:
+Por ejemplo, aquí `length` interpreta que hay dos caracteres:
 
 ```js run
 alert('😄'.length); // 2
@@ -88,7 +88,7 @@ Estas son las principales categorías y subcategorías de caracteres:
   - format (formato) `Cf`,
   - not assigned (sin asignación) `Cn`,
   - private use (uso privado) `Co`,
-  - surrogate (sustitudo) `Cs`.
+  - surrogate (sustituto) `Cs`.
 
 Entonces, por ejemplo si necesitamos letras en minúsculas, podemos escribir `pattern:\p{Ll}`, signos de puntuación: `pattern:\p{P}` y así sucesivamente.
 
@@ -106,7 +106,7 @@ Unicode admite muchas propiedades diferentes, la lista completa es muy grande, e
 
 ### Ejemplo: números hexadecimales
 
-Por ejemplo, busquemos números hexadecimales, como `xFF`, donde` F` es un dígito hexadecimal (0..1 o A..F).
+Por ejemplo, busquemos números hexadecimales, escritos como `xFF` donde` F` es un dígito hexadecimal (0..9 o A..F).
 
 Un dígito hexadecimal se denota como `pattern:\p{Hex_Digit}`:
 

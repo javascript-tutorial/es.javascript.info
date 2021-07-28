@@ -14,7 +14,7 @@ let messages = [
 ];
 ```
 
-La pregunta ahora es: ¿qué estructura de datos es la adecuada para almacenar la información: "cuando se leyó el mensaje?".
+La pregunta ahora es: ¿qué estructura de datos es la adecuada para almacenar la información: "¿cuándo se leyó el mensaje?".
 
 En la tarea anterior solo necesitábamos almacenar el hecho de "sí / no". Ahora necesitamos almacenar la fecha, y solo debe permanecer en la memoria hasta que el mensaje sea recolectado como basura.
 

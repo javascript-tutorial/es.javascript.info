@@ -116,7 +116,7 @@ class CoffeeMachine {
 let coffeeMachine = new CoffeeMachine(100);
 
 // agregar agua
-coffeeMachine.waterAmount = -10; // Error: Agua en negativo
+coffeeMachine.waterAmount = -10; // _waterAmount se vuelve 0, no -10
 ```
 
 Ahora el acceso está bajo control, por lo que establecer una cantidad de agua por debajo de cero se volvió imposible.
@@ -191,7 +191,7 @@ Hay una propuesta de JavaScript terminada, casi en el estándar, que proporciona
 
 Los privados deberían comenzar con `#`. Solo son accesibles desde dentro de la clase.
 
-Por ejemplo, aquí hay una propiedad privada `#waterLimit` y el método privado de control de agua `#checkWater`:
+Por ejemplo, aquí hay una propiedad privada `#waterLimit` y el método privado de control de agua `#fixWaterAmount`:
 
 ```js run
 class CoffeeMachine {

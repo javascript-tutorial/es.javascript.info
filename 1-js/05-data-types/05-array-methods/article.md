@@ -148,7 +148,7 @@ La sintaxis es:
 arr.concat(arg1, arg2...)
 ```
 
-Este acepta cualquier número de argumentos --tanto arrays como valores.
+Este acepta cualquier número de argumentos, tanto arrays como valores.
 
 El resultado es un nuevo array que contiene elementos de `arr`, después `arg1`, `arg2` etc.
 
@@ -300,7 +300,7 @@ let user = users.find(item => item.id == 1);
 alert(user.name); // Celina
 ```
 
-En la vida real los arrays de objetos son bastante comúnes por lo que el método `find` resulta muy útil.
+En la vida real los arrays de objetos son bastante comunes por lo que el método `find` resulta muy útil.
 
 Ten en cuenta que en el ejemplo anterior le pasamos a `find` la función `item => item.id == 1` con un argumento. Esto es lo más común, otros argumentos son raramente usados en esta función.
 
@@ -537,9 +537,9 @@ alert( str ); // Bilbo;Gandalf;Nazgul
 
 ### reduce/reduceRight
 
-Cuando necesitamos iterar sobre un array -- podemos usar `forEach`, `for` or `for..of`.
+Cuando necesitamos iterar sobre un array podemos usar `forEach`, `for` o `for..of`.
 
-Cuando necesitamos iterar y devolver un valor por cada elemento -- podemos usar `map`.
+Cuando necesitamos iterar y devolver un valor por cada elemento podemos usar `map`.
 
 Los métodos [arr.reduce](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/reduce) y [arr.reduceRight](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/reduceRight) también pertenecen a ese grupo de acciones pero son un poco más complejos. Se los utiliza para calcular un único valor a partir del array.
 
@@ -582,9 +582,9 @@ La función pasada a `reduce` utiliza solo 2 argumentos, esto generalmente es su
 
 Veamos los detalles de lo que está pasando.
 
-1. En la primer pasada, `sum` es el valor `initial` (el último argumento de `reduce`), equivale a `0`, y `current` es el primer elemento de array, equivale a `1`. Entonces el resultado de la función es `1`.
+1. En la primera pasada, `sum` es el valor `initial` (el último argumento de `reduce`), equivale a `0`, y `current` es el primer elemento de array, equivale a `1`. Entonces el resultado de la función es `1`.
 2. En la segunda pasada, `sum = 1`, agregamos el segundo elemento del array (`2`) y devolvemos el valor.
-3. En la tercer pasada, `sum = 3` y le agregamos un elemento más, y así sucesivamente...
+3. En la tercera pasada, `sum = 3` y le agregamos un elemento más, y así sucesivamente...
 
 El flujo de cálculos:
 

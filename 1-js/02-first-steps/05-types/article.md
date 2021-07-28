@@ -15,7 +15,7 @@ message = 123456;
 Los lenguajes de programación que permiten estas cosas, como JavaScript, se denominan "dinámicamente tipados", lo que significa que allí hay tipos de datos, pero las variables no están vinculadas rígidamente a ninguno de ellos.
 
 
-## Número
+## Number
 ```js
 let n = 123;
 n = 12.345;
@@ -32,13 +32,13 @@ Además de los números comunes, existen los llamados "valores numéricos especi
     Podemos obtenerlo como resultado de la división por cero:
 
     ```js run
-    alert( 1 / 0 ); // Infinito
+    alert( 1 / 0 ); // Infinity
     ```
 
     O simplemente hacer referencia a él directamente:
 
     ```js run
-    alert( Infinity ); // Infinito
+    alert( Infinity ); // Infinity
     ```
 - `NaN` representa un error de cálculo. Es el resultado de una operación matemática incorrecta o indefinida, por ejemplo:
 
@@ -64,7 +64,7 @@ Los valores numéricos especiales pertenecen formalmente al tipo "número". Por 
 
 Veremos más sobre el trabajo con números en el capítulo <info:number>.
 
-## BigInt
+## BigInt [#bigint-type]
 
 En JavaScript, el tipo "number" no puede representar valores enteros mayores que <code>(2<sup>53</sup>-1)</code> (eso es `9007199254740991`), o menor que <code>-(2<sup>53</sup>-1)</code> para negativos. Es una limitación técnica causada por su representación interna.
 
@@ -90,7 +90,7 @@ En este momento, `BigInt` es compatible con Firefox / Chrome / Edge / Safari, pe
 Puedes revisar la [tabla de compatibilidad de BigInt en *MDN*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt#Browser_compatibility) para saber qué versiones de navegador tienen soporte.
 
 ## String
-Un string (cadena de caracteres) en JavaScript debe colocarse entre comillas.
+Un *string* en JavaScript es una cadena de caracteres y debe colocarse entre comillas.
 
 ```js
 let str = "Hola";
@@ -132,9 +132,9 @@ En algunos lenguajes, hay un tipo especial "carácter" para un solo carácter. P
 En JavaScript no existe tal tipo. Sólo hay un tipo: `string`. Un string puede estar formado por un solo carácter, por ninguno, o por varios de ellos.
 ```
 
-## Booleano (tipo lógico)
+## Boolean (tipo lógico)
 
-El tipo booleano tiene sólo dos valores: `true` y `false`.
+El tipo *boolean* tiene sólo dos valores posibles: `true` y `false`.
 
 Este tipo se utiliza comúnmente para almacenar valores de sí/no: `true` significa "sí, correcto, verdadero", y `false` significa "no, incorrecto, falso".
 
@@ -198,7 +198,7 @@ alert(age); // "undefined"
 
 ...Pero no recomendamos hacer eso. Normalmente, usamos `null` para asignar un valor "vacío" o "desconocido" a una variable, mientras `undefined` es un valor inicial reservado para cosas que no han sido asignadas.
 
-## Objetos y símbolos
+## Object y Symbol
 
 El tipo `object` (objeto) es especial.
 

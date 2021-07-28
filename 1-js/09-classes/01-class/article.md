@@ -66,7 +66,7 @@ La notación aquí no debe ser confundida con la sintaxis de objeto literal. Den
 
 Entonces, ¿qué es exactamente `class`? No es una entidad completamente nueva a nivel de lenguaje como uno podría pensar.
 
-Develemos la magia y veamos lo que realmente es una clase. Ayudará a entender muchos aspectos complejos.
+Desvelemos la magia y veamos lo que realmente es una clase. Ayudará a entender muchos aspectos complejos.
 
 En JavaScript, una clase es un tipo de función.
 

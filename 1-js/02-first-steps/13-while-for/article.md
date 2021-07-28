@@ -17,9 +17,9 @@ while (condition) {
 }
 ```
 
-Mientras que la `condition` (condición) sea `true`, el `código` del cuerpo del bucle será ejecutado.
+Mientras la condición `condition` sea verdadera, el `código` del cuerpo del bucle será ejecutado.
 
-Por ejemplo, el bucle debajo imprime `i` mientras que `i < 3`:
+Por ejemplo, el bucle debajo imprime `i` mientras se cumpla `i < 3`:
 
 ```js run
 let i = 0;
@@ -29,18 +29,18 @@ while (i < 3) { // muestra 0, luego 1, luego 2
 }
 ```
 
-Una sola ejecución del cuerpo del bucle es llamada *una iteración*. El bucle en el ejemplo de arriba realiza 3 iteraciones.
+Cada ejecución del cuerpo del bucle se llama *iteración*. El bucle en el ejemplo de arriba realiza 3 iteraciones.
 
-Si `i++` no estuviera en el ejemplo de arriba, el bucle sería repetido (en teoría) eternamente. En la practica, el navegador proporciona maneras de detener dichos bucles, y en el JavaScript del lado del servidor, podemos eliminar el proceso.
+Si faltara `i++` en el ejemplo de arriba, el bucle sería repetido (en teoría) eternamente. En la práctica, el navegador tiene maneras de detener tales bucles desmedidos; y en el JavaScript del lado del servidor, podemos eliminar el proceso.
 
-Cualquier expresión o variable puede ser una condición del bucle, no solo comparaciones: la condición será evaluada y transformada a un booleano por `while`.
+Cualquier expresión o variable puede usarse como condición del bucle, no solo las comparaciones: El `while` evaluará y transformará la condición a un booleano.
 
 Por ejemplo, una manera más corta de escribir `while (i != 0)` es `while (i)`:
 
 ```js run
 let i = 3;
 *!*
-while (i) { // cuando i sea 0, la condición será un valor falso, y el bucle se detendrá
+while (i) { // cuando i sea 0, la condición se volverá falsa y el bucle se detendrá
 */!*
   alert( i );
   i--;
@@ -60,7 +60,7 @@ while (i) alert(i--);
 
 ## El bucle "do..while"
 
-La comprobación de la condición puede ser movida *debajo* del cuerpo del bucle usando la sintaxis de `do..while`:
+La comprobación de la condición puede ser movida *debajo* del cuerpo del bucle usando la sintaxis `do..while`:
 
 ```js
 do {
@@ -80,16 +80,16 @@ do {
 } while (i < 3);
 ```
 
-Esta sintaxis solo debería ser usada cuando quieres que el cuerpo del bucle sea ejecutado **al menos una vez** sin importar que la condición sea verdadera. Usualmente, se prefiere la otra forma: `while(…) {…}`.
+Esta sintaxis solo debe ser usada cuando quieres que el cuerpo del bucle sea ejecutado **al menos una vez** sin importar que la condición sea verdadera. Usualmente, se prefiere la otra forma: `while(…) {…}`.
 
 ## El bucle "for"
 
-El bucle `for` es el bucle más comúnmente usado.
+El bucle `for` es más complejo, pero también el más usado.
 
 Se ve así:
 
 ```js
-for (begin; condition; step) {
+for (begin; condition; step) { // (comienzo, condición, paso)
   // ... cuerpo del bucle ...
 }
 ```
@@ -107,9 +107,9 @@ Vamos a examinar la declaración `for` parte por parte:
 | parte  |          |                                                                            |
 |-------|----------|----------------------------------------------------------------------------|
 | comienzo | `i = 0`    | Se ejecuta una vez al comienzo del bucle.                         |
-| condición | `i < 3`| Comprobada antes de cada iteración del bucle. Si es falsa, el bucle se detiene.             |
-| paso | `i++`      | Se ejecuta después del cuerpo en cada iteración pero antes de la comprobación de la condición. |
-| cuerpo | `alert(i)`| Se ejecuta una y otra vez mientras que la condición sea verdadera.                         |
+| condición | `i < 3`| Comprobada antes de cada iteración del bucle. Si es falsa, el bucle finaliza.             |
+| cuerpo | `alert(i)`| Se ejecuta una y otra vez mientras la condición sea verdadera.                         |
+| paso | `i++`      | Se ejecuta después del cuerpo en cada iteración. |
 
 El algoritmo general del bucle funciona de esta forma:
 ```
@@ -163,11 +163,11 @@ alert(i); // 3, visible, porque fue declarada fuera del bucle
 ````
 
 
-### Saltando partes
+### Omitiendo partes
 
-Cualquier parte de `for` puede ser saltada.
+Cualquier parte de `for` puede ser omitida.
 
-Por ejemplo, podemos omitir `comenzar` si no necesitamos realizar nada al comienzo del bucle.
+Por ejemplo, podemos quitar `comienzo` si no necesitamos realizar nada al inicio del bucle.
 
 Como aquí:
 
@@ -203,11 +203,11 @@ Por favor, nota que los dos punto y coma `;` del `for` deben estar presentes. De
 
 ## Rompiendo el bucle
 
-Normalmente, se sale de un bucle cuando la condición es falsa.
+Normalmente, se sale de un bucle cuando la condición se vuelve falsa.
 
 Pero podemos forzar una salida en cualquier momento usando la directiva especial `break`.
 
-Por ejemplo, el bucle debajo le pide al usuario por una serie de números, "rompiendo" cuando un número no es ingresado:
+Por ejemplo, el bucle debajo le pide al usuario por una serie de números, "rompiéndolo" cuando un número no es ingresado:
 
 ```js
 let sum = 0;
@@ -232,7 +232,7 @@ La combinación "bucle infinito + `break` según sea necesario" es ideal en situ
 
 ## Continuar a la siguiente iteración [#continue]
 
-La directiva `continue` es una "versión más ligera" de `break`. No detiene todo el bucle. En su lugar, detiene la iteración actual y fuerza al bucle a comenzar una nueva (si la condición lo permite).
+La directiva `continue` es una "versión más ligera" de `break`. No detiene el bucle completo. En su lugar, detiene la iteración actual y fuerza al bucle a comenzar una nueva (si la condición lo permite).
 
 Podemos usarlo si hemos terminado con la iteración actual y nos gustaría movernos a la siguiente.
 
@@ -269,7 +269,7 @@ Pero como efecto secundario, esto crearía un nivel más de anidación (la llama
 ````
 
 ````warn header="No `break/continue` a la derecha de '?'"
-Por favor, nota que las construcciones de sintaxis que no son expresiones no pueden user usadas con el operador ternario `?`. En particular, directivas como `break/continue` no son permitidas aquí.
+Por favor, nota que las construcciones sintácticas que no son expresiones no pueden user usadas con el operador ternario `?`. En particular, directivas como `break/continue` no son permitidas aquí.
 
 Por ejemplo, si tomamos este código:
 
@@ -288,7 +288,7 @@ if (i > 5) {
 (i > 5) ? alert(i) : *!*continue*/!*; // continue no está permitida aquí
 ```
 
-...deja de funcionar. Código como este generarán un error de sintaxis: 
+...deja de funcionar. Código como este generará un error de sintaxis: 
 
 
 Esta es otra razón por la cual se recomienda no usar el operador de signo de interrogación `?` en lugar de `if`.
@@ -298,7 +298,7 @@ Esta es otra razón por la cual se recomienda no usar el operador de signo de in
 
 A veces necesitamos salirnos de múltiples bucles anidados al mismo tiempo.
 
-Por ejemplo, en el código debajo nosotros usamos un bucle sobre `i` y `j`, solicitando las coordenadas `(i,j)` de `(0,0)` a `(3,3)`:
+Por ejemplo, en el código debajo usamos un bucle sobre `i` y `j`, solicitando las coordenadas `(i,j)` de `(0,0)` a `(3,3)`:
 
 ```js run no-beautify
 for (let i = 0; i < 3; i++) {
@@ -319,7 +319,7 @@ Necesitamos una manera de detener el proceso si el usuario cancela la entrada.
 
 El `break` ordinario después de `input` solo nos sacaría del bucle interno. Eso no es suficiente. ¡Etiquetas, vengan al rescate!
 
-Una *etiqueta* es un identificar con dos puntos antes de un bucle:
+Una *etiqueta* es un identificador con un ":" antes de un bucle:
 ```js
 labelName: for (...) {
   ...
@@ -391,6 +391,6 @@ Cubrimos 3 tipos de bucles:
 
 Para crear un bucle "infinito", usualmente se usa `while(true)`. Un bucle como este, tal y como cualquier otro, puede ser detenido con la directiva `break`.
 
-Si no queremos hacer nada con la iteración actual y queremos adelantarnos a la siguiente, podemos usar la directiva `continue`.
+Si queremos detener la iteración actual y adelantarnos a la siguiente, podemos usar la directiva `continue`.
 
 `break/continue` soportan etiquetas antes del bucle. Una etiqueta es la única forma de usar `break/continue` para escapar de un bucle anidado para ir a uno exterior.
