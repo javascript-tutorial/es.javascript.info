@@ -26,15 +26,9 @@ La Estación Espacial Internacional:
 
 ...Y esta cosa vuela, ¡mantiene a los humanos vivos en el espacio!
 
-<<<<<<< HEAD
 ¿Cómo se crean dispositivos tan complejos?
 
-¿Qué principios podríamos tomar prestados para que nuestro desarrollo sea fiable y escalable al mismo nivel? O, por lo menos, cerca de él.
-=======
-How are such complex devices created?
-
-Which principles could we borrow to make our development same-level reliable and scalable? Or, at least, close to it?
->>>>>>> ef8d576821ff28c69bfb7410dc79fd216b0a315b
+¿Qué principios podríamos tomar prestados para que nuestro desarrollo sea fiable y escalablea a ese nivel? ¿O, al menos, cerca de él?
 
 ## Arquitectura de componentes
 
