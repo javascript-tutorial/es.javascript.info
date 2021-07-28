@@ -146,7 +146,7 @@ Esta es la lista de arrays tipados:
 - `Int8Array`, `Int16Array`, `Int32Array` : para números enteros con signo (pueden ser negativos).
 - `Float32Array`, `Float64Array` : para números de punto flotante con signo de 32 y 64 bits.
 
-```warn header="No `int8` or similar single-valued types"
+```warn header="No existe `int8` o tipos de valor único similares"
 Ten en cuenta que a pesar de los nombres como `Int8Array`, no hay ningún tipo de valor único como `int` o `int8` en JavaScript.
 
 Esto es lógico ya que `Int8Array` no es un array de estos valores individuales sino una vista sobre `ArrayBuffer`.
