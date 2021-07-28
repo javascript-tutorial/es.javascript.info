@@ -194,11 +194,7 @@ alert(Object.keys(user)); // name
 
 Los indicadores no configurables (`configurable:false`) a veces es un preajuste para los objetos propiedades incorporadas.
 
-<<<<<<< HEAD
-Una propiedad no configurable no puede ser eliminada ni cambiada por `defineProperty`.
-=======
-A non-configurable property can't be deleted, its attributes can't be modified.
->>>>>>> ef8d576821ff28c69bfb7410dc79fd216b0a315b
+Una propiedad no configurable no puede ser eliminada, sus atributos no pueden ser modificados.
 
 Por ejemplo, `Math.PI` es de solo lectura, no enumerable y no configurable:
 
@@ -218,35 +214,23 @@ alert( JSON.stringify(descriptor, null, 2 ) );
 Así que, un programador es incapaz de cambiar el valor de `Math.PI` o sobrescribirlo.
 
 ```js run
-Math.PI = 3; // Error, because it has writable: false
+Math.PI = 3; // Error, porque tiene writable: false
 
 // delete Math.PI tampoco funcionará
 ```
 
-<<<<<<< HEAD
-Convertir una propiedad en no configurable es hacer una calle de una vía. No podremos cambiarla de vuelta, porque `defineProperty` no funciona en propiedades no configurables.
-
-Para ser precisos, la no configurabilidad impone varias restricciones a `defineProperty`:
-1. No se puede cambiar el indicador `configurable`.
-2. No se puede cambiar el indicador `enumerable`.
-3. No se puede cambiar `writable: false` a `true` (al revés funciona).
-4. No se puede cambiar `get/set` por una propiedad accesoria (pero puede asignarlos si está ausente).
-
-**La idea de "configurable: false" es prevenir cambios en los indicadores de la propiedad y su eliminación mientras que permite el cambio de su valor.**
-=======
-We also can't change `Math.PI` to be `writable` again:
+Tampoco podemos cambiar `Math.PI`a `writable` de vuelta:
 
 ```js run
-// Error, because of configurable: false
+// Error, porque configurable: false
 Object.defineProperty(Math, "PI", { writable: true });
 ```
 
-There's absolutely nothing we can do with `Math.PI`.
+No hay nada en absoluto que podamos hacer con `Math.PI`.
 
-Making a property non-configurable is a one-way road. We cannot change it back with `defineProperty`.
+Convertir una propiedad en no configurable es una calle de un solo sentido. No podremos cambiarla de vuelta con `defineProperty`.
 
-**Please note: `configurable: false` prevents changes of property flags and its deletion, while allowing to change its value.**
->>>>>>> ef8d576821ff28c69bfb7410dc79fd216b0a315b
+**Nota que "configurable: false" impide cambios en los indicadores de la propiedad y su eliminación, pero permite el cambio de su valor.**
 
 Aquí `user.name` es "non-configurable", pero aún puede cambiarse (por ser "writable"):
 
@@ -263,11 +247,7 @@ user.name = "Pete"; // funciona
 delete user.name; // Error
 ```
 
-<<<<<<< HEAD
-Y aquí hacemos `user.name` una constante "sellada para siempre":
-=======
-And here we make `user.name` a "forever sealed" constant, just like the built-in `Math.PI`:
->>>>>>> ef8d576821ff28c69bfb7410dc79fd216b0a315b
+Y aquí hacemos `user.name` una constante "sellada para siempre", tal como la incorporada `Math.PI`:
 
 ```js run
 let user = {
@@ -286,10 +266,10 @@ delete user.name;
 Object.defineProperty(user, "name", { value: "Pedro" });
 ```
 
-```smart header="The only attribute change possible: writable true -> false"
-There's a minor exception about changing flags.
+```smart header="Único cambio de atributo posible: writable true -> false"
+Hay una excepción menor acerca del cambio de indicadores.
 
-We can change `writable: true` to `false` for a non-configurable property, thus preventing its value modification (to add another layer of protection). Not the other way around though.
+Podemos cambiar `writable: true` a `false` en una propiedad no configurable, impidiendo en más la modificación de su valor (sumando una capa de protección). Aunque no hay vuelta atrás.
 ```
 
 ## Object.defineProperties
