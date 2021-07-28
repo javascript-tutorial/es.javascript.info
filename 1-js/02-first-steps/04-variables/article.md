@@ -24,7 +24,11 @@ Ahora podemos introducir datos en ella al utilizar el operador de asignación `=
 let message;
 
 *!*
+<<<<<<< HEAD
 message = 'Hola'; // almacena la cadena
+=======
+message = 'Hello'; // store the string 'Hello' in the variable named message
+>>>>>>> ef8d576821ff28c69bfb7410dc79fd216b0a315b
 */!*
 ```
 
