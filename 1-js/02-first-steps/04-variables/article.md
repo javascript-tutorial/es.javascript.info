@@ -24,7 +24,7 @@ Ahora podemos introducir datos en ella al utilizar el operador de asignación `=
 let message;
 
 *!*
-message = 'Hola'; // almacena la cadena
+message = 'Hola'; // almacenar la cadena 'Hola' en la variable llamada message
 */!*
 ```
 

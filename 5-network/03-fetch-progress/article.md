@@ -5,7 +5,7 @@ El método `fetch` permite rastrear el progreso de *descarga*.
 
 Ten en cuenta: actualmente no hay forma de que `fetch` rastree el progreso de *carga*. Para ese propósito, utiliza [XMLHttpRequest](info:xmlhttprequest), lo cubriremos más adelante.
 
-Para rastrear el progreso de la descarga, podemos usar la propiedad `response.body`. Esta propiedad es un `ReadableStream`, un objeto especial que proporciona el cuerpo fragmento a fragmento, tal como viene. Las transmisiones legibles se describen en la especificación de la [API de transmisiones](https://streams.spec.whatwg.org/#rs-class).
+Para rastrear el progreso de la descarga, podemos usar la propiedad `response.body`. Esta propiedad es un `ReadableStream`, un objeto especial que proporciona la transmisión del cuerpo fragmento a fragmento tal como viene. Estas se describen en la especificación de la [API de transmisiones](https://streams.spec.whatwg.org/#rs-class).
 
 A diferencia de `response.text()`, `response.json()` y otros métodos, `response.body` da control total sobre el proceso de lectura, y podemos contar cuánto se consume en cualquier momento.
 
