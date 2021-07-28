@@ -189,7 +189,7 @@ alert(uint8array[1]); // 1
 
 ## Métodos TypedArray
 
-`TypedArray` tiene métodos regulares de `Array`, con notables excepciones.
+`TypedArray` tiene los métodos regulares de `Array`, con notables excepciones.
 
 Podemos iterar, `map`, `slice`, `find`, `reduce` etc.
 
