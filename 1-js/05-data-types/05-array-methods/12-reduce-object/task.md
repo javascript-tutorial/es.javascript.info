@@ -4,11 +4,7 @@ importance: 4
 
 # Crea un objeto a partir de un array
 
-<<<<<<< HEAD
-Supongamos que recibimos un array de usuarios con la forma `{id:..., name:..., age... }`.
-=======
-Let's say we received an array of users in the form `{id:..., name:..., age:... }`.
->>>>>>> ef8d576821ff28c69bfb7410dc79fd216b0a315b
+Supongamos que recibimos un array de usuarios con la forma `{id:..., name:..., age:... }`.
 
 Crea una función `groupById(arr)` que cree un objeto, con `id` como clave (key) y los elementos del array como valores.
 
