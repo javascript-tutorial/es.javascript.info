@@ -376,11 +376,7 @@ label: {
 }
 ```
 
-<<<<<<< HEAD
 ...Aunque 99.9% del tiempo `break` se usa dentro de bucles, como hemos visto en ejemplos previos.
-=======
-...Although, 99.9% of the time `break` is used inside loops, as we've seen in the examples above.
->>>>>>> ef8d576821ff28c69bfb7410dc79fd216b0a315b
 
 Un `continue` es solo posible dentro de un bucle.
 ````
