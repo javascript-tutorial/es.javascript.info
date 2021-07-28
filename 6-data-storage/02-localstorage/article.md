@@ -199,13 +199,8 @@ Quizá quieras abrir ésta página en dos ventanas distintas para probar el cód
 Si ambas ventanas están escuchando el evento `window.onstorage`, cada una reaccionará a las actualizaciones que pasen en la otra.
 
 ```js run
-<<<<<<< HEAD
 // se dispara en actualizaciones hechas en el mismo almacenaje, desde otros documentos
-window.onstorage = event => {  // igual que en window.addEventListener('storage', event => {
-=======
-// triggers on updates made to the same storage from other documents
-window.onstorage = event => { // can also use window.addEventListener('storage', event => {
->>>>>>> ef8d576821ff28c69bfb7410dc79fd216b0a315b
+window.onstorage = event => {  // también puede usar window.addEventListener('storage', event => {
   if (event.key != 'now') return;
   alert(event.key + ':' + event.newValue + " at " + event.url);
 };
