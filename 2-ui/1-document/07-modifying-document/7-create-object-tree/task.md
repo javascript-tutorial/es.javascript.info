@@ -46,6 +46,6 @@ Elige una de estas dos formas para resolver esta tarea:
 1. Crear el HTML para el árbol y entonces asignarlo a `container.innerHTML`.
 2. Crear los nodos del árbol y añadirlos con métodos DOM.
 
-Sería muy bueno que hicieras ambos.
+Sería muy bueno que hicieras ambas soluciones.
 
 P.S. El árbol no debe tener elementos "extras" como `<ul></ul>` vacíos para las hojas.
