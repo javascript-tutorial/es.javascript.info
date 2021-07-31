@@ -28,8 +28,8 @@
     }
 
     function createTreeDom(obj) {
-      // if there's no children, then the call returns undefined
-      // and the <ul> won't be created
+      // si no tiene hijos, el llamado devuelve undefined
+      // y el <ul> no será creado
       if (!Object.keys(obj).length) return;
 
       let ul = document.createElement('ul');
