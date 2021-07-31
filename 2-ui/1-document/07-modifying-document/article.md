@@ -527,7 +527,7 @@ Entonces: si necesitamos agregar un montón de texto en HTML dinámicamente, est
 - Métodos para crear nuevos nodos:
     - `document.createElement(tag)` -- crea un elemento con la etiqueta HTML dada
     - `document.createTextNode(value)` -- crea un nodo de texto (raramente usado)
-    - `elem.cloneNode(deep)` -- clona el elemento. Si `deep==true`, con todos sus descendientes.  
+    - `elem.cloneNode(deep)` -- clona el elemento. Si `deep==true`, lo clona con todos sus descendientes.  
 
 - Inserción y eliminación:
     - `node.append(...nodes or strings)` -- inserta en `node`, al final
