@@ -1,6 +1,6 @@
 Primero escribamos HTML/CSS.
 
-Cada componente de la hora se verá muy bien cada uno en su propio `<span>`:
+Cada componente de la hora se verá muy bien dentro de su propio `<span>`:
 
 ```html
 <div id="clock">
