@@ -512,7 +512,7 @@ Por ejemplo:
 */!*
 ```
 
-Así que es bastante inusable en el estado "after loaded" (después de cargado), al contrario de los otros métodos dOM que cubrimos antes.
+Así que es bastante inusable en el estado "after loaded" (después de cargado), al contrario de los otros métodos DOM que cubrimos antes.
 
 Ese es el punto en contra.
 
