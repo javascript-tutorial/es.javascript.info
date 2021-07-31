@@ -4,7 +4,7 @@ importance: 1
 
 # Por qué "aaa" permanece?
 
-En el ejemplo de abajo, la llamada `table.remove()` remueve la tabla del documento.
+En el ejemplo de abajo, la llamada `table.remove()` quita la tabla del documento.
 
 Pero si la ejecutas, puedes ver que el texto "aaa"` es aún visible.
 
