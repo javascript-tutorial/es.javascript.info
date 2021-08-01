@@ -197,5 +197,5 @@ Por favor ten en cuenta que si estas usando `defer` o `async`, el usuario verá 
 
 En tal caso algunos componentes gráficos probablemente no estén listos.
 
-No olvides poner alguna señal de "cargando" y los deshabilitar botones que aún no estén funcionando. Permite al usuario ver claramente qué puede hacer en la página y qué está listo y qué no.
+No olvides poner alguna señal de "cargando" y deshabilitar los botones que aún no estén funcionando. Esto permite al usuario ver claramente qué puede hacer en la página y qué está listo y qué no.
 ```
