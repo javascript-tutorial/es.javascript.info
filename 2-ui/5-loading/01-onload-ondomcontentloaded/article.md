@@ -1,4 +1,4 @@
-# Page: DOMContentLoaded, load, beforeunload, unload
+# Página: DOMContentLoaded, load, beforeunload, unload
 
 El ciclo de vida de una página HTML tiene tres eventos importantes:
 
