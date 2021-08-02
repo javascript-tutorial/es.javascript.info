@@ -1,10 +1,10 @@
 # Tipos de datos
 
-Un valor en JavaScript siempre pertenece a un tipo determinado. Por ejemplo, un string o un número.
+Un valor en JavaScript siempre pertenece a un tipo de dato determinado. Por ejemplo, un string o un número.
 
-Hay ocho tipos básicos de datos en JavaScript. Aquí los cubriremos en general y en los próximos capítulos hablaremos de cada uno de ellos en detalle.
+Hay ocho tipos de datos básicos en JavaScript. En este capítulo los cubriremos en general y en los próximos hablaremos de cada uno de ellos en detalle.
 
-Podemos poner cualquier tipo dentro de una variable. Por ejemplo, una variable puede ser en un momento un string y luego almacenar un número:
+Podemos almacenar un valor de cualquier tipo dentro de una variable. Por ejemplo, una variable puede contener en un momento un string y luego almacenar un número:
 
 ```js
 // no hay error
