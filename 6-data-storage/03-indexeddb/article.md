@@ -5,7 +5,7 @@ libs:
 
 # IndexedDB
 
-IndexedDB es una base de datos construida dentro del navegador, mucho más poderosa que `localStorage`.
+IndexedDB es una base de datos construida dentro del navegador, mucho más potente que `localStorage`.
 
 - Almacena casi todo tipo de valores por claves, tipos de clave múltiple.
 - Soporta transacciones para confiabilidad.
