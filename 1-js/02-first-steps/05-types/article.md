@@ -4,7 +4,7 @@ Un valor en JavaScript siempre pertenece a un tipo de dato determinado. Por ejem
 
 Hay ocho tipos de datos básicos en JavaScript. En este capítulo los cubriremos en general y en los próximos hablaremos de cada uno de ellos en detalle.
 
-Podemos almacenar cualquier valor de cualquier tipo dentro de una variable. Por ejemplo, una variable puede contener en un momento un string y luego almacenar un número:
+Podemos almacenar un valor de cualquier tipo dentro de una variable. Por ejemplo, una variable puede contener en un momento un string y luego almacenar un número:
 
 ```js
 // no hay error
