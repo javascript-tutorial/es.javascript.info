@@ -12,7 +12,7 @@ IndexedDB es una base de datos construida dentro del navegador, mucho más poten
 - Soporta consultas de rango por clave, e índices.
 - Puede almacenar mucho mayor volumen de datos que `localStorage`.
 
-Tal poder usualmente es excesivo para las aplicaciones tradicionales cliente-servidor. IndexedDB está previsto para aplicaciones fuera de línea, para ser combinado con ServiceWorkers y otras tecnologías.
+Toda esta potencia es normalmente excesiva para las aplicaciones cliente-servidor tradicionales. IndexedDB está previsto para aplicaciones fuera de línea, para ser combinado con ServiceWorkers y otras tecnologías.
 
 La interfaz nativa de IndexedDB, descrita en la <https://www.w3.org/TR/IndexedDB>, está basada en eventos.
 
