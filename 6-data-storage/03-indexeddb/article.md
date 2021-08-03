@@ -40,17 +40,17 @@ let openRequest = indexedDB.open(name, version);
 Podemos tener muchas bases de datos con nombres diferentes, pero todas deben existir dentro del mismo origen (dominio/protocolo/puerto). Un sitio web no puede acceder bases de datos de otro.
 
 La llamada devuelve un objeto `openRequest`, debemos escuchar en él los eventos:
-- `success`: la base de datos está lista. Hay un "objeto database" en `openRequest.result`, el que debemos usar en las llamadas que sigan.
+- `success`: la base de datos está lista. Hay un "objeto database" en `openRequest.result` que habremos de usar en las llamadas subsiguientes.
 - `error`: Apertura fallida.
 - `upgradeneeded`: La base de datos está lista, pero su versión es obsoleta (ver abajo).
 
 **IndexedDB tiene incorporado un mecanismo de "versión de esquema", ausente en bases de datos de servidor.**
 
-Contrario a las bases de datos del lado del servidor, IndexedDB está del lado del cliente y los datos son almacenados en el navegador, así que nosotros, desarrolladores, no tenemos acceso permanente a esas bases. Entonces, cuando publicamos una nueva versión de nuestra app y el usuario visita nuestra página web, podemos necesitar actualizar la estructura de su base de datos.
+A diferencia de las bases de datos del lado del servidor, IndexedDB se ejecuta en el lado del cliente y los datos son almacenados en el navegador, así que nosotros, desarrolladores, no tenemos acceso permanente a esas bases. Entonces, cuando publicamos una nueva versión de nuestra app y el usuario visita nuestra página web, podemos necesitar actualizar la estructura de su base de datos.
 
 Si la versión de la base es menor a la especificada en `open`, entonces se dispara un evento especial `upgradeneeded` (actualización-requerida), donde podemos comparar versiones y hacer la actualización de la estructura de datos que se necesite.
 
-El evento `upgradeneeded` también se dispara cuando la base aún no existe (técnicamente, su versión es `0`), entonces podemos ejecutar su inicialización.
+El evento `upgradeneeded` también se dispara cuando la base aún no existe (técnicamente, su versión es `0`), lo cual nos permite llevar a cabo su inicialización.
 
 Digamos que publicamos la primera versión de nuestra app.
 
@@ -82,7 +82,7 @@ Podemos abrirla con version `2` y ejecutar la actualización así:
 let openRequest = indexedDB.open("store", *!*2*/!*);
 
 openRequest.onupgradeneeded = function(event) {
-  // la versión de la base existente en menor que 2 (o ni siquiera existe)
+  // la versión de la base existente es menor que 2 (o ni siquiera existe)
   let db = openRequest.result;
   switch(event.oldVersion) { // versión de db existente
     case 0:
@@ -120,7 +120,7 @@ Hablando de versionado, encaremos un pequeño problema relacionado.
 
 Supongamos que:
 1. Un visitante, en una pestaña de su navegador, abrió nuestro sitio con un base de datos con la versión `1`.
-2. Luego publicamos una actualización, así que nuestro código en más nuevo.
+2. Luego publicamos una actualización, así que nuestro código es más reciente.
 3. Y el mismo visitante abre nuestro sitio en otra pestaña.
 
 Entonces hay una primera pestaña con una conexión abierta a una base con versión `1`, mientras la segunda intenta actualizarla a la versión `2` en su manejador `upgradeneeded`.
@@ -165,7 +165,7 @@ openRequest.onblocked = function() {
 Aquí hacemos dos cosas:
 
 1. La escucha a `db.onversionchange` nos informa de un intento de actualización paralela si la conexión actual se volvió obsoleta.
-2. La escucha a `openRequest.onblocked` nos informa la situación opuesta: hay una conexión obsoleta en algún otro lugar que no fue cerrada y por eso la conexión nueva no se pudo realizar.
+2. La escucha a `openRequest.onblocked` nos informa de la situación opuesta: hay una conexión obsoleta en algún otro lugar que no fue cerrada y por eso la conexión nueva no se pudo realizar.
 
 Podemos manejar las cosas más suavemente en `db.onversionchange`, como pedirle al visitante que guarde los datos antes de cerrar la conexión.
 
@@ -194,9 +194,9 @@ Una clave debe ser de uno de estos tipos: number, date, string, binary, o array.
 ![](indexeddb-structure.svg)
 
 
-De forma similar a `localStorage`, podemos proporcionar una clave cuando agregamos un valor al almacén. Cuando lo que almacenamos son objetos, IndexedDB permite asignar una propiedad del objeto como clave, lo que es mucho más conveniente. También podemos usar claves que se genera automáticamente.
+De forma similar a `localStorage`, podemos proporcionar una clave cuando agregamos un valor al almacén. Cuando lo que almacenamos son objetos, IndexedDB permite asignar una propiedad del objeto como clave, lo que es mucho más conveniente. También podemos usar claves que se generan automáticamente.
 
-Pero necesitamos crear el almacén de objetos primero.
+Pero primero, necesitamos crear el almacén de objetos.
 
 
 La sintaxis para crear un almacén de objetos "object store":
@@ -211,7 +211,7 @@ Ten en cuenta que esta operación es sincrónica, no requiere `await`.
   - `keyPath` -- la ruta a un propiedad de objeto que IndexedDB usará como clave, por ejemplo `id`.
   - `autoIncrement` -- si es `true`, la clave para el objeto nuevo que se almacene se generará automáticamente con un número autoincremental.
 
-Si no establecemos `keyOptions`, necesitaremos proporcionar una clave explícitamente luego, al momento de almacenar un objeto.
+Si no establecemos `keyOptions`, necesitaremos proporcionar una clave explícitamente más tarde: al momento de almacenar un objeto.
 
 Por ejemplo, este objeto usa la propiedad `id` como clave:
 ```js
@@ -315,10 +315,10 @@ request.onerror = function() {
 
 Básicamente, hay cuatro pasos:
 
-1. Crea una transacción, mencionando todos los almacenes que irá a acceder, en `(1)`.
+1. Crea una transacción, mencionando todos los almacenes a los que irá a acceder, en `(1)`.
 2. Obtiene el almacén usando `transaction.objectStore(name)`, en `(2)`.
 3. Ejecuta lo petición al almacén `books.add(book)`, en `(3)`.
-4. ...Maneja el éxito o fracaso de la petición `(4)`, entonces podemos hacer otras peticiones si lo necesitamos, etc.
+4. ...Maneja el éxito o fracaso de la petición `(4)`, a continuación podemos hacer otras peticiones si lo necesitamos, etc.
 
 Los almacenes de objetos soportan dos métodos para almacenar un valor:
 
@@ -328,7 +328,7 @@ Los almacenes de objetos soportan dos métodos para almacenar un valor:
 - **add(value, [key])**
     Lo mismo que `put`, pero si ya hay un valor con la misma clave, la petición falla y se genera un error con el nombre `"ConstraintError"`.
 
-Al igual que al abrir una base de datos, podemos enviar una petición: `books.add(book)`, y esperar por los eventos `success/error`.
+Al igual que al abrir una base de datos, podemos enviar una petición: `books.add(book)` y quedar a la espera  de los eventos `success/error`.
 
 - El resultado `request.result` de `add` es la clave del nuevo objeto.
 - El error, si lo hay, está en `request.error`.
@@ -343,13 +343,13 @@ En la siguiente versión 3.0 de la especificación, probablemente haya una maner
 
 **Cuando todas las peticiones de una transacción terminaron y la [cola de microtareas](info:microtask-queue) está vacía, se hace un commit (consumación) automático.**
 
-Usualmente podemos asumir que una transacción se consuma cuando todas sus peticiones fueron completadas, y el código actual finaliza.
+De forma general, podemos asumir que una transacción se consuma cuando todas sus peticiones fueron completadas y el código actual finaliza.
 
 Entonces, en el ejemplo anterior no se necesita una llamada especial para finalizar la transacción.
 
-El principio de auto-commit de las transacciones tiene un efecto colateral importante. No podemos insertar una operación asincrónica como `fetch`, `setTimeout` en el medio de la transacción. IndexedDB no mantendrá la transacción esperando a que terminen.
+El principio de auto-commit de las transacciones tiene un efecto colateral importante. No podemos insertar una operación asincrónica como `fetch`, `setTimeout` en mitad de una transacción. IndexedDB no mantendrá la transacción esperando a que terminen.
 
-En el código debajo, `request2` en la línea `(*)` falla, porque la transacción ya está finalizada y no podemos hacer más peticiones sobre ella:
+En el siguiente código, `request2` en la línea `(*)` falla, porque la transacción ya está finalizada y no podemos hacer más peticiones sobre ella:
 
 ```js
 let request1 = books.add(book);
@@ -366,7 +366,7 @@ request1.onsuccess = function() {
 };
 ```
 
-Esto es porque `fetch` es una operación asincrónica, una macrotarea. Las transacciones son cerradas antes de que el navegador comience con las macrotareas.
+Esto es porque `fetch` es una operación asincrónica, una macrotarea. Las transacciones se cierran antes de que el navegador comience con las macrotareas.
 
 Los autores de la especificación de IndexedDB creen que las transacciones deben ser de corta vida. Mayormente por razones de rendimiento.
 
@@ -376,7 +376,7 @@ Entonces, ¿qué hacer?
 
 En el ejemplo de arriba podemos hacer una nueva `db.transaction` justo antes de la nueva petición `(*)`.
 
-Pero será mucho mejor, si queremos mantener las operaciones juntas en una transacción, separar las transacciones IndexedDB de la parte asincrónica.
+Pero, si queremos mantener las operaciones juntas en una transacción, será mucho mejor separar las transacciones IndexedDB de la parte asincrónica.
 
 Primero, hacer `fetch` y preparar todos los datos que fueran necesarios, y solo entonces crear una transacción y ejecutar todas las peticiones de base de datos. Así, funcionaría.
 
@@ -392,7 +392,7 @@ transaction.oncomplete = function() {
 };
 ```
 
-Solo `complete` garantiza que la transacción fue guardada como un todo. Las peticiones Individuales pueden ser exitosas, pero la operación final de escritura puede ir mal (por ejemplo por un error de Entrada/Salida u otra cosa).
+Solo `complete` garantiza que la transacción fue guardada como un todo. Las peticiones individuales pueden ser exitosas, pero la operación final de escritura puede ir mal (por ejemplo por un error de Entrada/Salida u otra cosa).
 
 Para abortar una transacción manualmente:
 
@@ -407,7 +407,7 @@ Esto cancela todas las modificaciones hechas por las peticiones y dispara el eve
 
 Las peticiones de escritura pueden fallar.
 
-Esto es esperable, no solo por posibles errores de nuestro lado, sino también por razones no relacionadas a la transacción misma. Por ejemplo, la cuota de almacenamiento exedida. Entonces debemos estar preparados para manejar tal caso.
+Esto es esperable, no solo por posibles errores de nuestro lado, sino también por razones no relacionadas con la transacción en si misma. Por ejemplo, la cuota de almacenamiento podría haberse exedido. Por tanto, debemos estar preparados para manejar tal caso.
 
 **Una petición fallida automáticamente aborta la transacción, cancelando todos sus cambios.**
 
@@ -441,11 +441,11 @@ transaction.onabort = function() {
 
 ### Delegación de eventos
 
-¿Necesitamos onerror/onsuccess en cada petición? No siempre. Podemos en cambio usar la delegación de eventos.
+¿Necesitamos onerror/onsuccess en cada petición? No siempre. En su lugar podemos usar la delegación de eventos.
 
 **Propagación de eventos IndexedDB: `request` -> `transaction` -> `database`.**
 
-Todos los eventos son eventos DOM, con captura y propagación, pero usualmente solo se usa el escenario de la propagación.
+Todos los eventos son eventos DOM, con captura y propagación, pero generalmente solo se usa el escenario de la propagación.
 
 Así que podemos capturar todos los errores usando el manejador `db.onerror`, para reportarlos u otros propósitos:
 
@@ -479,7 +479,7 @@ request.onerror = function(event) {
 
 Hay dos maneras principales de buscar en un almacén de objetos:
 
-1. Por clave o por rango de clave. En nuestro almacén "books", puede ser por un valor o por un rando de `book.id`.
+1. Por clave o por rango de claves. En nuestro almacén "books", puede ser por un valor o por un rango de valores de `book.id`.
 2. Por algún otro campo del objeto, por ejemplo `book.price`. Esto requiere una estructura de datos adicional llamada índice "index".
 
 ### Por clave
@@ -493,7 +493,7 @@ Los objetos `IDBKeyRange` son creados con las siguientes llamadas:
 - `IDBKeyRange.lowerBound(lower, [open])` significa: `≥ lower` (o `> lower` si `open` es true)
 - `IDBKeyRange.upperBound(upper, [open])` significa: `≤ upper` (o `< upper` si `open` es true)
 - `IDBKeyRange.bound(lower, upper, [lowerOpen], [upperOpen])` significa: entre `lower` y `upper`. Si el indicador "open" es true, la clave correspondiente no es incluida en el rango.
-- `IDBKeyRange.only(key)` -- es un rango que consiste de solamente una clave `key`, es raramente usado.
+- `IDBKeyRange.only(key)` -- es un rango compuesto solamente por una clave `key`, es raramente usado.
 
 Veremos ejemplos prácticos de uso muy pronto.
 
