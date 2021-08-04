@@ -335,7 +335,7 @@ Al igual que al abrir una base de datos, podemos enviar una petición: `books.ad
 
 ## Commit, culminación automática de las transacciones
 
-En el ejemplo anterior empezamos la transacción e hicimos una petición `add`. Pero como explicamos antes, una transacción puede tener muchas peticiones asociadas, que deben todas ser exitosas o todas fallar. ¿Cómo marcamos que una transacción como finalizada, que no tendrá más peticiones asociadas?
+En el ejemplo anterior, empezamos la transacción e hicimos una petición `add`. Pero, como explicamos antes, una transacción puede tener muchas peticiones asociadas, que deben todas ser exitosas o todas fallar. ¿Cómo marcamos que una transacción se da por finalizada, que no tendrá más peticiones asociadas?
 
 Respuesta corta: no lo hacemos.
 
