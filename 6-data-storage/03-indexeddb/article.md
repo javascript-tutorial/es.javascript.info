@@ -103,7 +103,7 @@ Para borrar una base de datos:
 
 ```js
 let deleteRequest = indexedDB.deleteDatabase(name)
-// deleteRequest.onsuccess/onerror para rastrear el resultado
+// deleteRequest.onsuccess/onerror rastrea el resultado
 ```
 
 ```warn header="No se puede abrir una base de datos usando una versión más vieja de open"
