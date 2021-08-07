@@ -24,7 +24,7 @@ Técnicamente, los datos son almacenados bajo el directorio raíz del usuario ju
 Navegadores y usuarios diferentes tendrán cada uno su propio almacenamiento independiente.
 ```
 
-## Abrir una base de datos, "open"
+## Apertura de una base de datos, "open"
 
 Para empezar a trabajar con IndexedDB, primero necesitamos conectarnos o "abrir" (`open`) una base de datos.
 
@@ -37,7 +37,7 @@ let openRequest = indexedDB.open(name, version);
 - `name` -- un string, el nombre de la base de datos.
 - `version` -- un entero positivo, predeterminado en `1` (explicado más abajo).
 
-Podemos tener muchas bases de datos con nombres diferentes, pero todas deben existir dentro del mismo origen (dominio/protocolo/puerto). Un sitio web no puede acceder bases de datos de otro.
+Podemos tener muchas bases de datos con nombres diferentes, pero todas ellas existen dentro del mismo origen (dominio/protocolo/puerto). Un sitio web no puede acceder bases de datos de otro.
 
 La llamada devuelve un objeto `openRequest`, debemos escuchar en él los eventos:
 - `success`: la base de datos está lista. Hay un "objeto database" en `openRequest.result` que habremos de usar en las llamadas subsiguientes.
@@ -127,7 +127,7 @@ Entonces hay una primera pestaña con una conexión abierta a una base con versi
 
 El problema es que la misma base está compartida entre las dos pestañas, por ser del mismo sitio y origen. Y no puede ser versión `1` y `2` al mismo tiempo. Para ejecutar la actualización a la versión `2`, todas las conexiones a la versión 1 deben ser cerradas, incluyendo las de la primera pestaña.
 
-Para organizar esto, se dispara el evento `versionchange` (cambio-de-versión) en el objeto de base de datos. Debemos escucharlo y cerrar la conexión vieja (y probablemente sugerir una recarga de página, para cargar el código actualizado).
+Para detectar estas situaciones, se dispara automáticamente el evento `versionchange` (cambio-de-versión) en el objeto de base de datos. Debemos escuchar dicho evento y cerrar la conexión vieja (y probablemente sugerir una recarga de página, para cargar el código actualizado).
 
 Si no escuchamos el evento `versionchange` y no cerramos la conexión vieja, entonces la segunda y más nueva no se podrá hacer. El objeto `openRequest` emitirá el evento `blocked` en lugar de `success`. Entonces la segunda pestaña no funcionará.
 
@@ -171,13 +171,13 @@ Podemos manejar las cosas más suavemente en `db.onversionchange`, como pedirle 
 
 Como alternativa podríamos no cerrar la base en `db.onversionchange` sino usar `onblocked` de la nueva pestaña para advertirle que no puede crear una nueva conexión hasta que cierre las viejas.
 
-Estas colisiones ocurren raramente, pero debemos al menos tener algún manejo de ella, como mínimo un manejador `onblocked` para evitar que nuestro script muera silenciosamente.
+Estas colisiones ocurren raramente, pero deberíamos tener algún manejo de ella, como mínimo un manejador `onblocked` para evitar que nuestro script muera silenciosamente.
 
 ## Almacén de objetos, "store"
 
 Para almacenar algo en IndexedDB, necesitamos un "almacén de objetos" *object store*.
 
-Un almacén de objetos es un concepto central de IndexedDB. Contrapartes en otras bases de datos tienen "tablas" o "colecciones". Es donde los datos son almacenados. Una base de datos puede tener múltiples almacenes: una para usuarios, otra para bienes, etc.
+Un almacén de objetos es un concepto central de IndexedDB. Equivale a lo que en otras bases de datos se denominan "tablas" o "colecciones". Es donde los datos son almacenados. Una base de datos puede tener múltiples almacenes: uno para usuarios, otro para bienes, etc.
 
 A pesar de llamarse "almacén de objetos", también puede almacenar tipos primitivos.
 
@@ -185,7 +185,7 @@ A pesar de llamarse "almacén de objetos", también puede almacenar tipos primit
 
 IndexedDB usa el [algoritmo de serialización estándar](https://www.w3.org/TR/html53/infrastructure.html#section-structuredserializeforstorage) para clonar-y-almacenar un objeto. Es como `JSON.stringify` pero más poderoso, capaz de almacenar muchos tipos de datos más.
 
-Hay objetos que no puede ser almacenados, por ejemplo los que tienen referencias circulares. Tales objetos no son serializables. `JSON.stringify` también falla con ellos.
+Hay objetos que no pueden ser almacenados, por ejemplo los que tienen referencias circulares. Tales objetos no son serializables. `JSON.stringify` también falla con ellos.
 
 **Debe haber una clave `key` única para cada valor del almacén.**     
 
@@ -208,7 +208,7 @@ Ten en cuenta que esta operación es sincrónica, no requiere `await`.
 
 - `name` es el nombre del almacén, por ejemplo `"books"`,
 - `keyOptions` es un objeto opcional con una de estas dos propiedades:
-  - `keyPath` -- la ruta a un propiedad de objeto que IndexedDB usará como clave, por ejemplo `id`.
+  - `keyPath` -- la ruta a una propiedad del objeto que IndexedDB usará como clave, por ejemplo `id`.
   - `autoIncrement` -- si es `true`, la clave para el objeto nuevo que se almacene se generará automáticamente con un número autoincremental.
 
 Si no establecemos `keyOptions`, necesitaremos proporcionar una clave explícitamente más tarde: al momento de almacenar un objeto.
@@ -218,7 +218,7 @@ Por ejemplo, este objeto usa la propiedad `id` como clave:
 db.createObjectStore('books', {keyPath: 'id'});
 ```
 
-**Un almacén de objetos solo puede ser creado o modificado durante la actualización de su versión. Esto es en el manejador `upgradeneeded`.**
+**Un almacén de objetos solo puede ser creado o modificado durante la actualización de su versión, esto es, en el manejador `upgradeneeded`.**
 
 Esto es una limitación técnica. Fuera del manejador podremos agregar/borrar/modificar los datos, pero los almacenes de objetos solo pueden ser creados/borrados/alterados durante la actualización de versión.
 
@@ -276,7 +276,7 @@ db.transaction(store[, type]);
   - `readonly` -- solo puede leer (es el predeterminado).
   - `readwrite` -- puede leer o escribir datos (pero no crear/quitar/alterar almacenes de objetos).
 
-También existe el tipo de transacción `versionchange`: tal transacción puede hacer de todo, pero no podemos crearla nosotros a mano. IndexedDB la crea automáticamente cuando abre la base de datos para el manejador `updateneeded`. Por ello es el único lugar donde podemos actualizar la estructura de base de datos, crear o quitar almacenes de objetos.
+También existe el tipo de transacción `versionchange`: tal transacción puede hacer de todo, pero no podemos crearla nosotros a mano. IndexedDB la crea automáticamente cuando abre la base de datos para el manejador `updateneeded`. Por ello, es el único lugar donde podemos actualizar la estructura de base de datos, crear o quitar almacenes de objetos.
 
 ```smart header="¿Por qué hay diferentes tipos de transacciones?"
 El rendimiento es la razón por la que necesitamos identificar las transacciones como `readonly` (lectura solamente) o `readwrite` (lectura y escritura).
@@ -284,7 +284,7 @@ El rendimiento es la razón por la que necesitamos identificar las transacciones
 Muchas transacciones `readonly` pueden leer en un mismo almacén concurrentemente, en cambio las transacciones de escritura `readwrite`, no. Una transacción `readwrite` bloquea el almacén para escribir en él. La siguiente transacción debe esperar a que la anterior termine antes de acceder al mismo almacén.
 ```
 
-Una vez que la transacción es creada, podemos agregar un ítem al almacén:
+Una vez que la transacción ha sido creada, podemos agregar un ítem al almacén:
 
 ```js
 let transaction = db.transaction("books", "readwrite"); // (1)
@@ -378,7 +378,7 @@ En el ejemplo de arriba podemos hacer una nueva `db.transaction` justo antes de 
 
 Pero, si queremos mantener las operaciones juntas en una transacción, será mucho mejor separar las transacciones IndexedDB de la parte asincrónica.
 
-Primero, hacer `fetch` y preparar todos los datos que fueran necesarios, y solo entonces crear una transacción y ejecutar todas las peticiones de base de datos. Así, funcionaría.
+Primero, hacer `fetch` y preparar todos los datos que fueran necesarios y, solo entonces, crear una transacción y ejecutar todas las peticiones de base de datos. Así, funcionaría.
 
 Para detectar el momento de finalización exitosa, podemos escuchar al evento `transaction.oncomplete`:
 
@@ -411,7 +411,7 @@ Esto es esperable, no solo por posibles errores de nuestro lado, sino también p
 
 **Una petición fallida automáticamente aborta la transacción, cancelando todos sus cambios.**
 
-En algunas situaciones, podemos querer manejar el fallo (por ejemplo, intentar otra petición), sin cancelar los cambios en curso, y continuar la transacción. Eso es posible. El manejador `request.onerror` está habilitado a evitar el aborto de la transacción llamando a `event.preventDefault()`.
+En algunas situaciones, podemos querer manejar el fallo (por ejemplo, intentar otra petición) sin cancelar los cambios en curso, y continuar la transacción. Eso es posible. El manejador `request.onerror` es capaz de evitar el aborto de la transacción llamando a `event.preventDefault()`.
 
 En el ejemplo que sigue, un libro nuevo es agregado con la misma clave (`id`) que otro existente. El método `store.add` genera un `"ConstraintError"` en ese caso. Lo manejamos sin cancelar la transacción:
 
@@ -529,7 +529,7 @@ books.getAllKeys(IDBKeyRange.lowerBound('js', true))
 ```smart header="El almacén de objetos siempre está ordenado"
 El almacén internamente guarda los valores ordenados por clave.
 
-Entonces, las peticiones que que devuelvan muchos valores siempre serán devueltos ordenados por clave.
+Entonces, en las peticiones que devuelvan varios valores, estos siempre estarán ordenados por la clave.
 ```
 
 ## Buscando por cualquier campo con un índice
@@ -554,7 +554,7 @@ En nuestro ejemplo, almacenamos libros usando la propiedad `id` como clave.
 
 Digamos que queremos buscar por precio `price`.
 
-Primero necesitamos crear un índice. Esto debe hacerse en `upgradeneeded`, igual que ObjectStore.
+Primero necesitamos crear un índice. Esto debe hacerse en `upgradeneeded`, al igual que hacíamos la creación del almacén de objetos.
 
 ```js
 openRequest.onupgradeneeded = function() {
@@ -619,7 +619,7 @@ Por ejemplo:
 books.delete('js');
 ```
 
-Si queremos borrar libros basados en un precio u otro campo del objeto, debemos primero encontrar la clave en el índice, luego llamar a `delete` con él:
+Si queremos borrar libros basados en un precio u otro campo del objeto, debemos primero encontrar la clave en el índice, luego llamar a `delete` con dicha clave:
 
 ```js
 // encuentra la clave donde price = 5
@@ -644,9 +644,9 @@ Pero un almacén de objetos puede ser enorme, incluso más que la memoria dispon
 
 ¿Qué hacer?
 
-Los cursores brindan los medios para trabajar con eso.
+Los cursores brindan los medios para manejar esta situación.
 
-**Un *cursor* es un objeto especial que, dada una consulta, recorre el almacén y devuelve un par clave/valor a la vez, así ahorrando memoria.**
+**Un *cursor* es un objeto especial que, dada una consulta, recorre el almacén y devuelve un solo par clave/valor cada vez, ahorrando así memoria.**
 
 Como un almacén está ordenado internamente por clave, un cursor lo recorre en el orden de la clave (ascendende de forma predeterminada).
 
@@ -662,7 +662,7 @@ let request = store.openCursor(query, [direction]);
 - **`direction`** es un argumento opcional, el orden que se va a usar:
   - `"next"` -- el predeterminado: el cursor recorre en orden ascendente comenzando por la clave más baja.
   - `"prev"` -- el orden inverso: decrece comenzando con el registro con la clave más alta.
-  - `"nextunique"`, `"prevunique"` -- igual que las anteriores, pero saltando los registros con la misma clave (válido solo para cursores sobre índices. Por ejemplo, de múltiples libros con price=5, solamente el primero será devuelto).
+  - `"nextunique"`, `"prevunique"` -- igual que las anteriores, pero saltando los registros con la misma clave (válido solo para cursores sobre índices; por ejemplo, de múltiples libros con price=5, solamente el primero será devuelto).
 
 **La diferencia principal del cursor es que `request.onsuccess` se dispara múltiples veces: una por cada resultado.**
 
@@ -693,11 +693,11 @@ Los principales métodos de cursor son:
 - `advance(count)` -- avanza el cursor `count` veces, saltando valores.
 - `continue([key])` -- avanza el cursor al siguiente valor en el rango o, si se provee la clave `key`, al valor inmediatamente posterior a `key`.
 
-El evento `onsuccess` será llamado haya o no más valores coincidentes, y en `result` obtenemos el cursor apuntando al siguiente registro, o `undefined`.
+El evento `onsuccess` será llamado haya o no más valores coincidentes, y en `result` obtenemos el cursor apuntando al siguiente registro o `undefined`.
 
-En el ejemplo anterior el cursor fue hecho sobre el almacén de objetos.
+En el ejemplo anterior, el cursor fue hecho sobre el almacén de objetos.
 
-Pero también podemos hacerlo sobre un índice. Recordamos, los índices nos permiten buscar por los campos del objeto. Los cursores sobre índices hacen precisamente lo mismo que sobre el almacén de objetos: Ahorran memoria al devolver una valor a la vez.
+Pero también podemos hacerlo sobre un índice. Recordamos, los índices nos permiten buscar por los campos del objeto. Los cursores sobre índices hacen precisamente lo mismo que sobre el almacén de objetos: ahorran memoria al devolver un solo valor cada vez.
 
 Para cursores sobre índices, `cursor.key` es la clave del índice (es decir "price"), y debemos usar la propiedad `cursor.primaryKey` para la clave del objeto:
 
@@ -721,9 +721,9 @@ request.onsuccess = function() {
 
 ## Contenedor promisificador 
 
-Agregar `onsuccess/onerror` a cada petición es una tarea agobiante. A veces podemos hacernos la vida más fácil usando delegación de eventos, es decir establecer manejadores para las transacciones completas, pero `async/await` es mucho más conveniente.
+Agregar `onsuccess/onerror` a cada petición es una tarea agobiante. A veces podemos hacernos la vida más fácil usando delegación de eventos (por ejemplo, estableciendo manejadores para las transacciones completas), pero `async/await` es mucho más conveniente.
 
-Usemos en adelante para este capítulo un contenedor (wrapper) liviano que añade promesas <https://github.com/jakearchibald/idb>. Este crea un objeto global `idb` con métodos IndexedDB [promisificados](info:promisify).
+Usemos en adelante para este capítulo un contenedor (wrapper) liviano que añade promesas <https://github.com/jakearchibald/idb>. Este contenedor crea un objeto global `idb` con métodos IndexedDB [promisificados](info:promisify).
 
 Entonces, en lugar de `onsuccess/onerror`, podemos escribir:
 
@@ -755,7 +755,7 @@ Así tenemos todo lo dulce de "código async plano" y "try..catch".
 
 ### Manejo de Error
 
-Si no atrapamos un error, este se propaga hasta el más `try..catch` externo más cercano.
+Si no atrapamos un error, este se propaga hasta el `try..catch` externo más cercano.
 
 Un error no atrapado se vuelve un evento "rechazo de promesa no manejado" sobre el objeto `window`.
 
@@ -772,7 +772,7 @@ window.addEventListener('unhandledrejection', event => {
 ### La trampa "transacción inactiva"
 
 
-Como sabemos, una transacción se autofinaliza tan pronto como el navegador termina el código actual y las microtareas. Entonces si ponemos una *macrotarea* como `fetch` en el medio de una transacción, la transacción no esperará a que termine. Simplemente se autofinaliza. Así la siguiente petición fallaría.
+Como sabemos, una transacción se autofinaliza tan pronto como el navegador termina el código actual y las microtareas. Por tanto, si ponemos una *macrotarea* como `fetch` en el medio de una transacción, la transacción no esperará a que termine. Simplemente se autofinaliza. Así la siguiente petición fallaría.
 
 
 Para el contenedor de promisificación y `async/await` la situación es la misma.
@@ -790,7 +790,7 @@ await fetch(...); // (*)
 await inventory.add({ id: 'js', price: 10, created: new Date() }); // Error
 ```
 
-El `inventory.add` que sigue a `fetch` `(*)` falla con el error "transacción inactiva", porque la transacción se autocompletó y para ese momento ya está cerrada.
+El `inventory.add` que sigue a `fetch` `(*)` falla con el error "transacción inactiva", porque la transacción se autocompletó y, llegado ese momento, ya está cerrada.
 
 La forma de sortear esto es la misma que con el IndexedDB nativo: Hacer una nueva transacción o simplemente partir las cosas.
 1. Preparar los datos y buscar todo lo que sea necesario primero.
@@ -805,7 +805,7 @@ Esto funciona bien la mayor parte del tiempo. Los ejemplos están en la página 
 En algunos raros casos necesitamos el objeto `request` original. Podemos accederlo con la propiedad `promise.request` de la promesa:
 
 ```js
-let promise = books.add(book); // obtener una promesa (no espera por su resultado)
+let promise = books.add(book); // obtiene una promesa (no espera por su resultado)
 
 let request = promise.request; // objeto request nativo
 let transaction = request.transaction; // objeto transaction nativo
@@ -817,7 +817,7 @@ let result = await promise; // si aún se necesita
 
 ## Resumen
 
-IndexedDB puede ser pensado como "localStorage con esteroides". Es una simple base de datos de clave-valor, suficientemente poderosa para apps fuera de línea y fácil de usar.
+IndexedDB puede considerarse como "localStorage con esteroides". Es una simple base de datos de clave-valor, suficientemente poderosa para apps fuera de línea y fácil de usar.
 
 El mejor manual es la especificación, [la actual](https://www.w3.org/TR/IndexedDB-2/) es 2.0, pero algunos métodos de [3.0](https://w3c.github.io/IndexedDB/) (no muy diferente) están soportados parcialmente.
 
