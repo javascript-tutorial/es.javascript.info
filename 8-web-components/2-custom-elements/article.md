@@ -117,7 +117,7 @@ customElements.define("time-formatted", TimeFormatted); // (2)
 
 1. La clase tiene un solo método, `connectedCallback()`, que es llamado por el navegador cuando se agrega el elemento `<time-formatted>` a la página (o cuando el analizador "parser" HTML lo detecta). Este método usa el formateador de datos nativo [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat), bien soportado por los navegadores, para mostrar una agradable hora formateada.
 2. Necesitamos registrar nuestro nuevo elemento con `customElements.define(tag, class)`.
-3. Y ya podemos usarlo en todos lados.
+3. Y ya podemos usarlo por doquier.
 
 
 ```smart header="Actualización de elementos personalizados"
