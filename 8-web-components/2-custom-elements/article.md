@@ -11,10 +11,10 @@ Podemos definirlos con una clase especial, y luego usarlos como si siempre hubie
 
 Hay dos clases de elementos personalizados:
 
-1. **Elementos personalizados autónomos** -- elementos "todo-nuevo", extendiendo la clase `HTMLElement` abstracta.
+1. **Elementos personalizados autónomos** -- elementos "todo-nuevo", extendiendo la clase abstracta `HTMLElement`.
 2. **Elementos incorporados personalizados** -- extendiendo elementos incorporados, como un botón personalizado basado en `HTMLButtonElement`, etc.
 
-Primero cubriremos los elementos autónomos, luego pasaremos a la personalización de elementos incorporados.
+Primero cubriremos los elementos autónomos, luego pasaremos a la personalización de elementos nativos.
 
 Para crear un elemento personalizado, necesitamos decirle al navegador varios detalles acerca de él: cómo mostrarlo, qué hacer cuando el elemento es agregado o quitado de la página, etc.
 
