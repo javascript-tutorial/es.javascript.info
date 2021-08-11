@@ -304,7 +304,7 @@ Claramente vemos que el elemento finaliza su inicialización `(3)` antes que el 
 
 No existe un callback nativo que se dispare después de que los elementos anidados estén listos. Si es necesario, podemos implementarlo nosotros mismos. Por ejemplo, elementos internos pueden disparar eventos como `initialized`, y los externos escucharlos para reaccionar a ellos.
 
-## Elementos incorporados personalizados 
+## Elementos nativos personalizados 
 
 Los elementos nuevos que creamos, tales como `<time-formatted>`, no tienen ninguna semántica asociada. Ellos son desconocidos por los motores de búsqueda, y los dispositivos de accesibilidad no pueden manejarlos.
 
