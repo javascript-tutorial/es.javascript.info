@@ -306,7 +306,7 @@ No existe un callback nativo que se dispare después de que los elementos anidad
 
 ## Elementos nativos personalizados 
 
-Los elementos nuevos que creamos, tales como `<time-formatted>`, no tienen ninguna semántica asociada. Ellos son desconocidos por los motores de búsqueda, y los dispositivos de accesibilidad no pueden manejarlos.
+Los elementos nuevos que creamos, tales como `<time-formatted>`, no tienen ninguna semántica asociada. Para los motores de búsqueda son desconocidos, y los dispositivos de accesibilidad tampoco pueden manejarlos.
 
 Pero estas cosas son importantes. Por ejemplo, un motor de búsqueda podría estar interesado en saber que realmente mostramos la hora. y si hacemos una clase especial de botón, ¿por qué no reusar la funcionalidad ya existente de `<button>`?
 
