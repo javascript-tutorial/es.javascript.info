@@ -16,7 +16,7 @@ Hay dos clases de elementos personalizados:
 
 Primero cubriremos los elementos autónomos, luego pasaremos a la personalización de elementos incorporados.
 
-Para crear un elemento personalizado necesitamos decirle al navegador varios detalles acerca de él: cómo mostrarlo, qué hacer cuando el elemento es agregado o quitado de la página, etc.
+Para crear un elemento personalizado, necesitamos decirle al navegador varios detalles acerca de él: cómo mostrarlo, qué hacer cuando el elemento es agregado o quitado de la página, etc.
 
 Eso se logra creando una clase con métodos especiales. Es fácil, son unos pocos métodos y todos ellos son opcionales.
 
