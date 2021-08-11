@@ -371,7 +371,7 @@ Nuestro nuevo botón extiende el nativo. Así mantenemos los mismos estilos y ca
 
 Los elementos personalizados pueden ser de dos tipos:
 
-1. "Autónomos" -- son etiquetas nuevas, extienden `HTMLElement`.
+1. "Autónomos" -- son etiquetas nuevas, se crean extendiendo `HTMLElement`.
 
     Esquema de definición:
 
@@ -388,7 +388,7 @@ Los elementos personalizados pueden ser de dos tipos:
     /* <my-element> */
     ```
 
-2. "Elementos nativos personalizados" -- son extensiones de elementos ya existentes.
+2. "Elementos nativos personalizados" -- se crean extendiendo elementos ya existentes.
 
     Requiere un argumento más `.define`, y `is="..."` en HTML:
     ```js
