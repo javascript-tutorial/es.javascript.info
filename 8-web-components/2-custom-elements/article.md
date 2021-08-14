@@ -1,9 +1,9 @@
 
 # Elementos personalizados
 
-Podemos crear elementos HTML personalizados, descritos por nuestra clase, con sus propios métodos, propiedades, eventos y demás.
+Podemos crear elementos HTML personalizados con nuestras propias clases, con sus propios métodos, propiedades, eventos y demás.
 
-Una vez que el elemento personalizado es definido, podemos usarlo a la par de elementos HTML nativos.
+Una vez que definimos el elemento personalizado, podemos usarlo a la par de elementos HTML nativos.
 
 Esto es grandioso, porque el el diccionario HTML es rico pero no infinito. No hay `<aletas-faciles>`, `<gira-carrusel>`, `<bella-descarga>`... Solo piensa en cualquier otra etiqueta que puedas necesitar.
 
@@ -12,7 +12,7 @@ Podemos definirlos con una clase especial, y luego usarlos como si siempre hubie
 Hay dos clases de elementos personalizados:
 
 1. **Elementos personalizados autónomos** -- elementos "todo-nuevo", extendiendo la clase abstracta `HTMLElement`.
-2. **Elementos incorporados personalizados** -- extendiendo elementos nativos, por ejemplo un botón personalizado basado en `HTMLButtonElement`.
+2. **Elementos nativos personalizados** -- extendiendo elementos nativos, por ejemplo un botón personalizado basado en `HTMLButtonElement`.
 
 Primero cubriremos los elementos autónomos, luego pasaremos a la personalización de elementos nativos.
 
@@ -59,21 +59,21 @@ class MyElement extends HTMLElement {
 Después de ello, necesitamos registrar el elemento:
 
 ```js
-// hacer que el navegador conozca que <my-element> es servido por nuestra nueva clase
+// hacer saber al navegador que <my-element> es servido por nuestra nueva clase
 customElements.define("my-element", MyElement);
 ```
 
-A partir de ello, para cada elemento HTML con la etiqueta `<my-element>` se crea una instancia de `MyElement` y los métodos mencionados son llamados. También podemos insertarlo con JavaScript: `document.createElement('my-element')`.
+A partir de ello, para cada elemento HTML con la etiqueta `<my-element>` se crea una instancia de `MyElement` y se llaman los métodos mencionados. También podemos insertarlo con JavaScript: `document.createElement('my-element')`.
 
-```smart header="Los elementos personalizados deben incluir un guion `-`"
-Los elemento personalizados deben incluir un guion corto `-`. Por ejemplo, `my-element` y `super-button` son nombres válidos, pero `myelement` no lo es.
+```smart header="Los nombres de los elementos personalizados deben incluir un guion `-`"
+Los elemento personalizados deben incluir un guion corto `-` en su nombre. Por ejemplo, `my-element` y `super-button` son nombres válidos, pero `myelement` no lo es.
 
-Esto es para asegurar que no haya conflicto de nombres entre los elementos nativos y los personalizados.
+Esto se hace para asegurar que no haya conflicto de nombres entre los elementos nativos y los personalizados.
 ```
 
 ## Ejemplo: "time-formatted"
 
-Ejemplo: ya existe un elemento `<time>` en HTML para presentar fecha y hora, pero no hace ningún formateo por sí mismo.
+Ya existe un elemento `<time>` en HTML para presentar fecha y hora, pero este no hace ningún formateo por sí mismo.
 
 Construyamos el elemento `<time-formatted>` que muestre la hora en un bonito formato y reconozca la configuración de lengua local:
 
@@ -115,7 +115,7 @@ customElements.define("time-formatted", TimeFormatted); // (2)
 ></time-formatted>
 ```
 
-1. La clase tiene un solo método, `connectedCallback()`, que es llamado por el navegador cuando se agrega el elemento `<time-formatted>` a la página (o cuando el analizador HTML lo detecta). Este método usa el formateador de datos nativo [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat), bien soportado por los navegadores, para mostrar una agradable hora formateada.
+1. La clase tiene un solo método, `connectedCallback()`, que es llamado por el navegador cuando se agrega el elemento `<time-formatted>` a la página o cuando el analizador HTML lo detecta. Este método usa el formateador de datos nativo [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat), bien soportado por los navegadores, para mostrar una agradable hora formateada.
 2. Necesitamos registrar nuestro nuevo elemento con `customElements.define(tag, class)`.
 3. Y podremos usarlo por doquier.
 
@@ -128,7 +128,7 @@ Tal elemento "undefined" puede ser estilizado con el selector CSS `:not(:defined
 Una vez que `customElement.define` es llamado, estos elementos son "actualizados": para cada elemento, una nueva instancia de `TimeFormatted` 
 es creada y `connectedCallback` es llamado. Se vuelven `:defined`.
 
-Para obtener información acerca los elementos personalizados, tenemos los métodos:
+Para obtener información acerca de los elementos personalizados, tenemos los métodos:
 - `customElements.get(name)` -- devuelve la clase del elemento personalizado con el `name` dado,
 - `customElements.whenDefined(name)` -- devuelve una promesa que se resuelve (sin valor) cuando un elemento personalizado con el `name` dado se vuelve `defined`.
 ```
@@ -240,7 +240,7 @@ customElements.define('user-info', class extends HTMLElement {
 */!*
 ```
 
-Si lo ejecutas, el `alert` está vacío.
+Si lo ejecutas, el `alert` estará vacío.
 
 Esto es porque no hay hijos en aquel estadio, pues el DOM no está finalizado. Se conectó el elemento personalizado `<user-info>` y está por proceder con sus hijos, pero no lo hizo aún.
 
@@ -360,7 +360,7 @@ customElements.define('hello-button', HelloButton, {extends: 'button'});
 */!*
 ```
 
-Nuestro nuevo botón extiende el 'button' nativo. Así mantenemos los mismos estilos y características estándar, como el atributo `disabled`.
+Nuestro nuevo botón extiende el 'button' nativo. Así mantenemos los mismos estilos y características estándar, como por ejemplo el atributo `disabled`.
 
 ## Referencias
 
@@ -397,4 +397,4 @@ Los elementos personalizados pueden ser de dos tipos:
     /* <button is="my-button"> */
     ```
 
-Los elementos personalizados tienen muy buen soporte entre los navegadores. Hay un polyfill <https://github.com/webcomponents/polyfills/tree/master/packages/webcomponentsjs>.
+Los elementos personalizados tienen muy buen soporte entre los navegadores. Existe un polyfill <https://github.com/webcomponents/polyfills/tree/master/packages/webcomponentsjs>.
