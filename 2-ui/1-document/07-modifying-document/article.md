@@ -1,6 +1,6 @@
 # Modificando el documento
 
-La modificación del DOM es la clave para crear páginas "vivas".
+La modificación del DOM es la clave para crear páginas "vivas", dinámicas.
 
 Aquí veremos cómo crear nuevos elementos "al vuelo" y modificar el contenido existente de la página.
 
@@ -65,7 +65,7 @@ div.className = "alert";
 div.innerHTML = "<strong>¡Hola!</strong> Usted ha leído un importante mensaje.";
 ```
 
-Hemos creado el elemento. Pero hasta ahora solamente está en una variable llamada `div`, no aún en la página. Así que no la podemos ver.
+Hemos creado el elemento. Pero hasta ahora solamente está en una variable llamada `div`, no aún en la página, y no la podemos ver.
 
 ## Métodos de inserción
 
@@ -107,7 +107,7 @@ Aquí hay más métodos de inserción, ellos especifican diferentes lugares dond
 - `node.after(...nodos o strings)` –- inserta nodos o strings *después* de `node`,
 - `node.replaceWith(...nodos o strings)` –- reemplaza `node` con los nodos o strings dados.
 
-Los argumentos de estos métodos son una lista arbitraria de lo que se va a insertar: nodos DOM, o strings de texto (que se vuelven nodos de texto automáticamente).
+Los argumentos de estos métodos son una lista arbitraria de lo que se va a insertar: nodos DOM o strings de texto (estos se vuelven nodos de texto automáticamente).
 
 Veámoslo en acción.
 
@@ -152,7 +152,7 @@ before
 after
 ```
 
-Como dijimos, estos métodos pueden insertar múltiples nodos y piezas de texto en un simple llamado.
+Como dijimos antes, estos métodos pueden insertar múltiples nodos y piezas de texto en un simple llamado.
 
 Por ejemplo, aquí se insertan un string y un elemento:
 
@@ -214,7 +214,7 @@ Por ejemplo:
 
 Así es como podemos añadir HTML arbitrario a la página.
 
-Aquí la imagen de variantes de inserción:
+Aquí abajo, la imagen de las variantes de inserción:
 
 ![](insert-adjacent.svg)
 
@@ -334,7 +334,7 @@ Un ejemplo de copia del mensaje:
 
 Podemos agregarle nodos, pero cuando lo insertamos en algún lugar, lo que se inserta es su contenido.
 
-Por ejemplo, `getListContent` abajo genera un fragmento con items `<li>`, que luego son insertados en `<ul>`:
+Por ejemplo, `getListContent` de abajo genera un fragmento con items `<li>`, que luego son insertados en `<ul>`:
 
 ```html run
 <ul id="ul"></ul>
@@ -392,7 +392,7 @@ ul.append(...getListContent()); // append +  el operador "..." = ¡amigos!
 </script>
 ```
 
-Mencionamos `DocumentFragment` principalmente porque hay algunos conceptos atados a él, como el elemento [template](info:template-element), que cubriremos mucho después.
+Mencionamos `DocumentFragment` principalmente porque hay algunos conceptos asociados a él, como el elemento [template](info:template-element), que cubriremos mucho después.
 
 ## Métodos de la vieja escuela para insertar/quitar 
 
@@ -558,4 +558,4 @@ Entonces: si necesitamos agregar un montón de texto en HTML dinámicamente, est
 - Para agregar HTML a la página antes de que haya terminado de cargar:
     - `document.write(html)`
 
-    Después de que la página fue cargada tal llamada borra el documento. Se lo ve mayormente en scripts viejos.
+    Después de que la página fue cargada tal llamada borra el documento. Puede verse principalmente en scripts viejos.
