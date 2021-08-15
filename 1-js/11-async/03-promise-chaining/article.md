@@ -1,13 +1,13 @@
 
 # Encadenamiento de promesas
 
-Volvamos al problema mencionado en el capítulo <info:callbacks>: tenemos una secuencia de tareas asincrónicas que se realizarán una tras otra, por ejemplo, cargar scripts. ¿Cómo podemos codificarlo bien?
+Volvamos al problema mencionado en el capítulo <info:callbacks>: tenemos una secuencia de tareas asincrónicas que deben realizare una tras otra, por ejemplo, cargar scripts. ¿Cómo podemos codificarlo correctamente?
 
-Las promesas proporcionan un par de maneras para hacer eso.
+Las promesas proporcionan un par de maneras para hacerlo.
 
 En este capítulo cubrimos el encadenamiento de promesas.
 
-Se parece a esto:
+Se ve así:
 
 ```js run
 new Promise(function(resolve, reject) {
@@ -48,7 +48,7 @@ Todo funciona, porque una llamada a `promise.then` devuelve una promesa, para qu
 
 Cuando un controlador devuelve un valor, se convierte en el resultado de esa promesa, por lo que se llama al siguiente `.then`.
 
-**Un error clásico de novato: técnicamente también podemos agregar muchos '.then' a una sola promesa. Esto no está encadenando.**
+**Un error clásico de novato: técnicamente también podemos agregar muchos '.then' a una sola promesa: eso no es encadenamiento.**
 
 Por ejemplo:
 
@@ -87,7 +87,7 @@ En la práctica, rara vez necesitamos múltiples manejadores para una promesa. E
 
 Un controlador, utilizado en `.then(handler)` puede crear y devolver una promesa.
 
-En ese caso, otros manejadores esperan hasta que se estabilice y luego obtienen su resultado.
+En ese caso, otros manejadores esperan hasta que se estabilice (resuelva o rechace) y luego obtienen su resultado.
 
 Por ejemplo:
 
@@ -121,7 +121,7 @@ new Promise(function(resolve, reject) {
 });
 ```
 
-Aquí el primer `.then` muestra `1` y devuelve `new Promise(...)` en la línea `(*)`. Después de un segundo, se resuelve, y el resultado (el argumento de `resolve`, aquí es `result * 2`) se pasa al controlador del segundo `.then`. Ese controlador está en la línea `(**)`, muestra `2` y hace lo mismo.
+En este código el primer `.then` muestra `1` y devuelve `new Promise(...)` en la línea `(*)`. Después de un segundo, se resuelve, y el resultado (el argumento de `resolve`, aquí es `result * 2`) se pasa al controlador del segundo `.then`. Ese controlador está en la línea `(**)`, muestra `2` y hace lo mismo.
 
 Por lo tanto, la salida es la misma que en el ejemplo anterior: 1 -> 2 -> 4, pero ahora con 1 segundo de retraso entre las llamadas de alerta.
 
@@ -129,7 +129,7 @@ Devolver las promesas nos permite construir cadenas de acciones asincrónicas.
 
 ## El ejemplo: loadScript
 
-Usemos esta función con el `loadScript` prometido, definido en el [capítulo anterior](info:promise-basics#loadscript), para cargar los scripts uno por uno, en secuencia:
+Usemos esta función con el `loadScript` promisificado, definido en el [capítulo anterior](info:promise-basics#loadscript), para cargar los scripts uno por uno, en secuencia:
 
 ```js run
 loadScript("/article/promise-chaining/one.js")
@@ -140,8 +140,8 @@ loadScript("/article/promise-chaining/one.js")
     return loadScript("/article/promise-chaining/three.js");
   })
   .then(function(script) {
-    // usar funciones declaradas en scripts
-    // para mostrar que efectivamente cargaron
+    // usamos las funciones declaradas en los scripts
+    // para demostrar que efectivamente se cargaron
     one();
     two();
     three();
@@ -155,7 +155,7 @@ loadScript("/article/promise-chaining/one.js")
   .then(script => loadScript("/article/promise-chaining/two.js"))
   .then(script => loadScript("/article/promise-chaining/three.js"))
   .then(script => {
-    // los scripts se cargan, podemos usar funciones declaradas allí
+    // los scripts se cargaron, podemos usar las funciones declaradas en ellos
     one();
     two();
     three();
@@ -184,14 +184,14 @@ loadScript("/article/promise-chaining/one.js").then(script1 => {
 
 Este código hace lo mismo: carga 3 scripts en secuencia. Pero "crece hacia la derecha". Entonces tenemos el mismo problema que con los callbacks.
 
-Las personas que comienzan a usar promesas a veces no saben de encadenamiento, por lo que lo escriben de esta manera. En general, se prefiere el encadenamiento.
+Las personas que comienzan a usar promesas pueden desconocer el encadenamiento, y por ello escribirlo de esta manera. En general, se prefiere el encadenamiento.
 
-A veces está bien escribir `.then` directamente, porque la función anidada tiene acceso al ámbito externo. En el ejemplo anterior, el callback más anidado tiene acceso a todas las variables `script1`, `script2`, `script3`. Pero eso es una excepción más que una regla.
+A veces es aceptable escribir `.then` directamente, porque la función anidada tiene acceso al ámbito externo. En el ejemplo anterior, el callback más anidado tiene acceso a todas las variables `script1`, `script2`, `script3`. Pero eso es una excepción más que una regla.
 
 ````smart header="Objetos Thenables"
 Para ser precisos, un controlador puede devolver no exactamente una promesa, sino un objeto llamado "thenable", un objeto arbitrario que tiene un método `.then`. Será tratado de la misma manera que una promesa.
 
-La idea es que las librerías de terceros puedan implementar sus propios objetos "compatibles con la promesa". Pueden tener un conjunto extendido de métodos, pero también pueden ser compatibles con las promesas nativas, porque implementan `.then`.
+La idea es que las librerías de terceros puedan implementar sus propios objetos "compatibles con la promesa". Pueden tener un conjunto extendido de métodos, pero también ser compatibles con las promesas nativas, porque implementan `.then`.
 
 Aquí hay un ejemplo de un objeto que se puede guardar:
 
@@ -293,7 +293,7 @@ Mire la línea `(*)`: ¿cómo podemos hacer algo *después de* que el avatar hay
 
 Para que la cadena sea extensible, debemos devolver una promesa que se resuelva cuando el avatar termine de mostrarse.
 
-Como este:
+Como esto:
 
 ```js run
 fetch('/article/promise-chaining/user.json')
