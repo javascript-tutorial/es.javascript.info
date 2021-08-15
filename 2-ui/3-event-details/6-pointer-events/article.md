@@ -71,7 +71,7 @@ Para punteros que miden un área de contacto y presión, p. Ej. un dedo en la pa
 - `tangentialPressure` - la presión tangencial normalizada.
 - `tiltX`, `tiltY`, `twist` - propiedades específicas del lápiz que describen cómo se lo coloca en relación con la superficie.
 
-Estas propiedades no son muy soportadas en todos los dispositivos, por lo que rara vez se utilizan. Puede encontrar los detalles en la [especificación](https://w3c.github.io/pointerevents/#pointerevent-interface) si lo necesita.
+En la mayoría de los dispositivos estas propiedades no están soportadas, por lo que rara vez se utilizan. Si lo necesita puede encontrar los detalles en la [especificación](https://w3c.github.io/pointerevents/#pointerevent-interface).
 
 ## Multi-touch (Multitáctil)
 
@@ -102,16 +102,16 @@ Tenga en cuenta que debe utilizar un dispositivo con pantalla táctil, como un t
 
 ## Evento: pointercancel
 
-El evento `pointercancel` se dispara cuando hay una interacción de puntero en curso y luego sucede algo que hace que se anule, de modo que no se generan más eventos de puntero.
+El evento `pointercancel` se dispara cuando, mientras hay una interacción de puntero en curso, sucede algo que hace que esta se anule, de modo que no se generan más eventos de puntero.
 
 Las causas son:
 - Se deshabilitó el hardware del dispositivo de puntero.
 - La orientación del dispositivo cambió (tableta rotada).
-- El navegador decidió manejar la interacción por su cuenta: considerándolo un gesto de mouse, una acción de zoom, o alguna otra cosa.
+- El navegador decidió manejar la interacción por su cuenta: porque lo consideró un gesto de mouse, una acción de zoom, o alguna otra cosa.
 
 Demostraremos `pointercancel` en un ejemplo práctico para ver cómo nos afecta.
 
-Digamos que estamos implementando arrastrar y soltar (drag'n'drop) en una pelota, como al principio del artículo <info:mouse-drag-and-drop>.
+Digamos que queremos una implementación de "arrastrar y soltar" en una pelota, como la que está al principio del artículo <info:mouse-drag-and-drop>.
 
 A continuación, se muestra el flujo de acciones del usuario y los eventos correspondientes:
 
@@ -119,7 +119,7 @@ A continuación, se muestra el flujo de acciones del usuario y los eventos corre
     - `pointerdown` el evento se dispara
 2) Luego comienzan a mover el puntero (arrastrando la imagen)
     - `pointermove` se dispara, tal vez varias veces
-3) ¡Sorpresa! El navegador tiene soporte nativo de arrastrar y soltar para imágenes, que se dispara y se hace cargo del proceso de arrastrar y soltar, generando así el evento `pointercancel`.
+3) ¡Sorpresa! El navegador tiene soporte nativo de arrastrar y soltar para imágenes, este bloquea el nuestro y se hace cargo del proceso de arrastrar y soltar, generando el evento `pointercancel`.
     - El navegador ahora maneja arrastrar y soltar la imagen por sí solo. El usuario puede incluso arrastrar la imagen de la bola fuera del navegador, a su programa de correo o al administrador de archivos.
     - No más eventos `pointermove` para nosotros.
 
@@ -165,7 +165,7 @@ La idea es muy simple, pero puede verse extraña al principio, porque no existe 
 El método principal es: 
 - `elem.setPointerCapture(pointerId)` -- vincula el `pointerId` dado a `elem`. Después del llamado todos los eventos de puntero con el mismo `pointerId` tendrán `elem` como objetivo (como si ocurrieran sobre `elem`), no importa dónde hayan ocurrido en realidad.
 
-En otras palabras, `elem.setPointerCapture(pointerId)` redirecciona todos los subsecuentes eventos con el `pointerId` dado hacia `elem`.
+En otras palabras: `elem.setPointerCapture(pointerId)` redirige hacia `elem` todos los eventos subsecuentes que tengan el `pointerId` dado.
 
 El vínculo se deshace::
 - automáticamente cuando ocurren los eventos `pointerup` o `pointercancel`,
@@ -219,7 +219,7 @@ thumb.onpointerdown = function(event) {
 
   // comienza a rastrear movimientos de puntero
   thumb.onpointermove = function(event) {
-    // mueve el control deslizante: escucha a thumb, ya que todos los eventos se redireccionan a él
+    // se mueve el control deslizante: escucha a thumb, ya que todos los eventos se redirigen a él
     let newLeft = event.clientX - slider.getBoundingClientRect().left;
     thumb.style.left = newLeft + 'px';
   };
