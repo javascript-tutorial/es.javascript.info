@@ -102,7 +102,7 @@ Tenga en cuenta que debe utilizar un dispositivo con pantalla táctil, como un t
 
 ## Evento: pointercancel
 
-El evento `pointercancel` se dispara cuando, mientras hay una interacción de puntero en curso, sucede algo que hace que esta se anule, de modo que no se generan más eventos de puntero.
+El evento `pointercancel` se dispara cuando, mientras hay una interacción de puntero en curso, sucede algo que hace que esta se anule de modo que no se generan más eventos de puntero.
 
 Las causas son:
 - Se deshabilitó el hardware del dispositivo de puntero.
