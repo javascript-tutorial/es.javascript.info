@@ -48,7 +48,7 @@ Todo funciona, porque una llamada a `promise.then` devuelve una promesa, para qu
 
 Cuando un controlador devuelve un valor, se convierte en el resultado de esa promesa, por lo que se llama al siguiente `.then`.
 
-**Un error clásico de novato: técnicamente también podemos agregar muchos '.then' a una sola promesa: eso no es encadenamiento.**
+**Un error clásico de principiante: técnicamente también podemos agregar muchos '.then' a una sola promesa: eso no es encadenamiento.**
 
 Por ejemplo:
 
