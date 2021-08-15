@@ -106,7 +106,7 @@ Vamos a examinar la declaración `for` parte por parte:
 
 | parte  |          |                                                                            |
 |-------|----------|----------------------------------------------------------------------------|
-| comienzo | `i = 0`    | Se ejecuta una vez al comienzo del bucle.                         |
+| comienzo | `let i = 0`    | Se ejecuta una vez al comienzo del bucle.                         |
 | condición | `i < 3`| Comprobada antes de cada iteración del bucle. Si es falsa, el bucle finaliza.             |
 | cuerpo | `alert(i)`| Se ejecuta una y otra vez mientras la condición sea verdadera.                         |
 | paso | `i++`      | Se ejecuta después del cuerpo en cada iteración. |

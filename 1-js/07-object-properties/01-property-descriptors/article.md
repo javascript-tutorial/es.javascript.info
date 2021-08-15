@@ -70,7 +70,7 @@ Object.defineProperty(obj, propertyName, descriptor)
 
 Si la propiedad existe, `defineProperty` actualiza sus indicadores. De otra forma, creará la propiedad con el valor y el indicador dado; en ese caso, si el indicador no es proporcionado, es asumido como `false`.
 
-Por ejemplo, aqui se crea una propiedad `name` con todos los indicadores en `false`:
+En el ejemplo a continuación, se crea una propiedad `name` con todos los indicadores en `false`:
 
 ```js run
 let user = {};

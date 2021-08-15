@@ -4,7 +4,7 @@
 ```smart header="Este artículo es para entender código antiguo"
 La información en este artículo es útil para entender código antiguo.
 
-Así no es como escribimos código moderno.
+No es así como escribimos código moderno.
 ```
 
 En el primer capítulo acerca de [variables](info:variables), mencionamos tres formas de declarar una variable:
