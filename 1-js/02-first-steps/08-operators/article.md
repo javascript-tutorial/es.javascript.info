@@ -338,7 +338,7 @@ Incremento/decremento sólo puede ser aplicado a variables. Intentar utilizarlo 
 Los operadores `++` y `--` pueden ser colocados antes o después de una variable.
 
 - Cuando el operador va después de la variable, está en "forma de sufijo": `counter++`.
-- La "forma de prefijo" es cuando el operador va después de la variable: `++counter`.
+- La "forma de prefijo" es cuando el operador va antes de la variable: `++counter`.
 
 Ambas sentencias hacen la misma cosa: aumentar `counter` por `1`.
 
