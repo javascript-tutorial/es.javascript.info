@@ -1,7 +1,7 @@
 
 # Elementos personalizados
 
-Podemos crear elementos HTML personalizados con nuestras propias clases, con sus propios métodos, propiedades, eventos y demás.
+Podemos crear elementos HTML personalizados con nuestras propias clases; con sus propios métodos, propiedades, eventos y demás.
 
 Una vez que definimos el elemento personalizado, podemos usarlo a la par de elementos HTML nativos.
 
@@ -11,8 +11,8 @@ Podemos definirlos con una clase especial, y luego usarlos como si siempre hubie
 
 Hay dos clases de elementos personalizados:
 
-1. **Elementos personalizados autónomos** -- elementos "todo-nuevo", extendiendo la clase abstracta `HTMLElement`.
-2. **Elementos nativos personalizados** -- extendiendo elementos nativos, por ejemplo un botón personalizado basado en `HTMLButtonElement`.
+1. **Elementos personalizados autónomos** -- son elementos "todo-nuevo", extensiones de la clase abstracta `HTMLElement`.
+2. **Elementos nativos personalizados** -- son extensiones de elementos nativos, por ejemplo un botón personalizado basado en `HTMLButtonElement`.
 
 Primero cubriremos los elementos autónomos, luego pasaremos a la personalización de elementos nativos.
 
@@ -40,7 +40,7 @@ class MyElement extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return [/* array de nombres de atributos para monitorear cambios */];
+    return [/* array de nombres de atributos a los que queremos monitorear por cambios */];
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
@@ -138,7 +138,7 @@ En el ejemplo de arriba, el contenido del elemento es renderizado (construido) e
 
 ¿Por qué no en el `constructor`?
 
-La razón es simple: cuando el `constructor` es llamado, es aún demasiado pronto. El elemento es creado, pero el navegador aún no procesó ni asignó atributos en este estado, las llamadas a `getAttribute` devolverían `null`. Así que no podemos renderizar ahora.
+La razón es simple: cuando el `constructor` es llamado, es aún demasiado pronto. El elemento es creado, pero el navegador aún no procesó ni asignó atributos en este estado, entonces las llamadas a `getAttribute` devolverían `null`. Así que no podemos renderizar ahora.
 
 Por otra parte, si lo piensas, es más adecuado en términos de performance: demorar el trabajo hasta que realmente se lo necesite.
 
@@ -151,7 +151,7 @@ En la implementación actual de `<time-formatted>`, después de que el elemento 
 
 Podemos observar atributos suministrando la lista de ellos al getter estático `observedAttributes()`. Cuando esos atributos son modificados, se dispara `attributeChangedCallback`. No se dispara para los atributos no incluidos en la lista, por razones de performance.
 
-A continuación, el nuevo `<time-formatted>` que se actualiza con el cambio de atributos:
+A continuación, el nuevo `<time-formatted>` que se actualiza cuando los atributos cambian:
 
 ```html run autorun="no-epub" height=50
 <script>
@@ -302,7 +302,7 @@ Orden de salida:
 
 Claramente vemos que el elemento finaliza su inicialización `(3)` antes que el interno `(4)`.
 
-No existe un callback nativo que se dispare después de que los elementos anidados estén listos. Si es necesario, podemos implementarlo nosotros mismos. Por ejemplo, elementos internos pueden disparar eventos como `initialized`, y los externos pueden escucharlos para reaccionar a ellos.
+No existe un callback nativo que se dispare después de que los elementos anidados estén listos. Si es necesario, podemos implementarlo nosotros mismos. Por ejemplo, los elementos internos pueden disparar eventos como `initialized`, y los externos pueden escucharlos para reaccionar a ellos.
 
 ## Elementos nativos personalizados 
 
