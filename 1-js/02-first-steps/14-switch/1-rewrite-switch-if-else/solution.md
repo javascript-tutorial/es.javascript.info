@@ -15,6 +15,6 @@ if(navegador == 'Edge') {
 }
 ```
 
-Nota: El constructor `navegador == 'Chrome' || navegador == 'Firefox' …` fue separado en varias líneas para mejor lectura.
+Nota: la construcción `navegador == 'Chrome' || navegador == 'Firefox' …` fue separada en varias líneas para mejorar su lectura.
 
-Pero el constructor de `switch` sigue siendo más fácil de leer y más descriptivo.
+Pero la construcción `switch` sigue siendo más clara y descriptiva.
