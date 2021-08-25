@@ -1,6 +1,6 @@
 # Especiales JavaScript
 
-Este capítulo resume brevemente las características de JavaScript que hemos aprendido hasta ahora, prestando especial atención a los momentos sutiles.
+Este capítulo resume brevemente las características de JavaScript que hemos aprendido hasta ahora, prestando especial atención a los detalles relevantes.
 
 ## Estructura de Código
 
@@ -10,14 +10,14 @@ Las declaraciones se delimitan con un punto y coma:
 alert('Hola'); alert('Mundo');
 ```
 
-Usualmente, un salto de línea también se trata como un delimitador, por lo que también funcionaría:
+En general, un salto de línea también se trata como un delimitador, por lo que también funciona:
 
 ```js run no-beautify
 alert('Hola')
 alert('Mundo')
 ```
 
-Eso se llama "inserción automática de punto y coma". A veces no funciona, por ejemplo:
+Esto se llama "inserción automática de punto y coma". A veces no funciona, por ejemplo:
 
 ```js run
 alert("Habrá un error después de este mensaje.")
@@ -39,7 +39,7 @@ for(;;) {
 }
 ```
 
-...Pero incluso si colocásemos un punto y coma "extra" en alguna parte, eso no es un error. Solo sería ignorado.
+...Pero incluso si colocásemos un punto y coma "extra" en alguna parte, eso no sería un error. Solo sería ignorado.
 
 Más en: <info:structure>.
 
@@ -87,8 +87,8 @@ Hay 8 tipos de datos:
 - `bigint` para números enteros de largo arbitrario,
 - `string` para textos,
 - `boolean` para valores lógicos: `true/false`,
-- `null` -- un tipo con un solo valor `null`, que significa "vacío" o "no existe",
-- `undefined` -- un tipo con un solo valor `undefined`, que significa "no asignado",
+- `null` -- un tipo con el valor único `null`, que significa "vacío" o "no existe",
+- `undefined` -- un tipo con el valor único `undefined`, que significa "no asignado",
 - `object` y `symbol` -- para estructuras de datos complejas e identificadores únicos, aún no los hemos aprendido.
 
 El operador `typeof` devuelve el tipo de un valor, con dos excepciones:
@@ -104,10 +104,10 @@ Más en: <info:variables> y <info:types>.
 Estamos utilizando un navegador como entorno de trabajo, por lo que las funciones básicas de la interfaz de usuario serán:
 
 [`prompt(question, [default])`](https://developer.mozilla.org/es/docs/Web/API/Window/prompt)
-: Hace una pregunta `question`, y devuelve lo que ingresó el visitante o`null` si presionaron "cancelar".
+: Hace una pregunta `question`, y devuelve lo que ingresó el visitante o `null` si presiona "cancelar".
 
 [`confirm(question)`](https://developer.mozilla.org/es/docs/Web/API/Window/confirm)
-: Hace una pregunta `question`, y sugiere elegir entre Aceptar y Cancelar. La eleccion se devuelve como booleano `true/false`.
+: Hace una pregunta `question`, y sugiere elegir entre Aceptar y Cancelar. La elección se devuelve como booleano `true/false`.
 
 [`alert(message)`](https://developer.mozilla.org/es/docs/Web/API/Window/alert)
 : Muestra un `message`.
@@ -121,7 +121,7 @@ let userName = prompt("¿Su nombre?", "Alice");
 let isTeaWanted = confirm("¿Quiere té?");
 
 alert( "Visitante: " + userName ); // Alice
-alert( "Quiere te: " + isTeaWanted ); // true
+alert( "Quiere té: " + isTeaWanted ); // true
 ```
 
 Más en: <info:alert-prompt-confirm>.
@@ -131,9 +131,9 @@ Más en: <info:alert-prompt-confirm>.
 JavaScript soporta los siguientes operadores:
 
 Aritméticos
-: Regulares: `* + - /`, también `%` para los restos y `**` para aplicar potencia de un número.
+: Los normales: `* + - /`, también `%` para los restos y `**` para aplicar potencia de un número.
 
-    El binario más `+` concatena textos. Y si alguno de los operandos es un texto, el otro también se convierte en texto:
+    El binario más `+` concatena textos. Si uno de los operandos es un texto, el otro también se convierte en texto:
 
     ```js run
     alert( '1' + 2 ); // '12', texto
@@ -141,22 +141,22 @@ Aritméticos
     ```
 
 Asignaciones
-: He aquí una asignación simple: `a = b` y una combinada `a *= 2`.
+: Existen las asignaciones simples: `a = b` y las combinadas `a *= 2`.
 
 Operador bit a bit
-: Los operadores bit a bit funcionan con enteros de 32 bits al más bajo nivel, el de bit: mire la [documentación](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators) cuando sea necesario.
+: Los operadores bit a bit funcionan con enteros de 32 bits al más bajo nivel, el de bit: vea la [documentación](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators) cuando sea necesario.
 
 Condicional
 : El único operador con 3 parámetros: `cond ? resultA : resultB`. Sí `cond` es verdadera, devuelve `resultA`, de lo contrario `resultB`.
 
 Operadores Lógicos
-: Los operadores lógicos Y `&&` y Ó `||` realizan una evaluación de circuito corto y luego devuelven el valor donde se detuvo. El operador lógico NOT `!` convierte el operando a tipo booleano y devuelve el valor inverso.
+: Los operadores lógicos Y `&&` y Ó `||` realizan una evaluación de circuito corto y luego devuelven el valor donde se detuvo (no necesariamente true/false). El operador lógico NOT `!` convierte el operando a tipo booleano y devuelve el valor inverso.
 
 Operador "Nullish coalescing"
 : El operador `??` brinda una forma de elegir el primer valor "definido" de una lista de variables. El resultado de `a ?? b` es `a` salvo que esta sea `null/undefined`, en cuyo caso será `b`.
 
 Comparaciones
-: Revision de igualdad `==` para valores de diferentes tipos los convierte en un número (excepto `null` y `undefined` que son iguales entre sí y nada más), por lo que son iguales:
+: Para verificar la igualdad `==` de valores de diferentes tipos, estos se convierten a número (excepto `null` y `undefined` que son iguales entre sí y nada más), por lo que son iguales:
 
     ```js run
     alert( 0 == false ); // true
@@ -165,11 +165,11 @@ Comparaciones
 
     Otras comparaciones también se convierten en un número.
 
-    El operador de igualdad estricta `===` no realiza la conversión: diferentes tipos de valores siempre significan diferentes valores para ella, así que:
+    El operador de igualdad estricta `===` no realiza la conversión: diferentes tipos siempre significan diferentes valores.
 
-    Valores `null` y `undefined` son especiales: son iguales `==` el uno al otro y no son iguales a nada más.
+    Los valores `null` y `undefined` son especiales: son iguales `==` el uno al otro y no son iguales a nada más.
 
-    Las comparaciones mayores / menores comparan las cadenas carácter por carácter, otros tipos de datos se convierten en un número.
+    Las comparaciones mayor/menor comparan las cadenas carácter por carácter, los demás tipos de datos se convierten a número.
 
 Otros operadores
 : Hay algunos otros, como un operador de coma.
@@ -206,7 +206,7 @@ Más adelante estudiaremos más tipos de bucles para tratar con objetos.
 
 ## La construcción "switch"
 
-La construcción "switch" puede reemplazar múltiples revisiones con `if`. Utiliza `===` (igualdad estricta) para comparar.
+La construcción "switch" puede reemplazar múltiples revisiones con `if`. "switch" utiliza `===` (comparación estricta).
 
 Por ejemplo:
 
@@ -259,7 +259,7 @@ Cubrimos tres formas de crear una función en JavaScript:
     // la expresión en el lado derecho
     let sum = (a, b) => a + b;
 
-    // o sintaxis multilínea { ... }, necesita return aquí:
+    // o sintaxis multilínea { ... }, aquí necesita return:
     let sum = (a, b) => {
       // ...
       return a + b;
@@ -273,7 +273,7 @@ Cubrimos tres formas de crear una función en JavaScript:
     ```
 
 
-- Las funciones pueden tener variables locales: aquellas declaradas dentro de su cuerpo. Estas variables solo son visibles dentro de la función.
+- Las funciones pueden tener variables locales: son aquellas declaradas dentro de su cuerpo. Estas variables solo son visibles dentro de la función.
 - Los parámetros pueden tener valores predeterminados: `function sum(a = 1, b = 2) {...}`.
 - Las funciones siempre devuelven algo. Si no hay `return`, entonces el resultado es `undefined`.
 
