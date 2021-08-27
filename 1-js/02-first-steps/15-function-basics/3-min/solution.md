@@ -1,4 +1,4 @@
-A solution using `if`:
+Una solución usando `if`:
 
 ```js
 function min(a, b) {
