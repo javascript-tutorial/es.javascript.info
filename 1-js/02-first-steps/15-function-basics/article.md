@@ -1,6 +1,6 @@
 # Funciones
 
-Muy a menudo necesitamos realizar una acción similar en muchos lugares del script.
+Muy a menudo necesitamos realizar acciones similares en muchos lugares del script.
 
 Por ejemplo, debemos mostrar un mensaje atractivo cuando un visitante inicia sesión, cierra sesión y tal vez en otros momentos.
 
@@ -20,7 +20,7 @@ function showMessage() {
 }
 ```
 
-La palabra clave `function` va primero, luego va el *nombre de función*,  luego una lista de *parámetros* entre paréntesis (separados por comas, vacía en el ejemplo anterior) y finalmente el código de la función, también llamado "el cuerpo de la función" , entre llaves.
+La palabra clave `function` va primero, luego va el *nombre de función*,  luego una lista de *parámetros* entre paréntesis (separados por comas, vacía en el ejemplo anterior) y finalmente el código de la función entre llaves, también llamado "el cuerpo de la función".
 
 ```js
 function name(parameter1, parameter2, ... parameterN) {
@@ -66,7 +66,7 @@ function showMessage() {
 
 showMessage(); // Hola, ¡Soy JavaScript!
 
-alert( message ); // <-- Error! La variable es local para esta función
+alert( message ); // <-- ¡Error! La variable es local para esta función
 ```
 
 ## Variables Externas
@@ -107,7 +107,7 @@ alert( userName ); // *!*Bob*/!*, el valor fué modificado por la función
 
 La variable externa solo se usa si no hay una local.
 
-Si una variable con el mismo nombre se declara dentro de la función, le *hace sombra* a la externa. Por ejemplo, en el siguiente código, la función usa el `userName` local. El exterior se ignora:
+Si una variable con el mismo nombre se declara dentro de la función, le *hace sombra* a la externa. Por ejemplo, en el siguiente código, la función usa la variable `userName` local. La exterior se ignora:
 
 ```js run
 let userName = 'John';
@@ -132,7 +132,7 @@ Variables declaradas fuera de cualquier función, como la variable externa `user
 
 Las variables globales son visibles desde cualquier función (a menos que se les superpongan variables locales con el mismo nombre).
 
-Es una buena práctica reducir el uso de variables globales. El código moderno tiene pocos o ninguna variable global. La mayoría de las variables residen en sus funciones. Aunque a veces puede justificarse almacenar algunos datos a nivel de proyecto.
+Es una buena práctica reducir el uso de variables globales. El código moderno tiene pocas o ninguna variable global. La mayoría de las variables residen en sus funciones. Aunque a veces puede justificarse almacenar algunos datos a nivel de proyecto.
 ```
 
 ## Parámetros
@@ -172,7 +172,7 @@ showMessage(from, "Hola"); // *Ann*: Hola
 alert( from ); // Ann
 ```
 
-Cuando un valor es pasado como un parámetro de función, se denomina también un *argumento*.
+Cuando un valor es pasado como un parámetro de función, también se denomina *argumento*.
 
 Para poner los términos claros:
 
@@ -257,7 +257,7 @@ function showMessage(text) {
 }
 ```
 
-Intérpretes JavaScript modernos soportan el [operador nullish coalescing](info:nullish-coalescing-operator) `??`, es mejor cuando el valor de `0` debe ser considerado "normal" en lugar de falso:
+Los intérpretes de JavaScript modernos soportan el [operador nullish coalescing](info:nullish-coalescing-operator) `??`, que es mejor cuando el valor de `0` debe ser considerado "normal" en lugar de falso:
 
 ```js run
 function showCount(count) {
