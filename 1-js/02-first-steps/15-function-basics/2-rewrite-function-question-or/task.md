@@ -2,9 +2,9 @@ importance: 4
 
 ---
 
-# Reescriba la función utilizando '?' o '||'
+# Reescribe la función utilizando '?' o '||'
 
-La siguiente función devuelve `true` si el parametro `age` es mayor que `18`.
+La siguiente función devuelve `true` si el parámetro `age` es mayor que `18`.
 
 De lo contrario, solicita una confirmación y devuelve su resultado.
 
@@ -18,7 +18,7 @@ function checkAge(age) {
 }
 ```
 
-Reescríbalo, para realizar lo mismo, pero sin `if`, en una sola linea.
+Reescríbela para realizar lo mismo, pero sin `if`, en una sola linea.
 
 Haz dos variantes de `checkAge`:
 
