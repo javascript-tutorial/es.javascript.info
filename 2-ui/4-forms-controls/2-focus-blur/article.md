@@ -171,7 +171,7 @@ El ejemplo anterior no funciona porque cuando el usuario enfoca sobre un <input>
 
 Existen dos soluciones.
 
-Primero, hay una peculiar característica histórica: `focus/blur` no se propagan hacia arriba, pero lo hacen hacia abajo en la fase de captura.
+Primera: hay una peculiar característica histórica: `focus/blur` no se propagan hacia arriba, pero lo hacen hacia abajo en la fase de captura.
 
 Esto funcionará:
 
@@ -192,11 +192,11 @@ Esto funcionará:
 </script>
 ```
 
-Segundo, existen los eventos `focusin` and `focusout`: exactamente igual que `focus/blur` pero se propagan.
+Segunda: existen los eventos `focusin` y `focusout`, exactamente iguales a `focus/blur`, pero se propagan.
 
 Hay que tener en cuenta que han de asignarse utilizando `elem.addEventListener`, no `on<event>`.
 
-Aquí hay otra opción que funciona:
+La otra opción que funciona:
 
 ```html autorun height=80
 <form id="form">
