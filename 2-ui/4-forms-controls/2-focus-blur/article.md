@@ -4,15 +4,15 @@ Un elemento se enfoca cuando el usuario hace click sobre él o al pulsar `key:Ta
 
 Enfocarse sobre un elemento generalmente significa: "prepárate para aceptar estos datos", por lo que es el momento en el cual podemos correr el código para inicializar la funcionalidad requerida.
 
-El momento de desenfoque ("blur")  puede ser incluso más importante. Ocurre cuando un usuario clica en otro punto o presiona `key:Tab` para ir al siguiente campo de un formulario, también hay otras maneras.
+El momento de desenfoque ("blur") puede ser incluso más importante. Ocurre cuando un usuario clica en otro punto o presiona `key:Tab` para ir al siguiente campo de un formulario. También hay otras maneras.
 
-Perder el foco o desenfocarse generalmente significa: "los datos ya han sido introducidos", por lo que podemos correr el código para comprobarlo, para guardarlo en el servidor, etc.
+Perder el foco o desenfocarse generalmente significa: "los datos ya han sido introducidos", entonces podemos correr el código para comprobarlo, o para guardarlo en el servidor, etc.
 
 Existen importantes peculiaridades al trabajar con eventos de enfoque. Haremos lo posible para abarcarlas a continuación. 
 
 ## Eventos focus/blur
 
-El evento `focus` es llamado al enfocar, y `blur` cuando el elemento pierde el foco.
+El evento `focus` es llamado al enfocar, y el `blur` cuando el elemento pierde el foco.
 
 Utilicémoslos para la validación de un campo de entrada. 
 
