@@ -1,7 +1,7 @@
 
 # Encadenamiento de promesas
 
-Volvamos al problema mencionado en el capítulo <info:callbacks>: tenemos una secuencia de tareas asincrónicas que deben realizare una tras otra, por ejemplo, cargar scripts. ¿Cómo podemos codificarlo correctamente?
+Volvamos al problema mencionado en el capítulo <info:callbacks>: tenemos una secuencia de tareas asincrónicas que deben realizarse una tras otra, por ejemplo, cargar scripts. ¿Cómo podemos codificarlo correctamente?
 
 Las promesas proporcionan un par de maneras para hacerlo.
 
