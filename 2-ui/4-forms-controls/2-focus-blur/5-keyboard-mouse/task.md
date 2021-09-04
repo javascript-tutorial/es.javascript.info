@@ -2,12 +2,12 @@ importance: 4
 
 ---
 
-# Keyboard-driven mouse
+# Ratón manejado por teclado
 
-Focus on the mouse. Then use arrow keys to move it:
+Enfoca el ratón. Luego usa las flechas del teclado para moverlo:
 
 [demo src="solution"]
 
-P.S. Don't put event handlers anywhere except the `#mouse` element.
+P.S. No pongas manejadores de eventos en ningún lado excepto el elemento `#mouse`.
 
-P.P.S. Don't modify HTML/CSS, the approach should be generic and work with any element.
+P.P.S. No modifiques HTML/CSS, el proceso debe ser genérico y trabajar con cualquier elemento.
