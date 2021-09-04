@@ -1,6 +1,6 @@
 
-We can use `mouse.onclick` to handle the click and make the mouse "moveable" with `position:fixed`, then `mouse.onkeydown` to handle arrow keys.
+Podemos usar `mouse.onclick` para manejar el clic y hacer el ratón "movible" con `position:fixed`, y luego `mouse.onkeydown` para manejar las flechas del teclado.
 
-The only pitfall is that `keydown` only triggers on elements with focus. So we need to add `tabindex` to the element.  As we're forbidden to change HTML, we can use `mouse.tabIndex` property for that.
+La única trampa es que `keydown` solo se dispara en elementos con foco. Así que necesitamos agregar `tabindex` al elemento. Como un requisito es no cambiar el HTML, podemos usar la propiedad `mouse.tabIndex` para eso.
 
-P.S. We also can replace `mouse.onclick` with `mouse.onfocus`.
+P.S. También podemos reemplazar `mouse.onclick` con `mouse.onfocus`.

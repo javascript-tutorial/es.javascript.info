@@ -2,15 +2,15 @@ importance: 5
 
 ---
 
-# Edit TD on click
+# Editar TD al clicar
 
-Make table cells editable on click.
+Haz las celdas de la tabla editables al clicarlas.
 
-- On click -- the cell should become "editable" (textarea appears inside), we can change HTML. There should be no resize, all geometry should remain the same.
-- Buttons OK and CANCEL appear below the cell to finish/cancel the editing.
-- Only one cell may be editable at a moment. While a `<td>` is in "edit mode", clicks on other cells are ignored.
-- The table may have many cells. Use event delegation.
+- Al clicar, la celda se vuelve "editable" (aparece un textarea dentro), y podemos cambiar el HTML. No debe haber cambios de tamaño, la geometría debe conservarse.
+- Bajo la celda aparecen los botones OK y CANCEL para terminar/cancelar la edición.
+- Solo una celda a la vez puede ser editable. Mientras un `<td>` esté en "modo de edición", los clics en otras celdas son ignorados.
+- La tabla puede tener varias celdas. Usa delegación de eventos.
 
-The demo:
+El demo:
 
 [iframe src="solution" height=400]
