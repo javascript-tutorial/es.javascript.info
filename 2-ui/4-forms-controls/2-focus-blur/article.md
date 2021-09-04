@@ -1,6 +1,6 @@
 # Enfocado: enfoque/desenfoque
 
-Un elemento se enfoca cuando el usuario hace click sobre él o se llega al pulsar `key:Tab` en el teclado. Existen también un atributo `autofocus` de HTML que enfoca un elemento por defecto cuando una página carga, y otros medios de conseguir el enfoque.
+Un elemento se enfoca cuando el usuario hace click sobre él o al pulsar `key:Tab` en el teclado. Existen también un atributo `autofocus` de HTML que enfoca un elemento por defecto cuando una página carga, y otros medios de conseguir el enfoque.
 
 Enfocarse sobre un elemento generalmente significa: "prepárate para aceptar estos datos", por lo que es el momento en el cual podemos correr el código para inicializar la funcionalidad requerida.
 
