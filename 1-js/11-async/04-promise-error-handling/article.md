@@ -199,6 +199,6 @@ En entornos fuera del navegador como Node.js existen otras formas de rastrear er
 ## Resumen
 
 - `.catch` maneja errores de todo tipo: ya sea una llamada a `reject()`, o un error que arroja un manejador.
-- Debemos colocar `.catch` exáctamente en los lugares donde queremos manejar los errores y saber como manejarlos. El manejador analiza los errores (los errores personalizados) y, (en caso de no conocerse la razón del error) se lanzan los errores desconocidos (tal vez sean errores de programación).
-- Está bien no usar siempre `.catch`, si no hay forma de recuperarse de un error.
-- En cualquier caso, deberíamos tener el evento `unhandledrejection` (para navegadores, o el equivalente en otros entornos) para rastrear errores no manejados e informar al usuario (y probablemente al servidor) para que nuestra aplicación nunca "simplemente muera".
+- Debemos colocar `.catch` exactamente en los lugares donde queremos manejar los errores y saber cómo manejarlos. El manejador debe analizar los errores (los errores personalizados ayudan), y en caso de no conocerse la razón del error relanzar los errores desconocidos (tal vez sean errores de programación).
+- Es correcto no usar `.catch` si no hay forma de recuperarse de un error.
+- En cualquier caso, deberíamos tener el evento `unhandledrejection` (para navegadores, o el equivalente en otros entornos) para monitorear errores no manejados e informar al usuario (y probablemente al servidor) para que nuestra aplicación nunca "simplemente muera".
