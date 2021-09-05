@@ -182,7 +182,7 @@ let str = 'una "bruja" y su "escoba" son una';
 alert( str.match(regexp) ); // "bruja", "escoba"
 ```
 
-La regexp `pattern:"[^"]+"` devuelve el resultado correcto, porque busca una comilla doble `pattern:'"'` seguida por uno o más caracteres no comilla doble `pattern:[^"]`, y luego la commilla doble de cierre.
+La regexp `pattern:"[^"]+"` devuelve el resultado correcto, porque busca una comilla doble `pattern:'"'` seguida por uno o más caracteres no comilla doble `pattern:[^"]`, y luego la comilla doble de cierre.
 
 Cuando la máquina de regexp busca el carácter no comilla `pattern:[^"]+` se detiene la repetición cuando encuentra la comilla doble de cierre,y terminamos.
 
