@@ -119,7 +119,7 @@ Por favor observa un interesante detalle aquí. Si ejecutamos el ejemplo anterio
 
 **Las propiedades `firstChild` y `lastChild` dan acceso rápido al primer y al último hijo.**
 
-Son solo atajos. Si existieran nodos hijos, la respuesta siguente sería siempre verdadera:
+Son solo atajos. Si existieran nodos hijos, la respuesta siguiente sería siempre verdadera:
 ```js
 elem.childNodes[0] === elem.firstChild
 elem.childNodes[elem.childNodes.length - 1] === elem.lastChild
@@ -161,7 +161,7 @@ Cambiar el DOM necesita otros métodos. Los veremos en el siguiente capítulo.
 ```
 
 ```warn header="Las colecciones del DOM están vivas"
-Casi todas las colleciones del DOM, salvo algunas excepciones, están *vivas*. En otras palabras, reflejan el estado actual del DOM.
+Casi todas las colecciones del DOM, salvo algunas excepciones, están *vivas*. En otras palabras, reflejan el estado actual del DOM.
 
 Si mantenemos una referencia a `elem.childNodes`, y añadimos o quitamos nodos del DOM, entonces estos nodos aparecen en la colección automáticamente.
 ```
