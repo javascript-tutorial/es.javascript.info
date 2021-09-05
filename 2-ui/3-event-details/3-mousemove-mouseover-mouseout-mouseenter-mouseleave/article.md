@@ -119,7 +119,7 @@ parent.onmouseover = function(event) {
 
 **Si no examinamos `event.target` dentro de los controladores podría parecer que el cursor dejo el elemento `#parent` y volvió a él inmediatamente.**
 
-Pero ese no es el caso. El cusor aún está sobre el elemento padre, simplemente se adentró más en el elemento hijo.
+Pero ese no es el caso. El cursor aún está sobre el elemento padre, simplemente se adentró más en el elemento hijo.
 
 Si hay algunas acciones al abandonar el elemento padre,por ejemplo: una animación se ejecuta con `parent.onmouseout`, usualmente no la queremos cuando el cursor se adentre más sobre `#parent`.
 
