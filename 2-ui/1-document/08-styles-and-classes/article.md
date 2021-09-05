@@ -212,7 +212,7 @@ Pero si necesitamos incrementar el margen a  `20px`? vamos el querer el valor de
 
 Hay otro método para eso: `getComputedStyle`.
 
-La síntaxis es:
+La sintaxis es:
 
 ```js
 getComputedStyle(element, [pseudo])
