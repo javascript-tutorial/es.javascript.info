@@ -410,7 +410,7 @@ Diferencias sintácticas entre generadores asíncronos y normales:
 |       | Generadores | Generadores asíncronos |
 |-------|-----------|-----------------|
 | Declaración | `function*` | `async function*` |
-| `next()` el velor de retorno es          | `{value:…, done: true/false}`         | `Promise` que resuelve como `{value:…, done: true/false}`  |
+| `next()` el valor de retorno es          | `{value:…, done: true/false}`         | `Promise` que resuelve como `{value:…, done: true/false}`  |
 
 En el desarrollo web, a menudo nos encontramos con flujos de datos que fluyen trozo a trozo. Por ejemplo, descargar o cargar un archivo grande.
 
