@@ -61,7 +61,7 @@ Contamos con métodos para poder modificar los campos del `FormData`:
 
 Un formulario técnicamente tiene permitido contar con muchos campos con el mismo atributo `name`, por lo que múltiples llamadas a `append` agregarán más campos con el mismo nombre.
 
-Por otra parte existe un método `set`, con la misma sintáxis que `append`. La diferencia está en que `.set` remueve todos los campos con el `name` que se le ha pasado, y luego agrega el nuevo campo. De este modo nos aseguramos de que sólo un campo éxiste con determinado `name`, el resto es tal como en `append`:
+Por otra parte existe un método `set`, con la misma sintaxis que `append`. La diferencia está en que `.set` remueve todos los campos con el `name` que se le ha pasado, y luego agrega el nuevo campo. De este modo nos aseguramos de que exista solamente un campo con determinado `name`, el resto es tal como en `append`:
 
 - `formData.set(name, value)`,
 - `formData.set(name, blob, fileName)`.
