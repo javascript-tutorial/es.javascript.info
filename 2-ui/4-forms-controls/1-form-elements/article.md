@@ -61,7 +61,7 @@ Estas propiedades de navegación no dependen de la estructura de las etiquetas. 
 
 
 ````smart header="Fieldsets como \"sub-formularios\""
-Un formulario puede tener uno o varios elementos `<fieldset>` dentro. Estos también tienen la propiedad `elements` que enlista los controles del formulario dentro de ellos.
+Un formulario puede tener uno o varios elementos `<fieldset>` dentro. Estos también tienen la propiedad `elements` que lista los controles del formulario dentro de ellos.
 
 Por ejemplo:
 
