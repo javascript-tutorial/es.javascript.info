@@ -251,10 +251,10 @@ alert(height); // 200
 
 Las propiedades `options.title`, `options.width` y `options.height` son asignadas a las variables correspondientes. 
 
-El órden no importa. Esto también funciona:
+El orden no importa. Esto también funciona:
 
 ```js
-// cambiado el órden en let {...}
+// cambiado el orden en let {...}
 let {height, width, title} = { title: "Menu", height: 200, width: 100 }
 ```
 
