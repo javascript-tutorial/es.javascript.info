@@ -484,7 +484,7 @@ Hay dos maneras principales de buscar en un almacén de objetos:
 
 ### Por clave
 
-Veamos el primer tipo de búqueda: por clave.
+Veamos el primer tipo de búsqueda: por clave.
 
 Los métodos de búsqueda soportan tanto las claves exactas como las denominadas "consultas por rango" que son objetos [IDBKeyRange](https://www.w3.org/TR/IndexedDB/#keyrange) que especifican un "rango de claves" aceptable.
 
@@ -648,7 +648,7 @@ Los cursores brindan los medios para manejar esta situación.
 
 **Un *cursor* es un objeto especial que, dada una consulta, recorre el almacén y devuelve un solo par clave/valor cada vez, ahorrando así memoria.**
 
-Como un almacén está ordenado internamente por clave, un cursor lo recorre en el orden de la clave (ascendende de forma predeterminada).
+Como un almacén está ordenado internamente por clave, un cursor lo recorre en el orden de la clave (ascendente de forma predeterminada).
 
 La sintaxis:
 ```js
