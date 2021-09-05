@@ -82,9 +82,9 @@ En el siguiente ejemplo el `<div>` interno tiene `<main>` como `offsetParent` y 
 
 ![](metric-offset-parent.svg)
 
-Hay varias ocaciones en la que `offsetParent` es `null`:
+Hay varias ocasiones en la que `offsetParent` es `null`:
 
-1. Para elmentos no mostrados (`display:none` o no en el documento).
+1. Para elementos no mostrados (`display:none` o no en el documento).
 2. Para `<body>` y `<html>`.
 3. Para elementos con `position:fixed`.
 
