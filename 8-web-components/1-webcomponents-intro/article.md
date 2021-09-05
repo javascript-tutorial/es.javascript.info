@@ -28,7 +28,7 @@ La Estación Espacial Internacional:
 
 ¿Cómo se crean dispositivos tan complejos?
 
-¿Qué principios podríamos tomar prestados para que nuestro desarrollo sea fiable y escalablea a ese nivel? ¿O, al menos, cerca de él?
+¿Qué principios podríamos tomar prestados para que nuestro desarrollo sea fiable y escalable a ese nivel? ¿O, al menos, cerca de él?
 
 ## Arquitectura de componentes
 
