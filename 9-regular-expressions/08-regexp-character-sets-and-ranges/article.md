@@ -66,7 +66,7 @@ Como la clase de caracteres `pattern:\w` es una abreviatura de `pattern:[a-zA-Z0
 
 Podemos escribir un patrón más universal, que busque caracteres de palabra en cualquier idioma. Eso es fácil con las propiedades unicode: `pattern:[\p{Alpha}\p{M}\p{Nd}\p{Pc}\p{Join_C}]`.
 
-Descifrémoslo. Similar a `pattern:\w`, estamos creando un conjunto propio que incluye caracteres con las siguientes propiedades unicode:
+Decifrémoslo. Similar a `pattern:\w`, estamos creando un conjunto propio que incluye caracteres con las siguientes propiedades unicode:
 
 - `Alfabético` (`Alpha`) - para letras,
 - `Marca` (`M`) - para acentos,
@@ -157,7 +157,7 @@ alert( '𝒳'.match(/[𝒳𝒴]/) ); // muestra un carácter extraño, como [?]
 
 El resultado es incorrecto porque, por defecto, las expresiones regulares "no saben" sobre pares sustitutos.
 
-El motor de expresión regular piensa que la cadena `[𝒳𝒴]` no son dos, sino cuatro carácteres:
+El motor de expresión regular piensa que la cadena `[𝒳𝒴]` no son dos, sino cuatro caracteres:
 1. mitad izquierda de `𝒳` `(1)`,
 2. mitad derecha de `𝒳` `(2)`,
 3. mitad izquierda de `𝒴` `(3)`,
