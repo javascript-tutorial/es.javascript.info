@@ -17,7 +17,7 @@ new Blob(blobParts, opciones);
 - **`blobParts`** es un array de valores `Blob`/`BufferSource`/`String`.
 - **`opciones`** objeto opcional:
   - **`tipo`** -- `Blob`, usualmente un tipo MIME, por ej. `image/png`,
-  - **`endings`** -- para transformar los finales de línea para hacer que el `Blob` coincida con los carácteres de nueva línea del Sistema Operativo actual (`\r\n` or `\n`). Por omisión es `"transparent"` (no hacer nada), pero también puede ser `"native"` (transformar).
+  - **`endings`** -- para transformar los finales de línea para hacer que el `Blob` coincida con los caracteres de nueva línea del Sistema Operativo actual (`\r\n` or `\n`). Por omisión es `"transparent"` (no hacer nada), pero también puede ser `"native"` (transformar).
 
 Por ejemplo:
 
@@ -50,7 +50,7 @@ Los argumentos son similares a `array.slice`, los números negativos también so
 ```smart header="los objetos `Blob` son inmutables"
 No podemos cambiar datos directamente en un `Blob`, pero podemos obtener partes de un `Blob`, crear nuevos objetos `Blob` a partir de ellos, mezclarlos en un nuevo `Blob` y así por el estilo.
 
-Este comportamiento es similar a las cadenas de JavaScript: no podemos cambiar un caractér en una cadena, pero podemos hacer una nueva, corregida.
+Este comportamiento es similar a las cadenas de JavaScript: no podemos cambiar un carácter en una cadena, pero podemos hacer una nueva, corregida.
 ```
 
 ## Blob como URL
@@ -111,13 +111,13 @@ El mapeado se limpia automáticamente al vaciar un documento, así los objetos `
 
 En el último ejemplo, intentamos que el `Blob` sea utilizado una sola vez, para descargas instantáneas, así llamamos `URL.revokeObjectURL(link.href)` inmediatamente.
 
-En el ejemplo anterior con el link HTML clickeable, no llamamos `URL.revokeObjectURL(link.href)`, porque eso puede hacer la URL del `Blob` inválido. Después de la revocación, como el mapeo es eliminado, la URL ya no volverá a funcionar.
+En el ejemplo anterior con el link HTML cliqueable, no llamamos `URL.revokeObjectURL(link.href)`, porque eso puede hacer la URL del `Blob` inválido. Después de la revocación, como el mapeo es eliminado, la URL ya no volverá a funcionar.
 
 ## Blob a base64
 
 Una alternativa a `URL.createObjectURL` es convertir un `Blob` en una cadena codificada en base64.
 
-Esa codificación representa datos binarios como una cadena ultra segura de caractéres "legibles" con códigos ASCII desde el 0 al 64. Y lo que es más importante, podemos utilizar codificación en las "URLs de datos".
+Esa codificación representa datos binarios como una cadena ultra segura de caracteres "legibles" con códigos ASCII desde el 0 al 64. Y lo que es más importante, podemos utilizar codificación en las "URLs de datos".
 
 Un [URL de datos](https://developer.mozilla.org/es/docs/Web/HTTP/Basics_of_HTTP/Datos_URIs) tiene la forma `data:[<mediatype>][;base64],<data>`. Podemos usar suficientes URLs por doquier, junto a URLs "regulares".
 
