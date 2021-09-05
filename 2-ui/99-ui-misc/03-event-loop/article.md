@@ -164,7 +164,7 @@ Usualmente el navegador renderiza al terminar la ejecución del código que actu
 
 Por un lado eso es genial porque nuestra función puede crear muchos elementos, agregarlos de a uno al documento y cambiar sus estilos... el visitante no verá ningún estado intermedio, sin finalizar. Lo cuál es importante, ¿no?
 
-Acá hay una demostración, los cambios a `i` no se mostrarán hasta que la función finalice, por lo que veremos solo el úlimo valor:
+Acá hay una demostración, los cambios a `i` no se mostrarán hasta que la función finalice, por lo que veremos solo el último valor:
 
 
 ```html run
@@ -220,7 +220,7 @@ Ahora el `<div>` muestra el incremento en el valor `i`, una especie de barra de 
 
 En un controlador de evento nosotros podemos decidir posponer alguna acción hasta que el evento aparezca y sea controlado en todos los niveles. Podemos hacer esto envolviendo el código en un `setTimeout` con retraso cero.
 
-En el capítulo <info:dispatch-events> vimos un ejemplo: el evento personalizado `menu-open` es distribuído en `setTimeout`, de modo que ocurre después de que el evento "click" se maneja por completo.
+En el capítulo <info:dispatch-events> vimos un ejemplo: el evento personalizado `menu-open` es distribuido en `setTimeout`, de modo que ocurre después de que el evento "click" se maneja por completo.
 
 ```js
 menu.onclick = function() {
@@ -257,7 +257,7 @@ Promise.resolve()
 alert("code");
 ```
 
-¿Cúal será el orden en este caso?
+¿Cuál será el orden en este caso?
 
 1. `code` se muestra primero porque es una llamada sincrónica regular.
 2. `promise` aparece segundo, porque `.then` pasa a través de la cola de microtareas y se ejecuta después del código actual.
