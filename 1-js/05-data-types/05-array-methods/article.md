@@ -1,6 +1,6 @@
 # Métodos con arrays 
 
-Los arrays (arreglos / matríces) cuentan con muchos métodos. Para hacer las cosas más sencillas, en este capítulo se encuentran divididos en dos partes.
+Los arrays (también llamados arreglos o matrices) cuentan con muchos métodos. Para hacer las cosas más sencillas, en este capítulo se encuentran divididos en dos partes.
 
 ## Agregar/remover elementos
 
@@ -254,7 +254,7 @@ alert( arr.includes(1) ); // true
 
 Tener en cuenta que el método usa comparación estricta (`===`). Por lo tanto, si buscamos `false`, encontrará exactamente `false` y no cero.
 
-Si queremos comprobar si un elemento está incluído y no necesitamos saber su ubicación exacta, entonces es preferible usar `arr.includes`
+Si queremos comprobar si un elemento está incluido y no necesitamos saber su ubicación exacta, es preferible usar `arr.includes`
 
 Además, una pequeña diferencia de `includes` es que puede manejar correctamente `NaN` a diferencia de `indexOf/lastIndexOf`:
 
@@ -354,7 +354,7 @@ let result = arr.map(function(item, index, array) {
 });
 ```
 
-Por ejemplo, acá transformamos cada elemento en el valor de su respectivo largo (lenght):
+Por ejemplo, acá transformamos cada elemento en el valor de su respectivo largo (length):
 
 ```js run
 let lengths = ["Bilbo", "Gandalf", "Nazgul"].map(item => item.length);
@@ -713,7 +713,7 @@ Veamos el ayudamemoria de métodos para arrays:
   - `shift()` -- extrae elementos del inicio,
   - `unshift(...items)` -- agrega elementos al inicio.
   - `splice(pos, deleteCount, ...items)` -- al índice `pos` borra `deleteCount` elementos e inserta `items`.
-  - `slice(start, end)` -- crea un nuevo array y copia elementos desde la posición `start` hasta `end` (no incluído) en el nuevo array.
+  - `slice(start, end)` -- crea un nuevo array y copia elementos desde la posición `start` hasta `end` (no incluido) en el nuevo array.
   - `concat(...items)` -- devuelve un nuevo array: copia todos los elementos del array actual y le agrega `items`. Si alguno de los `items` es un array, entonces su primer elemento es tomado
 
 - Para buscar entre elements:
