@@ -530,7 +530,7 @@ Los caracteres son comparados por su código numérico. Código mayor significa 
 
 ### Comparaciones correctas [#correct-comparisons]
 
-El algoritmo "correcto" para realizar comparaciónes de strings es más complejo de lo que parece, debido a que los alfabetos son diferentes para diferentes lenguajes. Una letra que se ve igual en dos alfabetos distintos, pueden tener distintas posiciones.
+El algoritmo "correcto" para realizar comparaciones de strings es más complejo de lo que parece, debido a que los alfabetos son diferentes para diferentes lenguajes. Una letra que se ve igual en dos alfabetos distintos, pueden tener distintas posiciones.
 
 Por lo que el navegador necesita saber el lenguaje para comparar.
 
