@@ -76,9 +76,9 @@ Son muy convenientes para acciones simples de una línea, cuando somos demasiado
 
 ## Funciones de flecha multilínea
 
-Los ejemplos anteriores tomaron parámetros de la izquierda de `=>` y evaluaron el lado derecho de la expressión con ellos.
+Los ejemplos anteriores tomaron parámetros de la izquierda de `=>` y evaluaron el lado derecho de la expresión con ellos.
 
-A veces necesitamos algo un poco más complejo, como múltiples expresiones o declaraciones. También es posible, pero debemos encerrarlos entre llaves. Luego usa un `return` normal dentro de ellas.
+A veces necesitamos algo un poco más complejo, como múltiples expresiones o declaraciones. También es posible: en ese caso debemos encerrarlos entre llaves y luego usar un `return` normal dentro de ellas.
 
 Como esto:
 
