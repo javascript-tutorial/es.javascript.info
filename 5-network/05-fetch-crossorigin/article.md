@@ -304,7 +304,7 @@ El server no debe olvidar agregar la cabecera `Access-Control-Allow-Origin` a la
 Access-Control-Allow-Origin: https://javascript.info
 ```
 
-Entonces JavaScript es capáz de leer la respuesta principal del servidor.
+Entonces JavaScript es capaz de leer la respuesta principal del servidor.
 
 ```smart
 La solicitud de pre-vuelo ocurre "detrás de escena", es invisible a JavaScript.
