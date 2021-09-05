@@ -115,7 +115,7 @@ Por razones históricas, los argumentos también pueden ser pasados como una lis
 Estas tres declaraciones significan lo mismo:
 
 ```js
-new Function('a', 'b', 'return a + b'); // sintáxis básica
+new Function('a', 'b', 'return a + b'); // sintaxis básica
 new Function('a,b', 'return a + b'); // separación por comas
 new Function('a , b', 'return a + b'); // separación por comas con espacios
 ```
