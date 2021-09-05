@@ -360,7 +360,7 @@ Sabemos que los objetos `Range` siempre tienen el inicio antes que el final.
 
 En las selecciones, no siempre es así.
 
-Seleccionar algo con el ratón puede hacerse en ambas direcciones: tanto de izquierda a derecha como de deracha a izquierda.
+Seleccionar algo con el ratón puede hacerse en ambas direcciones: tanto de izquierda a derecha como de derecha a izquierda.
 
 Cuando el botón es presionado, cuando se mueve hacia adelante en el documento, entonces su final (foco) estará después del inicio (ancla).
 
