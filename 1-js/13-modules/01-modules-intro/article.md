@@ -270,7 +270,7 @@ Los módulos están *siempre* diferidos, el mismo efecto que el atributo `defer`
 En otras palabras:
 - descargar módulos externo `<script type="module" src="...">` no bloquea el procesamiento de HTML, se cargan en paralelo con otros recursos.
 - los módulos esperan hasta que el documento HTML esté completamente listo (incluso si son pequeños y cargan más rápido que HTML), y luego lo ejecuta.
-- se mantiene el órden relativo de los scripts: los scripts que van primero en el documento, se ejecutan primero.
+- se mantiene el orden relativo de los scripts: los scripts que van primero en el documento, se ejecutan primero.
 
 Como efecto secundario, los módulos siempre "ven" la página HTML completamente cargada, incluidos los elementos HTML debajo de ellos.
 
