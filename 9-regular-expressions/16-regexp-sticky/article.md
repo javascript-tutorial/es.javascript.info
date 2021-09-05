@@ -16,7 +16,7 @@ Buscaremos el nombre de la variable usando regexp `pattern:\w+`. En realidad, el
 Una llamada a `str.match(/\w+/)` solo encontrará la primera palabra de la línea (`let`). No es la que queremos.
 Podríamos añadir el indicador `pattern:g`, pero al llamar a `str.match(/\w+/g)` buscará todas las palabras del texto y solo necesitamos una y en la posición `4`. De nuevo, no es lo que necesitamos.
 
-**Entonces, ¿cómo buscamos exactamente en un posición deterninada?** 
+**Entonces, ¿cómo buscamos exactamente en un posición determinada?** 
 
 Usemos el método `regexp.exec(str)`.
 
@@ -68,7 +68,7 @@ Tal uso de `regexp.exec` es una alternativa al método `str.match bAll`, con má
 
 Volvamos a nuestra tarea.
 
-Podemos estableceer manualmente `lastIndex` a `4`, para comenzar la búsqueda desde la posición dada.
+Podemos establecer manualmente `lastIndex` a `4`, para comenzar la búsqueda desde la posición dada.
 
 Como aquí:
 
