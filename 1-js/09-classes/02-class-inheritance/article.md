@@ -163,7 +163,7 @@ Si se accede, se toma de la función externa. Por ejemplo:
 ```js
 class Rabbit extends Animal {
   stop() {
-    setTimeout(() => super.stop(), 1000); // llama al stop() padre despues de 1 segundo
+    setTimeout(() => super.stop(), 1000); // llama al stop() padre después de 1 segundo
   }
 }
 ```
