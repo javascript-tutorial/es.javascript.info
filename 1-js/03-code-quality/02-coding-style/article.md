@@ -106,11 +106,11 @@ if (
 
 La longitud máxima de la línea debe acordarse con el equipo de trabajo. Suele tener 80 o 120 caracteres.
 
-### Identaciones
+### Indentación (sangría)
 
-Hay dos tipo de identaciones:
+Hay dos tipos de indentación:
 
-- **Identacion horizontal: 2 o 4 espacios.**
+- **Indentación horizontal: 2 o 4 espacios.**
 
     Se realiza una sangría horizontal utilizando 2 o 4 espacios o el símbolo de tabulación horizontal (key `key:Tabulador`). Cuál elegir es una vieja guerra santa. Los espacios son más comunes hoy en día.
 
@@ -277,7 +277,7 @@ Eso es porque al leer el código, primero queremos saber *qué hace*. Si el cód
 
 ## Guías de estilo
 
-Una guía de estilo contiene reglas generales sobre "cómo escribir" el código, cúales comillas usar, cuántos espacios para indentar, la longitud máxima de la línea, etc. Muchas cosas menores.
+Una guía de estilo contiene reglas generales sobre "cómo escribir" el código, cuáles comillas usar, cuántos espacios para indentar, la longitud máxima de la línea, etc. Muchas cosas menores.
 
 Cuando todos los miembros de un equipo usan la misma guía de estilo, el código se ve uniforme, independientemente de qué miembro del equipo lo haya escrito.
 
@@ -291,7 +291,7 @@ Algunas opciones populares:
 - [StandardJS](https://standardjs.com/)
 - (y mucho mas)
 
-Si eres un desarrollador novato, puedes comenzar con la cheet sheet al comienzo de este capítulo. Luego, puedes buscar otras guías de estilo para recoger más ideas y decidir cuál te gusta más.
+Si eres un desarrollador novato, puedes comenzar con la guía al comienzo de este capítulo. Luego, puedes buscar otras guías de estilo para recoger más ideas y decidir cuál te gusta más.
 
 ## Linters automatizados
 
