@@ -18,7 +18,7 @@ El principio de propagación es simple.
 
 **Cuando un evento ocurre en un elemento, este primero ejecuta los manejadores que tiene asignados, luego los manejadores de su padre, y así hasta otros ancestros.**
 
-Dígamos que tenemos 3 elementos anidados `FORM > DIV > P` con un manejador en cada uno de ellos:
+Digamos que tenemos 3 elementos anidados `FORM > DIV > P` con un manejador en cada uno de ellos:
 
 ```html run autorun
 <style>
@@ -217,7 +217,7 @@ Cualquier manejador de evento puede detener el evento al llamar `event.stopPropa
 
 La fase de captura raramente es usada, usualmente manejamos los evento en propagación. Y hay una lógica atrás de eso.
 
-En el mundo real, cuando un accidente ocurre, las autoridades locales reaccionan primero. Ellos conocen mejor el área dónde ocurrió. Luego, si es necesario, autoridades de alto nível.
+En el mundo real, cuando un accidente ocurre, las autoridades locales reaccionan primero. Ellos conocen mejor el área dónde ocurrió. Luego, si es necesario, autoridades de alto nivel.
 
 Lo mismo para los manejadores de eventos. El código que se prepara en el manejador de un elemento en particular conoce el máximo de detalles sobre el elemento y qué hace. Un manejador en un `<td>` particular puede ser adecuado para ese exacto `<td>`, conocer todo sobre él, entonces debe tener su oportunidad primero. Luego su padre inmediato también conoce sobre el contexto, pero un poco menos, y así sucesivamente hasta el elemento de arriba que maneja conceptos generales y se ejecuta al final.
 
