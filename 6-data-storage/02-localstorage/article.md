@@ -10,7 +10,7 @@ Ya tenemos cookies. ¿Por qué tener objetos adicionales?
 - El servidor no puede manipular los objetos de almacenaje via cabeceras HTTP, todo se hace via JavaScript.
 - El almacenaje está vinculado al orígen (al triplete dominio/protocolo/puerto). Esto significa que distintos protocolos o subdominios tienen distintos objetos de almacenaje, no pueden acceder a otros datos que no sean los suyos.
 
-Ámbos objetos de almacenaje proveen los mismos métodos y propiedades:
+Ambos objetos de almacenaje proveen los mismos métodos y propiedades:
 
 - `setItem(clave, valor)` -- almacenar un par clave/valor.
 - `getItem(clave)` -- obtener el valor por medio de la clave.
@@ -35,7 +35,7 @@ Por ejemplo, si ejecutas éste código...
 localStorage.setItem('test', 1);
 ```
 
-... y cierras/abres el navegador, o simplemente abres la misma página en otra ventana, puedes cojer el ítem que hemos guardado de éste modo:
+... y cierras/abres el navegador, o simplemente abres la misma página en otra ventana, puedes coger el ítem que hemos guardado de este modo:
 
 ```js run
 alert( localStorage.getItem('test') ); // 1
@@ -53,7 +53,7 @@ También podemos utilizar un modo de acceder/guardar claves del mismo modo que s
 // guarda una clave
 localStorage.test = 2;
 
-// coje una clave
+// coge una clave
 alert( localStorage.test ); // 2
 
 // borra una clave
@@ -222,7 +222,7 @@ Los objetos de almacenaje web `localStorage` y `sessionStorage` permiten guardar
 - Tanto la `clave` como el `valor` deben ser strings, cadenas de texto.
 - El límite es de más de 5mb+; depende del navegador.
 - No expiran.
-- Los datos están vinculados al orígen (domínio/puerto/protocolo).
+- Los datos están vinculados al orígen (dominio/puerto/protocolo).
 
 | `localStorage` | `sessionStorage` |
 |----------------|------------------|
@@ -232,10 +232,10 @@ Los objetos de almacenaje web `localStorage` y `sessionStorage` permiten guardar
 API:
 
 - `setItem(clave, valor)` -- guarda pares clave/valor.
-- `getItem(clave)` -- coje el valor de una clave.
+- `getItem(clave)` -- coge el valor de una clave.
 - `removeItem(clave)` -- borra una clave con su valor.
 - `clear()` -- borra todo.
-- `key(índice)` -- coje la clave en una posición determinada.
+- `key(índice)` -- coge la clave en una posición determinada.
 - `length` -- el número de ítems almacenados.
 - Utiliza `Object.keys` para conseguir todas las claves.
 - Puede utilizar las claves como propiedades de objetor, pero en ese caso el evento `storage` no se dispara
