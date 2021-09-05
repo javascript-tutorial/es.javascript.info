@@ -131,7 +131,7 @@ bye('John'); // Bye, John!
 
 ## Exportar "as"
 
-Existe un sintáxis similar para `export`.
+Existe un sintaxis similar para `export`.
 
 Exportemos funciones como `hi` y `bye`:
 
@@ -311,7 +311,7 @@ Eso también hace que la reexportación (ver más abajo) sea un poco más fácil
 
 ## Reexportación 
 
-La sintáxis "Reexportar" `export ... from ...` permite importar cosas e inmediatamente exportarlas (posiblemente bajo otro nombre), de esta manera:
+La sintaxis "Reexportar" `export ... from ...` permite importar cosas e inmediatamente exportarlas (posiblemente bajo otro nombre), de esta manera:
 
 ```js
 export {sayHi} from './say.js'; // reexportar sayHi
@@ -368,7 +368,7 @@ export {User};
 
 Ahora los usuarios de nuestro paquete pueden hacer esto `import {login} from "auth/index.js"`.
 
-La sintáxis `export ... from ...` es solo una notación más corta para tales importación-exportación:
+La sintaxis `export ... from ...` es solo una notación más corta para tales importación-exportación:
 
 ```js
 // 📁 auth/index.js
