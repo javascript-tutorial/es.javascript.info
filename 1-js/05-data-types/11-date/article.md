@@ -308,7 +308,7 @@ function bench(f) {
   return Date.now() - start;
 }
 
-alert("Tiempo de ejcución de diffSubtract: " + bench(diffSubtract) + "ms");
+alert("Tiempo de ejecución de diffSubtract: " + bench(diffSubtract) + "ms");
 alert("Tiempo de ejecución de diffGetTime: " + bench(diffGetTime) + "ms");
 ```
 
