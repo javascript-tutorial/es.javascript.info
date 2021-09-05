@@ -209,7 +209,7 @@ input.onclick = function() { alert(2); } // reemplaza el handler anterior handle
 
 Los desarrolladores de los estándares de la web entendieron eso hace mucho tiempo y sugirieron una forma alternativa de administrar los handlers utilizando los métodos especiales `addEventListener` and `removeEventListener`. Estos están libres de ese problema.
 
-La sintáxis para agregar un handler:
+La sintaxis para agregar un handler:
 
 ```js
 element.addEventListener(event, handler, [options]);
