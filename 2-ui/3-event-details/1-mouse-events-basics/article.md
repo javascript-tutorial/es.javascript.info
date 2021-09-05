@@ -202,7 +202,7 @@ Los eventos del mouse tienen las siguientes propiedades:
 
 - Botón: `button`.
 - Teclas modificadoras (`true` si fueron presionadas): `altKey`, `ctrlKey`, `shiftKey` y `metaKey` (Mac).
-  - Si quieres controlar las acciones de la tecla `key:Ctrl` no te olvides de los usuarios de Mac que generalmente usan `key:Cmd`, de manera que es mejor ferificar con la condicional: `if (e.metaKey || e.ctrlKey)`.
+  - Si quieres controlar las acciones de la tecla `key:Ctrl` no te olvides de los usuarios de Mac que generalmente usan `key:Cmd`, de manera que es mejor verificar con la condicional: `if (e.metaKey || e.ctrlKey)`.
 
 - Coordenadas relativas a la ventana: `clientX/clientY`.
 - Coordenadas relativas al documento: `pageX/pageY`.
