@@ -364,7 +364,7 @@ Y es lo que esperamos naturalmente. Cuando el constructor padre es llamado en la
 
 Bien, la razón está en el orden de inicialización, El campo de clase es inicializado:
 - Antes del constructor para la clase de base (que no extiende nada),
-- Inmediatamente depués de `super()` para la clase derivada.
+- Inmediatamente después de `super()` para la clase derivada.
 
 En nuestro caso, `Rabbit` es la clase derivada. No hay `constructor()` en ella. Como establecimos previamente, es lo mismo que si hubiera un constructor vacío con solamente `super(...args)`.
 
