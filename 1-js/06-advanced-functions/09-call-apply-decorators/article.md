@@ -309,7 +309,7 @@ Estas hacen la misma llamada de `func` con el contexto y argumento dados.
 
 Solo hay una sutil diferencia con respect○ a `args`:
 
-- La sintáxis extendida `...` permite pasar un *iterable* `args` como una lista para `call`.
+- La sintaxis extendida `...` permite pasar un *iterable* `args` como una lista para `call`.
 - La opción `apply` acepta solo `args` como *array-like*.
 
 Y para los objetos que son iterables y array-like, como un array real, podemos usar cualquiera de ellos, pero `apply` probablemente será más rápido, porque la mayoría de los motores de JavaScript lo optimizan mejor internamente.
