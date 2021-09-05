@@ -211,7 +211,7 @@ Hasta ahora solo hemos estado hablando de vincular `this`. Vamos un paso más al
 
 Podemos vincular no solo `this`, sino también argumentos. Es algo que no suele hacerse, pero a veces puede ser útil.
 
-Sintáxis completa de `bind`:
+Sintaxis completa de `bind`:
 
 ```js
 let bound = func.bind(context, [arg1], [arg2], ...);
