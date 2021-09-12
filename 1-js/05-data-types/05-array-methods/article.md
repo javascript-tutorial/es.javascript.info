@@ -446,7 +446,7 @@ alert(arr);  // *!*1, 2, 15*/!*
 ```
 ````
 
-````smart header="Funciones de flecha para mejor"
+````smart header="Mejor, con funciones de flecha"
 ¿Recuerdas las [arrow functions](info:arrow-functions-basics)? Podemos usarlas en este caso para un ordenamiento más prolijo:
 
 ```js
