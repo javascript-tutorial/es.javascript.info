@@ -32,7 +32,7 @@ alert( arr.length ); // 3
 
 El elemento fue borrado, pero el array todavía tiene 3 elementos; podemos ver que `arr.length == 3`.
 
-Es natural, porque `delete obj.key` borra el valor de `key`, pero es todo lo que hace. Esto está bien en los objetos, pero en general lo que buscamos en los arrays es que el resto de los elementos se mueva y ocupen el lugar libre. Lo que esperamos es un array más corto.
+Es natural, porque `delete obj.key` borra el valor de `key`, pero es todo lo que hace. Esto está bien en los objetos, pero en general lo que buscamos en los arrays es que el resto de los elementos se desplace y se ocupe el lugar libre. Lo que esperamos es un array más corto.
 
 Por lo tanto, necesitamos utilizar métodos especiales.
 
