@@ -655,7 +655,7 @@ alert(Array.isArray([])); // true
 
 ## La mayoría de los métodos aceptan "thisArg"
 
-Casi todos los métodos para arrays que realizan llamados a funciones --como `find`, `filter`, `map`, con la notable excepción de `sort`-- aceptan un parámetro opcional adicional `thisArg`.
+Casi todos los métodos para arrays que realizan llamados a funciones -- como `find`, `filter`, `map`, con la notable excepción de `sort`-- aceptan un parámetro opcional adicional `thisArg`.
 
 Ese parámetro no está explicado en la sección anterior porque es raramente usado. Pero para ser exhaustivos necesitamos verlo.
 
