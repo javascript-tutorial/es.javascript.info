@@ -214,7 +214,7 @@ let arr = Array.from(arrayLike); // (*)
 alert(arr.pop()); // Mundo (el método pop funciona)
 ```
 
-`Array.from` en la línea `(*)` toma el objeto, lo examina por ser iterable o simil-array, luego crea un nuevo array y copia allí todos los elementos.
+`Array.from` en la línea `(*)` toma el objeto, y si es iterable o simil-array crea un nuevo array y copia allí todos los elementos.
 
 Lo mismo sucede para un iterable:
 
@@ -297,7 +297,7 @@ Los objetos que se pueden usar en `for..of` se denominan *iterables*.
     - Un iterador debe tener el método llamado `next()` que devuelve un objeto `{done: Boolean, value: any}`, donde `done: true` marca el fin de la iteración; de lo contrario, `value` es el siguiente valor.
 - El método `Symbol.iterator` se llama automáticamente por `for..of`, pero también podemos llamarlo directamente.
 - Los iterables integrados, como cadenas o matrices, también implementan `Symbol.iterator`.
-- El iterador de cadena sabe manejar los pares sustitutos.
+- El iterador de cadena es capaz de manejar los pares sustitutos.
  
 
 Los objetos que tienen propiedades indexadas y `longitud` o *length* se llaman *array-like*. Dichos objetos también pueden tener otras propiedades y métodos, pero carecen de los métodos integrados de las matrices.
