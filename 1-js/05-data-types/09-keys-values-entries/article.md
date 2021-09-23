@@ -15,7 +15,7 @@ Son compatibles para:
 
 Los objetos simples también admiten métodos similares, pero la sintaxis es un poco diferente.
 
-## Object.keys, valores, entradas
+## Object.keys, values, entries
 
 Para objetos simples, los siguientes métodos están disponibles:
 
@@ -23,18 +23,18 @@ Para objetos simples, los siguientes métodos están disponibles:
 - [Object.values(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/values) -- devuelve un array de valores.
 - [Object.entries(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/entries) -- devuelve un array de pares `[propiedad, valor]`.
 
-Tenga en cuenta las distinciones (en comparación con map, por ejemplo):
+Observe las diferencias (en comparación con Map, por ejemplo):
 
 |             | Map              | Objeto       |
 |-------------|------------------|--------------|
 | Sintaxis de llamada | `map.keys()`  | `Object.keys(obj)`, pero no `obj.keys()` |
-| Devuelve   | iterable    | "real" Array                     |
+| Devuelve   | iterable    | un Array "real" |
 
 La primera diferencia es que tenemos que llamar `Object.keys(obj)`, y no `obj.keys()`.
 
-¿Por qué? La razón principal es la flexibilidad. Recuerda, los objetos son una base de todas las estructuras complejas en JavaScript. Entonces, podemos tener un objeto propio como `data` que implementa su propio método `data.values ()`. Y todavía podemos llamar a `Object.values(data)` en él. 
+¿Por qué? La razón principal es la flexibilidad. Recuerda que los objetos son la base de todas las estructuras complejas en JavaScript. Entonces, podemos tener un objeto propio como `data` que implementa su propio método `data.values ()`: todavía podemos llamar a `Object.values(data)` en él. 
 
-La segunda diferencia es que los métodos `Object.*` devuelven objetos de array "reales", no solo un iterable. Eso es principalmente por razones históricas.
+La segunda diferencia es que los métodos `Object.*` devuelven objetos array "reales", no solo un iterable. Eso es principalmente por razones históricas.
 
 Por ejemplo:
 
@@ -72,15 +72,15 @@ Normalmente, esto es conveniente. Pero si también queremos propiedades simbóli
 
 ## Transformando objetos
 
-Los objetos carecen de muchos métodos que existen para los arrays, p. Ej. `map`,` filter` y otros.
+Los objetos carecen de muchos métodos que existen para los arrays, tales como `map`,` filter` y otros.
 
 Si queremos aplicarlos, entonces podemos usar `Object.entries` seguido de `Object.fromEntries`:
 
-1. Use `Object.entries(obj)` para obtener un array de pares propiedad/valor de `obj`.
-2. Use métodos de array en ese array, p.ej. `map` para transformar estos pares clave/valor.
+1. Use `Object.entries(obj)` para obtener un array de pares clave/valor de `obj`.
+2. Use métodos de array en ese array, por ejemplo `map` para transformar estos pares clave/valor.
 3. Use `Object.fromEntries(array)` en el array resultante para convertirlo nuevamente en un objeto.
 
-Por ejemplo, tenemos un objeto con precios y nos gustaría duplicarlos:
+Por ejemplo, tenemos un objeto con precios y queremos duplicarlos:
 
 ```js run
 let prices = {
