@@ -210,7 +210,7 @@ alert(name);    // Julius (desde array)
 alert(surname); // Anonymous (predeterminado utilizado)
 ```
 
-Los valores predeterminados pueden ser expresiones más complejas e incluso llamadas a función. Serán evaluadas sólo si el valor no ha sido proporcionado.
+Los valores predeterminados pueden ser expresiones más complejas e incluso llamadas a función, que serán evaluadas sólo si el valor no ha sido proporcionado.
 
 Por ejemplo, aquí utilizamos la función `prompt` para dos valores predeterminados.
 
@@ -459,7 +459,7 @@ Tenga en cuenta que no hay variables para `size` e `items`, ya que tomamos su co
 
 ## Argumentos de función inteligentes
 
-Hay momentos en que una función tiene muchos argumentos, la mayoría opcionales. Eso es especialmente cierto para las interfaces de usuario. Imagine una función que crea un menú. Puede tener ancho, altura, título, elementos de lista, etcétera.
+Hay momentos en que una función tiene muchos argumentos, la mayoría de los cuales son opcionales. Eso es especialmente cierto para las interfaces de usuario. Imagine una función que crea un menú. Puede tener ancho, altura, título, elementos de lista, etcétera.
 
 Aquí hay una forma errónea de escribir tal función:
 
