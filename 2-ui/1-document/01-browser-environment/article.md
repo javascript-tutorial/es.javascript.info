@@ -81,7 +81,7 @@ if (confirm("Go to wikipedia?")) {
 }
 ```
 
-Las funciones `alert/confirm/prompt` también forman parte de BOM: no están directamente relacionadas con el documento, sino que representan métodos puros del navegador con el usuario.
+Las funciones `alert/confirm/prompt` también forman parte de BOM: no están directamente relacionadas con el documento, sino que representan métodos puros de comunicación del navegador con el usuario.
 
 ```smart header="Especificación de HTML"
 BOM es la parte general de la especificación de [HTML specification](https://html.spec.whatwg.org).
