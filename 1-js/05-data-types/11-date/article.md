@@ -416,7 +416,7 @@ alert(date);
 - Los meses se cuentan desde el cero (sí: enero es el mes cero).
 - Los días de la semana en `getDay()` también se cuentan desde el cero (que corresponde al día Domingo).
 - El objeto `Date` se autocorrige cuando recibe un componente fuera de rango. Es útil para sumar o restar días/meses/horas.
-- Las fechas se pueden restar entre sí, dando el resultado es expresado en milisegundos: esto se debe a que el objeto `Date` toma el valor del _timestamp_ cuando es convertido a número.
+- Las fechas se pueden restar entre sí, dando el resultado expresado en milisegundos: esto se debe a que el objeto `Date` toma el valor del _timestamp_ cuando es convertido a número.
 - Para obtener el _timestamp_ actual de manera inmediata se utiliza `Date.now()`.
 
 Nótese que, a diferencia de otros sistemas, los _timestamps_ en JavaScript están representados en milisegundos (ms), no en segundos.
