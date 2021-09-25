@@ -29,7 +29,7 @@ Para crear un nuevo objeto `Date` se lo instancia con `new Date()` junto con uno
     alert( Jan02_1970 );
     ```
 
-    Un *timestamp* es un número entero que representa la cantidad de milisegundos transcurridos desde principios de 1970.
+    Un *timestamp* es un número entero que representa la cantidad de milisegundos transcurridos desde el inicio de 1970.
 
     Este *timestamp* es una representación numérica liviana de una fecha. Es posible crear una fecha a partir de un *timestamp* usando `new Date(timestamp)`, y convertir el objeto `Date` actual a un *timestamp* utilizando el método `date.getTime()` (ver abajo).
 
