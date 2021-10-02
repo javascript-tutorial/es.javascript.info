@@ -11,7 +11,7 @@ La *asignación desestructurante* es una sintaxis especial que nos permite "dese
 
 La desestructuración también funciona bien con funciones complejas que tienen muchos argumentos, valores por defecto, etcétera. Pronto lo veremos.
 
-## Desestructuración  de Arrays
+## Desestructuración de Arrays
 
 Un ejemplo de cómo el array es desestructurado en variables:
 
@@ -43,7 +43,7 @@ alert(surname);  // Smith
 Como puedes ver, la sintaxis es simple. Aunque hay varios detalles peculiares. Veamos más ejemplos para entenderlo mejor.
 
 ````smart header="\"Desestructuración\" no significa \"destructivo\"."
-Se llama "asignación desestructurante," porque "desestructura" al copiar elementos dentro de variables. Pero el array en sí no es modificado.
+Se llama "asignación desestructurante" porque "desestructura" al copiar elementos dentro de variables, pero el array en sí no es modificado.
 
 Es sólo una manera más simple de escribir:
 ```js
