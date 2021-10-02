@@ -1,6 +1,6 @@
 # Shadow DOM y eventos
 
-La idea detrás del árbol shadow (oculto) es encapsular los detalles internos de implementación de un componente.
+La idea detrás del árbol shadow es encapsular los detalles internos de implementación de un componente.
 
 Digamos que ocurre un evento click dentro de un shadow DOM del componente `<user-card>`. Pero los scripts en el documento principal no tienen idea acerca de los interiores del shadow DOM, especialmente si el componente es de una librería de terceros.  
 
@@ -35,11 +35,11 @@ Si haces clic en el botón, los mensajes son:
 1. Inner target: `BUTTON` -- el manejador de evento interno obtiene el target correcto, el elemento dentro del shadow DOM.
 2. Outer target: `USER-CARD` -- el manejador de evento del documento obtiene el host shadow como target.
 
-Tener la "redirección de eventos" es muy bueno, porque el documento externo no necesita saber acerca del interior del componente. Desde su punto de vista, el evento ocurrió sobre `<user-card>`.
+Tener la "redirección de eventos" es muy bueno, porque el documento externo no necesita tener conocimiento acerca del interior del componente. Desde su punto de vista, el evento ocurrió sobre `<user-card>`.
 
-**La redirección no ocurre si el evento ocurre en un elemento eslotado (slot element), que físicamente vive en el "light DOM", el DOM visible .**
+**No hay redirección si el evento ocurre en un elemento eslotado (slot element), que físicamente se aloja en el "light DOM", el DOM visible.**
 
-Por ejemplo, si un usuario hace clic en `<span slot="username">` del ejemplo abajo, el target del evento es precisamente ese elemento `span` para ambos manejadores de eventos, el shadow y el light:
+Por ejemplo, si un usuario hace clic en `<span slot="username">` en el ejemplo debajo, el target del evento es precisamente ese elemento `span` para ambos manejadores de eventos, el shadow y el light:
 
 ```html run autorun="no-epub" untrusted height=60
 <user-card id="userCard">
@@ -65,7 +65,7 @@ userCard.onclick = e => alert(`Outer target: ${e.target.tagName}`);
 </script>
 ```
 
-Si un clic ocurre en `"John Smith"`, para ambos manejadores, el interno y el externo, el target es `<span slot="username">`. Es un elemento del light DOM, entonces no hay redirección.
+Si un clic ocurre en `"John Smith"`, el target es `<span slot="username">` para ambos manejadores, el interno y el externo. Es un elemento del light DOM, entonces no hay redirección.
 
 Por otro lado, si el clic ocurre en un elemento originalmente del shadow DOM, ej. en `<b>Name</b>`, entonces, como se propaga hacia fuera del shadow DOM, su `event.target` se reestablece a `<user-card>`.
 
@@ -73,7 +73,7 @@ Por otro lado, si el clic ocurre en un elemento originalmente del shadow DOM, ej
 
 Para el propósito de propagación de eventos, es usado un "flattened DOM" (aplanado).
 
-Así, si tenemos un elemento eslotado y un evento ocurre dentro, entonces se propaga hacia arriba a `<slot>` y más arriba.
+Así, si tenemos un elemento eslotado y un evento ocurre dentro, entonces se propaga hacia arriba a `<slot>` y más allá.
 
 La ruta completa del destino original "event target", con todos sus elementos shadow, puede ser obtenida usando `event.composedPath()`. Como podemos ver del nombre del método, la ruta se toma despúes de la composición.
 
@@ -94,7 +94,7 @@ En el ejemplo de arriba, el "flattened DOM" es:
 
 Entonces, para un clic sobre `<span slot="username">`, una llamada a `event.composedPath()` devuelve un array: [`span`, `slot`, `div`, `shadow-root`, `user-card`, `body`, `html`, `document`, `window`]. Que es precisamente la cadena de padres desde el elemento target en el flattened DOM, después de la composición.
 
-```warn header="Los detalles del árbol Shadow solo son provistos por `{mode:'open'}` trees"
+```warn header="Los detalles del árbol Shadow solo son provistos en árboles con `{mode:'open'}`"
 Si el árbol shadow fue creado con `{mode: 'closed'}`, la ruta compuesta comienza desde el host: `user-card` en adelante.
 
 Este principio es similar a otros métodos que trabajan con el shadow DOM. El interior de árboles cerrados está completamente oculto.
@@ -103,11 +103,11 @@ Este principio es similar a otros métodos que trabajan con el shadow DOM. El in
 
 ## event.composed
 
-La mayoría de los events se propagan exitosamente a través de los límites de un shadow DOM. Hay unos pocos eventos que no.
+La mayoría de los eventos se propagan exitosamente a través de los límites de un shadow DOM. Hay unos pocos eventos que no.
 
-Esto es gobernado por la propiedad del objeto de evento `composed`. Si es `true`, el evento cruza los límites. De otro modo, solamente puede ser capturado dentro del shadow DOM.
+Esto está gobernado por la propiedad `composed` del objeto de evento. Si es `true`, el evento cruza los límites. De otro modo, solamente puede ser capturado dentro del shadow DOM.
 
-Si miras la [especificación UI Events](https://www.w3.org/TR/uievents), la mayoría de los eventos tienen `composed: true`:
+Vemos en la [especificación UI Events](https://www.w3.org/TR/uievents) que la mayoría de los eventos tienen `composed: true`:
 
 - `blur`, `focus`, `focusin`, `focusout`,
 - `click`, `dblclick`,
@@ -173,9 +173,9 @@ Los eventos solo cruzan los límites de shadow DOM si sus banderas `composed` se
 
 La mayoría de los eventos nativos tienen `composed: true`, tal como se describe en las especificaciones relevantes:
 
-- UI Events <https://www.w3.org/TR/uievents>.
-- Touch Events <https://w3c.github.io/touch-events>.
-- Pointer Events <https://www.w3.org/TR/pointerevents>.
+- Eventos UI <https://www.w3.org/TR/uievents>.
+- Eventos Touch  <https://w3c.github.io/touch-events>.
+- Eventos Pointer <https://www.w3.org/TR/pointerevents>.
 - ...y así.
 
 Algunos eventos nativos que tienen `composed: false`:
@@ -187,6 +187,6 @@ Algunos eventos nativos que tienen `composed: false`:
 
 Estos eventos solo pueden ser capturados en elementos dentro del mismo DOM.
 
-Si enviamos un `CustomEvent`, debemos setear explícitamente `composed: true`.
+Si enviamos un evento personalizado `CustomEvent`, debemos setearle explícitamente `composed: true`.
 
 Observa que en caso de componentes anidados, un shadow DOM puede estar anidado dentro de otro. En ese caso los eventos se propagan a través de los límites de todos los shadow DOM. Entonces, si se pretende que un evento sea solo para el componente inmediato que lo encierra, podemos enviarlo también en el shadow host y setear `composed: false`. Entonces saldrá al shadow DOM del componente, pero no se propagará hacia un DOM de mayor nivel.
