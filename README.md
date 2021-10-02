@@ -7,20 +7,18 @@ Novedades octubre 2021: ¡¡ 90% !! (https://javascript.info/translate) solo 5 d
 y aún hay Formas de colaborar:
 
 * Traduccíón:
-[Keyboard: keydown and keyup],	(@carlos-dubon),	2021-09-14,	
-[Shadow DOM slots, composition],	(@MaxSierra16),	2021-09-23,	
-[Shadow DOM and events],	(@joaquinelio),	2021-10-02,	#550
-[Catastrophic backtracking],	(@jespadas),	2021-07-24,
+  Solo 3 artículos pendientes, todos tomados recientemente. 
 
 * Actualización: 
-  Sin pendientes... Pueden mejorar el repo inglés si quieren :)
+  Sin pendientes... Pueden ir a mejorar el repo inglés si quieren :)
 
-* Revisión de PR abiertos: 
+* Revisión de PR abiertos, o PR nuevos sobre artículos online: 
   Todos pueden revisar. 
-  Se puede editar el texto con una sugerencia precisa o pueden dejar un comentario.
+  Se puede editar el texto con una sugerencia precisa o pueden dejar un issue o comentario github.
   typos, gramática, fluidez, glosario, tecnicismos, bugs y conceptos técnicos. Todo amerita corrección. 
-  Las líneas modificadas en revisión se marcan como coautoría, cuentan como contribución, 
+  Las líneas modificadas con commit cuentan como contribución, 
   y mejoran el karma.
+
 ```
 
 Abajo se les dan las instrucciones para comenzar a contribuir. Recuerden que al seleccionar un artículo, **deberán traducir todo su contenido**, incluidos los tasks y soluciones. No deben hacer PR si no está todo el artículo seleccionado traducido, haciendo esto, nos ayudarán a hacer mejores y más rápidas las revisiones.
