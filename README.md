@@ -2,21 +2,22 @@
 ## Tutorial Moderno de JavaScript en Español
 
 ```
-Novedades abril 2021: ¡85%!(https://javascript.info/translate) y aún hay Formas de colaborar:
+Novedades octubre 2021: ¡¡ 90% !! (https://javascript.info/translate) solo 5 de los 50+ repos llegamos al tope. 
 
-* Traduccíón: 
-  Quedan 11 artículos por incorporar (de 173), de ellos 5 para revisión y 1 sin traductor.
+y aún hay Formas de colaborar:
+
+* Traduccíón:
+![image](https://user-images.githubusercontent.com/6558304/135717573-099e2b3c-46fc-4289-91df-fe5b1bd0a8eb.png)
 
 * Actualización: 
-  El original inglés agrega, quita, renumera, mejora constantemente.
-  Algunos de los cambios en inglés son pasados como ISSUES,
-  es solo revisar el commit history inglés (hago un issue por artículo para hacerlo más manejable), 
-  ver si los cambios son pertinentes y hacer el PR correspondiente o comentar el issue. 
+  Sin pendientes... Pueden mejorar el repo inglés si quieren :)
 
-* Revisión de PR: 
-  Todos pueden revisar. Se puede editar el texto con una sugerencia precisa, o pueden dejar un comentario.
+* Revisión de PR abiertos: 
+  Todos pueden revisar. 
+  Se puede editar el texto con una sugerencia precisa o pueden dejar un comentario.
   typos, gramática, fluidez, glosario, tecnicismos, bugs y conceptos técnicos. Todo amerita corrección. 
-  Las líneas modificadas en revisión se marcan como coautoría, cuentan como contribución y mejoran el karma.
+  Las líneas modificadas en revisión se marcan como coautoría, cuentan como contribución, 
+  y mejoran el karma.
 ```
 
 Abajo se les dan las instrucciones para comenzar a contribuir. Recuerden que al seleccionar un artículo, **deberán traducir todo su contenido**, incluidos los tasks y soluciones. No deben hacer PR si no está todo el artículo seleccionado traducido, haciendo esto, nos ayudarán a hacer mejores y más rápidas las revisiones.
