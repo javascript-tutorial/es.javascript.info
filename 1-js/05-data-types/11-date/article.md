@@ -1,8 +1,8 @@
 # Fecha y Hora
 
-Ahora conozcamos un nuevo objeto incorporado de JS: [Date](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Date). Este objeto contiene la fecha, la hora, y brinda métodos para administrarlas.
+Aprendamos un nuevo objeto incorporado de JS: [Date](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Date). Este objeto almacena la fecha, la hora, y brinda métodos para administrarlas.
 
-Por ejemplo, podemos usarlo para almacenar horas de creación/modificación, medir tiempo, o simplemente mostrar en pantalla la fecha actual.
+Por ejemplo, podemos usarlo para almacenar horas de creación o modificación, medir tiempo, o simplemente mostrar en pantalla la fecha actual.
 
 ## Creación
 
@@ -29,11 +29,11 @@ Para crear un nuevo objeto `Date` se lo instancia con `new Date()` junto con uno
     alert( Jan02_1970 );
     ```
 
-    A un número entero representando el número de milisegundos, transcurridos desde principios de 1970, se lo denomina *timestamp*.
+    Un *timestamp* es un número entero que representa la cantidad de milisegundos transcurridos desde el inicio de 1970.
 
-    Este es una representación numérica liviana de una fecha. Es posible crear una fecha a partir de un *timestamp* usando `new Date(timestamp)` y convertir el objeto `Date` actual a un *timestamp* utilizando el método `date.getTime()` (ver abajo).
+    Este *timestamp* es una representación numérica liviana de una fecha. Es posible crear una fecha a partir de un *timestamp* usando `new Date(timestamp)`, y convertir el objeto `Date` actual a un *timestamp* utilizando el método `date.getTime()` (ver abajo).
 
-    Las fechas anteriores a 01.01.1970 tienen *timestamps* negativos, por ej.:
+    Las fechas anteriores a 01.01.1970 tienen *timestamps* negativos, por ejemplo:
     ```js run
     // 31 Dec 1969
     let Dec31_1969 = new Date(-24 * 3600 * 1000);
@@ -66,7 +66,7 @@ Para crear un nuevo objeto `Date` se lo instancia con `new Date()` junto con uno
 
     ```js run
     new Date(2011, 0, 1, 0, 0, 0, 0); // 1 Jan 2011, 00:00:00
-    new Date(2011, 0, 1); // Igual que la línea de arriba, sólo que a los últimos 4 parámetros se les asigna '0' por default.
+    new Date(2011, 0, 1); // Igual que la línea de arriba, sólo que a los últimos 4 parámetros se les asigna '0' por defecto.
     ```
 
     La precisión máxima es de 1 ms (1/1000 de segundo):
@@ -413,10 +413,10 @@ alert(date);
 ## Resumen
 
 - En JavaScript, la fecha y la hora se representan con el objeto [Date](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Date). No es posible obtener sólo la fecha o sólo la hora: los objetos `Date` incluyen ambas.
-- Los meses se cuentan desde el cero (siendo Enero el mes cero).
+- Los meses se cuentan desde el cero (sí: enero es el mes cero).
 - Los días de la semana en `getDay()` también se cuentan desde el cero (que corresponde al día Domingo).
 - El objeto `Date` se autocorrige cuando recibe un componente fuera de rango. Es útil para sumar o restar días/meses/horas.
-- Las fechas se pueden restar entre sí, con su resultado expresado en milisegundos. Esto se debe a que el objeto `Date` toma el valor del _timestamp_ cuando es convertido a número.
+- Las fechas se pueden restar entre sí, dando el resultado expresado en milisegundos: esto se debe a que el objeto `Date` toma el valor del _timestamp_ cuando es convertido a número.
 - Para obtener el _timestamp_ actual de manera inmediata se utiliza `Date.now()`.
 
 Nótese que, a diferencia de otros sistemas, los _timestamps_ en JavaScript están representados en milisegundos (ms), no en segundos.
@@ -430,4 +430,4 @@ alert(`La carga de la página comenzó hace ${performance.now()}ms`);
 // Sólo los 3 primeros dígitos después del punto decimal son correctos, los demás son errores de precisión.
 ```
 
-Node.js posee el módulo `microtime`, entre otros. Prácticamente casi cualquier dispositivo y entorno de ejecución permite mayor precisión, sólo que no es posible en `Date`.
+Node.js posee el módulo `microtime`, entre otros. Prácticamente casi cualquier dispositivo y entorno de ejecución permite mayor precisión, sólo que no es posible almacenarla en `Date`.
