@@ -7,7 +7,10 @@ Novedades octubre 2021: ¡¡ 90% !! (https://javascript.info/translate) solo 5 d
 y aún hay Formas de colaborar:
 
 * Traduccíón:
-![image](https://user-images.githubusercontent.com/6558304/135717573-099e2b3c-46fc-4289-91df-fe5b1bd0a8eb.png)
+[Keyboard: keydown and keyup],	(@carlos-dubon),	2021-09-14,	
+[Shadow DOM slots, composition],	(@MaxSierra16),	2021-09-23,	
+[Shadow DOM and events],	(@joaquinelio),	2021-10-02,	#550
+[Catastrophic backtracking],	(@jespadas),	2021-07-24,
 
 * Actualización: 
   Sin pendientes... Pueden mejorar el repo inglés si quieren :)
