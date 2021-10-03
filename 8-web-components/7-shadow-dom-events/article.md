@@ -2,11 +2,11 @@
 
 La idea detrás del árbol shadow es encapsular los detalles internos de implementación de un componente.
 
-Digamos que ocurre un evento click dentro de un shadow DOM del componente `<user-card>`. Pero los scripts en el documento principal no tienen idea acerca de los interiores del shadow DOM, especialmente si el componente es de una librería de terceros.  
+Digamos que ocurre un evento click dentro de un shadow DOM del componente `<user-card>`. Pero los scripts en el documento principal no tienen idea acerca del interior del shadow DOM, especialmente si el componente es de una librería de terceros.  
 
 Entonces, para mantener los detalles encapsulados, el navegador *redirige* el evento.
 
-**Los eventos que ocurren en shadow DOM tienen el elemento host como target, cuando son atrapados fuera del componente.**
+**Los eventos que ocurren en shadow DOM, cuando son atrapados fuera del componente, tienen el elemento host como target.**
 
 Un ejemplo simple:
 
@@ -65,13 +65,13 @@ userCard.onclick = e => alert(`Outer target: ${e.target.tagName}`);
 </script>
 ```
 
-Si un clic ocurre en `"John Smith"`, el target es `<span slot="username">` para ambos manejadores, el interno y el externo. Es un elemento del light DOM, entonces no hay redirección.
+Si un clic ocurre en `"John Smith"`, el target es `<span slot="username">` para ambos manejadores: el interno y el externo. Es un elemento del light DOM, entonces no hay redirección.
 
 Por otro lado, si el clic ocurre en un elemento originalmente del shadow DOM, ej. en `<b>Name</b>`, entonces, como se propaga hacia fuera del shadow DOM, su `event.target` se reestablece a `<user-card>`.
 
 ## Propagación, event.composedPath()
 
-Para el propósito de propagación de eventos, es usado un "flattened DOM" (aplanado).
+Para el propósito de propagación de eventos, es usado un "flattened DOM" (DOM aplanado, fusión de light y shadow).
 
 Así, si tenemos un elemento eslotado y un evento ocurre dentro, entonces se propaga hacia arriba a `<slot>` y más allá.
 
@@ -105,7 +105,7 @@ Este principio es similar a otros métodos que trabajan con el shadow DOM. El in
 
 La mayoría de los eventos se propagan exitosamente a través de los límites de un shadow DOM. Hay unos pocos eventos que no.
 
-Esto está gobernado por la propiedad `composed` del objeto de evento. Si es `true`, el evento cruza los límites. De otro modo, solamente puede ser capturado dentro del shadow DOM.
+Esto está gobernado por la propiedad `composed` del objeto de evento. Si es `true`, el evento cruza los límites. Si no, solamente puede ser capturado dentro del shadow DOM.
 
 Vemos en la [especificación UI Events](https://www.w3.org/TR/uievents) que la mayoría de los eventos tienen `composed: true`:
 
@@ -117,7 +117,7 @@ Vemos en la [especificación UI Events](https://www.w3.org/TR/uievents) que la m
 
 Todos los eventos de toque y puntero también tienen `composed: true`.
 
-Aunque algunos eventos tienen `composed: false`:
+Algunos eventos tienen `composed: false`:
 
 - `mouseenter`, `mouseleave` (que no se propagan en absoluto),
 - `load`, `unload`, `abort`, `error`,
