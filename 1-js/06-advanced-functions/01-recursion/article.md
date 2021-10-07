@@ -65,7 +65,7 @@ pow(x, n) =
               else     = x * pow(x, n - 1)
 ```
 
-1. Si `n == 1`, entonces todo es trivial. Esto se llama *la base* de la recursividad, porque produce inmediatamente el resultado obvio: `pow (x, 1)` es igual a `x`.
+1. Si `n == 1`, entonces todo es trivial. Esto es la *base* de la recursividad, porque produce inmediatamente el resultado obvio: `pow (x, 1)` es igual a `x`.
 2. De lo contrario, podemos representar `pow (x, n)` como `x * pow (x, n - 1)`. En matemáticas, uno escribiría <code>x<sup>n</sup> = x * x <sup>n-1</sup></code>. Esto se llama *un paso recursivo*: transformamos la tarea en una acción más simple (multiplicación por `x`) y una llamada más simple de la misma tarea (`pow` con menor `n`). Los siguientes pasos lo simplifican más y más hasta que `n` llegue a` 1`.
 
 También podemos decir que `pow` *se llama a sí mismo recursivamente* hasta que` n == 1`.
