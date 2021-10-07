@@ -281,7 +281,7 @@ function pow(x, n) {
 }
 ```
 
-El `pow` iterativo utiliza un solo contexto cambiando `i` y `result` en el proceso. Sus requisitos de memoria son pequeños, fijos y no dependen de `n`.
+El `pow` iterativo utiliza un solo contexto, cambiando `i` y `result` en el proceso. Sus requisitos de memoria son pequeños, fijos y no dependen de `n`.
 
 **Cualquier recursión puede reescribirse como un bucle. La variante de bucle generalmente se puede hacer más eficaz.**
 
