@@ -526,7 +526,7 @@ Las "listas" pueden ser mejoradas:
 Glosario:
 - *Recursion* es concepto de programación que significa una función "auto-llamada". Dichas funciones se pueden utilizar para resolver ciertas tareas de manera elegante.
 
-    Cuando una función se llama a sí misma, ocurre un *paso de recursión*. La *base* de la recursividad son los argumentos de la función que hacen que la tarea sea tan simple que la función no realiza más llamadas.
+    Cada vez que una función se llama a sí misma, ocurre un *paso de recursión*. La *base* de la recursividad son los argumentos de la función que hacen que la tarea sea tan simple que la función no realiza más llamadas.
 
 - Una estructura de datos [definida recursivamente](https://en.wikipedia.org/wiki/Recursive_data_type) es una estructura de datos que se puede definir utilizándose a sí misma.
 
