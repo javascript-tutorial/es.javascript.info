@@ -19,8 +19,8 @@ sumTo(100) = 100 + 99 + ... + 2 + 1 = 5050
 
 Escribe 3 soluciones diferentes:
 
-1. Utilizando un bucle.
-2. Usando la recursividad, causa `sumTo(n) = n + sumTo(n-1)` para `n > 1`.
+1. Utilizando un bucle `for`.
+2. Usando la recursividad, pues `sumTo(n) = n + sumTo(n-1)` para `n > 1`.
 3. Utilizando la fórmula de [progresión aritmética](https://es.wikipedia.org/wiki/Progresi%C3%B3n_aritm%C3%A9tica).
 
 Un ejemplo del resultado:
