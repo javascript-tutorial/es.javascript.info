@@ -381,7 +381,7 @@ Aquí está el diagrama de llamadas:
 
 ![salarios recursivos](recursive-salaries.svg)
 
-Podemos ver fácilmente el principio: para un objeto `{...}`, se realizan subllamadas; mientras que los Arrays `[...]` son las "hojas" del árbol recursivo, dan un resultado inmediato.
+Podemos ver fácilmente el principio: para un objeto `{...}` se realizan subllamadas, mientras que los Arrays `[...]` son las "hojas" del árbol recursivo y dan un resultado inmediato.
 
 Tenga en cuenta que el código utiliza funciones inteligentes que hemos cubierto antes:
 
