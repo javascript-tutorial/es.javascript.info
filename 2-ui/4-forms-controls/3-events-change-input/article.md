@@ -8,14 +8,14 @@ El evento `change` se activa cuando el elemento finaliza un cambio.
 
 Para ingreso de texto significa que el evento ocurre cuando se pierde foco en el elemento.
 
-Por ejemplo, mientras estamos escribiendo en el siguiente cuadro de texto -- no hay evento. Pero cuando movemos el focus (enfoque) a otro lado, por ejemplo hacemos click en un botón, entonces ocurre el evento `change`:
+Por ejemplo, mientras estamos escribiendo en el siguiente cuadro de texto, no hay evento. Pero cuando movemos el focus (enfoque) a otro lado, por ejemplo hacemos click en un botón, entonces ocurre el evento `change`:
 
 ```html autorun height=40 run
 <input type="text" onchange="alert(this.value)">
 <input type="button" value="Button">
 ```
 
-Para otros elementos: `select`, `input type=checkbox/radio` ocurre justo después de cambiar la opción seleccionada:
+Para otros elementos: `select`, `input type=checkbox/radio` se dispara inmediatamente después de cambiar la opción seleccionada:
 
 ```html autorun height=40 run
 <select onchange="alert(this.value)">
@@ -29,9 +29,9 @@ Para otros elementos: `select`, `input type=checkbox/radio` ocurre justo despué
 
 ## Evento: input
 
-El evento `input` ocurre cada vez que un valor es modificado por el usuario.
+El evento `input` se dispara cada vez que un valor es modificado por el usuario.
 
-A diferencia de los eventos de teclado, ocurre con el cambio a cualquier valor, incluso aquellos no que involucran acciones de teclado: copiar/pegar con el mouse o usar reconocimiento de voz para dictar texto.
+A diferencia de los eventos de teclado, ocurre con el cambio a cualquier valor, incluso aquellos que no involucran acciones de teclado: copiar/pegar con el mouse o usar reconocimiento de voz para dictar texto.
 
 Por ejemplo:
 
@@ -46,12 +46,12 @@ Por ejemplo:
 
 Si queremos manejar cualquier modificación en un `<input>` entonces este evento es la mejor opción.
 
-Por otro lado, el evento `input` no se activa con entradas del teclado u otras acciones que no involucren modificar un valor, e.g presionar las flechas de dirección `key:⇦` `key:⇨` mientras se está en el input.
+Por otro lado, el evento `input` no se activa con entradas del teclado u otras acciones que no involucren modificar un valor, por ejemplo presionar las flechas de dirección `key:⇦` `key:⇨` mientras se está en el input.
 
-```smart header="No se puede evitar nada en `oninput`"
-El evento `input` ocurre después de que el valor es modificado.
+```smart header="No podemos prevenir nada en oninput"
+El evento `input` se dispara después de que el valor es modificado.
 
-Por lo tanto no podemos usar `event.preventDefault()` para evitar modificaciones, en este caso ya es demasiado tarde por lo que no habría efecto.
+Por lo tanto no podemos usar `event.preventDefault()` aquí, es demasiado tarde y no tendría efecto.
 ```
 
 ## Eventos: cut, copy, paste
@@ -60,9 +60,9 @@ Estos eventos ocurren al cortar/copiar/pegar un valor.
 
 Estos pertenecen a la clase [ClipboardEvent](https://www.w3.org/TR/clipboard-apis/#clipboard-event-interfaces) y dan acceso a los datos copiados/pegados.
 
-También podemos usar `event.preventDefault()` para cancelar la acción y que nada sea copiado/pegado.
-Por ejemplo, el siguiente código evita tales eventos y muestra qué es los que estamos intentando cortar/copiar/pegar:
+Podemos usar `event.preventDefault()` para cancelar la acción y que nada sea copiado/pegado.
 
+El siguiente código también evita tales eventos y muestra qué es los que estamos intentando cortar/copiar/pegar:
 
 ```html autorun height=40 run
 <input type="text" id="input">
@@ -74,7 +74,7 @@ Por ejemplo, el siguiente código evita tales eventos y muestra qué es los que 
 </script>
 ```
 
-Por favor ten en cuenta que no solo es posible copiar/pegar texto, sino cualquier cosa. Por ejemplo, podemos copiar un archivo en el gestor de archivos del SO y pegarlo.
+Ten en cuenta que no solo es posible copiar/pegar texto, sino cualquier cosa. Por ejemplo, podemos copiar un archivo en el gestor de archivos del SO y pegarlo.
 
 Esto es porque `clipboardData` implementa la interfaz `DataTransfer`, usada comúnmente para "arrastrar y soltar" y "copiar y pegar". Ahora esto está fuera de nuestro objetivo, pero puedes encontrar sus métodos [en la especificación](https://html.spec.whatwg.org/multipage/dnd.html#the-datatransfer-interface).
 
