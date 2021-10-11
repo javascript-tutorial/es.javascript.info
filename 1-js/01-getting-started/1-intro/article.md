@@ -24,11 +24,11 @@ El navegador tiene un motor embebido a veces llamado una "Máquina virtual de Ja
 
 Diferentes motores tienen diferentes "nombres en clave". Por ejemplo:
 
-- [V8](https://es.wikipedia.org/wiki/Chrome_V8) -- en Chrome y Opera.
+- [V8](https://es.wikipedia.org/wiki/Chrome_V8) -- en Chrome, Opera y Edge.
 - [SpiderMonkey](https://es.wikipedia.org/wiki/SpiderMonkey) -- en Firefox.
 - ...Existen otros nombres en clave como "Chakra" para IE , "JavaScriptCore", "Nitro" y "SquirrelFish" para Safari, etc.
 
-Los términos anteriores es bueno recordarlos porque son usados en artículos para desarrolladores en internet. También los usaremos. Por ejemplo, si "la característica X es soportada por V8", entonces probablemente funciona en Chrome y Opera.
+Es bueno recordar estos términos porque son usados en artículos para desarrolladores en internet. También los usaremos. Por ejemplo, si "la característica X es soportada por V8", entonces probablemente funciona en Chrome, Opera y Edge.
 
 ```smart header="¿Como trabajan los motores?"
 

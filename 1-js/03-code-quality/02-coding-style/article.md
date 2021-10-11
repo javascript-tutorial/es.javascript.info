@@ -301,9 +301,9 @@ Lo mejor de ellos es que la comprobación de estilo también puede encontrar alg
 
 Aquí hay algunas herramientas de linting conocidas:
 
-- [JSLint](http://www.jslint.com/) -- uno de los primeros linters.
-- [JSHint](http://www.jshint.com/) -- mas ajustes que JSLint.
-- [ESLint](http://eslint.org/) -- probablemente el mas reciente.
+- [JSLint](https://www.jslint.com/) -- uno de los primeros linters.
+- [JSHint](https://www.jshint.com/) -- más ajustes que JSLint.
+- [ESLint](https://eslint.org/) -- probablemente el más reciente.
 
 Todos ellos pueden hacer el trabajo. El autor usa [ESLint](http://eslint.org/).
 
@@ -335,7 +335,7 @@ Aquí un ejemplo de un archivo `.eslintrc`:
 
 Aquí la directiva `"extends"` denota que la configuración se basa en el conjunto de configuraciones "eslint: recomendado". Después de eso, especificamos el nuestro.
 
-También es posible descargar conjuntos de reglas de estilo de la web y extenderlos en su lugar. Consulte <http://eslint.org/docs/user-guide/getting-started> para obtener más detalles sobre la instalación.
+También es posible descargar conjuntos de reglas de estilo de la web y extenderlos. Consulte <https://eslint.org/docs/user-guide/getting-started> para obtener más detalles sobre la instalación.
 
 También algunos IDE tienen linting incorporado, lo cual es conveniente pero no tan personalizable como ESLint.
 
