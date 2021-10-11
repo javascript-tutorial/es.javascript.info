@@ -31,11 +31,18 @@ En la práctica, los editores livianos pueden tener montones de plugins incluyen
 
 Las siguientes opciones merecen tu atención:
 
+<<<<<<< HEAD
 - [Visual Studio Code](https://code.visualstudio.com/) (multiplataforma, gratuito) 
 - [Atom](https://atom.io/) (multiplataforma, gratuito).
 - [Sublime Text](http://www.sublimetext.com) (multiplataforma, shareware).
 - [Notepad++](https://notepad-plus-plus.org/) (Windows, gratuito).
 - [Vim](http://www.vim.org/) y [Emacs](https://www.gnu.org/software/emacs/) son geniales también si sabes como usarlos.
+=======
+- [Atom](https://atom.io/) (cross-platform, free).
+- [Sublime Text](http://www.sublimetext.com) (cross-platform, shareware).
+- [Notepad++](https://notepad-plus-plus.org/) (Windows, free).
+- [Vim](http://www.vim.org/) and [Emacs](https://www.gnu.org/software/emacs/) are also cool if you know how to use them.
+>>>>>>> 193319c963b9ba86ac7d9590f7261a36ecdcc4d2
 
 ## No discutamos
 

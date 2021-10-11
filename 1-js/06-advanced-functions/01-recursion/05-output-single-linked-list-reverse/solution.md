@@ -33,7 +33,11 @@ printReverseList(list);
 
 # Usando un bucle
 
+<<<<<<< HEAD
 La variante con bucle también es un poco más complicada que la salida directa.
+=======
+The loop variant is also a little bit more complicated than the direct output.
+>>>>>>> 193319c963b9ba86ac7d9590f7261a36ecdcc4d2
 
 No hay manera de obtener el último valor en nuestra `list`. Tampoco podemos ir "hacia atrás".
 

@@ -123,7 +123,11 @@ Otra característica de OR || operador es la evaluación de "el camino más cort
 
 Esto significa que `||` procesa sus argumentos hasta que se alcanza el primer valor verdadero, y luego el valor se devuelve inmediatamente, sin siquiera tocar el otro argumento.
 
+<<<<<<< HEAD
 La importancia de esta característica se vuelve obvia si un operando no es solo un valor, sino una expresión con un efecto secundario, como una asignación de variable o una llamada a función.
+=======
+    The importance of this feature becomes obvious if an operand isn't just a value, but an expression with a side effect, such as a variable assignment or a function call.
+>>>>>>> 193319c963b9ba86ac7d9590f7261a36ecdcc4d2
 
 En el siguiente ejemplo, solo se imprime el segundo mensaje:
 

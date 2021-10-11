@@ -4,10 +4,17 @@ Conocemos muchos operadores de comparación de las matemáticas:
 
 En Javascript se escriben así:
 
+<<<<<<< HEAD
 - Mayor/menor que: <code>a &gt; b</code>, <code>a &lt; b</code>.
 - Mayor/menor o igual que: <code>a &gt;= b</code>, <code>a &lt;= b</code>.
 - Igual: `a == b` (ten en cuenta el doble signo `==`. Un solo símbolo `a = b` significaría una asignación).
 - Distinto. En matemáticas la notación es <code>&ne;</code>, pero en JavaScript se escribe como una asignación con un signo de exclamación delante: <code>a != b</code>.
+=======
+- Greater/less than: <code>a &gt; b</code>, <code>a &lt; b</code>.
+- Greater/less than or equals: <code>a &gt;= b</code>, <code>a &lt;= b</code>.
+- Equals: `a == b`, please note the double equality sign `==` means the equality test, while a single one `a = b` means an assignment.
+- Not equals: In maths the notation is <code>&ne;</code>, but in JavaScript it's written as <code>a != b</code>.
+>>>>>>> 193319c963b9ba86ac7d9590f7261a36ecdcc4d2
 
 En este artículo, aprenderemos más sobre los diferentes tipos de comparaciones y de cómo las realiza JavaScript, incluidas las peculiaridades importantes.
 
