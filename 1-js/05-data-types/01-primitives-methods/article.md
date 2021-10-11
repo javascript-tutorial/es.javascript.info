@@ -48,7 +48,7 @@ La solución es algo enrevesada, pero aquí está:
 2. El lenguaje permite el acceso a métodos y propiedades de strings, numbers, booleans y symbols.
 3. Para que esto funcione, se crea una envoltura especial, un "object wrapper" (objeto envoltorio) que provee la funcionalidad extra y luego es destruido.
 
-Los "object wrappers" son diferentes para cada primitivo y son llamados: `String`, `Number`, `Boolean` y `Symbol`.  Así, proveen diferentes sets de métodos.
+Los "object wrappers" son diferentes para cada primitivo y son llamados: `String`, `Number`, `Boolean`, `Symbol` y `BigInt`.  Así, proveen diferentes sets de métodos.
 
 Por ejemplo, existe un método [str.toUpperCase()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/toUpperCase) que devuelve un string en mayúsculas.
 
