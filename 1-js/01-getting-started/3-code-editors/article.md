@@ -31,7 +31,6 @@ En la práctica, los editores livianos pueden tener montones de plugins incluyen
 
 Las siguientes opciones merecen tu atención:
 
-- [Visual Studio Code](https://code.visualstudio.com/) (multiplataforma, gratuito) 
 - [Atom](https://atom.io/) (multiplataforma, gratuito).
 - [Sublime Text](http://www.sublimetext.com) (multiplataforma, shareware).
 - [Notepad++](https://notepad-plus-plus.org/) (Windows, gratuito).

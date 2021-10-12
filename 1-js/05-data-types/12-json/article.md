@@ -4,7 +4,7 @@ Digamos que tenemos un objeto complejo y nos gustaría convertirlo en un string 
 
 Naturalmente, tal string debe incluir todas las propiedades importantes.
 
-Podríamos implementar la conversión de ésta manera:
+Podríamos implementar la conversión de esta manera:
 
 ```js run
 let user = {
@@ -21,7 +21,7 @@ let user = {
 alert(user); // {name: "John", age: 30}
 ```
 
-...Pero en el proceso de desarrollo, se agregan nuevas propiedades, viejas propiedades son renombradas y eliminadas. Actualizar el `toString` todas las veces puede ser un dolor. Podemos intentar recorrer las propiedades, pero ¿qué pasa si el objeto es complejo y tiene objetos anidados en las propiedades? Vamos a necesitar implementar su conversión también.
+...Pero en el proceso de desarrollo se agregan nuevas propiedades, y otras son renombradas y eliminadas. Actualizar el `toString` cada vez se vuelve penoso. Podemos intentar recorrer las propiedades, pero ¿qué pasa si el objeto es complejo y tiene objetos anidados en las propiedades? Vamos a necesitar implementar su conversión también.
 
 Por suerte no hay necesidad de escribir el código para manejar todo esto. La tarea ya ha sido resuelta.
 
@@ -146,7 +146,7 @@ alert( JSON.stringify(meetup) );
 */
 ```
 
-La limitación importante: no debe existir referencias circulares.
+La limitación importante: no deben existir referencias circulares.
 
 Por ejemplo:
 
@@ -525,6 +525,6 @@ alert( schedule.meetups[1].date.getDate() ); // ¡Funciona!
 
 - JSON es un formato de datos que tiene su propio estándar independiente y librerías para la mayoría de los lenguajes de programación.
 - JSON admite objetos simples, arrays, strings, números, booleanos y `null`.
-- JavaScript proporciona métodos [JSON.stringify](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/JSON/stringify) para serializar en JSON y [JSON.parse](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse) para leer desde JSON.
+- JavaScript proporciona los métodos [JSON.stringify](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/JSON/stringify) para serializar en JSON y [JSON.parse](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse) para leer desde JSON.
 - Ambos métodos admiten funciones transformadoras para lectura / escritura inteligente.
 - Si un objeto tiene `toJSON`, entonces es llamado por` JSON.stringify`.

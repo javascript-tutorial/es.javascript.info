@@ -193,7 +193,7 @@ En la práctica, `defer` es usado para scripts que necesitan todo el DOM y/o el 
 Y `async` es usado para scripts independientes, como contadores y anuncios donde el orden de ejecución no importa.
 
 ```warn header="La página sin scripts debe ser utilizable"
-Por favor ten en cuenta que si estas usando `defer` o `async`, el usuario verá la página antes de que el script sea cargado.
+Ten en cuenta: si usas `defer` o `async`, el usuario verá la página *antes* de que el script sea cargado.
 
 En tal caso algunos componentes gráficos probablemente no estén listos.
 

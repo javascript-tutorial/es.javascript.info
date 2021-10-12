@@ -1,22 +1,22 @@
 # Bienvenidos nuevos contribuidores
-## Tutorial Moderno de JavaScript en Español
+## Tutorial moderno de JavaScript en Español
 
 ```
-Novedades abril 2021: ¡85%!(https://javascript.info/translate) y aún hay Formas de colaborar:
+Novedades octubre 2021: ¡¡ 90% !! (https://javascript.info/translate) solo 5 de los 50+ repos llegamos al tope. 
+Y aún hay formas de colaborar:
 
-* Traduccíón: 
-  Quedan 11 artículos por incorporar (de 173), de ellos 5 para revisión y 1 sin traductor.
+* Traducción:
+  Solo 3 artículos pendientes, todos tomados recientemente. 
 
 * Actualización: 
-  El original inglés agrega, quita, renumera, mejora constantemente.
-  Algunos de los cambios en inglés son pasados como ISSUES,
-  es solo revisar el commit history inglés (hago un issue por artículo para hacerlo más manejable), 
-  ver si los cambios son pertinentes y hacer el PR correspondiente o comentar el issue. 
+  Sin pendientes... Pueden ir a mejorar el repo inglés si quieren :)
 
-* Revisión de PR: 
-  Todos pueden revisar. Se puede editar el texto con una sugerencia precisa, o pueden dejar un comentario.
+* Revisión de PR abiertos, o PR nuevos sobre artículos online: 
+  Todos pueden revisar. 
+  Se puede editar el texto con una sugerencia precisa o pueden dejar un issue o comentario github.
   typos, gramática, fluidez, glosario, tecnicismos, bugs y conceptos técnicos. Todo amerita corrección. 
-  Las líneas modificadas en revisión se marcan como coautoría, cuentan como contribución y mejoran el karma.
+  Las líneas modificadas con commit cuentan como contribución, y mejoran el karma.
+
 ```
 
 Abajo se les dan las instrucciones para comenzar a contribuir. Recuerden que al seleccionar un artículo, **deberán traducir todo su contenido**, incluidos los tasks y soluciones. No deben hacer PR si no está todo el artículo seleccionado traducido, haciendo esto, nos ayudarán a hacer mejores y más rápidas las revisiones.
@@ -27,9 +27,9 @@ Les recordamos también, que para cada traducción, deberán crear una **nueva r
 
 Hemos acordado un glosario para la consistencia de las traducciones, por favor, revíselo. [Glosario](https://github.com/javascript-tutorial/es.javascript.info/issues/225)
 
-Si desea hacer seguimiento al trabajo realizado en este repositorio, saber más a cerca de como contribuir, o presentarte al equipo, le invitamos a que se una a nuestro servidor: [Discord](https://discord.gg/mcsMcHN)
+Si desea hacer seguimiento al trabajo realizado en este repositorio, saber más acerca de como contribuir, o presentarte al equipo, le invitamos a que se una a nuestro servidor: [Discord](https://discord.gg/mcsMcHN)
 
-See <https://javascript.info/translate> for the details.
+Acceda a <https://javascript.info/translate> para más información.
 
 # Como contribuir
 
@@ -55,7 +55,7 @@ Una vez que nuestro bot te haya asignado el artículo (lo verás con tu nombre d
 
 ![alt text](https://i.imgur.com/HFMpAaw.png "fork")
 
-Estamos trabajando en actualizar el repositorio y no todos los artículos están al día con la versión más reciente, por eso te pedimos que tomes como guía al artículo en el repositorio original (https://github.com/javascript-tutorial/en.javascript.info). 
+Estamos trabajando en actualizar el repositorio y no todos los artículos están al día con la versión más reciente, por eso te pedimos que tomes como guía el artículo en el repositorio original (https://github.com/javascript-tutorial/en.javascript.info). 
 
 En conclusión, el repositorio en Español debe quedar igual que el del Inglés, si faltan carpetas o archivos, debes crearlos.
 
@@ -63,9 +63,7 @@ En conclusión, el repositorio en Español debe quedar igual que el del Inglés,
 
 En este momento ya deberías haber realizado el fork y estar trabajando en tu propio repositorio:
 
-tuUsuario/es.javascript.info
-
-forked from javascript-tutorial/es.javascript.info
+![image](https://user-images.githubusercontent.com/12052430/136594525-e00a7649-dc47-465f-aa4c-8099be0dbf43.png)
 
 Comienza a editar el artículo haciendo click en el botón "Edit": 
 
@@ -75,12 +73,11 @@ Si tienes dudas con respecto a la terminología, te recomendamos consultar MDN (
 
 Esto lo hacemos más que nada para "ponernos de acuerdo" acerca de la terminología que vamos a usar en todos los artículos.
 
-Otro recurso para consultar es la sección Translator Tips (https://github.com/javascript-tutorial/es.javascript.info#translation-tips) aquí se establecen algunos lineamientos y convenciones básicas para realizar la traducción.
+Otro recurso para consultar es la sección Translation Tips (https://github.com/javascript-tutorial/es.javascript.info#translation-tips) aquí se establecen algunos lineamientos y convenciones básicas para realizar la traducción.
 
 También tenemos un canal en Discord donde nos puedes consultar cualquier duda que tengas. (https://discord.gg/mcsMcHN) 
 
 Te esperamos en Discord! Bienvenido a la comunidad!
-
 
 
 ___

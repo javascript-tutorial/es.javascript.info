@@ -13,7 +13,7 @@ Aquí tienes una vista general de lo que tenemos cuando JavaScript se ejecuta en
 Hay un objeto "raíz" llamado `window`. Tiene dos roles:
 
 1. Primero, es un objeto global para el código JavaScript, como se describe en el capítulo <info:global-object>.
-2. En segundo lugar, representa la "ventana del navegador" y proporciona métodos para controlarla.
+2. Segundo, representa la "ventana del navegador" y proporciona métodos para controlarla.
 
 Por ejemplo, aquí lo usamos como un objeto global:
 
@@ -60,7 +60,7 @@ Por ejemplo, los scripts del lado del servidor que descargan páginas HTML y las
 ```smart header="CSSOM para los estilos"
 También hay una especificación separada, [CSS Object Model (CSSOM)](https://www.w3.org/TR/cssom-1/) para las reglas y hojas de estilo CSS, que explica cómo se representan como objetos y cómo leerlos y escribirlos.
 
-CSSOM se usa junto con DOM cuando modificamos las reglas de estilo para el documento. Sin embargo, en la práctica, rara vez se requiere CSSOM, porque rara vez necesitamos modificar las reglas CSS de JavaScript (generalmente solo agregamos y eliminamos clases CSS, no modificamos sus reglas CSS), pero eso también es posible.
+CSSOM se usa junto con DOM cuando modificamos las reglas de estilo para el documento. Sin embargo, en la práctica rara vez se requiere CSSOM, porque rara vez necesitamos modificar las reglas CSS de JavaScript (generalmente solo agregamos y eliminamos clases CSS, no modificamos sus reglas CSS), pero eso también es posible.
 ```
 
 ## BOM (Modelo de Objetos del Navegador)
@@ -69,14 +69,14 @@ El Modelo de Objetos del Navegador (Browser Object Model, BOM) son objetos adici
 
 Por ejemplo:
 
-- El objeto [navigator](https://developer.mozilla.org/es/docs/Web/API/Window/navigator), proporciona información sobre el navegador y el sistema operativo. Hay muchas propiedades, pero las dos más conocidas son: `navigator.userAgent`: sobre el navegador actual, y `navigator.platform`: sobre la plataforma (puede ayudar a diferenciar entre Windows/Linux/Mac, etc.).
-- El objeto [location](https://developer.mozilla.org/es/docs/Web/API/Window/location), nos permite leer la URL actual y puede redirigir el navegador a uno nuevo.
+- El objeto [navigator](https://developer.mozilla.org/es/docs/Web/API/Window/navigator) proporciona información sobre el navegador y el sistema operativo. Hay muchas propiedades, pero las dos más conocidas son: `navigator.userAgent`: acerca del navegador actual, y `navigator.platform`: acerca de la plataforma (ayuda a distinguir Windows/Linux/Mac, etc.).
+- El objeto [location](https://developer.mozilla.org/es/docs/Web/API/Window/location) nos permite leer la URL actual y puede redirigir el navegador a una nueva.
 
 Aquí vemos cómo podemos usar el objeto `location`:
 
 ```js run
 alert(location.href); // muestra la URL actual
-if (confirm("Go to wikipedia?")) {
+if (confirm("Ir a wikipedia?")) {
   location.href = "https://wikipedia.org"; // redirigir el navegador a otra URL
 }
 ```
@@ -100,7 +100,7 @@ La especificación del CSSOM
 : Describe las hojas de estilo y las reglas de estilo, las manipulaciones con ellas y su vinculación a los documentos; consulte <https://www.w3.org/TR/cssom-1/>.
 
 La especificación del HTML
-: Describe el lenguaje HTML (por ejemplo, etiquetas) y también el BOM (modelo de objeto del navegador) -- varias funciones del navegador: `setTimeout`, `alert`, `location`, etc.; consulte <https://html.spec.whatwg.org>. Este toma la especificación DOM y la extiende con muchas propiedades y métodos adicionales.
+: Describe el lenguaje HTML (por ejemplo, etiquetas), y también el BOM (modelo de objeto del navegador) que describe varias funciones del navegador como `setTimeout`, `alert`, `location`, etc. Esta toma la especificación DOM y la extiende con muchas propiedades y métodos adicionales. Consulta <https://html.spec.whatwg.org>.
 
 Adicionalmente, algunas clases son descritas separadamente en <https://spec.whatwg.org/>.
 
