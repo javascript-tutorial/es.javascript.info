@@ -100,7 +100,7 @@ La especificación del CSSOM
 : Describe las hojas de estilo y las reglas de estilo, las manipulaciones con ellas y su vinculación a los documentos; consulte <https://www.w3.org/TR/cssom-1/>.
 
 La especificación del HTML
-: Describe el lenguaje HTML (por ejemplo, etiquetas), y también el BOM (modelo de objeto del navegador): varias funciones del navegador, como `setTimeout`, `alert`, `location`, etc. Consulte <https://html.spec.whatwg.org>. Esta toma la especificación DOM y la extiende con muchas propiedades y métodos adicionales.
+: Describe el lenguaje HTML (por ejemplo, etiquetas), y también el BOM (modelo de objeto del navegador) que describe varias funciones del navegador como `setTimeout`, `alert`, `location`, etc. Esta toma la especificación DOM y la extiende con muchas propiedades y métodos adicionales. Consulta <https://html.spec.whatwg.org>.
 
 Adicionalmente, algunas clases son descritas separadamente en <https://spec.whatwg.org/>.
 
