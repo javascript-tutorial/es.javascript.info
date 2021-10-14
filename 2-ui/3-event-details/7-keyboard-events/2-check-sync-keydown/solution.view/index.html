@@ -11,7 +11,7 @@
       document.addEventListener('keydown', function(event) {
         pressed.add(event.code);
 
-        for (let code of codes) { // están todas las teclas en el set?
+        for (let code of codes) { // ¿están todas las teclas en el set?
           if (!pressed.has(code)) {
             return;
           }
@@ -21,7 +21,7 @@
 
         // durante el alert, si el visitante suelta las teclas,
         // JavaScript no obtiene el evento "keyup"
-        // y el set "pressed" las mantendrá asumiendo que las teclas siguen presionadas
+        // y el set "pressed" las mantendrá asumiendo que las teclas siguen presionadas;
         // por ello, para evitar teclas "pegadas", reseteamos el estado
         // si el usuario quiere usa el atajo de nuevo, permitámoslo
         pressed.clear();
