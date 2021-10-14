@@ -157,7 +157,7 @@ Este flattened DOM con dos elementos en `<slot name="username">`:
 
 Si ponemos algo dentro de un `<slot>`, se convierte en el contenido alternativo, "predeterminado". El navegador lo muestra si no hay un relleno correspondiente en el Light DOM.
 
-Por ejemplo, en esta parte del shadow DOM, `Anónimo` se representa si no hay `slot="username"` en el light DOM.
+Por ejemplo, en esta parte del shadow DOM, se representa `Anónimo` si no hay `slot="username"` en el light DOM.
 
 ```html
 <div>Name:
