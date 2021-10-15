@@ -293,7 +293,7 @@ El flattened DOM se convierte en:
 
 Uno podría notar que, en un DOM válido, `<li>` debe ser un hijo directo de `<ul>`. Pero esto es flattened DOM, describe cómo se representa el componente, tal cosa sucede naturalmente aquí.
 
-Solo necesitamos agregar un `click` handler para abrir / cerrar la lista, y el `<custom-menu>` está listo:
+Solo necesitamos agregar un manejador de `click` para abrir / cerrar la lista, y el `<custom-menu>` está listo:
 
 ```js
 customElements.define('custom-menu', class extends HTMLElement {
