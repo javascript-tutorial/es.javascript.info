@@ -372,7 +372,7 @@ Hay dos eventos `slotchange` aquí:
 
     `slotchange: item` se activa, cuando se agrega un nuevo `<li slot ="item">`.
 
-Tenga en cuenta: no hay ningún evento `slotchange` después de 2 segundos, cuando se modifica el contenido de `slot = "title"`. Eso es porque no hay cambio en el slot. Modificamos el contenido dentro del elemento esloteado, eso es otra cosa.
+Observa que no hay ningún evento `slotchange` después de 2 segundos, cuando se modifica el contenido de `slot = "title"`. Eso es porque no hay cambio en el slot. Modificamos el contenido dentro del elemento esloteado, eso es otra cosa.
 
 Si quisiéramos rastrear las modificaciones internas del Light DOM desde JavaScript, eso también es posible usando un mecanismo más genérico: [MutationObserver](info:mutation-observer).
 
