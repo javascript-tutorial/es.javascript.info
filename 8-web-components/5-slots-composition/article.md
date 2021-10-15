@@ -112,7 +112,7 @@ alert( document.querySelectorAll('user-card span').length ); // 2
 
 Entonces, el flattened DOM se deriva del shadow DOM insertando slots. El navegador lo renderiza y lo usa para la herencia de estilo, la propagación de eventos (más sobre esto más adelante). Pero JavaScript todavía ve el documento "tal cual", antes de acoplarlo.
 
-````warn header="Solo los nodos children de alto nivel pueden tener el atributo slot=\"...\" "
+````warn header="Solo los nodos hijos de alto nivel pueden tener el atributo slot=\"...\" "
 El atributo `slot =" ... "` solo es válido para los hijos directos del shadow host (en nuestro ejemplo, el elemento `<user-card>`). Para los elementos anidados, se ignora.
 
 Por ejemplo, el segundo `<span>` aquí se ignora (ya que no es un elemento hijo de nivel superior de `<user-card>`):
