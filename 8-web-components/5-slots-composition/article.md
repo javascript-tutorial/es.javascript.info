@@ -370,7 +370,7 @@ Hay dos eventos `slotchange` aquí:
     `slotchange: title` se dispara inmediatamente, cuando el `slot="title"` desde el light DOM entra en el slot correspondiente.
 2. Después de 1 segundo:
 
-    `slotchange: item` se activa, cuando se agrega un nuevo `<li slot ="item">`.
+    `slotchange: item` se activa, cuando se agrega un nuevo `<li slot="item">`.
 
 Observa que no hay ningún evento `slotchange` después de 2 segundos, cuando se modifica el contenido de `slot = "title"`. Eso es porque no hay cambio en el slot. Modificamos el contenido dentro del elemento esloteado, eso es otra cosa.
 
