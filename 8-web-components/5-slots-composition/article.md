@@ -1,6 +1,6 @@
 # Shadow DOM slots, composición
 
-Muchos tipos de componentes, como pestañas, menús, galerías de imágenes, etc, necesitan el contenido para renderizar.
+Muchos tipos de componentes; como pestañas, menús, galerías de imágenes, etc., necesitan renderizar contenido.
 
 Al igual que el `<select>` nativo del navegador espera elementos de `<option>`, nuestros `<custom-tabs>` pueden esperar que se pase el contenido real de la pestaña. Y un `<custom-menu>` puede esperar elementos de menú.
 
