@@ -436,7 +436,7 @@ Por lo general, si un elemento tiene shadow DOM, no se muestra su light DOM. Los
 Hay dos tipos de slots:
 
 - Named slots: `<slot name="X">...</slot>` -- consigue los light children con `slot="X"`.
-- Default slot: el primer `<slot>` sin un nombre (los slots subsiguientes sin nombre se ignoran) -- obtien light children sin slotear.
+- Default slot: el primer `<slot>` sin un nombre (los slots subsiguientes sin nombre se ignoran) -- obtiene light children sin slotear.
 - Si hay muchos elementos para el mismo slot, se añaden uno tras otro.
 - El contenido del elemento `<slot>` se utiliza como respaldo. Se muestra si no hay light children para el slot.
 
