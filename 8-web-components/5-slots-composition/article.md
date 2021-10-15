@@ -27,7 +27,7 @@ Afortunadamente, no tenemos que hacerlo. Shadow DOM soporta elementos `<slot>`, 
 
 Veamos cómo funcionan los slots en un ejemplo simple.
 
-Aquí, el shadow DOM `<user-card>` proporciona dos slots, llenas de light DOM:
+Aquí, el shadow DOM `<user-card>` proporciona dos slots, que se llenan desde el light DOM:
 
 ```html run autorun="no-epub" untrusted height=80
 <script>
@@ -82,7 +82,7 @@ Para fines de renderizado, para cada `<slot name="...">` en el shadow DOM, el na
 
 ![](shadow-dom-user-card.svg)
 
-El resultado se llama "flattened" DOM:
+El resultado se llama "flattened DOM" (DOM aplanado):
 
 ```html
 <user-card>
@@ -156,7 +156,7 @@ Este flattened DOM con dos elementos en `<slot name="username">`:
 
 ## Slot con contenido alternativo
 
-Si ponemos algo dentro de un `<slot>`, se convierte en el contenido alternativo, "predeterminado". El navegador lo muestra si no hay un relleno correspondiente en el Light DOM.
+Si ponemos algo dentro de un `<slot>`, se convierte en el contenido alternativo, "predeterminado". El navegador lo muestra si no tiene un equivalente en el Light DOM desde donde llenarlo.
 
 Por ejemplo, en esta parte del shadow DOM, se representa `Anónimo` si no hay `slot="username"` en el light DOM.
 
@@ -380,7 +380,7 @@ Si quisiéramos rastrear las modificaciones internas del Light DOM desde JavaScr
 
 Finalmente, mencionemos los métodos JavaScript relacionados con los slots.
 
-Como hemos visto antes, JavaScript mira el DOM "real", sin aplanar. Pero, si el shadow tree tiene `{mode: 'open'}`, entonces podemos averiguar qué elementos asignados a un slot y, viceversa, el slot por el elemento dentro de el:
+Como hemos visto antes, JavaScript busca en el DOM "real", sin aplanar. Pero, si el shadow tree tiene `{mode: 'open'}`, averiguar qué elementos hay asignados a un slot y, viceversa, averiguar el slot por el elemento dentro de el:
 
 - `node.assignedSlot` -- retorna el elemento `<slot>` al que está asignado el `nodo`.
 - `slot.assignedNodes({flatten: true/false})` -- Nodos DOM, asignados al slot. La opción `flatten` es `false` por defecto. Si se establece explícitamente a `true`, entonces mira más profundamente en el flattened DOM, retornando slots anidadas en caso de componentes anidados y el contenido de respaldo si ningún node está asignado.
@@ -450,8 +450,8 @@ JavaScript puede acceder a los slots mediante methods:
 
 Si nos gustaría saber qué mostramos, podemos rastrear el contenido de los slots usando:
 - `slotchange` event -- se activa la primera vez que se llena un slot, y en cualquier operación de agregar / quitar / reemplazar del elemento esloteado, pero no sus hijos. El slot es `event.target`.
-- [MutationObserver](info:mutation-observer) para profundizar en el contenido del slot, mira los cambios en su interior.
+- [MutationObserver](info:mutation-observer) para profundizar en el contenido del slot, observar los cambios en su interior.
 
-Ahora, como sabemos cómo mostrar elementos del light DOM en el shadow DOM, veamos cómo diseñarlos correctamente. La regla básica es que los shadow elements se diseñan en el interior y los light elements -- afuera, pero hay notables excepciones.
+Ahora que, como sabemos cómo mostrar elementos del light DOM en el shadow DOM, veamos cómo diseñarlos correctamente. La regla básica es que los elementos shadow se diseñan en el interior y los elementos light se diseñan afuera, pero hay notables excepciones.
 
 Veremos los detalles en el próximo capítulo.
