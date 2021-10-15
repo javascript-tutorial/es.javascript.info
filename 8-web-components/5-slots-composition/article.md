@@ -166,7 +166,7 @@ Por ejemplo, en esta parte del shadow DOM, se representa `Anónimo` si no hay `s
 </div>
 ```
 
-## Slot predeterminado: sin nombre primero
+## Slot predeterminado: el primero sin nombre
 
 El primer `<slot>` en el shadow DOM que no tiene un nombre es un slot "predeterminado". Obtiene todos los nodos del light DOM que no están ubicados en otro lugar.
 
