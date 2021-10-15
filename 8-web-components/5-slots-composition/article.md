@@ -127,7 +127,7 @@ Por ejemplo, el segundo `<span>` aquí se ignora (ya que no es un elemento hijo 
 ```
 ````
 
-Si hay varios elementos en el light DOM con el mismo nombre de slot, se añaden a al slot, uno tras otro.
+Si hay varios elementos en el light DOM con el mismo nombre de slot, se añaden al slot, uno tras otro.
 
 Por ejemplo, este:
 ```html
