@@ -49,6 +49,7 @@ customElements.define('user-card', class extends HTMLElement {
   }
 });
 </script>
+
 <user-card>
   <span *!*slot="username"*/!*>John Smith</span>
   <span *!*slot="birthday"*/!*>01.01.2001</span>
