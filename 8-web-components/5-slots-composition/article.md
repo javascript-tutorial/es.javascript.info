@@ -383,7 +383,7 @@ Finalmente, mencionemos los métodos JavaScript relacionados con los slots.
 Como hemos visto antes, JavaScript mira el DOM "real", sin aplanar. Pero, si el shadow tree tiene `{mode: 'open'}`, entonces podemos averiguar qué elementos asignados a un slot y, viceversa, el slot por el elemento dentro de el:
 
 - `node.assignedSlot` -- retorna el elemento `<slot>` al que está asignado el `nodo`.
-- `slot.assignedNodes({flatten: true/false})` -- Nodos DOM, asignados al slot. La opción `flatten` es `false` por defecto. Si se establece explícitamente a `true`, entonces mira más profundamente en el flattened DOM, retornando slots anidadas en caso de componentes anidados y el contenido de respaldo si ningun node esta asignado.
+- `slot.assignedNodes({flatten: true/false})` -- Nodos DOM, asignados al slot. La opción `flatten` es `false` por defecto. Si se establece explícitamente a `true`, entonces mira más profundamente en el flattened DOM, retornando slots anidadas en caso de componentes anidados y el contenido de respaldo si ningún node está asignado.
 - `slot.assignedElements({flatten: true/false})` -- Elementos DOM, asignados al slot (igual que arriba, pero solo nodos de elementos).
 
 Estos métodos son útiles cuando no solo necesitamos mostrar el contenido esloteado, sino también rastrearlo en JavaScript.
