@@ -344,7 +344,7 @@ customElements.define('custom-menu', class extends HTMLElement {
       <ul><slot name="item"></slot></ul>
     </div>`;
 
-    // shadowRoot no puede tener controladores de eventos, por lo que usar el primer hijo
+    // shadowRoot no puede tener controladores de eventos, por lo que se usa el primer hijo
     this.shadowRoot.firstElementChild.addEventListener('slotchange',
       e => alert("slotchange: " + e.target.name)
     );
