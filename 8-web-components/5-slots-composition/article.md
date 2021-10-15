@@ -227,7 +227,7 @@ El flattened DOM se ve así:
       </slot>
     </div>
     <fieldset>
-      <legend>Otra informacion</legend>
+      <legend>Otra información</legend>
 *!*
       <slot>
         <div>Me gusta nadar.</div>
