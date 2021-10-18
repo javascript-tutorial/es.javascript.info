@@ -444,11 +444,11 @@ El proceso de renderizar elementos sloteados dentro de sus slots se llama "compo
 
 La composición no mueve realmente los nodos, desde el punto de vista de JavaScript, el DOM sigue siendo el mismo.
 
-JavaScript puede acceder a los slots mediante methods:
+JavaScript puede acceder a los slots mediante estos métodos:
 - `slot.assignedNodes/Elements()` -- retorna nodos / elementos dentro del `slot`.
 - `node.assignedSlot` -- la propiedad inversa, retorna el slot por un nodo.
 
-Si nos gustaría saber qué mostramos, podemos rastrear el contenido de los slots usando:
+Si queremos saber, podemos rastrear el contenido de los slots usando:
 - `slotchange` event -- se activa la primera vez que se llena un slot, y en cualquier operación de agregar / quitar / reemplazar del elemento esloteado, pero no sus hijos. El slot es `event.target`.
 - [MutationObserver](info:mutation-observer) para profundizar en el contenido del slot, observar los cambios en su interior.
 
