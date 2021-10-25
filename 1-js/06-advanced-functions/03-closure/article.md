@@ -11,12 +11,12 @@ Y si una función se pasa como parámetro y se llama desde otro lugar del códig
 
 Ampliemos nuestro conocimiento para comprender estos escenarios y otros más complejos.
 
-```smart header="Hablaremos de las variables let / const aquí"
+```smart header="Aquí hablaremos de variables let/const"
 En JavaScript, hay 3 formas de declarar una variable: `let`, `const` (las modernas) y `var` (más antigua).
 
 - En este artículo usaremos las variables `let` en los ejemplos.
-- Las variables, declaradas con `const`, se comportan igual, por lo que este artículo también trata sobre `const`.
-- El antiguo `var` tiene algunas diferencias notables, se tratarán en el artículo <info:var>.
+- Las variables declaradas con `const` se comportan igual, por lo que este artículo también trata sobre `const`.
+- El antiguo `var` tiene algunas diferencias notables que se tratarán en el artículo <info:var>.
 ```
 
 ## Bloques de código
@@ -51,8 +51,8 @@ Podemos usar esto para aislar un fragmento de código que realiza su propia tare
 }
 ```
 
-````smart header="Habría un error sin bloques"
-Tenga en cuenta que sin bloques separados, habría un error, si usamos 'let' con el nombre de la variable existente:
+````smart header="Sin bloques, habría un error"
+Tenga en cuenta que, sin bloques separados, habría un error si usáramos 'let' con el nombre de la variable existente:
 
 ```js run
 // ver mensaje
@@ -67,7 +67,7 @@ alert(message);
 ```
 ````
 
-Para `if`,` for`, `while` y así sucesivamente, las variables declaradas en `{...} ` de igual manera solo son visibles en el interior:
+Para `if`,` for`, `while` y otros, las variables declaradas dentro de `{...} ` también son solo visibles en su interior:
 
 
 ```js run
@@ -95,7 +95,7 @@ for (let i = 0; i < 3; i++) {
 alert(i); // ¡Error, no hay tal variable!
 ```
 
-Visualmente, `let i` está fuera de `{...} `. Pero la construcción `for` es especial aquí: la variable, declarada dentro de ella, se considera parte del bloque.
+Visualmente, `let i` está fuera de `{...} `; pero la construcción `for` es especial aquí: la variable declarada dentro de ella se considera parte del bloque.
 
 
 ## Funciones anidadas
@@ -104,7 +104,7 @@ Una función se llama "anidada" cuando se crea dentro de otra función.
 
 Es fácilmente posible hacer esto con JavaScript.
 
-Podemos usarlo para organizar nuestro código, así:
+Podemos usarlo para organizar nuestro código:
 
 ```js
 function sayHiBye(firstName, lastName) {
@@ -124,7 +124,7 @@ Aquí la función *anidada* `getFullName()` se hace por conveniencia. Puede acce
 
 Lo que es mucho más interesante, es que puede devolverse una función anidada: ya sea como propiedad de un nuevo objeto o como resultado en sí mismo. Luego se puede usar en otro lugar. No importa dónde, todavía tiene acceso a las mismas variables externas.
 
-A continuación, `makeCounter` crea la función "contador "que devuelve el siguiente número en cada invocación:
+A continuación, `makeCounter` crea la función "contador" que devuelve el siguiente número en cada invocación:
 
 ```js run
 function makeCounter() {
@@ -142,7 +142,7 @@ alert( counter() ); // 1
 alert( counter() ); // 2
 ```
 
-A pesar de ser simples, las variantes ligeramente modificadas de ese código tienen usos prácticos, por ejemplo, como [random number generator](https://en.wikipedia.org/wiki/Pseudorandom_number_generator) para generar valores aleatorios para pruebas automatizadas.
+A pesar de ser simples, variantes ligeramente modificadas de ese código tienen usos prácticos, como por ejemplo un [generador de números aleatorios](https://es.wikipedia.org/wiki/Generador_de_n%C3%BAmeros_pseudoaleatorios) para pruebas automatizadas.
 
 ¿Cómo funciona esto? Si creamos múltiples contadores, ¿serán independientes? ¿Qué está pasando con las variables aquí?
 
@@ -164,10 +164,10 @@ En JavaScript, todas las funciones en ejecución, el bloque de código `{...}` y
 
 El objeto del alcance léxico consta de dos partes:
 
-1. *Registro de entorno*: un objeto que almacena todas las variables locales como sus propiedades (y alguna otra información como el valor de `this`).
-2. Una referencia al *entorno léxico externo*,  asociado con el código externo.
+1. *Registro de entorno*: es un objeto que almacena todas las variables locales en sus propiedades (y alguna otra información, como el valor de `this`).
+2. Una referencia al *entorno léxico externo*, asociado con el código externo.
 
-**Una "variable" es solo una propiedad del objeto interno especial, `Registro de entorno`. "Obtener o cambiar una variable" significa "obtener o cambiar una propiedad de ese objeto".**
+**Una "variable" es solo una propiedad del objeto interno especial, el `Registro de entorno`. "Obtener o cambiar una variable" significa "obtener o cambiar una propiedad de ese objeto".**
 
 En este código simple y sin funciones, solo hay un entorno léxico:
 
@@ -193,11 +193,11 @@ Los rectángulos en el lado derecho demuestran cómo cambia el entorno léxico g
 
 Todo parece simple por ahora, ¿verdad?
 
-- Una variable es una propiedad de un objeto interno especial, asociado con el bloque / función / script actualmente en ejecución.
+- Una variable es una propiedad de un objeto interno especial, asociado con el bloque/función/script actualmente en ejecución.
 - Trabajar con variables es realmente trabajar con las propiedades de ese objeto.
 
 ```smart header="El entorno léxico es un objeto de especificación"
-"El entorno léxico "es un objeto de especificación: solo existe" teóricamente "en el [language specification](https://tc39.es/ecma262/#sec-lexical-environments) para describir cómo funcionan las cosas. No podemos obtener este objeto en nuestro código y manipularlo directamente.
+"El entorno léxico" es un objeto de especificación: solo existe "teóricamente" en la [especificación del lenguaje](https://tc39.es/ecma262/#sec-lexical-environments) para describir cómo funcionan las cosas. No podemos obtener este objeto en nuestro código y manipularlo directamente.
 
 Los motores de JavaScript también pueden optimizarlo, descartar variables que no se utilizan para ahorrar memoria y realizar otros trucos internos, siempre que el comportamiento visible permanezca como se describe.
 ```
@@ -220,9 +220,9 @@ Naturalmente, este comportamiento solo se aplica a las `declaraciones de funcion
 
 ### Paso 3. Entorno léxico interno y externo
 
-Cuando se ejecuta una función, al comienzo de la llamada, se crea automáticamente un nuevo entorno léxico para almacenar variables y parámetros locales de la llamada.
+Cuando se ejecuta una función, al comienzo de la llamada se crea automáticamente un nuevo entorno léxico para almacenar variables y parámetros locales de la llamada.
 
-Por ejemplo, para `say (" John ")`, se ve así (la ejecución está en la línea, etiquetada con una flecha):
+Por ejemplo, para `say(" John ")`, se ve así (la ejecución está en la línea etiquetada con una flecha):
 
 <!--
     ```js
@@ -246,17 +246,17 @@ El entorno léxico interno tiene una referencia al `externo`.
 
 **Cuando el código quiere acceder a una variable: primero se busca el entorno léxico interno, luego el externo, luego el más externo y así sucesivamente hasta el global.**
 
-Si no se encuentra una variable en ninguna parte, se trata de un error en modo estricto (sin `use strict`, una asignación a una variable no existente crea una nueva variable global, por compatibilidad con el código antiguo).
+Si no se encuentra una variable en ninguna parte, en el modo estricto se trata de un error (sin `use strict`, una asignación a una variable no existente crea una nueva variable global, por compatibilidad con el código antiguo).
 
 En este ejemplo la búsqueda procede como sigue:
 
 - Para la variable `name`, la `alert` dentro de `say` lo encuentra inmediatamente en el entorno léxico interno.
-- Cuando quiere acceder a `phrase`, entonces no hay `phrase` localmente, por lo que sigue la referencia al entorno léxico externo y lo encuentra allí.
+- Cuando quiere acceder a `phrase`, no existe un `phrase` local por lo que sigue la referencia al entorno léxico externo y lo encuentra allí.
 
 ![lexical environment lookup](lexical-environment-simple-lookup.svg)
 
 
-### Paso 4. Devolviendo a function
+### Paso 4. Devolviendo una función
 
 Volvamos al ejemplo de `makeCounter`.
 
@@ -278,19 +278,19 @@ Entonces tenemos dos entornos léxicos anidados, como en el ejemplo anterior:
 
 ![](closure-makecounter.svg)
 
-Lo que es diferente es que, durante la ejecución de `makeCounter()`, se crea una pequeña función anidada de solo una línea: `return count ++`. Aunque no la ejecutamos, solo la creamos.
+Lo que es diferente es que, durante la ejecución de `makeCounter()`, se crea una pequeña función anidada de solo una línea: `return count++`. Aunque no la ejecutamos, solo la creamos.
 
 Todas las funciones recuerdan el entorno léxico en el que fueron realizadas. Técnicamente, no hay magia aquí: todas las funciones tienen la propiedad oculta llamada `[[Environment]`, que mantiene la referencia al entorno léxico donde se creó la función:
 
 ![](closure-makecounter-environment.svg)
 
-Entonces, `counter.[[Environment]]` tiene la referencia a `{count: 0}` Entorno léxico.  Así es como la función recuerda dónde se creó, sin importar dónde se llame. La referencia `[[Environment]]` se establece una vez y para siempre en el momento de creación de la función.
+Entonces, `counter.[[Environment]]` tiene la referencia al Entorno léxico de `{count: 0}`. Así es como la función recuerda dónde se creó, sin importar dónde se llame. La referencia `[[Environment]]` se establece una vez y para siempre en el momento de creación de la función.
 
 Luego, cuando `counter()` es llamado, un nuevo Entorno Léxico es creado por la llamada, y su referencia externa del entorno léxico se toma de `counter.[[Environment]]`:
 
 ![](closure-makecounter-nested-call.svg)
 
-Ahora cuando el código dentro de `counter()` busca `count` variable, primero busca su propio entorno léxico (vacío, ya que no hay variables locales allí), luego el entorno léxico del exterior llama a `makeCounter()`, donde lo encuentra y lo cambia.
+Ahora cuando el código dentro de `counter()` busca la variable `count`, primero busca su propio entorno léxico (vacío, ya que no hay variables locales allí), luego el entorno léxico del exterior llama a `makeCounter()`, donde lo encuentra y lo cambia.
 
 **Una variable se actualiza en el entorno léxico donde vive.**
 
@@ -300,23 +300,23 @@ Aquí está el estado después de la ejecución:
 
 Si llamamos a `counter()` varias veces, la variable `count` se incrementará a `2`, `3` y así sucesivamente, en el mismo lugar.
 
-```smart header="Cierre (Closure)"
+```smart header="Closure"
 Existe un término general de programación "closure" que los desarrolladores generalmente deben conocer.
 
-Una [clausura](https://en.wikipedia.org/wiki/Closure_(computer_programming)) es una función que recuerda sus variables externas y puede acceder a ellas. En algunos lenguajes, eso no es posible, o una función debe escribirse de una manera especial para que suceda. Pero como se explicó anteriormente, en JavaScript, todas las funciones son clausuras naturales (solo hay una excepción, que se cubrirá en <info:new-function>).
+Una [clausura](https://en.wikipedia.org/wiki/Closure_(computer_programming)) es una función que recuerda sus variables externas y puede acceder a ellas. En algunos lenguajes, eso no es posible, o una función debe escribirse de una manera especial para que suceda. Pero como se explicó anteriormente, en JavaScript todas las funciones son clausuras naturales (solo hay una excepción, que se cubrirá en <info:new-function>).
 
 Es decir: recuerdan automáticamente dónde se crearon utilizando una propiedad oculta `[[Environment]]`, y luego su código puede acceder a las variables externas.
 
-Cuando en una entrevista, un desarrollador frontend recibe una pregunta sobre "¿qué es una clausura?", Una respuesta válida sería una definición de clausura y una explicación de que todas las funciones en JavaScript son clausuras, y tal vez algunas palabras más sobre detalles técnicos: la propiedad `[[Environment]]` y cómo funcionan los entornos léxicos.
+Cuando en una entrevista un desarrollador frontend recibe una pregunta sobre "¿qué es una clausura?", una respuesta válida sería una definición de clausura y una explicación de que todas las funciones en JavaScript son clausuras, y tal vez algunas palabras más sobre detalles técnicos: la propiedad `[[Environment]]` y cómo funcionan los entornos léxicos.
 ```
 
 ## Recolector de basura
 
-Por lo general, un entorno léxico se elimina de la memoria con todas las variables una vez que finaliza la llamada a la función. Eso es porque no hay referencias al respecto. Como cualquier objeto de JavaScript, solo se mantiene en la memoria mientras es accesible.
+Por lo general, un entorno léxico se elimina de la memoria con todas las variables una vez que finaliza la llamada a la función. Eso es porque ya no hay referencias a él. Como cualquier objeto de JavaScript, solo se mantiene en la memoria mientras es accesible.
 
 Sin embargo, si hay una función anidada a la que todavía se puede llegar después del final de una función, entonces tiene la propiedad `[[Environment]]` que hace referencia al entorno léxico.
 
-En ese caso, el entorno léxico aún es accesible incluso después de completar la función, por lo que permanece vivo.
+En ese caso, el entorno léxico aún es accesible incluso después de completar la función, por lo que permanece vigente.
 
 Por ejemplo:
 
@@ -413,6 +413,6 @@ let g = f();
 g();
 ```
 
-Esta característica de V8 es bueno saberla. Si está depurando con Chrome/Edge/Opera, tarde o temprano lo encontrará.
+Es bueno conocer esta característica de V8. Si está depurando con Chrome/Edge/Opera, tarde o temprano la encontrará.
 
 Eso no es un error en el depurador, sino más bien una característica especial de V8. Tal vez en algún momento la cambiarán. Siempre puede verificarlo ejecutando los ejemplos en esta página.

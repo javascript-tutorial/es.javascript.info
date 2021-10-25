@@ -2,7 +2,7 @@ importance: 5
 
 ---
 
-# ¿Una función recoge los últimos cambios?
+# La función ¿recoge los últimos cambios?
 
 La función sayHi usa un nombre de variable externo. Cuando se ejecuta la función, ¿qué valor va a utilizar?
 
