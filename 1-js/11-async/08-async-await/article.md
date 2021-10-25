@@ -121,8 +121,8 @@ showAvatar();
 
 Bien limpio y fácil de leer, ¿no es cierto? Mucho mejor que antes.
 
-````smart header="Los navegadores modernos permiten `await` en el nivel superior en los módulos"
-En los navegadoes modernos, `await` de nivel superior funciona, cuando estamos dentro de un módulo. Cubriremos módulos en el artículo <info:modules-intro>.
+````smart header="Los navegadores modernos permiten `await` en el nivel superior de los módulos"
+En los navegadoes modernos, `await` de nivel superior funciona, siempre que estamos dentro de un módulo. Cubriremos módulos en el artículo <info:modules-intro>.
 
 Por ejemplo:
 
@@ -134,7 +134,7 @@ let user = await response.json();
 console.log(user);
 ```
 
-Si no estamos usando módulos, o necesitamos soportar [navegadores antiguos](https://caniuse.com/mdn-javascript_operators_await_top_level), tebemos una receta universal: envolverlos en una función async anónima.
+Si no estamos usando módulos, o necesitamos soportar [navegadores antiguos](https://caniuse.com/mdn-javascript_operators_await_top_level), tenemos una receta universal: envolverlos en una función async anónima.
 
 Así:
 
