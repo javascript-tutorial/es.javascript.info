@@ -121,16 +121,22 @@ showAvatar();
 
 Bien limpio y fácil de leer, ¿no es cierto? Mucho mejor que antes.
 
-````smart header="`await` no funcionará en el código de nivel superior"
-La gente que empieza a usar `await` tiende a olvidar el hecho de que no podemos uar `await` en el código de nivel superior. Por ejemplo, esto no funcionará:
+````smart header="Los navegadores modernos permiten `await` en el nivel superior en los módulos"
+En los navegadoes modernos, `await` de nivel superior funciona, cuando estamos dentro de un módulo. Cubriremos módulos en el artículo <info:modules-intro>.
 
-```js run
-// error de sintaxis en el nivel superior de código
+Por ejemplo:
+
+```js run module
+// asumimos que este código se ejecuta en el nivel superior dentro de un módulo
 let response = await fetch('/article/promise-chaining/user.json');
 let user = await response.json();
+
+console.log(user);
 ```
 
-Pero podemos envolverlo dentro de una función async anónima, como esto:
+Si no estamos usando módulos, o necesitamos soportar [navegadores antiguos](https://caniuse.com/mdn-javascript_operators_await_top_level), tebemos una receta universal: envolverlos en una función async anónima.
+
+Así:
 
 ```js
 (async () => {
@@ -140,7 +146,6 @@ Pero podemos envolverlo dentro de una función async anónima, como esto:
 })();
 ```
 
-P.S. A partir de la versión 8.9+ del motor V8 de JS, await funciona en el nivel superior de los [módulos](info:modules).
 ````
 
 ````smart header="*await* acepta \"thenables\""
