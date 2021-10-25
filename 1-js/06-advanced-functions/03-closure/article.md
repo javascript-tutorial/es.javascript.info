@@ -164,7 +164,7 @@ En JavaScript, todas las funciones en ejecución, el bloque de código `{...}` y
 
 El objeto del alcance léxico consta de dos partes:
 
-1. *Registro de entorno*: es un objeto que almacena todas las variables locales en sus propiedades (y alguna otra información, como el valor de `this`).
+1. *Registro de entorno*: es un objeto que almacena en sus propiedades todas las variables locales (y alguna otra información, como el valor de `this`).
 2. Una referencia al *entorno léxico externo*, asociado con el código externo.
 
 **Una "variable" es solo una propiedad del objeto interno especial, el `Registro de entorno`. "Obtener o cambiar una variable" significa "obtener o cambiar una propiedad de ese objeto".**
