@@ -246,7 +246,7 @@ Por ejemplo, la primera ocurrencia de `"id"` es en la posición `1`. Para buscar
 ```js run
 let str = 'Widget con id';
 
-alert(str.indexOf('id', 2)); // 12
+alert(str.indexOf('id', 2)); // 11
 ```
 
 Si estamos interesados en todas las ocurrencias, podemos correr `indexOf` en un bucle. Cada nuevo llamado es hecho utilizando la posición posterior a la encontrada anteriormente:
