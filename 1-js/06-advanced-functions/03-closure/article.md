@@ -197,7 +197,7 @@ Todo parece simple por ahora, ¿verdad?
 - Trabajar con variables es realmente trabajar con las propiedades de ese objeto.
 
 ```smart header="El entorno léxico es un objeto de especificación"
-"El entorno léxico" es un objeto de especificación: solo existe "teóricamente" en la [especificación del lenguaje](https://tc39.es/ecma262/#sec-lexical-environments) para describir cómo funcionan las cosas. No podemos obtener este objeto en nuestro código y manipularlo directamente.
+El "entorno léxico" es un objeto de especificación: solo existe "teóricamente" en la [especificación del lenguaje](https://tc39.es/ecma262/#sec-lexical-environments) para describir cómo funcionan las cosas. No podemos obtener este objeto en nuestro código y manipularlo directamente.
 
 Los motores de JavaScript también pueden optimizarlo, descartar variables que no se utilizan para ahorrar memoria y realizar otros trucos internos, siempre que el comportamiento visible permanezca como se describe.
 ```
