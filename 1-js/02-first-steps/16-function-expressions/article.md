@@ -138,7 +138,7 @@ En la práctica, tales funciones son bastante útiles. La mayor diferencia entre
 
 **Los argumentos de `ask` se llaman *funciones callback* o simplemente *callbacks*.**
 
-La idea es que pasamos una función y esperamos que se "vuelva a llamar" más tarde si es necesario. En nuestro caso, `showOk` se convierte en la callback para la respuesta "Yes", y `showCancel` para la respuesta "No".
+La idea es que pasamos una función y esperamos que se "devuelva la llamada" más tarde si es necesario. En nuestro caso, `showOk` se convierte en la callback para la respuesta "Yes", y `showCancel` para la respuesta "No".
 
 Podemos usar Expresión de Función para redactar la misma función más corta:
 
