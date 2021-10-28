@@ -276,7 +276,7 @@ john = null;
 // visitedSet se limpiará automáticamente
 ```
 
- La limitación más notable de `WeakMap` y` WeakSet` es la ausencia de iteraciones y la imposibilidad de obtener todo el contenido actual. Esto puede parecer inconveniente, pero no impide que `WeakMap/WeakSet` haga su trabajo principal: ser un almacenamiento "adicional" de datos para objetos que se almacenan/administran en otro lugar.
+ La limitación más notable de `WeakMap` y` WeakSet` es la ausencia de iteraciones y la imposibilidad de obtener todo el contenido actual. Esto puede parecer inconveniente, pero no impide que `WeakMap / WeakSet` haga su trabajo principal: ser un almacenamiento "adicional" de datos para objetos que se almacenan/administran en otro lugar.
 
 ## Resumen
 
