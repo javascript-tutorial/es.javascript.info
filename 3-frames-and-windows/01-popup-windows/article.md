@@ -75,7 +75,7 @@ Configuración de `params`:
 
 - Posición:
   - `left/top` (numérico) -- coordenadas de la esquina superior izquierda de la ventana en la pantalla.Hay una limitación: no se puede colocar una nueva ventana fuera de la pantalla.
-  - `width/height` (numérico) -- ancho y alto de una nueva ventana. Hay un límite mínimo de ancho / alto , así que es imposible crear una ventana invisible.
+  - `width/height` (numérico) -- ancho y alto de una nueva ventana. Hay un límite mínimo de ancho/alto , así que es imposible crear una ventana invisible.
 - Características de la ventana:
   - `menubar` (yes/no) -- muestra u oculta el menú del navegador en la nueva ventana.
   - `toolbar` (yes/no) -- muestra u oculta la barra de navegación del navegador (atrás, adelante, recargar, etc.) en la nueva ventana.
@@ -114,7 +114,7 @@ La mayoría de los navegadores muestran el ejemplo anterior según sea necesario
 Reglas para configuraciones omitidas:
 
 - Si no hay un tercer argumento en la llamada a `open` o está vacío, se usan los parámetros de ventana predeterminados.
-- Si hay una cadena de params, pero se omiten algunas características sí / no (`yes/no`), las características omitidas se asumen con valor `no` . Entonces, si especifica parámetros, asegúrese de establecer explícitamente todas las funciones requeridas en `yes`.
+- Si hay una cadena de params, pero se omiten algunas características sí/no (`yes/no`), las características omitidas se asumen con valor `no` . Entonces, si especifica parámetros, asegúrese de establecer explícitamente todas las funciones requeridas en `yes`.
 - Si no hay `izquierda/arriba` en params, entonces el navegador intenta abrir una nueva ventana cerca de la última ventana abierta.
 - Si no hay `ancho/altura`, entonces la nueva ventana tendrá el mismo tamaño que la última abierta.
 
@@ -217,7 +217,7 @@ Para evitar abusos, el navegador suele bloquear estos métodos. Solo funcionan d
 ```warn header="No minification/maximization"
 JavaScript no tiene forma de minimizar o maximizar una ventana. Estas funciones de nivel de sistema operativo están ocultas para los desarrolladores de frontend.
 
-Los métodos de movimiento / cambio de tamaño no funcionan para ventanas maximizadas / minimizadas.
+Los métodos de movimiento/cambio de tamaño no funcionan para ventanas maximizadas/minimizadas.
 ```
 
 ## desplazando una ventana
@@ -257,8 +257,8 @@ Aún así hay algunas cosas que se pueden hacer.
 
 Por ejemplo:
 
-- Cuando abrimos una popup, puede ser una buena idea ejecutar un `newWindow.focus()` en eso. Por si acaso, para algunas combinaciones de sistema operativo / navegador, asegura que el usuario esté en la nueva ventana ahora.
-- Si queremos rastrear cuándo un visitante realmente usa nuestra aplicación web, Nosotros podemos rastrear `window.onfocus/onblur`. Eso nos permite suspender / reanudar las actividades en la página, animaciones etc. Pero tenga en cuenta que el evento `blur` significa que el visitante salió de la ventana, pero aún pueden observarlo. La ventana está al fondo, pero aún puede ser visible.
+- Cuando abrimos una popup, puede ser una buena idea ejecutar un `newWindow.focus()` en eso. Por si acaso, para algunas combinaciones de sistema-operativo/navegador, asegura que el usuario esté en la nueva ventana ahora.
+- Si queremos rastrear cuándo un visitante realmente usa nuestra aplicación web, Nosotros podemos rastrear `window.onfocus/onblur`. Eso nos permite suspender/reanudar las actividades en la página, animaciones etc. Pero tenga en cuenta que el evento `blur` significa que el visitante salió de la ventana, pero aún pueden observarlo. La ventana está al fondo, pero aún puede ser visible.
 
 ## Resumen
 
@@ -274,5 +274,5 @@ Si vamos a abrir una ventana emergente, una buena práctica es informar al usuar
 
 Para cerrar la ventana emergente: use `close ()`. Además, el usuario puede cerrarlas (como cualquier otra ventana). El `window.closed` es`true` después de eso.
 
-- Los métodos `focus ()` y `blur ()` permiten enfocar / desenfocar una ventana. Pero no funcionan todo el tiempo.
+- Los métodos `focus ()` y `blur ()` permiten enfocar/desenfocar una ventana. Pero no funcionan todo el tiempo.
 - Los eventos `focus` y`blur` permiten rastrear el cambio dentro y fuera de la ventana. Pero tenga en cuenta que una ventana puede seguir siendo visible incluso en el estado de fondo, después de "desenfoque".

@@ -11,12 +11,12 @@ Y si una función se pasa como parámetro y se llama desde otro lugar del códig
 
 Ampliemos nuestro conocimiento para comprender estos escenarios y otros más complejos.
 
-```smart header="Hablaremos de las variables let / const aquí"
+```smart header="Aquí hablaremos de variables let/const"
 En JavaScript, hay 3 formas de declarar una variable: `let`, `const` (las modernas) y `var` (más antigua).
 
 - En este artículo usaremos las variables `let` en los ejemplos.
-- Las variables, declaradas con `const`, se comportan igual, por lo que este artículo también trata sobre `const`.
-- El antiguo `var` tiene algunas diferencias notables, se tratarán en el artículo <info:var>.
+- Las variables declaradas con `const`, se comportan igual, por lo que este artículo también trata sobre `const`.
+- El antiguo `var` tiene algunas diferencias notables que se tratarán en el artículo <info:var>.
 ```
 
 ## Bloques de código
@@ -193,11 +193,11 @@ Los rectángulos en el lado derecho demuestran cómo cambia el entorno léxico g
 
 Todo parece simple por ahora, ¿verdad?
 
-- Una variable es una propiedad de un objeto interno especial, asociado con el bloque / función / script actualmente en ejecución.
+- Una variable es una propiedad de un objeto interno especial que está asociado con el bloque/función/script actualmente en ejecución.
 - Trabajar con variables es realmente trabajar con las propiedades de ese objeto.
 
 ```smart header="El entorno léxico es un objeto de especificación"
-"El entorno léxico "es un objeto de especificación: solo existe" teóricamente "en el [language specification](https://tc39.es/ecma262/#sec-lexical-environments) para describir cómo funcionan las cosas. No podemos obtener este objeto en nuestro código y manipularlo directamente.
+"El entorno léxico" es un objeto de especificación: solo existe "teóricamente" en la [especificación del lenguaje](https://tc39.es/ecma262/#sec-lexical-environments) para describir cómo funcionan las cosas. No podemos obtener este objeto en nuestro código y manipularlo directamente.
 
 Los motores de JavaScript también pueden optimizarlo, descartar variables que no se utilizan para ahorrar memoria y realizar otros trucos internos, siempre que el comportamiento visible permanezca como se describe.
 ```

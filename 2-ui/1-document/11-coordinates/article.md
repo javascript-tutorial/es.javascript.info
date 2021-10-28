@@ -4,12 +4,12 @@ Para mover elementos debemos estar familiarizados con las coordenadas.
 
 La mayoría de los métodos de JavaScript tratan con uno de dos sistemas de coordenadas:
 
-1. **Relativo a la ventana**: similar a `position:fixed`, calculado desde el borde superior / izquierdo de la ventana.
+1. **Relativo a la ventana**: similar a `position:fixed`, calculado desde el borde superior/izquierdo de la ventana.
     - Designaremos estas coordenadas como `clientX/clientY`, el razonamiento para tal nombre se aclarará más adelante, cuando estudiemos las propiedades de los eventos.
-2. **Relative al documento** - similar a `position:absolute` en la raíz del documento, calculado a partir del borde superior / izquierdo del documento.
+2. **Relative al documento** - similar a `position:absolute` en la raíz del documento, calculado a partir del borde superior/izquierdo del documento.
     - Las designaremos como `pageX/pageY`.
 
-Cuando la página se desplaza hasta el comienzo, de modo que la esquina superior / izquierda de la ventana es exactamente la esquina superior / izquierda del documento, estas coordenadas son iguales entre sí. Pero después de que el documento cambia, las coordenadas relativas a la ventana de los elementos cambian, a medida que los elementos se mueven a través de la ventana, mientras que las coordenadas relativas al documento permanecen iguales.
+Cuando la página se desplaza hasta el comienzo, de modo que la esquina superior/izquierda de la ventana es exactamente la esquina superior/izquierda del documento, estas coordenadas son iguales entre sí. Pero después de que el documento cambia, las coordenadas relativas a la ventana de los elementos cambian, a medida que los elementos se mueven a través de la ventana, mientras que las coordenadas relativas al documento permanecen iguales.
 
 En esta imagen tomamos un punto en el documento y demostramos sus coordenadas antes del desplazamiento (primera imagen) y después (segunda imagen):
 

@@ -7,12 +7,12 @@ Aquí hay una lista con los eventos del DOM más utilizados, solo para echar un 
 **Eventos del mouse:**
 - `click` -- cuando el mouse hace click sobre un elemento (los dispositivos touch lo generan con un toque).
 - `contextmenu` -- cuando el mouse hace click derecho sobre un elemento.
-- `mouseover` / `mouseout` -- cuando el cursor del mouse ingresa / abandona un elemento.
-- `mousedown` / `mouseup` -- cuando el botón del mouse es presionado / soltado sobre un elemento.
+- `mouseover` / `mouseout` -- cuando el cursor del mouse ingresa/abandona un elemento.
+- `mousedown` / `mouseup` -- cuando el botón del mouse es presionado/soltado sobre un elemento.
 - `mousemove` -- cuando el mouse se mueve.
 
 **Eventos del teclado:**
-- `keydown` / `keyup` -- cuando se presiona / suelta una tecla.
+- `keydown` / `keyup` -- cuando se presiona/suelta una tecla.
 
 **Eventos del elemento form:**
 - `submit` -- cuando el visitante envía un `<form>`.

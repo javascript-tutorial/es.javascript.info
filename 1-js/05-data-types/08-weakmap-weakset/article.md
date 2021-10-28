@@ -248,7 +248,7 @@ obj = null;
 - Existe un objeto en el conjunto mientras es accesible desde otro lugar.
 - Al igual que `Set`, admite` add`, `has` y` delete`, pero no `size`,` keys()` ni iteraciones.
 
-Al ser "débil", también sirve como almacenamiento adicional. Pero no para datos arbitrarios, sino para hechos "sí / no". Una membresía en `WeakSet` puede significar algo sobre el objeto.
+Al ser "débil", también sirve como almacenamiento adicional. Pero no para datos arbitrarios, sino para hechos "sí/no". Una membresía en `WeakSet` puede significar algo sobre el objeto.
 
 Por ejemplo, podemos agregar usuarios a `WeakSet` para realizar un seguimiento de los que visitaron nuestro sitio:
 
@@ -276,7 +276,7 @@ john = null;
 // visitedSet se limpiará automáticamente
 ```
 
- La limitación más notable de `WeakMap` y` WeakSet` es la ausencia de iteraciones y la imposibilidad de obtener todo el contenido actual. Esto puede parecer inconveniente, pero no impide que `WeakMap / WeakSet` haga su trabajo principal: ser un almacenamiento "adicional" de datos para objetos que se almacenan / administran en otro lugar.
+ La limitación más notable de `WeakMap` y` WeakSet` es la ausencia de iteraciones y la imposibilidad de obtener todo el contenido actual. Esto puede parecer inconveniente, pero no impide que `WeakMap/WeakSet` haga su trabajo principal: ser un almacenamiento "adicional" de datos para objetos que se almacenan/administran en otro lugar.
 
 ## Resumen
 

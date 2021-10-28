@@ -222,14 +222,14 @@ let obj = Object.fromEntries(map.entries()); // hace un objeto simple (*)
 alert(obj.orange); // 2
 ```
 
-Una llamada a `map.entries()` devuelve un array de pares clave / valor, exactamente en el formato correcto para `Object.fromEntries.`
+Una llamada a `map.entries()` devuelve un array de pares clave/valor, exactamente en el formato correcto para `Object.fromEntries.`
 
 También podríamos acortar la línea `(*)`:
 ```js
 let obj = Object.fromEntries(map); // omitimos .entries()
 ```
 
-Es lo mismo, porque `Object.fromEntries` espera un objeto iterable como argumento. No necesariamente un array. Y la iteración estándar para el `Map` devuelve los mismos pares clave / valor que `map.entries()`. Entonces obtenemos un objeto simple con las mismas claves / valores que `Map`.
+Es lo mismo, porque `Object.fromEntries` espera un objeto iterable como argumento. No necesariamente un array. Y la iteración estándar para el `Map` devuelve los mismos pares clave/valor que `map.entries()`. Entonces obtenemos un objeto simple con las mismas claves/valores que `Map`.
 
 ## Set
 

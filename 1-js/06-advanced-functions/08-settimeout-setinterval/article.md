@@ -127,9 +127,9 @@ setTimeout(() => { clearInterval(timerId); alert('stop'); }, 5000);
 ```
 
 ```smart header="El tiempo pasa mientras se muestra 'alerta'"
-En la mayoría de los navegadores, incluidos Chrome y Firefox, el temporizador interno continúa "marcando" mientras muestra "alert / confirm / prompt".
+En la mayoría de los navegadores, incluidos Chrome y Firefox, el temporizador interno continúa "marcando" mientras muestra "alert/confirm/prompt".
 
-Entonces, si ejecuta el código anterior y no descarta la ventana de 'alerta' por un tiempo, en la próxima 'alerta' se mostrará de inmediato. El intervalo real entre alertas será más corto que 2 segundos.
+Entonces, si ejecuta el código anterior y no descarta la ventana de 'alerta' por un tiempo, la próxima 'alerta' se mostrará de inmediato. El intervalo real entre alertas será más corto que 2 segundos.
 ```
 
 ## setTimeout anidado
@@ -223,7 +223,7 @@ Y aquí está la imagen para el `setTimeout` anidado:
 Esto se debe a que se planea una nueva llamada al final de la anterior.
 
 ````smart header="Recolección de basura y setInterval/setTimeout callback"
-Cuando se pasa una función en `setInterval / setTimeout`, se crea una referencia interna y se guarda en el planificador. Evita que la función se recolecte, incluso si no hay otras referencias a ella..
+Cuando se pasa una función en `setInterval/setTimeout`, se crea una referencia interna y se guarda en el planificador. Evita que la función se recolecte, incluso si no hay otras referencias a ella..
 
 ```js
 // la función permanece en la memoria hasta que el planificador la llame
@@ -287,7 +287,7 @@ Para JavaScript del lado del servidor, esa limitación no existe, y existen otra
 ## Resumen
 
 - Los métodos `setTimeout(func, delay, ... args)` y `setInterval(func, delay, ... args)` nos permiten ejecutar el `func` una vez / regularmente después de un retardo (delay) en milisegundos.
-- Para cancelar la ejecución, debemos llamar a `clearTimeout / clearInterval` con el valor devuelto por `setTimeout / setInterval`.
+- Para cancelar la ejecución, debemos llamar a `clearTimeout/clearInterval` con el valor devuelto por `setTimeout/setInterval`.
 - Las llamadas anidadas `setTimeout` son una alternativa más flexible a `setInterval`, lo que nos permite establecer el tiempo *entre* ejecuciones con mayor precisión.
 - La programación de retardo cero con `setTimeout(func, 0) `(lo mismo que `setTimeout(func)`) se usa para programar la llamada "lo antes posible, pero después de que se complete el script actual".
 - El navegador limita la demora mínima para cinco o más llamadas anidadas de `setTimeout` o para `setInterval` (después de la quinta llamada) a 4 ms. Eso es por razones históricas.
@@ -296,8 +296,8 @@ Tenga en cuenta que todos los métodos de planificación no *garantizan* el retr
 
 Por ejemplo, el temporizador en el navegador puede ralentizarse por muchas razones:
 - La CPU está sobrecargada.
-- La pestaña del navegador está en modo de fondo.
-- El portátil está con batería.
+- La pestaña del navegador está en modo de "segundo plano".
+- El portátil está en modo "ahorro de batería".
 
 Todo eso puede aumentar la resolución mínima del temporizador (el retraso mínimo) a 300 ms o incluso 1000 ms dependiendo de la configuración de rendimiento del navegador y del nivel del sistema operativo.
 

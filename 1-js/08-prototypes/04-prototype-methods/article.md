@@ -1,7 +1,7 @@
 
 # Métodos prototipo, objetos sin __proto__
 
-En el primer capítulo de esta sección, mencionamos que existen métodos modernos para configurar un prototipo.
+En el primer capítulo de esta sección mencionamos que existen métodos modernos para configurar un prototipo.
 
 `__proto__` se considera desactualizado y algo obsoleto (en la parte propia del navegador dentro del estándar JavaScript).
 
@@ -175,7 +175,7 @@ alert(Object.keys(chineseDictionary)); // hola, adiós
 
 Los métodos modernos para configurar y acceder directamente al prototipo son:
 
-- [Object.create(proto, [descriptores])](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/create) -- crea un objeto vacío con un `proto` dado como `[[Prototype]]` (puede ser `nulo`) y descriptores de propiedad opcionales.
+- [Object.create(proto, [descriptores])](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/create) -- crea un objeto vacío con un `proto` dado como `[[Prototype]]` (puede ser `null`) y descriptores de propiedad opcionales.
 - [Object.getPrototypeOf(obj)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf) -- devuelve el `[[Prototype]]` de `obj` (igual que el getter de `__proto__`).
 - [Object.setPrototypeOf(obj, proto)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf) -- establece el `[[Prototype]]` de `obj` en `proto` (igual que el setter de `__proto__`).
 
@@ -195,10 +195,10 @@ Podemos crear un objeto sin prototipo mediante `Object.create(null)`. Dichos obj
 
 Otros métodos:
 
-- [Object.keys(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/keys) / [Object.values(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/values) / [Object.entries(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/entries): devuelve una arreglo de pares clave-valor: nombres/valores, de propiedades de cadena propios enumerables.
+- [Object.keys(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/keys) / [Object.values(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/values) / [Object.entries(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/entries): devuelve un arreglo enumerable de: nombres-de-propiedad / valores / pares-clave-valor.
 - [Object.getOwnPropertySymbols(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/getOwnPropertySymbols): devuelve un arreglo de todas las claves simbólicas propias.
 - [Object.getOwnPropertyNames(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/getOwnPropertyNames): devuelve un arreglo de todas las claves de cadena propias.
 - [Reflect.ownKeys(obj)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/ownKeys): devuelve un arreglo de todas las claves propias.
 - [obj.hasOwnProperty(key)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/hasOwnProperty): devuelve `true` si `obj` tiene su propia clave (no heredada) llamada `key`.
 
-Todos los métodos que devuelven propiedades de objeto (como `Object.keys` y otros) - devuelven propiedades "propias". Si queremos heredados, podemos usar `for..in`.
+Todos los métodos que devuelven propiedades de objeto (como `Object.keys` y otros) - devuelven propiedades "propias". Si queremos las heredadas, podemos usar `for..in`.
