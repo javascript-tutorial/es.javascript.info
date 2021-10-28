@@ -223,7 +223,7 @@ Y aquí está la imagen para el `setTimeout` anidado:
 Esto se debe a que se planea una nueva llamada al final de la anterior.
 
 ````smart header="Recolección de basura y setInterval/setTimeout callback"
-Cuando se pasa una función en `setInterval/setTimeout`, se crea una referencia interna y se guarda en el planificador. Evita que la función se recolecte, incluso si no hay otras referencias a ella..
+Cuando se pasa una función en `setInterval / setTimeout`, se crea una referencia interna y se guarda en el planificador. Evita que la función se recolecte, incluso si no hay otras referencias a ella..
 
 ```js
 // la función permanece en la memoria hasta que el planificador la llame
