@@ -293,7 +293,7 @@ El flattened DOM se convierte en:
 
 Uno podría notar que, en un DOM válido, `<li>` debe ser un hijo directo de `<ul>`. Pero esto es flattened DOM, describe cómo se representa el componente, tal cosa sucede naturalmente aquí.
 
-Solo necesitamos agregar un manejador de `click` para abrir / cerrar la lista, y el `<custom-menu>` está listo:
+Solo necesitamos agregar un manejador de `click` para abrir/cerrar la lista, y el `<custom-menu>` está listo:
 
 ```js
 customElements.define('custom-menu', class extends HTMLElement {
@@ -320,9 +320,9 @@ Por supuesto, podemos agregarle más funcionalidad: eventos, métodos, etc.
 
 ## Actualizar slots
 
-¿Qué pasa si el código externo quiere agregar / eliminar elementos de menú dinámicamente?
+¿Qué pasa si el código externo quiere agregar/eliminar elementos de menú dinámicamente?
 
-**El navegador monitorea los slots y actualiza la representación si se agregan / eliminan elementos sloteados.**
+**El navegador monitorea los slots y actualiza la representación si se agregan/eliminan elementos sloteados.**
 
 Además, como los nodos del light DOM no se copian, sino que simplemente se renderizan en los slots, los cambios dentro de ellos se hacen visibles de inmediato.
 
@@ -445,11 +445,11 @@ El proceso de renderizar elementos sloteados dentro de sus slots se llama "compo
 La composición no mueve realmente los nodos, desde el punto de vista de JavaScript, el DOM sigue siendo el mismo.
 
 JavaScript puede acceder a los slots mediante estos métodos:
-- `slot.assignedNodes/Elements()` -- retorna nodos / elementos dentro del `slot`.
+- `slot.assignedNodes/Elements()` -- retorna nodos/elementos dentro del `slot`.
 - `node.assignedSlot` -- la propiedad inversa, retorna el slot por un nodo.
 
 Si queremos saber, podemos rastrear el contenido de los slots usando:
-- `slotchange` event -- se activa la primera vez que se llena un slot, y en cualquier operación de agregar / quitar / reemplazar del elemento esloteado, pero no sus hijos. El slot es `event.target`.
+- `slotchange` event -- se activa la primera vez que se llena un slot, y en cualquier operación de agregar/quitar/reemplazar del elemento esloteado, pero no sus hijos. El slot es `event.target`.
 - [MutationObserver](info:mutation-observer) para profundizar en el contenido del slot, observar los cambios en su interior.
 
 Ahora que, como sabemos cómo mostrar elementos del light DOM en el shadow DOM, veamos cómo diseñarlos correctamente. La regla básica es que los elementos shadow se diseñan en el interior y los elementos light se diseñan afuera, pero hay notables excepciones.

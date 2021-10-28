@@ -405,7 +405,7 @@ Existe una forma de crear decoradores que mantienen el acceso a las propiedades 
 
 ## Resumen
 
-*Decorator / Decorador* es un contenedor alrededor de una función que altera su comportamiento. El trabajo principal todavía lo realiza la función.
+*Decorator* o decorador es un contenedor alrededor de una función que altera su comportamiento. El trabajo principal todavía lo realiza la función.
 
 Los decoradores se pueden ver como "características" o "aspectos" que se pueden agregar a una función. Podemos agregar uno o agregar muchos. ¡Y todo esto sin cambiar su código!
 

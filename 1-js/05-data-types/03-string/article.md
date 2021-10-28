@@ -604,7 +604,7 @@ Encontrarás más formas de trabajar con pares sustitutos más adelante en el ca
 
 ### Marcas diacríticas y normalización
 
-En muchos idiomas hay símbolos que se componen del carácter base con una marca arriba / debajo.
+En muchos idiomas hay símbolos que se componen del carácter base con una marca arriba o debajo.
 
 Por ejemplo, la letra `a` puede ser el carácter base para:` àáâäãåā`. Los caracteres "compuestos" más comunes tienen su propio código en la tabla UTF-16. Pero no todos ellos, porque hay demasiadas combinaciones posibles.
 

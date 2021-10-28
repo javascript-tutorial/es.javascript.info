@@ -302,7 +302,7 @@ Por ejemplo, aquí para el estado del pedido se usa el atributo `order-state`:
 Porque un atributo es más conveniente de administrar. El estado se puede cambiar tan fácil como:
 
 ```js
-// un poco más simple que eliminar antiguos / agregar una nueva clase
+// un poco más simple que eliminar/agregar clases
 div.setAttribute('order-state', 'canceled');
 ```
 

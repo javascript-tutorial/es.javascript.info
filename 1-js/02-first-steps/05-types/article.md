@@ -84,7 +84,7 @@ Como los números `BigInt` rara vez se necesitan, no los cubrimos aquí sino que
 
 
 ```smart header="Problemas de compatibilidad"
-En este momento, `BigInt` es compatible con Firefox / Chrome / Edge / Safari, pero no con IE.
+En este momento, `BigInt` está soportado por Firefox/Chrome/Edge/Safari, pero no por IE.
 ```
 
 Puedes revisar la [tabla de compatibilidad de BigInt en *MDN*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt#Browser_compatibility) para saber qué versiones de navegador tienen soporte.

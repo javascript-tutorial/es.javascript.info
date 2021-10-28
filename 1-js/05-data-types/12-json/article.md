@@ -526,5 +526,5 @@ alert( schedule.meetups[1].date.getDate() ); // ¡Funciona!
 - JSON es un formato de datos que tiene su propio estándar independiente y librerías para la mayoría de los lenguajes de programación.
 - JSON admite objetos simples, arrays, strings, números, booleanos y `null`.
 - JavaScript proporciona los métodos [JSON.stringify](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/JSON/stringify) para serializar en JSON y [JSON.parse](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse) para leer desde JSON.
-- Ambos métodos admiten funciones transformadoras para lectura / escritura inteligente.
+- Ambos métodos admiten funciones transformadoras para lectura/escritura inteligente.
 - Si un objeto tiene `toJSON`, entonces es llamado por` JSON.stringify`.

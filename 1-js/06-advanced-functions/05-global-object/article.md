@@ -17,7 +17,7 @@ alert("Hello");
 window.alert("Hello");
 ```
 
-En un navegador, las funciones y variables globales declaradas con `var` (¡**no**` con let/const`!) se convierten en propiedades del objeto global:
+En un navegador, las funciones y variables globales declaradas con `var` (¡**no** con `let/const`!) se convierten en propiedades del objeto global:
 
 ```js run untrusted refresh
 var gVar = 5;

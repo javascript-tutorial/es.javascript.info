@@ -19,7 +19,7 @@ Por ejemplo, este botón muestra la altura de su ventana:
 ````warn header="No *window.innerWidth/Height*"
 Los navegadores también admiten propiedades `window.innerWidth / innerHeight`. Se parecen a lo que queremos. Entonces, ¿por qué no usarlos?
 
-Si existe una barra de desplazamiento, y ocupa algo de espacio, `clientWidth / clientHeight` proporciona el ancho / alto sin ella (resta el espacio desplazado). En otras palabras, devuelven ancho / alto de la parte visible del documento, disponible para el contenido.
+Si existe una barra de desplazamiento, y ocupa algo de espacio, `clientWidth / clientHeight` proporciona el ancho/alto sin ella (resta el espacio desplazado). En otras palabras, devuelven ancho/alto de la parte visible del documento, disponible para el contenido.
 
 ... Y `window.innerWidth / innerHeight` incluye la barra de desplazamiento.
 
@@ -42,7 +42,7 @@ En HTML moderno siempre debemos escribir `DOCTYPE`.
 
 Teóricamente, como el elemento del documento raíz es `document.documentElement`, e incluye todo el contenido, podríamos medir el tamaño completo del documento con `document.documentElement.scrollWidth / scrollHeight`.
 
-Pero en ese elemento, para toda la página, estas propiedades no funcionan según lo previsto. ¡En Chrome / Safari / Opera si no hay desplazamiento, entonces `documentElement.scrollHeight` puede ser incluso menor que `documentElement.clientHeight`! Suena como una tontería, raro, ¿verdad?
+Pero en ese elemento, para toda la página, estas propiedades no funcionan según lo previsto. ¡En Chrome/Safari/Opera si no hay desplazamiento, entonces `documentElement.scrollHeight` puede ser incluso menor que `documentElement.clientHeight`! Suena como una tontería, raro, ¿verdad?
 
 Para obtener de manera confiable la altura completa del documento, debemos tomar el máximo de estas propiedades:
 
@@ -155,7 +155,7 @@ Eso parece un poco extraño, pero puede solucionarse si comparamos `clientWidth`
 
 Geometría:
 
-- Ancho/alto de la parte visible del documento (área de contenido ancho / alto): `document.documentElement.clientWidth/Height`
+- Ancho/alto de la parte visible del documento (área de contenido ancho/alto): `document.documentElement.clientWidth/Height`
 - Ancho/alto de todo el documento, con la parte desplazada:
 
     ```js
@@ -173,4 +173,4 @@ Desplazamiento:
 
     - `window.scrollTo(pageX,pageY)` -- coordenadas absolutas
     - `window.scrollBy(x,y)` -- desplazamiento relativo al lugar actual,
-    - `elem.scrollIntoView(top)` -- desplácese para hacer visible el `elem` (alineación con la parte superior / inferior de la ventana).
+    - `elem.scrollIntoView(top)` -- desplácese para hacer visible el `elem` (alineación con la parte superior/inferior de la ventana).

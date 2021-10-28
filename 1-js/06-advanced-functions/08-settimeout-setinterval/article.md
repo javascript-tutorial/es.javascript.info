@@ -127,9 +127,9 @@ setTimeout(() => { clearInterval(timerId); alert('stop'); }, 5000);
 ```
 
 ```smart header="El tiempo pasa mientras se muestra 'alerta'"
-En la mayoría de los navegadores, incluidos Chrome y Firefox, el temporizador interno continúa "marcando" mientras muestra "alert / confirm / prompt".
+En la mayoría de los navegadores, incluidos Chrome y Firefox, el temporizador interno continúa "marcando" mientras muestra "alert/confirm/prompt".
 
-Entonces, si ejecuta el código anterior y no descarta la ventana de 'alerta' por un tiempo, en la próxima 'alerta' se mostrará de inmediato. El intervalo real entre alertas será más corto que 2 segundos.
+Entonces, si ejecuta el código anterior y no descarta la ventana de 'alerta' por un tiempo, la próxima 'alerta' se mostrará de inmediato. El intervalo real entre alertas será más corto que 2 segundos.
 ```
 
 ## setTimeout anidado
@@ -296,8 +296,8 @@ Tenga en cuenta que todos los métodos de planificación no *garantizan* el retr
 
 Por ejemplo, el temporizador en el navegador puede ralentizarse por muchas razones:
 - La CPU está sobrecargada.
-- La pestaña del navegador está en modo de fondo.
-- El portátil está con batería.
+- La pestaña del navegador está en modo de "segundo plano".
+- El portátil está en modo "ahorro de batería".
 
 Todo eso puede aumentar la resolución mínima del temporizador (el retraso mínimo) a 300 ms o incluso 1000 ms dependiendo de la configuración de rendimiento del navegador y del nivel del sistema operativo.
 
