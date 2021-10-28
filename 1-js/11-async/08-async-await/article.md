@@ -122,7 +122,7 @@ showAvatar();
 Bien limpio y fácil de leer, ¿no es cierto? Mucho mejor que antes.
 
 ````smart header="Los navegadores modernos permiten `await` en el nivel superior de los módulos"
-En los navegadoes modernos, `await` de nivel superior funciona, siempre que estamos dentro de un módulo. Cubriremos módulos en el artículo <info:modules-intro>.
+En los navegadores modernos, `await` de nivel superior funciona, siempre que estamos dentro de un módulo. Cubriremos módulos en el artículo <info:modules-intro>.
 
 Por ejemplo:
 

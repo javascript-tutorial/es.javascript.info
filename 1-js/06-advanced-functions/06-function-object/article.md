@@ -46,7 +46,7 @@ f();
 
 En la especificación, esta característica se denomina "nombre contextual". Si la función no proporciona una, entonces en una asignación se deduce del contexto.
 
-Los métodos como objeto también tienen nombres:
+Los métodos de objeto también tienen nombres:
 
 ```js run
 let user = {
@@ -65,14 +65,14 @@ alert(user.sayHi.name); // sayHi
 alert(user.sayBye.name); // sayBye
 ```
 
-Sin embargo, no hay magia. Hay casos en que no hay forma de encontrar el nombre correcto. En ese caso, la propiedad de nombre está vacía, como aquí:
+Sin embargo, no hay magia. Hay casos en que no hay forma de encontrar el nombre correcto. En ese caso, la propiedad "name" está vacía, como aquí:
 
 ```js run
 // función creada dentro de un array
 let arr = [function() {}];
 
 alert( arr[0].name ); // <empty string>
-// el motor no tiene forma de configurar el nombre correcto, por lo que no asigna ninguno
+// el motor no tiene forma de establecer el nombre correcto, por lo que no asigna ninguno
 ```
 
 En la práctica, sin embargo, la mayoría de las funciones tienen un nombre.
@@ -95,7 +95,7 @@ Aquí podemos ver que los *parámetros rest* no se cuentan.
 
 La propiedad `length` a veces se usa para [introspección](https://es.wikipedia.org/wiki/Introspecci%C3%B3n_de_tipos) en funciones que operan en otras funciones.
 
-Por ejemplo, en el siguiente código, la función `ask` , acepta una `question`  y un número arbitrario de funciones `handler` para llamar.
+Por ejemplo, en el siguiente código, la función `ask` , acepta una `question`  y un número arbitrario de funciones controladoras o `handler` para llamar.
 
 Una vez que un usuario proporciona su respuesta, la función llama a los controladores. Podemos pasar dos tipos de controladores:
 
@@ -120,7 +120,7 @@ function ask(question, ...handlers) {
 
 }
 
-// para una respuesta positiva, ambos controladores se llaman
+// para una respuesta positiva, se llaman ambos controladores 
 // para respuesta negativa, solo el segundo
 ask("Question?", () => alert('You said yes'), result => alert(result));
 ```
@@ -131,7 +131,7 @@ Este es un caso particular llamado [polimorfismo](https://es.wikipedia.org/wiki/
 
 También podemos agregar nuestras propias propiedades.
 
-Aquí agregamos la propiedad `counter` para rastrear el recuento total de llamadas:
+Aquí agregamos la propiedad `counter` para registrar el recuento total de llamadas:
 
 ```js run
 function sayHi() {

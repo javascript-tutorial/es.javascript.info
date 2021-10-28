@@ -17,7 +17,7 @@ alert("Hello");
 window.alert("Hello");
 ```
 
-En un navegador, las funciones y variables globales declaradas con `var` (¡**no** con `let/const`!) , se convierten en propiedad del objeto global:
+En un navegador, las funciones y variables globales declaradas con `var` (¡**no** con `let/const`!) se convierten en propiedades del objeto global:
 
 ```js run untrusted refresh
 var gVar = 5;
@@ -51,15 +51,15 @@ window.currentUser = {
 alert(currentUser.name);  // John
 
 // o, si tenemos una variable local con el nombre "currentUser"
-// obténgalo de la ventana explícitamente (¡seguro!)
+// obténgalo de la ventana explícitamente (¡más seguro!)
 alert(window.currentUser.name); // John
 ```
 
-Dicho esto, generalmente se desaconseja el uso de variables globales. Debe haber la menor cantidad posible de ellas. El diseño del código donde una función obtiene variables de "entrada" y produce cierto "resultado" es más claro, menos propenso a errores y más fácil de probar que si usa variables externas o globales.
+Dicho esto, generalmente se desaconseja el uso de variables globales. Debería haber la menor cantidad posible de ellas. El diseño del código donde una función obtiene variables de "entrada" y produce cierto "resultado" es más claro, menos propenso a errores y más fácil de probar que si usa variables externas o globales.
 
 ## Uso para polyfills
 
-Usamos el objeto global para probar el soporte de las características del lenguaje moderno.
+Podemos usar el objeto global para probar el soporte de características modernas del lenguaje .
 
 Por ejemplo, probar si existe un objeto `Promise` incorporado (no existe en navegadores muy antiguos):
 
@@ -69,7 +69,7 @@ if (!window.Promise) {
 }
 ```
 
-Si no hay ninguno (suponiendo que estamos en un navegador antiguo), podemos crear "polyfills": agregar funciones que no son compatibles con el entorno, pero que existen en el estándar moderno.
+Si no lo encuentra (suponiendo que estamos en un navegador antiguo), podemos crear "polyfills": agregarle funciones que no están soportadas por el entorno, pero que existen en el estándar moderno.
 
 ```js run
 if (!window.Promise) {
@@ -81,12 +81,12 @@ if (!window.Promise) {
 
 - El objeto global contiene variables que deberían estar disponibles en todas partes.
 
-    Eso incluye JavaScript incorporado, como `Array` y valores específicos del entorno, como ` window.innerHeight` -- la altura de la ventana en el navegador.
+    Eso incluye JavaScript incorporado, tales como `Array` y valores específicos del entorno, o como ` window.innerHeight`: la altura de la ventana en el navegador.
 
 - El objeto global tiene un nombre universal: `globalThis`.
 
-    ... Pero con mayor frecuencia se hace referencia a nombres específicos del entorno de la "vieja escuela", como `window` (navegador) y `global` (Node.js). 
+    ... Pero con mayor frecuencia se hace referencia a nombres específicos del entorno de la "vieja escuela", como `window` (en el navegador) y `global` (en Node.js). 
 
-- Deberíamos almacenar valores en el objeto global solo si son verdaderamente globales para nuestro proyecto. Y manteniendo  su uso al mínimo.
-- En el navegador, a menos que estemos utilizando [módulos](info:modules), las funciones globales y las variables declaradas con `var` se convierten en una propiedad del objeto global.
+- Deberíamos almacenar valores en el objeto global solo si son verdaderamente globales para nuestro proyecto. Y manteniendo su uso al mínimo.
+- En el navegador, a menos que estemos utilizando [módulos](info:modules), las funciones globales y las variables declaradas con `var` se convierten en propiedades del objeto global.
 - Para que nuestro código esté preparado para el futuro y sea más fácil de entender, debemos acceder a las propiedades del objeto global directamente, como `window.x`.
