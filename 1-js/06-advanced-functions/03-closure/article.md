@@ -15,7 +15,7 @@ Ampliemos nuestro conocimiento para comprender estos escenarios y otros más com
 En JavaScript, hay 3 formas de declarar una variable: `let`, `const` (las modernas) y `var` (más antigua).
 
 - En este artículo usaremos las variables `let` en los ejemplos.
-- Las variables declaradas con `const`, se comportan igual, por lo que este artículo también trata sobre `const`.
+- Las variables declaradas con `const` se comportan igual, por lo que este artículo también trata sobre `const`.
 - El antiguo `var` tiene algunas diferencias notables que se tratarán en el artículo <info:var>.
 ```
 
