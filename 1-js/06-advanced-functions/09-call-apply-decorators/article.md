@@ -385,12 +385,12 @@ Tomado de la especificación casi "tal cual":
 1. Hacer que `glue` sea el primer argumento o, si no hay argumentos, entonces una coma `","`.
 2. Hacer que `result` sea una cadena vacía.
 3. Adosar `this[0]` a `result`.
-4. Adosar `glue` y `this[1]`.
-5. Adosar `glue` y `this[2]`.
+4. Adherir `glue` y `this[1]`.
+5. Adherir `glue` y `this[2]`.
 6. ...hacerlo hasta que la cantidad `this.length` de elementos estén adheridos.
 7. Devolver `result`.
 
-Entones, técnicamente `this` une `this[0]`, `this[1]` ...etc. Está escrito intencionalmente de una manera que permite cualquier tipo de array `this` (no es una coincidencia, muchos métodos siguen esta práctica). Es por eso que también funciona con `this = arguments`
+Entonces, técnicamente `this` une `this[0]`, `this[1]` ...etc. Está escrito intencionalmente de una manera que permite cualquier tipo de array `this` (no es una coincidencia, muchos métodos siguen esta práctica). Es por eso que también funciona con `this = arguments`
 
 ## Decoradores y propiedades de funciones
 
