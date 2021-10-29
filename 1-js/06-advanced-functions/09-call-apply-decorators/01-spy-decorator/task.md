@@ -4,7 +4,7 @@ importance: 5
 
 # Decorador espía
 
-Cree un decorador `spy(func)` que debería devolver un contenedor que guarde todas las llamadas para que funcionen en su propiedad `calls`
+Cree un decorador `spy(func)` que devuelva un contenedor el cual guarde todas las llamadas a la función en su propiedad `calls`
 
 Cada llamada se guarda como un array de argumentos.
 

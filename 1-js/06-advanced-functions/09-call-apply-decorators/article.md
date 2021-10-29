@@ -1,12 +1,12 @@
 # Decoradores y redirecciones, call/apply
 
-JavaScript ofrece una flexibilidad excepcional cuando se trata de funciones. Se pueden pasar, usar como objetos, y ahora veremos cómo *redireccionar* las llamadas entre ellos y *decorarlos*.
+JavaScript ofrece una flexibilidad excepcional cuando se trata de funciones. Se pueden pasar, usar como objetos, y ahora veremos cómo *redirigir* las llamadas entre ellos y *decorarlos*.
 
 ## Caché transparente
 
 Digamos que tenemos una función `slow(x)` que es pesada para la CPU, pero sus resultados son estables. En otras palabras, la misma `x` siempre devuelve el mismo resultado.
 
-Si la función se llama con frecuencia, es posible que queramos almacenar en caché (recordar) los resultados para evitar perder tiempo extra en los nuevos cálculos.
+Si la función se llama con frecuencia, es posible que queramos almacenar en caché (recordar) los resultados para evitar perder tiempo extra en nuevos cálculos.
 
 Pero en lugar de agregar esa funcionalidad en `slow()` crearemos una función de contenedor, que agrega almacenamiento en caché. Como veremos, hacer esto trae beneficios.
 
@@ -37,7 +37,7 @@ function cachingDecorator(func) {
 slow = cachingDecorator(slow);
 
 alert( slow(1) ); // slow(1) es cacheado y se devuelve el resultado
-alert( "Again: " + slow(1) ); // el resultado slow(1) es devuelto desde cache
+alert( "Again: " + slow(1) ); // el resultado slow(1) es devuelto desde caché
 
 alert( slow(2) ); // slow(2) es cacheado y devuelve el resultado
 alert( "Again: " + slow(2) ); // el resultado slow(2) es devuelto desde caché
@@ -58,7 +58,7 @@ Desde un código externo, la función `slow` envuelta sigue haciendo lo mismo. S
 Para resumir, hay varios beneficios de usar un `cachingDecorator` separado en lugar de alterar el código de `slow` en sí mismo:
 
 - El `cachingDecorator` es reutilizable. Podemos aplicarlo a otra función.
-- La lógica de almacenamiento en caché es independiente, no aumentó la complejidad de `slow` en sí misma(si hubiera alguna).
+- La lógica de almacenamiento en caché es independiente, no aumentó la complejidad de `slow` en sí misma (si hubiera alguna).
 - Podemos combinar múltiples decoradores si es necesario.
 
 ## Usando "func.call" para el contexto
@@ -231,7 +231,7 @@ Anteriormente, para un solo argumento `x` podríamos simplemente usar `cache.set
 Hay muchas posibles soluciones:
 
 1. Implemente una nueva estructura de datos similar a un mapa (o use una de un tercero) que sea más versátil y permita múltiples propiedades.
-2. Use mapas anidados `cache.set(min)` será un `Map` que almacena el par `(max, result)`. Para que podamos obtener `result` como `cache.get(min).get(max)`.
+2. Use mapas anidados: `cache.set(min)` será un `Map` que almacena el par `(max, result)`. Así podemos obtener `result` como `cache.get(min).get(max)`.
 3. Una dos valores en uno. En nuestro caso particular, podemos usar un string `"min,max"` como la propiedad de `Map`. Por flexibilidad, podemos permitir proporcionar un *función hashing* para el decorador, que sabe hacer un valor de muchos.
 
 Para muchas aplicaciones prácticas, la tercera variante es lo suficientemente buena, por lo que nos mantendremos en esa opción.
@@ -382,22 +382,21 @@ Esto se debe a que el algoritmo interno del método nativo `arr.join (glue)` es 
 
 Tomado de la especificación casi "tal cual":
 
-1. Deje que `glue` sea el primer argumento o, si no hay argumentos, entonces una coma `","`.
-2. Deje que `result` sea una cadena vacía.
-3. Agregue `this[0]` a `result`.
-4. Agregue `glue` y `this[1]`.
-5. Agregue `glue` y `this[2]`.
-6. ...hazlo hasta que los elementos `this.length` estén adheridos.
-7. Devuelva `result`.
+1. Hacer que `glue` sea el primer argumento o, si no hay argumentos, entonces una coma `","`.
+2. Hacer que `result` sea una cadena vacía.
+3. Adosar `this[0]` a `result`.
+4. Adosar `glue` y `this[1]`.
+5. Adosar `glue` y `this[2]`.
+6. ...hacerlo hasta que la cantidad `this.length` de elementos estén adheridos.
+7. Devolver `result`.
 
 Entones, técnicamente `this` une `this[0]`, `this[1]` ...etc. Está escrito intencionalmente de una manera que permite cualquier tipo de array `this` (no es una coincidencia, muchos métodos siguen esta práctica). Es por eso que también funciona con `this = arguments`
 
 ## Decoradores y propiedades de funciones
 
-Por lo general, es seguro reemplazar una función o un método con un decorador, excepto por una pequeña cosa. Si la función original tenía propiedades, como `func.calledCount` o cualquier otra, entonces la función decoradora no las proporcionará. Porque eso es una envoltura. Por lo tanto, se debe tener cuidado al usarlo.
+Por lo general, es seguro reemplazar una función o un método con un decorador, excepto por una pequeña cosa. Si la función original tenía propiedades (como `func.calledCount` o cualquier otra) entonces la función decoradora no las proporcionará. Porque es una envoltura. Por lo tanto, se debe tener cuidado al usarlo.
 
-
-E.j. en el ejemplo anterior, si la función `slow` tenía propiedades, entonces `cachingDecorator(slow)` sería un contenedor, pero sin contener dichas propiedades.
+En el ejemplo anterior, si la función `slow` tuviera propiedades, `cachingDecorator(slow)` sería un contenedor sin dichas propiedades.
 
 Algunos decoradores pueden proporcionar sus propias propiedades. P.ej. un decorador puede contar cuántas veces se invocó una función y cuánto tiempo tardó, y exponer esta información a través de propiedades de envoltura.
 
@@ -422,6 +421,6 @@ let wrapper = function() {
 };
 ```
 
-También vimos un ejemplo de *préstamo de método* cuando tomamos un método de un objeto y lo `llamamos` en el contexto de otro objeto. Es bastante común tomar métodos de array y aplicarlos a `argumentos`. La alternativa es utilizar el objeto de parámetros rest que es un array real.
+También vimos un ejemplo de *préstamo de método* cuando tomamos un método de un objeto y lo `llamamos` en el contexto de otro objeto. Es bastante común tomar métodos de array y aplicarlos al símil-array `arguments`. La alternativa es utilizar el objeto de parámetros rest que es un array real.
 
-Hay muchos decoradores a tu alrededor. Verifica si eres bueno resolviendo las tareas de este capítulo.
+Hay muchos decoradores a tu alrededor. Verifica qué tan bien los entendiste resolviendo las tareas de este capítulo.
