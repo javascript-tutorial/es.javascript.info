@@ -5,13 +5,13 @@ libs:
 
 # Función bind: vinculación de funciones
 
-Al pasar métodos de objeto como devoluciones de llamada, por ejemplo a `setTimeout`, se genera un problema conocido: "pérdida de `this`".
+Al pasar métodos de objeto como devoluciones de llamada, por ejemplo a `setTimeout`, se genera un problema conocido: la "pérdida de `this`".
 
 En este capítulo veremos las formas de solucionarlo.
 
 ## Pérdida de "this"
 
-Ya hemos visto ejemplos de pérdida de `this`. Una vez que se pasa un método en algún lugar separado del objeto -- `this` se pierde.
+Ya hemos visto ejemplos de pérdida de `this`. Una vez que se pasa hacia algún lugar un método separado de su objeto,  `this` se pierde.
 
 Así es como puede suceder con `setTimeout`:
 
@@ -28,7 +28,7 @@ setTimeout(user.sayHi, 1000); // Hello, undefined!
 */!*
 ```
 
-Como podemos ver, el resultado no muestra "John" como `this.firstName`, ¡sino como `undefined`!
+Como podemos ver, el resultado no muestra "John" como `this.firstName` ¡sino `undefined`!
 
 Esto se debe a que `setTimeout` tiene la función `user.sayHi`, separada del objeto. La última línea se puede reescribir como:
 
@@ -39,11 +39,11 @@ setTimeout(f, 1000); // user pierde el contexto
 
 El método `setTimeout` en el navegador es un poco especial: establece `this = window` para la llamada a la función (para Node.js, `this` se convierte en el objeto temporizador (timer), pero realmente no importa aquí). Entonces, en `this.firstName` intenta obtener `window.firstName`, que no existe. En otros casos similares, `this` simplemente se vuelve `undefined`.
 
-La tarea es bastante típica --queremos pasar un método de objeto a otro lugar (aquí --al planificador) donde se llamará. ¿Cómo asegurarse de que se llamará en el contexto correcto?
+La tarea es bastante típica: queremos pasar un método de objeto a otro lugar (aquí, al planificador) donde se llamará. ¿Cómo asegurarse de que se llamará en el contexto correcto?
 
-## Solución 1: un wrapper  (envoltura)
+## Solución 1: un wrapper (envoltura)
 
-La solución más simple es usar una función wrapper (envoltura):
+La solución más simple es usar una función wrapper:
 
 ```js run
 let user = {
@@ -70,7 +70,7 @@ setTimeout(() => user.sayHi(), 1000); // Hello, John!
 
 Se ve bien, pero aparece una ligera vulnerabilidad en nuestra estructura de código..
 
-¿Qué pasa si antes de que `setTimeout` se active (¡hay un segundo retraso!) `user` cambia el valor? Entonces, de repente, ¡llamará al objeto equivocado!
+¿Qué pasa si antes de que se dispare `setTimeout` (¡hay un segundo retraso!) `user` cambia el valor? Entonces, de repente, ¡llamará al objeto equivocado!
 
 
 ```js run
@@ -93,7 +93,7 @@ user = {
 
 La siguiente solución garantiza que tal cosa no sucederá.
 
-## Solución 2: bind
+## Solución 2: bind (enlazar)
 
 Las funciones proporcionan un método incorporado [bind](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Function/bind) que permite encontrar a `this`.
 
@@ -104,7 +104,7 @@ La sintaxis básica es:
 let boundFunc = func.bind(context);
 ```
 
-El resultado de `func.bind(context)` es un "objeto exótico", una función similar a una función regular, que se puede llamar como función y pasa la llamada de forma transparente a `func` estableciendo `this = context`.
+El resultado de `func.bind(context)` es un "objeto exótico", una función similar a una función regular que se puede llamar como función; esta pasa la llamada de forma transparente a `func` estableciendo `this = context`.
 
 En otras palabras, llamar a `boundFunc` es como `func` con un `this` fijo.
 
@@ -173,7 +173,7 @@ user = {
 };
 ```
 
-En la línea `(*)` tomamos el método `user.sayHi` y lo vinculamos a `user`. `sayHi` es una función "bound" (enlazada). Si se llama sola o se pasa en `setTimeout` no importa, el contexto será el correcto.
+En la línea `(*)` tomamos el método `user.sayHi` y lo vinculamos a `user`. `sayHi` es una función "bound" (enlazada). No importa si se llama sola o se pasa en `setTimeout`, el contexto será el correcto.
 
 Aquí podemos ver que los argumentos se pasan "tal cual", solo que `this` se fija mediante` bind`:
 
@@ -245,7 +245,7 @@ alert( double(5) ); // = mul(2, 5) = 10
 
 La llamada a `mul.bind(null, 2)` crea una nueva función `double` que pasa las llamadas a `mul`, fijando `null` como contexto y `2` como primer argumento. Otros argumentos se pasan "tal cual".
 
-Eso se llama [aplicación parcial de una función](https://en.wikipedia.org/wiki/Partial_application) -- creamos una nueva función arreglando algunos parámetros de la existente.
+Esto se llama [aplicación parcial](https://en.wikipedia.org/wiki/Partial_application): creamos una nueva función fijando algunos parámetros a la existente.
 
 Tenga en cuenta que aquí en realidad no usamos `this`. Pero `bind` lo requiere, por lo que debemos poner algo como `null`.
 
@@ -275,7 +275,7 @@ Por ejemplo, tenemos una función `send(from, to, text)`. Luego, dentro de un ob
 
 ## Parcial sin contexto
 
-¿Qué pasa si nos gustaría fijar algunos argumentos, pero no el contexto `this`? Por ejemplo, para un método de objeto.
+¿Qué pasa si queremos fijar algunos argumentos, pero no el contexto `this`? Por ejemplo, para un método de objeto.
 
 El método `bind` nativo no permite eso. No podemos simplemente omitir el contexto y saltar a los argumentos.
 
@@ -308,10 +308,10 @@ user.sayNow("Hello");
 // [10:00] John: Hello!
 ```
 
-El resultado de la llamada `parcial(func [, arg1, arg2 ...])` es un contenedor `(*)` que llama a `func` con:
+El resultado de la llamada `parcial(func [, arg1, arg2 ...])` es un contenedor wrapper `(*)` que llama a `func` con:
 - El mismo `this` (para la llamada a `user.sayNow` es `user`)
-- Luego le da `...argsBound` -- argumentos desde la llamada a `partial` (`"10:00"`)
-- Luego le da `...args` -- argumentos dados desde la envoltura (`"Hello"`)
+- Luego le da `...argsBound`: argumentos desde la llamada a `partial` (`"10:00"`)
+- Luego le da `...args`: argumentos dados desde la envoltura (`"Hello"`)
 
 Muy fácil de hacer con la sintaxis de propagación, ¿verdad?
 
@@ -319,7 +319,7 @@ También hay una implementación preparada [_.partial](https://lodash.com/docs#p
 
 ## Resumen
 
-El método `func.bind(context, ... args)` devuelve una "variante ligada" de la función `func` que fija el contexto `this` y los primeros argumentos si se dan.
+El método `func.bind(context, ... args)` devuelve una "variante enlazada" de la función `func` que fija el contexto `this` y los primeros argumentos si se dan.
 
 Por lo general, aplicamos `bind` para fijar `this` a un método de objeto, de modo que podamos pasarlo en otro lugar. Por ejemplo, en `setTimeout`.
 
