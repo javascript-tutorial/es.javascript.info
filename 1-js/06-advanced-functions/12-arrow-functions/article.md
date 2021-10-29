@@ -43,7 +43,7 @@ let group = {
 group.showList();
 ```
 
-Aquí en `forEach`, se utiliza la función de flecha, por lo que `this.title` es exactamente igual que en el método externo `showList`. Es decir: `group.title`.
+Aquí, en `forEach` se utiliza la función de flecha, por lo que `this.title` es exactamente igual que en el método externo `showList`. Es decir: `group.title`.
 
 Si usáramos una función "regular", habría un error:
 
@@ -80,11 +80,11 @@ Hay una sutil diferencia entre una función de flecha `=>` y una función regula
 - La flecha `=>` no crea ningún enlace. La función simplemente no tiene `this`. La búsqueda de 'this' se realiza exactamente de la misma manera que una búsqueda de variable regular: en el entorno léxico externo.
 ```
 
-## Las flechas no tienen "argumentos"
+## Las flechas no tienen "arguments"
 
 Las funciones de flecha tampoco tienen variable `arguments`.
 
-Eso es genial para los decoradores, cuando necesitamos reenviar una llamada con el actual `this` y `argumentos`.
+Eso es genial para los decoradores, cuando necesitamos reenviar una llamada con `this` y `arguments` actuales.
 
 Por ejemplo, `defer (f, ms)` obtiene una función y devuelve un contenedor que retrasa la llamada en `ms` milisegundos:
 
@@ -116,7 +116,7 @@ function defer(f, ms) {
 }
 ```
 
-Aquí tuvimos que crear variables adicionales `args` y `ctx` para que la función dentro de `setTimeout` pudiera tomarlas.
+Aquí tuvimos que crear las variables adicionales `args` y `ctx` para que la función dentro de `setTimeout` pudiera tomarlas.
 
 ## Resumen
 
@@ -124,7 +124,7 @@ Funciones de flecha:
 
 
 - No tienen `this`
-- No tienen argumentos
+- No tienen `arguments`
 - No se pueden llamar con `new`
 - Tampoco tienen `super`, que aún no hemos estudiado. Lo veremos en el capítulo <info:class-inheritance>
 
