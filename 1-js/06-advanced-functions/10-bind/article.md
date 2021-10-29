@@ -93,9 +93,9 @@ user = {
 
 La siguiente solución garantiza que tal cosa no sucederá.
 
-## Solución 2: bind (enlazar)
+## Solución 2: bind (vincular)
 
-Las funciones proporcionan un método incorporado [bind](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Function/bind) que permite encontrar a `this`.
+Las funciones proporcionan un método incorporado [bind](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Function/bind) que permite fijar a `this`.
 
 La sintaxis básica es:
 
@@ -125,7 +125,7 @@ funcUser(); // John
 */!*
 ```
 
-Aquí `func.bind(user)` es como una "variante ligada" de `func`, con `this = user` fijo en ella.
+Aquí `func.bind(user)` es como una "variante vinculada" de `func`, con `this = user` fijo en ella.
 
 Todos los argumentos se pasan al `func` original "tal cual", por ejemplo:
 
@@ -173,7 +173,7 @@ user = {
 };
 ```
 
-En la línea `(*)` tomamos el método `user.sayHi` y lo vinculamos a `user`. `sayHi` es una función "bound" (enlazada). No importa si se llama sola o se pasa en `setTimeout`, el contexto será el correcto.
+En la línea `(*)` tomamos el método `user.sayHi` y lo vinculamos a `user`. `sayHi` es una función "vinculada". No importa si se llama sola o se pasa en `setTimeout`, el contexto será el correcto.
 
 Aquí podemos ver que los argumentos se pasan "tal cual", solo que `this` se fija mediante` bind`:
 
@@ -319,7 +319,7 @@ También hay una implementación preparada [_.partial](https://lodash.com/docs#p
 
 ## Resumen
 
-El método `func.bind(context, ... args)` devuelve una "variante enlazada" de la función `func` que fija el contexto `this` y los primeros argumentos si se dan.
+El método `func.bind(context, ... args)` devuelve una "variante vinculada" de la función `func`, fijando el contexto `this` y los primeros argumentos si estos se dan.
 
 Por lo general, aplicamos `bind` para fijar `this` a un método de objeto, de modo que podamos pasarlo en otro lugar. Por ejemplo, en `setTimeout`.
 
