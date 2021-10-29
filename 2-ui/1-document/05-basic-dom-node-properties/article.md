@@ -25,7 +25,9 @@ Las clases son:
     - [HTMLInputElement](https://html.spec.whatwg.org/multipage/forms.html#htmlinputelement) -- la clase para elementos `<input>`,
     - [HTMLBodyElement](https://html.spec.whatwg.org/multipage/semantics.html#htmlbodyelement) -- la clase para los elementos `<body>`,
     - [HTMLAnchorElement](https://html.spec.whatwg.org/multipage/semantics.html#htmlanchorelement) -- la clase para elementos `<a>`,
-    - ...y así sucesivamente, cada etiqueta tiene su propia clase que puede proporcionar propiedades y métodos específicos.
+    - ...y así sucesivamente.
+
+Hay muchas otras etiquetas con sus propias clases con sus propiedades y métodos específicos, mientras que algunos elementos, tales como `<span>`, `<section>`, `<article>` no tienen ninguna propiedad específica entonces derivan de la clase `HTMLElement`.
 
 Entonces, el conjunto completo de propiedades y métodos de un nodo dado viene como resultado de la herencia.
 
@@ -128,7 +130,7 @@ Por ejemplo:
 
 ```html run
 <body>
-  <script>  
+  <script>
   let elem = document.body;
 
   // vamos a examinar lo que es

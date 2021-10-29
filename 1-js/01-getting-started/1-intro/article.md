@@ -59,7 +59,7 @@ Por ejemplo, en el navegador JavaScript es capaz de:
 
 ## ¿Qué NO PUEDE hacer JavaScript en el navegador?
 
-Las capacidades de JavaScript en el navegador están limitadas por el bien de la seguridad de usuario. El objetivo es prevenir el acceso de información privada o dañar los datos de usuario por parte de una página maliciosa.
+Las capacidades de JavaScript en el navegador están limitadas por el bien de la seguridad de usuario. El objetivo es prevenir que una página maliciosa acceda a información privada o dañe los datos de usuario.
 
 Ejemplos de tales restricciones incluyen:
 
