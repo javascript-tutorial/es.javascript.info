@@ -188,7 +188,7 @@ El comportamiento se modificó, porque algunos webmasters abusaron de este contr
 ````warn header="El `event.preventDefault()` no funciona desde un manejador `beforeunload`"
 Esto puede sonar extraño, pero la mayoría de los navegadores ignoran `event.preventDefault()`.
 
-Lo que significa que el siguiente código no puede no funcionar:
+Lo que significa que el siguiente código puede no funcionar:
 ```js run
 window.addEventListener("beforeunload", (event) => {
   // no funciona, así que el manejador de evento no hace nada
