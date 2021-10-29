@@ -301,7 +301,7 @@ El comando `async` antes de una función tiene dos efectos:
 1. Hace que siempre devuelva una promesa.
 2. Permite que sea usado `await` dentro de ella.
 
-El comando `await` antes de una promesa hace que JavaScript espere hasta que la promesa responda, entonces:
+El comando `await` antes de una promesa hace que JavaScript espere hasta que la promesa responda. Entonces:
 
 1. Si es un error, la excepción es generada — lo mismo que si `throw error` fuera llamado en ese mismo lugar.
 2. De otro modo, devuelve el resultado.

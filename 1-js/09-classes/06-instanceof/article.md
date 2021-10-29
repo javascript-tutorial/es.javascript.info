@@ -94,7 +94,7 @@ El algoritmo de `obj instanceof Class` funciona más o menos de la siguiente man
     alert(rabbit instanceof Animal); // verdadero
     */!*
 
-    // rabbit.__proto__ === Rabbit.prototype
+    // rabbit.__proto__ === Animal.prototype (no match)
     *!*
     // rabbit.__proto__.__proto__ === Animal.prototype (iguala!)
     */!*

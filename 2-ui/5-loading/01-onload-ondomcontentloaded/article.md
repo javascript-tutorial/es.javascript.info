@@ -185,6 +185,26 @@ window.onbeforeunload = function() {
 
 El comportamiento se modificó, porque algunos webmasters abusaron de este controlador de eventos mostrando mensajes engañosos y molestos. Entonces, en este momento, los navegadores antiguos aún pueden mostrarlo como un mensaje, pero aparte de eso, no hay forma de personalizar el mensaje que se muestra al usuario.
 
+````warn header="El `event.preventDefault()` no funciona desde un manejador `beforeunload`"
+Esto puede sonar extraño, pero la mayoría de los navegadores ignoran `event.preventDefault()`.
+
+Lo que significa que el siguiente código puede no funcionar:
+```js run
+window.addEventListener("beforeunload", (event) => {
+  // no funciona, así que el manejador de evento no hace nada
+	event.preventDefault();
+});
+```
+
+En lugar de ello, en tales manejadores uno debe establecer `event.returnValue` a un string para obtener un resultado similar al pretendido en el código de arriba:
+```js run
+window.addEventListener("beforeunload", (event) => {
+  // funciona, lo mismo que si devolviera desde window.onbeforeunload
+	event.returnValue = "Hsy cambios sin grabar. ¿Abandonar ahora?";
+});
+```
+````
+
 ## readyState
 
 ¿Qué sucede si configuramos el controlador `DOMContentLoaded` después de cargar el documento?

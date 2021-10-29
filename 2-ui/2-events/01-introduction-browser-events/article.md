@@ -160,7 +160,7 @@ button.onclick = sayThanks;
 button.onclick = sayThanks();
 ```
 
-Si agregamos paréntesis, entonces `sayThanks()` se convierte en una llamada de función. Por lo que en realidad la última linea toma el *resultado* de la ejecución de la función, que es `undefined` (ya que la función no devuelve nada), y lo asigna a `onclick`. Esto no funciona.
+Si agregamos paréntesis, `sayThanks()` se convierte en una llamada de función. En ese caso la última linea toma el *resultado* de la ejecución de la función, que es `undefined` (ya que la función no devuelve nada), y lo asigna a `onclick`. Esto no funciona.
 
 ...Por otro lado, en el markup necesitamos los paréntesis:
 
