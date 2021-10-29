@@ -28,7 +28,7 @@ setTimeout(user.sayHi, 1000); // Hello, undefined!
 */!*
 ```
 
-Como podemos ver, el resultado no muestra "John" como `this.firstName`, ¡sino `undefined`!
+Como podemos ver, el resultado no muestra "John" como `this.firstName` ¡sino `undefined`!
 
 Esto se debe a que `setTimeout` tiene la función `user.sayHi`, separada del objeto. La última línea se puede reescribir como:
 
