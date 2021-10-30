@@ -302,7 +302,7 @@ Entonces podemos asignar varias propiedades al mismo tiempo.
 
 Para obtener todos los descriptores al mismo tiempo, podemos usar el método [Object.getOwnPropertyDescriptors(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/getOwnPropertyDescriptors).
 
-Junto con `Object.defineProperties` puede ser usado como una forma "conscientes de los indicadores" de clonar un objeto:
+Junto con `Object.defineProperties` puede ser usado como una forma "consciente de los indicadores" de clonar un objeto:
 
 ```js
 let clone = Object.defineProperties({}, Object.getOwnPropertyDescriptors(obj));
