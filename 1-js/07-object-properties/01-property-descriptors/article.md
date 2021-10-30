@@ -1,27 +1,27 @@
 
 # Indicadores y descriptores de propiedad
 
-Como sabemos, los objetos pueden almacenar propiedades.
+Como ya sabemos, los objetos pueden almacenar propiedades.
 
-Hasta ahora, una propiedad era un simple par "clave-valor" para nosotros. Pero una propiedad de un objeto es algo más flexible y poderoso.
+Hasta ahora, para nosotros una propiedad era un simple par "clave-valor". Pero una propiedad de un objeto es algo más flexible y poderoso.
 
-En éste capítulo vamos a estudiar opciones adicionales de configuración, y en el siguiente veremos como convertirlas invisiblemente en funciones 'getter/setter', de obtención y establecimiento.
+En este capítulo vamos a estudiar opciones adicionales de configuración, y en el siguiente veremos como convertirlas invisiblemente en funciones 'getter/setter' (obtención y establecimiento).
 
 ## Indicadores de propiedad
 
-Las propiedades de objeto, a parte de un **`value`**, tienen tres atributos especiales (también llamados "indicadores"):
+Las propiedades de objeto, aparte de un **`value`**, tienen tres atributos especiales (también llamados "indicadores"):
 
 - **`writable`** -- si es `true`, puede ser editado, de otra manera es de solo lectura.
 - **`enumerable`** -- si es `true`, puede ser listado en bucles, de otro modo no puede serlo.
 - **`configurable`** -- si es `true`, la propiedad puede ser borrada y estos atributos pueden ser modificados, de otra forma no.
 
-Aun no los vemos, porque generalmente no se muestran. Cuando creamos una propiedad "de la forma usual", todos ellos son `true`. Pero podemos cambiarlos en cualquier momento.
+No los vimos hasta ahora porque generalmente no se muestran. Cuando creamos una propiedad "de la forma usual", todos ellos son `true`. Pero podemos cambiarlos en cualquier momento.
 
 Primero, veamos como conseguir estos indicadores.
 
 El método [Object.getOwnPropertyDescriptor](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/getOwnPropertyDescriptor) permite consultar *toda* la información sobre una propiedad.
 
-La sintaxis es ésta:
+La sintaxis es:
 ```js
 let descriptor = Object.getOwnPropertyDescriptor(obj, propertyName);
 ```
@@ -32,7 +32,7 @@ let descriptor = Object.getOwnPropertyDescriptor(obj, propertyName);
 `propertyName`
 : El nombre de la propiedad.
 
-El valor de retorno también es llamado objeto "descriptor de propiedad": éste contiene el valor de todos los indicadores.
+El valor devuelto es el objeto llamado "descriptor de propiedad": este contiene el valor de todos los indicadores.
 
 Por ejemplo:
 
@@ -54,9 +54,9 @@ alert( JSON.stringify(descriptor, null, 2 ) );
 */
 ```
 
-Para cambiar los indicadores, podemos usar [Object.defineProperty](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/defineProperty).
+Para modificar los indicadores podemos usar [Object.defineProperty](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/defineProperty).
 
-La sintaxis es ésta:
+La sintaxis es:
 
 ```js
 Object.defineProperty(obj, propertyName, descriptor)
@@ -96,7 +96,7 @@ alert( JSON.stringify(descriptor, null, 2 ) );
  */
 ```
 
-Comparado con la creada "de la forma usual" `user.name`: ahora todos los indicadores son `false`. Si eso no es lo que queremos, entonces mejor los establecemos en `true` en el `descriptor`.
+Comparado con la creada "de la forma usual" `user.name`: ahora todos los indicadores son `false`. Si no es lo que queremos, es mejor que los establezcamos en `true` en el `descriptor`.
 
 Ahora veamos los efectos de los indicadores con ejemplo.
 
@@ -148,7 +148,7 @@ user.name = "Alicia"; // Error
 
 Ahora vamos a añadir un `toString` personalizado a `user`.
 
-Normalmente, un `toString` incorporado en objetos es no enumerable, no se muestra en un bucle `for..in`. Pero si añadimos nuestro propio `toString`, entonces por defecto, este se muestra en los bucles `for..in`, como sigue:
+Normalmente, un `toString` incorporado en objetos es no enumerable, no se muestra en un bucle `for..in`. Pero si añadimos nuestro propio `toString`, por defecto éste se muestra en los bucles `for..in`:
 
 ```js run
 let user = {
@@ -192,7 +192,7 @@ alert(Object.keys(user)); // name
 
 ## Non-configurable
 
-Los indicadores no configurables (`configurable:false`) a veces es un preajuste para los objetos propiedades incorporadas.
+El indicador "no-configurable" (`configurable:false`) a veces está preestablecido para los objetos y propiedades incorporados.
 
 Una propiedad no configurable no puede ser eliminada, sus atributos no pueden ser modificados.
 
@@ -211,7 +211,7 @@ alert( JSON.stringify(descriptor, null, 2 ) );
 }
 */
 ```
-Así que, un programador es incapaz de cambiar el valor de `Math.PI` o sobrescribirlo.
+Así, un programador es incapaz de cambiar el valor de `Math.PI` o sobrescribirlo.
 
 ```js run
 Math.PI = 3; // Error, porque tiene writable: false
@@ -230,7 +230,7 @@ No hay nada en absoluto que podamos hacer con `Math.PI`.
 
 Convertir una propiedad en no configurable es una calle de un solo sentido. No podremos cambiarla de vuelta con `defineProperty`.
 
-**Nota que "configurable: false" impide cambios en los indicadores de la propiedad y su eliminación, pero permite el cambio de su valor.**
+**Observa que "configurable: false" impide cambios en los indicadores de la propiedad y su eliminación, pero permite el cambio de su valor.**
 
 Aquí `user.name` es "non-configurable", pero aún puede cambiarse (por ser "writable"):
 
@@ -276,7 +276,7 @@ Podemos cambiar `writable: true` a `false` en una propiedad no configurable, imp
 
 Hay un método [Object.defineProperties(obj, descriptors)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/defineProperties) que permite definir varias propiedades de una sola vez.
 
-La sintaxis es esta:
+La sintaxis es:
 
 ```js
 Object.defineProperties(obj, {
@@ -296,19 +296,19 @@ Object.defineProperties(user, {
 });
 ```
 
-Entonces, podemos asignar varias propiedades al mismo tiempo.
+Entonces podemos asignar varias propiedades al mismo tiempo.
 
 ## Object.getOwnPropertyDescriptors
 
 Para obtener todos los descriptores al mismo tiempo, podemos usar el método [Object.getOwnPropertyDescriptors(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/getOwnPropertyDescriptors).
 
-Junto con `Object.defineProperties` puede ser usado como una forma de "indicadores-conscientes" al clonar un objeto:
+Junto con `Object.defineProperties` puede ser usado como una forma "consciente de los indicadores" de clonar un objeto:
 
 ```js
 let clone = Object.defineProperties({}, Object.getOwnPropertyDescriptors(obj));
 ```
 
-Normalmente cuando clonamos un objeto, usamos una sentencia para copiar las propiedades, como esta:
+Normalmente, cuando clonamos un objeto, usamos una asignación para copiar las propiedades:
 
 ```js
 for (let key in user) {
@@ -316,7 +316,7 @@ for (let key in user) {
 }
 ```
 
-...Pero eso no copia los identificadores. Así que si queremos un "mejor" clon entonces se prefiere `Object.defineProperties`.
+...pero esto no copia los identificadores. Así que si queremos un "mejor" clon entonces se prefiere `Object.defineProperties`.
 
 Otra diferencia es que `for..in` ignora propiedades simbólicas, pero `Object.getOwnPropertyDescriptors` retorna *todos* los descriptores de propiedades incluyendo los simbólicos.
 
@@ -336,7 +336,7 @@ También hay métodos que limitan el acceso al objeto *completo*:
 [Object.freeze(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/freeze)
 : Prohíbe añadir/eliminar/cambiar propiedades, establece todas las propiedades existentes como `configurable: false, writable: false`.
 
-Y también hay pruebas para ellos:
+También tenemos formas de probarlos:
 
 [Object.isExtensible(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/isExtensible)
 : Devuelve `false` si esta prohibido añadir propiedades, si no `true`.
