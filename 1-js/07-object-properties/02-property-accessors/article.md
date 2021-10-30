@@ -3,11 +3,11 @@
 
 Hay dos tipos de propiedades de objetos.
 
-El primer tipo son las *propiedades de los datos*. Ya sabemos cómo trabajar con ellas. En realidad, todas las propiedades que hemos estado usando hasta ahora eran propiedades de datos.
+El primer tipo son las *propiedades de datos*. Ya sabemos cómo trabajar con ellas. En realidad, todas las propiedades que hemos estado usando hasta ahora eran propiedades de datos.
 
 El segundo tipo de propiedades es algo nuevo. Son las *propiedades de acceso*. Estas son esencialmente funciones que se ejecutan para la obtención y asignación de un valor, pero parecen propiedades normales para un código externo.
 
-## Getters and setters
+## Getters y setters
 
 Las propiedades de acceso están representadas por métodos "getter" y "setter". Propiamente, en un objeto se denotan por `get` y `set`:
 
@@ -23,7 +23,7 @@ let obj = {
 };
 ```
 
-El getter funciona cuando se lee `obj.propName`, el setter -- cuando se asigna.
+El getter funciona cuando se lee `obj.propName`, y el setter cuando se asigna.
 
 Por ejemplo, tenemos un objeto "usuario" con "nombre" y "apellido":
 
@@ -53,9 +53,9 @@ alert(user.fullName); // John Smith
 */!*
 ```
 
-Desde fuera, una propiedad de acceso se parece a una normal. Esa es la idea de estas propiedades. No *llamamos* a `user.fullName` como una función, la *leemos* normalmente: el "getter" corre detrás de la escena.
+Desde fuera, una propiedad de acceso se parece a una normal. Esa es la idea de estas propiedades. No *llamamos* a `user.fullName` como una función, la *leemos* normalmente: el "getter" corre detrás de escena.
 
-A partir de ahora, "Nombre completo" sólo tiene un receptor. Si intentamos asignar `user.fullName=`, habrá un error.
+Hasta ahora, "Nombre completo" sólo tiene un receptor. Si intentamos asignar `user.fullName=`, habrá un error.
 
 ```js run
 let user = {
@@ -97,9 +97,9 @@ alert(user.surname); // Cooper
 Como resultado, tenemos una propiedad virtual `fullName` que puede leerse y escribirse.
 
 
-## Accessor descriptors
+## Descriptores de acceso
 
-Los descriptores de las propiedades de acceso son diferentes de aquellos para las propiedades de los datos.
+Los descriptores de propiedades de acceso son diferentes de aquellos para las propiedades de datos.
 
 Para las propiedades de acceso, no hay cosas como "valor" y "escritura", sino de "get" y "set".
 
@@ -107,10 +107,10 @@ Así que un descriptor de accesos puede tener:
 
 - **`get`** -- una función sin argumentos, que funciona cuando se lee una propiedad,
 - **`set`** -- una función con un argumento, que se llama cuando se establece la propiedad,
-- **`enumerable`** -- lo mismo que para las propiedades de los datos,
-- **`configurable`** -- lo mismo que para las propiedades de los datos.
+- **`enumerable`** -- lo mismo que para las propiedades de datos,
+- **`configurable`** -- lo mismo que para las propiedades de datos.
 
-Por ejemplo, para crear un acceso " Nombre Completo" con "Definir Propiedad", podemos pasar un descriptor con `get` y `set`:
+Por ejemplo, para crear un acceso `fullName` con `defineProperty` , podemos pasar un descriptor con `get` y `set`:
 
 ```js run
 let user = {
@@ -152,9 +152,9 @@ Object.defineProperty({}, 'prop', {
 });
 ```
 
-## Smarter getters/setters
+## Getters y setters más inteligentes
 
-Getters/setters pueden ser usados como envoltorios sobre valores de propiedad "reales" para obtener más control sobre ellos.
+Getters y setters pueden ser usados como envoltorios sobre valores de propiedad "reales" para obtener más control sobre ellos.
 
 Por ejemplo, si queremos prohibir nombres demasiado cortos para "usuario", podemos guardar "nombre" en una propiedad especial "nombre". Y filtrar las asignaciones en el setter:
 
@@ -184,9 +184,9 @@ Entonces, el nombre es almacenado en la propiedad `_name`, y el acceso se hace a
 Técnicamente, el código externo todavía puede acceder al nombre directamente usando "usuario._nombre". Pero hay un acuerdo ampliamente conocido de que las propiedades que comienzan con un guión bajo "_" son internas y no deben ser manipuladas desde el exterior del objeto.
 
 
-## Using for compatibility
+## Uso para compatibilidad
 
-Una de los grandes usos de los getters y setters es que permiten tomar el control de una propiedad de datos "normal" y reemplazarla con getter y setter y así refinar su comportamiento.
+Una de los grandes usos de los getters y setters es que permiten tomar el control de una propiedad de datos "normal" y reemplazarla un getter y un setter y así refinar su comportamiento.
 
 Imagina que empezamos a implementar objetos usuario usando las propiedades de datos "nombre" y "edad":
 
