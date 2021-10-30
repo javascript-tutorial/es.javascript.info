@@ -110,7 +110,7 @@ Así que un descriptor de accesos puede tener:
 - **`enumerable`** -- lo mismo que para las propiedades de datos,
 - **`configurable`** -- lo mismo que para las propiedades de datos.
 
-Por ejemplo, para crear un acceso `fullName` con `defineProperty` , podemos pasar un descriptor con `get` y `set`:
+Por ejemplo, para crear un acceso `fullName` con `defineProperty`, podemos pasar un descriptor con `get` y `set`:
 
 ```js run
 let user = {
