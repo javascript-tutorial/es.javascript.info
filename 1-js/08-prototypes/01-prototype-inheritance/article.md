@@ -31,7 +31,7 @@ rabbit.__proto__ = animal; // establece rabbit.[[Prototype]] = animal
 */!*
 ```
 
-Si buscamos una propiedad en `rabbit` y falta, JavaScript la toma automáticamente de `animal`.
+Si buscamos una propiedad en `rabbit`, y no se encuentra, JavaScript la toma automáticamente de `animal`.
 
 Por ejemplo:
 
@@ -62,7 +62,7 @@ Luego, cuando `alert` intenta leer la propiedad `rabbit.eats` `(**)`, no la encu
 
 Aquí podemos decir que "`animal` es el prototipo de `rabbit`" o que "`rabbit` hereda prototípicamente de `animal`".
 
-Entonces, si `animal` tiene muchas propiedades y métodos útiles, estarán automáticamente disponibles en `rabbit`. Dichas propiedades se denominan "heredadas".
+Entonces, si `animal` tiene muchas propiedades y métodos útiles, estos estarán automáticamente disponibles en `rabbit`. Dichas propiedades se denominan "heredadas".
 
 Si tenemos un método en `animal`, se puede llamar en `rabbit`:
 
