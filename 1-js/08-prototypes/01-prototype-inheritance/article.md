@@ -8,11 +8,11 @@ Por ejemplo, tenemos un objeto `user` con sus propiedades y métodos, y queremos
 
 ## [[Prototype]]
 
-En JavaScript, los objetos tienen una propiedad oculta especial `[[Prototype]]` (como se menciona en la especificación), que es `nulo` o hace referencia a otro objeto. Ese objeto se llama "un prototipo":
+En JavaScript, los objetos tienen una propiedad oculta especial `[[Prototype]]` (como se menciona en la especificación); que es `nulo` o hace referencia a otro objeto. Tal objeto se llama "prototipo":
 
 ![prototype](object-prototype-empty.svg)
 
-Cuando leemos una propiedad de `object`, y falta, JavaScript la toma automáticamente del prototipo. En programación esto se llama "herencia prototípica". Pronto estudiaremos muchos ejemplos de esta herencia y otras características interesantes del lenguaje que se basan en ella.
+Cuando leemos una propiedad de `object`, si JavaScript no la encuentra allí la toma automáticamente del prototipo. En programación esto se llama "herencia prototípica". Pronto estudiaremos muchos ejemplos de esta herencia y otras características interesantes del lenguaje que se basan en ella.
 
 La propiedad `[[Prototype]]` es interna y está oculta, pero hay muchas formas de configurarla.
 
@@ -31,7 +31,7 @@ rabbit.__proto__ = animal; // establece rabbit.[[Prototype]] = animal
 */!*
 ```
 
-Si buscamos una propiedad en `rabbit`, y falta, JavaScript la toma automáticamente de `animal`.
+Si buscamos una propiedad en `rabbit` y falta, JavaScript la toma automáticamente de `animal`.
 
 Por ejemplo:
 
@@ -56,13 +56,13 @@ alert( rabbit.jumps ); // verdadero
 
 Aquí la línea `(*)` establece que `animal` es un prototipo de `rabbit`.
 
-Luego, cuando `alert` intenta leer la propiedad `rabbit.eats` `(**)`, no está en `rabbit`, por lo que JavaScript sigue la referencia `[[Prototype]]` y la encuentra en `animal` (mira de abajo hacia arriba):
+Luego, cuando `alert` intenta leer la propiedad `rabbit.eats` `(**)`, no la encuentra en `rabbit`, por lo que JavaScript sigue la referencia `[[Prototype]]` y la encuentra en `animal` (mira de abajo hacia arriba):
 
 ![](proto-animal-rabbit.svg)
 
-Aquí podemos decir que "`animal` es el prototipo de `rabbit`" o "`rabbit` hereda prototípicamente de `animal`".
+Aquí podemos decir que "`animal` es el prototipo de `rabbit`" o que "`rabbit` hereda prototípicamente de `animal`".
 
-Entonces, si `animal` tiene muchas propiedades y métodos útiles, entonces estarán automáticamente disponibles en `rabbit`. Dichas propiedades se denominan "heredadas".
+Entonces, si `animal` tiene muchas propiedades y métodos útiles, estarán automáticamente disponibles en `rabbit`. Dichas propiedades se denominan "heredadas".
 
 Si tenemos un método en `animal`, se puede llamar en `rabbit`:
 
@@ -126,7 +126,7 @@ Ahora, si leemos algo de `longEar` y falta, JavaScript lo buscará en `rabbit`, 
 
 Solo hay dos limitaciones:
 
-1. No puede haber referencias circulares. JavaScript arrojará un error si intentamos asignar `__proto__` en un círculo.
+1. No puede haber referencias circulares. JavaScript arrojará un error si intentamos asignar `__proto__` en círculo.
 2. El valor de `__proto__` puede ser un objeto o `null`. Otros tipos son ignorados.
 
 También puede ser obvio, pero aún así: solo puede haber un `[[Prototype]]`. Un objeto no puede heredar desde dos.
@@ -287,7 +287,7 @@ for(let prop in rabbit) alert(prop); // jumps, después eats
 */!*
 ```
 
-Si no queremos eso, y quisiéramos excluir las propiedades heredadas, hay un método incorporado [obj.hasOwnProperty(key)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/hasOwnProperty): devuelve `true` si `obj` tiene la propiedad interna (no heredada) llamada `key`.
+Si no queremos eso, y quisiéramos excluir las propiedades heredadas, hay un método incorporado [obj.hasOwnProperty(key)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/hasOwnProperty) ("Own" significa "Propia"): devuelve `true` si `obj` tiene la propiedad interna (no heredada) llamada `key`.
 
 Entonces podemos filtrar las propiedades heredadas (o hacer algo más con ellas):
 
@@ -316,7 +316,7 @@ Aquí tenemos la siguiente cadena de herencia: `rabbit` hereda de `animal`, que 
 
 ![](rabbit-animal-object.svg)
 
-Nota, hay una cosa divertida. ¿De dónde viene el método `rabbit.hasOwnProperty`? No lo definimos. Mirando la cadena podemos ver que el método es proporcionado por `Object.prototype.hasOwnProperty`. En otras palabras, se hereda.
+Observa algo curioso. ¿De dónde viene el método `rabbit.hasOwnProperty`? No lo definimos. Mirando la cadena podemos ver que el método es proporcionado por `Object.prototype.hasOwnProperty`. En otras palabras, se hereda.
 
 ...Pero, ¿por qué `hasOwnProperty` no aparece en el bucle `for..in` como `eats` y `jumps`, si `for..in` enumera las propiedades heredadas?
 
