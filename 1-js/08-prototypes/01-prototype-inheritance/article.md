@@ -8,7 +8,7 @@ Por ejemplo, tenemos un objeto `user` con sus propiedades y métodos, y queremos
 
 ## [[Prototype]]
 
-En JavaScript, los objetos tienen una propiedad oculta especial `[[Prototype]]` (como se menciona en la especificación); que es `nulo` o hace referencia a otro objeto. Tal objeto se llama "prototipo":
+En JavaScript, los objetos tienen una propiedad oculta especial `[[Prototype]]` (como se menciona en la especificación); que es `nulo` o hace referencia a otro objeto. Este otro objeto se llama "prototipo":
 
 ![prototype](object-prototype-empty.svg)
 
