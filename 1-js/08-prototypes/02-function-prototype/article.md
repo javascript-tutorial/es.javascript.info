@@ -2,12 +2,12 @@
 
 Recuerde, se pueden crear nuevos objetos con una función constructora, como `new F()`.
 
-Si `F.prototype` es un objeto, entonces el operador `new` lo usa para establecer `[[Prototype]]` para el nuevo objeto.
+Si `F.prototype` es un objeto, entonces el operador `new` lo usa para establecerlo como `[[Prototype]]` en el nuevo objeto.
 
 ```smart
-JavaScript tenía herencia prototípica desde el principio. Era una de las características principales del lenguaje.
+JavaScript tenía herencia prototípica desde sus comienzos. Era una de las características principales del lenguaje.
 
-Pero en los viejos tiempos, no había acceso directo a él. Lo único que funcionó de manera confiable fue una propiedad `"prototype"` de la función constructora, descrita en este capítulo. Así que hay muchos scripts que todavía lo usan.
+Pero en los viejos tiempos no había acceso directo a él. Lo único que funcionaba de manera confiable era una propiedad `"prototype"` de la función constructora, descrita en este capítulo. Por ello hay muchos scripts que todavía lo usan.
 ```
 
 Tenga en cuenta que `F.prototype` aquí significa una propiedad regular llamada `"prototype"` en `F`. Suena algo similar al término "prototype", pero aquí realmente queremos decir una propiedad regular con este nombre.
@@ -41,9 +41,9 @@ Esta es la imagen resultante:
 En la imagen, `"prototype"` es una flecha horizontal, que significa una propiedad regular, y `[[Prototype]]` es vertical, que significa la herencia de `rabbit` desde `animal`.
 
 ```smart header="`F.prototype` solo se usa en el momento `new F`"
-La propiedad `F.prototype` solo se usa cuando se llama a `new F`, asigna `[[Prototype]]` del nuevo objeto.
+La propiedad `F.prototype` solo se usa cuando se llama a `new F`: asigna `[[Prototype]]` del nuevo objeto.
 
-Si, después de la creación, la propiedad `F.prototype` cambia (`F.prototype = <otro objeto>`), los nuevos objetos creados por `new F` tendrán otro objeto como `[[Prototype]]`, pero ya los objetos existentes conservan el antiguo.
+Si, después de la creación, la propiedad `F.prototype` cambia (`F.prototype = <otro objeto>`), los nuevos objetos creados por `new F` tendrán otro objeto como `[[Prototype]]`, pero los objetos ya existentes conservan el antiguo.
 ```
 
 ## F.prototype predeterminado, propiedad del constructor
