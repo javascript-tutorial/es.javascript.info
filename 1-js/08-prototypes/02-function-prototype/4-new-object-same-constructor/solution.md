@@ -1,6 +1,6 @@
 Podemos usar dicho enfoque si estamos seguros de que la propiedad `"constructor"` tiene el valor correcto.
 
-For instance, if we don't touch the default `"prototype"`, then this code works for sure:
+Por ejemplo, si no tocamos el `"prototype"` predeterminado, con seguridad el código funciona:
 
 ```js run
 function User(name) {
