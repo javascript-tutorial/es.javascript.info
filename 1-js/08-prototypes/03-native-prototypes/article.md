@@ -1,12 +1,12 @@
 # Prototipos nativos
 
-La propiedad `"prototipo"` es ampliamente utilizada por el núcleo de JavaScript mismo. Todas las funciones de constructor integradas lo usan.
+La propiedad `"prototype"` es ampliamente utilizada por el núcleo de JavaScript mismo. Todas las funciones de constructor integradas lo usan.
 
 Primero veremos los detalles y luego cómo usarlo para agregar nuevas capacidades a los objetos integrados.
 
 ## Object.prototype
 
-Digamos que sacamos un objeto vacío:
+Digamos que tenemos un objeto vacío y lo mostramos:
 
 ```js run
 let obj = {};
@@ -48,11 +48,11 @@ alert(Object.prototype.__proto__); // null
 
 Otros objetos integrados como `Array`, `Date` , `Function` y otros también mantienen métodos en prototipos.
 
-Por ejemplo, cuando creamos una matriz `[1, 2, 3]`, el constructor predeterminado `new Array()` se usa internamente. Entonces `Array.prototype` se convierte en su prototipo y proporciona métodos. Eso es muy eficiente en memoria.
+Por ejemplo, cuando creamos una matriz `[1, 2, 3]`, el constructor predeterminado `new Array()` se usa internamente. Entonces `Array.prototype` se convierte en su prototipo y proporciona sus métodos. Eso es muy eficiente en memoria.
 
 Por especificación, todos los prototipos integrados tienen `Object.prototype` en la parte superior. Es por eso que algunas personas dicen que "todo hereda de los objetos".
 
-Aquí está la imagen general (para que encajen 3 integrados):
+Aquí está la imagen general de 3 objetos integrados (3 para que quepan):
 
 ![](native-prototypes-classes.svg)
 
@@ -71,7 +71,7 @@ alert( arr.__proto__.__proto__ === Object.prototype ); // verdadero
 alert( arr.__proto__.__proto__.__proto__ ); // null
 ```
 
-Algunos métodos en prototipos pueden superponerse, por ejemplo, `Array.prototype` tiene su propio `toString` que enumera elementos delimitados por comas:
+Algunos métodos en prototipos pueden superponerse; por ejemplo, `Array.prototype` tiene su propio `toString` que enumera elementos delimitados por comas:
 
 ```js run
 let arr = [1, 2, 3]
@@ -101,7 +101,7 @@ alert(f.__proto__.__proto__ == Object.prototype); // verdadero, hereda de objeto
 
 Lo más intrincado sucede con cadenas, números y booleanos.
 
-Como recordamos, no son objetos. Pero si tratamos de acceder a sus propiedades, se crean los objetos contenedores temporales utilizando los constructores integrados `String`, `Number` y `Boolean`. Proporcionan los métodos y desaparecen.
+Como recordamos, no son objetos. Pero si tratamos de acceder a sus propiedades, se crean los objetos contenedores temporales utilizando los constructores integrados `String`, `Number` y `Boolean`, estos proporcionan los métodos y luego desaparecen.
 
 Estos objetos se crean de manera invisible para nosotros y la mayoría de los motores los optimizan, pero la especificación lo describe exactamente de esta manera. Los métodos de estos objetos también residen en prototipos, disponibles como `String.prototype`, `Number.prototype` y `Boolean.prototype`.
 
@@ -130,9 +130,9 @@ Los prototipos son globales, por lo que es fácil generar un conflicto. Si dos b
 Por lo tanto, en general, modificar un prototipo nativo se considera una mala idea.
 ```
 
-**En la programación moderna, solo hay un caso en el que se aprueba la modificación de prototipos nativos. Eso es polyfilling (polirelleno).**
+**En la programación moderna, solo hay un caso en el que se aprueba la modificación de prototipos nativos: haciendo un polyfill.**
 
-Polyfilling (polirellenado) es un término para sustituir un método que existe en la especificación de JavaScript, pero que aún no es compatible con un motor de JavaScript en particular.
+Cuando un método existe en la especificación de JavaScript, pero aún no está soportado por un motor de JavaScript en particular, podemos hacer "polyfill" (polirrelleno); esto es, crear un método sustituto. 
 
 Luego podemos implementarlo manualmente y llenar el prototipo integrado con él.
 
@@ -160,7 +160,7 @@ alert( "La".repeat(3) ); // LaLaLa
 
 En el capítulo <info:call-apply-decorators#method-borrowing> hablamos sobre el préstamo de método .
 
-Es entonces cuando tomamos un método de un objeto y lo copiamos en otro.
+Es cuando tomamos un método de un objeto y lo copiamos en otro.
 
 A menudo se toman prestados algunos métodos de prototipos nativos.
 
@@ -195,5 +195,5 @@ Los métodos de préstamo son flexibles, permiten mezclar funcionalidades de dif
 - Todos los objetos integrados siguen el mismo patrón:
     - Los métodos se almacenan en el prototipo (`Array.prototype`, `Object.prototype`, `Date.prototype`, etc.)
     - El objeto en sí solo almacena los datos (elementos de arreglo, propiedades de objeto, la fecha)
-- Los primitivos también almacenan métodos en prototipos de objetos contenedores: `Number.prototype`, `String.prototype` y `Boolean.prototype`. Solo `undefined` y `null` no tienen objetos contenedores
-- Los prototipos integrados se pueden modificar o completar con nuevos métodos. Pero no se recomienda cambiarlos. El único caso permitido es probablemente cuando agregamos un nuevo estándar, pero aún no es compatible con el motor de JavaScript
+- Los primitivos también almacenan métodos en prototipos de objetos contenedores: `Number.prototype`, `String.prototype` y `Boolean.prototype`. Solo `undefined` y `null` no tienen objetos contenedores.
+- Los prototipos integrados se pueden modificar o completar con nuevos métodos. Pero no se recomienda cambiarlos. El único caso permitido es probablemente cuando agregamos un nuevo estándar que aún no es soportado por el motor de JavaScript.
