@@ -52,7 +52,7 @@ Por ejemplo, cuando creamos una matriz `[1, 2, 3]`, el constructor predeterminad
 
 Por especificación, todos los prototipos integrados tienen `Object.prototype` en la parte superior. Es por eso que algunas personas dicen que "todo hereda de los objetos".
 
-Aquí está la imagen general de 3 objetos integrados (3 para que quepan ):
+Aquí está la imagen general de 3 objetos integrados (3 para que quepan):
 
 ![](native-prototypes-classes.svg)
 
@@ -130,9 +130,9 @@ Los prototipos son globales, por lo que es fácil generar un conflicto. Si dos b
 Por lo tanto, en general, modificar un prototipo nativo se considera una mala idea.
 ```
 
-**En la programación moderna, solo hay un caso en el que se aprueba la modificación de prototipos nativos. Eso es: en polyfill.**
+**En la programación moderna, solo hay un caso en el que se aprueba la modificación de prototipos nativos: haciendo un polyfill.**
 
-Cuando un método existe en la especificación de JavaScript, pero  aún no está soportado por un motor de JavaScript en particular, podemos hacer "polyfill" (polirrelleno), esto es, crear un método sustituto. 
+Cuando un método existe en la especificación de JavaScript, pero aún no está soportado por un motor de JavaScript en particular, podemos hacer "polyfill" (polirrelleno); esto es, crear un método sustituto. 
 
 Luego podemos implementarlo manualmente y llenar el prototipo integrado con él.
 
