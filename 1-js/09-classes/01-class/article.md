@@ -5,11 +5,11 @@
 En informática, una clase es una plantilla para la creación de objetos de datos según un modelo predefinido. Las clases se utilizan para representar entidades o conceptos, como los sustantivos en el lenguaje. Cada clase es un modelo que define un conjunto de variables —el estado—, y métodos apropiados para operar con dichos datos —el comportamiento—.
 ```
 
-En la práctica a menudo necesitamos crear muchos objetos del mismo tipo, como usuarios, bienes, lo que sea.
+En la práctica a menudo necesitamos crear muchos objetos del mismo tipo: usuarios, bienes, lo que sea.
 
 Como ya sabemos del capítulo <info:constructor-new>, `new function` puede ayudar con eso.
 
-Pero en JavaScript moderno hay un constructor más avanzado, "class", que introduce grandes características nuevas muy útiles para la programación orientada a objetos.
+Pero en JavaScript moderno hay un constructor más avanzado, "class", que introduce características nuevas muy útiles para la programación orientada a objetos.
 
 ## La sintaxis "class"
 
@@ -70,7 +70,7 @@ Desvelemos la magia y veamos lo que realmente es una clase. Ayudará a entender 
 
 En JavaScript, una clase es un tipo de función.
 
-Aquí, hecha un vistazo:
+Veamos:
 
 ```js run
 class User {
@@ -372,7 +372,7 @@ setTimeout(button.click, 1000); // undefined
 
 Este problema es denominado "pérdida de `this`".
 
-Hay dos enfoques para solucionarlos, como se discute en el capítulo <info:bind>:
+Hay dos enfoques para solucionarlo, como se discute en el capítulo <info:bind>:
 
 1. Pasar un contenedor o wrapper-function como: `setTimeout(() => button.click(), 1000)`.
 2. Vincular el método al objeto, por ejemplo en el constructor.
