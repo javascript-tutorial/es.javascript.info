@@ -43,9 +43,15 @@
     }
 
     function clockStart() {
+<<<<<<< HEAD
       // establece un nuevo intervalo solo si el reloj está detenido
       // de otro modo sobreescribiríamos la referencia timerID del intervalo en ejecución y no podríamos detener el reloj nunca más
       if (!timerId) { 
+=======
+      // set a new interval only if the clock is stopped
+      // otherwise we would rewrite the timerID reference to the running interval and wouldn't be able to stop the clock ever again
+      if (!timerId) {
+>>>>>>> 4541b7af7584014a676da731f6e8774da5e059f6
         timerId = setInterval(update, 1000);
       }
       update(); // <--  inicia ahora mismo, no espera 1 second hasta el primer intervalo
@@ -56,7 +62,6 @@
       timerId = null; // <-- borra timerID para indicar que el reloj fue detenido, haciendo posible iniciarlo de nuevo en clockStart()
     }
 
-    clockStart();
   </script>
 
   <!-- cliquear este botón llama a clockStart() -->

@@ -126,9 +126,15 @@ new TypedArray();
 
 Podemos crear un `TypedArray` directamente sin mencionar `ArrayBuffer`. Pero una vista no puede existir sin un `ArrayBuffer` subyacente, por lo que se crea automáticamente en todos estos casos excepto en el primero (cuando se proporciona).
 
+<<<<<<< HEAD
 Para acceder al `ArrayBuffer`, hay propiedades:
 - `arr.buffer` : hace referencia al `ArrayBuffer`.
 - `arr.byteLength` : la longitud del `ArrayBuffer`.
+=======
+To access the underlying `ArrayBuffer`, there are following properties in `TypedArray`:
+- `buffer` -- references the `ArrayBuffer`.
+- `byteLength` -- the length of the `ArrayBuffer`.
+>>>>>>> 4541b7af7584014a676da731f6e8774da5e059f6
 
 De esta forma siempre podemos pasar de una vista a otra:
 ```js
