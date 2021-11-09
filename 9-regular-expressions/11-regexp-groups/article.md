@@ -51,7 +51,7 @@ Podemos arreglarlo al reemplazar `pattern:\w` con `pattern:[\w-]` en cada palabr
 
 El ejemplo anterior puede ser extendido. Podemos crear una expresión regular para emails en base a esto.
 
-El formato de email es: `name@domain`. Cualquier palabra puede ser el nombre, no se permite guiones y puntos. En expresiones regulares esto es `pattern:[-.\w]+`.
+El formato de email es: `name@domain`. Cualquier palabra puede ser el nombre, guiones y puntos están permitidos. En expresiones regulares esto es `pattern:[-.\w]+`.
 
 El patrón:
 
