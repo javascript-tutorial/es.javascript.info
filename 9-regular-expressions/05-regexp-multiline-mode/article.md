@@ -16,7 +16,7 @@ let str = `1er lugar: Winnie
 3er lugar: Eeyore`;
 
 *!*
-alert( str.match(/^\d/gm) ); // 1, 2, 3
+console.log( str.match(/^\d/gm) ); // 1, 2, 3
 */!*
 ```
 
@@ -28,7 +28,7 @@ let str = `1er lugar: Winnie
 3er lugar: Eeyore`;
 
 *!*
-alert( str.match(/^\d/g) ); // 1
+console.log( str.match(/^\d/g) ); // 1
 */!*
 ```
 
@@ -51,7 +51,7 @@ let str = `Winnie: 1
 Piglet: 2
 Eeyore: 3`;
 
-alert( str.match(/\d$/gm) ); // 1,2,3
+console.log( str.match(/\d$/gm) ); // 1,2,3
 ```
 
 Sin la bandera `pattern:m`, dólar `pattern:$` solo coincidiría con el final del texto completo, por lo que solo se encontraría el último dígito.
@@ -75,7 +75,7 @@ let str = `Winnie: 1
 Piglet: 2
 Eeyore: 3`;
 
-alert( str.match(/\d\n/gm) ); // 1\n,2\n
+console.log( str.match(/\d\n/g) ); // 1\n,2\n
 ```
 
 Como podemos ver, hay 2 coincidencias en lugar de 3.
