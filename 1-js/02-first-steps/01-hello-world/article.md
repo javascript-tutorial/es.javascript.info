@@ -73,7 +73,11 @@ Los archivos de script se adjuntan a HTML con el atributo `src`:
 <script src="/path/to/script.js"></script>
 ```
 
+<<<<<<< HEAD
 Aquí, `/path/to/script.js` es una ruta absoluta al archivo de script (desde la raíz del sitio). También se puede proporcionar una ruta relativa desde la página actual. Por ejemplo, `src="script.js"` significaría un archivo `"script.js"` en la carpeta actual.
+=======
+Here, `/path/to/script.js` is an absolute path to the script from the site root. One can also provide a relative path from the current page. For instance, `src="script.js"`, just like `src="./script.js"`, would mean a file `"script.js"` in the current folder.
+>>>>>>> a82915575863d33db6b892087975f84dea6cb425
 
 También podemos dar una URL completa. Por ejemplo:
 
