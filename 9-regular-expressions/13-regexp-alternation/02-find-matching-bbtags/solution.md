@@ -20,4 +20,4 @@ let str = `
 alert( str.match(regexp) ); // [b]hello![/b],[quote][url]http://google.com[/url][/quote]
 ```
 
-Tenga en cuenta de que además de escapar `pattern:[` tuvimos que escapar de una barra para la etiqueta de cierre `pattern:[\/\1]`, porque normalmente la barra cierra el patrón.
+Tenga en cuenta que además de escapar `pattern:[` tuvimos que escapar de una barra para la etiqueta de cierre `pattern:[\/\1]`, porque normalmente la barra cierra el patrón.
