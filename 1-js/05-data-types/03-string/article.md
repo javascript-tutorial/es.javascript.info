@@ -81,7 +81,7 @@ Esta es la lista completa:
 | Carácter | Descripción |
 |-----------|-------------|
 |`\n`|Nueva línea|
-|`\r`|Retorno de carro: No se usa aislado. Los archivos de texto de Windows usan una combinación de dos caracteres `\r\n` para representar un corte de línea. |
+|`\r`|Retorno de carro: En Windows, los archivos de texto usan una combinación de dos caracteres `\r\n` para representar un corte de línea mientras que en otros SO es simplemente '\n'. Esto es por razones históricas, la mayoría del software para Windows también entienden '\n'. |
 |`\'`, `\"`|Comillas|
 |`\\`|Barra invertida|
 |`\t`|Tabulación|
