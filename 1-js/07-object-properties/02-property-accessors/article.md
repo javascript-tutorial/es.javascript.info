@@ -5,11 +5,11 @@ Hay dos tipos de propiedades de objetos.
 
 El primer tipo son las *propiedades de datos*. Ya sabemos cómo trabajar con ellas. Todas las propiedades que hemos estado usando hasta ahora eran propiedades de datos.
 
-El segundo tipo de propiedades es algo nuevo. Son las *propiedades de acceso*. Son, en esencia, funciones que se ejecutan para la obtener ("get") y asignar ("set") un valor, pero para un código externo parecen propiedades normales.
+El segundo tipo de propiedades es algo nuevo. Son las *propiedades de acceso*. Son, en esencia, funciones que se ejecutan para obtener ("get") y asignar ("set") un valor, pero que para un código externo parecen propiedades normales.
 
 ## Getters y setters
 
-Las propiedades de acceso están representadas por métodos "getter" y "setter". Propiamente, en un objeto literal se denotan con `get` y `set`:
+Las propiedades de acceso se construyen con métodos de obtención "getter" y asignación "setter". En un objeto literal se denotan con `get` y `set`:
 
 ```js
 let obj = {
@@ -23,7 +23,7 @@ let obj = {
 };
 ```
 
-El getter funciona cuando se lee `obj.propName`, y el setter cuando se le asigna un valor.
+El getter funciona cuando se lee `obj.propName`, y el setter cuando se asigna.
 
 Por ejemplo, tenemos un objeto "usuario" con "nombre" y "apellido":
 
