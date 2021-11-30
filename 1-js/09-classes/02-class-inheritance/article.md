@@ -34,7 +34,7 @@ Así es como podemos representar gráficamente el objeto `animal` y la clase `An
 
 ...Y nos gustaría crear otra clase `Rabbit`.
 
-Como los conejos son animales, la clase 'Rabbit' debería basarse en 'Animal' y tener acceso a métodos animales, para que los conejos puedan hacer lo que los animales "genéricos" pueden hacer.
+Como los conejos son animales, la clase 'Rabbit' debería basarse en 'Animal' y así tener acceso a métodos animales, para que los conejos puedan hacer lo que los animales "genéricos" pueden hacer.
 
 La sintaxis para extender otra clase es: `class Hijo extends Padre`.
 
