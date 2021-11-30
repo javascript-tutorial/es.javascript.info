@@ -1,9 +1,9 @@
 
 # Herencia de clase
 
-La herencia de clase es un método para crear una clase que sea la extensión de otra.
+La herencia de clase es la forma de crear una clase que sea una extensión de otra.
 
-De esta forma podemos añadir nueva funcionalidad a la existente.
+De esta manera podemos añadir nueva funcionalidad a la ya existente.
 
 ## La palabra clave "extends"
 
