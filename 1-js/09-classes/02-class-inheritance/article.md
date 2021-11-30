@@ -1,9 +1,9 @@
 
 # Herencia de clase
 
-La herencia de clase es un método para que una clase extienda a otra.
+La herencia de clase es un método para crear una clase que sea la extensión de otra.
 
-Entonces podemos crear una nueva funcionalidad además de la existente.
+De esta forma podemos añadir nueva funcionalidad a la existente.
 
 ## La palabra clave "extends"
 
@@ -34,9 +34,9 @@ Así es como podemos representar gráficamente el objeto `animal` y la clase `An
 
 ...Y nos gustaría crear otra clase `Rabbit`.
 
-Como los conejos son animales, la clase 'Rabbit' debe basarse en 'Animal', tener acceso a métodos animales, para que los conejos puedan hacer lo que los animales "genéricos" pueden hacer.
+Como los conejos son animales, la clase 'Rabbit' debería basarse en 'Animal' y tener acceso a métodos animales, para que los conejos puedan hacer lo que los animales "genéricos" pueden hacer.
 
-La sintaxis para extender otra clase es: `class Child extends Parent`.
+La sintaxis para extender otra clase es: `class Hijo extends Padre`.
 
 Construyamos la clase `Rabbit` que herede de `Animal`:
 
@@ -61,12 +61,12 @@ Internamente, la palabra clave `extends` funciona con la buena mecánica de prot
 
 ![](animal-rabbit-extends.svg)
 
-Por ejemplo, para encontrar el método `rabbit.run`, el motor verifica (en la imagen, de abajo hacia arriba):
-1. El objeto `rabbit` (no tiene el método `run`).
-2. Su prototipo, que es `Rabbit.prototype` (tiene el método `hide`, pero no el método `run`).
+Por ejemplo, para encontrar el método `rabbit.run`, el motor revisa (en la imagen, de abajo hacia arriba):
+1. El objeto `rabbit` (que no tiene el método `run`).
+2. Su prototipo, que es `Rabbit.prototype` (que tiene el método `hide`, pero no el método `run`).
 3. Su prototipo, que es `Animal.prototype` (debido a `extends`). Este finalmente tiene el método `run`.
 
-Como podemos recordar del capítulo <info:native-prototypes>, JavaScript usa la misma herencia prototípica para los objetos incorporados. Por ejemplo `Date.prototype.[[Prototype]]` es `Object.prototype`, por lo que "Date" tiene acceso a métodos de objeto genéricos.
+Como podemos recordar del capítulo <info:native-prototypes>, JavaScript usa la misma herencia prototípica para los objetos incorporados. Por ejemplo, `Date.prototype.[[Prototype]]` es `Object.prototype`. Es por esto que "Date" tiene acceso a métodos de objeto genéricos.
 
 ````smart header="Cualquier expresión está permitida después de `extends`"
 La sintaxis de clase permite especificar no solo una clase, sino cualquier expresión después de `extends`.
@@ -86,7 +86,7 @@ class User extends f("Hola") {}
 
 new User().sayHi(); // Hola
 ```
-Observa: `class User` hereda del resultado de `f("Hola")`.
+Observa que `class User` hereda del resultado de `f("Hola")`.
 
 Eso puede ser útil para patrones de programación avanzados cuando usamos funciones para generar clases dependiendo de muchas condiciones y podamos heredar de ellas.
 ````
@@ -95,7 +95,7 @@ Eso puede ser útil para patrones de programación avanzados cuando usamos funci
 
 Ahora avancemos y sobrescribamos un método. Por defecto, todos los métodos que no están especificados en la clase `Rabbit` se toman directamente "tal cual" de la clase `Animal`.
 
-Pero Si especificamos nuestro propio método `stop()` en `Rabbit`, este se utilizará en su lugar:
+Pero Si especificamos nuestro propio método `stop()` en `Rabbit`, es el que se utilizará en su lugar:
 
 ```js
 class Rabbit extends Animal {
@@ -106,11 +106,11 @@ class Rabbit extends Animal {
 }
 ```
 
-Usualmente no queremos reemplazar totalmente un método padre, sino más bien construir sobre él, modificar o ampliar su funcionalidad. Hacemos algo en nuestro método, pero llamamos al método padre antes, después o durante el proceso.
+Usualmente, no queremos reemplazar todo el método padre, sino más bien construir sobre él, modificarlo o ampliar su funcionalidad. Hacemos algo con nuestro método, pero queremos llamar al método padre antes, después o durante el proceso.
 
 Las clases proporcionan la palabra clave `"super"` para eso.
 
-- `super.method(...)` llama un método padre.
+- `super.metodo(...)` llama un método padre.
 - `super(...)` llama un constructor padre (solo dentro de nuestro constructor).
 
 Por ejemplo, hagamos que nuestro conejo se oculte automáticamente cuando se detenga:
@@ -159,7 +159,7 @@ Ahora `Rabbit` tiene el método `stop` que llama al padre `super.stop()` en el p
 ````smart header="Las funciones de flecha no tienen `super`"
 Como se mencionó en el capítulo <info:arrow-functions>, las funciones de flecha no tienen `super`.
 
-Si se accede, se toma de la función externa. Por ejemplo:
+Si se lo accede, lo toma de la función externa. Por ejemplo:
 ```js
 class Rabbit extends Animal {
   stop() {
@@ -168,7 +168,7 @@ class Rabbit extends Animal {
 }
 ```
 
-El método `super` en la función de flecha es el mismo que en `stop()`, y funciona según lo previsto. Si aquí especificamos una función "regular", habría un error:
+El método `super` en la función de flecha es el mismo que en `stop()`, y funciona según lo previsto. Si aquí especificáramos una función "regular", habría un error:
 
 ```js
 // super inesperado
@@ -187,7 +187,7 @@ De acuerdo con la [especificación](https://tc39.github.io/ecma262/#sec-runtime-
 
 ```js
 class Rabbit extends Animal {
-  // generado para extender clases sin constructores propios
+  // es generado por extender la clase sin constructor propio
 *!*
   constructor(...args) {
     super(...args);
@@ -196,7 +196,7 @@ class Rabbit extends Animal {
 }
 ```
 
-Como podemos ver, básicamente llama al padre `constructor` pasándole todos los argumentos. Eso sucede si no escribimos un constructor propio.
+Como podemos ver, básicamente llama al `constructor` padre pasándole todos los argumentos. Esto sucede si no escribimos un constructor propio.
 
 Ahora agreguemos un constructor personalizado a `Rabbit`. Especificará `earLength` además de `name`:
 
@@ -273,7 +273,7 @@ class Rabbit extends Animal {
 }
 
 *!*
-// now fine
+// todo bien ahora
 let rabbit = new Rabbit("Conejo Blanco", 10);
 alert(rabbit.name); // Conejo Blanco
 alert(rabbit.earLength); // 10
@@ -323,11 +323,11 @@ Aquí, la clase `Rabbit` extiende `Animal` y sobrescribe el campo `name` con un 
 
 Lo interesante es que en ambos casos: `new Animal()` y `new Rabbit()`, el `alert` en la línea `(*)` muestra `animal`.
 
-**En otras palabras, el constructor padre siempre usa el valor de su propios campo de clase, no el sobrescrito.**
+**En otras palabras, el constructor padre siempre usa el valor de su propio campo de clase, no el sobrescrito.**
 
 ¿Qué es lo extraño de esto?
 
-Si esto aún no está claro, compara con métodos.
+Si esto aún no está claro, compara lo que ocurre con los métodos.
 
 Aquí está el mismo código, pero en lugar del campo `this.name` llamamos el método `this.showName()`:
 
@@ -368,11 +368,11 @@ Bien, la razón está en el orden de inicialización, El campo de clase es inici
 
 En nuestro caso, `Rabbit` es la clase derivada. No hay `constructor()` en ella. Como establecimos previamente, es lo mismo que si hubiera un constructor vacío con solamente `super(...args)`.
 
-Entonces, `new Rabbit()` llama a `super()` y se ejecuta el constructor padre, y (por la regla de la clase derivada) solamente después de que sus campos de clase sean inicializados. En el momento de la ejecución del constructor padre, todavía no existen los campos de clase de `Rabbit`, por ello los campos de `Animal` son los usado.
+Entonces, `new Rabbit()` llama a `super()` y se ejecuta el constructor padre, y (por la regla de la clase derivada) solamente después de que sus campos de clase sean inicializados. En el momento de la ejecución del constructor padre, todavía no existen los campos de clase de `Rabbit`, por ello los campos de `Animal` son los usados.
 
 Esta sutil diferencia entre campos y métodos es particular de JavaScript
 
-Afortunadamente este comportamiento solo se revela si los campos sobrescritos son usados en el constructor padre. Entonces puede ser difícil entender qué es lo que está pasando, por ello lo explicamos aquí.
+Afortunadamente este comportamiento solo se revela si los campos sobrescritos son usados en el constructor padre. En tal caso puede ser difícil entender qué es lo que está pasando, por ello lo explicamos aquí.
 
 Si esto e vuelve un problema, uno puede corregirlo usando métodos o getters/setters en lugar de campos.
 
@@ -389,9 +389,9 @@ Vamos a profundizar un poco más el tema de `super`. Veremos algunas cosas inter
 
 En primer lugar, de todo lo que hemos aprendido hasta ahora, ¡es imposible que `super` funcione en absoluto!
 
-Sí, de hecho, preguntémonos, ¿cómo debería funcionar técnicamente? Cuando se ejecuta un método de objeto, obtiene el objeto actual como `this`. Si llamamos a `super.method()` entonces, el motor necesita obtener el `method` del prototipo del objeto actual. ¿Pero cómo?
+Sí; de hecho, preguntémonos: ¿cómo debería funcionar técnicamente? Cuando se ejecuta un método de objeto, obtiene el objeto actual como `this`. Si llamamos a `super.method()` entonces, el motor necesita obtener el `method` del prototipo del objeto actual. ¿Pero cómo?
 
-La tarea puede parecer simple, pero no lo es. El motor conoce el objeto actual `this`, por lo que podría obtener el `method`  padre como `this.__proto __.method`. Desafortunadamente, una solución tan "ingenua" no funcionará.
+La tarea puede parecer simple, pero no lo es. El motor conoce el objeto actual `this`, por lo que podría obtener el `method` padre como `this.__proto __.method`. Desafortunadamente, una solución tan "ingenua" no funcionará.
 
 Demostremos el problema. Sin clases, usando objetos puros por simplicidad.
 
@@ -475,7 +475,7 @@ Aquí está la imagen de lo que sucede:
     // es decir
     rabbit.eat.call(this);
     ```
-2. Luego, en la línea `(*)` de `rabbit.eat`, nos gustaría pasar la llamada aún más arriba en la cadena, evitando `this=longEar`, entonces `this.__ proto__.eat` es nuevamente `rabbit.eat`!
+2. Luego, en la línea `(*)` de `rabbit.eat`, queremos pasar la llamada aún más arriba en la cadena; pero como `this=longEar`, entonces `this.__ proto__.eat` ¡es nuevamente `rabbit.eat`!
 
     ```js
     // dentro de rabbit.eat () también tenemos this = longEar
@@ -488,7 +488,7 @@ Aquí está la imagen de lo que sucede:
 
 3. ...Entonces `rabbit.eat` se llama a sí mismo en el bucle sin fin, porque no puede ascender más.
 
-El problema no se puede resolver usando solo `this`.
+El problema no se puede resolver usando solamente `this`.
 
 ### `[[HomeObject]]`
 
@@ -534,7 +534,7 @@ Funciona según lo previsto, debido a la mecánica de `[[HomeObject]]`. Un méto
 
 ### Los métodos no son "libres"
 
-Como hemos sabido antes, generalmente las funciones son "libres", es decir no están vinculadas a objetos en JavaScript. Para que puedan copiarse entre objetos y llamarse con otro 'this`.
+Como aprendimos antes, generalmente las funciones son "libres", es decir que no están vinculadas a objetos en JavaScript. Esto es para que puedan copiarse entre objetos y llamarse con otro 'this`.
 
 La existencia misma de `[[HomeObject]]` viola ese principio, porque los métodos recuerdan sus objetos. `[[HomeObject]]` no se puede cambiar, por lo que este vínculo es para siempre.
 
@@ -616,12 +616,12 @@ rabbit.eat();  // Error al llamar a super (porque no hay [[HomeObject]])
 
 ## Resumen
 
-1. Para extender una clase: `class Child extends Parent`:
-     - Eso significa que `Child.prototype.__proto__` será `Parent.prototype`, por lo que los métodos se heredan.
+1. Para extender una clase: `class Hijo extends Padre`:
+     - Eso significa que `Hijo.prototype.__proto__` será `Padre.prototype`, por lo que los métodos se heredan.
 2. Al sobrescribir un constructor:
-     - Debemos llamar al constructor padre como `super()` en el constructor `Child` antes de usar `this`.
+     - Debemos llamar al constructor del padre `super()` en el constructor de `Hijo` antes de usar `this`.
 3. Al sobrescribir otro método:
-     - Podemos usar `super.method()` en un método `Child` para llamar al método `Parent`.
+     - Podemos usar `super.method()` en un método `Hijo` para llamar al método `Padre`.
 4. Características internas:
      - Los métodos recuerdan su clase/objeto en la propiedad interna `[[HomeObject]]`. Así es como `super` resuelve los métodos padres.
      - Por lo tanto, no es seguro copiar un método con `super` de un objeto a otro.
