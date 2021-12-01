@@ -1,7 +1,7 @@
 
 # Herencia de clase
 
-La herencia de clase es la forma de crear una clase que sea una extensión de otra.
+La herencia de clase es el medio para que una clase extienda a otra.
 
 De esta manera podemos añadir nueva funcionalidad a la ya existente.
 
@@ -62,9 +62,9 @@ Internamente, la palabra clave `extends` funciona con la buena mecánica de prot
 ![](animal-rabbit-extends.svg)
 
 Por ejemplo, para encontrar el método `rabbit.run`, el motor revisa (en la imagen, de abajo hacia arriba):
-1. El objeto `rabbit` (que no tiene el método `run`).
-2. Su prototipo, que es `Rabbit.prototype` (que tiene el método `hide`, pero no el método `run`).
-3. Su prototipo, que es `Animal.prototype` (debido a `extends`). Este finalmente tiene el método `run`.
+1. El objeto `rabbit`: no tiene el método `run`.
+2. Su prototipo, que es `Rabbit.prototype`: tiene el método `hide`, pero no el método `run`.
+3. Su prototipo, que es `Animal.prototype` (debido a `extends`): Este finalmente tiene el método `run`.
 
 Como podemos recordar del capítulo <info:native-prototypes>, JavaScript usa la misma herencia prototípica para los objetos incorporados. Por ejemplo, `Date.prototype.[[Prototype]]` es `Object.prototype`. Es por esto que "Date" tiene acceso a métodos de objeto genéricos.
 
