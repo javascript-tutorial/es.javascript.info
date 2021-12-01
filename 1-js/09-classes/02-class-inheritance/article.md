@@ -1,7 +1,7 @@
 
 # Herencia de clase
 
-La herencia de clase es el medio para que una clase extienda a otra.
+La herencia de clase es el modo para que una clase extienda a otra.
 
 De esta manera podemos añadir nueva funcionalidad a la ya existente.
 
