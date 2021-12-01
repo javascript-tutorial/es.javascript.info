@@ -4,7 +4,7 @@ importance: 5
 
 # Reloj extendido
 
-Tenemos una clase de 'Clock'. A partir de ahora, imprime la hora cada segundo.
+Tenemos una clase 'Clock'. Por ahora, muestra la hora cada segundo.
 
 
 [js src="source.view/clock.js"]
