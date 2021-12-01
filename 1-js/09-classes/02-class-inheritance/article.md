@@ -106,7 +106,7 @@ class Rabbit extends Animal {
 }
 ```
 
-Usualmente, no queremos reemplazar todo el método padre, sino más bien construir sobre él, modificarlo o ampliar su funcionalidad. Hacemos algo con nuestro método, pero queremos llamar al método padre antes, después o durante el proceso.
+Usualmente, no queremos reemplazar totalmente un método padre, sino más bien construir sobre él, modificarlo o ampliar su funcionalidad. Hacemos algo con nuestro método, pero queremos llamar al método padre antes, después o durante el proceso.
 
 Las clases proporcionan la palabra clave `"super"` para eso.
 
