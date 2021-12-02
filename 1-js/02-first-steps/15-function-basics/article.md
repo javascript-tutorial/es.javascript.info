@@ -331,8 +331,8 @@ function showMovie(age) {
 
 En el código de arriba, si `checkAge(age)` devuelve `false`, entonces `showMovie` no mostrará la `alert`.
 
-````smart header="Una función con un valor de `return` vacío o sin él devuelve `undefined`"
-Si una función no devuelve un valor, es lo mismo que si devuelve `undefined`:
+````smart header="Una función con un `return` vacío, o sin return, devuelve `undefined`"
+Si una función no devuelve un valor, es lo mismo que si devolviera `undefined`:
 
 ```js run
 function doNothing() { /* empty */ }
