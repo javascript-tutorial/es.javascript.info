@@ -187,6 +187,7 @@ Por lo tanto, los campos protegidos son naturalmente heredables. A diferencia de
 ## "#waterLimit" Privada
 
 [recent browser=none]
+
 Hay una propuesta de JavaScript terminada, casi en el estándar, que proporciona soporte a nivel de lenguaje para propiedades y métodos privados.
 
 Los privados deberían comenzar con `#`. Solo son accesibles desde dentro de la clase.
