@@ -289,7 +289,8 @@ En términos de POO, la delimitación de la interfaz interna de la externa se ll
 
 Ofrece los siguientes beneficios:
 
-Protección para los usuarios, para que no se disparen en el pie: Imagínese, hay un equipo de desarrolladores que usan una máquina de café. Fue hecho por la compañía "Best CoffeeMachine" y funciona bien, pero se quitó una cubierta protectora. Entonces la interfaz interna está expuesta.
+Protección para los usuarios, para que no se disparen en el pie
+: Imagínese, hay un equipo de desarrolladores que usan una máquina de café. Fue hecho por la compañía "Best CoffeeMachine" y funciona bien, pero se quitó una cubierta protectora. Entonces la interfaz interna está expuesta.
 
     Todos los desarrolladores son civilizados: usan la máquina de café según lo previsto. Pero uno de ellos, John, decidió que él era el más inteligente e hizo algunos ajustes en el interior de la máquina de café. Entonces la máquina de café falló dos días después.
 
