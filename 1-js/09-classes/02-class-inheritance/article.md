@@ -327,7 +327,7 @@ Lo interesante es que en ambos casos: `new Animal()` y `new Rabbit()`, el `alert
 
 ¿Qué es lo extraño de esto?
 
-Si esto aún no está claro, compara lo que ocurre con los métodos.
+Si esto aún no está claro, comparáralo con lo que ocurre con los métodos.
 
 Aquí está el mismo código, pero en lugar del campo `this.name` llamamos el método `this.showName()`:
 
@@ -374,7 +374,7 @@ Esta sutil diferencia entre campos y métodos es particular de JavaScript
 
 Afortunadamente este comportamiento solo se revela si los campos sobrescritos son usados en el constructor padre. En tal caso puede ser difícil entender qué es lo que está pasando, por ello lo explicamos aquí.
 
-Si esto e vuelve un problema, uno puede corregirlo usando métodos o getters/setters en lugar de campos.
+Si esto se vuelve un problema, uno puede corregirlo usando métodos o getters/setters en lugar de campos.
 
 
 ## El método `super` internamente [[HomeObject]] 
