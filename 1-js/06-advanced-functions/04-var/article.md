@@ -256,12 +256,21 @@ Existen otras maneras además de los paréntesis para decirle a JavaScript que q
 ```js run
 // Formas de crear IIFE
 
+<<<<<<< HEAD
 (function() {
   alert("Paréntesis alrededor de la función");
 }*!*)*/!*();
 
 (function() {
   alert("Paréntesis alrededor de todo");
+=======
+*!*(*/!*function() {
+  alert("Parentheses around the function");
+}*!*)*/!*();
+
+*!*(*/!*function() {
+  alert("Parentheses around the whole thing");
+>>>>>>> c5358c59494b53efb832c81a5338e0a23b22c269
 }()*!*)*/!*;
 
 *!*!*/!*function() {

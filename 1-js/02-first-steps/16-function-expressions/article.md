@@ -12,7 +12,13 @@ function sayHi() {
 
 Existe otra sintaxis para crear una función que se llama una *Expresión de Función*. 
 
+<<<<<<< HEAD
 Se ve así:
+=======
+It allows to create a new function in the middle of any expression.
+
+For example:
+>>>>>>> c5358c59494b53efb832c81a5338e0a23b22c269
 
 ```js
 let sayHi = function() {
@@ -20,9 +26,25 @@ let sayHi = function() {
 };
 ```
 
+<<<<<<< HEAD
 Aquí, la función es creada y asignada a la variable de manera explícita, como cualquier otro valor. Sin importar cómo se define la función, es sólo un valor almacenado en la variable `sayHi`.
 
 El sentido de estos ejemplos de código es el mismo: "crear una función y colocarla en la variable `sayHi`".
+=======
+Here we can see a variable `sayHi` getting a value, the new function, created as `function() { alert("Hello"); }`.
+
+As the function creation happens in the context of the assignment expression (to the right side of `=`), this is a *Function Expression*.
+
+Please note, there's no name after the `function` keyword. Omitting a name is allowed for Function Expressions.
+
+Here we immediately assign it to the variable, so the meaning of these code samples is the same: "create a function and put it into the variable `sayHi`".
+
+In more advanced situations, that we'll come across later, a function may be created and immediately called or scheduled for a later execution, not stored anywhere, thus remaining anonymous.
+
+## Function is a value
+
+Let's reiterate: no matter how the function is created, a function is a value. Both examples above store a function is `sayHi` variable.
+>>>>>>> c5358c59494b53efb832c81a5338e0a23b22c269
 
 Incluso podemos mostrar aquel valor usando `alert`:
 
@@ -62,6 +84,7 @@ Esto es lo que sucede arriba en detalle:
 1. La Declaración de la Función `(1)` crea la función y la coloca dentro de la variable llamada `sayHi`.
 2. Línea`(2)` copia la función en la variable `func`.
 
+<<<<<<< HEAD
 Aclaremos de nuevo: no hay paréntesis después de `sayHi`. Si lo hubiera, entonces `func = sayHi()` colocaría *el resultado de la llamada* `sayHi()` en `func`, no *la función* `sayHi` en sí.
 3. Ahora la función puede ser llamada de ambas maneras, `sayHi()` y `func()`.
 
@@ -70,6 +93,13 @@ Tenga en cuenta que también podríamos haber utilizado una Expresión de Funci�
 ```js
 let sayHi = function() {
   alert( "Hola" );
+=======
+We could also have used a Function Expression to declare `sayHi`, in the first line:
+
+```js
+let sayHi = function() { // (1) create
+  alert( "Hello" );
+>>>>>>> c5358c59494b53efb832c81a5338e0a23b22c269
 };
 
 let func = sayHi;
@@ -92,9 +122,15 @@ let sayHi = function() {
 }*!*;*/!*
 ```
 
+<<<<<<< HEAD
 La respuesta es simple:
 - No hay necesidad de un `;` al final de los bloques de código y estructuras de sintaxis que los utilizan tales como `if { ... }`, `for {  }`, `function f { }` etc.
 - Una Expresión de Función es utilizada dentro de la declaración: `let sayHi = ...;`, como un valor. No es un bloque de código. El punto y coma `;` es recomendado al final de declaraciones, sin importar cúal es el valor. Por lo tanto el punto y coma de aquí no se relaciona con la Expresión de Función en sí en ninguna forma, sólo termina la declaración.
+=======
+The answer is simple: a Function Expression is created here as `function(…) {…}` inside the assignment statement: `let sayHi = …;`. The semicolon `;` is recommended at the end of the statement, it's not a part of the function syntax.
+
+The semicolon would be there for a simpler assignment, such as `let sayHi = 5;`, and it's also there for a function assignment.
+>>>>>>> c5358c59494b53efb832c81a5338e0a23b22c269
 ````
 
 ## Funciones Callback

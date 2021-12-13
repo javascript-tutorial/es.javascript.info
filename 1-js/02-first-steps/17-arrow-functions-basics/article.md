@@ -5,10 +5,14 @@ Hay otra sintaxis muy simple y concisa para crear funciones, que a menudo es mej
 Se llama "funciones de flecha", porque se ve así:
 
 ```js
-let func = (arg1, arg2, ..., argN) => expression
+let func = (arg1, arg2, ..., argN) => expression;
 ```
 
+<<<<<<< HEAD
 ...Esto crea una función `func` que acepta parámetros `arg1..argN`, luego evalúa la `expression` de la derecha con su uso y devuelve su resultado.
+=======
+This creates a function `func` that accepts arguments `arg1..argN`, then evaluates the `expression` on the right side with their use and returns its result.
+>>>>>>> c5358c59494b53efb832c81a5338e0a23b22c269
 
 En otras palabras, es la versión más corta de:
 
