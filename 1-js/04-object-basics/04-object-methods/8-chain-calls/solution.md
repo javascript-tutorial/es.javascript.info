@@ -23,7 +23,7 @@ let ladder = {
   }
 };
 
-ladder.up().up().down().up().down().showStep(); // 1
+ladder.up().up().down().showStep().down().showStep(); // shows 1 then 0
 ```
 
 También podemos escribir una simple llamada por línea. Para cadenas largas es más legible:
@@ -33,7 +33,7 @@ ladder
   .up()
   .up()
   .down()
-  .up()
+  .showStep() // 1
   .down()
-  .showStep(); // 1
+  .showStep(); // 0
 ```

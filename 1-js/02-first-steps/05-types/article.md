@@ -212,13 +212,6 @@ El tipo `symbol` (símbolo) se utiliza para crear identificadores únicos para l
 
 El operador `typeof` devuelve el tipo del argumento. Es útil cuando queremos procesar valores de diferentes tipos de forma diferente o simplemente queremos hacer una comprobación rápida.
 
-Soporta dos formas de sintaxis:
-
-1. Como operador: `typeof x`.
-2. Como una función: `typeof(x)`.
-
-En otras palabras, funciona con paréntesis o sin ellos. El resultado es el mismo.
-
 La llamada a `typeof x` devuelve una cadena con el nombre del tipo:
 
 ```js
@@ -252,6 +245,14 @@ Las últimas tres líneas pueden necesitar una explicación adicional:
 1. `Math` es un objeto incorporado que proporciona operaciones matemáticas. Lo aprenderemos en el capítulo <info:number>. Aquí sólo sirve como ejemplo de un objeto.
 2. El resultado de `typeof null` es `"object"`. Esto está oficialmente reconocido como un error de comportamiento de `typeof` que proviene de los primeros días de JavaScript y se mantiene por compatibilidad. Definitivamente `null` no es un objeto. Es un valor especial con un tipo propio separado.
 3. El resultado de `typeof alert` es `"function"` porque `alert` es una función. Estudiaremos las funciones en los próximos capítulos donde veremos que no hay ningún tipo especial "function" en JavaScript. Las funciones pertenecen al tipo objeto. Pero `typeof` las trata de manera diferente, devolviendo `function`. Además proviene de los primeros días de JavaScript. Técnicamente dicho comportamiento es incorrecto pero puede ser conveniente en la práctica.
+
+```smart header="Sintaxis de `typeof(x)`"
+Se puede encontrar otra sintaxis en algún código: `typeof(x)`. Es lo mismo que `typeof x`.
+
+Los paréntesis aquí no son parte del operador `typeof`. Son del tipo usado en agrupamiento matemático. Usualmente, tales paréntesis contienen expresiones matemáticas tales como `(2 + 2)`, pero aquí solo tienen un argumento `(x)`. Sintácticamente, permiten evitar el espacio entre el operador `typeof` y su argumento, y a algunas personas les gusta así.
+
+Algunos prefieren `typeof(x)`, aunque la sintaxis `typeof x` es mucho más común.
+```
 
 ## Resumen
 
