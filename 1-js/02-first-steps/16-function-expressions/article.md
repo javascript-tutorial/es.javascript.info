@@ -73,7 +73,7 @@ Esto es lo que sucede arriba en detalle:
 
 1. La Declaración de la Función `(1)` crea la función y la coloca dentro de la variable llamada `sayHi`.
 2. Línea`(2)` copia la función en la variable `func`.
-3. Ahora la función puede ser llamada de ambas formas, `sayHi()` y `func()`.
+3. Ahora la función puede ser llamada de ambas maneras, `sayHi()` y `func()`.
 
 También podríamos haber usado una expresión de función para declarar `sayHi` en la primera línea:
 
