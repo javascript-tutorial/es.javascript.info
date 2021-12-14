@@ -27,7 +27,7 @@ Las clases son:
     - [HTMLAnchorElement](https://html.spec.whatwg.org/multipage/semantics.html#htmlanchorelement) -- la clase para elementos `<a>`,
     - ...y así sucesivamente.
 
-Hay muchas otras etiquetas con sus propias clases con sus propiedades y métodos específicos, mientras que algunos elementos, tales como `<span>`, `<section>`, `<article>` no tienen ninguna propiedad específica entonces derivan de la clase `HTMLElement`.
+Hay muchas otras etiquetas con sus propias clases que pueden tener propiedades y métodos específicos, mientras que algunos elementos, tales como `<span>`, `<section>`, `<article>`, no tienen ninguna propiedad específica entonces derivan de la clase `HTMLElement`.
 
 Entonces, el conjunto completo de propiedades y métodos de un nodo dado viene como resultado de la herencia.
 

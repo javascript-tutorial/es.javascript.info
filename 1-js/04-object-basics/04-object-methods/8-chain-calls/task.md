@@ -28,12 +28,14 @@ ladder.up();
 ladder.up();
 ladder.down();
 ladder.showStep(); // 1
+ladder.down();
+ladder.showStep(); // 0
 ```
 
 Modifica el código de "arriba" `up`, "abajo" `down` y "mostrar peldaño" `showStep` para hacer los llamados encadenables como esto:
 
 ```js
-ladder.up().up().down().showStep(); // 1
+ladder.up().up().down().showStep().down().showStep(); // shows 1 then 0
 ```
 
 Tal enfoque es ampliamente usado entre las librerías JavaScript.

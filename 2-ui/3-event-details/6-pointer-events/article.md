@@ -271,7 +271,7 @@ Los eventos de puntero permiten manejar eventos de mouse, toque y lápiz simult�
 
 Los eventos de puntero extienden los eventos del mouse. Podemos reemplazar `mouse` con `pointer` en los nombres de los eventos y esperar que nuestro código continúe funcionando para el mouse, con mejor soporte para otros tipos de dispositivos.
 
-Para arrastrar y soltar, y complejas interacciones que el navegador pudiera decidir secuestrar y manejarlas por su cuenta, recuerde cancelar la acción predeterminada sobre eventos y establecer `touch-events: none` en CSS para los elementos que involucramos.
+Para arrastrar y soltar, y complejas interacciones que el navegador pudiera decidir secuestrar y manejar por su cuenta, recuerde cancelar la acción predeterminada sobre eventos y establecer `touch-action: none` en CSS para los elementos que involucramos.
 
 Las habilidades adicionales de los eventos Pointer son:
 

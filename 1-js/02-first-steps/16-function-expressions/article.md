@@ -12,7 +12,9 @@ function sayHi() {
 
 Existe otra sintaxis para crear una función que se llama una *Expresión de Función*. 
 
-Se ve así:
+Esto permite crear una nueva función en el medio de cualquier expresión 
+
+Por ejemplo:
 
 ```js
 let sayHi = function() {
@@ -20,9 +22,19 @@ let sayHi = function() {
 };
 ```
 
-Aquí, la función es creada y asignada a la variable de manera explícita, como cualquier otro valor. Sin importar cómo se define la función, es sólo un valor almacenado en la variable `sayHi`.
+Aquí podemos ver una variable `sayHi` obteniendo un valor —la nueva función— creada como `function() { alert("Hello"); }`.
 
-El sentido de estos ejemplos de código es el mismo: "crear una función y colocarla en la variable `sayHi`".
+Como la creación de una función ocurre en el contexto de una expresión de asignación, (el lado derecho de `=`), esto es una *Expresión de función*.
+
+Note que no hay un nombre después de la palabra clave `function`. Omitir el nombre está permitido en las expresiones de función.
+
+Aquí la asignamos directamente a la variable, así que el significado de estos ejemplos de código es el mismo: "crear una función y ponerla en la variable `sayHi`".
+
+En situaciones más avanzadas, que cubriremos más adelante, una función puede ser creada e inmediatamente llamada o agendada para uso posterior, sin almacenarla en ningún lugar, permaneciendo así anónima.
+
+## La función es un valor
+
+Reiteremos: no importa cómo es creada la función, una función es un valor. Ambos ejemplos arriba almacenan una función en la variable `sayHi`.
 
 Incluso podemos mostrar aquel valor usando `alert`:
 
@@ -61,14 +73,12 @@ Esto es lo que sucede arriba en detalle:
 
 1. La Declaración de la Función `(1)` crea la función y la coloca dentro de la variable llamada `sayHi`.
 2. Línea`(2)` copia la función en la variable `func`.
-
-Aclaremos de nuevo: no hay paréntesis después de `sayHi`. Si lo hubiera, entonces `func = sayHi()` colocaría *el resultado de la llamada* `sayHi()` en `func`, no *la función* `sayHi` en sí.
 3. Ahora la función puede ser llamada de ambas maneras, `sayHi()` y `func()`.
 
-Tenga en cuenta que también podríamos haber utilizado una Expresión de Función para declarar `sayHi`, en la primera línea:
+También podríamos haber usado una expresión de función para declarar `sayHi` en la primera línea:
 
 ```js
-let sayHi = function() {
+let sayHi = function() { // (1) crea
   alert( "Hola" );
 };
 
@@ -80,7 +90,7 @@ Todo funcionaría igual.
 
 
 ````smart header="¿Por qué hay un punto y coma al final?"
-Tal vez te preguntes por qué la Expresión de Función tiene un punto y coma `;` al final, pero la Declaración de Función no:
+Tal vez te preguntes por qué la Expresión de Función tiene un punto y coma `;` al final, pero la Declaración de Función no lo tiene:
 
 ```js
 function sayHi() {
@@ -92,9 +102,9 @@ let sayHi = function() {
 }*!*;*/!*
 ```
 
-La respuesta es simple:
-- No hay necesidad de un `;` al final de los bloques de código y estructuras de sintaxis que los utilizan tales como `if { ... }`, `for {  }`, `function f { }` etc.
-- Una Expresión de Función es utilizada dentro de la declaración: `let sayHi = ...;`, como un valor. No es un bloque de código. El punto y coma `;` es recomendado al final de declaraciones, sin importar cúal es el valor. Por lo tanto el punto y coma de aquí no se relaciona con la Expresión de Función en sí en ninguna forma, sólo termina la declaración.
+La respuesta es simple: una expresión de función se crea aquí como `function(…) {…}` dentro de la sentencia de asignación `let sayHi = …;`. El punto y coma se recomienda para finalizar la sentencia, no es parte de la sintaxis de función.
+
+El punto y coma estaría allí para una asignación más simple tal como `let sayHi = 5;`, y también está alli para la asignación de función.
 ````
 
 ## Funciones Callback
@@ -193,7 +203,7 @@ Primero, la sintaxis: cómo diferenciarlas en el código.
     };
     ```
 
-La diferencia más sutíl es *cuándo* la función es creada por el motor de JavaScript.
+La diferencia más sutil es *cuándo* la función es creada por el motor de JavaScript.
 
 **Una Expresión de Función es creada cuando la ejecución la alcance y es utilizable desde ahí en adelante.**
 
@@ -205,7 +215,7 @@ Las Declaraciones de Función son diferente.
 
 Por ejemplo, una Declaración de Función global es visible en todo el script, sin importar dónde se esté.
 
-Esto se debe a los algorítmos internos. Cuando JavaScript se prepara para ejecutar el script, primero busca Declaraciones de Funciones globales en él y crea las funciones. Podemos pensar en esto como una "etapa de inicialización".
+Esto se debe a los algoritmos internos. Cuando JavaScript se prepara para ejecutar el script, primero busca Declaraciones de Funciones globales en él y crea las funciones. Podemos pensar en esto como una "etapa de inicialización".
 
 Y después de que se procesen todas las Declaraciones de Funciones, el código se ejecuta. Entonces tiene acceso a éstas funciones.
 
@@ -239,7 +249,7 @@ Las Expresiones de Función son creadas cuando la ejecución las alcance. Esto p
 
 Otra característica especial de las Declaraciones de Funciones es su alcance de bloque.
 
-**En modo estrícto, cuando una Declaración de Función se encuentra dentro de un bloque de código, es visible en todas partes dentro de ese bloque. Pero no fuera de él.**
+**En modo estricto, cuando una Declaración de Función se encuentra dentro de un bloque de código, es visible en todas partes dentro de ese bloque. Pero no fuera de él.**
 
 Por ejemplo, imaginemos que necesitamos declarar una función `welcome()` dependiendo de la variable `age` que obtengamos durante el tiempo de ejecución. Y luego planeamos usarlo algún tiempo después.
 
