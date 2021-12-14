@@ -22,7 +22,7 @@ let sayHi = function() {
 };
 ```
 
-Aquí podemos ver una variable `sayHi` obteniendo un valor, la nueva función, creada como `function() { alert("Hello"); }`.
+Aquí podemos ver una variable `sayHi` obteniendo un valor —la nueva función— creada como `function() { alert("Hello"); }`.
 
 Como la creación de una función ocurre en el contexto de una expresión de asignación, (el lado derecho de `=`), esto es una *Expresión de función*.
 
@@ -34,7 +34,7 @@ En situaciones más avanzadas, que cubriremos más adelante, una función puede 
 
 ## La función es un valor
 
-Reiteremos: no importa cómo es creada la función, una función es un valor. Ambos ejemplos arriba almacenan una función en `sayHi` variable.
+Reiteremos: no importa cómo es creada la función, una función es un valor. Ambos ejemplos arriba almacenan una función en la variable `sayHi`.
 
 Incluso podemos mostrar aquel valor usando `alert`:
 
