@@ -17,6 +17,7 @@ Una forma obvia de construir una regexp sería tomar una palabra seguida de un e
 Esto nos lleva a la regexp `pattern:^(\w+\s?)*$` que especifica cero o más palabras de este tipo, que comienzan al principio `pattern:^` y terminan al final `pattern:$` de la línea.
 
 En la práctica:
+
 ```js run
 let regexp = /^(\w+\s?)*$/;
 
