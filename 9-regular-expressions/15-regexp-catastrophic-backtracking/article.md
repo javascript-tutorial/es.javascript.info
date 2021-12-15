@@ -9,6 +9,7 @@ En este caso el navegador sugiere matar el script y recargar la página. No es a
 Para el lado del servidor de JavaScript tal regexp puede colgar el proceso del servidor, que es aún peor. Así que definitivamente deberíamos echarle un vistazo.
 
 ## Ejemplo
+
 Supongamos que tenemos una cadena y queremos comprobar si está formada por palabras `pattern:\w+` con un espacio opcional `pattern:\s?` después de cada una.
 
 Una forma obvia de construir una regexp sería tomar una palabra seguida de un espacio opcional `pattern:\w+\s?` y luego repetirla con `*`.
