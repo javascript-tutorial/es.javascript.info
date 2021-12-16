@@ -6,7 +6,7 @@ Digamos que ocurre un evento click dentro de un shadow DOM del componente `<user
 
 Entonces, para mantener los detalles encapsulados, el navegador *redirige* el evento.
 
-**Los eventos que ocurren en shadow DOM, cuando son atrapados fuera del componente, tienen el elemento host como target.**
+**Los eventos que ocurren en el shadow DOM tienen el elemento host como objetivo cuando son atrapados fuera del componente.**
 
 Un ejemplo simple:
 
@@ -32,14 +32,14 @@ document.onclick =
 
 Si haces clic en el botón, los mensajes son:
 
-1. Inner target: `BUTTON` -- el manejador de evento interno obtiene el target correcto, el elemento dentro del shadow DOM.
-2. Outer target: `USER-CARD` -- el manejador de evento del documento obtiene el host shadow como target.
+1. Inner target: `BUTTON` -- el manejador de evento interno obtiene el objetivo correcto, el elemento dentro del shadow DOM.
+2. Outer target: `USER-CARD` -- el manejador de evento del documento obtiene el shadow host como objetivo.
 
 Tener la "redirección de eventos" es muy bueno, porque el documento externo no necesita tener conocimiento acerca del interior del componente. Desde su punto de vista, el evento ocurrió sobre `<user-card>`.
 
 **No hay redirección si el evento ocurre en un elemento eslotado (slot element), que físicamente se aloja en el "light DOM", el DOM visible.**
 
-Por ejemplo, si un usuario hace clic en `<span slot="username">` en el ejemplo debajo, el target del evento es precisamente ese elemento `span` para ambos manejadores de eventos, el shadow y el light:
+Por ejemplo, si un usuario hace clic en `<span slot="username">` en el ejemplo siguiente, el objetivo del evento es precisamente ese elemento `span` para ambos manejadores, shadow y light.
 
 ```html run autorun="no-epub" untrusted height=60
 <user-card id="userCard">
@@ -128,7 +128,7 @@ Estos eventos solo pueden ser capturados dentro del mismo DOM, donde reside el e
 
 ## Eventos personalizados
 
-Cuando enviamos eventos personalizados, necesitamos setear ambas propiedades `bubbles` y `composed` a `true` para que se propague hacia arriba y afuera del componente.
+Cuando enviamos eventos personalizados, necesitamos establecer ambas propiedades `bubbles` y `composed` a `true` para que se propague hacia arriba y afuera del componente.
 
 Por ejemplo, aquí creamos `div#inner` en el shadow DOM de `div#outer` y disparamos dos eventos en él. Solo el que tiene `composed: true` logra salir hacia el documento:
 
@@ -169,7 +169,7 @@ inner.dispatchEvent(new CustomEvent('test', {
 
 ## Resumen
 
-Los eventos solo cruzan los límites de shadow DOM si sus banderas `composed` se setean en `true`.
+Los eventos solo cruzan los límites de shadow DOM si su bandera `composed` se establece como `true`.
 
 La mayoría de los eventos nativos tienen `composed: true`, tal como se describe en las especificaciones relevantes:
 
@@ -187,6 +187,6 @@ Algunos eventos nativos que tienen `composed: false`:
 
 Estos eventos solo pueden ser capturados en elementos dentro del mismo DOM.
 
-Si enviamos un evento personalizado `CustomEvent`, debemos setearle explícitamente `composed: true`.
+Si enviamos un evento personalizado `CustomEvent`, debemos establecer explícitamente `composed: true`.
 
-Observa que en caso de componentes anidados, un shadow DOM puede estar anidado dentro de otro. En ese caso los eventos se propagan a través de los límites de todos los shadow DOM. Entonces, si se pretende que un evento sea solo para el componente inmediato que lo encierra, podemos enviarlo también en el shadow host y setear `composed: false`. Entonces saldrá al shadow DOM del componente, pero no se propagará hacia un DOM de mayor nivel.
+Tenga en cuenta que en caso de componentes anidados, un shadow DOM puede estar anidado dentro de otro. En ese caso los eventos se propagan a través de los límites de todos los shadow DOM. Entonces, si se pretende que un evento sea solo para el componente inmediato que lo encierra, podemos enviarlo también en el shadow host y establecer `composed: false`. Entonces saldrá al shadow DOM del componente, pero no se propagará hacia un DOM de mayor nivel.
