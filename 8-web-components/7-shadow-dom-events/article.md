@@ -1,6 +1,6 @@
 # Shadow DOM y eventos
 
-La idea detrás del árbol shadow es encapsular los detalles internos de implementación de un componente.
+La idea detrás del shadow tree es encapsular los detalles internos de implementación de un componente.
 
 Digamos que ocurre un evento click dentro de un shadow DOM del componente `<user-card>`. Pero los scripts en el documento principal no tienen idea acerca del interior del shadow DOM, especialmente si el componente es de una librería de terceros.  
 
