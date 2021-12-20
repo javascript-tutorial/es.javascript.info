@@ -14,8 +14,8 @@ message = 123456;
 
 Los lenguajes de programación que permiten estas cosas, como JavaScript, se denominan "dinámicamente tipados", lo que significa que allí hay tipos de datos, pero las variables no están vinculadas rígidamente a ninguno de ellos.
 
-
 ## Number
+
 ```js
 let n = 123;
 n = 12.345;
@@ -82,7 +82,6 @@ const bigInt = 1234567890123456789012345678901234567890n;
 Como los números `BigInt` rara vez se necesitan, no los cubrimos aquí sino que les dedicamos un capítulo separado <info: bigint>. Léelo cuando necesites números tan grandes.
 
 
-
 ```smart header="Problemas de compatibilidad"
 En este momento, `BigInt` está soportado por Firefox/Chrome/Edge/Safari, pero no por IE.
 ```
@@ -90,6 +89,7 @@ En este momento, `BigInt` está soportado por Firefox/Chrome/Edge/Safari, pero n
 Puedes revisar la [tabla de compatibilidad de BigInt en *MDN*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt#Browser_compatibility) para saber qué versiones de navegador tienen soporte.
 
 ## String
+
 Un *string* en JavaScript es una cadena de caracteres y debe colocarse entre comillas.
 
 ```js
@@ -129,6 +129,7 @@ En el capítulo <info:string> trataremos más a fondo las cadenas.
 
 ```smart header="No existe el tipo *carácter*".
 En algunos lenguajes, hay un tipo especial "carácter" para un solo carácter. Por ejemplo, en el lenguaje C y en Java es `char`.
+
 En JavaScript no existe tal tipo. Sólo hay un tipo: `string`. Un string puede estar formado por un solo carácter, por ninguno, o por varios de ellos.
 ```
 
@@ -242,7 +243,6 @@ typeof alert // "function"  (3)
 
 Las últimas tres líneas pueden necesitar una explicación adicional:
 
-<<<<<<< HEAD
 1. `Math` es un objeto incorporado que proporciona operaciones matemáticas. Lo aprenderemos en el capítulo <info:number>. Aquí sólo sirve como ejemplo de un objeto.
 2. El resultado de `typeof null` es `"object"`. Esto está oficialmente reconocido como un error de comportamiento de `typeof` que proviene de los primeros días de JavaScript y se mantiene por compatibilidad. Definitivamente `null` no es un objeto. Es un valor especial con un tipo propio separado.
 3. El resultado de `typeof alert` es `"function"` porque `alert` es una función. Estudiaremos las funciones en los próximos capítulos donde veremos que no hay ningún tipo especial "function" en JavaScript. Las funciones pertenecen al tipo objeto. Pero `typeof` las trata de manera diferente, devolviendo `function`. Además proviene de los primeros días de JavaScript. Técnicamente dicho comportamiento es incorrecto pero puede ser conveniente en la práctica.
@@ -250,19 +250,9 @@ Las últimas tres líneas pueden necesitar una explicación adicional:
 ```smart header="Sintaxis de `typeof(x)`"
 Se puede encontrar otra sintaxis en algún código: `typeof(x)`. Es lo mismo que `typeof x`.
 
-Los paréntesis aquí no son parte del operador `typeof`. Son del tipo usado en agrupamiento matemático. Usualmente, tales paréntesis contienen expresiones matemáticas tales como `(2 + 2)`, pero aquí solo tienen un argumento `(x)`. Sintácticamente, permiten evitar el espacio entre el operador `typeof` y su argumento, y a algunas personas les gusta así.
-=======
-1. `Math` is a built-in object that provides mathematical operations. We will learn it in the chapter <info:number>. Here, it serves just as an example of an object.
-2. The result of `typeof null` is `"object"`. That's an officially recognized error in `typeof`, coming from very early days of JavaScript and kept for compatibility. Definitely, `null` is not an object. It is a special value with a separate type of its own. The behavior of `typeof` is wrong here.
-3. The result of `typeof alert` is `"function"`, because `alert` is a function. We'll study functions in the next chapters where we'll also see that there's no special "function" type in JavaScript. Functions belong to the object type. But `typeof` treats them differently, returning `"function"`. That also comes from the early days of JavaScript. Technically, such behavior isn't correct, but can be convenient in practice.
+Para ponerlo en claro: `typeof` es un operador, no una función. Los paréntesis aquí no son parte del operador `typeof`. Son del tipo usado en agrupamiento matemático. 
 
-```smart header="The `typeof(x)` syntax"
-You may also come across another syntax: `typeof(x)`. It's the same as `typeof x`.
-
-To put it clear: `typeof` is an operator, not a function. The parentheses here aren't a part of `typeof`. It's the kind of parentheses used for mathematical grouping.
-
-Usually, such parentheses contain a mathematical expression, such as `(2 + 2)`, but here they contain only one argument `(x)`. Syntactically, they allow to avoid a space between the `typeof` operator and its argument, and some people like it.
->>>>>>> 8d04d0d2db97276dbb2b451c30a7bd3e05d65831
+Usualmente, tales paréntesis contienen expresiones matemáticas tales como `(2 + 2)`, pero aquí solo tienen un argumento `(x)`. Sintácticamente, permiten evitar el espacio entre el operador `typeof` y su argumento, y a algunas personas les gusta así.
 
 Algunos prefieren `typeof(x)`, aunque la sintaxis `typeof x` es mucho más común.
 ```
