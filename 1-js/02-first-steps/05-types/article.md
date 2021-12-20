@@ -14,8 +14,8 @@ message = 123456;
 
 Los lenguajes de programación que permiten estas cosas, como JavaScript, se denominan "dinámicamente tipados", lo que significa que allí hay tipos de datos, pero las variables no están vinculadas rígidamente a ninguno de ellos.
 
-
 ## Number
+
 ```js
 let n = 123;
 n = 12.345;
@@ -82,7 +82,6 @@ const bigInt = 1234567890123456789012345678901234567890n;
 Como los números `BigInt` rara vez se necesitan, no los cubrimos aquí sino que les dedicamos un capítulo separado <info: bigint>. Léelo cuando necesites números tan grandes.
 
 
-
 ```smart header="Problemas de compatibilidad"
 En este momento, `BigInt` está soportado por Firefox/Chrome/Edge/Safari, pero no por IE.
 ```
@@ -90,6 +89,7 @@ En este momento, `BigInt` está soportado por Firefox/Chrome/Edge/Safari, pero n
 Puedes revisar la [tabla de compatibilidad de BigInt en *MDN*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt#Browser_compatibility) para saber qué versiones de navegador tienen soporte.
 
 ## String
+
 Un *string* en JavaScript es una cadena de caracteres y debe colocarse entre comillas.
 
 ```js
@@ -129,6 +129,7 @@ En el capítulo <info:string> trataremos más a fondo las cadenas.
 
 ```smart header="No existe el tipo *carácter*".
 En algunos lenguajes, hay un tipo especial "carácter" para un solo carácter. Por ejemplo, en el lenguaje C y en Java es `char`.
+
 En JavaScript no existe tal tipo. Sólo hay un tipo: `string`. Un string puede estar formado por un solo carácter, por ninguno, o por varios de ellos.
 ```
 
@@ -249,7 +250,9 @@ Las últimas tres líneas pueden necesitar una explicación adicional:
 ```smart header="Sintaxis de `typeof(x)`"
 Se puede encontrar otra sintaxis en algún código: `typeof(x)`. Es lo mismo que `typeof x`.
 
-Los paréntesis aquí no son parte del operador `typeof`. Son del tipo usado en agrupamiento matemático. Usualmente, tales paréntesis contienen expresiones matemáticas tales como `(2 + 2)`, pero aquí solo tienen un argumento `(x)`. Sintácticamente, permiten evitar el espacio entre el operador `typeof` y su argumento, y a algunas personas les gusta así.
+Para ponerlo en claro: `typeof` es un operador, no una función. Los paréntesis aquí no son parte del operador `typeof`. Son del tipo usado en agrupamiento matemático. 
+
+Usualmente, tales paréntesis contienen expresiones matemáticas tales como `(2 + 2)`, pero aquí solo tienen un argumento `(x)`. Sintácticamente, permiten evitar el espacio entre el operador `typeof` y su argumento, y a algunas personas les gusta así.
 
 Algunos prefieren `typeof(x)`, aunque la sintaxis `typeof x` es mucho más común.
 ```
