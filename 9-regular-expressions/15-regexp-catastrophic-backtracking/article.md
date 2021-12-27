@@ -1,6 +1,6 @@
 # Backtracking catastrófico
 
-Algunas expresiones regulares parecen simples pero pueden ejecutarse durante mucho tiempo e incluso "colgar" el motor de JavaScript.
+Algunas expresiones regulares parecen simples pero pueden ejecutarse durante demasiado tiempo e incluso "colgar" el motor de JavaScript.
 
 Tarde o temprano la mayoría de los desarrolladores se enfrentan ocasionalmente a este comportamiento. El síntoma típico : una expresión regular funciona bien a veces, pero para ciertas cadenas se "cuelga" consumiendo el 100% de la CPU.
 
