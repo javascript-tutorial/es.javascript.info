@@ -75,7 +75,7 @@ Esto es lo que hace el motor regexp:
 
     Una vez consumidos todos los dígitos se considera que se ha encontrado el `pattern:d+` (como `match:123456789`).
 
-    Entonces se aplica el cuantificador de estrella `pattern:(\d+)*`. Pero no hay más dígitos en el texto, así que la estrella no da nada.
+    Entonces se aplica el cuantificador de asterisco `pattern:(\d+)*`. Pero no hay más dígitos en el texto, así que el asterisco no da nada.
 
     El siguiente carácter del patrón es el final de la cadena `pattern:$`. Pero en el texto tenemos `subject:z` en su lugar, por lo que no hay coincidencia:
 
