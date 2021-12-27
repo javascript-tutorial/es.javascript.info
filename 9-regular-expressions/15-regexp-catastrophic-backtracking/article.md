@@ -301,7 +301,7 @@ alert( regexp.test(str) ); // false, funciona, ¡y rápido!
 Aquí se utiliza `pattern:\2` en lugar de `pattern:\1` porque hay paréntesis exteriores adicionales. Para evitar enredarnos con los números, podríamos dar a los paréntesis un nombre, por ejemplo `pattern:(?<word>\w+)`.
 
 ```js run
-// los paréntesis se denominan ?<word>, referenciados como \k<word>
+// nombramos a los parentesis ?<word>, y los referenciamos como \k<word>
 let regexp = /^((?=(?<word>\w+))\k<word>\s?)*$/;
 
 let str = "An input string that takes a long time or even makes this regex hang!";
