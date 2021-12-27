@@ -174,7 +174,7 @@ La razón es que una palabra puede representarse como un `pattern:\w+` o muchos:
 
 Para un humano es obvio que puede no haber coincidencia porque la cadena termina con un signo de exclamación `!` pero la expresión regular espera un carácter denominativo `pattern:\w` o un espacio `pattern:\s` al final. Pero el motor no lo sabe.
 
-Prueba todas las combinaciones de cómo la regexp `pattern:(\w+\s?)*` puede "consumir" la cadena incluyendo las variantes con espacios `pattern:(\w+\s)*` y sin ellos `pattern:(\w+)*` (porque los espacios `pattern:\s?` son opcionales). Como hay muchas combinaciones de este tipo (lo hemos visto con dígitos), la búsqueda lleva mucho tiempo.
+El motor prueba todas las combinaciones de cómo la regexp `pattern:(\w+\s?)*` puede "consumir" la cadena, incluyendo las variantes con espacios `pattern:(\w+\s)*` y sin ellos `pattern:(\w+)*` (porque los espacios `pattern:\s?` son opcionales). Como hay muchas combinaciones de este tipo (lo hemos visto con dígitos), la búsqueda lleva muchísimo tiempo.
 
 ¿Qué hacer?
 
