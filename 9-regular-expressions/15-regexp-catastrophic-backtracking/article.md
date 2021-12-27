@@ -85,7 +85,7 @@ Esto es lo que hace el motor regexp:
     (123456789)z
     ```
 
-2. Como no hay ninguna coincidencia, el cuantificador codicioso `pattern:+` disminuye el recuento de repeticiones, retrocede un carácter hacia atrás.
+2. Como no hay ninguna coincidencia, el cuantificador codicioso `pattern:+` disminuye el recuento de repeticiones, retrocede un carácter.
 
     Ahora `pattern:\d+` toma todos los dígitos excepto el último (`match:12345678`):
     ```
