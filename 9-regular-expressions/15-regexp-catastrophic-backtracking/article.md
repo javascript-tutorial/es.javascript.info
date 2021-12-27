@@ -244,7 +244,7 @@ Los motores de expresiones regulares modernos admiten cuantificadores posesivos 
 
 Los cuantificadores posesivos son de hecho más simples que los "regulares". Simplemente coinciden con todos los que pueden sin ningún tipo de retroceso. El proceso de búsqueda sin retroceso es más sencillo.
 
-También existen los llamados "atomic capturing groups", una forma de desactivar el retroceso dentro de los paréntesis.
+También existen los llamados "grupos de captura atómicos", una forma de desactivar el retroceso dentro de los paréntesis.
 
 ...Pero la mala noticia es que, por desgracia, en JavaScript no están soportados.
 
