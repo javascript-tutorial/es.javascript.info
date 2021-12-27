@@ -182,7 +182,7 @@ El motor prueba todas las combinaciones de cómo la regexp `pattern:(\w+\s?)*` p
 
 Desgraciadamente eso no ayudará: si sustituimos `pattern:\w+` por `pattern:\w+?` la regexp seguirá colgada. El orden de las combinaciones cambiará, pero no su número total.
 
-Algunos motores de expresiones regulares tienen pruebas complicadas y automatizaciones finitas que permiten evitar pasar por todas las combinaciones o hacerlo mucho más rápido pero la mayoría de los motores no lo hacen y no siempre ayuda.
+Algunos motores de expresiones regulares hacen análisis complicados y automatizaciones finitas que permiten evitar pasar por todas las combinaciones o hacerlo mucho más rápido, pero la mayoría de los motores no lo hacen. Además, eso no siempre ayuda.
 
 ## ¿Cómo solucionarlo?
 
