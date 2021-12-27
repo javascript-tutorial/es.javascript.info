@@ -2,7 +2,7 @@
 
 Algunas expresiones regulares parecen simples pero pueden ejecutarse durante demasiado tiempo e incluso "colgar" el motor de JavaScript.
 
-Tarde o temprano la mayoría de los desarrolladores se enfrentan ocasionalmente a este comportamiento. El síntoma típico : una expresión regular funciona bien a veces, pero para ciertas cadenas se "cuelga" consumiendo el 100% de la CPU.
+Tarde o temprano la mayoría de los desarrolladores se enfrentan ocasionalmente a este comportamiento. El síntoma típico: una expresión regular funciona bien a veces, pero para ciertas cadenas se "cuelga" consumiendo el 100% de la CPU.
 
 En este caso el navegador sugiere matar el script y recargar la página. No es algo bueno, sin duda.
 
