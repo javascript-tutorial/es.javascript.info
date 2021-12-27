@@ -34,7 +34,11 @@ En situaciones más avanzadas, que cubriremos más adelante, una función puede 
 
 ## La función es un valor
 
+<<<<<<< HEAD
 Reiteremos: no importa cómo es creada la función, una función es un valor. Ambos ejemplos arriba almacenan una función en la variable `sayHi`.
+=======
+Let's reiterate: no matter how the function is created, a function is a value. Both examples above store a function in the `sayHi` variable.
+>>>>>>> 3c934b5a46a76861255e3a4f29da6fd54ab05c8c
 
 Incluso podemos mostrar aquel valor usando `alert`:
 
