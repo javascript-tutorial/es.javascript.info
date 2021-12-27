@@ -94,7 +94,7 @@ Esto es lo que hace el motor regexp:
     ```
 3. Entonces el motor intenta continuar la búsqueda desde la siguiente posición (justo después de `match:12345678`).
 
-    Se puede aplicar la estrella `patrón:(\d+)*` : da una coincidencia más de `patrón:\d+`, el número `match:9`:
+    Se puede aplicar el asterisco `patrón:(\d+)*` : da una coincidencia más de `patrón:\d+`, el número `match:9`:
 
     ```
 
