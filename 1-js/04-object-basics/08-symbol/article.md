@@ -159,11 +159,7 @@ for (let key in user) alert(key); // nombre, edad (no aparecen symbols)
 alert( "Direct: " + user[id] );
 ```
 
-<<<<<<< HEAD
 [Object.keys(user)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/keys) también los ignora. Esto forma parte del principio general de "ocultamiento de propiedades simbólicas". Si otro script o si otra librería itera sobre nuestro objeto, este no accesará inesperadamente a la clave de Symbol.
-=======
-[Object.keys(user)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys) also ignores them. That's a part of the general "hiding symbolic properties" principle. If another script or a library loops over our object, it won't unexpectedly access a symbolic property.
->>>>>>> 3c934b5a46a76861255e3a4f29da6fd54ab05c8c
 
 En contraste, [Object.assign](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/assign) copia tanto las claves string como symbol:
 
