@@ -100,9 +100,9 @@ Un dominio define dónde la cookie es accesible. Aunque en la práctica hay limi
 
 Es una restricción de seguridad, para permitirnos almacenar datos sensibles en cookies que deben estar disponibles para un único sitio solamente.
 
-De forma predeterminada, una cookie solo es accesible en el dominio que la establece. Entonces, si la cookie fue establecida por `site.com`, no podemos verla desde `other.com`.
+De forma predeterminada, una cookie solo es accesible en el dominio que la establece.
 
-Por favor tome nota: de forma predeterminada una cookie tampoco es compartida por un subdominio, como `forum.site.com`.
+Pero por favor toma nota: de forma predeterminada una cookie tampoco es compartida por un subdominio, como `forum.site.com`.
 
 ```js
 // en site.com
