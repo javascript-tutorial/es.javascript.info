@@ -2,20 +2,24 @@
 ## Tutorial moderno de JavaScript en Español
 
 ```
-Novedades octubre 2021: ¡¡ 90% !! (https://javascript.info/translate) solo 5 de los 50+ repos llegamos al tope. 
+Novedades diciembre 2021: 
+
+¡¡ 90% !! (https://javascript.info/translate) solo 5 de los 50+ repos llegamos al tope. 
+
 Y aún hay formas de colaborar:
 
 * Traducción:
-  Solo 3 artículos pendientes, todos tomados recientemente. 
+  Solo 1 artículo pendientes, tomado en setiembre. 
 
 * Actualización: 
-  Sin pendientes... Pueden ir a mejorar el repo inglés si quieren :)
+  SIN pendientes... Pueden ir a mejorar el repo inglés si quieren :)
 
 * Revisión de PR abiertos, o PR nuevos sobre artículos online: 
   Todos pueden revisar. 
   Se puede editar el texto con una sugerencia precisa o pueden dejar un issue o comentario github.
   typos, gramática, fluidez, glosario, tecnicismos, bugs y conceptos técnicos. Todo amerita corrección. 
-  Las líneas modificadas con commit cuentan como contribución, y mejoran el karma.
+  Las líneas modificadas con commit cuentan como contribución... 
+  ... y mejoran el karma.
 
 ```
 
