@@ -207,18 +207,11 @@ Hace algún tiempo nadie podía siquiera imaginar que un sitio web pudiera reali
 
 Por lo tanto, para evitar malentendidos, cualquier solicitud "insegura" (Estas que no podían ser realizadas en los viejos tiempos), no será realizada por el navegador en forma directa. Antes, enviará una solicitud preliminar llamada solicitud de "pre-vuelo", solicitando que se le concedan los permisos.
 
-<<<<<<< HEAD
-Una solicitud de "pre-vuelo" utiliza el método `OPTIONS`, sin contenido en el cuerpo y con dos cabeceras:
+Una solicitud de "pre-vuelo" utiliza el método `OPTIONS`, sin contenido en el cuerpo y con tres cabeceras:
 
 - `Access-Control-Request-Method`, cabecera que contiene el método de la solicitud "insegura".
 - `Access-Control-Request-Headers` provee una lista separada por comas de las cabeceras inseguras de la solicitud.
-=======
-A preflight request uses the method `OPTIONS`, no body and three headers:
-
-- `Access-Control-Request-Method` header has the method of the unsafe request.
-- `Access-Control-Request-Headers` header provides a comma-separated list of its unsafe HTTP-headers.
-- `Origin` header tells from where the request came. (such as `https://javascript.info`)
->>>>>>> 3c934b5a46a76861255e3a4f29da6fd54ab05c8c
+- `Origin` cabecera que informa de dónde viene la solicitud. (como `https://javascript.info`)
 
 Si el servidor está de acuerdo con lo solicitado, entonces responderá con el código de estado 200 y un cuerpo vacío:
 
