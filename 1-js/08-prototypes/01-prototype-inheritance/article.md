@@ -54,11 +54,7 @@ alert( rabbit.eats ); // verdadero (**)
 alert( rabbit.jumps ); // verdadero
 ```
 
-<<<<<<< HEAD
-Aquí la línea `(*)` establece que `animal` es un prototipo de `rabbit`.
-=======
-Here the line `(*)` sets `animal` to be the prototype of `rabbit`.
->>>>>>> 3c934b5a46a76861255e3a4f29da6fd54ab05c8c
+Aquí, la línea `(*)` establece que `animal` es el prototipo de `rabbit`.
 
 Luego, cuando `alert` intenta leer la propiedad `rabbit.eats` `(**)`, no la encuentra en `rabbit`, por lo que JavaScript sigue la referencia `[[Prototype]]` y la encuentra en `animal` (mira de abajo hacia arriba):
 
