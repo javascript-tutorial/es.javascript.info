@@ -2,7 +2,7 @@
 
 Antes de estudiar el teclado, por favor ten en cuenta que en los dispositivos modernos hay otras formas de "ingresar algo".  Por ejemplo, el uso de reconocimiento de voz (especialmente en dispositivos móviles) o copiar/pegar con el mouse.
 
-Entonces, si queremos hacer el seguimiento de cualquier ingreso en un campo `<input>`, los eventos de teclado no son suficientes. Existe otro evento llamado `input` para detectar cambios de un campo `<input>`, por cualquier medio. Y puede ser una mejor opción para esa tarea. Lo estudiaremos luego en el capítulo <info:events-change-input>.
+Entonces, si queremos hacer el seguimiento de cualquier ingreso en un campo `<input>`, los eventos de teclado no son suficientes. Existe otro evento llamado `input` para detectar cambios en un campo `<input>` producidos por cualquier medio. Y puede ser una mejor opción para esa tarea. Lo estudiaremos luego en el capítulo <info:events-change-input>.
 
 Los eventos de teclado solo deberían ser usados cuando queremos manejar acciones de teclado (también cuentan los teclados virtuales). Por ejemplo, para reaccionar a las teclas de flecha `key:Up` y `key:Down` o a atajos de teclado "hotkeys" (incluyendo combinaciones de teclas).
 
@@ -24,7 +24,7 @@ Prueba diferentes combinaciones de tecla en el campo de texto.
 
 ## Keydown y keyup
 
-Los eventos `keydown` ocurren cuando se presiona una tecla, y `keyup` cuando se sueltan.
+Los eventos `keydown` ocurren cuando se presiona una tecla, y `keyup` cuando se suelta.
 
 ### event.code y event.key
 
@@ -47,7 +47,7 @@ Cada tecla tiene el código que depende de su ubicación en el teclado. Los cód
 
 Por ejemplo:
 - Las letras tienen códigos `"Key<letter>"`: `"KeyA"`, `"KeyB"` etc.
-- Los dígitos tienen códigos: `"Digit<number>"`: `"Digit0"`, `"Digit1"` etc.
+- Los dígitos tienen códigos `"Digit<number>"`: `"Digit0"`, `"Digit1"` etc.
 - Las teclas especiales están codificadas por sus nombres: `"Enter"`, `"Backspace"`, `"Tab"` etc.
 
 Hay varias distribuciones de teclado diseminadas, y la especificación da los códigos de tecla para cada una de ellas.
@@ -115,7 +115,7 @@ Por otro lado, `event.code` tiene el beneficio de quedar siempre igual, ligado a
 
 ## Autorepetición
 
-Si una tecla es presionada por el suficiente tiempo, comienza a "autorepetirse": `keydown` se dispara una y otra vez, y  cuando es soltada finalmente se obtiene `keyup`. Por ello es normal tener muchos `keydown` y un solo `keyup`.
+Si una tecla es presionada por suficiente tiempo, comienza a "autorepetir": `keydown` se dispara una y otra vez, y  cuando es soltada finalmente se obtiene `keyup`. Por ello es normal tener muchos `keydown` y un solo `keyup`.
 
 Para eventos disparados por autorepetición, el objeto de evento tiene la propiedad `event.repeat` establecida a `true`.
 
@@ -126,10 +126,10 @@ Las acciones predeterminadas varían, al haber muchas cosas posibles que pueden 
 
 Por ejemplo:
 
-- Un carácter aparece en la pantalla (el más obvio resultado).
+- Un carácter aparece en la pantalla (el resultado más obvio).
 - Un carácter es borrado (tecla `key:Delete`).
 - Un avance de página (tecla `key:PageDown`).
-- El navegador abre el diálogo "guardar página"(`key:Ctrl+S`)
+- El navegador abre el diálogo "guardar página" (`key:Ctrl+S`)
 -  ...y otras.
 
 Evitar la acción predeterminada en `keydown` puede cancelar la mayoría de ellos, con la excepción de las teclas especiales basadas en el sistema operativo. Por ejemplo, en Windows la tecla `key:Alt+F4` cierra la ventana actual del navegador. Y no hay forma de detenerla por medio de "evitar la acción predeterminada" en JavaScript.
@@ -147,7 +147,7 @@ function checkPhoneKey(key) {
 
 Aquí el manejador `onkeydown` usa `checkPhoneKey` para chequear la tecla presionada. Si es válida (de `0..9` o uno de `+-()`), entonces devuelve `true`, de otro modo, `false`.
 
-Como sabemos, el valor `false` devuelto por el manejador de eventos (asignado usando una propiedad DOM o un atributo, como lo hicimos arriba), evita la acción predeterminada; entonces nada aparece en `<input>` para las teclas que no pasan el test. (El valor `true` no afecta en nada, solo importa el valor `false`)
+Como sabemos, el valor `false` devuelto por el manejador de eventos (asignado usando una propiedad DOM o un atributo, como lo hicimos arriba) evita la acción predeterminada; entonces nada aparece en `<input>` para las teclas que no pasan el test. (El valor `true` no afecta en nada, solo importa el valor `false`)
 
 Ten en cuenta que las teclas especiales como `key:Backspace`, `key:Left`, `key:Right`, no funcionan en el input. Este es un efecto secundario del filtro estricto que hace `checkPhoneKey`. Estas teclas hacen que devuelva `false`.
 
@@ -160,24 +160,24 @@ function checkPhoneKey(key) {
     ['+','(',')','-',*!*'ArrowLeft','ArrowRight','Delete','Backspace'*/!*].includes(key);
 }
 </script>
-<input onkeydown="return checkPhoneKey(event.key)" placeholder="Phone, please" type="tel">
+<input onkeydown="return checkPhoneKey(event.key)" placeholder="Teléfono, por favor" type="tel">
 ```
 
 Ahora las flechas y el borrado funcionan bien.
 
 Aunque tenemos el filtro de teclas, uno puede aún ingresar cualquier cosa usando un mouse y botón secundario + pegar. Dispositivos móviles brindan otros medios para ingresar valores. Así que el filtro no es 100% confiable.
 
-Un enfoque alternativo sería vigilar el evento `oninput`, este se dispara *después* de cualquier modificación. Allí podemos chequear el nuevo `input.value` y modificarlo/resaltarlo `<input>` cuando es inválido. O podemos usar ambos manejadores de eventos juntos.
+Un enfoque alternativo sería vigilar el evento `oninput`, este se dispara *después* de cualquier modificación. Allí podemos chequear el nuevo `input.value` y modificarlo o resaltar `<input>` cuando es inválido. O podemos usar ambos manejadores de eventos juntos.
 
 ## Código heredado
 
 En el pasado existía un evento `keypress`, y también las propiedades del objeto evento `keyCode`, `charCode`, `which`.
 
-Había tantas incompatibilidades entre los navegadores trabajando con ellos que los desarrolladores de la especificación no tuvieron otra alternativa que declararlos obsoletos y crear nuevos y modernos eventos (descritos arriba en este capítulo). El viejo código todavía funciona porque los navegadores aún lo soportan, pero no hay en absoluto necesidad de usarlos más.
+Había tantas incompatibilidades entre los navegadores trabajando con ellos que los desarrolladores de la especificación no tuvieron otra alternativa que declararlos obsoletos y crear nuevos y modernos eventos (los descritos arriba en este capítulo). El viejo código todavía funciona porque los navegadores aún lo soportan, pero no hay en absoluto necesidad de usarlos más.
 
 ## Teclados en dispositivos móviles
 
-Cuando se usa teclados virtuales o de dispositivos móviles, formalmente conocidos como IME (Input-Method Editor), el estándar W3C establece que la propiedad de KeyboardEvent [`e.keyCode` debe ser `229`](https://www.w3.org/TR/uievents/#determine-keydown-keyup-keyCode) y [`e.key` debe ser `"Unidentified"`](https://www.w3.org/TR/uievents-key/#key-attr-values).
+Cuando se usan teclados virtuales o los de dispositivos móviles, formalmente conocidos como IME (Input-Method Editor), el estándar W3C establece que la propiedad de KeyboardEvent [`e.keyCode` debe ser `229`](https://www.w3.org/TR/uievents/#determine-keydown-keyup-keyCode) y [`e.key` debe ser `"Unidentified"`](https://www.w3.org/TR/uievents-key/#key-attr-values).
 
 Mientras algunos ed estos teclados pueden aún usar los valores correctos para `e.key`, `e.code`, `e.keyCode`..., cuando se presionan ciertas teclas tales como flechas o retroceso no hay garantía, entonces nuestra lógica de teclado podría no siempre funcionar bien en dispositivos móviles.
 
