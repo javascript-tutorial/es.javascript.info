@@ -46,13 +46,13 @@ Si un usuario trabaja con diferentes lenguajes, el cambio a otro lenguaje podrí
 Cada tecla tiene el código que depende de su ubicación en el teclado. Los códigos de tecla están descritos en la especificación [UI Events code](https://www.w3.org/TR/uievents-code/).
 
 Por ejemplo:
-- Las letras tienen códigos `"Key<letter>"`: `"KeyA"`, `"KeyB"` etc.
-- Los dígitos tienen códigos `"Digit<number>"`: `"Digit0"`, `"Digit1"` etc.
+- Las letras tienen códigos como `"Key<letter>"`: `"KeyA"`, `"KeyB"` etc.
+- Los dígitos tienen códigos como `"Digit<number>"`: `"Digit0"`, `"Digit1"` etc.
 - Las teclas especiales están codificadas por sus nombres: `"Enter"`, `"Backspace"`, `"Tab"` etc.
 
 Hay varias distribuciones de teclado diseminadas, y la especificación da los códigos de tecla para cada una de ellas.
 
-Para más códigos, puedes leer la [alphanumeric section of the spec](https://www.w3.org/TR/uievents-code/#key-alphanumeric-section), o simplemente presionar una tecla en el[teststand](#keyboard-test-stand) arriba.
+Para más códigos, puedes leer la [sección alfanumérica de la especificación](https://www.w3.org/TR/uievents-code/#key-alphanumeric-section), o simplemente presionar una tecla en el [teststand](#keyboard-test-stand) arriba.
 ```
 
 ```warn header="La mayúscula importa: `\"KeyZ\"`, no `\"keyZ\"`"
@@ -69,11 +69,11 @@ Por favor evita errores de tipeo: es `KeyZ`, no `keyZ`. Una verificación como `
 | `key:Backspace`      |`Backspace`          |`Backspace`        |
 | `key:Shift`|`Shift`          |`ShiftRight` or `ShiftLeft`        |
 
-Ten en cuenta que `event.code` especifica exactamente qué tecla es presionada. Por ejemplo, la mayoría tiene dos teclas `key:Shift`: una a la izquierda y otra a la derecha. `event.code` nos dice exactamente cuál fue presionada, y `event.key` es responsable del "significado" de la tecla: lo que "es" (un "Shift").
+Ten en cuenta que `event.code` especifica exactamente qué tecla es presionada. Por ejemplo, la mayoría de los teclados tienen dos teclas `key:Shift`: una a la izquierda y otra a la derecha. `event.code` nos dice exactamente cuál fue presionada, y `event.key` es responsable del "significado" de la tecla: lo que "es" (un "Shift").
 
 Digamos que queremos manejar un atajo de teclado: `key:Ctrl+Z` (o `key:Cmd+Z` en Mac). La mayoría de los editores de texto cuelgan la acción "Undo" en él. Podemos configurar un "listener" para escuchar el evento `keydown` y verificar qué tecla es presionada.
 
-Hay un dilema aquí: en ese "listener", ¿debemos chequear el valor de `event.key` o el de `event.code`?
+Hay un dilema aquí: en ese "listener", ¿debemos verificar el valor de `event.key` o el de `event.code`?
 
 Por un lado, el valor de `event.key` es un carácter que cambia dependiendo del lenguaje. Si el visitante tiene varios lenguajes en el OS y los cambia, la misma tecla dará diferentes caracteres. Entonces tiene sentido chequear `event.code` que es siempre el mismo.
 
@@ -101,17 +101,17 @@ Efectivamente, `event.code` será igual a `KeyZ` para las personas con distribuc
 
 Si chequeamos `event.code == 'KeyZ'` en nuestro código, las personas con distribución alemana pasarán el test cuando presionen `key:Y`.
 
-Esto suena realmente extraño, y lo es. La [especificación](https://www.w3.org/TR/uievents-code/#table-key-code-alphanumeric-writing-system) explícitamente menciona tal comportamiento.
+Esto suena realmente extraño, y lo es. La [especificación](https://www.w3.org/TR/uievents-code/#table-key-code-alphanumeric-writing-system) explícitamente menciona este comportamiento.
 
 Entonces, `event.code` puede coincidir con un carácter equivocado en una distribución inesperada. Las mismas letras en diferentes distribuciones pueden mapear a diferentes teclas físicas, llevando a diferentes códigos. Afortunadamente, ello solo ocurre en varios códigos, por ejemplo `keyA`, `keyQ`, `keyZ` (que hemos visto), y no ocurre con teclas especiales como `Shift`. Puedes encontrar la lista en la [especificación](https://www.w3.org/TR/uievents-code/#table-key-code-alphanumeric-writing-system).
 
 Para un seguimiento confiable de caracteres que dependen de la distribución, `event.key` puede ser una mejor opción.
 
-Por otro lado, `event.code` tiene el beneficio de quedar siempre igual, ligado a la ubicación física de la tecla, incluso si el visitante cambia lenguajes. Así lo atajos de teclado que que dependen de él funcionan bien incluso si cambia el lenguaje.
+Por otro lado, `event.code` tiene el beneficio de quedar siempre igual, ligado a la ubicación física de la tecla, incluso si el visitante cambia lenguajes. Así lo atajos de teclado que que dependen de él funcionan bien aunque cambie el lenguaje.
 
 ¿Queremos manejar teclas que dependen de la distribución? Entonces `event.key` es lo adecuado.
 
-¿O queremos que un atajo funcione igual incluso si cambia el lenguaje? Entonces `event.code` puede ser mejor.
+¿O queremos que un atajo funcione en el mismo lugar incluso si cambia el lenguaje? Entonces `event.code` puede ser mejor.
 
 ## Autorepetición
 
@@ -197,4 +197,4 @@ Principales propiedades de evento de teclado:
 
 En el pasado, los eventos de teclado eran usados para detectar cambios en los campos de formulario. Esto no es confiable, porque el ingreso puede venir desde varias fuentes. Tenemos los eventos `input` y `change` para manejar cualquier ingreso (tratado en el capítulo <info:events-change-input>). Ellos se disparan después de cualquier clase de ingreso, incluyendo copiar/pegar y reconocimiento de voz.
 
-Deberíamos usar eventos de teclado cuando realmente queremos el teclado. Por ejemplo, para reaccionar a atajos o teclas especiales.
+Deberíamos usar eventos de teclado cuando realmente queremos el teclado. Por ejemplo, para reaccionar a atajos o a teclas especiales.
