@@ -136,11 +136,7 @@ console.log(user);
 
 Si no estamos usando módulos, o necesitamos soportar [navegadores antiguos](https://caniuse.com/mdn-javascript_operators_await_top_level), tenemos una receta universal: envolverlos en una función async anónima.
 
-<<<<<<< HEAD
 Así:
-=======
-Like this:
->>>>>>> a6fdfda09570a8ce47bb0b83cd7a32a33869cfad
 
 ```js
 (async () => {
