@@ -50,7 +50,7 @@ Por ejemplo:
 - Los dígitos tienen códigos como `"Digit<number>"`: `"Digit0"`, `"Digit1"` etc.
 - Las teclas especiales están codificadas por sus nombres: `"Enter"`, `"Backspace"`, `"Tab"` etc.
 
-Hay varias distribuciones de teclado diseminadas, y la especificación da los códigos de tecla para cada una de ellas.
+Hay varias distribuciones de teclado esparcidos, y la especificación nos da los códigos de tecla para cada una de ellas.
 
 Para más códigos, puedes leer la [sección alfanumérica de la especificación](https://www.w3.org/TR/uievents-code/#key-alphanumeric-section), o simplemente presionar una tecla en el [teststand](#keyboard-test-stand) arriba.
 ```
@@ -69,13 +69,13 @@ Por favor evita errores de tipeo: es `KeyZ`, no `keyZ`. Una verificación como `
 | `key:Backspace`      |`Backspace`          |`Backspace`        |
 | `key:Shift`|`Shift`          |`ShiftRight` or `ShiftLeft`        |
 
-Ten en cuenta que `event.code` especifica exactamente qué tecla es presionada. Por ejemplo, la mayoría de los teclados tienen dos teclas `key:Shift`: una a la izquierda y otra a la derecha. `event.code` nos dice exactamente cuál fue presionada, y `event.key` es responsable del "significado" de la tecla: lo que "es" (un "Shift").
+Ten en cuenta que `event.code` especifica con exactitud la tecla que es presionada. Por ejemplo, la mayoría de los teclados tienen dos teclas `key:Shift`: una a la izquierda y otra a la derecha. `event.code` nos dice exactamente cuál fue presionada, en cambio `event.key` es responsable del "significado" de la tecla: lo que "es" (un "Shift").
 
 Digamos que queremos manejar un atajo de teclado: `key:Ctrl+Z` (o `key:Cmd+Z` en Mac). La mayoría de los editores de texto cuelgan la acción "Undo" en él. Podemos configurar un "listener" para escuchar el evento `keydown` y verificar qué tecla es presionada.
 
 Hay un dilema aquí: en ese "listener", ¿debemos verificar el valor de `event.key` o el de `event.code`?
 
-Por un lado, el valor de `event.key` es un carácter que cambia dependiendo del lenguaje. Si el visitante tiene varios lenguajes en el OS y los cambia, la misma tecla dará diferentes caracteres. Entonces tiene sentido chequear `event.code` que es siempre el mismo.
+Por un lado, el valor de `event.key` es un carácter que cambia dependiendo del lenguaje. Si el visitante tiene varios lenguajes en el sistema operativo y los cambia, la misma tecla dará diferentes caracteres. Entonces tiene sentido chequear `event.code` que es siempre el mismo.
 
 Como aquí:
 
@@ -95,7 +95,7 @@ Por ejemplo, aquí tenemos la distribución de EE.UU. ("QWERTY") y la alemana ("
 
 ![](german-layout.svg)
 
-Para la misma tecla, la norteamericana tiene "Z", mientras que la alemana tiene "Y" (las letras son intercambiadas).
+Para la misma tecla, la distribución norteamericana tiene "Z", mientras que la alemana tiene "Y" (las letras son intercambiadas).
 
 Efectivamente, `event.code` será igual a `KeyZ` para las personas con distribución de teclas alemana cuando presionen `key:Y`.
 
@@ -165,7 +165,7 @@ function checkPhoneKey(key) {
 
 Ahora las flechas y el borrado funcionan bien.
 
-Aunque tenemos el filtro de teclas, uno puede aún ingresar cualquier cosa usando un mouse y botón secundario + pegar. Dispositivos móviles brindan otros medios para ingresar valores. Así que el filtro no es 100% confiable.
+Aunque tenemos el filtro de teclas, aún se puede ingresar cualquier cosa usando un mouse y "botón secundario + pegar". Dispositivos móviles brindan otros medios para ingresar valores. Así que el filtro no es 100% confiable.
 
 Un enfoque alternativo sería vigilar el evento `oninput`, este se dispara *después* de cualquier modificación. Allí podemos chequear el nuevo `input.value` y modificarlo o resaltar `<input>` cuando es inválido. O podemos usar ambos manejadores de eventos juntos.
 
@@ -195,6 +195,6 @@ Principales propiedades de evento de teclado:
 - `code` -- el código de tecla "key code" (`"KeyA"`, `"ArrowLeft"` y demás), especifica la ubicación física de la tecla en el teclado.
 - `key` -- el carácter (`"A"`, `"a"` y demás). Para las teclas que no son de caracteres como `key:Esc`, suele tener el mismo valor que `code`.
 
-En el pasado, los eventos de teclado eran usados para detectar cambios en los campos de formulario. Esto no es confiable, porque el ingreso puede venir desde varias fuentes. Tenemos los eventos `input` y `change` para manejar cualquier ingreso (tratado en el capítulo <info:events-change-input>). Ellos se disparan después de cualquier clase de ingreso, incluyendo copiar/pegar y reconocimiento de voz.
+En el pasado, los eventos de teclado eran usados para detectar cambios en los campos de formulario. Esto no es confiable, porque el ingreso puede venir desde varias fuentes. Tenemos los eventos `input` y `change` para manejar cualquier ingreso (tratado en el capítulo <info:events-change-input>). Ellos se disparan después de cualquier clase de ingreso, incluyendo copiar/pegar y el reconocimiento de voz.
 
 Deberíamos usar eventos de teclado cuando realmente queremos el teclado. Por ejemplo, para reaccionar a atajos o a teclas especiales.
