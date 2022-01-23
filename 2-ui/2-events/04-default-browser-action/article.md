@@ -17,7 +17,7 @@ Hay dos formas de decirle al navegador que no queremos que actúe:
 - La forma principal es utilizar el objeto `event`. Hay un método `event.preventDefault()`.
 - Si el controlador se asigna usando `on<event>` (no por `addEventListener`), entonces devolver `false` también funciona igual.
 
-En este HTML, un clic en un enlace no conduce a la navegación, el navegador no hace nada:
+En este HTML, un clic en un enlace no conduce a la navegación. El navegador no hace nada:
 
 ```html autorun height=60 no-beautify
 <a href="/" onclick="return false">Haz clic aquí</a>
@@ -96,7 +96,7 @@ Eso es porque la acción del navegador se cancela en `mousedown`. El enfoque aú
 
 La opción opcional `passive:true` de `addEventListener` indica al navegador que el controlador no llamará a `preventDefault()`.
 
-¿Por qué puede ser necesario?
+¿Para qué podría ser necesario?
 
 Hay algunos eventos como `touchmove` en dispositivos móviles (cuando el usuario mueve el dedo por la pantalla), que provocan el desplazamiento por defecto, pero ese desplazamiento se puede evitar usando `preventDefault()` en el controlador.
 

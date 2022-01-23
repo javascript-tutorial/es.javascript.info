@@ -33,7 +33,7 @@ let sum = function(a, b) {
 alert( sum(1, 2) ); // 3
 ```
 
-Como puedes ver `(a, b) => a + b` significa una función que acepta dos parámetros llamados `a` y `b`. Tras la ejecución, evalúa la expresión `a + b` y devuelve el resultado.
+Como puedes ver, `(a, b) => a + b` significa una función que acepta dos argumentos llamados `a` y `b`. Tras la ejecución, evalúa la expresión `a + b` y devuelve el resultado.
 
 - Si solo tenemos un argumento, se pueden omitir paréntesis alrededor de los parámetros, lo que lo hace aún más corto.
 

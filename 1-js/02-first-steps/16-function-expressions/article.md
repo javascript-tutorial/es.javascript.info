@@ -12,7 +12,7 @@ function sayHi() {
 
 Existe otra sintaxis para crear una función que se llama una *Expresión de Función*. 
 
-Esto permite crear una nueva función en el medio de cualquier expresión 
+Esto nos permite crear una nueva función en el medio de cualquier expresión 
 
 Por ejemplo:
 
@@ -104,7 +104,7 @@ let sayHi = function() {
 
 La respuesta es simple: una expresión de función se crea aquí como `function(…) {…}` dentro de la sentencia de asignación `let sayHi = …;`. El punto y coma se recomienda para finalizar la sentencia, no es parte de la sintaxis de función.
 
-El punto y coma estaría allí para una asignación más simple tal como `let sayHi = 5;`, y también está alli para la asignación de función.
+El punto y coma estaría allí para una asignación más simple tal como `let sayHi = 5;`, y también está allí para la asignación de función.
 ````
 
 ## Funciones Callback
