@@ -1,6 +1,6 @@
 # Teclado: keydown y keyup
 
-Antes de estudiar el teclado, por favor ten en cuenta que en los dispositivos modernos hay otras formas de "ingresar algo".  Por ejemplo, el uso de reconocimiento de voz (especialmente en dispositivos móviles) o copiar/pegar con el mouse.
+Antes de llegar al teclado, por favor ten en cuenta que en los dispositivos modernos hay otras formas de "ingresar algo".  Por ejemplo, el uso de reconocimiento de voz (especialmente en dispositivos móviles) o copiar/pegar con el mouse.
 
 Entonces, si queremos hacer el seguimiento de cualquier ingreso en un campo `<input>`, los eventos de teclado no son suficientes. Existe otro evento llamado `input` para detectar cambios en un campo `<input>` producidos por cualquier medio. Y puede ser una mejor opción para esa tarea. Lo estudiaremos luego en el capítulo <info:events-change-input>.
 
@@ -195,6 +195,6 @@ Principales propiedades de evento de teclado:
 - `code` -- el código de tecla "key code" (`"KeyA"`, `"ArrowLeft"` y demás), especifica la ubicación física de la tecla en el teclado.
 - `key` -- el carácter (`"A"`, `"a"` y demás). Para las teclas que no son de caracteres como `key:Esc`, suele tener el mismo valor que `code`.
 
-En el pasado, los eventos de teclado eran usados para detectar cambios en los campos de formulario. Esto no es confiable, porque el ingreso puede venir desde varias fuentes. Tenemos los eventos `input` y `change` para manejar cualquier ingreso (tratado en el capítulo <info:events-change-input>). Ellos se disparan después de cualquier clase de ingreso, incluyendo copiar/pegar y el reconocimiento de voz.
+En el pasado, los eventos de teclado eran usados para detectar cambios en los campos de formulario. Esto no es confiable, porque el ingreso puede venir desde varias fuentes. Tenemos los eventos `input` y `change` para manejar cualquier ingreso (tratados en el capítulo <info:events-change-input>). Ellos se disparan después de cualquier clase de ingreso, incluyendo copiar/pegar y el reconocimiento de voz.
 
 Deberíamos usar eventos de teclado cuando realmente queremos el teclado. Por ejemplo, para reaccionar a atajos o a teclas especiales.
