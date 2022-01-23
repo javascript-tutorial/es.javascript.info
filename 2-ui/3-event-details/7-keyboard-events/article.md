@@ -89,7 +89,7 @@ document.addEventListener('keydown', function(event) {
 
 Por otro lado, hay un problema con `event.code`. Para diferentes distribuciones de teclado, la misma tecla puede tener diferentes caracteres.
 
-Por ejemplo, aquí tenemos la distribución de EE.UU. ("QWERTY") y la alemana ("QWERTZ") debajo (de Wikipedia):
+Por ejemplo, aquí abajo mostramos la distribución de EE.UU. "QWERTY" y la alemana "QWERTZ" (de Wikipedia):
 
 ![](us-layout.svg)
 
@@ -115,7 +115,7 @@ Por otro lado, `event.code` tiene el beneficio de quedar siempre igual, ligado a
 
 ## Autorepetición
 
-Si una tecla es presionada por suficiente tiempo, comienza a "autorepetir": `keydown` se dispara una y otra vez, y  cuando es soltada finalmente se obtiene `keyup`. Por ello es normal tener muchos `keydown` y un solo `keyup`.
+Si una tecla es presionada durante suficiente tiempo, comienza a "autorepetirse": `keydown` se dispara una y otra vez, y  cuando es soltada finalmente se obtiene `keyup`. Por ello es normal tener muchos `keydown` y un solo `keyup`.
 
 Para eventos disparados por autorepetición, el objeto de evento tiene la propiedad `event.repeat` establecida a `true`.
 
@@ -147,7 +147,7 @@ function checkPhoneKey(key) {
 
 Aquí el manejador `onkeydown` usa `checkPhoneKey` para chequear la tecla presionada. Si es válida (de `0..9` o uno de `+-()`), entonces devuelve `true`, de otro modo, `false`.
 
-Como sabemos, el valor `false` devuelto por el manejador de eventos (asignado usando una propiedad DOM o un atributo, como lo hicimos arriba) evita la acción predeterminada; entonces nada aparece en `<input>` para las teclas que no pasan el test. (El valor `true` no afecta en nada, solo importa el valor `false`)
+Como ya sabemos, el valor `false` devuelto por el manejador de eventos, asignado usando una propiedad DOM o un atributo tal como lo hicimos arriba, evita la acción predeterminada; entonces nada aparece en `<input>` para las teclas que no pasan el test. (El valor `true` no afecta en nada, solo importa el valor `false`)
 
 Ten en cuenta que las teclas especiales como `key:Backspace`, `key:Left`, `key:Right`, no funcionan en el input. Este es un efecto secundario del filtro estricto que hace `checkPhoneKey`. Estas teclas hacen que devuelva `false`.
 
