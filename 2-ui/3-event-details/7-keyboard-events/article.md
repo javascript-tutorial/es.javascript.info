@@ -179,7 +179,7 @@ Al trabajar con ellos había tantas incompatibilidades entre los navegadores que
 
 Cuando se usan teclados virtuales o los de dispositivos móviles, formalmente conocidos como IME (Input-Method Editor), el estándar W3C establece que la propiedad de KeyboardEvent [`e.keyCode` debe ser `229`](https://www.w3.org/TR/uievents/#determine-keydown-keyup-keyCode) y [`e.key` debe ser `"Unidentified"`](https://www.w3.org/TR/uievents-key/#key-attr-values).
 
-Mientras algunos ed estos teclados pueden aún usar los valores correctos para `e.key`, `e.code`, `e.keyCode`..., cuando se presionan ciertas teclas tales como flechas o retroceso no hay garantía, entonces nuestra lógica de teclado podría no siempre funcionar bien en dispositivos móviles.
+Mientras algunos de estos teclados pueden aún usar los valores correctos para `e.key`, `e.code`, `e.keyCode`..., cuando se presionan ciertas teclas tales como flechas o retroceso no hay garantía, entonces nuestra lógica de teclado podría no siempre funcionar bien en dispositivos móviles.
 
 ## Resumen
 
@@ -187,7 +187,7 @@ Presionar una tecla siempre genera un evento de teclado, sean teclas de símbolo
 
 Eventos de teclado:
 
-- `keydown` -- al presionar la tecla (autorepite si la tecla queda presionada por un tiempo),
+- `keydown` -- al presionar la tecla (comienza a autorepetir si la tecla queda presionada por un tiempo),
 - `keyup` -- al soltar la tecla.
 
 Principales propiedades de evento de teclado:
