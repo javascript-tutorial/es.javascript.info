@@ -44,13 +44,13 @@ En otras palabras, `"e"` multiplica el número por el `1` seguido de la cantidad
 Ahora escribamos algo muy pequeño. Digamos 1 microsegundo (un millonésimo de segundo):
 
 ```js
-let ms = 0.000001;
+let mсs = 0.000001;
 ```
 
 Como antes, el uso de `"e"` puede ayudar. Si queremos evitar la escritura de ceros explícitamente, podríamos expresar lo mismo así:
 
 ```js
-let ms = 1e-6; // seis ceros a la izquierda de 1
+let mcs = 1e-6; // seis ceros a la izquierda de 1
 ```
 
 Si contamos los ceros en `0.000001`, hay 6 de ellos. Entonces naturalmente es `1e-6`.  

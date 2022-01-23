@@ -39,7 +39,7 @@ En casos así, el orden es fijo. Es decir, los controladores son llamados en el 
 ```online
 Haz click en el botón abajo y verás los eventos. Intenta con doble click también.
 
-En el testeador de abajo todos los eventos quedan registrados. Si hay mas de un segundo de retraso entre cada uno de ellos quedan separados por una regla horizontal.
+En el testeador de abajo todos los eventos quedan registrados. Si hay mas de un segundo de retraso entre cada uno de ellos quedan separados por una línea horizontal.
 
 Además podemos ver la propiedad de `button` que nos permite detectar el botón del mouse. Lo explicaremos a continuación.
 
@@ -116,7 +116,7 @@ Es decir: cuando un usuario de Windows usa `key:Ctrl+Enter` o `key:Ctrl+A`, un u
 
 Entonces si queremos darle soporte a combinaciones como `key:Ctrl`+click, entonces para Mac tendría más sentido usar `key:Cmd`+click. Esto es más cómodo para los usuarios de Mac.
 
-Incluso si quisieramos obligar a los usuarios de Mac a hacer `key:Ctrl`+click -- esto supone algo de dificultad. El problema es que: un click izquierdo con `key:Ctrl` es interpretado como  *click derecho* en MacOS, y esto genera un evento `contextmenu`, no un `click` como en Windows/Linux.
+Incluso si quisiéramos obligar a los usuarios de Mac a hacer `key:Ctrl`+click -- esto supone algo de dificultad. El problema es que: un click izquierdo con `key:Ctrl` es interpretado como  *click derecho* en MacOS, y esto genera un evento `contextmenu`, no un `click` como en Windows/Linux.
 
 Así que si queremos que los usuarios de todos los sistemas operativos se sientan cómodos, entonces junto con `ctrlKey` debemos verificar `metaKey`.
 

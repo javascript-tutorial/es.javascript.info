@@ -107,7 +107,7 @@ Entonces, `event.code` puede coincidir con un carácter equivocado en una distri
 
 Para un seguimiento confiable de caracteres que dependen de la distribución, `event.key` puede ser una mejor opción.
 
-Por otro lado, `event.code` tiene el beneficio de quedar siempre igual, ligado a la ubicación física de la tecla, incluso si el visitante cambia lenguajes. Así lo atajos de teclado que que dependen de él funcionan bien aunque cambie el lenguaje.
+Por otro lado, `event.code` tiene el beneficio de quedar siempre igual, ligado a la ubicación física de la tecla. Así los atajos de teclado que dependen de él funcionan bien aunque cambie el lenguaje.
 
 ¿Queremos manejar teclas que dependen de la distribución? Entonces `event.key` es lo adecuado.
 

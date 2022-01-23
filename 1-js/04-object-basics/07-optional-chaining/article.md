@@ -25,7 +25,7 @@ Este es el resultado esperado. JavaScript funciona así, como `user.address` es 
 
 En muchos casos prácticos preferiríamos obtener `undefined` en lugar del error (dando a entender "sin calle")
 
-...Y otro ejemplo.  En el desarrollo web, necesitamos obtener información sobre un elemento en la página, pero a veces este no existe:
+... y otro ejemplo. En desarrollo web, podemos obtener un objeto que corresponde a un elemento de página web usando el llamado a un método especial, tal como `document.querySelector('.elem')`, que devuelve `null` cuando no existe tal elemento.
 
 ```js run
 // Error si el resultado de querySelector (...) es null
