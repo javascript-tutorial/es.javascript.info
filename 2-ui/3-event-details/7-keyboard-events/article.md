@@ -69,7 +69,7 @@ Por favor evita errores de tipeo: es `KeyZ`, no `keyZ`. Una verificación como `
 | `key:Backspace`      |`Backspace`          |`Backspace`        |
 | `key:Shift`|`Shift`          |`ShiftRight` or `ShiftLeft`        |
 
-Ten en cuenta que `event.code` especifica con exactitud la tecla que es presionada. Por ejemplo, la mayoría de los teclados tienen dos teclas `key:Shift`: una a la izquierda y otra a la derecha. `event.code` nos dice exactamente cuál fue presionada, en cambio `event.key` es responsable del "significado" de la tecla: lo que "es" (un "Shift").
+Ten en cuenta que `event.code` especifica con exactitud la tecla que es presionada. Por ejemplo, la mayoría de los teclados tienen dos teclas `key:Shift`: una a la izquierda y otra a la derecha. `event.code` nos dice exactamente cuál fue presionada, en cambio `event.key` es responsable del "significado" de la tecla: lo que "es" (una "Mayúscula").
 
 Digamos que queremos manejar un atajo de teclado: `key:Ctrl+Z` (o `key:Cmd+Z` en Mac). La mayoría de los editores de texto cuelgan la acción "Undo" en él. Podemos configurar un "listener" para escuchar el evento `keydown` y verificar qué tecla es presionada.
 
