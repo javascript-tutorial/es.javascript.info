@@ -173,7 +173,7 @@ Un enfoque alternativo sería vigilar el evento `oninput`, este se dispara *desp
 
 En el pasado existía un evento `keypress`, y también las propiedades del objeto evento `keyCode`, `charCode`, `which`.
 
-Había tantas incompatibilidades entre los navegadores trabajando con ellos que los desarrolladores de la especificación no tuvieron otra alternativa que declararlos obsoletos y crear nuevos y modernos eventos (los descritos arriba en este capítulo). El viejo código todavía funciona porque los navegadores aún lo soportan, pero no hay en absoluto necesidad de usarlos más.
+Al trabajar con ellos había tantas incompatibilidades entre los navegadores que los desarrolladores de la especificación no tuvieron otra alternativa que declararlos obsoletos y crear nuevos y modernos eventos (los descritos arriba en este capítulo). El viejo código todavía funciona porque los navegadores aún lo soportan, pero no hay necesidad de usarlos más, en absoluto.
 
 ## Teclados en dispositivos móviles
 
