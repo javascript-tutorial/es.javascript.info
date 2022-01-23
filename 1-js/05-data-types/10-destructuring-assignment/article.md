@@ -234,7 +234,7 @@ La sintaxis básica es:
 let {var1, var2} = {var1:…, var2:…}
 ```
 
-Tenemos un objeto existente en el lado derecho que queremos dividir en variables. El lado izquierdo contiene un "patrón" simil-objeto con las propiedades correspondientes; que en el caso más simple, es la lista de nombres de variables en `{...}`.
+Tenemos un objeto existente en el lado derecho que queremos dividir en variables. El lado izquierdo contiene un "patrón" símil-objeto con las propiedades correspondientes; que en el caso más simple, es la lista de nombres de variables en `{...}`.
 
 Por ejemplo:
 

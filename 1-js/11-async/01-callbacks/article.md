@@ -229,8 +229,8 @@ loadScript('1.js', function(error, script) {
 ```
 
 En el código de arriba:
-1. Cargamos `1.js`, entonces si no hay error:
-2. Cargamos `2.js`, entonces si no hay error:
+1. Cargamos `1.js`, entonces si no hay error...
+2. Cargamos `2.js`, entonces si no hay error...
 3. Cargamos `3.js`, entonces, si no hay ningún error: haga otra cosa `(*)`.
 
 A medida que las llamadas se anidan más, el código se vuelve más profundo y difícil de administrar, especialmente si tenemos un código real en lugar de '...' que puede incluir más bucles, declaraciones condicionales, etc.

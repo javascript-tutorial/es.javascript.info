@@ -59,6 +59,10 @@ alert( str.match(/\d+\b(?!€)/g) ); // 2 (el precio es omitido)
 
 ## Lookbehind
 
+```warn header="Compatibilidad de navegadores en lookbehind"
+Ten en cuenta: Lookbehind no está soportado en navegadores que no utilizan V8, como Safari, Internet Explorer.
+```
+
 "lookahead" permite agregar una condición para "lo que sigue".
 
 "Lookbehind" es similar. Permite coincidir un patrón solo si hay algo anterior a él.
