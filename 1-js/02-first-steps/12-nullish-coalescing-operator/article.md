@@ -106,7 +106,11 @@ En la práctica, una altura cero es a menudo un valor válido que no debería se
 
 ## Precedencia
 
+<<<<<<< HEAD
 La precedencia del operador `??` es baja, y apenas menor a `||`. En la [Tabla MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Operator_Precedence#Table), la de `??` es `5` y la de `||` es `6`.
+=======
+The precedence of the `??` operator is the same as `||`. They both equal `4` in the [MDN table](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence#Table).
+>>>>>>> bae0ef44d0208506f6e9b7f3421ee640ab41af2b
 
 Esto significa que ambos operadores, `||` y `??`, son evaluados antes que `=` y `?`, pero después de la mayoría de las demás operaciones como `+` y `*`. 
 
