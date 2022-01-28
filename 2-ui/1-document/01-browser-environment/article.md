@@ -4,7 +4,7 @@ El lenguaje JavaScript fue creado inicialmente para los navegadores web. Desde e
 
 Una plataforma puede ser un navegador, un servidor web u otro *host*; incluso una máquina de café "inteligente", si puede ejecutar JavaScript. Cada uno de ellos proporciona una funcionalidad específica de la plataforma. La especificación de JavaScript llama a esto *entorno de host* (host environment).
 
-Un entorno host proporciona objetos específicos de la plataforma y funciones adicionales al núcleo del lenguaje. Los navegadores web proporcionan un medio para controlar las páginas web. Node.JS proporciona características del lado del servidor, y otros.
+Un entorno host proporciona sus propios objetos específicos de la plataforma y funciones adicionales al núcleo del lenguaje. Los navegadores web proporcionan un medio para controlar las páginas web. Node.js proporciona características del lado del servidor, etc.
 
 Aquí tienes una vista general de lo que tenemos cuando JavaScript se ejecuta en un navegador web:
 
