@@ -108,6 +108,6 @@ Ten en cuenta los enlaces anteriores, ya que hay tantas cosas que es imposible c
 
 Cuando desees leer sobre una propiedad o un método, el manual de Mozilla en <https://developer.mozilla.org/es/search> es un buen recurso, pero leer las especificaciones correspondientes puede ser mejor: es más complejo y hay más para leer, pero hará que su conocimiento de los fundamentos sea sólido y completo.
 
-Para encontrar algo, a menudo es conveniente usar una búsqueda como "WHATWG [término]" or "MDN [término]", por ejemplo <https://google.com?q=whatwg+localstorage>, <https://google.com?q=mdn+localstorage>.
+Para encontrar algo, a menudo es conveniente usar una búsqueda como "WHATWG [término]" o "MDN [término]". Por ejemplo <https://google.com?q=whatwg+localstorage>, <https://google.com?q=mdn+localstorage>.
 
 Ahora nos concentraremos en aprender el DOM, porque juega un papel central en la interfaz de usuario.
