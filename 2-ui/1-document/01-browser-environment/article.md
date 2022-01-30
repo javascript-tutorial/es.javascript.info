@@ -4,7 +4,7 @@ El lenguaje JavaScript fue creado inicialmente para los navegadores web. Desde e
 
 Una plataforma puede ser un navegador, un servidor web u otro *host*; incluso una máquina de café "inteligente", si puede ejecutar JavaScript. Cada uno de ellos proporciona una funcionalidad específica de la plataforma. La especificación de JavaScript llama a esto *entorno de host* (host environment).
 
-Un entorno host proporciona objetos específicos de la plataforma y funciones adicionales al núcleo del lenguaje. Los navegadores web proporcionan un medio para controlar las páginas web. Node.JS proporciona características del lado del servidor, y otros.
+Un entorno host proporciona sus propios objetos específicos de la plataforma y funciones adicionales al núcleo del lenguaje. Los navegadores web proporcionan un medio para controlar las páginas web. Node.js proporciona características del lado del servidor, etc.
 
 Aquí tienes una vista general de lo que tenemos cuando JavaScript se ejecuta en un navegador web:
 
@@ -108,6 +108,6 @@ Ten en cuenta los enlaces anteriores, ya que hay tantas cosas que es imposible c
 
 Cuando desees leer sobre una propiedad o un método, el manual de Mozilla en <https://developer.mozilla.org/es/search> es un buen recurso, pero leer las especificaciones correspondientes puede ser mejor: es más complejo y hay más para leer, pero hará que su conocimiento de los fundamentos sea sólido y completo.
 
-Para encontrar algo, a menudo es conveniente usar una búsqueda como "WHATWG [término]" or "MDN [término]", por ejemplo <https://google.com?q=whatwg+localstorage>, <https://google.com?q=mdn+localstorage>.
+Para encontrar algo, a menudo es conveniente usar una búsqueda como "WHATWG [término]" o "MDN [término]". Por ejemplo <https://google.com?q=whatwg+localstorage>, <https://google.com?q=mdn+localstorage>.
 
 Ahora nos concentraremos en aprender el DOM, porque juega un papel central en la interfaz de usuario.
