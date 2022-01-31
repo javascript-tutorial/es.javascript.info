@@ -28,13 +28,13 @@ let range = {
 
 Para hacer que el objeto `range` sea iterable (y así permitir que `for..of` funcione) necesitamos agregarle un método llamado `Symbol.iterator` (un símbolo incorporado especial usado solo para realizar esa función).
 
-1. Cuando se inicia el `for..of`, éste llama al método `Symbol.iterator` una vez (o genera un error si no lo encuentra). El método debe devolver un *iterador* -- un objeto con el método `next()`.
-2. En adelante, `for..of` trabaja *solo con ese objeto devuelto*.
+1. Cuando se inicia `for..of`, éste llama al método `Symbol.iterator` una vez (o genera un error si no lo encuentra). El método debe devolver un *iterador* : un objeto con el método `next()`.
+2. En adelante, `for..of` trabaja *solamente con ese objeto devuelto*.
 3. Cuando `for..of` quiere el siguiente valor, llama a `next()` en ese objeto.
-4. El resultado de `next()` debe tener la forma `{done: Boolean, value: any}`, donde `done=true` significa que la iteración ha finalizado; de lo contrario,`value` es el nuevo valor.
+4. El resultado de `next()` debe tener la forma `{done: Boolean, value: any}`, donde `done=true` significa que el bucle ha finalizado; de lo contrario, el nuevo valor es `value`.
 
 Aquí está la implementación completa de `range`:
- 
+
 ```js run
 let range = {
   from: 1,
@@ -45,10 +45,10 @@ let range = {
 range[Symbol.iterator] = function() {
 
   // ... devuelve el objeto iterador:
-  // 2. En adelante, for..of trabaja solo con este iterador, pidiéndole los siguientes valores
+  // 2. En adelante, for..of trabaja solo con el objeto iterador debajo, pidiéndole los siguientes valores
   return {
     current: this.from,
-    last: this.to,      
+    last: this.to,
 
     // 3. next() es llamado en cada iteración por el bucle for..of
     next() {
@@ -106,7 +106,7 @@ for (let num of range) {
 Ahora `range[Symbol.iterator]()` devuelve el objeto `range` en sí: tiene el método `next()` necesario y recuerda el progreso de iteración actual en `this.current`. ¿Más corto? Sí. Y a veces eso también está bien.
 
 La desventaja es que ahora es imposible tener dos bucles `for..of` corriendo sobre el objeto simultáneamente: compartirán el estado de iteración, porque solo hay un iterador: el objeto en sí. Pero dos for-of paralelos es algo raro, incluso en escenarios asíncronos.
- 
+
 ```smart header="Iteradores Infinitos"
 También son posibles los iteradores infinitos. Por ejemplo, el objeto `range` se vuelve infinito así: `range.to = Infinity`. O podemos hacer un objeto iterable que genere una secuencia infinita de números pseudoaleatorios. También puede ser útil.
 
@@ -144,7 +144,7 @@ Para una comprensión más profunda, veamos cómo usar un iterador explícitamen
 
 Vamos a iterar sobre una cadena exactamente de la misma manera que `for..of`, pero con llamadas directas. Este código crea un iterador de cadena y obtiene valores de él "manualmente":
 
- 
+
 ```js run
 let str = "Hola";
 
@@ -162,11 +162,11 @@ while (true) {
 }
 ```
 Rara vez se necesita esto, pero nos da más control sobre el proceso que `for..of`. Por ejemplo, podemos dividir el proceso de iteración: iterar un poco, luego parar, hacer otra cosa y luego continuar.
- 
+
 ## Iterables y simil-array (array-like) [#array-like]
 
 Los dos son términos oficiales que se parecen, pero son muy diferentes. Asegúrese de comprenderlos bien para evitar confusiones.
- 
+
 - *Iterables* son objetos que implementan el método `Symbol.iterator`, como se describió anteriormente.
 - *simil-array* son objetos que tienen índices y longitud o `length`, por lo que se "ven" como arrays.
 
@@ -258,7 +258,7 @@ alert(chars.length); // 2
 A diferencia de `str.split`, `Array.from` se basa en la naturaleza iterable de la cadena y, por lo tanto, al igual que `for..of`, funciona correctamente con pares sustitutos.
 
 Técnicamente aquí hace lo mismo que:
- 
+
 ```js run
 let str = '𝒳😂';
 
@@ -298,11 +298,11 @@ Los objetos que se pueden usar en `for..of` se denominan *iterables*.
 - El método `Symbol.iterator` se llama automáticamente por `for..of`, pero también podemos llamarlo directamente.
 - Los iterables integrados, como cadenas o matrices, también implementan `Symbol.iterator`.
 - El iterador de cadena es capaz de manejar los pares sustitutos.
- 
+
 
 Los objetos que tienen propiedades indexadas y `longitud` o *length* se llaman *array-like*. Dichos objetos también pueden tener otras propiedades y métodos, pero carecen de los métodos integrados de las matrices.
 
 Si miramos dentro de la especificación, veremos que la mayoría de los métodos incorporados suponen que funcionan con iterables o array-likes en lugar de matrices "reales", porque eso es más abstracto.
 
 `Array.from (obj[, mapFn, thisArg])` crea un verdadero `Array` de un `obj` iterable o array-like, y luego podemos usar métodos de matriz en él. Los argumentos opcionales `mapFn` y `thisArg` nos permiten aplicar una función a cada elemento.
- 
+
