@@ -2,7 +2,7 @@
 
 Antes de llegar al teclado, por favor ten en cuenta que en los dispositivos modernos hay otras formas de "ingresar algo".  Por ejemplo, el uso de reconocimiento de voz (especialmente en dispositivos móviles) o copiar/pegar con el mouse.
 
-Entonces, si queremos hacer el seguimiento de cualquier ingreso en un campo `<input>`, los eventos de teclado no son suficientes. Existe otro evento llamado `input` para detectar cambios en un campo `<input>` producidos por cualquier medio. Y puede ser una mejor opción para esa tarea. Lo estudiaremos más tarde en el capítulo <info:events-change-input>.
+Entonces, si queremos hacer el seguimiento de cualquier ingreso en un campo `<input>`, los eventos de teclado no son suficientes. Existe otro evento llamado `input` para detectar cambios en un campo `<input>` producidos por cualquier medio. Y puede ser una mejor opción para esa tarea. Lo estudiaremos más adelante, en el capítulo <info:events-change-input>.
 
 Los eventos de teclado solo deberían ser usados cuando queremos manejar acciones de teclado (también cuentan los teclados virtuales). Por ejemplo, para reaccionar a las teclas de flecha `key:Up` y `key:Down` o a atajos de teclado "hotkeys" (incluyendo combinaciones de teclas).
 
