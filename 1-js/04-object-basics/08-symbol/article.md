@@ -1,7 +1,7 @@
 
 # Tipo Symbol
 
-Por especificación, las claves (Keys) de un objeto deben ser solamente del tipo String o Symbol.  Solamente esos dos: String o Symbol. 
+Según la especificación, las claves (Keys) de un objeto deben ser solamente del tipo String o Symbol. No Number, ni Boolean; solamente esos dos: String o Symbol. 
 
 Hasta ahora sólo hemos aprendido acerca de los Strings, por lo que es momento de conocer las ventajas que Symbol nos puede dar.
 
@@ -50,7 +50,7 @@ alert(id); // TypeError: No puedes convertir un valor Symbol en string
 */!*
 ```
 
-Esa es una "protección del lenguaje" para evitar errores ya que los String y los Symbol son diferentes y no deberían convertirse ocasionalmente uno en otro.
+Esta es una "protección del lenguaje" para evitar errores, ya que String y Symbol son fundamentalmente diferentes y no deben convertirse accidentalmente uno en otro.
 
 Si realmente queremos mostrar un Symbol, necesitamos llamar el método `.toString()` de la siguiente manera:
 ```js run
@@ -72,9 +72,11 @@ alert(id.description); // id
 
 ## Claves "Ocultas"
 
-Los Symbols nos permiten crear claves "ocultas" en un objeto, a las cuales ninguna otra parte del código puede accesar ni sobrescribir.
+Los Symbols nos permiten crear claves "ocultas" en un objeto, a las cuales ninguna otra parte del código puede accesar ni sobrescribir accidentalmente.
 
-Por ejemplo, si queremos guardar un "identificador" para el objeto `user`, podemos asignar un symbol como clave del objeto:
+Por ejemplo, si estamos trabajando con objetos `user` que pertenecen a código de terceros y queremos agregarles identificadores:
+
+Utilicemos una clave symbol para ello:
 
 ```js run
 let user = { // pertenece a otro código
@@ -85,38 +87,38 @@ let id = Symbol("id");
 
 user[id] = 1;
 
-alert( user[id] ); // podemos accesar a la información utilizando  el symbol como nombre de clave 
+alert( user[id] ); // podemos accesar a la información utilizando el symbol como nombre de clave 
 ```
 
 ¿Cuál es la ventaja de usar `Symbol("id")` y no un string `"id"`?
 
-Vamos a profundizar en el ejemplo para que sea más claro.
+Como los objetos `user` pertenecen a otro código, y ese código también trabaja con ellos, no deberíamos simplemente agregarles campos sin más, eso sería inseguro.
 
-Imagina que otro script quiere tener la clave "id" dentro de `user` para sus propios fines. Puede ser otra librería de JavaScript, por lo cual ninguno de los scripts saben de su coexistencia.
+Además, imagina que otro script quiere tener su propia clave "id" dentro de `user` para sus propios fines. Puede ser otra librería de JavaScript, por lo cual ninguno de los scripts sabe de la existencia de los demás.
 
-Y entonces ese script puede crear su propio `Symbol("id")`, como este:
+Y entonces ese script puede crear su propio `Symbol("id")`, como aquí:
 
 ```js
 // ...
 let id = Symbol("id");
 
-user[id] = "Su id";
+user[id] = "Su valor de id";
 ```
 
 No habrá conflicto porque los Symbols siempre son diferentes, incluso si tienen el mismo nombre.
 
-Ahora ten en cuenta que si utilizamos un string `"id"` en lugar de un Symbol para el mismo propósito, entonces SÍ *habría* un conflicto:
+... pero si utilizamos un string `"id"` en lugar de un Symbol para el mismo propósito, ciertamente *habrá* un conflicto:
 
 ```js
 let user = { name: "John" };
 
-// Nuestro script usa la clave "id" 
+// Nuestro script usa la propiedad "id" 
 user.id = "Nuestro valor id";
 
 // ...Otro script también quiere usar "id"  ...
 
 user.id = "Su valor de id"
-// Boom! sobreescrito para otro script!
+// Boom! sobreescrito por otro script!
 ```
 
 ### Symbols en objetos literales
@@ -174,19 +176,17 @@ let clone = Object.assign({}, user);
 alert( clone[id] ); // 123
 ```
 
-No hay paradoja aquí, es así por diseño. La idea es que cuando clonamos un objeto o cuando fusionamos objetos, generalmente queremos que se copien *todas* las claves (incluidos los Symbol como `id`).
+No hay paradoja aquí. Es así por diseño. La idea es que cuando clonamos un objeto o cuando fusionamos objetos, generalmente queremos que se copien *todas* las claves (incluidos los Symbol como `id`).
 
 ## Symbols Globales
 
-Como hemos visto, normalmente todos los Symbols son diferentes aunque tengan el mismo nombre. Pero algunas veces necesitamos que los symbol con el mismo nombre sean las mismas entidades.
+Como hemos visto, normalmente todos los Symbols son diferentes aunque tengan el mismo nombre. Pero algunas veces necesitamos que symbols con el mismo nombre sean la misma entidad.
 
-Por ejemplo, distintas partes de nuestra aplicación quieren accesar a symbol `"id"` queriendo obtener el mismo valor de la clave.
-
-Para lograr esto, existe un *global symbol registry*. Ahí podemos crear symbols y acceder después a ellos, lo cual nos garantiza que cada vez que se acceda a la clave con el mismo nombre, esta te devuelva exactamente el mismo symbol.
+Para lograr esto, existe un *global symbol registry*. Ahí podemos crear symbols y accesarlos después, lo cual nos garantiza que cada vez que se acceda a la clave con el mismo nombre, esta te devuelva exactamente el mismo symbol.
 
 Para crear u accesar a un symbol en el registro global, usa `Symbol.for(key)`.
 
-Esta llamada revisa el registro global, y si existe un symbol descrito como `key`, lo retornará, de lo contrario creará un nuevo symbol `Symbol(key)` y lo almacenará en el registro por su `key`.
+Esta llamada revisa el registro global, y si existe un symbol descrito como `key`, lo retornará; de lo contrario creará un nuevo symbol `Symbol(key)` y lo almacenará en el registro con el `key` dado.
 
 Por ejemplo:
 
@@ -267,7 +267,7 @@ Symbols son siempre valores distintos aunque tengan el mismo nombre. Si queremos
 
 Symbols se utilizan principalmente en dos casos:
 
-1. Claves(keys) "Ocultas" dentro de un objeto.
+1. Claves (keys) "Ocultas" dentro de un objeto.
 	Si queremos agregar una clave a un objeto que "pertenezca" a otro script u otra librería, podemos crear un symbol y usarlo como clave. Una clave de symbol no aparecerá en los ciclos `for..in`, por lo que no aparecerá listada. Tampoco podrá ser accesada directamente por otro script porque este no tendrá nuestro symbol y no podrá intervenir en sus acciones.
 
 	Podemos "ocultar" ciertos valores dentro de un objeto que solo estarán disponibles dentro de ese script usando las claves de symbol.
