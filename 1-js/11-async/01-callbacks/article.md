@@ -307,4 +307,8 @@ Además, las funciones llamadas `step*` son de un solo uso, son para evitar la "
 
 Nos gustaría tener algo mejor.
 
+<<<<<<< HEAD
 Afortunadamente, podemos evitar tales pirámides. Una de las mejores formas es usando "promesas", descritas en el próximo capítulo.
+=======
+Luckily, there are other ways to avoid such pyramids. One of the best ways is to use "promises", described in the next chapter.
+>>>>>>> 71da17e5960f1c76aad0d04d21f10bc65318d3f6
