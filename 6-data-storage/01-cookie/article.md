@@ -245,7 +245,7 @@ Una cookie `samesite=lax` es enviada si se cumplen dos condiciones:
 
     Esto es usualmente verdad, pero si la navegación en ejecutada dentro de un `<iframe>`, entonces no es de alto nivel. Tampoco encajan aquí los métodos JavaScript para solicitudes de red porque no ejecutan ninguna navegación.
 
-Entonces, lo que `samesite=lax` hace es básicamente permitír la más común operación "ir a URL" para tener cookies. Por ejemplo, abrir un sitio desde la agenda satisface estas condiciones.
+Entonces, lo que `samesite=lax` hace es básicamente permitir la más común operación "ir a URL" para tener cookies. Por ejemplo, abrir un sitio desde la agenda satisface estas condiciones.
 
 Pero cualquier cosa más complicada, como solicitudes de red desde otro sitio o "form submit", pierde las cookies.
 
@@ -419,10 +419,10 @@ El GDPR no trata solo de cookies, también es acerca de otros problemas relacion
 
 ## Resumen
 
-`document.cookie` brinda acceso a las cookies
+`document.cookie` brinda acceso a las cookies.
 - la operación de escritura modifica solo cookies mencionadas en ella.
 - nombre y valor deben estar codificados.
-- Una cookie no debe exceder los 4KB, limitación a 20+ cookies por sitio (depende del navegador).
+- Una cookie no debe exceder los 4KB, y están limitadas a unas 20+ cookies por sitio (depende del navegador).
 
 Opciones de Cookie:
 - `path=/`, por defecto la ruta actual, hace la cookie visible solo bajo esa ruta.

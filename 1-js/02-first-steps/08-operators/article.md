@@ -194,22 +194,22 @@ Aquí hay un extracto de la [tabla de precedencia](https://developer.mozilla.org
 | Precedencia| Nombre | Signo |
 |------------|------|------|
 | ... | ... | ... |
-| 16 | suma unaria | `+` |
-| 16 | negación unaria | `-` |
-| 16 | exponenciación | `**` |
-| 14 | multiplicación | `*` |
-| 14 | división | `/` |
-| 13 | suma | `+` |
-| 13 | resta | `-` |
+| 15 | suma unaria | `+` |
+| 15 | negación unaria | `-` |
+| 14 | exponenciación | `**` |
+| 13 | multiplicación | `*` |
+| 13 | división | `/` |
+| 12 | suma | `+` |
+| 12 | resta | `-` |
 | ... | ... | ... |
-| 3 | asignación | `=` |
+| 2 | asignación | `=` |
 | ... | ... | ... |
 
-Como podemos ver, la "suma unaria" tiene una prioridad de `16`, que es mayor que el `13` de "suma" (suma binaria). Es por eso que, en la expresión `"+apples + +oranges"`, las sumas unarias funcionan antes de la adición.
+Como podemos ver, la "suma unaria" tiene una prioridad de `15`, que es mayor que el `12` de "suma" (suma binaria). Es por eso que, en la expresión `"+apples + +oranges"`, las sumas unarias se hacen antes de la adición.
 
 ## Asignación
 
-Tengamos en cuenta que una asignación `=` también es un operador. Está listado en la tabla de precedencia con la prioridad muy baja de `3`.
+Tengamos en cuenta que una asignación `=` también es un operador. Está listado en la tabla de precedencia con la prioridad muy baja de `2`.
 
 Es por eso que, cuando asignamos una variable, como `x = 2 * 2 + 1`, los cálculos se realizan primero y luego se evalúa el `=`, almacenando el resultado en `x`.
 

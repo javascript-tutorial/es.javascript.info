@@ -1,6 +1,6 @@
 # Constructor, operador "new"
 
-El sintaxis habitual `{...}` permite crear un objeto. Pero a menudo necesitamos crear varios objetos similares, como múltiples usuarios o elementos de menú, etcétera.
+El sintaxis habitual `{...}` nos permite crear un objeto. Pero a menudo necesitamos crear varios objetos similares, como múltiples usuarios, elementos de menú, etcétera.
 
 Esto se puede realizar utilizando el constructor de funciones y el operador `"new"`.
 
