@@ -221,31 +221,31 @@ const bufferPromise = await blob.arrayBuffer();
 blob.arrayBuffer().then(buffer => /* process the ArrayBuffer */);
 ```
 
-## From Blob to stream
+## De Blob a stream
 
-When we read and write to a blob of more than `2G`, the use of `arrayBuffer` becomes more memory intensive for us. At this point, we can directly convert the blob to a stream.
+Cuando leemos y escribimos un blob de más de `2 GB`, `arrayBuffer` hace un uso demasiado intensivo de la memoria para nosotros. En este punto, podemos convertir directamente el blob a un stream.
 
-A stream is a special object that allows to read from it (or write into it) portion by portion. It's outside of our scope here, but here's an example, and you can read more at <https://developer.mozilla.org/en-US/docs/Web/API/Streams_API>. Streams are convenient for data that is suitable for processing piece-by-piece.
+Un stream (flujo, corriente) es un objeto especial que permite leer (o escribir) porcion por porción. Está fuera de nuestro objetivo aquí, pero este es un ejemplo que puedes leer <https://developer.mozilla.org/en-US/docs/Web/API/Streams_API>. Los streams son convenientes para datos que son adecuados para el proceso pieza por pieza. 
 
-The `Blob` interface's `stream()` method returns a `ReadableStream` which upon reading returns the data contained within the `Blob`.
+El método interfaz `stream()` de `Blob` devuelve un `ReadableStream` que al leerlo devuelve datos contenidos dentro del `Blob`.
 
-Then we can read from it, like this:
+Entonces podemos leerlos desde él, como aquí:
 
 ```js
-// get readableStream from blob
+// obtiene readableStream desde blob
 const readableStream = blob.stream();
 const stream = readableStream.getReader();
 
 while (true) {
-  // for each iteration: data is the next blob fragment
+  // para cada iteración: data es el siguiente fragmento del blob
   let { done, data } = await stream.read();
   if (done) {
-    // no more data in the stream
-    console.log('all blob processed.');
+    // no hay más data en el stream
+    console.log('todo el blob procesado.');
     break;
   }
 
-   // do something with the data portion we've just read from the blob
+   // hacer algo con la porción de datos que acabamos de leer del blob
   console.log(data);
 }
 ```
