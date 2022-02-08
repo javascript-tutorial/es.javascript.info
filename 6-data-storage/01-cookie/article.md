@@ -245,9 +245,9 @@ Una cookie `samesite=lax` es enviada si se cumplen dos condiciones:
 
     Esto es usualmente verdad, pero si la navegación en ejecutada dentro de un `<iframe>`, entonces no es de alto nivel. Tampoco encajan aquí los métodos JavaScript para solicitudes de red porque no ejecutan ninguna navegación.
 
-Entonces, lo que `samesite=lax` hace es básicamente permitir la más común operación "ir a URL" para tener cookies. Por ejemplo, abrir un sitio desde la agenda satisface estas condiciones.
+Entonces, lo que hace `samesite=lax` es básicamente permitir la operación más común "ir a URL" para obtener cookies. Por ejemplo, abrir un sitio desde la agenda satisface estas condiciones.
 
-Pero cualquier cosa más complicada, como solicitudes de red desde otro sitio o "form submit", pierde las cookies.
+Pero cualquier cosa más complicada, como solicitudes de red desde otro sitio, o un "form submit", pierde las cookies.
 
 Si esto es adecuado para ti, entonces agregar `samesite=lax` probablemente no dañe la experiencia de usuario y agrega protección.
 
@@ -259,7 +259,7 @@ Tiene una importante debilidad:
 
 **Así que si solo confiamos en `samesite` para brindar protección, habrá navegadores que serán vulnerables.**
 
-Pero con seguridad podemos usar `samesite` junto con otras medidas de protección, como los tokens xsrf, para agregar una capa adicional de defensa. En el futuro probablemente podamos descartar la necesidad de tokens xsrf.
+Pero con seguridad podemos usar `samesite`, junto con otras medidas de protección como los tokens xsrf, para agregar una capa adicional de defensa. En el futuro probablemente podamos descartar la necesidad de tokens xsrf.
 
 ## httpOnly
 
