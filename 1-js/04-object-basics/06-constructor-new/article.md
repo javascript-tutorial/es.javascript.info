@@ -1,6 +1,10 @@
 # Constructor, operador "new"
 
+<<<<<<< HEAD
 El sintaxis habitual `{...}` permite crear un objeto. Pero a menudo necesitamos crear varios objetos similares, como múltiples usuarios o elementos de menú, etcétera.
+=======
+The regular `{...}` syntax allows us to create one object. But often we need to create many similar objects, like multiple users or menu items and so on.
+>>>>>>> 29216730a877be28d0a75a459676db6e7f5c4834
 
 Esto se puede realizar utilizando el constructor de funciones y el operador `"new"`.
 

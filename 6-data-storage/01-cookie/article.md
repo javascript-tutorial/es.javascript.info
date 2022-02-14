@@ -419,10 +419,17 @@ El GDPR no trata solo de cookies, también es acerca de otros problemas relacion
 
 ## Resumen
 
+<<<<<<< HEAD
 `document.cookie` brinda acceso a las cookies
 - la operación de escritura modifica solo cookies mencionadas en ella.
 - nombre y valor deben estar codificados.
 - Una cookie no debe exceder los 4KB, limitación a 20+ cookies por sitio (depende del navegador).
+=======
+`document.cookie` provides access to cookies.
+- Write operations modify only cookies mentioned in it.
+- Name/value must be encoded.
+- One cookie may not exceed 4KB in size. The number of cookies allowed on a domain is around 20+ (varies by browser).
+>>>>>>> 29216730a877be28d0a75a459676db6e7f5c4834
 
 Opciones de Cookie:
 - `path=/`, por defecto la ruta actual, hace la cookie visible solo bajo esa ruta.

@@ -13,10 +13,14 @@ Para ello es `Promise.all`.
 La sintaxis es:
 
 ```js
-let promise = Promise.all([...promises...]);
+let promise = Promise.all(iterable);
 ```
 
+<<<<<<< HEAD
 `Promise.all` toma un array de promesas (técnicamente puede ser cualquier iterable pero usualmente es un array) y devuelve una nueva promesa.
+=======
+`Promise.all` takes an iterable (usually, an array of promises) and returns a new promise.
+>>>>>>> 29216730a877be28d0a75a459676db6e7f5c4834
 
 Esta nueva promesa es resuelta en cuanto todas las promesas listadas se resuelven, y el array de aquellos resultados se vuelve su resultado.
 
