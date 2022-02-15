@@ -116,6 +116,13 @@ document.domain = 'site.com';
 
 Eso es todo. Ahora pueden interactuar sin limitaciones. Nuevamente, eso solo es posible para páginas con el mismo dominio de segundo nivel.
 
+```warn header="Obsoleto, pero aún funcionando"
+La propiedad `document.domain` está en proceso de ser removido de la [especificación](https://html.spec.whatwg.org/multipage/origin.html#relaxing-the-same-origin-restriction). Los mensajería cross-window  (explicado pronto más abajo) es el reemplazo sugerido.
+
+Dicho esto, hasta ahora todos los navegadores lo soportan. Y tal soporte será mantenido en el futuro, para no romper el código existente que se apoya en `document.domain`.
+```
+
+
 ## Iframe: trampa del documento incorrecto
 
 Cuando un iframe proviene del mismo origen y podemos acceder a su `document`, existe una trampa. No está relacionado con cross-origin, pero es importante saberlo.

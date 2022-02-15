@@ -27,8 +27,8 @@ Vamos a ver cómo funciona.
 
 Las principales funcionalidades de `localStorage` son:
 
-- Es compartido entre todas las pestañas y ventanas del mismo orígen.
-- Los datos no expiran. Persisten reinicios de navegador y hasta del sistema operativo.
+- Es compartido entre todas las pestañas y ventanas del mismo origen.
+- Los datos no expiran. Persisten a los reinicios de navegador y hasta del sistema operativo.
 
 Por ejemplo, si ejecutas éste código...
 ```js run
@@ -62,7 +62,8 @@ delete localStorage.test;
 
 Esto se permite por razones históricas, y principalmente funciona, pero en general no se recomienda por dos motivos:
 
-1. Si la clave es generada por el usuario, puede ser cualquier cosa, como `length` o `toString`, u otro método propio de `localStorage`. En este caso `getItem/setItem` funcionan correctamente, mientras que el acceso tipo objeto falla;
+1. Si la clave es generada por el usuario, puede ser cualquier cosa, como `length` o `toString`, u otro método propio de `localStorage`. En este caso `getItem/setItem` funcionan correctamente,pero el acceso de simil-objeto falla;
+
     ```js run
     let key = 'length';
     localStorage[key] = 5; // Error, no se puede asignar 'length'
@@ -146,7 +147,6 @@ También es posible pasar a texto todo el objeto de almacenaje, por ejemplo para
 alert( JSON.stringify(localStorage, null, 2) );
 ```
 
-
 ## sessionStorage
 
 El objeto `sessionStorage` se utiliza mucho menos que `localStorage`.
@@ -178,7 +178,7 @@ Esto es exactamente porque `sessionStorage` no está vinculado solamente al orí
 
 ## Evento storage
 
-Cuando los datos se actualizan en `localStorage` o en `sessionStorage`, el evento se dispara [storage](https://www.w3.org/TR/webstorage/#the-storage-event) con las propiedades:
+Cuando los datos se actualizan en `localStorage` o en `sessionStorage`, se dispara el evento [storage](https://html.spec.whatwg.org/multipage/webstorage.html#the-storageevent-interface) con las propiedades:
 
 - `key` – la clave que ha cambiado, (`null` si se llama `.clear()`).
 - `oldValue` – el anterior valor (`null` si se añade una clave).
@@ -219,10 +219,11 @@ Los navegadores modernos también soportan la [API de Broadcast channel API](htt
 ## Resumen
 
 Los objetos de almacenaje web `localStorage` y `sessionStorage` permiten guardar pares de clave/valor en el navegador.
-- Tanto la `clave` como el `valor` deben ser strings, cadenas de texto.
-- El límite es de más de 5mb+; depende del navegador.
+
+- Tanto la `clave` como el `valor` deben ser strings.
+- El límite es de más de 5mb+, dependiendo del navegador.
 - No expiran.
-- Los datos están vinculados al orígen (dominio/puerto/protocolo).
+- Los datos están vinculados al origen (dominio/puerto/protocolo).
 
 | `localStorage` | `sessionStorage` |
 |----------------|------------------|

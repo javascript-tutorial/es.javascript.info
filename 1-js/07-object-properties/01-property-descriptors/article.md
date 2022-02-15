@@ -316,9 +316,9 @@ for (let key in user) {
 }
 ```
 
-...pero esto no copia los identificadores. Así que si queremos un "mejor" clon entonces se prefiere `Object.defineProperties`.
+... pero esto no copia los identificadores. Así que si queremos un "mejor" clon entonces se prefiere `Object.defineProperties`.
 
-Otra diferencia es que `for..in` ignora propiedades simbólicas, pero `Object.getOwnPropertyDescriptors` retorna *todos* los descriptores de propiedades incluyendo los simbólicos.
+Otra diferencia es que `for..in` ignora las propiedades simbólicas y las no enumerables, pero `Object.getOwnPropertyDescriptors` devuelve *todos* los descriptores de propiedades incluyendo simbólicas y no enumerables.
 
 ## Sellando un objeto globalmente
 
