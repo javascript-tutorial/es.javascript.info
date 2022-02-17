@@ -62,7 +62,7 @@ delete localStorage.test;
 
 Esto se permite por razones históricas, y principalmente funciona, pero en general no se recomienda por dos motivos:
 
-1. Si la clave es generada por el usuario, puede ser cualquier cosa, como `length` o `toString`, u otro método propio de `localStorage`. En este caso `getItem/setItem` funcionan correctamente,pero el acceso de simil-objeto falla;
+1. Si la clave es generada por el usuario, puede ser cualquier cosa, como `length` o `toString`, u otro método propio de `localStorage`. En este caso `getItem/setItem` funcionan correctamente, pero el acceso de simil-objeto falla;
 
     ```js run
     let key = 'length';
