@@ -59,7 +59,7 @@ El `offsetParent` es el antepasado más cercano que usa el navegador para calcul
 
 Ese es el antepasado más cercano que es uno de los siguientes:
 
-1. Posicionado por CSS (`position` es `absolute`, `relative`, `fixed` or `sticky`),  o...
+1. Posicionado por CSS (`position` es `absolute`, `relative`, `fixed` o `sticky`),  o...
 2. `<td>`, `<th>`, or `<table>`,  o...
 3. `<body>`.
 
@@ -138,7 +138,7 @@ En nuestro ejemplo:
 
 Esto se vuelve evidente cuando el documento está de derecha a izquierda (con el sistema operativo en idioma árabe, o hebreo). La barra de desplazamiento no está a la derecha sino a la izquierda, entonces `clientLeft` también incluye el ancho de la barra de desplazamiento.
 
-En este caso, `clientLeft` no sería `25`, sino que se sumaría el ancho de la barra de desplazamiento `25 + 16 = 41`.
+En este caso, `clientLeft` no es `25`, sino que se suma el ancho de la barra de desplazamiento `25 + 16 = 41`.
 
 Aquí está el ejemplo en hebreo:
 
