@@ -155,11 +155,7 @@ Hablemos de los controles de los formularios.
 
 ### input y textarea
 
-<<<<<<< HEAD
-Podemos acceder sus valores como `input.value` (cadena) o `input.checked` (booleano) para casillas de verificación (checkboxes).
-=======
-We can access their value as `input.value` (string) or `input.checked` (boolean) for checkboxes and radio buttons.
->>>>>>> e2f9e5840737e00846bfd492192d8a3828820c60
+Podemos acceder sus valores como `input.value` (cadena) o `input.checked` (booleano) para casillas de verificación (checkboxes) y botones de opción (radio buttons).
 
 De esta manera:
 
