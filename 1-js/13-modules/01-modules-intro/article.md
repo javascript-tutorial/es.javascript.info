@@ -184,7 +184,11 @@ Como puedes ver, cuando `1.js` cambia la propiedad `name` en el `admin` importad
 
 Esto es porque el modulo se ejecuta solo una vez. Los exports son generados y luego compartidos entre importadores, entonces si algo cambia en el objeto `admin`, otros módulos lo verán.
 
+<<<<<<< HEAD
 **Tal comportamiento es en verdad muy conveniente, porque nos permite *configurar* módulos.**
+=======
+That's exactly because the module is executed only once. Exports are generated, and then they are shared between importers, so if something changes the `admin` object, other importers will see that.
+>>>>>>> e2f9e5840737e00846bfd492192d8a3828820c60
 
 En otras palabras, un módulo puede brindar una funcionalidad genérica que necesite ser configurada. Por ejemplo, la autenticación necesita credenciales. Entonces se puede exportar un objeto de configuración esperando que el código externo se lo asigne.
 
