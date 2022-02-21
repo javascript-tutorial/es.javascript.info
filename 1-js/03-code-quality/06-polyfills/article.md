@@ -42,7 +42,7 @@ Usualmente, un desarrollador ejecuta el transpilador en su propia computadora y 
 
 Acerca de nombres, [Babel](https://babeljs.io) es uno de los más prominentes transpiladores circulando.
 
-Sistemas de desarrollo de proyectos modernos, tales como [webpack](http://webpack.github.io/), brindan los medios para ejecutar la transpilación automática en cada cambio de código, haciendo muy fácil la integración al proceso de desarrollo.
+Sistemas de desarrollo de proyectos modernos, tales como [webpack](https://webpack.js.org/), brindan los medios para ejecutar la transpilación automática en cada cambio de código, haciendo muy fácil la integración al proceso de desarrollo.
 
 ## Polyfills
 
@@ -82,7 +82,7 @@ En este artículo queremos motivarte a estudiar las características más modern
 
 Pero no olvides usar transpiladores (si usas sintaxis u operadores modernos) y polyfills (para añadir funciones que pueden estar ausentes). Ellos se asegurarán de que el código funcione.
 
-Por ejemplo, cuando estés más familiarizado con JavaScript puedes configurar la construcción de código basado en [webpack](http://webpack.github.io/) con el plugin de [babel](https://github.com/babel/babel-loader).
+Por ejemplo, cuando estés más familiarizado con JavaScript puedes configurar la construcción de código basado en [webpack](https://webpack.js.org/) con el plugin de [babel](https://github.com/babel/babel-loader).
 
 Buenos recursos que muestran el estado actual de soporte para varias característica:
 - <https://kangax.github.io/compat-table/es6/> - para JavaScript puro.

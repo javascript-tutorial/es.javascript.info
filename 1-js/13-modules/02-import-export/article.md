@@ -93,7 +93,7 @@ A primera vista, "importar todo" parece algo tan genial, corto de escribir, por 
 
 Pues hay algunas razones.
 
-1. Las herramientas de ensamblaje modernas ([webpack](http://webpack.github.io) y otras) empaquetan los módulos juntos y los optimiza para acelerar la carga y quitan las cosas sin usar.
+1. Las herramientas de ensamblaje modernas ([webpack](https://webpack.js.org/) y otras) empaquetan los módulos juntos, los optimiza para acelerar la carga y quitan las cosas que no se usan.
 
     Digamos que agregamos una librería externa `say.js` a nuestro proyecto con varias funciones:
     ```js
@@ -403,7 +403,7 @@ Para reexportar la exportación predeterminada, tenemos que escribir `export {de
 
 2. `export * from './user.js'` reexporta únicamente las exportaciones con nombre, pero ignora la exportación predeterminada.
 
-Si nos gustaría reexportar tanto la exportación con nombre como la predeterminada, se necesitan dos declaraciones:
+    Si queremos reexportar tanto la exportación con nombre como la predeterminada, se necesitan dos declaraciones:
     ```js
     export * from './user.js'; // para reexportar exportaciones con nombre
     export {default} from './user.js'; // para reexportar la exportación predeterminada
