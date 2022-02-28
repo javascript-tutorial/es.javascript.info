@@ -153,13 +153,8 @@ Por ejemplo:
 
 <div class="contents">
   <ul class="book">
-<<<<<<< HEAD
     <li class="chapter">Capítulo 1</li>
-    <li class="chapter">Capítulo 1</li>
-=======
-    <li class="chapter">Chapter 1</li>
-    <li class="chapter">Chapter 2</li>
->>>>>>> 2cca9a9d09fdd45819832294225aa3721fa5a2d4
+    <li class="chapter">Capítulo 2</li>
   </ul>
 </div>
 
