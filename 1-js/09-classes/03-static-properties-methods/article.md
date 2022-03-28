@@ -31,7 +31,7 @@ User.staticMethod(); // verdadero
 
 El valor de `this` en la llamada `User.staticMethod()` es el mismo constructor de clase `User` (la regla "objeto antes de punto").
 
-Por lo general, los métodos estáticos se utilizan para implementar funciones que pertenecen a la clase como un todo, pero no a un objeto particular de la misma.
+Por lo general, los métodos estáticos se utilizan para implementar funciones que pertenecen a la clase como un todo, no a un objeto particular de la misma.
 
 Por ejemplo, tenemos objetos `Article` y necesitamos una función para compararlos. 
 
@@ -75,7 +75,7 @@ Digamos que necesitamos múltiples formas de crear un artículo:
 2. Crear un artículo vacío con la fecha de hoy.
 3. ... o cualquier otra manera.
 
-La primera forma puede ser implementada por el constructor. Y para el segundo podemos hacer un método estático de la clase.
+La primera forma puede ser implementada por el constructor. Y para la segunda podemos hacer un método estático de la clase.
 
 Tal como `Article.createTodays()` aquí:
 
