@@ -108,7 +108,7 @@ Por ejemplo, en `user?.address.street.name`, el `?.` permite que `user` sea `nul
 ```warn header="No abuses del encadenamiento opcional"
 Deberíamos usar `?.` solo donde está bien que algo no exista.
 
-Por ejemplo, si de acuerdo con la lógica de nuestro código, el objeto `user` debe existir, pero `address` es opcional, entonces podríamos escribir `user.address?.street`, pero no `user?.address?.street`.
+Por ejemplo, si de acuerdo con la lógica de nuestro código, el objeto `user` debe existir, pero `address` es opcional, entonces deberíamos escribir `user.address?.street` y no `user?.address?.street`.
 
 De esta forma, si por un error `user` no está definido, lo sabremos y lo arreglaremos. De lo contrario, los errores de codificación pueden silenciarse donde no sea apropiado y volverse más difíciles de depurar.
 ```
