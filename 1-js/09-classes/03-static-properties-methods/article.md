@@ -1,9 +1,9 @@
 
 # Propiedades y métodos estáticos.
 
-También podemos asignar métodos a la funcionalidad de una clase en sí, no a su `"prototype"`. Dichos métodos se llaman *static*.
+También podemos asignar un método a la clase como un todo. Dichos métodos se llaman *estáticos*.
 
-En una clase, están precedidos por la palabra clave `static`, como esta:
+En la declaración de una clase, se preceden por la palabra clave `static`:
 
 ```js run
 class User {
@@ -31,9 +31,11 @@ User.staticMethod(); // verdadero
 
 El valor de `this` en la llamada `User.staticMethod()` es el mismo constructor de clase `User` (la regla "objeto antes de punto").
 
-Por lo general, los métodos estáticos se utilizan para implementar funciones que pertenecen a la clase, pero no a ningún objeto particular de la misma.
+Por lo general, los métodos estáticos se utilizan para implementar funciones que pertenecen a la clase como un todo, no a un objeto particular de la misma.
 
-Por ejemplo, tenemos objetos `Article` y necesitamos una función para compararlos. Una solución natural sería agregar el método `Article.compare`, como este:
+Por ejemplo, tenemos objetos `Article` y necesitamos una función para compararlos. 
+
+Una solución natural sería agregar el método `Article.compare`:
 
 ```js run
 class Article {
@@ -63,17 +65,19 @@ articles.sort(Article.compare);
 alert( articles[0].title ); // CSS
 ```
 
-Aquí `Article.compare` se encuentra "encima" de los artículos, como un medio para compararlos. No es el método de un artículo, sino de toda la clase.
+Aquí el método `Article.compare` se encuentra "encima" de los artículos, como un medio para compararlos. No es el método de un artículo sino de toda la clase.
 
-Otro ejemplo sería un método llamado "factory". Imagina, necesitamos pocas formas para crear un artículo:
+Otro ejemplo sería un método llamado "factory". 
+
+Digamos que necesitamos múltiples formas de crear un artículo:
 
 1. Crearlo por parámetros dados (`title`,`date` etc.).
 2. Crear un artículo vacío con la fecha de hoy.
 3. ... o cualquier otra manera.
 
-La primera forma puede ser implementada por el constructor. Y para el segundo podemos hacer un método estático de la clase.
+La primera forma puede ser implementada por el constructor. Y para la segunda podemos hacer un método estático de la clase.
 
-Al igual que `Article.createTodays()` aquí:
+Tal como `Article.createTodays()` aquí:
 
 ```js run
 class Article {
@@ -99,8 +103,8 @@ Ahora, cada vez que necesitamos crear un resumen de hoy, podemos llamar a `Artic
 Los métodos estáticos también se utilizan en clases relacionadas con base de datos para buscar/guardar/eliminar entradas de la misma, como esta:
 
 ```js
-// suponiendo que el artículo es una clase especial para gestionar artículos
-// método estático para eliminar el artículo:
+// suponiendo que Article es una clase especial para gestionar artículos
+// método estático para eliminar el artículo por id:
 Article.remove({id: 12345});
 ```
 

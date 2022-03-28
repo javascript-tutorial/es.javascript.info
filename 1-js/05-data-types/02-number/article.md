@@ -47,7 +47,7 @@ Ahora escribamos algo muy pequeño. Digamos 1 microsegundo (un millonésimo de s
 let mсs = 0.000001;
 ```
 
-Como antes, el uso de `"e"` puede ayudar. Si queremos evitar la escritura de ceros explícitamente, podríamos expresar lo mismo así:
+Igual que antes, el uso de `"e"` puede ayudar. Si queremos evitar la escritura de ceros explícitamente, podríamos expresar lo mismo como:
 
 ```js
 let mcs = 1e-6; // seis ceros a la izquierda de 1
@@ -157,7 +157,7 @@ Hay dos formas de hacerlo:
 
 1. Multiplicar y dividir.
 
-    Para redondear el número a dos dígitos tras el decimal, podemos multiplicarlo por `100` (o una potencia mayor de 10), llamar la función de redondeo y volverlo a dividir.
+    Por ejemplo, para redondear el número a dos dígitos tras el decimal, podemos multiplicarlo por `100`, llamar la función de redondeo y entonces volverlo a dividir.
     ```js run
     let num = 1.23456;
 
@@ -185,13 +185,13 @@ Hay dos formas de hacerlo:
     alert( num.toFixed(5) ); // "12.34000", con ceros agregados para dar exactamente 5 dígitos
     ```
 
-    Podemos convertirlo a número usando el operador unario más o llamando a `Number()`: `+num.toFixed(5)`.
+    Podemos convertirlo a "number" usando el operador unario más o llamando a `Number()`; por ejemplo, escribir `+num.toFixed(5)`.
 
 ## Cálculo impreciso
 
 Internamente, un número es representado en formato de 64-bit [IEEE-754](http://en.wikipedia.org/wiki/IEEE_754-1985), donde hay exactamente 64 bits para almacenar un número: 52 de ellos son usados para almacenar los dígitos, 11 para almacenar la posición del punto decimal (son cero para los enteros), y 1 bit es para el signo.
 
-Si un número es demasiado grande rebasaría el almacén de 64 bit, potencialmente dando infinito:
+Si un número es verdaderamente grande, puede rebasar el almacén de 64 bit y obtenerse el valor numérico `Infinity`:
 
 ```js run
 alert( 1e500 ); // Infinity
@@ -199,7 +199,7 @@ alert( 1e500 ); // Infinity
 
 Lo que puede ser algo menos obvio, pero ocurre a menudo, es la pérdida de precisión.
 
-Considera este (¡falso!) test:
+Considera este (¡falso!) test de igualdad:
 
 ```js run
 alert( 0.1 + 0.2 == 0.3 ); // *!*false*/!*
@@ -213,13 +213,13 @@ Es así, al comprobar si la suma de `0.1` y `0.2` es `0.3`, obtenemos `false`.
 alert( 0.1 + 0.2 ); // 0.30000000000000004
 ```
 
-¡Ay! Hay más consecuencias que una comparación incorrecta aquí. Imagina que estás haciendo un sitio de compras electrónicas y el visitante pone `$0.10` y `$0.20` en productos en su carrito. El total de la orden será `$0.30000000000000004`. Eso sorprendería a cualquiera..
+¡Ay! Imagina que estás haciendo un sitio de compras electrónicas y el visitante pone `$0.10` y `$0.20` en productos en su carrito. El total de la orden será `$0.30000000000000004`. Eso sorprendería a cualquiera..
 
 ¿Pero por qué pasa esto?
 
 Un número es almacenado en memoria en su forma binaria, una secuencia de bits, unos y ceros. Pero decimales como `0.1`, `0.2` que se ven simples en el sistema decimal son realmente fracciones sin fin en su forma binaria.
 
-En otras palabras, ¿qué es `0.1`? Es un uno dividido por 10 `1/10`, un décimo. En sistema decimal es fácilmente representable. Compáralo con un tercio: `1/3`, se vuelve una fracción sin fin `0.33333(3)`.
+¿Qué es `0.1`? Es un uno dividido por 10 `1/10`, un décimo. En sistema decimal es fácilmente representable. Compáralo con un tercio: `1/3`, se vuelve una fracción sin fin `0.33333(3)`.
 
 Así, la división en potencias de diez garantizan un buen funcionamiento en el sistema decimal, pero divisiones por `3` no.  Por la misma razón, en el sistema binario la división en potencias de `2` garantizan su funcionamiento, pero `1/10` se vuelve una fracción binaria sin fin.
 
