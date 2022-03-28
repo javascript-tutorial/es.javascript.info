@@ -47,7 +47,11 @@ Ahora escribamos algo muy pequeño. Digamos 1 microsegundo (un millonésimo de s
 let mсs = 0.000001;
 ```
 
+<<<<<<< HEAD
 Como antes, el uso de `"e"` puede ayudar. Si queremos evitar la escritura de ceros explícitamente, podríamos expresar lo mismo así:
+=======
+Just like before, using `"e"` can help. If we'd like to avoid writing the zeroes explicitly, we could write the same as:
+>>>>>>> 741d90ce8a730d66e987bff5e9794d6e41cb2f05
 
 ```js
 let mcs = 1e-6; // seis ceros a la izquierda de 1
@@ -157,7 +161,11 @@ Hay dos formas de hacerlo:
 
 1. Multiplicar y dividir.
 
+<<<<<<< HEAD
     Para redondear el número a dos dígitos tras el decimal, podemos multiplicarlo por `100` (o una potencia mayor de 10), llamar la función de redondeo y volverlo a dividir.
+=======
+    For example, to round the number to the 2nd digit after the decimal, we can multiply the number by `100`, call the rounding function and then divide it back.
+>>>>>>> 741d90ce8a730d66e987bff5e9794d6e41cb2f05
     ```js run
     let num = 1.23456;
 
@@ -185,13 +193,21 @@ Hay dos formas de hacerlo:
     alert( num.toFixed(5) ); // "12.34000", con ceros agregados para dar exactamente 5 dígitos
     ```
 
+<<<<<<< HEAD
     Podemos convertirlo a número usando el operador unario más o llamando a `Number()`: `+num.toFixed(5)`.
+=======
+    We can convert it to a number using the unary plus or a `Number()` call, e.g write `+num.toFixed(5)`.
+>>>>>>> 741d90ce8a730d66e987bff5e9794d6e41cb2f05
 
 ## Cálculo impreciso
 
 Internamente, un número es representado en formato de 64-bit [IEEE-754](http://en.wikipedia.org/wiki/IEEE_754-1985), donde hay exactamente 64 bits para almacenar un número: 52 de ellos son usados para almacenar los dígitos, 11 para almacenar la posición del punto decimal (son cero para los enteros), y 1 bit es para el signo.
 
+<<<<<<< HEAD
 Si un número es demasiado grande rebasaría el almacén de 64 bit, potencialmente dando infinito:
+=======
+If a number is really huge, it may overflow the 64-bit storage and become a special numeric value `Infinity`:
+>>>>>>> 741d90ce8a730d66e987bff5e9794d6e41cb2f05
 
 ```js run
 alert( 1e500 ); // Infinity
@@ -199,7 +215,11 @@ alert( 1e500 ); // Infinity
 
 Lo que puede ser algo menos obvio, pero ocurre a menudo, es la pérdida de precisión.
 
+<<<<<<< HEAD
 Considera este (¡falso!) test:
+=======
+Consider this (falsy!) equality test:
+>>>>>>> 741d90ce8a730d66e987bff5e9794d6e41cb2f05
 
 ```js run
 alert( 0.1 + 0.2 == 0.3 ); // *!*false*/!*
@@ -213,13 +233,21 @@ Es así, al comprobar si la suma de `0.1` y `0.2` es `0.3`, obtenemos `false`.
 alert( 0.1 + 0.2 ); // 0.30000000000000004
 ```
 
+<<<<<<< HEAD
 ¡Ay! Hay más consecuencias que una comparación incorrecta aquí. Imagina que estás haciendo un sitio de compras electrónicas y el visitante pone `$0.10` y `$0.20` en productos en su carrito. El total de la orden será `$0.30000000000000004`. Eso sorprendería a cualquiera..
+=======
+Ouch! Imagine you're making an e-shopping site and the visitor puts `$0.10` and `$0.20` goods into their cart. The order total will be `$0.30000000000000004`. That would surprise anyone.
+>>>>>>> 741d90ce8a730d66e987bff5e9794d6e41cb2f05
 
 ¿Pero por qué pasa esto?
 
 Un número es almacenado en memoria en su forma binaria, una secuencia de bits, unos y ceros. Pero decimales como `0.1`, `0.2` que se ven simples en el sistema decimal son realmente fracciones sin fin en su forma binaria.
 
+<<<<<<< HEAD
 En otras palabras, ¿qué es `0.1`? Es un uno dividido por 10 `1/10`, un décimo. En sistema decimal es fácilmente representable. Compáralo con un tercio: `1/3`, se vuelve una fracción sin fin `0.33333(3)`.
+=======
+What is `0.1`? It is one divided by ten `1/10`, one-tenth. In decimal numeral system such numbers are easily representable. Compare it to one-third: `1/3`. It becomes an endless fraction `0.33333(3)`.
+>>>>>>> 741d90ce8a730d66e987bff5e9794d6e41cb2f05
 
 Así, la división en potencias de diez garantizan un buen funcionamiento en el sistema decimal, pero divisiones por `3` no.  Por la misma razón, en el sistema binario la división en potencias de `2` garantizan su funcionamiento, pero `1/10` se vuelve una fracción binaria sin fin.
 

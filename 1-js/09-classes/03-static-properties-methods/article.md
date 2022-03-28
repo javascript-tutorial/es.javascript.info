@@ -1,9 +1,15 @@
 
 # Propiedades y métodos estáticos.
 
+<<<<<<< HEAD
 También podemos asignar métodos a la funcionalidad de una clase en sí, no a su `"prototype"`. Dichos métodos se llaman *static*.
 
 En una clase, están precedidos por la palabra clave `static`, como esta:
+=======
+We can also assign a method to the class as a whole. Such methods are called *static*.
+
+In a class declaration, they are prepended by `static` keyword, like this:
+>>>>>>> 741d90ce8a730d66e987bff5e9794d6e41cb2f05
 
 ```js run
 class User {
@@ -31,9 +37,17 @@ User.staticMethod(); // verdadero
 
 El valor de `this` en la llamada `User.staticMethod()` es el mismo constructor de clase `User` (la regla "objeto antes de punto").
 
+<<<<<<< HEAD
 Por lo general, los métodos estáticos se utilizan para implementar funciones que pertenecen a la clase, pero no a ningún objeto particular de la misma.
 
 Por ejemplo, tenemos objetos `Article` y necesitamos una función para compararlos. Una solución natural sería agregar el método `Article.compare`, como este:
+=======
+Usually, static methods are used to implement functions that belong to the class as a whole, but not to any particular object of it.
+
+For instance, we have `Article` objects and need a function to compare them.
+
+A natural solution would be to add `Article.compare` static method:
+>>>>>>> 741d90ce8a730d66e987bff5e9794d6e41cb2f05
 
 ```js run
 class Article {
@@ -63,9 +77,17 @@ articles.sort(Article.compare);
 alert( articles[0].title ); // CSS
 ```
 
+<<<<<<< HEAD
 Aquí `Article.compare` se encuentra "encima" de los artículos, como un medio para compararlos. No es el método de un artículo, sino de toda la clase.
 
 Otro ejemplo sería un método llamado "factory". Imagina, necesitamos pocas formas para crear un artículo:
+=======
+Here `Article.compare` method stands "above" articles, as a means to compare them. It's not a method of an article, but rather of the whole class.
+
+Another example would be a so-called "factory" method.
+
+Let's say, we need multiple ways to create an article:
+>>>>>>> 741d90ce8a730d66e987bff5e9794d6e41cb2f05
 
 1. Crearlo por parámetros dados (`title`,`date` etc.).
 2. Crear un artículo vacío con la fecha de hoy.
@@ -73,7 +95,11 @@ Otro ejemplo sería un método llamado "factory". Imagina, necesitamos pocas for
 
 La primera forma puede ser implementada por el constructor. Y para el segundo podemos hacer un método estático de la clase.
 
+<<<<<<< HEAD
 Al igual que `Article.createTodays()` aquí:
+=======
+Such as `Article.createTodays()` here:
+>>>>>>> 741d90ce8a730d66e987bff5e9794d6e41cb2f05
 
 ```js run
 class Article {
@@ -99,8 +125,13 @@ Ahora, cada vez que necesitamos crear un resumen de hoy, podemos llamar a `Artic
 Los métodos estáticos también se utilizan en clases relacionadas con base de datos para buscar/guardar/eliminar entradas de la misma, como esta:
 
 ```js
+<<<<<<< HEAD
 // suponiendo que el artículo es una clase especial para gestionar artículos
 // método estático para eliminar el artículo:
+=======
+// assuming Article is a special class for managing articles
+// static method to remove the article by id:
+>>>>>>> 741d90ce8a730d66e987bff5e9794d6e41cb2f05
 Article.remove({id: 12345});
 ```
 
