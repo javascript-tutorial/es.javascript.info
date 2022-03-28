@@ -108,15 +108,9 @@ Por ejemplo, en `user?.address.street.name`, el `?.` permite que `user` sea `nul
 ```warn header="No abuses del encadenamiento opcional"
 Deberíamos usar `?.` solo donde está bien que algo no exista.
 
-<<<<<<< HEAD
-Por ejemplo, si de acuerdo con nuestra lógica de codificación, el objeto `user` debe estar allí, pero `address` es opcional, entonces deberíamos escribir `user.address?.street` y no `user?.address?.street`.
+Por ejemplo, si de acuerdo con la lógica de nuestro código, el objeto `user` debe existir, pero `address` es opcional, entonces deberíamos escribir `user.address?.street` y no `user?.address?.street`.
 
-Entonces, si `user` no está definido debido a un error, lo sabremos y lo arreglaremos. De lo contrario, los errores de codificación pueden silenciarse donde no sea apropiado y volverse más difíciles de depurar.
-=======
-For example, if according to our code logic `user` object must exist, but `address` is optional, then we should write `user.address?.street`, but not `user?.address?.street`.
-
-Then, if `user` happens to be undefined, we'll see a programming error about it and fix it. Otherwise, if we overuse `?.`, coding errors can be silenced where not appropriate, and become more difficult to debug.
->>>>>>> 741d90ce8a730d66e987bff5e9794d6e41cb2f05
+De esta forma, si por un error `user` no está definido, lo sabremos y lo arreglaremos. De lo contrario, los errores de codificación pueden silenciarse donde no sea apropiado y volverse más difíciles de depurar.
 ```
 
 ````warn header="La variable antes de `?.` debe declararse"
@@ -133,11 +127,7 @@ La variable debe ser declarada (con `let/const/var user` o como parámetro de fu
 
 Como se dijo antes, el `?.` detiene inmediatamente ("cortocircuito") la evaluación si la parte izquierda no existe.
 
-<<<<<<< HEAD
-Entonces, si hay más llamadas a funciones o efectos secundarios, estos no suceden:
-=======
-So, if there are any further function calls or operations to the right of `?.`, they won't be made.
->>>>>>> 741d90ce8a730d66e987bff5e9794d6e41cb2f05
+Entonces, si a la derecha de `?.` hay funciones u operaciones adicionales, estas no se ejecutarán:
 
 Por ejemplo:
 
@@ -145,11 +135,7 @@ Por ejemplo:
 let user = null;
 let x = 0;
 
-<<<<<<< HEAD
-user?.sayHi(x++); // no hay "sayHi", por lo que la ejecución no alcanza a x++
-=======
-user?.sayHi(x++); // no "user", so the execution doesn't reach sayHi call and x++
->>>>>>> 741d90ce8a730d66e987bff5e9794d6e41cb2f05
+user?.sayHi(x++); // no hay "user", por lo que la ejecución no alcanza a sayHi ni a x++
 
 alert(x); // 0, el valor no se incrementa
 ```
