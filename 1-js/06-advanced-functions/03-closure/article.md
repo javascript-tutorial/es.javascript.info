@@ -284,7 +284,7 @@ Todas las funciones recuerdan el entorno léxico en el que fueron realizadas. T�
 
 ![](closure-makecounter-environment.svg)
 
-Entonces, `counter.[[Environment]]` tiene la referencia al Entorno léxico de `{count: 0}`. Así es como la función recuerda dónde se creó, sin importar dónde se llame. La referencia `[[Environment]]` se establece una vez y para siempre en el momento de creación de la función.
+Entonces, `counter.[[Environment]]` tiene la referencia al Entorno léxico de `{count: 0}`. Así es como la función recuerda dónde se creó, sin importar dónde se la llame. La referencia `[[Environment]]` se establece una vez y para siempre en el momento de creación de la función.
 
 Luego, cuando `counter()` es llamado, un nuevo Entorno Léxico es creado por la llamada, y su referencia externa del entorno léxico se toma de `counter.[[Environment]]`:
 
