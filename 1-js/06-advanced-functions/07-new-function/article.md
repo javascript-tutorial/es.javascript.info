@@ -11,7 +11,7 @@ La sintaxis para crear una función:
 let func = new Function ([arg1, arg2, ...argN], functionBody);
 ```
 
-La función se crea con los argumentos `arg1 ... argN` y el `functionBody` dado.
+La función se crea con los argumentos `arg1 ... argN` y el cuerpo `functionBody` dado.
 
 Es más fácil entender viendo un ejemplo: Aquí tenemos una función con dos argumentos:
 
@@ -21,7 +21,7 @@ let sumar = new Function('a', 'b', 'return a + b');
 alert(sumar(1, 2)); // 3
 ```
 
-Si no hay argumentos, entonces hay sólo un único argumento, el cuerpo de la función sería:
+Y aquí tenemos unaa función sin argumentos, con solo el cuerpo de la función:
 
 ```js run
 let diHola = new Function('alert("Hola")');
@@ -29,7 +29,7 @@ let diHola = new Function('alert("Hola")');
 diHola(); // Hola
 ```
 
-La mayor diferencia sobre las otras maneras de crear funciones que hemos visto, es que la función se crea literalmente con un string y es pasada en tiempo de ejecución.
+La mayor diferencia sobre las otras maneras de crear funciones que hemos visto, es que la función se crea desde un string y es pasada en tiempo de ejecución.
 
 Las declaraciones anteriores nos obliga a nosotros, los programadores, a escribir el código de la función en el script.
 
@@ -46,7 +46,7 @@ Se utilizan en casos muy específicos, como cuando recibimos código de un servi
 
 ## Closure
 
-Normalmente, una función recuerda dónde nació en una propiedad especial llamada `[[Environment]]`. Hace referencia al entorno léxico desde dónde se creó.
+Normalmente, una función recuerda dónde nació en una propiedad especial llamada `[[Environment]]`, que hace referencia al entorno léxico desde dónde se creó.
 
 Pero cuando una función es creada usando `new Function`, su `[[Environment]]` no hace referencia al entorno léxico actual, sino al global.
 
@@ -84,17 +84,17 @@ getFunc()(); // *!*"test"*/!*, obtenido del entorno léxico de getFunc
 
 Esta característica especial de `new Function` parece extraña, pero resulta muy útil en la práctica.
 
-Imagina que debemos crear una función a partir de una string. El código de dicha función no se conoce al momento de escribir el script (es por eso que no usamos funciones regulares), pero se conocerá en el proceso de ejecución. Podemos recibirlo del servidor o de otra fuente.
+Imagina que debemos crear una función a partir de una string. El código de dicha función no se conoce al momento de escribir el script (es por eso que no usamos funciones regulares), sino que se conocerá en el proceso de ejecución. Podemos recibirlo del servidor o de otra fuente.
 
 Nuestra nueva función necesita interactuar con el script principal.
 
-¿Si queremos que pueda acceder a las variables locales externas?
+¿Qué pasa si pudiera acceder a las variables locales externas?
 
-El problema es que antes de publicar el JavaScript a producción, este es comprimido usando un _minifier_ -- un programa especial que comprime código eliminando los comentarios extras, espacios -- y lo que es más importante, renombra las variables locales a otras más cortas.
+El problema es que antes de publicar el JavaScript a producción, este es comprimido usando un _minifier_ : un programa especial que comprime código eliminando los comentarios extras, espacios y, lo que es más importante, renombra las variables locales a otras más cortas.
 
-Por ejemplo, si una función tiene `let userName`, el _minifier_ lo reemplaza con `let a` (u otra letra si ésta está siendo utilizada), y lo hace en todas partes. Esto normalmente es una práctica segura, al ser una variable local, nada de fuera de la función puede acceder a ella. Y dentro de una función, el _minifier_ reemplaza todo lo que le menciona. Los Minificadores son inteligente, ellos analizan la estructura del código, por lo tanto, no rompen nada. No realizan un simple buscar y reemplazar.
+Por ejemplo, si una función tiene `let userName`, el _minifier_ lo reemplaza con `let a` (u otra letra si ésta está siendo utilizada), y lo hace en todas partes. Esto normalmente es una práctica segura, porque al ser una variable local, nada de fuera de la función puede acceder a ella. Y dentro de una función, el _minifier_ reemplaza todo lo que la menciona. Los Minificadores son inteligentes, ellos analizan la estructura del código, por lo tanto, no rompen nada. No realizan un simple buscar y reemplazar.
 
-Pero si `new Function` pudiera acceder a las variables externas, no podría encontrar la renombrada `userName`.
+Pero si `new Function` pudiera acceder a las variables externas, no podría encontrar la variable `userName` renombrada.
 
 **Si `new Function` tuviera acceso a variables externas, tendríamos problemas con los minificadores**
 
