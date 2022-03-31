@@ -48,7 +48,7 @@ Como puedes ver, `(a, b) => a + b` significa una función que acepta dos argumen
     alert( double(3) ); // 6
     ```
 
-- Si no hay parámetros, los paréntesis estarán vacíos (pero deben estar presentes):
+- Si no hay parámetros, los paréntesis estarán vacíos pero deben estar presentes:
 
     ```js run
     let sayHi = () => alert("Hello!");
@@ -76,9 +76,9 @@ Son muy convenientes para acciones simples de una línea, cuando somos demasiado
 
 ## Funciones de flecha multilínea
 
-Los ejemplos anteriores tomaron parámetros de la izquierda de `=>` y evaluaron el lado derecho de la expresión con ellos.
+Las funciones de flecha que estuvimos viendo eran muy simples. Toman los parámetros a la izquierda de `=>`, los evalúan y devuelven la expresión del lado derecho.
 
-A veces necesitamos algo un poco más complejo, como múltiples expresiones o declaraciones. También es posible: en ese caso debemos encerrarlos entre llaves y luego usar un `return` normal dentro de ellas.
+A veces necesitamos una función más compleja, con múltiples expresiones o sentencias. En ese caso debemos encerrarlos entre llaves. La diferencia principal es que las llaves necesitan usar un `return` para devolver un valor (tal como lo hacen las funciones comunes).
 
 Como esto:
 
@@ -105,7 +105,7 @@ Por ahora, ya podemos usar las funciones de flecha para acciones de una línea y
 
 ## Resumen
 
-Las funciones de flecha son útiles para líneas simples. Vienen en dos variantes:
+Las funciones de flecha son útiles para acciones simples, especialmente las de una sola línea. Vienen en dos variantes:
 
-1. Sin llaves: `(...args) => expression` -- el lado derecho es una expresión: la función lo evalúa y devuelve el resultado.
-2. Con llaves: `(...args) => { body }` -- los paréntesis nos permiten escribir varias declaraciones dentro de la función, pero necesitamos un `return` explícito para devolver algo.
+1. Sin llaves: `(...args) => expression` -- el lado derecho es una expresión: la función la evalúa y devuelve el resultado. Pueden omitirse los paréntesis si solo hay un argumento, por ejemplo `n => n*2`.
+2. Con llaves: `(...args) => { body }` -- las llaves nos permiten escribir varias declaraciones dentro de la función, pero necesitamos un `return` explícito para devolver algo.
