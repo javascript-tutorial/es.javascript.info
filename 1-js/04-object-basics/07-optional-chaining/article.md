@@ -25,14 +25,14 @@ Este es el resultado esperado. JavaScript funciona así, como `user.address` es 
 
 En muchos casos prácticos preferiríamos obtener `undefined` en lugar del error (dando a entender "sin calle")
 
-... y otro ejemplo. En desarrollo web, podemos obtener un objeto que corresponde a un elemento de página web usando el llamado a un método especial, tal como `document.querySelector('.elem')`, que devuelve `null` cuando no existe tal elemento.
+... y otro ejemplo. En desarrollo web, podemos obtener un objeto que corresponde a un elemento de página web usando el llamado a un método especial como `document.querySelector('.elem')`, que devuelve `null` cuando no existe tal elemento.
 
 ```js run
 // Error si el resultado de querySelector (...) es null
 let html = document.querySelector('.my-element').innerHTML;
 ```
 
-Una vez más, si el elemento no existe, obtendremos un error al acceder al `.innerHTML` de `null`. Y en algunos casos, cuando la ausencia del elemento es normal, quisiéramos evitar el error y simplemente aceptar `html = null` como resultado.
+Una vez más, si el elemento no existe, obtendremos un error al intentar acceder a la propiedad `.innerHTML` de `null`. Y en algunos casos, cuando la ausencia del elemento es normal, quisiéramos evitar el error y simplemente aceptar `html = null` como resultado.
 
 ¿Cómo podemos hacer esto?
 
@@ -44,11 +44,19 @@ let user = {};
 alert(user.address ? user.address.street : undefined);
 ```
 
-Esto funciona, no hay error... Pero es bastante poco elegante. Como puedes ver, `"user.address"` aparece dos veces en el código. En propiedades anidadas más profundamente, esto se vuelve un problema porque se requerirán más repeticiones.
+Esto funciona, no hay error... Pero es bastante poco elegante. Como puedes ver, `"user.address"` aparece dos veces en el código. 
 
-Ejemplo: Tratemos de obtener `user.address.street.name`.
+Aquí, el mismo caso pero con la búsqueda de `document.querySelector`:
 
-Necesitamos chequear `user.address` y `user.address.street`:
+```js run
+let html = document.querySelector('.elem') ? document.querySelector('.elem').innerHTML : null;
+```
+
+Podemos ver que el elemento de búsqueda `document.querySelector('.elem')` es llamado dos veces aquí. Nada bueno.
+
+En propiedades anidadas más profundamente, esto se vuelve un problema porque se requerirán más repeticiones.
+
+Ejemplo: Tratemos de obtener `user.address.street.name` de manera similar.
 
 ```js
 let user = {}; // El usuario no tiene dirección
@@ -58,7 +66,7 @@ alert(user.address ? user.address.street ? user.address.street.name : null : nul
 
 Esto es horrible, podemos tener problemas para siquiera entender tal código.
 
-Ni lo intentes, hay una mejor manera de escribirlo usando el operador  `&&`:
+Hay una mejor manera de escribirlo, usando el operador `&&`:
 
 ```js run
 let user = {}; // usuario sin dirección
@@ -91,6 +99,12 @@ alert( user?.address?.street ); // undefined (no hay error)
 ```
 
 El código es corto y claro, no hay duplicación en absoluto
+
+Aquí tenemos un ejemplo con `document.querySelector`:
+
+```js run
+let html = document.querySelector('.elem')?.innerHTML; // será null si no existe el elemento
+```
 
 Leer la dirección con `user?.Address` funciona incluso si el objeto `user` no existe:
 
@@ -162,7 +176,7 @@ userAdmin.admin?.(); // I am admin
 */!*
 
 *!*
-userGuest.admin?.(); // nada (no existe tal método)
+userGuest.admin?.(); // no pasa nada (no existe tal método)
 */!*
 ```
 
@@ -199,10 +213,9 @@ Por ejemplo:
 let user = null;
 
 user?.name = "John"; // Error, no funciona
-// porque se evalúa como undefined = "John"
+// porque se evalúa como: undefined = "John"
 ```
 
-Pues no es tan inteligente
 ````
 
 ## Resumen
@@ -217,4 +230,4 @@ Como podemos ver, todos ellos son sencillos y fáciles de usar. El `?.` comprueb
 
 Una cadena de `?.` permite acceder de forma segura a las propiedades anidadas.
 
-Aún así, debemos aplicar `?.` con cuidado, solo donde está bien que la parte izquierda no exista. Para que no nos oculte errores de programación, si ocurren.
+Aún así, debemos aplicar `?.` con cuidado, solamente donde sea aceptable que, de acuerdo con nuestra lógica, la parte izquierda no exista. Esto es para que no nos oculte errores de programación, si ocurren.
