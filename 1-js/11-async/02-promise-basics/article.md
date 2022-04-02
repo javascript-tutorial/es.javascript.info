@@ -190,7 +190,7 @@ let promise = new Promise(resolve => {
 });
 
 *!*
-promise.then(alert); // muestra "Error: ¡Vaya!" después de 1 segundo
+promise.then(alert); // muestra "hecho!" después de 1 segundo
 */!*
 ```
 
