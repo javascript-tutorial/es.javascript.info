@@ -182,7 +182,7 @@ promise.then(
 );
 ```
 
-Si solo nos interesan las terminaciones exitosas, entonces podemos proporcionar solo un argumento de función para `.then`:
+Si solo nos interesan las terminaciones exitosas, entonces podemos proporcionar un solo argumento de función para `.then`:
 
 ```js run
 let promise = new Promise(resolve => {
