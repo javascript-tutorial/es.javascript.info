@@ -78,7 +78,11 @@ Son muy convenientes para acciones simples de una línea, cuando somos demasiado
 
 Las funciones de flecha que estuvimos viendo eran muy simples. Toman los parámetros a la izquierda de `=>`, los evalúan y devuelven la expresión del lado derecho.
 
+<<<<<<< HEAD
 A veces necesitamos una función más compleja, con múltiples expresiones o sentencias. En ese caso debemos encerrarlos entre llaves. La diferencia principal es que las llaves necesitan usar un `return` para devolver un valor (tal como lo hacen las funciones comunes).
+=======
+Sometimes we need a more complex function, with multiple expressions and statements. In that case, we can enclose them in curly braces. The major difference is that curly braces require a `return` within them to return a value (just like a regular function does).
+>>>>>>> 45934debd9bb31376ea5da129e266df5b43e545f
 
 Como esto:
 
