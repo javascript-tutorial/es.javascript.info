@@ -227,7 +227,7 @@ Por otro lado, se llamará independientemente cada vez que `text` se omita.
 
 ### Parámetros predeterminados alternativos
 
-A veces tiene sentido asignar valores predeterminados no en la declaración de función sino en un estadio posterior.
+A veces tiene sentido asignar valores predeterminados no en la declaración de función sino en un estado posterior.
 
 Podemos verificar si un parámetro es pasado durante la ejecución de la función comparándolo con `undefined`:
 
