@@ -24,9 +24,15 @@ Cuando `abort()` es invocado:
 - `controller.signal` emite el evento `"abort"`.
 - La propiedad `controller.signal.aborted` toma el valor `true`.
 
+<<<<<<< HEAD
 Generalmente tenemos dos partes en el proceso: 
 1. El que ejecuta la operación de cancelación, genera un listener que escucha a `controller.signal`.
 2. El que cancela: este llama a `controller.abort()` cuando es necesario.
+=======
+Generally, we have two parties in the process:
+1. The one that performs a cancelable operation, it sets a listener on `controller.signal`.
+2. The one that cancels: it calls `controller.abort()` when needed.
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 Tal como se muestra a continuación (por ahora sin `fetch`):
 
@@ -34,9 +40,15 @@ Tal como se muestra a continuación (por ahora sin `fetch`):
 let controller = new AbortController();
 let signal = controller.signal;
 
+<<<<<<< HEAD
 // El que ejecuta la operación de cancelación 
 // obtiene el objeto "signal"
 // y genera un listener que se dispara cuando es llamado controller.abort()
+=======
+// The party that performs a cancelable operation
+// gets the "signal" object
+// and sets the listener to trigger when controller.abort() is called
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 signal.addEventListener('abort', () => alert("abort!"));
 
 // El que cancela (más tarde en cualquier punto):
@@ -143,6 +155,12 @@ let results = await Promise.all([...fetchJobs, ourJob]);
 
 ## Resumen
 
+<<<<<<< HEAD
 - `AbortController` es un simple objeto que genera un evento `abort` sobre su propiedad `signal` cuando el método `abort()` es llamado (y también establece `signal.aborted` en `true`).
 - `fetch` está integrado con él: pasamos la propiedad `signal` como opción, y entonces `fetch` la escucha, así se vuelve posible abortar `fetch`.
 - Podemos usar `AbortController` en nuestro código. La interacción "llamar `abort()`" -> "escuchar evento `abort`" es simple y universal. Podemos usarla incluso sin `fetch`.
+=======
+- `AbortController` is a simple object that generates an `abort` event on its `signal` property when the `abort()` method is called (and also sets `signal.aborted` to `true`).
+- `fetch` integrates with it: we pass the `signal` property as the option, and then `fetch` listens to it, so it's possible to abort the `fetch`.
+- We can use `AbortController` in our code. The "call `abort()`" -> "listen to `abort` event" interaction is simple and universal. We can use it even without `fetch`.
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0

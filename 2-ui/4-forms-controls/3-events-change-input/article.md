@@ -85,7 +85,11 @@ Por ello el ejemplo arriba usa `document.getSelection()` para obtener el texto s
 
 No solo es posible copiar/pegar texto, sino cualquier cosa. Por ejemplo, podemos copiar un archivo en el gestor de archivos del SO y pegarlo.
 
+<<<<<<< HEAD
 Esto es porque `clipboardData` implementa la interfaz `DataTransfer`, usada comúnmente para "arrastrar y soltar" y "copiar y pegar". Ahora esto está fuera de nuestro objetivo, pero puedes encontrar sus métodos [en la especificación DataTransfer](https://html.spec.whatwg.org/multipage/dnd.html#the-datatransfer-interface).
+=======
+That's because `clipboardData` implements `DataTransfer` interface, commonly used for drag'n'drop and copy/pasting. It's a bit beyond our scope now, but you can find its methods in the [DataTransfer specification](https://html.spec.whatwg.org/multipage/dnd.html#the-datatransfer-interface).
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 Hay además una API asincrónica adicional para acceso al portapapeles: `navigator.clipboard`. Más en la especificación [Clipboard API and events](https://www.w3.org/TR/clipboard-apis/), [no soportado en Firefox](https://caniuse.com/async-clipboard).
 

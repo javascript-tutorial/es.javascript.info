@@ -211,7 +211,11 @@ Tenga en cuenta: el evento debe tener la bandera `cancelable: true`, de lo contr
 
 ## Los eventos dentro de eventos son sincrónicos
 
+<<<<<<< HEAD
 Por lo general, los eventos se procesan en una cola. Es decir: si el navegador está procesando `onclick` y ocurre un nuevo evento, por ejemplo, con el mouse movido, luego su despacho se pone en cola, los controladores correspondientes `mousemove` serán llamados después de que el procesamiento de `onclick` haya terminado.
+=======
+Usually events are processed in a queue. That is: if the browser is processing `onclick` and a new event occurs, e.g. mouse moved, then its handling is queued up, corresponding `mousemove` handlers will be called after `onclick` processing is finished.
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 La excepción notable es cuando un evento se inicia desde dentro de otro, por ejemplo, usando `dispatchEvent`. Dichos eventos se procesan inmediatamente: se llaman los nuevos controladores de eventos y luego se reanuda el manejo de eventos actual.
 

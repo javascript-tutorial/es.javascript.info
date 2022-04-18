@@ -50,8 +50,13 @@ let user = {
 *!*
 // primero, declara
 function sayHi() {
+<<<<<<< HEAD
   alert("¡Hola!");
 };
+=======
+  alert("Hello!");
+}
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 // entonces la agrega como un método
 user.sayHi = sayHi;

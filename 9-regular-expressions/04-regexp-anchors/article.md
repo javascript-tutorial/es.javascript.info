@@ -16,8 +16,13 @@ El patrón `pattern:^Mary` significa: "inicio de cadena y luego Mary".
 Similar a esto, podemos probar si la cadena termina con `nieve` usando `pattern:nieve$`:
 
 ```js run
+<<<<<<< HEAD
 let str1 = "su vellón era blanco como la nieve";
 alert( /nieve$/.test(str1) ); // true
+=======
+let str1 = "its fleece was white as snow";
+alert( /snow$/.test(str1) ); // true
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 ```
 
 En estos casos particulares, en su lugar podríamos usar métodos de cadena `beginWith/endsWith`. Las expresiones regulares deben usarse para pruebas más complejas.

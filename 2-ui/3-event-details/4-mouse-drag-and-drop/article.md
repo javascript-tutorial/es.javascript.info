@@ -23,6 +23,7 @@ Esto es lo básico. Luego veremos como añadir características, como resaltar l
 Aquí esta la implementación de arrastrar una pelota:
 
 ```js
+<<<<<<< HEAD
 ball.onmousedown = function(event) { 
   // (1) preparar para mover: hacerlo absoluto y ponerlo sobre todo con el z-index
   ball.style.position = 'absolute';
@@ -31,6 +32,16 @@ ball.onmousedown = function(event) {
   // quitar cualquier padre actual y moverlo directamente a body
   // para posicionarlo relativo al body
   document.body.append(ball);  
+=======
+ball.onmousedown = function(event) {
+  // (1) prepare to moving: make absolute and on top by z-index
+  ball.style.position = 'absolute';
+  ball.style.zIndex = 1000;
+
+  // move it out of any current parents directly into body
+  // to make it positioned relative to the body
+  document.body.append(ball);
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
   // centrar la pelota en las coordenadas (pageX, pageY)
   function moveAt(pageX, pageY) {
@@ -93,7 +104,11 @@ Así que tenemos que escuchar en `document` para captarlo.
 
 ## Posicionamiento correcto
 
+<<<<<<< HEAD
 En los ejemplos de arriba la pelota siempre se mueve, de manera que su centro queda debajo del puntero:
+=======
+In the examples above the ball is always moved so that its center is under the pointer:
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 ```js
 ball.style.left = pageX - ball.offsetWidth / 2 + 'px';
@@ -219,7 +234,11 @@ Por eso la idea inicial de poner manejadores en receptores potenciales no funcio
 
 Entonces, ¿Qué hacer?
 
+<<<<<<< HEAD
 Hay un método llamado `document.elementFromPoint(clientX, clientY)`. Este retorna el elemento más anidado en las coordenadas relativas a la ventana proporcionadas (o `null` si las coordenadas están fuera de la ventana).
+=======
+There's a method called `document.elementFromPoint(clientX, clientY)`. It returns the most nested element on given window-relative coordinates (or `null` if given coordinates are out of the window). If there are multiple overlapping elements on the same coordinates, then the topmost one is returned.
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 Podemos utilizarlo en cualquiera de nuestros manejadores para detectar los receptores potenciales bajo el puntero, de esta forma:
 

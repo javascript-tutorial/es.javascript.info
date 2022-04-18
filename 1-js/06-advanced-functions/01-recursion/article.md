@@ -536,7 +536,11 @@ Glosario:
     list = { value, next -> list }
     ```
 
+<<<<<<< HEAD
     Los árboles como el árbol de elementos HTML o el árbol de departamentos de este capítulo también son naturalmente recursivos: se ramifican y cada rama puede tener otras ramas.
+=======
+    Trees like HTML elements tree or the department tree from this chapter are also naturally recursive: they have branches and every branch can have other branches.
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
     Las funciones recursivas se pueden usar para recorrerlas como hemos visto en el ejemplo `sumSalary`.
 

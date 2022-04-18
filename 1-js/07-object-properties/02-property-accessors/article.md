@@ -5,7 +5,11 @@ Hay dos tipos de propiedades de objetos.
 
 El primer tipo son las *propiedades de datos*. Ya sabemos cómo trabajar con ellas. Todas las propiedades que hemos estado usando hasta ahora eran propiedades de datos.
 
+<<<<<<< HEAD
 El segundo tipo de propiedades es algo nuevo. Son las *propiedades de acceso*. Son, en esencia, funciones que se ejecutan para obtener ("get") y asignar ("set") un valor, pero que para un código externo parecen propiedades normales.
+=======
+The second type of property is something new. It's an *accessor property*. They are essentially functions that execute on getting and setting a value, but look like regular properties to an external code.
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 ## Getters y setters
 

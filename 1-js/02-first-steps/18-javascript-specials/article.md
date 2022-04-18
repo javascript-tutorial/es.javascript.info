@@ -256,7 +256,11 @@ Cubrimos tres formas de crear una función en JavaScript:
 3. Funciones de flecha:
 
     ```js
+<<<<<<< HEAD
     // la expresión en el lado derecho
+=======
+    // expression on the right side
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
     let sum = (a, b) => a + b;
 
     // o sintaxis multilínea { ... }, aquí necesita return:

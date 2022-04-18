@@ -54,8 +54,13 @@ Existe además una variable global nombrada por el `id` que hace referencia al e
 </script>
 ```
 
+<<<<<<< HEAD
 ```warn header="Por favor, no utilice variables globales nombradas por id para acceder a los elementos"
 Este comportamiento se encuentra descrito [en la especificación](http://www.whatwg.org/specs/web-apps/current-work/#dom-window-nameditem), por lo que es una especie de estándar. Pero está soportado principalmente para compatibilidad.
+=======
+```warn header="Please don't use id-named global variables to access elements"
+This behavior is described [in the specification](http://www.whatwg.org/specs/web-apps/current-work/#dom-window-nameditem), so it's a kind of standard. But it is supported mainly for compatibility.
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 El navegador intenta ayudarnos mezclando espacios de nombres (*namespaces*) de JS y DOM. Esto está bien para los scripts simples, incrustados en HTML, pero generalmente no es una buena práctica. Puede haber conflictos de nombres. Además, cuando uno lee el código de JS y no tiene el HTML a la vista, no es obvio de dónde viene la variable. 
 

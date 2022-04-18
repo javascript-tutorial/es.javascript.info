@@ -17,8 +17,8 @@ Como un elemento de muestra para demostrar las propiedades, usaremos el que se i
     width: 300px;
     height: 200px;
     border: 25px solid #E8C48F;
-    padding: 20px;              
-    overflow: auto;             
+    padding: 20px;
+    overflow: auto;
   }
 </style>
 ```
@@ -106,7 +106,11 @@ Las propiedades geométricas son calculadas solo para elementos mostrados.
 
 En un elemento (o cualquiera de sus antepasados) tiene `display:none` o no está en el documento, entonces las propiedades geométricas son cero (o `null` para `offsetParent`).
 
+<<<<<<< HEAD
 Por ejemplo, `offsetParent` es `null`, y `offsetWidth`, `offsetHeight` son `0` cuando creamos un elemento, pero aún no lo han insertado en el documento, o eso (o su antecesor) tiene `display:none`.
+=======
+For example, `offsetParent` is `null`, and `offsetWidth`, `offsetHeight` are `0` when we created an element, but haven't inserted it into the document yet, or it (or its ancestor) has `display:none`.
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 Nosotros podemos usar esto para verificar si un elemento está oculto, así: 
 

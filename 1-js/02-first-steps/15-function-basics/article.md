@@ -176,8 +176,13 @@ Cuando un valor es pasado como un parámetro de función, también se denomina *
 
 Para poner los términos claros:
 
+<<<<<<< HEAD
 - Un parámetro es una variable listada dentro de los paréntesis en la declaración de función (es un término para el momento de la declaración)
 - Un argumento es el valor que es pasado a la función cuando esta es llamada (es el término para el momento en que se llama).
+=======
+- A parameter is the variable listed inside the parentheses in the function declaration (it's a declaration time term).
+- An argument is the value that is passed to the function when it is called (it's a call time term).
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 Declaramos funciones listando sus parámetros, luego las llamamos pasándoles argumentos.
 
@@ -225,7 +230,43 @@ En el ejemplo anterior, `anotherFunction()` no será llamado en absoluto si se p
 Por otro lado, se llamará independientemente cada vez que `text` se omita.
 ```
 
+<<<<<<< HEAD
 ### Parámetros predeterminados alternativos
+=======
+````smart header="Default parameters in old JavaScript code"
+Several years ago, JavaScript didn't support the syntax for default parameters. So people used other ways to specify them.
+
+Nowadays, we can come across them in old scripts.
+
+For example, an explicit check for `undefined`:
+
+```js
+function showMessage(from, text) {
+*!*
+  if (text === undefined) {
+    text = 'no text given';
+  }
+*/!*
+
+  alert( from + ": " + text );
+}
+```
+
+...Or using the `||` operator:
+
+```js
+function showMessage(from, text) {
+  // If the value of text is falsy, assign the default value
+  // this assumes that text == "" is the same as no text at all
+  text = text || 'no text given';
+  ...
+}
+```
+````
+
+
+### Alternative default parameters
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 A veces tiene sentido asignar valores predeterminados no en la declaración de función sino en un estadio posterior.
 

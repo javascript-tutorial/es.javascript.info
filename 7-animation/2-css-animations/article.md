@@ -294,8 +294,13 @@ El proceso está progresando así:
 - `0s` -- `-10%` (primer cambio al comienzo del primer segundo, inmediatamente)
 - `1s` -- `-20%`
 - ...
+<<<<<<< HEAD
 - `8s` -- `-80%`
 - (el último segundo muestra el valor final).
+=======
+- `8s` -- `-90%`
+- (the last second shows the final value).
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 El valor alternativo 'end' significaría que el cambio debe aplicarse no al principio, sino al final de cada segundo.
 

@@ -194,7 +194,11 @@ Primero, la sintaxis: cómo diferenciarlas en el código.
       return a + b;
     }
     ```
+<<<<<<< HEAD
 - *Expresión de Función:* una función, creada dentro de una expresión o dentro de otra construcción de sintaxis. Aquí, la función es creada en el lado derecho de la "expresión de asignación" `=`:
+=======
+- *Function Expression:* a function, created inside an expression or inside another syntax construct. Here, the function is created on the right side of the "assignment expression" `=`:
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
     ```js
     // Expresión de Función
@@ -291,9 +295,15 @@ if (age < 18) {
   welcome();               // \   (corre)
 */!*
                            //  |
+<<<<<<< HEAD
   function welcome() {     //  |  
     alert("Hola!");       //  |  Declaración de Función está disponible
   }                        //  |  en todas partes del bloque donde esté declarada
+=======
+  function welcome() {     //  |
+    alert("Hello!");       //  |  Function Declaration is available
+  }                        //  |  everywhere in the block where it's declared
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
                            //  |
 *!*
   welcome();               // /   (corre)
@@ -301,8 +311,13 @@ if (age < 18) {
 
 } else {
 
+<<<<<<< HEAD
   function welcome() {    
     alert("Saludos!");
+=======
+  function welcome() {
+    alert("Greetings!");
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
   }
 }
 

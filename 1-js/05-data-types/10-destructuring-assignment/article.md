@@ -2,12 +2,21 @@
 
 Las dos estructuras de datos más usadas en JavaScript son `Object` y `Array`.
 
+<<<<<<< HEAD
 - Los objetos nos permiten crear una entidad individual que almacena elementos de información con una clave.
 - los arrays nos permiten reunir elementos de información en una colección ordenada.
+=======
+- Objects allow us to create a single entity that stores data items by key.
+- Arrays allow us to gather data items into an ordered list.
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 Pero cuando pasamos estos a una función, tal vez no necesitemos un objeto/array como un conjunto sino piezas individuales.
 
+<<<<<<< HEAD
 La *asignación desestructurante* es una sintaxis especial que nos permite "desempaquetar" arrays u objetos en varias variables, ya que esto a veces es más conveniente. 
+=======
+*Destructuring assignment* is a special syntax that allows us to "unpack" arrays or objects into a bunch of variables, as sometimes that's more convenient.
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 La desestructuración también funciona bien con funciones complejas que tienen muchos argumentos, valores por defecto, etcétera. Pronto lo veremos.
 
@@ -76,12 +85,21 @@ En el código de arriba, el segundo elemento del array es omitido, el tercero es
 let [a, b, c] = "abc"; // ["a", "b", "c"]
 let [one, two, three] = new Set([1, 2, 3]);
 ```
+<<<<<<< HEAD
 Esto funciona, porque internamente una desestructuración trabaja iterando sobre el valor de la derecha. Es una clase de azúcar sintáctica para llamar `for..of` sobre el valor a la derecha del `=` y asignar esos valores.
 ````
 
 
 ````smart header="Asignar a cualquier cosa en el lado izquierdo"
 Podemos usar cualquier "asignable" en el lado izquierdo.
+=======
+That works, because internally a destructuring assignment works by iterating over the right value. It's a kind of syntax sugar for calling `for..of` over the value to the right of `=` and assigning the values.
+````
+
+
+````smart header="Assign to anything at the left-side"
+We can use any "assignables" on the left side.
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 Por ejemplo, una propiedad de objeto:
 ```js run
@@ -176,7 +194,11 @@ alert(rest.length); // 2
 */!*
 ```
 
+<<<<<<< HEAD
 El valor de `rest` es un array de los elementos restantes. 
+=======
+The value of `rest` is the array of the remaining array elements.
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 Podemos usar cualquier otro nombre de variable en lugar de `rest`, sólo hay que asegurar que tenga tres puntos que lo antecedan y que esté último en la asignación desestructurante.
 
@@ -234,7 +256,11 @@ La sintaxis básica es:
 let {var1, var2} = {var1:…, var2:…}
 ```
 
+<<<<<<< HEAD
 Tenemos un objeto existente en el lado derecho que queremos dividir en variables. El lado izquierdo contiene un "patrón" símil-objeto con las propiedades correspondientes; que en el caso más simple, es la lista de nombres de variables en `{...}`.
+=======
+We should have an existing object on the right side, that we want to split into variables. The left side contains an object-like "pattern" for corresponding properties. In the simplest case, that's a list of variable names in `{...}`.
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 Por ejemplo:
 
@@ -254,7 +280,11 @@ alert(width);  // 100
 alert(height); // 200
 ```
 
+<<<<<<< HEAD
 Las propiedades `options.title`, `options.width` y `options.height` son asignadas a las variables correspondientes. 
+=======
+Properties `options.title`, `options.width` and `options.height` are assigned to the corresponding variables.
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 No importa el orden sino los nombres. Esto también funciona:
 
@@ -420,7 +450,11 @@ alert( title ); // Menu
 
 Si un objeto o array contiene objetos y arrays anidados, podemos utilizar patrones del lado izquierdo más complejos para extraer porciones más profundas.
 
+<<<<<<< HEAD
 En el código de abajo `options` tiene otro objeto en la propiedad `size` y un array en la propiedad `items`. El patrón en el lado izquierdo de la asignación tiene la misma estructura para extraer valores de ellos:
+=======
+In the code below `options` has another object in the property `size` and an array in the property `items`. The pattern on the left side of the assignment has the same structure to extract values from them:
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 ```js run
 let options {
@@ -429,7 +463,7 @@ let options {
     height: 200
   },
   items: ["Cake", "Donut"],
-  extra: true   
+  extra: true
 };
 
 // la asignación desestructurante fue dividida en varias líneas para mayor claridad

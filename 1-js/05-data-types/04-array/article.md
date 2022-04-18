@@ -92,6 +92,38 @@ let fruits = [
 La "coma final" hace más simple insertar y remover items, porque todas la líneas se vuelven similares.
 ````
 
+## Get last elements with "at"
+
+[recent browser="new"]
+
+Let's say we want a last element of the array.
+
+Some programming languages allow to use negative indexes for the same purpose, like `fruits[-1]`.
+
+Although, in JavaScript it won't work. The result will be `undefined`, because the index in square brackets is treated literally.
+
+We can explicitly calculate the last element index and then access it: `fruits[fruits.length - 1]`.
+
+```js run
+let fruits = ["Apple", "Orange", "Plum"];
+
+alert( fruits[fruits.length-1] ); // Plum
+```
+
+A bit cumbersome, isn't it? We need to write the variable name twice.
+
+Luckily, there's a shorter syntax: `fruits.at(-1)`:
+
+```js run
+let fruits = ["Apple", "Orange", "Plum"];
+
+// same as fruits[fruits.length-1]
+alert( fruits.at(-1) ); // Plum
+```
+
+In other words, `arr.at(i)`:
+- is exactly the same as `arr[i]`, if `i >= 0`.
+- for negative values of `i`, it steps back from the end of the array.
 
 ## Métodos pop/push, shift/unshift
 
@@ -137,6 +169,8 @@ En ciencias de la computación la estructura de datos que permite esto se denomi
 
     alert( fruits ); // Apple, Orange
     ```
+
+    Both `fruits.pop()` and `fruits.at(-1)` return the last element of the array, but `fruits.pop()` also modifies the array by removing it.
 
 `push`
 : Agrega el elemento al final del array:
@@ -439,7 +473,11 @@ Recordemos las reglas:
 - Si uno de los argumentos de `==` es un objeto y el otro es un primitivo, entonces el objeto se convierte en primitivo, como se explica en el capítulo <info:object-toprimitive>.
 - ...Con la excepción de `null` y `undefined` que son iguales `==` entre sí y nada más.
 
+<<<<<<< HEAD
 La comparación estricta `===` es aún más simple, ya que no convierte tipos.
+=======
+The strict comparison `===` is even simpler, as it doesn't convert types.
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 Entonces, si comparamos arrays con `==`, nunca son iguales, a no ser que comparemos dos variables que hacen referencia exactamente a la misma array.
 
@@ -459,7 +497,11 @@ alert( 0 == [] ); // verdadero
 alert('0' == [] ); // falso
 ```
 
+<<<<<<< HEAD
 Aquí, en ambos casos, comparamos un primitivo con un objeto array. Entonces la array `[]` se convierte a primitivo para el propósito de comparar y se convierte en una string vacía `''`.
+=======
+Here, in both cases, we compare a primitive with an array object. So the array `[]` gets converted to primitive for the purpose of comparison and becomes an empty string `''`.
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 Luego el proceso de comparación continúa con los primitivos, como se describe en el capítulo <info:type-conversions>:
 

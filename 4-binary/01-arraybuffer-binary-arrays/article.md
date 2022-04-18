@@ -30,7 +30,11 @@ Eliminemos una posible fuente de confusión. `ArrayBuffer` no tiene nada en com�
 
 **Para manipular un `ArrayBuffer`, necesitamos utilizar un objeto "vista".**
 
+<<<<<<< HEAD
 Un objeto vista no almacena nada por sí mismo. Son "gafas" que le dan una interpretación a los bytes almacenados en el `ArrayBuffer`.
+=======
+A view object does not store anything on its own. It's the "eyeglasses" that give an interpretation of the bytes stored in the `ArrayBuffer`.
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 Por ejemplo:
 

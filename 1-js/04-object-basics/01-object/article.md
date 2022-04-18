@@ -44,7 +44,11 @@ Podemos imaginar al objeto `user` resultante como un gabinete con dos archivos f
 
 ![user object](object-user.svg)
 
+<<<<<<< HEAD
 Podemos agregar, eliminar y leer archivos de ahí en cualquier momento.
+=======
+We can add, remove and read files from it at any time.
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 Se puede acceder a los valores de las propiedades utilizando la notación de punto:
 
@@ -62,7 +66,11 @@ user.isAdmin = true;
 
 ![user object 2](object-user-isadmin.svg)
 
+<<<<<<< HEAD
 Para remover una propiedad podemos usar el operador `delete`:
+=======
+To remove a property, we can use the `delete` operator:
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 ```js
 delete user.age;
@@ -201,13 +209,21 @@ let bag = {
 };
 ```
 
+<<<<<<< HEAD
 Los corchetes son mucho más potentes que la notación de punto. Permiten cualquier nombre de propiedad y variables. Pero también son más engorrosos de escribir.
+=======
+Square brackets are much more powerful than dot notation. They allow any property names and variables. But they are also more cumbersome to write.
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 Entonces, la mayoría de las veces, cuando los nombres de propiedad son conocidos y simples, se utiliza el punto. Y si necesitamos algo más complejo, entonces cambiamos a corchetes.
 
 ## Atajo para valores de propiedad
 
+<<<<<<< HEAD
 En el código real, a menudo usamos variables existentes como valores de los nombres de propiedades.
+=======
+In real code, we often use existing variables as values for property names.
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 Por ejemplo:
 
@@ -252,7 +268,11 @@ let user = {
 
 ## Limitaciones de nombres de propiedad
 
+<<<<<<< HEAD
 Como ya sabemos, una variable no puede tener un nombre igual a una de las palabras reservadas del lenguaje como "for", "let", "return", etc.
+=======
+As we already know, a variable cannot have a name equal to one of the language-reserved words like "for", "let", "return" etc.
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 Pero para una propiedad de objeto no existe tal restricción:
 
@@ -325,7 +345,11 @@ alert( "blabla" in user ); // mostrará false, user.blabla no existe
 
 Nota que a la izquierda de `in` debe estar el *nombre de la propiedad* que suele ser un string entre comillas.
 
+<<<<<<< HEAD
 Si omitimos las comillas significa una variable. Esta variable debería almacenar la clave real que será probado. Por ejemplo:
+=======
+If we omit quotes, that means a variable should contain the actual name to be tested. For instance:
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 ```js run
 let user = { age: 30 };
@@ -412,7 +436,11 @@ for (let code in codes) {
 */!*
 ```
 
+<<<<<<< HEAD
 El objeto puede usarse para sugerir una lista de opciones al usuario. Si estamos haciendo un sitio principalmente para el público alemán, entonces probablemente queremos que `49` sea el primero.
+=======
+The object may be used to suggest a list of options to the user. If we're making a site mainly for a German audience then we probably want `49` to be the first.
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 Pero si ejecutamos el código, veremos una imagen totalmente diferente:
 
@@ -424,6 +452,7 @@ Los códigos telefónicos van en orden ascendente porque son números enteros. E
 ````smart header="¿Propiedades de números enteros? ¿Qué es eso?"
 El término "propiedad de números enteros" aquí significa que una cadena se puede convertir a y desde desde un entero sin ningún cambio.
 
+<<<<<<< HEAD
 Entonces, "49" es un nombre de propiedad entero, porque cuando este se transforma a un entero y viceversa continúa siendo el mismo. Pero "+49" y "1.2" no lo son:
 
 ```js run
@@ -431,6 +460,16 @@ Entonces, "49" es un nombre de propiedad entero, porque cuando este se transform
 alert( String(Math.trunc(Number("49"))) ); // "49", es igual, una propiedad entera
 alert( String(Math.trunc(Number("+49"))) ); // "49", no es igual "+49" ⇒ no es una propiedad entera
 alert( String(Math.trunc(Number("1.2"))) ); // "1", no es igual "1.2" ⇒ no es una propiedad entera
+=======
+So, `"49"` is an integer property name, because when it's transformed to an integer number and back, it's still the same. But `"+49"` and `"1.2"` are not:
+
+```js run
+// Number(...) explicitly converts to a number
+// Math.trunc is a built-in function that removes the decimal part
+alert( String(Math.trunc(Number("49"))) ); // "49", same, integer property
+alert( String(Math.trunc(Number("+49"))) ); // "49", not same "+49" ⇒ not integer property
+alert( String(Math.trunc(Number("1.2"))) ); // "1", not same "1.2" ⇒ not integer property
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 ```
 ````
 
@@ -479,9 +518,15 @@ Almacenan propiedades (pares de clave-valor), donde:
 - Las claves de propiedad deben ser cadenas o símbolos (generalmente strings).
 - Los valores pueden ser de cualquier tipo.
 
+<<<<<<< HEAD
 Para acceder a una propiedad, podemos usar:
 - La notación de punto: `obj.property`.
 - Notación de corchetes `obj["property"]`. Los corchetes permiten tomar la clave de una variable, como `obj[varWithKey]`.
+=======
+To access a property, we can use:
+- The dot notation: `obj.property`.
+- Square brackets notation `obj["property"]`. Square brackets allow taking the key from a variable, like `obj[varWithKey]`.
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 Operadores adicionales:
 - Para eliminar una propiedad: `delete obj.prop`.

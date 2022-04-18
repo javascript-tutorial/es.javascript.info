@@ -103,7 +103,11 @@ El código es corto y claro, no hay duplicación en absoluto
 Aquí tenemos un ejemplo con `document.querySelector`:
 
 ```js run
+<<<<<<< HEAD
 let html = document.querySelector('.elem')?.innerHTML; // será null si no existe el elemento
+=======
+let html = document.querySelector('.elem')?.innerHTML; // will be undefined, if there's no element
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 ```
 
 Leer la dirección con `user?.Address` funciona incluso si el objeto `user` no existe:
@@ -182,7 +186,11 @@ userGuest.admin?.(); // no pasa nada (no existe tal método)
 
 Aquí, en ambas líneas, primero usamos el punto (`userAdmin.admin`) para obtener la propiedad `admin`, porque asumimos que el objeto user existe y es seguro leerlo.
 
+<<<<<<< HEAD
 Entonces `?.()` Comprueba la parte izquierda: si la función admin existe, entonces se ejecuta (para `userAdmin`). De lo contrario (para `userGuest`) la evaluación se detiene sin errores.
+=======
+Then `?.()` checks the left part: if the `admin` function exists, then it runs (that's so for `userAdmin`). Otherwise (for `userGuest`) the evaluation stops without errors.
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 La sintaxis `?.[]` también funciona si quisiéramos usar corchetes `[]` para acceder a las propiedades en lugar de punto `.`. Al igual que en casos anteriores, permite leer de forma segura una propiedad de un objeto que puede no existir.
 
@@ -205,8 +213,13 @@ También podemos usar `?.` con `delete`:
 delete user?.name; // Eliminar user.name si el usuario existe
 ```
 
+<<<<<<< HEAD
 ````warn header="Podemos usar `?.` para una lectura y eliminación segura, pero no para escribir"
 El encadenamiento opcional `?.` no tiene uso en el lado izquierdo de una tarea:
+=======
+````warn header="We can use `?.` for safe reading and deleting, but not writing"
+The optional chaining `?.` has no use on the left side of an assignment.
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 Por ejemplo:
 ```js run

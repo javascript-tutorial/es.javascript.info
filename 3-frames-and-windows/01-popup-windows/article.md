@@ -87,7 +87,11 @@ Configuración de `params`:
 
 También hay una serie de características específicas del navegador menos compatibles, que generalmente no se usan. Revisa <a href="https://developer.mozilla.org/es/docs/Web/API/Window/open">window.open en MDN</a> para ejemplos.
 
+<<<<<<< HEAD
 ## Ejemplo: Minimalizar una ventana
+=======
+## Example: a minimalistic window
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 Abramos una ventana con un conjunto mínimo de características solo para ver cuál de ellos permite desactivar el navegador:
 
@@ -120,7 +124,11 @@ Reglas para configuraciones omitidas:
 
 ## Acceder a la ventana emergente desde la ventana
 
+<<<<<<< HEAD
 La llamada `open` devuelve una referencia a la nueva ventana. Se puede usar para manipular sus propiedades, cambiar de ubicación y aún más.
+=======
+The `open` call returns a reference to the new window. It can be used to manipulate its properties, change location and even more.
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 En este ejemplo, generamos contenido emergente a partir de JavaScript:
 
@@ -239,7 +247,11 @@ También existe el evento `window.onscroll`.
 
 Teóricamente, están los métodos `window.focus()` y `window.blur()` para poner/sacar el foco de una ventana. Y los eventos `focus/blur` que permiten captar el momento en el que el visitante enfoca una ventana y en el que cambia a otro lugar.
 
+<<<<<<< HEAD
 En el pasado las páginas malignas abusaron de ellos. 
+=======
+Although, in practice they are severely limited, because in the past evil pages abused them.
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 Por ejemplo, mira este código:
 
@@ -257,10 +269,17 @@ Aún así hay algunas cosas que se pueden hacer.
 
 Por ejemplo:
 
+<<<<<<< HEAD
 - Cuando abrimos una popup, puede ser una buena idea ejecutar un `newWindow.focus()` en eso. Por si acaso, para algunas combinaciones de sistema-operativo/navegador, asegura que el usuario esté en la nueva ventana ahora.
 - Si queremos rastrear cuándo un visitante realmente usa nuestra aplicación web, Nosotros podemos rastrear `window.onfocus/onblur`. Eso nos permite suspender/reanudar las actividades en la página, animaciones etc. Pero tenga en cuenta que el evento `blur` significa que el visitante salió de la ventana, pero aún pueden observarlo. La ventana está al fondo, pero aún puede ser visible.
 
 ## Resumen
+=======
+- When we open a popup, it might be a good idea to run `newWindow.focus()` on it. Just in case, for some OS/browser combinations it ensures that the user is in the new window now.
+- If we want to track when a visitor actually uses our web-app, we can track `window.onfocus/onblur`. That allows us to suspend/resume in-page activities, animations etc. But please note that the `blur` event means that the visitor switched out from the window, but they still may observe it. The window is in the background, but still may be visible.
+
+## Summary
+>>>>>>> 291b5c05b99452cf8a0d32bd32426926dbcc0ce0
 
 Las ventanas emergentes se utilizan con poca frecuencia, ya que existen alternativas: cargar y mostrar información en la página o en iframe.
 
