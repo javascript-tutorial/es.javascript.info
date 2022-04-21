@@ -324,7 +324,7 @@ alert( "blabla" in user ); // mostrará false, user.blabla no existe
 ```
 
 Nota que a la izquierda de `in` debe estar el *nombre de la propiedad* que suele ser un string entre comillas.
-<<<<<<< HEAD
+
 Omitir las comillas significará una variable que debe almacenar la clave real que será probada. Por ejemplo:
 
 ```js run
