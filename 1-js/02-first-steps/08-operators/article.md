@@ -437,7 +437,7 @@ La lista de operadores:
 - RIGHT SHIFT ( `>>` )
 - ZERO-FILL RIGHT SHIFT ( `>>>` )
 
-Estos operadores se usan muy raramente. Para comprenderlos, necesitamos profundizar en la representación de números de bajo nivel y no sería óptimo hacerlo en este momento, especialmente porque no los necesitaremos pronto. Si tienes curiosidad, puedes leer el artículo [Operadores a nivel de bit](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Bitwise_Operators#Bitwise_AND) en MDN. Sería más práctico hacerlo cuando surja una necesidad real.
+Estos operadores se usan muy raramente, cuando necesitamos manejar la representación de números em su más bajo nivel. No tenemos en vista usarlos pronto pues en el desarrollo web tiene poco uso; pero en ciertas áreas especiales, como la criptografía, son útiles. Puedes leer el artículo [Operadores a nivel de bit](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Bitwise_Operators#Bitwise_AND) en MDN cuando surja la necesidad.
 
 ## Coma
 

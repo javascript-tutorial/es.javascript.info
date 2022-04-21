@@ -87,7 +87,7 @@ Configuración de `params`:
 
 También hay una serie de características específicas del navegador menos compatibles, que generalmente no se usan. Revisa <a href="https://developer.mozilla.org/es/docs/Web/API/Window/open">window.open en MDN</a> para ejemplos.
 
-## Ejemplo: Minimalizar una ventana
+## Ejemplo: Una ventana minimalista
 
 Abramos una ventana con un conjunto mínimo de características solo para ver cuál de ellos permite desactivar el navegador:
 
@@ -125,7 +125,9 @@ La llamada `open` devuelve una referencia a la nueva ventana. Se puede usar para
 En este ejemplo, generamos contenido emergente a partir de JavaScript:
 
 ```js
-let newWin = window.open("about:blank", "hello", "width=200,height=200");
+let newWin = 
+
+window.open("about:blank", "hello", "width=200,height=200");
 
 newWin.document.write("Hello, world!");
 ```
@@ -197,7 +199,7 @@ newWindow.onload = function () {
 Hay métodos para mover/redimensionar una ventana:
 
 `win.moveBy(x,y)`
-: Mueve la ventana en relación con la posición actual `x` píxeles a la derecha y `y` pixeles hacia abajo. Valores negativos están permitidos(para mover a la izquierda/arriba).
+: Mueve la ventana en relación con la posición actual `x` píxeles a la derecha y `y` píxeles hacia abajo. Valores negativos están permitidos(para mover a la izquierda/arriba).
 
 `win.moveTo(x,y)`
 : Mover la ventana por coordenadas `(x,y)` en la pantalla.
@@ -239,7 +241,7 @@ También existe el evento `window.onscroll`.
 
 Teóricamente, están los métodos `window.focus()` y `window.blur()` para poner/sacar el foco de una ventana. Y los eventos `focus/blur` que permiten captar el momento en el que el visitante enfoca una ventana y en el que cambia a otro lugar.
 
-En el pasado las páginas malignas abusaron de ellos. 
+En la práctica estos métodos están severamente limitado, porque en el pasado las páginas malignas abusaban de ellos. 
 
 Por ejemplo, mira este código:
 
@@ -257,8 +259,8 @@ Aún así hay algunas cosas que se pueden hacer.
 
 Por ejemplo:
 
-- Cuando abrimos una popup, puede ser una buena idea ejecutar un `newWindow.focus()` en eso. Por si acaso, para algunas combinaciones de sistema-operativo/navegador, asegura que el usuario esté en la nueva ventana ahora.
-- Si queremos rastrear cuándo un visitante realmente usa nuestra aplicación web, Nosotros podemos rastrear `window.onfocus/onblur`. Eso nos permite suspender/reanudar las actividades en la página, animaciones etc. Pero tenga en cuenta que el evento `blur` significa que el visitante salió de la ventana, pero aún pueden observarlo. La ventana está al fondo, pero aún puede ser visible.
+- Cuando abrimos una popup, puede ser una buena idea ejecutar un `newWindow.focus()` en ella. Solo por si acaso. Para algunas combinaciones de sistema-operativo/navegador, asegura que el usuario ahora esté en la nueva ventana.
+- Si queremos saber cuándo un visitante realmente usa nuestra aplicación web, podemos monitorear `window.onfocus/onblur`. Esto nos permite suspender/reanudar las actividades en la página, animaciones etc. Pero tenga en cuenta que el evento `blur` solamente significa que el visitante salió de la ventana. La ventana queda en segundo plano, pero aún puede ser visible.
 
 ## Resumen
 

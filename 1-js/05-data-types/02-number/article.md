@@ -22,7 +22,7 @@ También podemos usar guion bajo `_` como separador:
 let billion = 1_000_000_000;
 ```
 
-Aquí `_` es "azúcar sintáctica", hace el número más legible. El motor JavaScript simplemente ignora `_` entre dígitos asi que es exactamente e igual al billion de más arriba.
+Aquí `_` es "azúcar sintáctica", hace el número más legible. El motor JavaScript simplemente ignora `_` entre dígitos, así que es exactamente igual al "billion" de más arriba.
 
 Pero en la vida real tratamos de evitar escribir una larga cadena de ceros porque es fácil tipear mal. 
 
@@ -332,8 +332,7 @@ alert( isFinite(num) );
 Ten en cuenta que un valor vacío o un string de solo espacios es tratado como `0` en todas las funciones numéricas incluyendo `isFinite`.  
 
 ```smart header="Comparación con `Object.is`"
-
-Hay un método especial incorporado [Object.is](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/is) que compara valores como el `===`, pero es más confiable para dos casos extremos:
+Hay un método nativo especial `Object.is` que compara valores como `===`, pero es más confiable para dos casos extremos:
 
 1. Funciona con `NaN`: `Object.is(NaN, NaN) === true`, lo que es una buena cosa.
 2. Los valores `0` y `-0` son diferentes: `Object.is(0, -0) === false`. `false` es técnicamente correcto, porque internamente el número puede tener el bit de signo diferente incluso aunque todos los demás sean ceros.

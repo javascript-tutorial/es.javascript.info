@@ -103,7 +103,7 @@ El código es corto y claro, no hay duplicación en absoluto
 Aquí tenemos un ejemplo con `document.querySelector`:
 
 ```js run
-let html = document.querySelector('.elem')?.innerHTML; // será null si no existe el elemento
+let html = document.querySelector('.elem')?.innerHTML; // será undefined si no existe el elemento
 ```
 
 Leer la dirección con `user?.Address` funciona incluso si el objeto `user` no existe:
@@ -182,7 +182,7 @@ userGuest.admin?.(); // no pasa nada (no existe tal método)
 
 Aquí, en ambas líneas, primero usamos el punto (`userAdmin.admin`) para obtener la propiedad `admin`, porque asumimos que el objeto user existe y es seguro leerlo.
 
-Entonces `?.()` Comprueba la parte izquierda: si la función admin existe, entonces se ejecuta (para `userAdmin`). De lo contrario (para `userGuest`) la evaluación se detiene sin errores.
+Entonces `?.()` comprueba la parte izquierda: si la función `admin` existe, entonces se ejecuta (para `userAdmin`). De lo contrario (para `userGuest`) la evaluación se detiene sin errores.
 
 La sintaxis `?.[]` también funciona si quisiéramos usar corchetes `[]` para acceder a las propiedades en lugar de punto `.`. Al igual que en casos anteriores, permite leer de forma segura una propiedad de un objeto que puede no existir.
 
@@ -206,7 +206,7 @@ delete user?.name; // Eliminar user.name si el usuario existe
 ```
 
 ````warn header="Podemos usar `?.` para una lectura y eliminación segura, pero no para escribir"
-El encadenamiento opcional `?.` no tiene uso en el lado izquierdo de una tarea:
+El encadenamiento opcional `?.` no puede usarse en el lado izquierdo de una asignación:
 
 Por ejemplo:
 ```js run

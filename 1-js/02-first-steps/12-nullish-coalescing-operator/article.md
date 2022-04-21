@@ -4,7 +4,7 @@
 
 El operador "nullish coalescing" (fusión de null) se escribe con un doble signo de cierre de interrogación `??`.
 
-Como este trata a `null` y a `undefined` de forma similar, usaremos un término particular para ello en este artículo. Diremos que una expresión es `definida` cuando no es `null` ni `undefined`.
+Como este trata a `null` y a `undefined` de forma similar, usaremos un término especial para este artículo. Diremos que una expresión es "definida" cuando no es `null` ni `undefined`.
 
 El resultado de `a ?? b`:
 - si `a` está "definida", será `a`, 
@@ -22,9 +22,9 @@ result = (a !== null && a !== undefined) ? a : b;
 
 Ahora debería estar absolutamente claro lo que `??` hace. Veamos dónde podemos utilizarlo.
 
-Un uso típico de `??` es brindar un valor predeterminado a una variable potencialmente indefinida.
+El uso típico de `??` es brindar un valor predeterminado.
 
-Por ejemplo, aquí mostramos `user` si está definido. Si no, `Anonymous`:
+Por ejemplo, aquí mostramos `user` si su valor no es `null/undefined`, de otro modo muestra `Anonymous`:
 
 ```js run
 let user;
@@ -42,9 +42,9 @@ alert(user ?? "Anonymous"); // John (user definido)
 
 También podemos usar una secuencia de `??` para seleccionar el primer valor que no sea `null/undefined` de una lista.
 
-Digamos que tenemos los datos de un usuario en las variables `firstName`, `lastName` y `nickName`. Todos ellos podrían ser indefinidos si el usuario decide no ingresarlos.
+Digamos que tenemos los datos de un usuario en las variables `firstName`, `lastName` y `nickName`. Todos ellos podrían ser indefinidos si el usuario decide no ingresar los valores correspondientes.
 
-Queremos mostrar un nombre usando una de las tres variables, o mostrar "anónimo" si ninguna está definida:
+Queremos mostrar un nombre usando una de estas variables, o mostrar "anónimo" si todas ellas son `null/undefined`.
 
 Usemos el operador `??` para ello:
 
@@ -110,7 +110,7 @@ La precedencia del operador `??` es la misma de `||`. Ambos son iguales a `4` en
 
 Esto significa que ambos operadores, `||` y `??`, son evaluados antes que `=` y `?`, pero después de la mayoría de las demás operaciones como `+` y `*`. 
 
-Así que si necesitas usar `??` en una expresión compleja, considera añadir paréntesis:
+Así que podemos necesitar añadir paréntesis:
 
 ```js run
 let height = null;
@@ -128,7 +128,7 @@ Caso contrario, si omitimos los paréntesis, entonces `*` tiene una mayor preced
 // sin paréntesis
 let area = height ?? 100 * width ?? 50;
 
-// ...funciona igual que (probablemente no lo que queremos):
+// ...funciona de esta forma (no es lo que queremos):
 let area = height ?? (100 * width) ?? 50;
 ```
 

@@ -34,7 +34,7 @@ Tal como se muestra a continuación (por ahora sin `fetch`):
 let controller = new AbortController();
 let signal = controller.signal;
 
-// El que ejecuta la operación de cancelación 
+// La parte que ejecuta la operación de cancelación 
 // obtiene el objeto "signal"
 // y genera un listener que se dispara cuando es llamado controller.abort()
 signal.addEventListener('abort', () => alert("abort!"));

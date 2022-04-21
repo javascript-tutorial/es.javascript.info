@@ -1,6 +1,6 @@
 # Métodos en tipos primitivos
 
-JavaScript nos permite trabajar con tipos de datos primitivos (string, number, etc) como si fueran objetos. Los primitivos también brindan métodos para ser llamados. Los estudiaremos pronto, pero primero veamos cómo trabajan porque, por supuesto, los primitivos no son objetos. (y aquí lo haremos aún más evidente).
+JavaScript nos permite trabajar con tipos de datos primitivos (string, number, etc) como si fueran objetos. Los primitivos también ofrecen métodos para ser llamados. Los estudiaremos pronto, pero primero veamos cómo trabajan porque, por supuesto, los primitivos no son objetos (y aquí lo haremos aún más evidente).
 
 Veamos las diferencias clave entre primitivos y objetos.
 
@@ -39,8 +39,8 @@ Los objetos son más "pesados" que los primitivos. Ellos requieren recursos adic
 
 Aquí el dilema que enfrentó el creador de JavaScript:
 
-- Hay muchas cosas que uno querría hacer con los tipos primitivos como string o number. Sería grandioso accederlas usando métodos.
-- Los Primitivos deben ser tan rápidos y livianos como sea posible
+- Hay muchas cosas que uno querría hacer con los tipos primitivos, como un string o un number. Sería grandioso accederlas usando métodos.
+- Los Primitivos deben ser tan rápidos y livianos como sea posible.
 
 La solución es algo enrevesada, pero aquí está:
 

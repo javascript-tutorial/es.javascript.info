@@ -194,7 +194,7 @@ Primero, la sintaxis: cómo diferenciarlas en el código.
       return a + b;
     }
     ```
-- *Expresión de Función:* una función, creada dentro de una expresión o dentro de otra construcción de sintaxis. Aquí, la función es creada en el lado derecho de la "expresión de asignación" `=`:
+- *Expresión de Función:* una función, creada dentro de una expresión o dentro de otra construcción sintáctica. Aquí, la función es creada en el lado derecho de la "expresión de asignación" `=`:
 
     ```js
     // Expresión de Función
@@ -292,8 +292,8 @@ if (age < 18) {
 */!*
                            //  |
   function welcome() {     //  |  
-    alert("Hola!");       //  |  Declaración de Función está disponible
-  }                        //  |  en todas partes del bloque donde esté declarada
+    alert("¡Hola!");       //  |  La declaración de Función está disponible
+  }                        //  |  en todas partes del bloque donde está declarada
                            //  |
 *!*
   welcome();               // /   (corre)
@@ -302,7 +302,7 @@ if (age < 18) {
 } else {
 
   function welcome() {    
-    alert("Saludos!");
+    alert("¡Saludos!");
   }
 }
 
@@ -347,11 +347,11 @@ welcome(); // ahora ok
 O lo podemos simplificar aun más usando un operador de signo de pregunta `?`:
 
 ```js run
-let age = prompt("Cuál es tu edad?", 18);
+let age = prompt("¿Cuál es tu edad?", 18);
 
 let welcome = (age < 18) ?
-  function() { alert("Hola!"); } :
-  function() { alert("Saludos!"); };
+  function() { alert("¡Hola!"); } :
+  function() { alert("¡Saludos!"); };
 
 *!*
 welcome(); // ahora ok

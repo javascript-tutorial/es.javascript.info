@@ -59,7 +59,7 @@ Si ponemos estas operaciones en líneas separadas, entonces `this` se perderá c
 let user = {
   name: "John",
   hi() { alert(this.name); }
-}
+};
 
 *!*
 // Se divide la obtención y se llama al método en dos lineas

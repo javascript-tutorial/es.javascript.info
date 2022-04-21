@@ -51,7 +51,7 @@ Como puedes ver, `(a, b) => a + b` significa una función que acepta dos argumen
 - Si no hay parámetros, los paréntesis estarán vacíos pero deben estar presentes:
 
     ```js run
-    let sayHi = () => alert("Hello!");
+    let sayHi = () => alert("¡Hola!");
 
     sayHi();
     ```
@@ -64,8 +64,8 @@ Por ejemplo, para crear dinámicamente una función:
 let age = prompt("What is your age?", 18);
 
 let welcome = (age < 18) ?
-  () => alert('Hello') :
-  () => alert("Greetings!");
+  () => alert('¡Hola!') :
+  () => alert("¡Saludos!");
 
 welcome();
 ```
