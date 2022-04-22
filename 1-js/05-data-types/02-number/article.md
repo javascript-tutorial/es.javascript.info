@@ -332,7 +332,7 @@ alert( isFinite(num) );
 Ten en cuenta que un valor vacío o un string de solo espacios es tratado como `0` en todas las funciones numéricas incluyendo `isFinite`.  
 
 ```smart header="Comparación con `Object.is`"
-Hay un método nativo especial `Object.is` que compara valores como `===`, pero es más confiable para dos casos extremos:
+Existe un método nativo especial `Object.is` que compara valores al igual que `===`, pero es más confiable para dos casos extremos:
 
 1. Funciona con `NaN`: `Object.is(NaN, NaN) === true`, lo que es una buena cosa.
 2. Los valores `0` y `-0` son diferentes: `Object.is(0, -0) === false`. `false` es técnicamente correcto, porque internamente el número puede tener el bit de signo diferente incluso aunque todos los demás sean ceros.
