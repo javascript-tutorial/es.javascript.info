@@ -170,7 +170,7 @@ En ciencias de la computación la estructura de datos que permite esto se denomi
     alert( fruits ); // Apple, Orange
     ```
 
-    Both `fruits.pop()` and `fruits.at(-1)` return the last element of the array, but `fruits.pop()` also modifies the array by removing it.
+    Tanto `fruits.pop()` como `fruits.at(-1)` devuelven el último elemento del array, pero `fruits.pop()` también modifica el array eliminándo tal elemento.
 
 `push`
 : Agrega el elemento al final del array:
