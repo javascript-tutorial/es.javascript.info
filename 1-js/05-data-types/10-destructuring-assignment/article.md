@@ -2,7 +2,7 @@
 
 Las dos estructuras de datos más usadas en JavaScript son `Object` y `Array`.
 
-- Los objetos nos permiten crear una simple entidad que almacena items con una clave.
+- Los objetos nos permiten crear una simple entidad que almacena items con una clave cada uno.
 - los arrays nos permiten reunir items en una lista ordenada.
 
 Pero cuando los pasamos a una función, tal vez no necesitemos un objeto o array como un conjunto sino en piezas individuales.
@@ -176,7 +176,7 @@ alert(rest.length); // 2
 */!*
 ```
 
-El valor de `rest` es el array de los elementos de array restantes. 
+El valor de `rest` es un array con los elementos restantes del array original. 
 
 Podemos usar cualquier otro nombre de variable en lugar de `rest`, sólo hay que asegurar que tenga tres puntos que lo antecedan y que esté último en la asignación desestructurante.
 
