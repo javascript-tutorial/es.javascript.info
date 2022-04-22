@@ -24,7 +24,7 @@ Ahora debería estar absolutamente claro lo que `??` hace. Veamos dónde podemos
 
 El uso típico de `??` es brindar un valor predeterminado.
 
-Por ejemplo, aquí mostramos `user` si su valor no es `null/undefined`, de otro modo muestra `Anonymous`:
+Por ejemplo, aquí mostramos `user` si su valor está "definido" (que no es `null` ni `undefined`). De otro modo, muestra `Anonymous`:
 
 ```js run
 let user;
