@@ -64,7 +64,7 @@ Hay tres variantes de conversión de tipos que ocurren en varias situaciones. So
     let greater = user1 > user2;
     ```
 
-    Most built-in mathematical functions also include such conversion.
+    La mayoría de las funciones matemáticas nativas también incluyen tal conversión.
 
 `"default"`
 : Ocurre en casos raros cuando el operador "no está seguro" de qué tipo esperar.
@@ -85,17 +85,17 @@ Hay tres variantes de conversión de tipos que ocurren en varias situaciones. So
 
 Aunque en la práctica las cosas son más simples.
 
-Todos los objetos nativos -excepto un caso (objeto `Date` object, lo veremos más adelante)-  implementan la conversión `"default"` del mismo modo que `"number"`. Y probablemente debiéramos hacer lo mismo.
+Todos los objetos nativos -excepto un caso (objeto `Date`, lo veremos más adelante)-  implementan la conversión `"default"` del mismo modo que `"number"`. Y probablemente debiéramos hacer lo mismo.
 
 Aún así, es importante conocer los 3 "hints", pronto veremos el porqué.
 
 **Para realizar la conversión, JavaScript intenta buscar y llamar a tres métodos del objeto:**
 
-1. Llama, si el método existe, a `obj[Symbol.toPrimitive](hint)` : el método con la clave simbólica `Symbol.toPrimitive` (símbolo del sistema);
-2. En caso contrario, si "hint" es `"string"`:
+1. Busca y llama, si el método existe, a `obj[Symbol.toPrimitive](hint)`: el método con la clave simbólica `Symbol.toPrimitive` (símbolo del sistema);
+2. Si no lo encuentra y "hint" es `"string"`:
     - intenta llamar a `obj.toString()` y `obj.valueOf()`, lo que exista.
-3. En caso contrario, si "hint" es `"number"` o `"default"`
-    - intentar `obj.valueOf()` y `obj.toString()`, lo que exista.
+3. Si no lo encuentra y "hint" es `"number"` o `"default"`
+    - intenta llamar a `obj.valueOf()` y `obj.toString()`, lo que exista.
 
 ## Symbol.toPrimitive
 
