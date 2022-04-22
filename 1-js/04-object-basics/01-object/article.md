@@ -201,7 +201,7 @@ let bag = {
 };
 ```
 
-Los corchetes son mucho más potentes que la notación de punto. Permiten cualquier nombre de propiedad, y variables. Pero también son más engorrosos de escribir.
+Los corchetes son mucho más potentes que la notación de punto. Permiten cualquier nombre de propiedad, incluso variables. Pero también es más engorroso escribirlos.
 
 Entonces, la mayoría de las veces, cuando los nombres de propiedad son conocidos y simples, se utiliza el punto. Y si necesitamos algo más complejo, entonces cambiamos a corchetes.
 
@@ -252,7 +252,7 @@ let user = {
 
 ## Limitaciones de nombres de propiedad
 
-Como ya sabemos, una variable no puede tener un nombre igual a una de las palabras reservadas del lenguaje, como "for", "let", "return", etc.
+Como sabemos, una variable no puede tener un nombre igual a una de las palabras reservadas del lenguaje, como "for", "let", "return", etc.
 
 Pero para una propiedad de objeto no existe tal restricción:
 
@@ -319,13 +319,13 @@ Por ejemplo:
 ```js run
 let user = { name: "John", age: 30 };
 
-alert( "age" in user ); // mostrará "true", user.age sí existe
-alert( "blabla" in user ); // mostrará false, user.blabla no existe
+alert( "age" in user );    // mostrará "true", porque user.age sí existe
+alert( "blabla" in user ); // mostrará false, porque user.blabla no existe
 ```
 
 Nota que a la izquierda de `in` debe estar el *nombre de la propiedad* que suele ser un string entre comillas.
 
-Omitir las comillas significará una variable que debe almacenar la clave real que será probada. Por ejemplo:
+Si omitimos las comillas, significa que es una variable. Esta variable debe almacenar la clave real que será probada. Por ejemplo:
 
 ```js run
 let user = { age: 30 };
@@ -412,7 +412,7 @@ for (let code in codes) {
 */!*
 ```
 
-El objeto puede usarse para sugerir una lista de opciones al usuario. Si estamos haciendo un sitio principalmente para el público alemán, probablemente queremos que `49` sea el primero.
+El objeto puede usarse para sugerir al usuario una lista de opciones. Si estamos haciendo un sitio principalmente para el público alemán, probablemente queremos que `49` sea el primero.
 
 Pero si ejecutamos el código, veremos una imagen totalmente diferente:
 
@@ -426,6 +426,7 @@ El término "propiedad de números enteros" aquí significa que una cadena se pu
 
 Entonces, "49" es un nombre de propiedad entero, porque cuando este se transforma a un entero y viceversa continúa siendo el mismo. Pero "+49" y "1.2" no lo son:
 
+```js run
 // Number(...) convierte explícitamente a number
 // Math.trunc es una función nativa que elimina la parte decimal
 alert( String(Math.trunc(Number("49"))) ); // "49", es igual, una propiedad entera
