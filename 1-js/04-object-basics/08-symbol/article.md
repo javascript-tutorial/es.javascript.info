@@ -1,12 +1,12 @@
 
 # Tipo Symbol
 
-Según la especificación, solo dos de los tipos primitivos puede servir como clave de propiedad de objetos:
+Según la especificación, solo dos de los tipos primitivos pueden servir como clave de propiedad de objetos:
 
 - string, o
 - symbol.
 
-De otro modo, si uno usa otro tipo, como un número, se autoconvertirá a string. Así, `obj[1]` es lo mismo que `obj["1"]`, y `obj[true]` es lo mismo que `obj["true"]`.
+Si se usa otro tipo, como un número, este se autoconvertirá a string. Así, `obj[1]` es lo mismo que `obj["1"]`, y `obj[true]` es lo mismo que `obj["true"]`.
 
 Hasta ahora solo estuvimos usando strings.
 
@@ -44,7 +44,7 @@ alert(id1 == id2); // false
 
 Si estás familiarizado con Ruby u otro lenguaje que también tiene symbols, por favor no te confundas. Los Symbols de Javascript son diferentes.
 
-Entonces, para resumir, los symbols son "valores primitivos únicos" con una descripción opcional. Veamos dónde podemos usarlos.
+Para resumir: los symbols son "valores primitivos únicos" con una descripción opcional. Veamos dónde podemos usarlos.
 
 ````warn header="Symbols no se autoconvierten a String"
 La mayoría de los valores en JavaScript soportan la conversión implícita a string. Por ejemplo, podemos hacer un ´alert´ con casi cualquier valor y funcionará. Los Symbols son especiales, éstos no se autoconvierten.
@@ -60,7 +60,7 @@ alert(id); // TypeError: No puedes convertir un valor Symbol en string
 
 Esta es una "protección del lenguaje" para evitar errores, ya que String y Symbol son fundamentalmente diferentes y no deben convertirse accidentalmente uno en otro.
 
-Si realmente queremos mostrar un Symbol, necesitamos llamar el método `.toString()` explícitamente, de la siguiente manera:
+Si realmente queremos mostrar un Symbol, necesitamos llamar el método `.toString()` explícitamente:
 
 ```js run
 let id = Symbol("id");
