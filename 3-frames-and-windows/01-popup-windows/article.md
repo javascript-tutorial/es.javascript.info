@@ -125,9 +125,7 @@ La llamada `open` devuelve una referencia a la nueva ventana. Se puede usar para
 En este ejemplo, generamos contenido emergente a partir de JavaScript:
 
 ```js
-let newWin = 
-
-window.open("about:blank", "hello", "width=200,height=200");
+let newWin = window.open("about:blank", "hello", "width=200,height=200");
 
 newWin.document.write("Hello, world!");
 ```
