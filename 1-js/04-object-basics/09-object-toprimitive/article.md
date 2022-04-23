@@ -30,7 +30,7 @@ En el capítulo <info:type-conversions>, hemos visto las reglas para las convers
 
 Podemos implementar la conversión de tipo string y numérica por nuestra cuenta, utilizando métodos de objeto especiales.
 
-Now let's get into technical details, because it's the only way to cover the topic in-depth.
+Ahora entremos en los detalles técnicos, porque es la única forma de cubrir el tópico en profundidad.
 
 ## Hints (sugerencias)
 
