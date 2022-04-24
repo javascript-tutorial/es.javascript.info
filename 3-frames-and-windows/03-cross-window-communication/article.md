@@ -275,7 +275,7 @@ Argumentos:
 `targetOrigin`
 : Especifica el origen de la ventana de destino, de modo que solo una ventana del origen dado recibirá el mensaje.
 
-El argumento "targetOrigin" es una medida de seguridad. Recuerde, si la ventana de destino proviene de otro origen, no podemos leer su `location` en la ventana del remitente. Por lo tanto, no podemos estar seguros de qué sitio está abierto en la ventana deseada en este momento: el usuario podría navegar fuera y la ventana del remitente no tiene idea de ello.
+El argumento "targetOrigin" es una medida de seguridad. Recuerde que si la ventana de destino proviene de otro origen, no podemos leer su `location` en la ventana del remitente. Por lo tanto, no podemos estar seguros qué sitio está abierto en la ventana deseada en este momento: el usuario podría navegar fuera del sitio y la ventana del remitente no tener idea de ello.
 
 Especificar `targetOrigin` asegura que la ventana solo reciba los datos si todavía está en el sitio correcto. Importante cuando los datos son sensibles.
 

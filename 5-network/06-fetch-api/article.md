@@ -193,7 +193,7 @@ Luego, `fetch` calculará SHA-256 por sí solo y lo comparará con nuestro strin
 
 ## keepalive
 
-La opción `keepalive` indica que la solicitud puede "vivir más alla" de la página web que la inició.
+La opción `keepalive` indica que la solicitud puede "vivir más allá" de la página web que la inició.
 
 Por ejemplo, recopilamos estadísticas sobre cómo el visitante actual usa nuestra página (clics del mouse, fragmentos de página que ve), para analizar y mejorar la experiencia del usuario.
 

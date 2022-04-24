@@ -225,6 +225,38 @@ En el ejemplo anterior, `anotherFunction()` no será llamado en absoluto si se p
 Por otro lado, se llamará independientemente cada vez que `text` se omita.
 ```
 
+````smart header="Parámetros predeterminados en viejo código JavaScript"
+Años atrás, JavaScript no soportaba la sintaxis para parámetros predeterminados. Entonces se usaban otras formas para especificarlos.
+
+En estos días, aún podemos encontrarlos en viejos scripts.
+
+Por ejemplo, una verificación explícita de `undefined`:
+
+```js
+function showMessage(from, text) {
+*!*
+  if (text === undefined) {
+    text = 'sin texto dado';
+  }
+*/!*
+
+  alert( from + ": " + text );
+}
+```
+
+... O usando el operador `||` :
+
+```js
+function showMessage(from, text) {
+  // Si el valor de "text" es falso, asignar el valor predeterminado
+  // esto asume que text == "" es lo mismo que sin texto en absoluto
+  text = text || 'sin texto dado';
+  ...
+}
+```
+````
+
+
 ### Parámetros predeterminados alternativos
 
 A veces tiene sentido asignar valores predeterminados no en la declaración de función sino en un estadio posterior.

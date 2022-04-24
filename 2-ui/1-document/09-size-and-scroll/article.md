@@ -17,8 +17,8 @@ Como un elemento de muestra para demostrar las propiedades, usaremos el que se i
     width: 300px;
     height: 200px;
     border: 25px solid #E8C48F;
-    padding: 20px;              
-    overflow: auto;             
+    padding: 20px;
+    overflow: auto;
   }
 </style>
 ```
@@ -106,7 +106,7 @@ Las propiedades geométricas son calculadas solo para elementos mostrados.
 
 En un elemento (o cualquiera de sus antepasados) tiene `display:none` o no está en el documento, entonces las propiedades geométricas son cero (o `null` para `offsetParent`).
 
-Por ejemplo, `offsetParent` es `null`, y `offsetWidth`, `offsetHeight` son `0` cuando creamos un elemento, pero aún no lo han insertado en el documento, o eso (o su antecesor) tiene `display:none`.
+Por ejemplo, `offsetParent` es `null`, y `offsetWidth`, `offsetHeight` son `0` cuando creamos un elemento pero aún no lo han insertado en el documento, o cuando éste (o su ancestro) tiene `display:none`.
 
 Nosotros podemos usar esto para verificar si un elemento está oculto, así: 
 
@@ -173,7 +173,7 @@ Estas propiedades son como `clientWidth/clientHeight`, pero también incluyen la
 En la imagen de arriba:
 
 - `scrollHeight = 723` -- es la altura interior completa del área de contenido, incluyendo las partes desplazadas.
-- `scrollWidth = 324` -- es el ancho interior completo, aqui no tenemos desplazamiento horizontal, por lo que es igual a `clientWidth`.
+- `scrollWidth = 324` -- es el ancho interior completo, aquí no tenemos desplazamiento horizontal, por lo que es igual a `clientWidth`.
 
 Podemos usar estas propiedades para expandir el elemento a su ancho/alto completo.
 

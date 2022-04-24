@@ -1,9 +1,16 @@
 
 # Tipo Symbol
 
-Según la especificación, las claves (Keys) de un objeto deben ser solamente del tipo String o Symbol. No Number, ni Boolean; solamente esos dos: String o Symbol. 
+Según la especificación, solo dos de los tipos primitivos pueden servir como clave de propiedad de objetos:
 
-Hasta ahora sólo hemos aprendido acerca de los Strings, por lo que es momento de conocer las ventajas que Symbol nos puede dar.
+- string, o
+- symbol.
+
+Si se usa otro tipo, como un número, este se autoconvertirá a string. Así, `obj[1]` es lo mismo que `obj["1"]`, y `obj[true]` es lo mismo que `obj["true"]`.
+
+Hasta ahora solo estuvimos usando strings.
+
+Ahora exploremos symbols y ver lo que pueden hacer por nosotros.
 
 ## Symbols
 
@@ -12,7 +19,6 @@ El valor de "Symbol" representa un identificador único.
 Un valor de este tipo puede ser creado usando `Symbol()`:
 
 ```js
-// id es un nuevo symbol
 let id = Symbol();
 ```
 
@@ -38,8 +44,10 @@ alert(id1 == id2); // false
 
 Si estás familiarizado con Ruby u otro lenguaje que también tiene symbols, por favor no te confundas. Los Symbols de Javascript son diferentes.
 
+Para resumir: los symbols son "valores primitivos únicos" con una descripción opcional. Veamos dónde podemos usarlos.
+
 ````warn header="Symbols no se autoconvierten a String"
-La mayoría de los valores en JavaScript soportan la conversión implícita a string. Por ejemplo, podemos hacer un ´alert´ con casi cualquier valor y funcionará. Los Symbols son distintos, éstos no se auto-convierten.
+La mayoría de los valores en JavaScript soportan la conversión implícita a string. Por ejemplo, podemos hacer un ´alert´ con casi cualquier valor y funcionará. Los Symbols son especiales, éstos no se autoconvierten.
 
 Por ejemplo, este `alert` mostrará un error:
 
@@ -52,7 +60,8 @@ alert(id); // TypeError: No puedes convertir un valor Symbol en string
 
 Esta es una "protección del lenguaje" para evitar errores, ya que String y Symbol son fundamentalmente diferentes y no deben convertirse accidentalmente uno en otro.
 
-Si realmente queremos mostrar un Symbol, necesitamos llamar el método `.toString()` de la siguiente manera:
+Si realmente queremos mostrar un Symbol, necesitamos llamar el método `.toString()` explícitamente:
+
 ```js run
 let id = Symbol("id");
 *!*
@@ -60,7 +69,8 @@ alert(id.toString()); // Symbol(id), ahora sí funciona
 */!*
 ```
 
-O se puede utilizar `symbol.description` para obtener la descripción solamente:
+U obtener `symbol.description` para mostrar solamente la descripción:
+
 ```js run
 let id = Symbol("id");
 *!*
@@ -72,7 +82,7 @@ alert(id.description); // id
 
 ## Claves "Ocultas"
 
-Los Symbols nos permiten crear claves "ocultas" en un objeto, a las cuales ninguna otra parte del código puede accesar ni sobrescribir accidentalmente.
+Los Symbols nos permiten crear propiedades "ocultas" en un objeto, a las cuales ninguna otra parte del código puede accesar ni sobrescribir accidentalmente.
 
 Por ejemplo, si estamos trabajando con objetos `user` que pertenecen a código de terceros y queremos agregarles identificadores:
 
@@ -267,8 +277,9 @@ Symbols son siempre valores distintos aunque tengan el mismo nombre. Si queremos
 
 Symbols se utilizan principalmente en dos casos:
 
-1. Claves (keys) "Ocultas" dentro de un objeto.
-	Si queremos agregar una clave a un objeto que "pertenezca" a otro script u otra librería, podemos crear un symbol y usarlo como clave. Una clave de symbol no aparecerá en los ciclos `for..in`, por lo que no aparecerá listada. Tampoco podrá ser accesada directamente por otro script porque este no tendrá nuestro symbol y no podrá intervenir en sus acciones.
+1. Propiedades de objeto "Ocultas"
+
+	Si queremos agregar una propiedad a un objeto que "pertenece" a otro script u otra librería, podemos crear un symbol y usarlo como clave. Una clave symbol no aparecerá en los ciclos `for..in`, por lo que no podrá ser procesada accidentalmente junto con las demás propiedades. Tampoco puede ser accesada directamente, porque un script ajeno no tiene nuestro symbol. Por lo tanto la propiedad estará protegida contra uso y escritura accidentales.
 
 	Podemos "ocultar" ciertos valores dentro de un objeto que solo estarán disponibles dentro de ese script usando las claves de symbol.
 

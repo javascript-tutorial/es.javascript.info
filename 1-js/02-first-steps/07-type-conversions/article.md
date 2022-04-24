@@ -7,7 +7,9 @@ Por ejemplo, `alert` convierte automáticamente cualquier valor a string para mo
 También hay casos donde necesitamos convertir de manera explícita un valor al tipo esperado.
 
 ```smart header="Aún no hablamos de objetos"
-En este capítulo no cubriremos los objetos. Estudiaremos los valores primitivos primero. Luego, después de haber hablado sobre objetos, veremos cómo funciona la conversión de objetos en este capítulo <info:object-toprimitive>.
+En este capítulo no hablamos de objetos. Por ahora, solamente veremos los valores primitivos.
+
+Más adelante, después de haberlos tratado, veremos en el capítulo <info:object-toprimitive> cómo funciona la conversión de objetos.
 ```
 
 ## ToString

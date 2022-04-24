@@ -118,7 +118,7 @@ function f() {
 f(1); // 1
 ```
 
-Como recordamos, las funciones flecha no tienen su propio `this`. Ahora sabemos que tampoco tienen el objeto especial `arguments`.
+Como recordamos, las funciones de flecha no tienen su propio `this`. Ahora sabemos que tampoco tienen el objeto especial `arguments`.
 ````
 
 

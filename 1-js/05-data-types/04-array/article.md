@@ -92,6 +92,38 @@ let fruits = [
 La "coma final" hace más simple insertar y remover items, porque todas la líneas se vuelven similares.
 ````
 
+## Obtener los últimos elementos con "at"
+
+[recent browser="new"]
+
+Digamos que queremos el último elemento de un array.
+
+Algunos lenguajes de programación permiten el uso de índices negativos para este propósito, como `fruits[-1]`.
+
+Aunque en JavaScript esto no funcionará. El resultado será `undefined`, porque el índice de los corchetes es tratado literalmente.
+
+Podemos calcular explícitamente el último índice y luego acceder al elemento: `fruits[fruits.length - 1]`.
+
+```js run
+let fruits = ["Apple", "Orange", "Plum"];
+
+alert( fruits[fruits.length-1] ); // Plum
+```
+
+Un poco engorroso, ¿no es cierto? Necesitamos escribir el nombre de la variable dos veces.
+
+Afortunadamente, hay una sintaxis más corta: `fruits.at(-1)`:
+
+```js run
+let fruits = ["Apple", "Orange", "Plum"];
+
+// es lo mismo que fruits[fruits.length-1]
+alert( fruits.at(-1) ); // Plum
+```
+
+En otras palabras, `arr.at(i)`:
+- es exactamente lo mismo que `arr[i]`, si `i >= 0`.
+- para valores negativos de `i`, salta hacia atrás desde el final del array.
 
 ## Métodos pop/push, shift/unshift
 
@@ -137,6 +169,8 @@ En ciencias de la computación la estructura de datos que permite esto se denomi
 
     alert( fruits ); // Apple, Orange
     ```
+
+    Tanto `fruits.pop()` como `fruits.at(-1)` devuelven el último elemento del array, pero `fruits.pop()` también modifica el array eliminando tal elemento.
 
 `push`
 : Agrega el elemento al final del array:

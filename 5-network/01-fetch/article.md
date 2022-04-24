@@ -194,8 +194,8 @@ Para ejecutar una petición `POST`, o cualquier otro método, utilizaremos las o
 
 - **`method`** -- método HTTP, por ej: `POST`,
 - **`body`** -- cuerpo de la respuesta, cualquiera de las siguientes:
-  - cadena de texto (e.g. JSON),
-  - Objeto `FormData`, para enviar información como `form/multipart`,
+  - cadena de texto (ej. JSON-encoded),
+  - Objeto `FormData`, para enviar información como `multipart/form-data`,
   - `Blob`/`BufferSource` para enviar información en formato binario,
   - [URLSearchParams](info:url), para enviar información en cifrado `x-www-form-urlencoded` (no utilizado frecuentemente).
 
@@ -299,17 +299,17 @@ fetch(url, options)
 Propiedades de respuesta:
 - `response.status` -- Código HTTP de la respuesta.
 - `response.ok` -- Devuelve `true` si el código HTTP es 200-299.
-- `response.headers` -- Objeto similar al Map que contiene los encabezados HTTP.
+- `response.headers` -- Objeto simil-Map que contiene los encabezados HTTP.
 
 Métodos para obtener el cuerpo de la respuesta:
 - **`response.text()`** -- lee y devuelve la respuesta en formato texto,
 - **`response.json()`** -- convierte la respuesta como un JSON,
-- **`response.formData()`** -- devuelve la respuesta como un objeto `FormData` (explicado en [el siguiente capítulo](info:formdata)),
+- **`response.formData()`** -- devuelve la respuesta como un objeto `FormData` (codificación `multipart/form-data`, explicado en [el siguiente capítulo](info:formdata)),
 - **`response.blob()`** -- devuelve la respuesta como [Blob](info:blob) (datos binarios tipados),
-- **`response.arrayBuffer()`** -- devuelve la respuesta como un objeto [ArrayBuffer](info:arraybuffer-binary-arrays)
+- **`response.arrayBuffer()`** -- devuelve la respuesta como un objeto [ArrayBuffer](info:arraybuffer-binary-arrays) (datos binarios de bajo nivel)
 
 Opciones de fetch hasta el momento: 
-- `method` -- metodo HTTP,
+- `method` -- método HTTP,
 - `headers` -- un objeto los encabezados de la petición (no todos los encabezados están permitidos),
 - `body` -- los datos/información a enviar (cuerpo de la petición) como `string`, `FormData`, `BufferSource`, `Blob` u objeto `UrlSearchParams`.
 

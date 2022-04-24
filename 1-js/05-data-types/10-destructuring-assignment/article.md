@@ -2,12 +2,12 @@
 
 Las dos estructuras de datos más usadas en JavaScript son `Object` y `Array`.
 
-- Los objetos nos permiten crear una entidad individual que almacena elementos de información con una clave.
-- los arrays nos permiten reunir elementos de información en una colección ordenada.
+- Los objetos nos permiten crear una simple entidad que almacena items con una clave cada uno.
+- los arrays nos permiten reunir items en una lista ordenada.
 
-Pero cuando pasamos estos a una función, tal vez no necesitemos un objeto/array como un conjunto sino piezas individuales.
+Pero cuando los pasamos a una función, tal vez no necesitemos un objeto o array como un conjunto sino en piezas individuales.
 
-La *asignación desestructurante* es una sintaxis especial que nos permite "desempaquetar" arrays u objetos en varias variables, ya que esto a veces es más conveniente. 
+La *asignación desestructurante* es una sintaxis especial que nos permite "desempaquetar" arrays u objetos en varias variables, porque a veces es más conveniente. 
 
 La desestructuración también funciona bien con funciones complejas que tienen muchos argumentos, valores por defecto, etcétera. Pronto lo veremos.
 
@@ -176,7 +176,7 @@ alert(rest.length); // 2
 */!*
 ```
 
-El valor de `rest` es un array de los elementos restantes. 
+El valor de `rest` es un array con los elementos restantes del array original. 
 
 Podemos usar cualquier otro nombre de variable en lugar de `rest`, sólo hay que asegurar que tenga tres puntos que lo antecedan y que esté último en la asignación desestructurante.
 
@@ -234,7 +234,7 @@ La sintaxis básica es:
 let {var1, var2} = {var1:…, var2:…}
 ```
 
-Tenemos un objeto existente en el lado derecho que queremos dividir en variables. El lado izquierdo contiene un "patrón" símil-objeto con las propiedades correspondientes; que en el caso más simple, es la lista de nombres de variables en `{...}`.
+Debemos tener un símil-objeto en el lado derecho, el que queremos separar en variables. El lado izquierdo contiene un símil-objeto "pattern" para sus propiedades correspondientes. En el caso más simple, es la lista de nombres de variables en `{...}`.
 
 Por ejemplo:
 
@@ -429,7 +429,7 @@ let options {
     height: 200
   },
   items: ["Cake", "Donut"],
-  extra: true   
+  extra: true
 };
 
 // la asignación desestructurante fue dividida en varias líneas para mayor claridad

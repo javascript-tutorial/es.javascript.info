@@ -7,7 +7,7 @@ Todo esto es posible en JavaScript y las operaciones binarias son de alto rendim
 Aunque hay un poco de confusión porque hay muchas clases. Por nombrar algunas:
 - `ArrayBuffer`, `Uint8Array`, `DataView`, `Blob`, `File`, etc.
 
-Los datos binarios en JavaScript se implementan de una manera no estándar, en comparación con otros lenguajes. Pero cuando ordenamos las cosas, todo se vuelve bastante sencillo.
+Los datos binarios en JavaScript se implementan de una manera no estándar en comparación con otros lenguajes. Pero cuando ordenamos las cosas, todo se vuelve bastante sencillo.
 
 **El objeto binario básico es `ArrayBuffer` -- una referencia a un área de memoria contigua de longitud fija.**
 
@@ -48,7 +48,7 @@ Así, los datos binarios de un `ArrayBuffer` de 16 bytes pueden interpretarse co
 Pero si vamos a escribir en él, o iterar sobre él (básicamente, para casi cualquier operación), debemos utilizar una vista. Por ejemplo:
 
 ```js run
-let buffer = new ArrayBuffer(16); // crea un búfer de longitud 16
+let buffer = new ArrayBuffer(16); // crea un buffer de longitud 16
 
 *!*
 let view = new Uint32Array(buffer); // trata el buffer como una secuencia de enteros de 32 bits

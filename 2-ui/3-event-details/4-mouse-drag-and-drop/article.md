@@ -219,7 +219,7 @@ Por eso la idea inicial de poner manejadores en receptores potenciales no funcio
 
 Entonces, ¿Qué hacer?
 
-Hay un método llamado `document.elementFromPoint(clientX, clientY)`. Este retorna el elemento más anidado en las coordenadas relativas a la ventana proporcionadas (o `null` si las coordenadas están fuera de la ventana).
+Existe un método llamado `document.elementFromPoint(clientX, clientY)`. Este devuelve el elemento más anidado en las coordenadas relativas a la ventana proporcionada (o `null` si las coordenadas están fuera de la ventana). Si hay muchos elementos superpuestos en las mismas coordenadas, se devuelve el que está en el tope.
 
 Podemos utilizarlo en cualquiera de nuestros manejadores para detectar los receptores potenciales bajo el puntero, de esta forma:
 
@@ -235,7 +235,7 @@ ball.hidden = false;
 
 Favor notar: necesitamos ocultar la pelota antes de llamar `(*)`. De otra forma usualmente tendremos una pelota con esas coordenadas, ya que es el elemento superior bajo el puntero: `elemBelow=ball`. Así que lo ocultamos e inmediatamente lo mostramos de nuevo.
 
-Podemos usar este código para verificar el elemento sobre el que estamos "flotanto" en todo momento. Y manejar la caída cuando sucede.
+Podemos usar este código para verificar el elemento sobre el que estamos "flotando" en todo momento. Y manejar la caída cuando sucede.
 
 Un código extendido de `onMouseMove` para hallar elementos "receptores":
 
