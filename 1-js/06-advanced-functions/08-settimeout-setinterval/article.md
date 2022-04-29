@@ -102,7 +102,7 @@ Como podemos ver en la salida `alert`, en un navegador el identificador del temp
 
 Nuevamente, no hay una especificación universal para estos métodos.
 
-Para los navegadores, los temporizadores se describen en [timers section](https://www.w3.org/TR/html5/webappapis.html#timers) del estándar HTML5.
+Para los navegadores, los temporizadores se describen en la [sección timers](https://www.w3.org/TR/html5/webappapis.html#timers) del estándar HTML5.
 
 ## setInterval
 
