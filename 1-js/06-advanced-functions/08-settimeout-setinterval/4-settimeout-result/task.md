@@ -4,7 +4,7 @@ importance: 5
 
 # ¿Qué mostrará setTimeout?
 
-En el siguiente código hay una llamada programada `setTimeout`, luego se ejecuta un cálculo pesado, que demora más de 100 ms en finalizar.
+En el siguiente código hay una llamada programada `setTimeout`, luego se ejecuta un cálculo pesado que demora más de 100 ms en finalizar.
 
 ¿Cuándo se ejecutará la función programada?
 
@@ -13,14 +13,14 @@ En el siguiente código hay una llamada programada `setTimeout`, luego se ejecut
 3. Al comienzo del bucle.
 
 
-¿Qué va a mostrar "alerta"?
+¿Qué va a mostrar ´alert()´?
 
 ```js
 let i = 0;
 
 setTimeout(() => alert(i), 100); // ?
 
-// supongamos que el tiempo para ejecutar esta función es> 100 ms
+// asumimos que el tiempo para ejecutar esta función es > 100 ms
 for(let j = 0; j < 100000000; j++) {
   i++; 
 }

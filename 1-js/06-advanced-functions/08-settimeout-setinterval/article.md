@@ -20,8 +20,7 @@ let timerId = setTimeout(func|código, [retraso], [arg1], [arg2], ...)
 Parámetros:
 
 `func|código`
-: Función o una cadena de código para ejecutar.
-Por lo general, es una función. Por razones históricas, se puede pasar una cadena de código, pero eso no es recomendable.
+: Una función o un string con código para ejecutar. Lo normal es que sea una función. Por razones históricas es posible pasar una cadena de código, pero no es recomendable.
 
 `retraso`
 : El retraso o *delay* antes de la ejecución, en milisegundos (1000 ms = 1 segundo), por defecto 0.
@@ -53,7 +52,7 @@ setTimeout(sayHi, 1000, "Hola", "John"); // Hello, John
 */!*
 ```
 
-Si el primer argumento es un string, entonces JavaScript crea una función a partir de ella.
+Si el primer argumento es un string, JavaScript crea una función a partir de él.
 
 Entonces, esto también funcionará:
 
@@ -61,21 +60,21 @@ Entonces, esto también funcionará:
 setTimeout("alert('Hola')", 1000);
 ```
 
-Pero no se recomienda usar strings, use funciones de flecha en lugar de ellas, como esta:
+Pero no se recomienda usar strings, use funciones de flecha en lugar de ello:
 
 ```js run no-beautify
 setTimeout(() => alert('Hola'), 1000);
 ```
 
 ````smart header="Pasa una función, pero no la ejecuta"
-Los desarrolladores novatos a veces cometen un error al agregar paréntesis `()` después de la función:
+Los principiantes a veces cometen un error al agregar paréntesis `()` después de la función:
 
 ```js
-// mal!
+// ¡mal!
 setTimeout(sayHi(), 1000);
 ```
 
-Eso no funciona, porque `setTimeout` espera una referencia a una función. Y aquí `sayHi()` ejecuta la función, y el *resultado de su ejecución* se pasa a `setTimeout`. En nuestro caso, el resultado de `sayHi()` es `undefined` (la función no devuelve nada), por lo que no hay nada planificado.
+Eso no funciona, porque `setTimeout` espera una referencia a una función. Y aquí `sayHi()` ejecuta la función, y el *resultado de su ejecución* se pasa a `setTimeout`. En nuestro caso, el resultado de `sayHi()` es `undefined` (la función no devuelve nada), por lo que no habrá nada planificado.
 ````
 
 ### Cancelando con clearTimeout
@@ -103,7 +102,7 @@ Como podemos ver en la salida `alert`, en un navegador el identificador del temp
 
 Nuevamente, no hay una especificación universal para estos métodos.
 
-Para los navegadores, los temporizadores se describen en el [timers section](https://www.w3.org/TR/html5/webappapis.html#timers) de el estándar HTML5.
+Para los navegadores, los temporizadores se describen en la [sección timers](https://www.w3.org/TR/html5/webappapis.html#timers) del estándar HTML5.
 
 ## setInterval
 
@@ -155,7 +154,7 @@ El `setTimeout` anterior planifica la siguiente llamada justo al final de la act
 
 El `setTimeout` anidado es un método más flexible que `setInterval`. De esta manera, la próxima llamada se puede planificar de manera diferente, dependiendo de los resultados de la actual.
 
-Por ejemplo, necesitamos escribir un servicio que envíe una solicitud al servidor cada 5 segundos solicitando datos, pero, en caso de que el servidor esté sobrecargado, debería aumentar el intervalo a 10, 20, 40 segundos ...
+Ejemplo: necesitamos escribir un servicio que envíe una solicitud al servidor cada 5 segundos solicitando datos, pero en caso de que el servidor esté sobrecargado, deber aumentar el intervalo a 10, 20, 40 segundos...
 
 Aquí está el pseudocódigo:
 ```js
@@ -175,7 +174,7 @@ let timerId = setTimeout(function request() {
 ```
 
 
-Y si las funciones que estamos planificando requieren mucha CPU, entonces podemos medir el tiempo que tarda la ejecución y planificar la próxima llamada, tarde o temprano.
+Y si las funciones que estamos planificando requieren mucha CPU, entonces podemos medir el tiempo que tarda la ejecución y planificar la próxima llamada más tarde o más temprano.
 
 **`setTimeout` anidado permite establecer el retraso entre las ejecuciones con mayor precisión que `setInterval`.**
 
@@ -212,7 +211,7 @@ Es posible que la ejecución de `func` sea más larga de lo esperado y demore m�
 
 En este caso, el motor espera a que se complete `func`, luego verifica el planificador y, si se acabó el tiempo, lo ejecuta de nuevo *inmediatamente*.
 
-En el caso límite, si la función siempre se ejecuta más que el `retraso` ms, entonces las llamadas se realizarán sin pausa alguna.
+En caso límite, si la ejecución de la función siempre demora más que los ms de `retraso`, entonces las llamadas se realizarán sin pausa alguna.
 
 Y aquí está la imagen para el `setTimeout` anidado:
 
@@ -223,7 +222,7 @@ Y aquí está la imagen para el `setTimeout` anidado:
 Esto se debe a que se planea una nueva llamada al final de la anterior.
 
 ````smart header="Recolección de basura y setInterval/setTimeout callback"
-Cuando se pasa una función en `setInterval / setTimeout`, se crea una referencia interna y se guarda en el planificador. Evita que la función se recolecte, incluso si no hay otras referencias a ella..
+Cuando se pasa una función en `setInterval / setTimeout`, se crea una referencia interna y se guarda en el planificador. Esto evita que la función se recolecte, incluso si no hay otras referencias a ella..
 
 ```js
 // la función permanece en la memoria hasta que el planificador la llame
@@ -251,7 +250,7 @@ setTimeout(() => alert("Mundo"));
 alert("Hola");
 ```
 
-La primera línea "pone la llamada en el calendario después de 0 ms". Pero el planificador solo "verificará el calendario" una vez que se haya completado el script actual, por lo que "Hola" es primero y "Mundo"` -- después.
+La primera línea "pone la llamada en el calendario después de 0 ms". Pero el planificador solo "verificará el calendario" una vez que se haya completado el script actual, por lo que "Hola" es primero y "Mundo" después.
 
 También hay casos de uso avanzados relacionados con el navegador y el tiempo de espera cero (zero-delay), que discutiremos en el capítulo <info:event-loop>.
 
@@ -277,9 +276,9 @@ setTimeout(function run() {
 
 Los primeros temporizadores se ejecutan inmediatamente (tal como está escrito en la especificación), y luego vemos `9, 15, 20, 24 ...`. Entra en juego el retraso obligatorio de más de 4 ms entre invocaciones.
 
-Lo mismo sucede si usamos `setInterval` en lugar de `setTimeout`: `setInterval(f)` ejecuta `f` algunas veces con cero retardo, y luego con 4+ ms de retraso.
+Lo mismo sucede si usamos `setInterval` en lugar de `setTimeout`: `setInterval(f)` ejecuta `f` algunas veces con cero retraso, y luego con 4+ ms de retraso.
 
-Esa limitación proviene de la antigüedad y muchos guiones dependen de ella, por lo que existe por razones históricas.
+Esa limitación proviene de la antigüedad y muchos scripts dependen de ella, por lo que existe por razones históricas.
 
 Para JavaScript del lado del servidor, esa limitación no existe, y existen otras formas de planificar un trabajo asincrónico inmediato, como [setImmediate](https://nodejs.org/api/timers.html) para Node.js. Entonces esta nota es específica del navegador.
 ````
