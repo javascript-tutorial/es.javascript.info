@@ -16,7 +16,7 @@ Toda esta potencia es normalmente excesiva para las aplicaciones cliente-servido
 
 La interfaz nativa de IndexedDB, descrita en la <https://www.w3.org/TR/IndexedDB>, está basada en eventos.
 
-También podemos usar `async/await` con la ayuda de un contenedor basado en promesas como idb <https://github.com/jakearchibald/idb>. Aunque ésto es muy conveniente, hay que tener en cuenta que el contenedor no es perfecto y no puede reemplazar a los eventos en todos los casos. Así que comenzaremos con eventos y, cuando hayamos avanzado en el entendimiento de IndexedDb, usaremos el contenedor.
+También podemos usar `async/await` con la ayuda de un contenedor basado en promesas como idb <https://github.com/jakearchibald/idb>. Aunque esto es muy conveniente, hay que tener en cuenta que el contenedor no es perfecto y no puede reemplazar a los eventos en todos los casos. Así que comenzaremos con eventos y, cuando hayamos avanzado en el entendimiento de IndexedDb, usaremos el contenedor.
 
 ```smart header="¿Dónde están los datos?"
 Técnicamente, los datos son almacenados bajo el directorio raíz del usuario junto con la configuración personal del navegador, extensiones, etc.
