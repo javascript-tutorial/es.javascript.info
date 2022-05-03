@@ -259,7 +259,7 @@ function showMessage(from, text) {
 
 ### Parámetros predeterminados alternativos
 
-A veces tiene sentido asignar valores predeterminados no en la declaración de función sino en un estadio posterior.
+A veces tiene sentido asignar valores predeterminados no en la declaración de función sino en un etapa posterior.
 
 Podemos verificar si un parámetro es pasado durante la ejecución de la función comparándolo con `undefined`:
 
