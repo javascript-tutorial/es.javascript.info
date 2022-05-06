@@ -282,7 +282,6 @@ Aquí hay un pequeño conjunto de funciones para trabajar con cookies, más conv
 
 Existen muchas librerías de cookies para eso, asi que estas son para demostración solamente. Aunque completamente funcionales.
 
-
 ### getCookie(name)
 
 La forma más corta de acceder a una cookie es usar una [expresión regular](info:regular-expressions).

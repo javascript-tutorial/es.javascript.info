@@ -150,7 +150,7 @@ En la práctica, tales funciones son bastante útiles. La mayor diferencia entre
 
 La idea es que pasamos una función y esperamos que se "devuelva la llamada" más tarde si es necesario. En nuestro caso, `showOk` se convierte en la callback para la respuesta "Yes", y `showCancel` para la respuesta "No".
 
-Podemos usar Expresión de Función para redactar la misma función más corta:
+Podemos usar Expresión de Función para redactar una función equivalente y más corta:
 
 ```js run no-beautify
 function ask(question, yes, no) {
@@ -186,7 +186,7 @@ Formulemos las principales diferencias entre Declaración y Expresión de Funcio
 
 Primero, la sintaxis: cómo diferenciarlas en el código.
 
-- *Declaración de Función:* una función, declarada como una declaración separada, en el flujo de código principal.
+- *Declaración de Función:* una función, declarada como una instrucción separada, en el flujo de código principal.
 
     ```js
     // Declaración de Función

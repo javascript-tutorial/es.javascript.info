@@ -178,7 +178,7 @@ Algo como esto:
 
 <script>
   // habrá un error si la ventana superior es de un origen diferente
-  // pero esta bien aqui
+  // pero esta bien aquí
   if (top.document.domain == document.domain) {
     protector.remove();
   }

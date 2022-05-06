@@ -37,7 +37,7 @@ Y así es como se almacena en la memoria:
 
 El objeto es almacenado en algún lugar de la memoria (a la derecha de la imagen), mientras que la variable `user` (a la izquierda) tiene una "referencia" a él.
 
-Podemos pensar de una variable objeto, como `user`, como una hoja de papel con la  dirección del objeto en él.
+Podemos pensar de una variable objeto, como `user`, como una hoja de papel con la dirección del objeto escrita en ella.
 
 Cuando ejecutamos acciones con el objeto, por ejemplo tomar una propiedad `user.name`, el motor JavaScript busca aquella dirección y ejecuta la operación en el objeto mismo.
 
@@ -104,11 +104,9 @@ Para comparaciones como `obj1 > obj2`, o comparaciones contra un primitivo `obj 
 
 Entonces copiar una variable de objeto crea una referencia adicional al mismo objeto.
 
-Pero ¿si necesitamos duplicar un objeto? ¿Crear una copia independiente, un clon?
+Pero ¿y si necesitamos duplicar un objeto?
 
-Eso también es factible, pero un poco más difícil porque no hay un método incorporado para eso en JavaScript. En realidad, eso es raramente necesario. Copiar por referencia está bien la mayoría de las veces.
-
-Pero si realmente queremos eso, necesitamos crear un nuevo objeto y replicar la estructura del existente iterando a través de sus propiedades y copiándolas en el nivel primitivo.
+Podemos crear un nuevo objeto y replicar la estructura del existente iterando a través de sus propiedades y copiándolas en el nivel primitivo.
 
 Como esto:
 
@@ -133,7 +131,7 @@ clone.name = "Pete"; // cambiamos datos en él
 alert( user.name ); // John aún está en el objeto original
 ```
 
-También podemos usar el método [Object.assign](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/assign) para ello.
+También podemos usar el método [Object.assign](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/assign).
 
 La sintaxis es:
 
@@ -190,7 +188,7 @@ También hay otras formas de clonar un objeto, por ejemplo usando la [sintaxis s
 
 ## Clonación anidada
 
-Hasta ahora asumimos que todas las propiedades de `user` son primitivas. Pero las propiedades pueden ser referencias a otros objetos. ¿Qué hacer con ellas?
+Hasta ahora asumimos que todas las propiedades de `user` son primitivas. Pero las propiedades pueden ser referencias a otros objetos.
 
 Como esto:
 ```js run
@@ -206,8 +204,6 @@ alert( user.sizes.height ); // 182
 ```
 
 Ahora no es suficiente copiar `clone.sizes = user.sizes`, porque `user.sizes` es un objeto y será copiado por referencia. Entonces `clone` y `user` compartirán las mismas tallas (.sizes):
-
-Como esto:
 
 ```js run
 let user = {
@@ -227,7 +223,7 @@ user.sizes.width++;       // cambia la propiedad en un lugar
 alert(clone.sizes.width); // 51, ve el resultado desde el otro
 ```
 
-Para corregir esto, debemos usar un bucle de clonación que examine cada valor de `user[key]` y, si es un objeto, replicar su estructura también. Esto es llamado "clonación profunda".
+Para corregir esto debemos usar un bucle de clonación que examine cada valor de `user[key]` y, si es un objeto, replicar su estructura también. Esto es llamado "clonación profunda".
 
 Podemos usar recursividad para implementarlo. O, para no inventar la rueda, tomar una implementación existente, por ejemplo [_.cloneDeep(obj)](https://lodash.com/docs#cloneDeep) de la librería JavaScript [lodash](https://lodash.com).
 

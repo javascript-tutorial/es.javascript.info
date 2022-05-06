@@ -137,9 +137,9 @@ switch (a) {
 }
 ```
 
-Ahora ambos `3` y `5` muestran el mismo mensaje.
+Ahora ambos, `3` y `5`, muestran el mismo mensaje.
 
-La habilidad para "agrupar" cases es un efecto secundario de como trabaja `switch/case` sin `break`. Aquí la ejecución de `case 3` inicia desde la línea `(*)` y continúa a través de `case 5`, porque no existe `break`.
+La capacidad de "agrupar" los `case` es un efecto secundario de cómo trabaja `switch/case` sin `break`. Aquí la ejecución de `case 3` inicia desde la línea `(*)` y continúa a través de `case 5`, porque no existe `break`.
 
 ## El tipo importa
 

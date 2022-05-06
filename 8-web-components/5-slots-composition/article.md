@@ -130,6 +130,7 @@ Por ejemplo, el segundo `<span>` aquí se ignora (ya que no es un elemento hijo 
 Si hay varios elementos en el light DOM con el mismo nombre de slot, se añaden al slot, uno tras otro.
 
 Por ejemplo, este:
+
 ```html
 <user-card>
   <span slot="username">John</span>
@@ -185,7 +186,7 @@ customElements.define('user-card', class extends HTMLElement {
       <slot name="birthday"></slot>
     </div>
     <fieldset>
-      <legend>Otra informacion</legend>
+      <legend>Otra información</legend>
 *!*
       <slot></slot>
 */!*

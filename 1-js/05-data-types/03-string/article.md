@@ -48,7 +48,7 @@ let guestList = "Invitados:  // Error: Unexpected token ILLEGAL
   * Juan";
 ```
 
-Las comillas simples y dobles provienen de la creación de lenguaje en tiempos ancestrales, cuando la necesidad de múltiples líneas no era tomada en cuenta. Los backticks aparecieron mucho después y por ende son más versátiles.
+Las comillas simples y dobles provienen de la creación de lenguajes en tiempos ancestrales, cuando la necesidad de múltiples líneas no era tomada en cuenta. Los backticks aparecieron mucho después y por ende son más versátiles.
 
 Los backticks además nos permiten especificar una "función de plantilla" antes del primer backtick. La sintaxis es: <code>func&#96;string&#96;</code>. La función `func` es llamada automáticamente, recibe el string y la expresión insertada y los puede procesar. Eso se llama "plantillas etiquetadas". Esta característica hace que sea más fácil implementar plantillas personalizadas, pero es raramente usada en la práctica. Puedes leer más sobre esto en [docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates). 
 
@@ -214,7 +214,7 @@ alert('Interfaz'.toLowerCase()); // interfaz
 
 Si queremos un solo carácter en minúscula:
 
-```js
+```js run
 alert('Interfaz'[0].toLowerCase()); // 'i'
 ```
 
@@ -371,8 +371,8 @@ alert('Midget'.includes('id', 3)); // false, desde la posición 3 no hay "id"
 Los métodos [str.startsWith](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/startsWith) (comienza con) y [str.endsWith](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/endsWith) (termina con) hacen exactamente lo que dicen:
 
 ```js run
-alert('Widget'.startsWith('Wid')); // true, "Widget" comienza con "Wid"
-alert('Widget'.endsWith('get')); // true, "Widget" termina con "get"
+alert( "*!*Wid*/!*get".startsWith("Wid") ); // true, "Widget" comienza con "Wid"
+alert( "Wid*!*get*/!*".endsWith("get") ); // true, "Widget" termina en "get"
 ```
 
 ## Obteniendo un substring
@@ -604,7 +604,7 @@ Encontrarás más formas de trabajar con pares sustitutos más adelante en el ca
 
 ### Marcas diacríticas y normalización
 
-En muchos idiomas hay símbolos que se componen del carácter base con una marca arriba o debajo.
+En muchos idiomas hay símbolos compuestos, con un carácter de base y una marca arriba o debajo.
 
 Por ejemplo, la letra `a` puede ser el carácter base para:` àáâäãåā`. Los caracteres "compuestos" más comunes tienen su propio código en la tabla UTF-16. Pero no todos ellos, porque hay demasiadas combinaciones posibles.
 
@@ -667,7 +667,7 @@ Si desea obtener más información sobre las reglas y variantes de normalizació
 - Para obtener un carácter, usa: `[]`.
 - Para obtener un substring, usa: `slice` o `substring`.
 - Para convertir un string en minúsculas/mayúsculas, usa: `toLowerCase/toUpperCase`.
-- Para buscar por un substring, usa: `indexOf`, o `includes/startsWith/endsWith` para checkeos simples.
+- Para buscar por un substring, usa: `indexOf`, o `includes/startsWith/endsWith` para chequeos simples.
 - Para comparar strings de acuerdo al lenguaje, usa: `localeCompare`, de otra manera serán comparados como códigos de carácter.
 
 Existen varios otros métodos útiles en cadenas:

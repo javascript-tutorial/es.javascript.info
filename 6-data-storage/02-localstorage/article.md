@@ -6,8 +6,8 @@ Lo que es interesante sobre ellos es que los datos sobreviven a una recarga de p
 
 Ya tenemos cookies. ¿Por qué tener objetos adicionales?
 
-- Al contrario que las cookies, los objetos de almacenaje web no se envían al servidor en cada petición. Debido a esto, podemos almacenar mucha más información. La mayoría de navegadores permiten almacenar, como mínimo, 2 megabytes de datos (o más) y tienen opciones para configurar éstos límites.
-- El servidor no puede manipular los objetos de almacenaje via cabeceras HTTP, todo se hace via JavaScript.
+- Al contrario que las cookies, los objetos de almacenaje web no se envían al servidor en cada petición. Debido a esto, podemos almacenar mucha más información. La mayoría de los navegadores modernos permiten almacenar, como mínimo, 5 megabytes de datos y tienen opciones para configurar estos límites.
+- También diferente de las cookies es que el servidor no puede manipular los objetos de almacenaje via cabeceras HTTP, todo se hace via JavaScript.
 - El almacenaje está vinculado al orígen (al triplete dominio/protocolo/puerto). Esto significa que distintos protocolos o subdominios tienen distintos objetos de almacenaje, no pueden acceder a otros datos que no sean los suyos.
 
 Ambos objetos de almacenaje proveen los mismos métodos y propiedades:
