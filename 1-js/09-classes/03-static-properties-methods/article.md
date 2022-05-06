@@ -108,6 +108,17 @@ Los métodos estáticos también se utilizan en clases relacionadas con base de 
 Article.remove({id: 12345});
 ```
 
+````warn header="Los métodos estáticos no están disponibles para objetos individuales"
+Los métodos estáticos son llamados sobre las clases, no sobre los objetos individuales.
+
+Por ejemplo, este código no funcionará:
+
+```js
+// ...
+article.createTodays(); /// Error: article.createTodays is not a function
+```
+````
+
 ## Propiedades estáticas
 
 [recent browser=Chrome]

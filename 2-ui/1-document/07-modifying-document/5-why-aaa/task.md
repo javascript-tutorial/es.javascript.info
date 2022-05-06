@@ -22,6 +22,6 @@ Pero si la ejecutas, puedes ver que el texto "aaa"` es aún visible.
   alert(table); // la tabla, tal como debería ser
 
   table.remove();
-  // ¿Por qué aún está aaa en el documento?
+  // ¿Por qué aún está "aaa" en el documento?
 </script>
 ```

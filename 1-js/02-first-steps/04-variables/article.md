@@ -192,7 +192,7 @@ let my-name; // los guiones '-' no son permitidos en nombres
 ```
 
 ```smart header="La Capitalización es Importante"
-Variables con el nombre `manzana` y `manzANA` son distintas.
+Dos variables con nombres `manzana` y `MANZANA` son variables distintas.
 ```
 
 ````smart header="Letras que no son del alfabeto inglés están permitidas, pero no se recomiendan"
@@ -297,7 +297,7 @@ const pageLoadTime = /* el tiempo que tardó la página web para cargar */;
 
 El valor de `pageLoadTime` no se conoce antes de cargar la página, así que la nombramos normalmente. No obstante, es una constante porque no cambia después de su asignación inicial.
 
-En otras palabras, las constantes nombradas con mayúscula son utilizadas como áliases para valores que son "hard-coded".
+En otras palabras, las constantes con nombres en mayúscula son utilizadas solamente como alias para valores invariables y preestablecidos ("hard-coded").
 
 ## Nombrar cosas correctamente
 
@@ -316,7 +316,7 @@ Algunas reglas buenas para seguir:
 - Use términos legibles para humanos como `userName` p `shoppingCart`.
 - Evite abreviaciones o nombres cortos `a`, `b`, `c`, al menos que en serio sepa lo que está haciendo.
 - Cree nombres que describen al máximo lo que son y sean concisos. Ejemplos que no son adecuados son `data` y `value`. Estos nombres no nos dicen nada. Estos solo está bien usarlos en el contexto de un código que deje excepcionalmente obvio cuál valor o cuales datos está referenciando la variable.
-- Acuerda en tu propia mente y con tu equípo cuáles términos se utilizarán. Si a un visitante se le llamara "user", debemos llamar las variables relacionadas `currentUser` o `newUser` en vez de `currentVisitor` o `newManInTown`.
+- Acuerda en tu propia mente y con tu equipo cuáles términos se utilizarán. Si a un visitante se le llamara "user", debemos llamar las variables relacionadas `currentUser` o `newUser` en vez de `currentVisitor` o `newManInTown`.
 
 ¿Suena simple? De hecho lo es, pero no es tan fácil crear nombres de variables descriptivos y concisos a la hora de practicar. Inténtelo.
 

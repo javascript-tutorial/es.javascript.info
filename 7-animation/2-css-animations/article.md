@@ -210,7 +210,6 @@ Otros nombres son abreviaturas para la siguiente `cubic-bezier`:
 
 Por lo tanto, podríamos usar `ease-out` para nuestro tren desacelerando:
 
-
 ```css
 .train {
   left: 0;
@@ -226,6 +225,7 @@ Pero se ve un poco diferente.
 Los puntos de control en la curva pueden tener cualquier coordenada `y`: incluso negativa o enorme. Entonces la curva de Bézier también saltaría muy bajo o alto, haciendo que la animación vaya más allá de su rango normal.
 
 En el siguiente ejemplo, el código de animación es:
+
 ```css
 .train {
   left: 100px;

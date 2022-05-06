@@ -52,7 +52,7 @@ Los eventos relacionados con clics siempre tienen la propiedad `button`, esta no
 
 Normalmente no la usamos para eventos `click` y `contextmenu` events, porque sabemos que ocurren solo con click izquierdo y derecho respectivamente. 
 
-Por otro lado, los controladores `mousedown` y `mouseup` pueden necesitar `event.button` ya que estos eventos se activan con cualquier botón y `button` nos permitirá distinguir entre "mousedown derecho" y "mousedown izquierdo".
+Por otro lado, los controladores `mousedown` y `mouseup` pueden necesitar `event.button` ya que estos eventos se activan con cualquier botón, y `button` nos permitirá distinguir entre "mousedown derecho" y "mousedown izquierdo".
 
 Los valores posibles para `event.button` son:
 

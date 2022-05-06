@@ -231,7 +231,7 @@ setTimeout(function() {...}, 100);
 
 Para `setInterval`, la función permanece en la memoria hasta que se invoca `clearInterval`.
 
-Hay un efecto secundario. Una función hace referencia al entorno léxico externo, por lo tanto, mientras vive, las variables externas también viven. Pueden tomar mucha más memoria que la función misma. Entonces, cuando ya no necesitamos la función planificada, es mejor cancelarla, incluso si es muy pequeña.
+Hay un efecto secundario. Una función hace referencia al entorno léxico externo, por lo tanto, mientras vive, las variables externas también viven. Pueden tomar mucha más memoria que la función misma. Entonces, cuando ya no necesitamos la función planificada es mejor cancelarla, incluso si es muy pequeña.
 ````
 
 ## Retraso cero en setTimeout

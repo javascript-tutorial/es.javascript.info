@@ -246,7 +246,7 @@ PHP, Java, C, Perl, Ruby dan exactamente el mismo resultado, porque ellos están
 
 ```js run
 let sum = 0.1 + 0.2;
-alert( sum.toFixed(2) ); // 0.30
+alert( sum.toFixed(2) ); // "0.30"
 ```
 
 Ten en cuenta que `toFixed` siempre devuelve un string. Esto asegura que tiene 2 dígitos después del punto decimal. Esto es en verdad conveniente si tenemos un sitio de compras y necesitamos mostrar `$0.30`. Para otros casos, podemos usar el + unario para forzar un número:

@@ -21,14 +21,14 @@ alert( rabbit.hasOwnProperty('name') ); // verdadero
 
 Pero eso no es todo.
 
-Incluso después de arreglarlo, aún existe una diferencia importante en `"class Rabbit extends Object"` versus `class Rabbit`.
+Incluso después de arreglarlo, aún existe una diferencia importante entre `"class Rabbit extends Object"` y `class Rabbit`.
 
 Como sabemos, la sintaxis "extends" configura dos prototipos:
 
 1. Entre `"prototype"` de las funciones del constructor (para métodos).
 2. Entre las propias funciones del constructor (para métodos estáticos).
 
-En nuestro caso, para `class Rabbit extends Object` significa:
+En el caso de `class Rabbit extends Object` significa:
 
 ```js run
 class Rabbit extends Object {}
@@ -67,7 +67,7 @@ alert ( Rabbit.getOwnPropertyNames({a: 1, b: 2})); // Error
 
 Entonces `Rabbit` no proporciona acceso a métodos estáticos de `Object` en este caso.
 
-Por cierto, `Function.prototype` tiene métodos de función "genéricos", como `call`, `bind` etc. Finalmente, están disponibles en ambos casos, por el `Object` que tiene el constructor incorporado `Object.__proto__ === Function.prototype`.
+Por cierto, `Function.prototype` también tiene métodos de función "genéricos", como `call`, `bind` etc. Finalmente, están disponibles en ambos casos, por el `Object` que tiene el constructor incorporado `Object.__proto__ === Function.prototype`.
 
 Aquí está la imagen:
 
