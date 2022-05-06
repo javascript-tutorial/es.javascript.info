@@ -372,7 +372,7 @@ Los métodos [str.startsWith](https://developer.mozilla.org/es/docs/Web/JavaScri
 
 ```js run
 alert( "*!*Wid*/!*get".startsWith("Wid") ); // true, "Widget" comienza con "Wid"
-alert( "Wid*!*get*/!*".endsWith("get") ); // true, "Widget" termina en "get"
+alert( "Wid*!*get*/!*".endsWith("get") ); // true, "Widget" termina con "get"
 ```
 
 ## Obteniendo un substring
