@@ -22,7 +22,7 @@ Un valor de este tipo puede ser creado usando `Symbol()`:
 let id = Symbol();
 ```
 
-También le podemos agregar una descripción (también llamada symbol name), que será útil en la depuración de código:
+Al crearlo, podemos agregarle una descripción (también llamada symbol name), que será útil en la depuración de código:
 
 ```js run
 // id es un symbol con la descripción "id"
@@ -44,7 +44,7 @@ alert(id1 == id2); // false
 
 Si estás familiarizado con Ruby u otro lenguaje que también tiene symbols, por favor no te confundas. Los Symbols de Javascript son diferentes.
 
-Para resumir: los symbols son "valores primitivos únicos" con una descripción opcional. Veamos dónde podemos usarlos.
+Para resumir: un symbol es un "valor primitivo único" más una descripción opcional. Veamos dónde podemos usarlos.
 
 ````warn header="Symbols no se autoconvierten a String"
 La mayoría de los valores en JavaScript soportan la conversión implícita a string. Por ejemplo, podemos hacer un ´alert´ con casi cualquier valor y funcionará. Los Symbols son especiales, éstos no se autoconvierten.
@@ -102,11 +102,11 @@ alert( user[id] ); // podemos accesar a la información utilizando el symbol com
 
 ¿Cuál es la ventaja de usar `Symbol("id")` y no un string `"id"`?
 
-Como los objetos `user` pertenecen a otro código, y ese código también trabaja con ellos, no deberíamos simplemente agregarles campos sin más, eso sería inseguro.
+Como los objetos `user` pertenecen a otro código, es inseguro agregarles campos pues podría afectar su comportamiento predefinido en ese otro código. Sin embargo, los símbolos no pueden ser accedidos accidentalmente. El código de terceros no se percataría de los símbolos nuevos, por lo que se considera seguro agregar símbolos a los objetos `user`.
 
-Además, imagina que otro script quiere tener su propia clave "id" dentro de `user` para sus propios fines. Puede ser otra librería de JavaScript, por lo cual ninguno de los scripts sabe de la existencia de los demás.
+Además, imagina que otro script quiere tener su propio identificador "id" dentro de `user` para sus propios fines.
 
-Y entonces ese script puede crear su propio `Symbol("id")`, como aquí:
+Entonces ese script puede crear su propio `Symbol("id")`, como aquí:
 
 ```js
 // ...
@@ -214,14 +214,14 @@ alert( id === idAgain ); // true
 Los Symbols dentro de este registro son llamados *global symbols* y están disponibles y al alcance de todo el código en la aplicación.
 
 ```smart header="Eso suena a Ruby"
-En algunos lenguajes de programación como Ruby, hay un solo Symbol por cada nombre.
+En algunos lenguajes de programación, como Ruby, hay un solo Symbol por cada nombre.
 
 En Javascript, como podemos ver, eso es verdad para los global symbols.
 ```
 
 ### Symbol.keyFor
 
-Para los global symbols, no solo `Symbol.for(key)` devuelve un symbol por su nombre, sino que existe una llamada inversa: `Symbol.keyFor(sym)` que hace lo contrario: devuelve el nombre de un global symbol.
+Para los global symbols, no solo `Symbol.for(key)` devuelve un symbol por su nombre. Para hacer lo opuesto, -- devolver el nombre de  un global symbol -- podemos usar: `Symbol.keyFor(sym)`.
 
 Por ejemplo:
 

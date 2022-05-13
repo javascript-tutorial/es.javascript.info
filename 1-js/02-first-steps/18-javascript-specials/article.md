@@ -55,7 +55,7 @@ Para habilitar completamente todas las características de JavaScript moderno, d
 
 La directiva debe estar en la parte superior de un script o al comienzo de una función.
 
-Sin la directiva `"use strict"`, todo sigue funcionando, pero algunas características se comportan de la manera antigua y "compatible". Generalmente preferimos el comportamiento moderno.
+Sin la directiva `"use strict"` todo sigue funcionando, pero algunas características se comportan de la manera antigua y "compatible". Generalmente preferimos el comportamiento moderno.
 
 Algunas características modernas del lenguaje (como las clases que estudiaremos en el futuro) activan el modo estricto implícitamente.
 

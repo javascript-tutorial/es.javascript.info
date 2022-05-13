@@ -512,22 +512,27 @@ Simple: no utilices el operador `==`. En lugar, compáralas elemento a elemento 
 
 Los arrays son una clase especial de objeto, adecuados para almacenar y manejar items de datos ordenados.
 
-- La declaración:
+La declaración:
 
-    ```js
-    // corchetes (usual)
-    let arr = [item1, item2...];
+```js
+// corchetes (lo usual)
+let arr = [item1, item2...];
 
-    // new Array (excepcionalmente raro)
-    let arr = new Array(item1, item2...);
-    ```
+// new Array (excepcionalmente raro)
+let arr = new Array(item1, item2...);
+```
 
-    Un llamado a `new Array(number)` crea un array con la longitud dada, pero sin elementos.
+El llamado a `new Array(number)` crea un array con la longitud dada, pero sin elementos.
 
 - La propiedad `length` es la longitud del array o, para ser preciso, el último índice numérico más uno. Se autoajusta al usar los métodos de array.
 - Si acortamos `length` manualmente, el array se trunca.
 
-Podemos usar un array como "bicola" con las siguientes operaciones:
+Obtener los elementos:
+
+- Podemos obtener un elemento por su índice, como `arr[0]`
+- También podemos usar el método `at(i)`, que permite índices negativos. Para valores negativos de `i`, cuenta hacia atrás desde el final del array. Funciona igual que  `arr[i]`, si `i >= 0`.
+
+Podemos usar un array como una pila "deque" o "bicola" con las siguientes operaciones:
 
 - `push(...items)` agrega `items` al final.
 - `pop()` remueve el elemento del final y lo devuelve.
