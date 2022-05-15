@@ -287,7 +287,7 @@ El `pow` iterativo utiliza un solo contexto, cambiando `i` y `result` en el proc
 
 ... Pero a veces la reescritura no es trivial, especialmente cuando la función utiliza sub-llamadas recursivas diferentes según las condiciones y combina sus resultados, o cuando la ramificación es más intrincada. Y la optimización podría ser innecesaria y no merecer la pena el esfuerzo en absoluto.
 
-La recursión puede dar un código más corto y fácil de entender y mantener. No se requieren optimizaciones en todo lugar, principalmente lo que necesitamos es un buen código y por eso se usa.
+La recursión puede dar un código más corto y fácil de entender y mantener. No se requiere optimización en todo lugar, principalmente lo que nos interesa es un buen código y por eso se usa.
 
 ## Recorridos recursivos
 
@@ -524,7 +524,7 @@ Las "listas" pueden ser mejoradas:
 ## Resumen
 
 Glosario:
-- *Recursion* es concepto de programación que significa que una función se llama a sí misma. Laa funciones recursivas se pueden utilizar para resolver ciertas tareas de manera elegante.
+- *Recursion* es concepto de programación que significa que una función se llama a sí misma. Las funciones recursivas se pueden utilizar para resolver ciertas tareas de manera elegante.
 
     Cada vez que una función se llama a sí misma ocurre un *paso de recursión*. La *base* de la recursividad se da cuando los argumentos de la función hacen que la tarea sea tan básica que la función no realiza más llamadas.
 
