@@ -57,7 +57,7 @@ Para crear un nuevo objeto `Date` se lo instancia con `new Date()` junto con uno
 `new Date(año, mes, fecha, horas, minutos, segundos, ms)`
 : Crea una fecha con los componentes pasados como argumentos en la zona horaria local. Sólo los primeros dos parámetros son obligatorios.
 
-    - El `año` debe tener 4 dígitos: `2013` es correcto, `98` no.
+    - El `año` debería tener 4 dígitos. Por compatibilidad, aquí 2 dígitos serán considerados '19xx', pero 4 dígitos es lo firmemente sugerido. 
     - La cuenta del `mes` comienza desde el `0` (enero), y termina en el `11` (diciembre).
     - El parámetro `fecha` efectivamente es el día del mes, si está ausente se asume su valor en `1`.
     - Si los parámetros `horas/minutos/segundos/ms` están ausentes, se asumen sus valores iguales a `0`.

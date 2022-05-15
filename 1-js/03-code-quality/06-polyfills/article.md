@@ -5,7 +5,7 @@ El lenguaje JavaScript evoluciona constantemente. Nuevas propuestas al lenguaje 
 
 Los equipos de desarrollo detrás de los intérpretes (engines) de JavaScript tienen sus propias ideas sobre qué implementar primero. Pueden decidir implementar propuestas que están en borrador y posponer cosas que ya están en la especificación porque son menos interesantes o simplemente porque son más difíciles de hacer.
 
-Por lo tanto, es bastante común para un intérprete implementar solo la parte del estándar.
+Por lo tanto, es bastante común para un intérprete implementar solo parte del estándar.
 
 Una buena página para ver el estado actual de soporte de características del lenguaje es <https://kangax.github.io/compat-table/es6/> (es grande, todavía tenemos mucho que aprender).
 
@@ -78,11 +78,11 @@ Dos librerías interesantes de polyfills son:
 
 ## Resumen
 
-En este artículo queremos motivarte a estudiar las características más modernas y hasta experimentales del lenguaje, incluso si aún no tienen aún buen soporte en los intérpretes JavaScript.
+En este artículo queremos motivarte a estudiar las características más modernas y hasta experimentales del lenguaje, incluso si aún no tienen buen soporte en los intérpretes JavaScript.
 
 Pero no olvides usar transpiladores (si usas sintaxis u operadores modernos) y polyfills (para añadir funciones que pueden estar ausentes). Ellos se asegurarán de que el código funcione.
 
-Por ejemplo, cuando estés más familiarizado con JavaScript puedes configurar la construcción de código basado en [webpack](https://webpack.js.org/) con el plugin de [babel](https://github.com/babel/babel-loader).
+Por ejemplo, cuando estés más familiarizado con JavaScript puedes configurar la construcción de código basado en [webpack](https://webpack.js.org/) con el plugin [babel-loader](https://github.com/babel/babel-loader).
 
 Buenos recursos que muestran el estado actual de soporte para varias característica:
 - <https://kangax.github.io/compat-table/es6/> - para JavaScript puro.

@@ -106,7 +106,7 @@ class Rabbit extends Animal {
 }
 ```
 
-Usualmente, no queremos reemplazar totalmente un método padre, sino más bien construir sobre él, modificarlo o ampliar su funcionalidad. Hacemos algo con nuestro método, pero queremos llamar al método padre antes, después o durante el proceso.
+Sin embargo, no siempre queremos reemplazar totalmente un método padre sino construir sobre él, modificarlo o ampliar su funcionalidad. Hacemos algo con nuestro método, pero queremos llamar al método padre antes, después o durante el proceso.
 
 Las clases proporcionan la palabra clave `"super"` para eso.
 
@@ -160,6 +160,7 @@ Ahora `Rabbit` tiene el método `stop` que llama al padre `super.stop()` en el p
 Como se mencionó en el capítulo <info:arrow-functions>, las funciones de flecha no tienen `super`.
 
 Si se lo accede, lo toma de la función externa. Por ejemplo:
+
 ```js
 class Rabbit extends Animal {
   stop() {
@@ -175,7 +176,6 @@ El método `super` en la función de flecha es el mismo que en `stop()`, y funci
 setTimeout(function() { super.stop() }, 1000);
 ```
 ````
-
 
 ## Sobrescribir un constructor
 
@@ -234,7 +234,7 @@ La respuesta corta es:
 
 - **Los constructores en las clases heredadas deben llamar a `super(...)`, y (¡!) hacerlo antes de usar `this`**.
 
-...¿Pero por qué? ¿Qué está pasando aqui? De hecho, el requisito parece extraño.
+...¿Pero por qué? ¿Qué está pasando aquí? De hecho, el requisito parece extraño.
 
 Por supuesto, hay una explicación. Vamos a entrar en detalles, para que realmente entiendas lo que está pasando.
 
@@ -279,8 +279,6 @@ alert(rabbit.name); // Conejo Blanco
 alert(rabbit.earLength); // 10
 */!*
 ```
-
-
 
 ### Sobrescribiendo campos de clase: una nota con trampa
 
@@ -376,8 +374,7 @@ Afortunadamente este comportamiento solo se revela si los campos sobrescritos so
 
 Si esto se vuelve un problema, uno puede corregirlo usando métodos o getters/setters en lugar de campos.
 
-
-## El método `super` internamente [[HomeObject]] 
+## Super: internamente, [[HomeObject]] 
 
 ```warn header="Información avanzada"
 Si está leyendo el tutorial por primera vez, esta sección puede omitirse.

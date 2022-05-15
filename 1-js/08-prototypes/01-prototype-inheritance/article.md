@@ -131,7 +131,6 @@ Solo hay dos limitaciones:
 
 También puede ser obvio, pero aún así: solo puede haber un `[[Prototype]]`. Un objeto no puede heredar desde dos.
 
-
 ```smart header="`__proto__` es un getter/setter histórico para `[[Prototype]]`"
 Es un error común de principiantes no saber la diferencia entre ambos.
 
