@@ -423,7 +423,7 @@ Si un objeto o array contiene objetos y arrays anidados, podemos utilizar patron
 En el código de abajo `options` tiene otro objeto en la propiedad `size` y un array en la propiedad `items`. El patrón en el lado izquierdo de la asignación tiene la misma estructura para extraer valores de ellos:
 
 ```js run
-let options {
+let options = {
   size: {
     width: 100,
     height: 200
