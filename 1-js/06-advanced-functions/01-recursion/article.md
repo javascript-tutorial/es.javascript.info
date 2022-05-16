@@ -8,7 +8,7 @@ Si no eres nuevo en la programación, probablemente te resulte familiar y puedes
 
 La recursión es un patrón de programación que es útil en situaciones en las que una tarea puede dividirse naturalmente en varias tareas del mismo tipo, pero más simples. O cuando una tarea se puede simplificar en una acción fácil más una variante más simple de la misma tarea. O, como veremos pronto, tratar con ciertas estructuras de datos.
 
-Cuando una función resuelve una tarea, en el proceso puede llamar a muchas otras funciones. Un caso parcial de esto es cuando una función se llama *a sí misma*. Eso se llama *recursividad*.
+Sabemos que cuando una función resuelve una tarea, en el proceso puede llamar a muchas otras funciones. Un caso particular de esto se da cuando una función *se llama a sí misma*. Esto es lo que se llama *recursividad*.
 
 ## Dos formas de pensar
 
@@ -287,7 +287,7 @@ El `pow` iterativo utiliza un solo contexto, cambiando `i` y `result` en el proc
 
 ... Pero a veces la reescritura no es trivial, especialmente cuando la función utiliza sub-llamadas recursivas diferentes según las condiciones y combina sus resultados, o cuando la ramificación es más intrincada. Y la optimización podría ser innecesaria y no merecer la pena el esfuerzo en absoluto.
 
-La recursión puede dar un código más corto y fácil de entender y mantener. No se requieren optimizaciones en todos lugares, principalmente lo que necesitamos es un buen código y por eso se usa.
+La recursión puede dar un código más corto y fácil de entender y mantener. No se requiere optimización en todo lugar, principalmente lo que nos interesa es un buen código y por eso se usa.
 
 ## Recorridos recursivos
 
@@ -524,9 +524,9 @@ Las "listas" pueden ser mejoradas:
 ## Resumen
 
 Glosario:
-- *Recursion* es concepto de programación que significa una función "auto-llamada". Dichas funciones se pueden utilizar para resolver ciertas tareas de manera elegante.
+- *Recursion* es concepto de programación que significa que una función se llama a sí misma. Las funciones recursivas se pueden utilizar para resolver ciertas tareas de manera elegante.
 
-    Cada vez que una función se llama a sí misma, ocurre un *paso de recursión*. La *base* de la recursividad son los argumentos de la función que hacen que la tarea sea tan simple que la función no realiza más llamadas.
+    Cada vez que una función se llama a sí misma ocurre un *paso de recursión*. La *base* de la recursividad se da cuando los argumentos de la función hacen que la tarea sea tan básica que la función no realiza más llamadas.
 
 - Una estructura de datos [definida recursivamente](https://en.wikipedia.org/wiki/Recursive_data_type) es una estructura de datos que se puede definir utilizándose a sí misma.
 
