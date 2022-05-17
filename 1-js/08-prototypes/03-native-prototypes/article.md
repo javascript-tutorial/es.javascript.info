@@ -93,7 +93,7 @@ Otros objetos integrados también funcionan de la misma manera. Incluso las func
 ```js run
 function f() {}
 
-alert(f.__proto__ == Function.prototype); // ferdadero
+alert(f.__proto__ == Function.prototype); // verdadero
 alert(f.__proto__.__proto__ == Object.prototype); // verdadero, hereda de objetos
 ```
 
