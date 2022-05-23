@@ -169,11 +169,19 @@ El primer paso marca las raíces:
 
 ![](garbage-collection-2.svg)
 
+<<<<<<< HEAD
 Luego se marcan sus referencias:
 
 ![](garbage-collection-3.svg)
 
 ... Y sus referencias, mientras sea posible:
+=======
+Then we follow their references are mark referenced objects:
+
+![](garbage-collection-3.svg)
+
+...And continue to follow further references, while possible:
+>>>>>>> d5e8b6d308869738bd1f08dde62b64c969b0673e
 
 ![](garbage-collection-4.svg)
 
@@ -183,13 +191,23 @@ Ahora los objetos que no se pudieron visitar en el proceso se consideran inalcan
 
 Podemos imaginar el proceso como derramar un enorme cubo de pintura desde las raíces, que fluye a través de todas las referencias y marca todos los objetos alcanzables. Los elementos que no queden marcados son entonces eliminados.
 
+<<<<<<< HEAD
 Ese es el concepto de cómo funciona la recolección de basura. El motor de JavaScript aplica muchas optimizaciones para que se ejecute más rápido y no afecte la ejecución.
+=======
+That's the concept of how garbage collection works. JavaScript engines apply many optimizations to make it run faster and not introduce any delays into the code execution.
+>>>>>>> d5e8b6d308869738bd1f08dde62b64c969b0673e
 
 Algunas de las optimizaciones:
 
+<<<<<<< HEAD
 - **Colección generacional** -- los objetos se dividen en dos conjuntos: "nuevos" y "antiguos". Aparecen muchos objetos que hacen su trabajo y mueren rápido, estos se pueden limpiar agresivamente. Aquellos que sobreviven el tiempo suficiente, se vuelven "viejos" y son examinados con menos frecuencia.
 - **Colección incremental** -- Si hay muchos objetos y tratamos de recorrer y marcar todo el conjunto de objetos a la vez, puede llevar algún tiempo e introducir retrasos visibles en la ejecución. Entonces el motor intenta dividir la recolección de basura en pedazos. Luego las piezas se ejecutan una por una, por separado. Eso requiere una contabilidad adicional entre ellos para rastrear los cambios, pero tenemos muchos pequeños retrasos en lugar de uno grande.
 - **Recolección de tiempo inactivo** -- el recolector de basura trata de ejecutarse solo mientras la CPU está inactiva, para reducir el posible efecto en la ejecución.
+=======
+- **Generational collection** -- objects are split into two sets: "new ones" and "old ones". In typical code, many objects have a short life span: they appear, do their job and die fast, so it makes sense to track new objects and clear the memory from them if that's the case. Those that survive for long enough, become "old" and are examined less often.
+- **Incremental collection** -- if there are many objects, and we try to walk and mark the whole object set at once, it may take some time and introduce visible delays in the execution. So the engine splits the whole set of existing objects into multiple parts. And then clear these parts one after another. There are many small garbage collections instead of a total one. That requires some extra bookkeeping between them to track changes, but we get many tiny delays instead of a big one.
+- **Idle-time collection** -- the garbage collector tries to run only while the CPU is idle, to reduce the possible effect on the execution.
+>>>>>>> d5e8b6d308869738bd1f08dde62b64c969b0673e
 
 Hay otras optimizaciones y tipos de algoritmos de recolección de basura. Por mucho que me gustaría describirlos aquí, tengo que evitarlo porque diferentes motores implementan diferentes ajustes y técnicas. Y, lo que es aún más importante, las cosas cambian a medida que se desarrollan los motores, por lo que probablemente no vale la pena profundizar sin una necesidad real. Por supuesto, si tienes verdadero interés, a continuación hay algunos enlaces para tí.
 
@@ -197,9 +215,15 @@ Hay otras optimizaciones y tipos de algoritmos de recolección de basura. Por mu
 
 Los principales puntos a saber:
 
+<<<<<<< HEAD
 - El Recolector de Basura es ejecutado automáticamente. No lo podemos forzar o prevenir.
 - Los objetos se retienen en la memoria mientras son accesibles.
 - Ser referenciado no es lo mismo que ser accesible (desde una raíz): un conjunto de objetos interconectados pueden volverse inalcanzables como un todo.
+=======
+- Garbage collection is performed automatically. We cannot force or prevent it.
+- Objects are retained in memory while they are reachable.
+- Being referenced is not the same as being reachable (from a root): a pack of interlinked objects can become unreachable as a whole, as we've seen in the example above.
+>>>>>>> d5e8b6d308869738bd1f08dde62b64c969b0673e
 
 Los motores modernos implementan algoritmos avanzados de recolección de basura.
 
