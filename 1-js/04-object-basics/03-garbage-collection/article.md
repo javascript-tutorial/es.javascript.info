@@ -24,7 +24,7 @@ Puesto simple, los valores "alcanzables" son aquellos que se pueden acceder o ut
 2. Cualquier otro valor se considera accesible si se lo puede alcanzar desde una raíz por una referencia o por una cadena de referencias.
 
     Por ejemplo, si hay un objeto en una variable global, y ese objeto tiene una propiedad que hace referencia a otro objeto, ese objeto se considera accesible. Y aquellos a los que hace referencia también son accesibles. Ejemplos detallados a continuación.
- 
+
 Hay un proceso en segundo plano en el motor de JavaScript que se llama [recolector de basura](https://es.wikipedia.org/wiki/Recolector_de_basura). Este monitorea todos los objetos y elimina aquellos que se han vuelto inalcanzables.
 
 ## Un ejemplo sencillo
@@ -157,13 +157,13 @@ Los siguientes pasos de "recolección de basura" se realizan regularmente:
 - Luego visita y "marca" todas las referencias que salen de ellas.
 - Luego visita los objetos marcados y marca *sus* referencias. Todos los objetos visitados son recordados, para no visitar el mismo objeto dos veces en el futuro.
 - ...Y así sucesivamente hasta que cada referencia alcanzable (desde las raíces) sean visitadas. 
-- Todos los objetos que no están marcados se eliminan.
+- Todos los objetos que no fueron marcados se eliminan.
 
 Por ejemplo, si nuestra estructura de objeto se ve así:
 
 ![](garbage-collection-1.svg)
 
-Podemos ver claramente una "isla inalcanzable" al lado derecho. Ahora veamos cómo maneja "marcar y barrer" del recolector de basura.
+Podemos ver claramente una "isla inalcanzable" al lado derecho. Ahora veamos cómo el recolector de basura maneja "marcar y barrer".
 
 El primer paso marca las raíces:
 
