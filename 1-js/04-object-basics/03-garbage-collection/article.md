@@ -8,7 +8,7 @@ La gestión de la memoria en JavaScript se realiza de forma automática e invisi
 
 El concepto principal del manejo de memoria en JavaScript es *alcance*.
 
-Para ponerlo simple, los valores "alcanzables" son aquellos que se pueden acceder o utilizar de alguna manera. Se garantiza que serán conservados en la memoria.
+Puesto simple, los valores "alcanzables" son aquellos que se pueden acceder o utilizar de alguna manera. Se garantiza que serán conservados en la memoria.
 
 1. Hay un conjunto base de valores inherentemente accesibles, que no se pueden eliminar por razones obvias.
  
