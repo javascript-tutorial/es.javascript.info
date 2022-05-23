@@ -173,7 +173,7 @@ Luego se buscan sus referencias salientes y se marcan los objetos referenciados:
 
 ![](garbage-collection-3.svg)
 
-... luego se continúa con lss referencias salientes de estos objetos, y se continúa mientras sea posible:
+... luego se continúa con las referencias salientes de estos objetos, y se continúa marcando mientras sea posible:
 
 ![](garbage-collection-4.svg)
 
