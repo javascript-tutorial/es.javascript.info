@@ -8,7 +8,7 @@ La gestión de la memoria en JavaScript se realiza de forma automática e invisi
 
 El concepto principal del manejo de memoria en JavaScript es *alcance*.
 
-Puesto simple, los valores "alcanzables" son aquellos que se pueden acceder o utilizar de alguna manera. Se garantiza que serán conservados en la memoria.
+Puesto simple, los valores "alcanzables" son aquellos que se pueden acceder o utilizar de alguna manera: Se garantiza que serán conservados en la memoria.
 
 1. Hay un conjunto base de valores inherentemente accesibles, que no se pueden eliminar por razones obvias.
  
@@ -23,9 +23,9 @@ Puesto simple, los valores "alcanzables" son aquellos que se pueden acceder o ut
 
 2. Cualquier otro valor se considera accesible si se lo puede alcanzar desde una raíz por una referencia o por una cadena de referencias.
 
-    Por ejemplo, si hay un objeto en una variable global, y ese objeto tiene una propiedad que hace referencia a otro objeto, ese objeto se considera accesible. Y aquellos a los que hace referencia también son accesibles. Ejemplos detallados a continuación.
+    Por ejemplo, si hay un objeto en una variable global, y ese objeto tiene una propiedad que hace referencia a otro objeto, este objeto también se considera accesible. Y aquellos a los que este objeto hace referencia también son accesibles. Ejemplos detallados a continuación.
 
-Hay un proceso en segundo plano en el motor de JavaScript que se llama [recolector de basura](https://es.wikipedia.org/wiki/Recolector_de_basura). Este monitorea todos los objetos y elimina aquellos que se han vuelto inalcanzables.
+Hay un proceso en segundo plano en el motor de JavaScript que se llama [recolector de basura](https://es.wikipedia.org/wiki/Recolector_de_basura). Este proceso monitorea todos los objetos y elimina aquellos que se han vuelto inalcanzables.
 
 ## Un ejemplo sencillo
 
@@ -153,7 +153,7 @@ El algoritmo básico de recolección de basura se llama "marcar y barrer".
 
 Los siguientes pasos de "recolección de basura" se realizan regularmente:
 
-- El recolector de basura registra las raíces y las "marca" (recuerda).
+- El recolector de basura busca las raíces y las "marca" (recuerda).
 - Luego visita y "marca" todas las referencias que salen de ellas.
 - Luego visita los objetos marcados y marca *sus* referencias. Todos los objetos visitados son recordados, para no visitar el mismo objeto dos veces en el futuro.
 - ...Y así sucesivamente hasta que cada referencia alcanzable (desde las raíces) sean visitadas. 
