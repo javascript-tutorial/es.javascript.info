@@ -154,7 +154,7 @@ El algoritmo básico de recolección de basura se llama "marcar y barrer".
 Los siguientes pasos de "recolección de basura" se realizan regularmente:
 
 - El recolector de basura busca las raíces y las "marca" (recuerda).
-- Luego visita y "marca" todas las referencias que salen de ellas.
+- Luego visita y "marca" todos los objetos referenciados por ellas.
 - Luego visita los objetos marcados y marca *sus* referencias. Todos los objetos visitados son recordados, para no visitar el mismo objeto dos veces en el futuro.
 - ...Y así sucesivamente hasta que cada referencia alcanzable (desde las raíces) sean visitadas. 
 - Todos los objetos que no fueron marcados se eliminan.
