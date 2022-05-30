@@ -74,7 +74,11 @@ Ahora si hacemos lo mismo
 user = null;
 ```
 
+<<<<<<< HEAD
 ...Entonces el objeto todavía es accesible a través de la variable global `admin`, por lo que debe quedar en la memoria. Si también sobrescribimos `admin`, entonces se puede eliminar.
+=======
+...Then the object is still reachable via `admin` global variable, so it must stay in memory. If we overwrite `admin` too, then it can be removed.
+>>>>>>> 2efe0dce18a57f2b6121ed6656d6fe10b0ee8f96
 
 ## Objetos entrelazados
 
