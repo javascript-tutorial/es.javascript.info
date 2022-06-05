@@ -236,9 +236,9 @@ Hay muchas posibles soluciones:
 
 Para muchas aplicaciones prácticas, la tercera variante es lo suficientemente buena, por lo que nos mantendremos en esa opción.
 
-También necesitamos pasar no solo `x` sino todos los argumentos en `func.call`. Recordemos que en una `función()` podemos obtener un pseudo-array (*array-like*) de sus argumentos como `arguments`, por lo que `func.call(this, x)` debería reemplazarse por `func.call(this, ...arguments) `.
+También necesitamos pasar no solo `x` sino todos los argumentos en `func.call`. Recordemos que en una `función()`, con el uso de `arguments` podemos obtener un pseudo-array de sus argumentos, así que `func.call(this, x)` debería reemplazarse por `func.call(this, ...arguments)`.
 
-Aquí un mejorado y poderosísimo `cachingDecorator`:
+Aquí un mejorado y más potente `cachingDecorator`:
 
 ```js run
 let worker = {
@@ -312,7 +312,7 @@ Solo hay una sutil diferencia con respect○ a `args`:
 - La sintaxis con el operador "spread" `...` en `call` permite pasar una lista *iterable* `args`.
 - La opción `apply` acepta solamente `args` que sea *array-like*.
 
-Para los objetos que son iterables y array-like, como un array real, podemos usar cualquiera de ellos; pero `apply` probablemente será más rápido porque la mayoría de los motores de JavaScript lo optimizan mejor internamente.
+Para los objetos que son iterables y símil-array, como un array real, podemos usar cualquiera de ellos; pero `apply` probablemente será más rápido porque la mayoría de los motores de JavaScript lo optimizan mejor internamente.
 
 Pasar todos los argumentos junto con el contexto a otra función se llama *redirección de llamadas*.
 
@@ -346,7 +346,7 @@ function hash(args) {
 }
 ```
 
-... desafortunadamente, eso no funcionará. Esto es debido a que estamos llamando a `hash (arguments)`, y el objeto `arguments` es iterable y *array-like* (similar a un array, pero no es un array real).
+... desafortunadamente, eso no funcionará. Esto es debido a que estamos llamando a `hash (arguments)`, y el objeto `arguments` es iterable y *símil-array* (similar a un array, pero no es un array real).
 
 Por lo tanto, llamar a `join` en él fallará, como podemos ver a continuación:
 
@@ -390,7 +390,7 @@ Tomado de la especificación casi "tal cual":
 6. ...hacerlo hasta que la cantidad `this.length` de elementos estén adheridos.
 7. Devolver `result`.
 
-Entonces, técnicamente toma `this` y le une `this[0]`, `this[1]` ...etc. Está escrito intencionalmente de una manera que permite cualquier tipo de array `this` (no es una coincidencia, muchos métodos siguen esta práctica). Es por eso que también funciona con `this = arguments`
+Entonces, técnicamente toma a `this` y le une `this[0]`, `this[1]`... etc. Está escrito intencionalmente de una manera que permite cualquier tipo de array `this` (no es una coincidencia, muchos métodos siguen esta práctica). Es por eso que también funciona con `this = arguments`
 
 ## Decoradores y propiedades de funciones
 
@@ -411,7 +411,7 @@ Los decoradores se pueden ver como "características" o "aspectos" que se pueden
 Para implementar `cachingDecorator`, hemos estudiado los siguientes métodos:
 
 - [func.call(context, arg1, arg2...)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Function/call) -- llama a `func` con el contexto y argumentos dados.
-- [func.apply(context, args)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Function/apply) -- llama a `func`, pasando `context` como `this`, y un array-like `args` como lista de argumentos.
+- [func.apply(context, args)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Function/apply) -- llama a `func`, pasando `context` como `this`, y un símil-array `args` como lista de argumentos.
 
 La *redirección de llamadas* genérica generalmente se realiza con `apply`:
 
