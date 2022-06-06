@@ -8,7 +8,7 @@ Digamos que tenemos una función `slow(x)`, que es pesada para la CPU, pero cuyo
 
 Si la función se llama con frecuencia, es posible que queramos almacenar en caché (recordar) los resultados obtenidos para evitar perder tiempo extra en calcularlos de nuevo.
 
-Pero en lugar de agregar esta funcionalidad en `slow()`, crearemos una función de contenedor que agrega almacenamiento en caché. Como veremos, hacer esto trae beneficios.
+Pero en lugar de agregar esta funcionalidad en `slow()`, crearemos una función contenedora (en inglés "wrapper", envoltorio) que agregue almacenamiento en caché. Como veremos, hacer esto tiene sus beneficios.
 
 Aquí está el código seguido por su explicación:
 
