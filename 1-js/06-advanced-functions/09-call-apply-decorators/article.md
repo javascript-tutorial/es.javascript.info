@@ -10,7 +10,7 @@ Si la función se llama con frecuencia, es posible que queramos almacenar en cac
 
 Pero en lugar de agregar esta funcionalidad en `slow()`, crearemos una función contenedora (en inglés "wrapper", envoltorio) que agregue almacenamiento en caché. Como veremos, hacer esto tiene sus beneficios.
 
-Aquí está el código seguido por su explicación:
+Aquí está el código, seguido por su explicación:
 
 ```js run
 function slow(x) {
