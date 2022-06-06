@@ -4,9 +4,9 @@ JavaScript ofrece una flexibilidad excepcional cuando se trata de funciones. Se 
 
 ## Caché transparente
 
-Digamos que tenemos una función `slow(x)` que es pesada para la CPU, pero sus resultados son "estables": dicho en otras palabras, que la misma `x` siempre devuelve el mismo resultado.
+Digamos que tenemos una función `slow(x)`, que es pesada para la CPU, pero cuyos resultados son "estables": dicho en otras palabras, que con la misma `x` siempre devuelve el mismo resultado.
 
-Si la función se llama con frecuencia, es posible que queramos almacenar en caché (recordar) los resultados para evitar perder tiempo extra en nuevos cálculos.
+Si la función se llama con frecuencia, es posible que queramos almacenar en caché (recordar) los resultados obtenidos para evitar perder tiempo extra en calcularlos de nuevo.
 
 Pero en lugar de agregar esta funcionalidad en `slow()`, crearemos una función de contenedor que agrega almacenamiento en caché. Como veremos, hacer esto trae beneficios.
 
@@ -309,8 +309,8 @@ Estas hacen la misma llamada de `func` con el contexto y argumento dados.
 
 Solo hay una sutil diferencia con respect○ a `args`:
 
-- La sintaxis con el operador "spread" `...` en `call` permite pasar una lista *iterable* `args`.
-- La opción `apply` acepta solamente `args` que sea *array-like*.
+- La sintaxis con el operador "spread" `...` -- en `call` permite pasar una lista *iterable* `args`.
+- La opción `apply` -- acepta solamente `args` que sean *símil-array*.
 
 Para los objetos que son iterables y símil-array, como un array real, podemos usar cualquiera de ellos; pero `apply` probablemente será más rápido porque la mayoría de los motores de JavaScript lo optimizan mejor internamente.
 
@@ -421,6 +421,6 @@ let wrapper = function() {
 };
 ```
 
-También vimos un ejemplo de *préstamo de método* cuando tomamos un método de un objeto y lo "llamamos" (`call`) en el contexto de otro objeto. Es bastante común tomar métodos de array y aplicarlos al símil-array `arguments`. La alternativa es utilizar el objeto de parámetros rest que es un array real.
+También vimos un ejemplo de *préstamo de método* cuando tomamos un método de un objeto y lo "llamamos" (`call`) en el contexto de otro objeto. Es bastante común tomar métodos de array y aplicarlos al símil-array `arguments`. La alternativa es utilizar el objeto de parámetros rest, que es un array real.
 
 Hay muchos decoradores a tu alrededor. Verifica qué tan bien los entendiste resolviendo las tareas de este capítulo.
