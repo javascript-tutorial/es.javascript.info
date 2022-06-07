@@ -346,7 +346,7 @@ function hash(args) {
 }
 ```
 
-... desafortunadamente, eso no funcionará. Esto es debido a que estamos llamando a `hash (arguments)`, y el objeto `arguments` es iterable y *símil-array* (similar a un array, pero no es un array real).
+... desafortunadamente, eso no funcionará. Esto es debido a que estamos llamando a `hash (arguments)`, y el objeto `arguments` es iterable y *símil-array* (no es un array real).
 
 Por lo tanto, llamar a `join` en él fallará, como podemos ver a continuación:
 
