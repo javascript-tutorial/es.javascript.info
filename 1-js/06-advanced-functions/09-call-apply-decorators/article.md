@@ -312,7 +312,7 @@ Solo hay una sutil diferencia con respect○ a `args`:
 - La sintaxis con el operador "spread" `...` -- en `call` permite pasar una lista *iterable* `args`.
 - La opción `apply` -- acepta solamente `args` que sean *símil-array*.
 
-Para los objetos que son iterables y símil-array, como un array real, podemos usar cualquiera de ellos; pero `apply` probablemente será más rápido porque la mayoría de los motores de JavaScript lo optimizan mejor internamente.
+Para los objetos que son iterables y símil-array, como un array real, podemos usar cualquiera de ellos, pero `apply` probablemente será más rápido porque la mayoría de los motores de JavaScript lo optimizan mejor internamente.
 
 Pasar todos los argumentos junto con el contexto a otra función se llama *redirección de llamadas*.
 
