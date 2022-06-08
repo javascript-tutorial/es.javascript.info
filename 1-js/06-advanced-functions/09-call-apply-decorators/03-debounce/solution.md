@@ -9,4 +9,4 @@ function debounce(func, ms) {
 
 ```
 
-Una llamada a `debounce` devuelve un contenedor wrapper. Cuando se le llama, planifica la llamada a la función original después de los `ms` dados y cancela el tiempo de espera anterior.
+Una llamada a `debounce` devuelve un contenedor o "wrapper". Cuando se la llama, planifica la llamada a la función original después de los `ms` dados y cancela el tiempo de espera anterior.
