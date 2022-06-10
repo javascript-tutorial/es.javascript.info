@@ -18,7 +18,7 @@ Tenga en cuenta cómo se utiliza una función de flecha aquí. Sabemos que las f
 
 Si pasamos una función regular, `setTimeout` la llamará sin argumentos y, suponiendo que estemos en el navegador, con `this = window`.
 
-Todavía podemos pasar el `this` correcto usando una variable intermedia, pero eso algo más engorroso:
+Todavía podemos pasar el `this` correcto usando una variable intermedia, pero eso es algo más engorroso:
 
 ```js
 function delay(f, ms) {
