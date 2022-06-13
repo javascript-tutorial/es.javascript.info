@@ -101,7 +101,11 @@ Incluso si alguien decide guardar `event.clipboardData` en un manejador de event
 
 Para reiterar, [event.clipboardData](https://www.w3.org/TR/clipboard-apis/#clipboardevent-clipboarddata) funciona únicamente en el contexto de manejadores de eventos iniciados por el usuario.
 
+<<<<<<< HEAD
 Por otro lado, [navigator.clipboard](https://www.w3.org/TR/clipboard-apis/#h-navigator-clipboard) es una API más reciente, pensada para el uso en cualquier contexto. Esta pide autorización al usuario cuando la necesita. No soportada en Firefox.
+=======
+On the other hand, [navigator.clipboard](https://www.w3.org/TR/clipboard-apis/#h-navigator-clipboard) is the more recent API, meant for use in any context. It asks for user permission, if needed.
+>>>>>>> 7bb6066eb6ea3a030b875cdc75433c458f80997e
 
 ## Resumen
 
