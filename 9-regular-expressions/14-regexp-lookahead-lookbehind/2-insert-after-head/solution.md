@@ -1,6 +1,6 @@
 Para insertar algo después de la etiqueta `<body>`, primero debemos encontrarla. Para ello  podemos usar la expresión regular `pattern:<body.*?>`.
 
-En esta tarea no necsitamos modificar la etiqueta `<body>`. Solamente agregar texto después de ella.
+En esta tarea no necesitamos modificar la etiqueta `<body>`. Solamente agregar texto después de ella.
 
 Veamos cómo podemos hacerlo:
 
