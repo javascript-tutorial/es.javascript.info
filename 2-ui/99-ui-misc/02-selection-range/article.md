@@ -217,11 +217,7 @@ El objeto rango que creamos arriba tiene las siguientes propiedades:
 
 ## Métodos de selección de rango
 
-<<<<<<< HEAD
 Hay muchos métodos convenientes para manipular rangos.
-=======
-There are many convenient methods to manipulate ranges.
->>>>>>> 7bb6066eb6ea3a030b875cdc75433c458f80997e
 
 Ya hemos visto `setStart` y `setEnd`, aquí hay otros métodos similares.
 
@@ -440,13 +436,9 @@ As text: <span id="astext"></span>
 </script>
 ```
 
-## Métodos Selection 
+## Métodos de selección 
 
-<<<<<<< HEAD
-Métodos de selección para agregar/eliminar rangos:
-=======
-We can work with the selection by adding/removing ranges:
->>>>>>> 7bb6066eb6ea3a030b875cdc75433c458f80997e
+Podemos trabajar con métodos de selección para agregar y eliminar rangos:
 
 - `getRangeAt(i)` -- obtener el rango i-ésimo, comenzando desde "0". En todos los navegadores, excepto Firefox, solo se utiliza `0`.
 - `addRange(rango)` -- agrega un `rango` a la selección. Todos los navegadores excepto Firefox ignoran la llamada, si la selección ya tiene un rango asociado.
