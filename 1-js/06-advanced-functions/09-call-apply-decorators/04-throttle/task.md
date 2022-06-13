@@ -18,7 +18,7 @@ Revisemos una aplicación de la vida real para comprender mejor ese requisito y 
 
 **Por ejemplo, queremos registrar los movimientos del mouse.**
 
-En un navegador, podemos configurar una función para que se ejecute en cada movimiento del mouse y obtener la ubicación del puntero a medida que se mueve. Durante un uso activo del mouse, esta función generalmente se ejecuta con mucha frecuencia, puede ser algo así como 100 veces por segundo (cada 10 ms). 
+En un navegador, podemos configurar una función para que se ejecute en cada movimiento del mouse y obtener la ubicación del puntero a medida que se mueve. Durante un uso activo del mouse, esta función generalmente se ejecuta con mucha frecuencia, puede ser algo así como 100 veces por segundo (cada 10 ms).
 **Nos gustaría actualizar cierta información en la página web cuando se mueve el puntero.**
 
 ... Pero la función de actualización `update()` es demasiado pesada para hacerlo en cada micro-movimiento. Tampoco tiene sentido actualizar más de una vez cada 100 ms.
