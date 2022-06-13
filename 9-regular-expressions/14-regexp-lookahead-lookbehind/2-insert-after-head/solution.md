@@ -1,6 +1,6 @@
 Para insertar algo después de la etiqueta `<body>`, primero debemos encontrarla. Para ello  podemos usar la expresión regular `pattern:<body.*?>`.
 
-En esta tarea no debemos modificar la etiqueta `<body>`. Solamente agregar texto después de ella.
+En esta tarea no necesitamos modificar la etiqueta `<body>`. Solamente agregar texto después de ella.
 
 Veamos cómo podemos hacerlo:
 
@@ -25,8 +25,8 @@ alert(str); // ...<body style="..."><h1>Hello</h1>...
 Como puedes ver, solo está presente la parte "lookbehind" en esta expresión regular.
 
 Esto funciona así:
-- En cada posición en el texto.
-- Chequea si está precedida por `pattern:<body.*?>`.
+- En cada posición en el texto:
+- Verifica si está precedida por `pattern:<body.*?>`.
 - Si es así, tenemos una coincidencia.
 
 La etiqueta `pattern:<body.*?>` no será devuelta. El resultado de esta expresión regular es un string vacío, pero coincide solo en las posiciones precedidas por `pattern:<body.*?>`.

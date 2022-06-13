@@ -436,9 +436,9 @@ As text: <span id="astext"></span>
 </script>
 ```
 
-## Métodos Selection 
+## Métodos de selección 
 
-Métodos de selección para agregar/eliminar rangos:
+Podemos trabajar con métodos de selección para agregar y eliminar rangos:
 
 - `getRangeAt(i)` -- obtener el rango i-ésimo, comenzando desde "0". En todos los navegadores, excepto Firefox, solo se utiliza `0`.
 - `addRange(rango)` -- agrega un `rango` a la selección. Todos los navegadores excepto Firefox ignoran la llamada, si la selección ya tiene un rango asociado.

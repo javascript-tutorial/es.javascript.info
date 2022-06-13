@@ -104,9 +104,10 @@ if (cero) { // cero es true, porque es un objeto
 }
 ```
 
-Por otro lado, usar las mismas funciones `String/Number/Boolean` sin `new` es totalmente sano y útil. Ellas convierten un valor al tipo correspondiente: a un string, number, o boolean (primitivo).
+Por otro lado, usar las mismas funciones `String/Number/Boolean` sin `new` es totalmente sano y útil. Ellas convierten un valor al tipo primitivo correspondiente: a un string, number, o boolean.
 
-Por ejemplo, esto es perfectamente válido::
+Por ejemplo, esto es perfectamente válido:
+
 ```js
 let num = Number("123"); // convierte string a number
 ```

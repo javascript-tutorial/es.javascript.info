@@ -144,7 +144,7 @@ Asignaciones
 : Existen las asignaciones simples: `a = b` y las combinadas `a *= 2`.
 
 Operador bit a bit
-: Los operadores bit a bit funcionan con enteros de 32 bits al más bajo nivel, el de bit: vea la [documentación](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators) cuando sea necesario.
+: Los operadores bit a bit funcionan con enteros de 32 bits al más bajo nivel, el de bit: vea la [documentación](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators#operadores_binarios_bit_a_bit) cuando los necesite.
 
 Condicional
 : El único operador con 3 parámetros: `cond ? resultA : resultB`. Sí `cond` es verdadera, devuelve `resultA`, de lo contrario `resultB`.
