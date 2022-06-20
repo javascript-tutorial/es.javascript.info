@@ -128,8 +128,21 @@ setTimeout(() => document.body.style.display = "", 1000); // volverá a lo norma
 
 Si establecemos `style.display` como una cadena vacia, entonces el navegador aplica clases y estilos CSS incorporados normalmente por el navegador, como si no existiera tal `style.display`.
 
+<<<<<<< HEAD
 ````smart header="Reescribir todo usando `style.cssText`"
 Normalmente, podemos usar `style.*` para asignar propiedades de estilo individuales. No podemos establecer todo el estilo como `div.style="color: red; width: 100px"`, porque `div.style` es un objeto y es solo de lectura.
+=======
+Also there is a special method for that, `elem.style.removeProperty('style property')`. So, We can remove a property like this:
+
+```js run
+document.body.style.background = 'red'; //set background to red
+
+setTimeout(() => document.body.style.removeProperty('background'), 1000); // remove background after 1 second
+```
+
+````smart header="Full rewrite with `style.cssText`"
+Normally, we use `style.*` to assign individual style properties. We can't set the full style like `div.style="color: red; width: 100px"`, because `div.style` is an object, and it's read-only.
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 
 Para establecer todo el estilo como una cadena, hay una propiedad especial: `style.cssText`:
 

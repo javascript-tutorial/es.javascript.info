@@ -169,7 +169,11 @@ El primer paso marca las raíces:
 
 ![](garbage-collection-2.svg)
 
+<<<<<<< HEAD
 Luego se buscan sus referencias salientes y se marcan los objetos referenciados:
+=======
+Then we follow their references and mark referenced objects:
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 
 ![](garbage-collection-3.svg)
 

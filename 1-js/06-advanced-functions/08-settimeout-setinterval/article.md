@@ -298,5 +298,12 @@ Por ejemplo, el temporizador en el navegador puede ralentizarse por muchas razon
 - La pestaña del navegador está en modo de "segundo plano".
 - El portátil está en modo "ahorro de batería".
 
+<<<<<<< HEAD
 Todo eso puede aumentar la resolución mínima del temporizador (el retraso mínimo) a 300 ms o incluso 1000 ms dependiendo de la configuración de rendimiento del navegador y del nivel del sistema operativo.
+=======
+For example, the in-browser timer may slow down for a lot of reasons:
+- The CPU is overloaded.
+- The browser tab is in the background mode.
+- The laptop is on battery saving mode.
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 

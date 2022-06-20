@@ -90,7 +90,11 @@ user = {
 
 Como se demostró, podemos omitir `"function"` y simplemente escribir `sayHi()`.
 
+<<<<<<< HEAD
 A decir verdad, las notaciones no son completamente idénticas. Hay diferencias sutiles relacionadas a la herencia de objetos (por cubrir más adelante) que no importan ahora. En casi todos los casos la sintaxis abreviada es la preferida.
+=======
+To tell the truth, the notations are not fully identical. There are subtle differences related to object inheritance (to be covered later), but for now they do not matter. In almost all cases, the shorter syntax is preferred.
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 
 ## "this" en métodos
 

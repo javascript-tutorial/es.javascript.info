@@ -116,7 +116,11 @@ En otras palabras, el resultado es el mismo que `elem.querySelectorAll(css)[0]`,
 
 Los métodos anteriores consistían en buscar en el DOM.
 
+<<<<<<< HEAD
 El [elem.matches(css)](http://dom.spec.whatwg.org/#dom-element-matches) no busca nada, sólo comprueba si el `elem` coincide con el selector CSS dado. Devuelve `true` o `false`.
+=======
+The [elem.matches(css)](https://dom.spec.whatwg.org/#dom-element-matches) does not look for anything, it merely checks if `elem` matches the given CSS-selector. It returns `true` or `false`.
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 
 Este método es útil cuando estamos iterando sobre elementos (como en un array) y tratando de filtrar los que nos interesan.
 

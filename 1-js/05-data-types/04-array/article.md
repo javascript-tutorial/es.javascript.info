@@ -96,7 +96,11 @@ La "coma final" hace más simple insertar y remover items, porque todas la líne
 
 [recent browser="new"]
 
+<<<<<<< HEAD
 Digamos que queremos el último elemento de un array.
+=======
+Let's say we want the last element of the array.
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 
 Algunos lenguajes de programación permiten el uso de índices negativos para este propósito, como `fruits[-1]`.
 
@@ -153,9 +157,15 @@ Una pila es usualmente mostrada como un mazo de cartas, donde las nuevas cartas 
 
 Para las pilas, la última introducida es la primera en ser recibida, en inglés esto es llamado principio LIFO (Last-In-First-Out, última en entrar primera en salir). Para las colas, tenemos FIFO (First-In-First-Out primera en entrar, primera en salir).
 
+<<<<<<< HEAD
 Los arrays en JavaScript pueden trabajar como colas o pilas. Ellos permiten agregar/quitar elementos al/del principio o al/del final.
 
 En ciencias de la computación la estructura de datos que permite esto se denomina cola de doble extremo o [bicola](https://es.wikipedia.org/wiki/Bicola).
+=======
+Arrays in JavaScript can work both as a queue and as a stack. They allow you to add/remove elements, both to/from the beginning or the end.
+
+In computer science, the data structure that allows this, is called [deque](https://en.wikipedia.org/wiki/Double-ended_queue).
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 
 **Métodos que trabajan sobre el final del array:**
 
@@ -281,7 +291,11 @@ Los métodos `push/pop` son rápidos, mientras que `shift/unshift` son lentos.
 fruits.shift(); // toma 1 elemento del principio
 ```
 
+<<<<<<< HEAD
 No es suficiente tomar y eliminar el elemento con el índice `0`. Los demás elementos necesitan ser renumerados también.
+=======
+It's not enough to take and remove the element with the index `0`. Other elements need to be renumbered as well.
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 
 La operación `shift` debe hacer 3 cosas:
 
@@ -399,11 +413,19 @@ Hay una sintaxis más para crear un array:
 let arr = *!*new Array*/!*("Apple", "Pear", "etc");
 ```
 
+<<<<<<< HEAD
 Es raramente usada porque con corchetes `[]` es más corto. También hay una característica peculiar con ella.
+=======
+It's rarely used, because square brackets `[]` are shorter. Also, there's a tricky feature with it.
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 
 Si `new Array` es llamado con un único argumento numérico, se crea un array *sin items, pero con la longitud "length" dada*.
 
+<<<<<<< HEAD
 Veamos cómo uno puede dispararse en el pie:
+=======
+Let's see how one can shoot themselves in the foot:
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 
 ```js run
 let arr = new Array(2); // ¿Creará un array de [2]?
@@ -529,8 +551,13 @@ El llamado a `new Array(number)` crea un array con la longitud dada, pero sin el
 
 Obtener los elementos:
 
+<<<<<<< HEAD
 - Podemos obtener un elemento por su índice, como `arr[0]`
 - También podemos usar el método `at(i)`, que permite índices negativos. Para valores negativos de `i`, cuenta hacia atrás desde el final del array. Funciona igual que  `arr[i]`, si `i >= 0`.
+=======
+- we can get element by its index, like `arr[0]`
+- also we can use `at(i)` method that allows negative indexes. For negative values of `i`, it steps back from the end of the array. If `i >= 0`, it works same as `arr[i]`.
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 
 Podemos usar un array como una pila "deque" o "bicola" con las siguientes operaciones:
 

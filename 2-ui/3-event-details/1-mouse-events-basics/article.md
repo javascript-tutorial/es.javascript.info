@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 # Eventos del Mouse
+=======
+
+# Mouse events
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 
 En este capítulo vamos a entrar en más detalles sobre los eventos del mouse y sus propiedades.
 

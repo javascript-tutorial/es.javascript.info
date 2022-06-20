@@ -63,7 +63,12 @@ let age = 25;
 let message = 'Hola';
 ```
 
+<<<<<<< HEAD
 Algunas personas también definen variables múltiples en estilo multilínea:
+=======
+Some people also define multiple variables in this multiline style:
+
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 ```js no-beautify
 let user = 'John',
   age = 25,
@@ -102,7 +107,12 @@ Por ejemplo, podemos imaginar la variable `message` como una caja etiquetada `"m
 
 Podemos introducir cualquier valor a la caja.
 
+<<<<<<< HEAD
 También la podemos cambiar cuantas veces queramos:
+=======
+We can also change it as many times as we want:
+
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 ```js run
 let message;
 
@@ -260,8 +270,12 @@ myBirthday = '01.01.2001'; // ¡error, no se puede reasignar la constante!
 
 Cuando un programador está seguro de que una variable nunca cambiará, puede declarar la variable con `const` para garantizar y comunicar claramente este hecho a todos.
 
+<<<<<<< HEAD
 
 ### Constantes mayúsculas
+=======
+### Uppercase constants
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 
 Existe una práctica utilizada ampliamente de utilizar constantes como aliases de valores difíciles-de-recordar y que se conocen previo a la ejecución.
 
@@ -290,7 +304,12 @@ Ventajas:
 
 Ser una "constante" solo significa que el valor de la variable nunca cambia. Pero hay constantes que son conocidas previo a la ejecución (como el valor hexadecimal del color rojo) y hay constantes que son *calculadas* en el tiempo de ejecución, pero no cambian después de su asignación inicial.
 
+<<<<<<< HEAD
 Por ejemplo:
+=======
+For instance:
+
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 ```js
 const pageLoadTime = /* el tiempo que tardó la página web para cargar */;
 ```

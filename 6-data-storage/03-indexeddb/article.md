@@ -193,13 +193,22 @@ Una clave debe ser de uno de estos tipos: number, date, string, binary, o array.
 
 ![](indexeddb-structure.svg)
 
+<<<<<<< HEAD
 
 De forma similar a `localStorage`, podemos proporcionar una clave cuando agregamos un valor al almacén. Cuando lo que almacenamos son objetos, IndexedDB permite asignar una propiedad del objeto como clave, lo que es mucho más conveniente. También podemos usar claves que se generan automáticamente.
+=======
+As we'll see very soon, we can provide a key when we add a value to the store, similar to `localStorage`. But when we store objects, IndexedDB allows setting up an object property as the key, which is much more convenient. Or we can auto-generate keys.
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 
 Pero primero, necesitamos crear el almacén de objetos.
 
+<<<<<<< HEAD
 
 La sintaxis para crear un almacén de objetos "object store":
+=======
+The syntax to create an object store:
+
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 ```js
 db.createObjectStore(name[, keyOptions]);
 ```
@@ -213,7 +222,12 @@ Ten en cuenta que esta operación es sincrónica, no requiere `await`.
 
 Si no establecemos `keyOptions`, necesitaremos proporcionar una clave explícitamente más tarde: al momento de almacenar un objeto.
 
+<<<<<<< HEAD
 Por ejemplo, este objeto usa la propiedad `id` como clave:
+=======
+For instance, this object store uses `id` property as the key:
+
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 ```js
 db.createObjectStore('books', {keyPath: 'id'});
 ```
@@ -222,9 +236,16 @@ db.createObjectStore('books', {keyPath: 'id'});
 
 Esto es una limitación técnica. Fuera del manejador podremos agregar/borrar/modificar los datos, pero los almacenes de objetos solo pueden ser creados/borrados/alterados durante la actualización de versión.
 
+<<<<<<< HEAD
 Para hacer una actualización de base de datos, hay principalmente dos enfoques:
 1. Podemos implementar una función de actualización por versión: desde 1 a 2, de 2 a 3, de 3 a 4, etc. Así en `upgradeneeded` podemos comparar versiones (supongamos: vieja 2, ahora 4) y ejecutar actualizaciones por versión paso a paso para cada versión intermedia (2 a 3, luego 3 a 4).
 2. O podemos simplemente examinar la base y alterarla en un paso. Obtenemos una lista de los almacenes existentes como `db.objectStoreNames`. Este objeto es un [DOMStringList](https://html.spec.whatwg.org/multipage/common-dom-interfaces.html#domstringlist) que brinda el método `contains(name)` para chequear existencias. Y podemos entonces hacer actualizaciones dependiendo de lo que existe y lo que no.
+=======
+To perform a database version upgrade, there are two main approaches:
+
+1. We can implement per-version upgrade functions: from 1 to 2, from 2 to 3, from 3 to 4 etc. Then, in `upgradeneeded` we can compare versions (e.g. old 2, now 4) and run per-version upgrades step by step, for every intermediate version (2 to 3, then 3 to 4).
+2. Or we can just examine the database: get a list of existing object stores as `db.objectStoreNames`. That object is a [DOMStringList](https://html.spec.whatwg.org/multipage/common-dom-interfaces.html#domstringlist) that provides `contains(name)` method to check for existance. And then we can do updates depending on what exists and what doesn't.
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 
 En bases de datos pequeñas la segunda variante puede ser más simple.
 
@@ -242,8 +263,12 @@ openRequest.onupgradeneeded = function() {
 };
 ```
 
+<<<<<<< HEAD
 
 Para borrar un almacén de objetos:
+=======
+To delete an object store:
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 
 ```js
 db.deleteObjectStore('books')
@@ -255,9 +280,16 @@ El término transacción es genérico, usado por muchos tipos de bases de datos.
 
 Una transacción es un grupo de operaciones cuyos resultados están vinculados: todas deben ser exitosas o todas fallar.
 
+<<<<<<< HEAD
 Por ejemplo, cuando una persona compra algo, necesitamos:
 1. Restar el dinero de su cuenta personal.
 2. Agregar el ítem a su inventario.
+=======
+For instance, when a person buys something, we need to:
+
+1. Subtract the money from their account.
+2. Add the item to their inventory.
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 
 Sería muy malo que si se completara la primera operación y algo saliera mal (como un corte de luz), fallara la segunda. Ambas deberían ser exitosas (compra completa, ¡bien!) o ambas fallar (al menos la persona mantuvo su dinero y puede reintentar).
 
@@ -613,7 +645,12 @@ El método `delete` (eliminar) busca a través de una consulta valores para borr
 
 - **`delete(query)`** -- elimina valores coincidentes con una consulta (query).
 
+<<<<<<< HEAD
 Por ejemplo:
+=======
+For instance:
+
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 ```js
 // borra el libro cuyo id='js'
 books.delete('js');
@@ -631,7 +668,12 @@ request.onsuccess = function() {
 };
 ```
 
+<<<<<<< HEAD
 Para borrar todo:
+=======
+To delete everything:
+
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 ```js
 books.clear(); // clear "limpia" el almacén.
 ```
@@ -650,7 +692,12 @@ Los cursores brindan los medios para manejar esta situación.
 
 Como un almacén está ordenado internamente por clave, un cursor lo recorre en el orden de la clave (ascendente de forma predeterminada).
 
+<<<<<<< HEAD
 La sintaxis:
+=======
+The syntax:
+
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 ```js
 // como getAll, pero con un cursor:
 let request = store.openCursor(query, [direction]);
@@ -748,7 +795,6 @@ try {
 } catch(err) {
   console.log('error', err.message);
 }
-
 ```
 
 Así tenemos todo lo dulce de "código async plano" y "try..catch".
@@ -771,11 +817,17 @@ window.addEventListener('unhandledrejection', event => {
 
 ### La trampa "transacción inactiva"
 
+<<<<<<< HEAD
 
 Como sabemos, una transacción se autofinaliza tan pronto como el navegador termina el código actual y las microtareas. Por tanto, si ponemos una *macrotarea* como `fetch` en el medio de una transacción, la transacción no esperará a que termine. Simplemente se autofinaliza. Así la siguiente petición fallaría.
 
 
 Para el contenedor de promisificación y `async/await` la situación es la misma.
+=======
+As we already know, a transaction auto-commits as soon as the browser is done with the current code and microtasks. So if we put a *macrotask* like `fetch` in the middle of a transaction, then the transaction won't wait for it to finish. It just auto-commits. So the next request in it would fail.
+
+For a promise wrapper and `async/await` the situation is the same.
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 
 Este es un ejemplo de `fetch` en el medio de una transacción:
 
@@ -792,9 +844,16 @@ await inventory.add({ id: 'js', price: 10, created: new Date() }); // Error
 
 El `inventory.add` que sigue a `fetch` `(*)` falla con el error "transacción inactiva", porque la transacción se autocompletó y, llegado ese momento, ya está cerrada.
 
+<<<<<<< HEAD
 La forma de sortear esto es la misma que con el IndexedDB nativo: Hacer una nueva transacción o simplemente partir las cosas.
 1. Preparar los datos y buscar todo lo que sea necesario primero.
 2. Solo entonces, grabar en la base de datos.
+=======
+The workaround is the same as when working with native IndexedDB: either make a new transaction or just split things apart.
+
+1. Prepare the data and fetch all that's needed first.
+2. Then save in the database.
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 
 ### Obtener objetos nativos
 

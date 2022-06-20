@@ -4,7 +4,11 @@ En JavaScript moderno, hay dos tipos de números:
 
 1. Los números regulares en JavaScript son almacenados con el formato de 64-bit [IEEE-754](https://es.wikipedia.org/wiki/IEEE_coma_flotante), conocido como "números de doble precisión de coma flotante". Estos números son los que estaremos usando la mayor parte del tiempo y hablaremos de ellos en este capítulo.
 
+<<<<<<< HEAD
 2. Números BigInt , para representar enteros de longitud arbitraria. A veces son necesarios porque un número regular no puede exceder <code>2<sup>53</sup></code> ni ser menor a <code>-2<sup>53</sup></code> manteniendo la precisión. Como los bigints son usados en unas pocas áreas especiales, les dedicamos un capítulo especial <info:bigint>.
+=======
+2. BigInt numbers represent integers of arbitrary length. They are sometimes needed because a regular number can't safely exceed <code>2<sup>53</sup></code> or be less than <code>-2<sup>53</sup></code>. As bigints are used in few special areas, we devote them a special chapter <info:bigint>.
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 
 Aquí hablaremos de números regulares. Ampliemos lo que ya sabemos de ellos.
 
@@ -50,7 +54,11 @@ let mсs = 0.000001;
 Igual que antes, el uso de `"e"` puede ayudar. Si queremos evitar la escritura de ceros explícitamente, podríamos expresar lo mismo como:
 
 ```js
+<<<<<<< HEAD
 let mcs = 1e-6; // seis ceros a la izquierda de 1
+=======
+let mcs = 1e-6; // five zeroes to the left from 1
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 ```
 
 Si contamos los ceros en `0.000001`, hay 6 de ellos. Entonces naturalmente es `1e-6`.  
@@ -63,6 +71,9 @@ En otras palabras, un número negativo detrás de `"e"` significa una división 
 
 // -6 divide por 1 con 6 ceros
 1.23e-6 === 1.23 / 1000000; // 0.00000123
+
+// an example with a bigger number
+1234e-2 === 1234 / 100; // 12.34, decimal point moves 2 times
 ```
 
 ### Números hexadecimales, binarios y octales
@@ -305,7 +316,11 @@ Ambos pertenecen al tipo `number`, pero no son números "normales", así que hay
     alert( isNaN("str") ); // true
     ```
 
+<<<<<<< HEAD
     Pero ¿necesitamos esta función? ¿No podemos simplemente usar la comparación `=== NaN`? Lo lamento pero la respuesta es no. El valor `NaN` es único en que no es igual a nada, incluyendo a sí mismo:
+=======
+    But do we need this function? Can't we just use the comparison `=== NaN`? Unfortunately not. The value `NaN` is unique in that it does not equal anything, including itself:
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 
     ```js run
     alert( NaN === NaN ); // false
@@ -399,8 +414,13 @@ Unos ejemplos:
     alert( Math.random() ); // ... (cualquier número aleatorio)
     ```
 
+<<<<<<< HEAD
 `Math.max(a, b, c...)` / `Math.min(a, b, c...)`
 : Devuelve el mayor/menor de entre una cantidad arbitraria de argumentos.
+=======
+`Math.max(a, b, c...)` and `Math.min(a, b, c...)`
+: Returns the greatest/smallest from the arbitrary number of arguments.
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 
     ```js run
     alert( Math.max(3, 5, -10, 0, 1) ); // 5
@@ -429,7 +449,16 @@ Para sistemas numéricos diferentes:
 - `parseInt(str, base)` convierte un string a un entero en el sistema numérico de la `base` dada `base`, `2 ≤ base ≤ 36`.
 - `num.toString(base)` convierte un número a string en el sistema de la `base` dada.
 
+<<<<<<< HEAD
 Para convertir valores como `12pt` y `100px` a un número:
+=======
+For regular number tests:
+
+- `isNaN(value)` converts its argument to a number and then tests it for being `NaN`
+- `isFinite(value)` converts its argument to a number and returns `true` if it's a regular number, not `NaN/Infinity/-Infinity`
+
+For converting values like `12pt` and `100px` to a number:
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 
 - Usa `parseInt/parseFloat` para una conversión "suave", que lee un número desde un string y devuelve el valor del número que pudiera leer antes de encontrar error.
 

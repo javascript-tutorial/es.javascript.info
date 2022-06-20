@@ -7,7 +7,11 @@ Ya sabemos que una función puede acceder a variables fuera de ella.
 
 Pero, ¿qué sucede si estas variables "externas" cambian desde que se crea una función? ¿La función verá los valores nuevos o los antiguos?
 
+<<<<<<< HEAD
 Y si una función se pasa como parámetro y se llama desde otro lugar del código, ¿tendrá acceso a las variables externas en el nuevo lugar?
+=======
+And what if a function is passed along as an argument and called from another place of code, will it get access to outer variables at the new place?
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 
 Ampliemos nuestro conocimiento para comprender estos escenarios y otros más complejos.
 

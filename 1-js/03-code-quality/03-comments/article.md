@@ -125,6 +125,7 @@ Describe la arquitectura
 Documenta la utilización de una función
 : Hay una sintaxis especial [JSDoc](https://en.wikipedia.org/wiki/JSDoc) para documentar una función: utilización, parámetros, valor devuelto.
 
+<<<<<<< HEAD
 	Por ejemplo:
 	```js
     /**
@@ -144,6 +145,37 @@ Documenta la utilización de una función
 	Por cierto, muchos editores como [WebStorm](https://www.jetbrains.com/webstorm/) también pueden entenderlos y usarlos para proveer auto completado y algún tipo de verificación automática para el código.
 	
 	Además, existen herramientas como [JSDoc 3](https://github.com/jsdoc3/jsdoc) que pueden generar documentación en formato HTML de los comentarios. Puedes leer más información sobre JSDoc en <https://jsdoc.app>.
+=======
+For instance:
+```js
+/**
+ * Returns x raised to the n-th power.
+ *
+ * @param {number} x The number to raise.
+ * @param {number} n The power, must be a natural number.
+ * @return {number} x raised to the n-th power.
+ */
+function pow(x, n) {
+  ...
+}
+```
+
+Such comments allow us to understand the purpose of the function and use it the right way without looking in its code.
+
+By the way, many editors like [WebStorm](https://www.jetbrains.com/webstorm/) can understand them as well and use them to provide autocomplete and some automatic code-checking.
+
+Also, there are tools like [JSDoc 3](https://github.com/jsdoc/jsdoc) that can generate HTML-documentation from the comments. You can read more information about JSDoc at <https://jsdoc.app>.
+
+Why is the task solved this way?
+: What's written is important. But what's *not* written may be even more important to understand what's going on. Why is the task solved exactly this way? The code gives no answer.
+
+    If there are many ways to solve the task, why this one? Especially when it's not the most obvious one.
+
+    Without such comments the following situation is possible:
+    1. You (or your colleague) open the code written some time ago, and see that it's "suboptimal".
+    2. You think: "How stupid I was then, and how much smarter I'm now", and rewrite using the "more obvious and correct" variant.
+    3. ...The urge to rewrite was good. But in the process you see that the "more obvious" solution is actually lacking. You even dimly remember why, because you already tried it long ago. You revert to the correct variant, but the time was wasted.
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 
 ¿Por qué se resuelve de esa manera?
 : Lo que está escrito es importante. Pero lo que *no* está escrito puede ser aún más importante para entender qué está pasando. ¿Por qué resuelven la tarea exactamente de esa manera? El código no nos da ninguna respuesta.

@@ -6,7 +6,24 @@ Por ejemplo, mostrar los elementos de una lista uno tras otro o simplemente ejec
 
 Los *Bucles* son una forma de repetir el mismo código varias veces.
 
+<<<<<<< HEAD
 ## El bucle "while"
+=======
+```smart header="The for..of and for..in loops"
+A small announcement for advanced readers.
+
+This article covers only basic loops: `while`, `do..while` and `for(..;..;..)`.
+
+If you came to this article searching for other types of loops, here are the pointers:
+
+- See [for..in](info:object#forin) to loop over object properties.
+- See [for..of](info:array#loops) and [iterables](info:iterable) for looping over arrays and iterable objects.
+
+Otherwise, please read on.
+```
+
+## The "while" loop
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 
 El bucle `while` (mientras) tiene la siguiente sintaxis:
 
@@ -159,11 +176,14 @@ for (i = 0; i < 3; i++) { // usa una variable existente
 
 alert(i); // 3, visible, porque fue declarada fuera del bucle
 ```
-
 ````
 
+<<<<<<< HEAD
 
 ### Omitiendo partes
+=======
+### Skipping parts
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 
 Cualquier parte de `for` puede ser omitida.
 
@@ -283,7 +303,6 @@ if (i > 5) {
 
 ...y lo reescribimos usando un signo de interrogación:
 
-
 ```js no-beautify
 (i > 5) ? alert(i) : *!*continue*/!*; // continue no está permitida aquí
 ```
@@ -319,7 +338,12 @@ Necesitamos una manera de detener el proceso si el usuario cancela la entrada.
 
 El `break` ordinario después de `input` solo nos sacaría del bucle interno. Eso no es suficiente. ¡Etiquetas, vengan al rescate!
 
+<<<<<<< HEAD
 Una *etiqueta* es un identificador con un ":" antes de un bucle:
+=======
+A *label* is an identifier with a colon before a loop:
+
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 ```js
 labelName: for (...) {
   ...
@@ -341,7 +365,12 @@ La declaración `break <labelName>` en el bucle debajo nos saca hacia la etiquet
     // hacer algo con el valor...
   }
 }
+<<<<<<< HEAD
 alert('Listo!');
+=======
+
+alert('Done!');
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 ```
 
 En el código de arriba, `break outer` mira hacia arriba por la etiqueta llamada `outer` y nos saca de dicho bucle.
@@ -360,14 +389,24 @@ La directiva `continue` también puede usar usada con una etiqueta. En este caso
 ````warn header="Las etiquetas no son \"goto\""
 Las etiquetas no nos permiten saltar a un lugar arbitrario en el código.
 
+<<<<<<< HEAD
 Por ejemplo, es imposible hacer esto:
+=======
+For example, it is impossible to do this:
+
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 ```js
 break label;  // ¿saltar a label? No funciona.
 
 label: for (...)
 ```
 
+<<<<<<< HEAD
 Una directiva `break` debe estar en el interior del bucle. Técnicamente, cualquier bloque de código etiquetado:
+=======
+A `break` directive must be inside a code block. Technically, any labelled code block will do, e.g.:
+
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 ```js
 label: {
   // ...

@@ -29,8 +29,13 @@ JavaScript es un lenguaje en evolución, nuevas características son adicionadas
 
 Para ver la compatibilidad por navegador y otros motores, consultar:
 
+<<<<<<< HEAD
 - <http://caniuse.com> - tablas de compatibilidad por característica, e.g. para comprobar qué motores soportan funciones modernas de criptografía: <http://caniuse.com/#feat=cryptography>.
 - <https://kangax.github.io/compat-table> - tabla que muestra la compatibilidad o no de las prestaciones del lenguaje por motor.
+=======
+- <https://caniuse.com> - per-feature tables of support, e.g. to see which engines support modern cryptography functions: <http://caniuse.com/#feat=cryptography>.
+- <https://kangax.github.io/compat-table> - a table with language features and engines that support those or don't support.
+>>>>>>> 7964b11b8fa2c314d9a09a82ea4b585cda618c80
 
 Todos estos recursos son de utilidad para el desarrollo con JavaScript, ya que incluyen información valiosa sobre los detalles del lenguaje, su compatibilidad, etc.
 
