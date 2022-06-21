@@ -17,9 +17,9 @@ También hay una versión encriptada `wss://`. Equivale al HTTPS para los websoc
 ```smart header="Siempre dé preferencia a `wss://`"
 El protocolo `wss://` no solamente está encriptado, también es más confiable.
 
-Esto es porque los datos en `ws://` no están encriptados y son visibles para cualquier intermediario. Entonces los servidores proxy viejos que no conocen el WebSocket podrían interpretar los datos como cabeceras "extrañas" y abortar la conexión.
+Esto es porque los datos en `ws://` no están encriptados y son visibles para cualquier intermediario. Entonces los servidores proxy viejos que no reconocen el protocolo WebSocket podrían interpretar los datos como cabeceras "extrañas" y abortar la conexión.
 
-En cambio `wss://` es WebSocket sobre TLS (al igual que HTTPS es HTTP sobre TLS), la seguridad de la capa de transporte encripta los datos del que envía y los desencripta para el que recibe. Los paquetes de datos pasan encriptados a través de los proxy. Estos servidores no pueden ver lo que hay dentro y los dejan pasar.
+En cambio `wss://` es WebSocket sobre TLS (al igual que HTTPS es HTTP sobre TLS), la seguridad de la capa de transporte encripta los datos del que envía y los desencripta el que recibe. Los paquetes de datos pasan encriptados a través de los proxy. Estos servidores no pueden ver lo que hay dentro y los dejan pasar.
 ```
 
 Una vez que el socket es creado, debemos escuchar los eventos que ocurren en él. Hay en total 4 eventos:
@@ -60,7 +60,7 @@ socket.onerror = function(error) {
 };
 ```
 
-Para propósitos de demostración, hay un pequeño servidor [server.js](demo/server.js), escrito en Node.js, ejecutándose para el ejemplo de arriba. Este responde con "Hello from server, John", espera 5 segundos, y cierra la conexión.
+Para propósitos de demostración, tenemos un pequeño servidor [server.js](demo/server.js), escrito en Node.js, ejecutándose para el ejemplo de arriba. Este responde con "Hello from server, John", espera 5 segundos, y cierra la conexión.
 
 Entonces verás los eventos `open` -> `message` -> `close`.
 
@@ -72,7 +72,7 @@ Ahora hablemos más en profundidad.
 
 Cuando se crea `new WebSocket(url)`, comienza la conexión de inmediato.
 
-Durante la conexión, el navegador (usando cabeceras "header") le pregunta al servidor: "¿Soportas Websockets?" y si si el servidor responde "Sí", la comunicación continúa en el protocolo WebSocket, que no es HTTP en absoluto.
+Durante la conexión, el navegador (usando cabeceras o "header") le pregunta al servidor: "¿Soportas Websockets?" y si si el servidor responde "Sí", la comunicación continúa en el protocolo WebSocket, que no es HTTP en absoluto.
 
 ![](websocket-handshake.svg)
 
@@ -119,9 +119,9 @@ Por ejemplo:
 
 - `Sec-WebSocket-Extensions: deflate-frame` significa que el navegador soporta compresión de datos. una extensión es algo relacionado a la transferencia de datos, funcionalidad que extiende el protocolo WebSocket. La cabecera `Sec-WebSocket-Extensions` es enviada automáticamente por el navegador, con la lista de todas las extensiones que soporta.
 
-- `Sec-WebSocket-Protocol: soap, wamp` significa que queremos transferir no cualquier dato, sino datos en protocolos [SOAP](https://es.wikipedia.org/wiki/Simple_Object_Access_Protocol) o WAMP ("The WebSocket Application Messaging Protocol"). Los subprotocolos de WebSocket están registrados en el [catálogo IANA](http://www.iana.org/assignments/websocket/websocket.xml). Entonces, esta cabecera describe los formatos de datos que vamos a usar.
+- `Sec-WebSocket-Protocol: soap, wamp` significa que queremos transferir no cualquier dato, sino datos en protocolos [SOAP](https://es.wikipedia.org/wiki/Simple_Object_Access_Protocol) o WAMP ("The WebSocket Application Messaging Protocol"). Los subprotocolos de WebSocket están registrados en el [catálogo IANA](https://www.iana.org/assignments/websocket/websocket.xml). Entonces, esta cabecera describe los formatos de datos que vamos a usar.
 
-    Esta cabecera opcional se establece usando el segundo parámetro de `new WebSocket`, que es el array de subprotocolos. Por ejemplo si queremos usar SOAP o WAMP:
+    Esta cabecera opcional se establece usando el segundo parámetro de `new WebSocket`, que es el array de subprotocolos. Por ejemplo, si queremos usar SOAP o WAMP:
 
     ```js
     let socket = new WebSocket("wss://javascript.info/chat", ["soap", "wamp"]);
@@ -167,7 +167,7 @@ La comunicación WebSocket consiste de "frames" (cuadros) de fragmentos de datos
 - "text frames" -- contiene datos de texto que las partes se mandan entre sí.
 - "binary data frames" -- contiene datos binarios que las partes se mandan entre sí.
 - "ping/pong frames" son usados para testear la conexión; enviados desde el servidor, el navegador responde automáticamente.
-- También existe "connection close frame" y otros pocos frames de servicio.
+- También existe "connection close frame", y algunos otros frames de servicio.
 
 En el navegador, trabajamos directamente solamente con frames de texto y binarios.
 
@@ -249,7 +249,7 @@ Hay otros códigos como:
 
 La lista completa puede encontrarse en [RFC6455, §7.4.1](https://tools.ietf.org/html/rfc6455#section-7.4.1).
 
-Los códigos de WebSocket son como los de HTTP, pero diferentes. En particular, los menores a `1000` son reservados, habrá un error si tratamos de establecerlos.
+Los códigos de WebSocket son como los de HTTP, pero con diferencias: En particular, los códigos menores a `1000` son reservados, habrá un error si tratamos de establecerlos.
 
 ```js
 // en caso de conexión que se rompe 
@@ -316,7 +316,7 @@ socket.onmessage = function(event) {
 }
 ```
 
-El código de servidor está algo fuera de nuestro objetivo. Aquí usaremos Node.js, pero no necesitas hacerlo. Otras plataformas también tienen sus formas de trabajar con WebSocket.
+El código de servidor está fuera de nuestro objetivo. Aquí usaremos Node.js pero no necesitas hacerlo. Otras plataformas también tienen sus formas de trabajar con WebSocket.
 
 El algoritmo de lado de servidor será:
 
