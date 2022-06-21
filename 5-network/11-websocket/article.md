@@ -249,7 +249,7 @@ Hay otros códigos como:
 
 La lista completa puede encontrarse en [RFC6455, §7.4.1](https://tools.ietf.org/html/rfc6455#section-7.4.1).
 
-Los códigos de WebSocket son como los de HTTP, pero con diferencias: En particular, los códigos menores a `1000` son reservados, habrá un error si tratamos de establecerlos.
+Los códigos de WebSocket son como los de HTTP pero diferentes. En particular, los códigos menores a `1000` son reservados, habrá un error si tratamos de establecerlos.
 
 ```js
 // en caso de conexión que se rompe 
