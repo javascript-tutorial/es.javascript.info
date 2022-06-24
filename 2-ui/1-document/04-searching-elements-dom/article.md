@@ -37,7 +37,7 @@ Existe además una variable global nombrada por el `id` que hace referencia al e
   // elem es una referencia al elemento del DOM con id="elem"
   elem.style.background = 'red';
 
-  // id="elem-content" tiene un guión en su interior, por lo que no puede ser un nombre de variable
+  // id="elem-content" tiene un guion en su interior, por lo que no puede ser un nombre de variable
   // ...pero podemos acceder a él usando corchetes: window['elem-content']
 </script>
 ```
@@ -116,7 +116,7 @@ En otras palabras, el resultado es el mismo que `elem.querySelectorAll(css)[0]`,
 
 Los métodos anteriores consistían en buscar en el DOM.
 
-El [elem.matches(css)](http://dom.spec.whatwg.org/#dom-element-matches) no busca nada, sólo comprueba si el `elem` coincide con el selector CSS dado. Devuelve `true` o `false`.
+El [elem.matches(css)](https://dom.spec.whatwg.org/#dom-element-matches) no busca nada, sólo comprueba si el `elem` coincide con el selector CSS dado. Devuelve `true` o `false`.
 
 Este método es útil cuando estamos iterando sobre elementos (como en un array) y tratando de filtrar los que nos interesan.
 

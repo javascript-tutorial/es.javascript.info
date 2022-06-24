@@ -111,6 +111,7 @@ El método `setInterval` tiene la misma sintaxis que `setTimeout`:
 ```js
 let timerId = setInterval(func|código, [retraso], [arg1], [arg2], ...)
 ```
+
 Todos los argumentos tienen el mismo significado. Pero a diferencia de `setTimeout`, ejecuta la función no solo una vez, sino regularmente después del intervalo de tiempo dado.
 
 Para detener las llamadas, debemos llamar a 'clearInterval (timerId)'.
@@ -299,4 +300,3 @@ Por ejemplo, el temporizador en el navegador puede ralentizarse por muchas razon
 - El portátil está en modo "ahorro de batería".
 
 Todo eso puede aumentar la resolución mínima del temporizador (el retraso mínimo) a 300 ms o incluso 1000 ms dependiendo de la configuración de rendimiento del navegador y del nivel del sistema operativo.
-

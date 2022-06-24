@@ -193,13 +193,12 @@ Una clave debe ser de uno de estos tipos: number, date, string, binary, o array.
 
 ![](indexeddb-structure.svg)
 
-
-De forma similar a `localStorage`, podemos proporcionar una clave cuando agregamos un valor al almacén. Cuando lo que almacenamos son objetos, IndexedDB permite asignar una propiedad del objeto como clave, lo que es mucho más conveniente. También podemos usar claves que se generan automáticamente.
+Como veremos pronto, cuando agregamos un valor al almacén podemos proporcionarle una clave, de forma similar a `localStorage`. Pero cuando lo que almacenamos son objetos, IndexedDB permite asignar una propiedad del objeto como clave, lo que es mucho más conveniente. También podemos usar claves que se generan automáticamente.
 
 Pero primero, necesitamos crear el almacén de objetos.
 
+La sintaxis para crear un almacén de objetos u "object store":
 
-La sintaxis para crear un almacén de objetos "object store":
 ```js
 db.createObjectStore(name[, keyOptions]);
 ```
@@ -214,6 +213,7 @@ Ten en cuenta que esta operación es sincrónica, no requiere `await`.
 Si no establecemos `keyOptions`, necesitaremos proporcionar una clave explícitamente más tarde: al momento de almacenar un objeto.
 
 Por ejemplo, este objeto usa la propiedad `id` como clave:
+
 ```js
 db.createObjectStore('books', {keyPath: 'id'});
 ```
@@ -223,7 +223,8 @@ db.createObjectStore('books', {keyPath: 'id'});
 Esto es una limitación técnica. Fuera del manejador podremos agregar/borrar/modificar los datos, pero los almacenes de objetos solo pueden ser creados/borrados/alterados durante la actualización de versión.
 
 Para hacer una actualización de base de datos, hay principalmente dos enfoques:
-1. Podemos implementar una función de actualización por versión: desde 1 a 2, de 2 a 3, de 3 a 4, etc. Así en `upgradeneeded` podemos comparar versiones (supongamos: vieja 2, ahora 4) y ejecutar actualizaciones por versión paso a paso para cada versión intermedia (2 a 3, luego 3 a 4).
+
+1. Podemos implementar una función de actualización por versión: desde 1 a 2, de 2 a 3, de 3 a 4, etc. Así en `upgradeneeded` podemos comparar versiones (ejemplo: vieja 2, ahora 4) y ejecutar actualizaciones por versión paso a paso para cada versión intermedia (en el ejemplo: 2 a 3, luego 3 a 4).
 2. O podemos simplemente examinar la base y alterarla en un paso. Obtenemos una lista de los almacenes existentes como `db.objectStoreNames`. Este objeto es un [DOMStringList](https://html.spec.whatwg.org/multipage/common-dom-interfaces.html#domstringlist) que brinda el método `contains(name)` para chequear existencias. Y podemos entonces hacer actualizaciones dependiendo de lo que existe y lo que no.
 
 En bases de datos pequeñas la segunda variante puede ser más simple.
@@ -242,7 +243,6 @@ openRequest.onupgradeneeded = function() {
 };
 ```
 
-
 Para borrar un almacén de objetos:
 
 ```js
@@ -256,6 +256,7 @@ El término transacción es genérico, usado por muchos tipos de bases de datos.
 Una transacción es un grupo de operaciones cuyos resultados están vinculados: todas deben ser exitosas o todas fallar.
 
 Por ejemplo, cuando una persona compra algo, necesitamos:
+
 1. Restar el dinero de su cuenta personal.
 2. Agregar el ítem a su inventario.
 
@@ -614,6 +615,7 @@ El método `delete` (eliminar) busca a través de una consulta valores para borr
 - **`delete(query)`** -- elimina valores coincidentes con una consulta (query).
 
 Por ejemplo:
+
 ```js
 // borra el libro cuyo id='js'
 books.delete('js');
@@ -632,6 +634,7 @@ request.onsuccess = function() {
 ```
 
 Para borrar todo:
+
 ```js
 books.clear(); // clear "limpia" el almacén.
 ```
@@ -651,6 +654,7 @@ Los cursores brindan los medios para manejar esta situación.
 Como un almacén está ordenado internamente por clave, un cursor lo recorre en el orden de la clave (ascendente de forma predeterminada).
 
 La sintaxis:
+
 ```js
 // como getAll, pero con un cursor:
 let request = store.openCursor(query, [direction]);
@@ -748,7 +752,6 @@ try {
 } catch(err) {
   console.log('error', err.message);
 }
-
 ```
 
 Así tenemos todo lo dulce de "código async plano" y "try..catch".
@@ -771,9 +774,7 @@ window.addEventListener('unhandledrejection', event => {
 
 ### La trampa "transacción inactiva"
 
-
 Como sabemos, una transacción se autofinaliza tan pronto como el navegador termina el código actual y las microtareas. Por tanto, si ponemos una *macrotarea* como `fetch` en el medio de una transacción, la transacción no esperará a que termine. Simplemente se autofinaliza. Así la siguiente petición fallaría.
-
 
 Para el contenedor de promisificación y `async/await` la situación es la misma.
 
@@ -793,6 +794,7 @@ await inventory.add({ id: 'js', price: 10, created: new Date() }); // Error
 El `inventory.add` que sigue a `fetch` `(*)` falla con el error "transacción inactiva", porque la transacción se autocompletó y, llegado ese momento, ya está cerrada.
 
 La forma de sortear esto es la misma que con el IndexedDB nativo: Hacer una nueva transacción o simplemente partir las cosas.
+
 1. Preparar los datos y buscar todo lo que sea necesario primero.
 2. Solo entonces, grabar en la base de datos.
 

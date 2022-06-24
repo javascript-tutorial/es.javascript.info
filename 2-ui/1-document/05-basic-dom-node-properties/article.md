@@ -10,7 +10,7 @@ Los diferentes nodos DOM pueden tener diferentes propiedades. Por ejemplo, un no
 
 Cada nodo DOM pertenece a la clase nativa correspondiente.
 
-La raíz de la jerarquía es [EventTarget](https://dom.spec.whatwg.org/#eventtarget), que es heredada por [Node](http://dom.spec.whatwg.org/#interface-node), y otros nodos DOM heredan de él.
+La raíz de la jerarquía es [EventTarget](https://dom.spec.whatwg.org/#eventtarget), que es heredada por [Node](https://dom.spec.whatwg.org/#interface-node), y otros nodos DOM heredan de él.
 
 Aquí está la imagen, con las explicaciones a continuación:
 
@@ -18,10 +18,31 @@ Aquí está la imagen, con las explicaciones a continuación:
 
 Las clases son:
 
-- [EventTarget](https://dom.spec.whatwg.org/#eventtarget) -- es la clase raíz "abstracta". Los objetos de esa clase nunca se crean. Sirve como base, por lo que todos los nodos DOM soportan los llamados "eventos", los estudiaremos más adelante.
-- [Node](http://dom.spec.whatwg.org/#interface-node) -- también es una clase "abstracta", que sirve como base para los nodos DOM. Proporciona la funcionalidad del árbol principal: `parentNode`, `nextSibling`, `childNodes` y así sucesivamente (son getters). Los objetos de la clase `Node` nunca se crean. Pero hay clases de nodos concretas que heredan de él, a saber: `Text` para nodos de texto, `Element` para nodos de elementos y otros más exóticos como `Comment` para nodos de comentarios.
-- [Element](http://dom.spec.whatwg.org/#interface-element) -- es una clase base para elementos DOM. Proporciona navegación a nivel de elemento como `nextElementSibling`, `children` y métodos de búsqueda como `getElementsByTagName`, `querySelector`. Un navegador admite no solo HTML, sino también XML y SVG. La clase `Element` sirve como base para clases más específicas: `SVGElement`, `XMLElement` y `HTMLElement`.
-- [HTMLElement](https://html.spec.whatwg.org/multipage/dom.html#htmlelement) -- es finalmente la clase básica para todos los elementos HTML. Es heredado por elementos HTML concretos:
+- [EventTarget](https://dom.spec.whatwg.org/#eventtarget) -- es la clase raíz "abstracta".
+
+    Los objetos de esta clase nunca se crean. Sirve como base, por la que todos los nodos DOM soportan los llamados "eventos", los estudiaremos más adelante.
+
+- [Node](http://dom.spec.whatwg.org/#interface-node) -- también es una clase "abstracta", que sirve como base para los nodos DOM.
+
+    Proporciona la funcionalidad del árbol principal: `parentNode`, `nextSibling`, `childNodes` y demás (son getters). Los objetos de la clase `Node` nunca se crean. Pero hay clases de nodos concretas que heredan de ella (y también heredan la funcionalidad de `Node`).
+
+- [Document](https://dom.spec.whatwg.org/#interface-document), por razones históricas, heredado a menudo por `HTMLDocument` (aunque la última especificación no lo dicta) -- es el documento como un todo.
+
+    El objeto global `document` pertenece exactamente a esta clase. Sirve como punto de entrada al DOM.
+
+- [CharacterData](https://dom.spec.whatwg.org/#interface-characterdata) -- una clase "abstract" heredada por:
+    - [Text](https://dom.spec.whatwg.org/#interface-text) -- the class corresponding to a text inside elements, e.g. `Hello` in `<p>Hello</p>`.
+    - [Comment](https://dom.spec.whatwg.org/#interface-comment) -- la clase para "comentarios". No se muestran, pero cada comentario se vuelve un miembro del DOM.
+
+- [Element](http://dom.spec.whatwg.org/#interface-element) -- es una clase base para elementos DOM.
+
+    Proporciona navegación a nivel de elemento como `nextElementSibling`, `children` y métodos de búsqueda como `getElementsByTagName`, `querySelector`.
+    
+    Un navegador admite no solo HTML, sino también XML y SVG. La clase `Element` sirve como base para clases más específicas: `SVGElement`, `XMLElement` (no las necesitamos aquí) y `HTMLElement`.
+
+- Finalmente, [HTMLElement](https://html.spec.whatwg.org/multipage/dom.html#htmlelement) -- es la clase básica para todos los elementos HTML. Trabajaremos con ella la mayor parte del tiempo.
+    
+    Es heredado por elementos HTML concretos:
     - [HTMLInputElement](https://html.spec.whatwg.org/multipage/forms.html#htmlinputelement) -- la clase para elementos `<input>`,
     - [HTMLBodyElement](https://html.spec.whatwg.org/multipage/semantics.html#htmlbodyelement) -- la clase para los elementos `<body>`,
     - [HTMLAnchorElement](https://html.spec.whatwg.org/multipage/semantics.html#htmlanchorelement) -- la clase para elementos `<a>`,
@@ -29,7 +50,7 @@ Las clases son:
 
 Hay muchas otras etiquetas con sus propias clases que pueden tener propiedades y métodos específicos, mientras que algunos elementos, tales como `<span>`, `<section>`, `<article>`, no tienen ninguna propiedad específica entonces derivan de la clase `HTMLElement`.
 
-Entonces, el conjunto completo de propiedades y métodos de un nodo dado viene como resultado de la herencia.
+Entonces, el conjunto completo de propiedades y métodos de un nodo dado viene como resultado de la cadena de herencia.
 
 Por ejemplo, consideremos el objeto DOM para un elemento `<input>`. Pertenece a la clase [HTMLInputElement](https://html.spec.whatwg.org/multipage/forms.html#htmlinputelement).
 
@@ -133,7 +154,7 @@ Por ejemplo:
   <script>
   let elem = document.body;
 
-  // vamos a examinar lo que es
+  // vamos a examinar: ¿qué tipo de nodo es elem?
   alert(elem.nodeType); // 1 => elemento
 
   // Y el primer hijo es...

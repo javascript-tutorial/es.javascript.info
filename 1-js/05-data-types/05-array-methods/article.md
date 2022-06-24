@@ -234,11 +234,12 @@ Ahora vamos a ver métodos que buscan elementos dentro de un array.
 
 ### indexOf/lastIndexOf e includes
 
-Los métodos [arr.indexOf](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/indexOf), [arr.lastIndexOf](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/lastIndexOf) y [arr.includes](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/includes) tienen la misma sintaxis y hacen básicamente lo mismo que sus contrapartes de strings, pero operan sobre elementos en lugar de caracteres:
+Los métodos [arr.indexOf](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/indexOf) y [arr.includes](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/includes) tienen una sintaxis similar y hacen básicamente lo mismo que sus contrapartes de strings, pero operan sobre elementos en lugar de caracteres:
 
 - `arr.indexOf(item, from)` -- busca `item` comenzando desde el index `from`, y devuelve el index donde fue encontrado, de otro modo devuelve `-1`.
-- `arr.lastIndexOf(item, from)` -- igual que el anterior, pero busca de derecha a izquierda.
 - `arr.includes(item, from)` -- busca `item` comenzando desde el índice `from`, devuelve `true` en caso de ser encontrado.
+
+Usualmente estos métodos se usan con un solo argumento: el `item` a buscar. De manera predeterminada, la búsqueda es desde el principio.
 
 Por ejemplo:
 
@@ -252,19 +253,31 @@ alert( arr.indexOf(null) ); // -1
 alert( arr.includes(1) ); // true
 ```
 
-Tener en cuenta que el método usa comparación estricta (`===`). Por lo tanto, si buscamos `false`, encontrará exactamente `false` y no cero.
+Tener en cuenta que el método usa la comparación estricta (`===`). Por lo tanto, si buscamos `false`, encontrará exactamente `false` y no cero.
 
-Si queremos comprobar si un elemento está incluido y no necesitamos saber su ubicación exacta, es preferible usar `arr.includes`
+Si queremos comprobar si un elemento existe en el array, pero no necesitamos saber su ubicación exacta, es preferible usar `arr.includes`
 
-Además, una pequeña diferencia de `includes` es que puede manejar correctamente `NaN` a diferencia de `indexOf/lastIndexOf`:
+El método [arr.lastIndexOf](mdn:js/Array/lastIndexOf) es lo mismo que `indexOf`, pero busca de derecha a izquierda.
+
+```js run
+let fruits = ['Apple', 'Orange', 'Apple']
+
+alert( arr.indexOf('Apple') ); // 0 (primera "Apple")
+alert( arr.lastIndexOf('Apple') ); // 2 (última "Apple")
+```
+
+````smart header="El método `includes` maneja `NaN` correctamente"
+Una característica menor pero notoria de `includes` es que, a diferencia de `indexOf`, maneja correctamente `NaN`:
 
 ```js run
 const arr = [NaN];
 alert( arr.indexOf(NaN) ); // -1 (debería ser 0, pero la igualdad === no funciona para NaN)
 alert( arr.includes(NaN) );// true (correcto)
 ```
+Esto es porque `includes` fue agregado mucho después y usa un algoritmo interno de comparación actualizado.
+````
 
-### find y findIndex
+### find y findIndex/findLastIndex
 
 Imaginemos que tenemos un array de objetos. ¿Cómo podríamos encontrar un objeto con una condición específica?
 
@@ -304,7 +317,27 @@ En la vida real los arrays de objetos son bastante comunes por lo que el método
 
 Ten en cuenta que en el ejemplo anterior le pasamos a `find` la función `item => item.id == 1` con un argumento. Esto es lo más común, otros argumentos son raramente usados en esta función.
 
-El método [arr.findIndex](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/findIndex) es esencialmente lo mismo, pero devuelve el índice donde el elemento fue encontrado en lugar del elemento en sí y devuelve `-1` cuando no encuentra nada.
+El método [arr.findIndex](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/findIndex) tiene la misma sintaxis, pero devuelve el índice donde el elemento fue encontrado en lugar del elemento en sí. Devuelve `-1` cuando no lo encuentra.
+
+El método [arr.findLastIndex](mdn:js/Array/findLastIndex) es como `findIndex`, pero busca de derecha a izquierda, similar a `lastIndexOf`.
+
+Un ejemplo:
+
+```js run
+let users = [
+  {id: 1, name: "John"},
+  {id: 2, name: "Pete"},
+  {id: 3, name: "Mary"},
+  {id: 4, name: "John"}
+];
+
+// Encontrar el índice del primer John
+alert(users.findIndex(user => user.name == 'John')); // 0
+
+// Encontrar el índice del último John
+alert(users.findLastIndex(user => user.name == 'John')); // 3
+```
+
 
 ### filter
 
@@ -388,7 +421,8 @@ Todos los elementos son literalmente convertidos a string para ser comparados. E
 
 Para usar nuestro propio criterio de reordenamiento, necesitamos proporcionar una función como argumento de `arr.sort()`.
 
-La función debe comparar dos valores arbitrarios y devolver el resultado:
+La función debe comparar dos valores arbitrarios y devolver:
+
 ```js
 function compare(a, b) {
   if (a > b) return 1; // si el primer valor es mayor que el segundo
@@ -633,7 +667,6 @@ Por lo tanto siempre se recomienda especificar un valor inicial.
 
 El método [arr.reduceRight](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/reduceRight) realiza lo mismo, pero va de derecha a izquierda.
 
-
 ## Array.isArray
 
 Los arrays no conforman un tipo diferente. Están basados en objetos.
@@ -746,6 +779,7 @@ Estos métodos son los más utilizados y cubren el 99% de los casos. Pero existe
   Estos métodos se comportan con similitud a los operadores `||` y `&&`: si `fn` devuelve un valor verdadero, `arr.some()` devuelve `true` y detiene la iteración de inmediato; si `fn`  devuelve un valor falso, `arr.every()` devuelve `false` y detiene la iteración también.
 
 Podemos usar `every` para comparar arrays:
+
   ```js run
   function arraysEqual(arr1, arr2) {
     return arr1.length === arr2.length && arr1.every((value, index) => value === arr2[index]);
