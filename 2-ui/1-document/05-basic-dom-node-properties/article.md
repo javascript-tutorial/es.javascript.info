@@ -31,7 +31,7 @@ Las clases son:
     El objeto global `document` pertenece exactamente a esta clase. Sirve como punto de entrada al DOM.
 
 - [CharacterData](https://dom.spec.whatwg.org/#interface-characterdata) -- una clase "abstract" heredada por:
-    - [Text](https://dom.spec.whatwg.org/#interface-text) -- the class corresponding to a text inside elements, e.g. `Hello` in `<p>Hello</p>`.
+    - [Text](https://dom.spec.whatwg.org/#interface-text) -- la clase correspondiente a texto dentro de los elementos, por ejemplo `Hello` en `<p>Hello</p>`.
     - [Comment](https://dom.spec.whatwg.org/#interface-comment) -- la clase para "comentarios". No se muestran, pero cada comentario se vuelve un miembro del DOM.
 
 - [Element](http://dom.spec.whatwg.org/#interface-element) -- es una clase base para elementos DOM.
