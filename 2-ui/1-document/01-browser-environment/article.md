@@ -32,7 +32,7 @@ Y podemos usarlo como una ventana del navegador, para ver la altura de la ventan
 alert(window.innerHeight); // altura interior de la ventana
 ```
 
-Hay más métodos y propiedades específicos de `window`, que cubriremos más adelante.
+Hay más métodos y propiedades específicos de `window`, los que cubriremos más adelante.
 
 ## DOM (Modelo de Objetos del Documento)
 
