@@ -26,7 +26,7 @@ function sayHi() {
 window.sayHi();
 ```
 
-Y podemos usarlo como una ventana del navegador, para ver la altura de la ventana:
+Y podemos usarlo como una ventana del navegador. Para ver la altura de la ventana:
 
 ```js run
 alert(window.innerHeight); // altura interior de la ventana
