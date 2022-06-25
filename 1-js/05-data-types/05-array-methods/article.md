@@ -267,7 +267,7 @@ alert( arr.lastIndexOf('Apple') ); // 2 (última "Apple")
 ```
 
 ````smart header="El método `includes` maneja `NaN` correctamente"
-Una característica menor pero notoria de `includes` es que, a diferencia de `indexOf`, maneja correctamente `NaN`:
+Una característica menor pero notable de `includes` es que, a diferencia de `indexOf`, maneja correctamente `NaN`:
 
 ```js run
 const arr = [NaN];
