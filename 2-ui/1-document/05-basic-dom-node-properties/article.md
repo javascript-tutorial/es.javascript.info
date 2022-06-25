@@ -20,19 +20,19 @@ Las clases son:
 
 - [EventTarget](https://dom.spec.whatwg.org/#eventtarget) -- es la clase raíz "abstracta".
 
-    Los objetos de esta clase nunca se crean. Sirve como base, por la que todos los nodos DOM soportan los llamados "eventos", los estudiaremos más adelante.
+    Los objetos de esta clase nunca se crean. Sirve como base, es por la que todos los nodos DOM soportan los llamados "eventos" que estudiaremos más adelante.
 
-- [Node](http://dom.spec.whatwg.org/#interface-node) -- también es una clase "abstracta", que sirve como base para los nodos DOM.
+- [Node](http://dom.spec.whatwg.org/#interface-node) -- también es una clase "abstracta", sirve como base para los nodos DOM.
 
     Proporciona la funcionalidad del árbol principal: `parentNode`, `nextSibling`, `childNodes` y demás (son getters). Los objetos de la clase `Node` nunca se crean. Pero hay clases de nodos concretas que heredan de ella (y también heredan la funcionalidad de `Node`).
 
-- [Document](https://dom.spec.whatwg.org/#interface-document), por razones históricas, heredado a menudo por `HTMLDocument` (aunque la última especificación no lo dicta) -- es el documento como un todo.
+- [Document](https://dom.spec.whatwg.org/#interface-document), por razones históricas, heredado a menudo por `HTMLDocument` (aunque la última especificación no lo exige) -- es el documento como un todo.
 
     El objeto global `document` pertenece exactamente a esta clase. Sirve como punto de entrada al DOM.
 
 - [CharacterData](https://dom.spec.whatwg.org/#interface-characterdata) -- una clase "abstract" heredada por:
     - [Text](https://dom.spec.whatwg.org/#interface-text) -- la clase correspondiente a texto dentro de los elementos, por ejemplo `Hello` en `<p>Hello</p>`.
-    - [Comment](https://dom.spec.whatwg.org/#interface-comment) -- la clase para "comentarios". No se muestran, pero cada comentario se vuelve un miembro del DOM.
+    - [Comment](https://dom.spec.whatwg.org/#interface-comment) -- la clase para los "comentarios". No se muestran, pero cada comentario se vuelve un miembro del DOM.
 
 - [Element](http://dom.spec.whatwg.org/#interface-element) -- es una clase base para elementos DOM.
 
