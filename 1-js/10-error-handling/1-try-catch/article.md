@@ -636,10 +636,10 @@ También hay servicios web que proporcionan registro de errores para tales casos
 
 Estos servicios funcionan así:
 
-1. Nos registramos en el servicio y obtenemos un fragmento de JS (o una URL del script) para insertar en las páginas.
+1. Nos registramos en el servicio y obtenemos un fragmento de JS (o la URL de un script) para insertar en las páginas.
 2. Ese script JS establece una función personalizada `window.onerror`.
-3. Cuando se produce un error, envía una solicitud de red al servicio.
-4. Podemos iniciar sesión en la interfaz web del servicio y ver los errores.
+3. Cuando se produce un error, se envía una solicitud de red al servicio.
+4. Podemos iniciar sesión en la interfaz web del servicio y ver los errores registrados.
 
 ## Resumen
 
