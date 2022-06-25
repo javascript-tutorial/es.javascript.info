@@ -278,7 +278,7 @@ Para summarizar:
 - Si el manejador de `finally` devuelve algo, será ignorado.
 - Cuando es `finally` el que dispara el error, la ejecución pasa al manejador de error más cercano.
 
-Estas características son de ayuda y hacen que las cosas funcionen tal como corresponde si "finalizamos" `finally` como se supone: para procedimientos de limpieza genéricos.
+Estas características son de ayuda y hacen que las cosas funcionen tal como corresponde si "finalizamos" con `finally` "finalizamos" como se supone: para procedimientos de limpieza genéricos.
 
 ````smart header="Podemos adjuntar manejadores a promesas ya establecidas"
 Si una promesa está pendiente, los manejadores `.then/catch/finally` esperan por su resolución. 
