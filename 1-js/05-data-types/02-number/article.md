@@ -64,8 +64,8 @@ En otras palabras, un número negativo detrás de `"e"` significa una división 
 // -6 divide por 1 con 6 ceros
 1.23e-6 === 1.23 / 1000000; // 0.00000123
 
-// an example with a bigger number
-1234e-2 === 1234 / 100; // 12.34, decimal point moves 2 times
+// un ejemplo con un número mayor
+1234e-2 === 1234 / 100; // 12.34, el punto decimal se mueve 2 veces
 ```
 
 ### Números hexadecimales, binarios y octales
