@@ -421,7 +421,7 @@ Todos los elementos son literalmente convertidos a string para ser comparados. E
 
 Para usar nuestro propio criterio de reordenamiento, necesitamos proporcionar una función como argumento de `arr.sort()`.
 
-La función debe comparar dos valores arbitrarios y devolver:
+La función debe comparar dos valores arbitrarios, y devolver:
 
 ```js
 function compare(a, b) {
