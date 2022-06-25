@@ -139,7 +139,7 @@ function pow(x, n) {
 }
 ```
 	
-	Este tipo de comentarios nos permite entender el propósito de la función y cómo usarla de la manera correcta sin mirar su código.
+	Este tipo de comentarios nos permite entender el propósito de la función y cómo usarla de la manera correcta sin examinar su código.
 	
 	Por cierto, muchos editores como [WebStorm](https://www.jetbrains.com/webstorm/) también pueden entenderlos y usarlos para proveer auto completado y algún tipo de verificación automática para el código.
 	
