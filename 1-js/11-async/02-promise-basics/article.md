@@ -274,7 +274,7 @@ Sin embargo, note que `finally(f) no es exactamente un alias de `then(f, f)`. Ha
 
 Para summarizar:
 
-- Un manejador `finally` no obtiene lo que resultó del manejador previo (no tiene argumentos). Ese resultado es pasado a través al siguiente manejador.
+- Un manejador `finally` no obtiene lo que resultó del manejador previo (no tiene argumentos). Ese resultado es pasado a través de él al siguiente manejador.
 - Si el manejador de `finally` devuelve algo, será ignorado.
 - Cuando es `finally` el que dispara el error, la ejecución pasa al manejador de error más cercano.
 
