@@ -155,7 +155,7 @@ Para las pilas, la última introducida es la primera en ser recibida, en inglés
 
 Los arrays en JavaScript pueden trabajar como colas o pilas. Ellos permiten agregar/quitar elementos al/del principio o al/del final.
 
-En ciencias de la computación la estructura de datos que permite esto se denomina cola de doble extremo o [bicola](https://es.wikipedia.org/wiki/Bicola).
+En ciencias de la computación, la estructura de datos que permite esto se denomina cola de doble extremo o [bicola](https://es.wikipedia.org/wiki/Bicola).
 
 **Métodos que trabajan sobre el final del array:**
 
@@ -530,7 +530,7 @@ El llamado a `new Array(number)` crea un array con la longitud dada, pero sin el
 Obtener los elementos:
 
 - Podemos obtener un elemento por su índice, como `arr[0]`
-- También podemos usar el método `at(i)`, que permite índices negativos. Para valores negativos de `i`, cuenta hacia atrás desde el final del array. Funciona igual que  `arr[i]`, si `i >= 0`.
+- También podemos usar el método `at(i)`, que permite índices negativos. Para valores negativos de `i`, cuenta hacia atrás desde el final del array. Cuando `i >= 0`, funciona igual que `arr[i]`.
 
 Podemos usar un array como una pila "deque" o "bicola" con las siguientes operaciones:
 

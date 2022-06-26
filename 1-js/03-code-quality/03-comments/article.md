@@ -125,21 +125,21 @@ Describe la arquitectura
 Documenta la utilización de una función
 : Hay una sintaxis especial [JSDoc](https://en.wikipedia.org/wiki/JSDoc) para documentar una función: utilización, parámetros, valor devuelto.
 
-	Por ejemplo:
-	```js
-    /**
-     * Devuelve x elevado a la potencia de n.
-     *
-     * @param {number} x El número a elevar.
-     * @param {number} n La potencia, debe ser un número natural.
-     * @return {number} x elevado a la potencia de n.
-     */
-    function pow(x, n) {
-      ...
-    }
-    ```
+Por ejemplo:
+```js
+/**
+  * Devuelve x elevado a la potencia de n.
+  *
+  * @param {number} x El número a elevar.
+  * @param {number} n La potencia, debe ser un número natural.
+  * @return {number} x elevado a la potencia de n.
+  */
+function pow(x, n) {
+  ...
+}
+```
 	
-	Estos tipos de comentarios nos permiten entender el propósito de la función y cómo usarla de la manera correcta sin mirar su código.
+	Este tipo de comentarios nos permite entender el propósito de la función y cómo usarla de la manera correcta sin tener que examinar su código.
 	
 	Por cierto, muchos editores como [WebStorm](https://www.jetbrains.com/webstorm/) también pueden entenderlos y usarlos para proveer auto completado y algún tipo de verificación automática para el código.
 	

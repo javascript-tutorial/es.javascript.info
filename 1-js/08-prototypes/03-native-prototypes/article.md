@@ -2,7 +2,7 @@
 
 La propiedad `"prototype"` es ampliamente utilizada por el núcleo de JavaScript mismo. Todas las funciones de constructor integradas lo usan.
 
-Primero veremos los detalles y luego cómo usarlo para agregar nuevas capacidades a los objetos integrados.
+Primero veremos los detalles, y luego cómo usarlo para agregar nuevas capacidades a los objetos integrados.
 
 ## Object.prototype
 

@@ -38,7 +38,7 @@ El objeto `promise` devuelto por el constructor `new Promise` tiene estas propie
 - `state` - inicialmente `"pendiente"`, luego cambia a `"cumplido"` cuando se llama a `resolve` o `"rechazado"` cuando se llama a `reject`.
 - `result` - inicialmente `undefined`, luego cambia a `valor` cuando se llama a `resolve(valor)` o `error` cuando se llama a `reject(error)`.
 
-Entonces el ejecutor eventualmente mueve la `promise` a uno de estos estados:
+Entonces el ejecutor, en algún momento, pasa la `promise` a uno de estos estados:
 
 ![](promise-resolve-reject.svg)
 
@@ -83,7 +83,7 @@ Para resumir, el ejecutor debe realizar una tarea (generalmente algo que toma ti
 
 Una promesa que se resuelve o se rechaza se denomina "resuelta", en oposición a una promesa inicialmente "pendiente".
 
-````smart header="Solo puede haber un único resultado o un error"
+````smart header="Solo puede haber un único resultado, o un error"
 El ejecutor debe llamar solo a un 'resolve' o un 'reject'. Cualquier cambio de estado es definitivo.
 
 Se ignoran todas las llamadas adicionales de 'resolve' y 'reject':
@@ -109,7 +109,7 @@ En caso de que algo salga mal, el ejecutor debe llamar a 'reject'. Eso se puede 
 ```
 
 ````smart header="Inmediatamente llamando a `resolve`/`reject`"
-En la práctica, un ejecutor generalmente hace algo de forma asíncrona y llama a `resolve`/`reject` después de un tiempo, pero no tiene que hacerlo. También podemos llamar a `resolve` o `reject` inmediatamente, así:
+En la práctica, un ejecutor generalmente hace algo de forma asíncrona y llama a `resolve`/`reject` después de un tiempo, pero no está obligado a hacerlo así. También podemos llamar a `resolve` o `reject` inmediatamente:
 
 ```js
 let promise = new Promise(function(resolve, reject) {
@@ -123,13 +123,13 @@ Por ejemplo, esto puede suceder cuando comenzamos una tarea pero luego vemos que
 Está bien. Inmediatamente tenemos una promesa resuelta.
 ````
 
-```smart header="El `state` y el `result` son internos"
+```smart header="`state` y `result` son internos"
 Las propiedades `state` y `result` del objeto Promise son internas. No podemos acceder directamente a ellas. Podemos usar los métodos `.then`/`.catch`/`.finally` para eso. Se describen a continuación.
 ```
 
-## Consumidores: then, catch, finally
+## Consumidores: then y catch
 
-Un objeto Promise sirve como enlace entre el ejecutor (el "código productor" o el "cantante") y las funciones consumidoras (los "fanáticos"), que recibirán el resultado o error. Las funciones de consumo pueden registrarse (suscribirse) utilizando los métodos `.then`, `.catch` y `.finally`.
+Un objeto Promise sirve como enlace entre el ejecutor (el "código productor" o el "cantante") y las funciones consumidoras (los "fanáticos"), que recibirán un resultado o un error. Las funciones de consumo pueden registrarse (suscribirse) utilizando los métodos `.then` y `.catch`.
 
 ### then
 
@@ -212,58 +212,80 @@ promise.catch(alert); // muestra "Error: ¡Vaya!" después de 1 segundo
 
 La llamada `.catch(f)` es un análogo completo de `.then(null, f)`, es solo una abreviatura.
 
-### finally
+## Limpieza: finally
 
 Al igual que hay una cláusula `finally` en un `try {...} catch {...}` normal, hay un `finally` en las promesas.
 
 La llamada `.finally(f)` es similar a `.then(f, f)` en el sentido de que `f` siempre se ejecuta cuando se resuelve la promesa: ya sea que se resuelva o rechace.
 
-`finally` es un buen manejador para realizar la limpieza, por ejemplo detener nuestros indicadores de carga que ya no son necesarios sin importar cuál sea el resultado.
+La idea de `finally` es establecer un manejador para realizar la limpieza y finalización después de que las operaciones se hubieran completado.
 
-Como esto:
+Por ejemplo, detener indicadores de carga, cerrar conexiones que ya no son necesarias, etc.
+
+Puedes pensarlo como el finalizador de la fiesta. No importa si la fiesta fue buena o mala ni cuántos invitados hubo, aún necesitamos (o al menos deberíamos) hacer la limpieza después.
+
+El código puede verse como esto:
 
 ```js
 new Promise((resolve, reject) => {
-  /* hacer algo para tomar tiempo y luego llamar a resolve/reject */
+  /* hacer algo para tomar tiempo y luego llamar a resolve o reject */
 })
 *!*
   // se ejecuta cuando se cumple la promesa, no importa con éxito o no
   .finally(() => stop loading indicator)
-  // entonces el indicador de carga siempre es detenido antes de que procesemos result/error
+  // así el indicador de carga siempre es detenido antes de que sigamos adelante
 */!*
   .then(result => show result, err => show error)
 ```
 
-Sin embargo, no es exactamente un alias de `then(f, f)`. Hay varias diferencias importantes:
+Sin embargo, note que `finally(f) no es exactamente un alias de `then(f, f)`. Hay varias diferencias importantes:
+`
+1. Un manejador `finally` no tiene argumentos. En `finally` no sabemos si la promesa es exitosa o no. Eso está bien, ya que usualmente nuestra tarea es realizar procedimientos de finalización "generales".
 
-1. Un manejador `finally` no tiene argumentos. En `finally` no sabemos si la promesa es exitosa o no. Eso está bien, ya que nuestra tarea generalmente es realizar procedimientos de finalización "generales".
-2. Un manejador `finally` traspasa resultados y errores al siguiente manejador.
+    Por favor observe el ejemplo anterior: como puede ver, el manejador de `finally` no tiene argumentos, y la promesa que sale es manejada en el siguiente manejador.
+2. Un manejador `finally` traspasa resultados y errores al siguiente manejador que se adecúe.
 
     Por ejemplo, aquí el resultado se pasa a través de `finally` a `then`:
     ```js run
     new Promise((resolve, reject) => {
-      setTimeout(() => resolve("resultado"), 2000)
+      setTimeout(() => resolve("valor"), 2000)
     })
-      .finally(() => alert("Promesa lista"))
-      .then(result => alert(result)); // <-- .luego maneja el resultado
+      .finally(() => alert("Promesa lista")) // se dispara primero   
+      .then(result => alert(result)); // <-- .luego muestra "valor"
     ```
 
-    Y aquí hay un error en la promesa, pasado por `finally` a `catch`:
+    Como puede ver, el "valor" devuelto por la primera promesa es pasado a través de `finally` al siguiente `then`.
+
+    Esto es muy conveniente, porque `finally` no está destinado a procesar el resultado de una promesa. Como dijimos antes, es el lugar para hacer la limpieza general sin importar cuál haya sido el resultado.
+
+    Y aquí, el ejemplo de un error para que veamos cómo se pasa, a través de `finally`, a `catch`:
 
     ```js run
     new Promise((resolve, reject) => {
       throw new Error("error");
     })
-      .finally(() => alert("Promesa lista"))
-      .catch(err => alert(err));  // <-- .catch maneja el objeto error
+      .finally(() => alert("Promesa lista"))  // primero dispara
+      .catch(err => alert(err));  // <-- .catch muestra el error
     ```
 
-    Eso es muy conveniente, porque 'finally' no está destinado a procesar un resultado "promesa". Entonces lo pasa.
+3. Un manejador de `finally` tampoco debería devolver nada. Y si lo hace, el valor devuelto es ignorado silenciosamente. 
 
-    Hablaremos más sobre el encadenamiento de promesas y la transmisión de resultados entre los manejadores en el próximo capítulo.
+    La única excepción a esta regla es cuando el manejador mismo de `finally` dispara un error. Entonces este error pasa al siguiente manejador en lugar del resultado previo.
 
-````smart header="En promesas establecidas, los manejadores se ejecutan inmediatamente"
-Si hay una promesa pendiente, los manejadores `.then/catch/finally` la esperan. De lo contrario, si una promesa ya se resolvió, se ejecutan inmediatamente:
+Para summarizar:
+
+- Un manejador `finally` no obtiene lo que resultó del manejador previo (no tiene argumentos). Ese resultado es pasado a través de él al siguiente manejador.
+- Si el manejador de `finally` devuelve algo, será ignorado.
+- Cuando es `finally` el que dispara el error, la ejecución pasa al manejador de error más cercano.
+
+Estas características son de ayuda y hacen que las cosas funcionen tal como corresponde si "finalizamos" con `finally` como se supone: con procedimientos de limpieza genéricos.
+
+````smart header="Podemos adjuntar manejadores a promesas ya establecidas"
+Si una promesa está pendiente, los manejadores `.then/catch/finally` esperan por su resolución. 
+
+Podría pasar a veces que, cuando agregamos un manejador, la promesa ya se encuentre establecida.
+
+Em tal caso, estos manejadores simplemente se ejecutarán de inmediato:
 
 ```js run
 // la promesa se resuelve inmediatamente después de la creación
@@ -277,11 +299,11 @@ Ten en cuenta que esto es diferente y más poderoso que el escenario de la "list
 Las promesas son más flexibles. Podemos agregar manejadores en cualquier momento: si el resultado ya está allí, nuestros manejadores lo obtienen de inmediato.
 ````
 
-A continuación, veamos ejemplos más prácticos de cómo las promesas pueden ayudarnos a escribir código asincrónico.
-
 ## Ejemplo: loadScript [#loadscript]
 
-Tenemos la función `loadScript` para cargar un script del capítulo anterior.
+A continuación, veamos ejemplos más prácticos de cómo las promesas pueden ayudarnos a escribir código asincrónico.
+
+Tenemos, del capítulo anterior, la función `loadScript` para cargar un script.
 
 Aquí está la variante basada callback, solo para recordarnos:
 

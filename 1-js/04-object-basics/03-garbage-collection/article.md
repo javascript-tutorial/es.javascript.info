@@ -197,7 +197,7 @@ Hay otras optimizaciones y tipos de algoritmos de recolección de basura. Por mu
 
 Los principales puntos a saber:
 
-- La reecolección de basura se ejecuta automáticamente. No la podemos forzar o evitar.
+- La recolección de basura se ejecuta automáticamente. No la podemos forzar o evitar.
 - Los objetos se retienen en la memoria mientras son accesibles.
 - Ser referenciado no es lo mismo que ser accesible (desde una raíz): un conjunto de objetos interconectados pueden volverse inalcanzables como un todo, como vimos en el ejemplo de arriba.
 

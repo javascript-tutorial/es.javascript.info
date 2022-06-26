@@ -6,6 +6,19 @@ Por ejemplo, mostrar los elementos de una lista uno tras otro o simplemente ejec
 
 Los *Bucles* son una forma de repetir el mismo código varias veces.
 
+```smart header="Los bucles for..of y for..in"
+Un pequeño anuncio para lectores avanzados.
+
+Este artículo cubre solamente los bucles básicos: `while`, `do..while` y `for(..;..;..)`.
+
+Si llegó a este artículo buscando otro tipo de bucles, aquí están los enlaces:
+
+- Vea [for..in](info:object#forin) para bucles sobre propiedades de objetos.
+- Vea [for..of](info:array#loops) e [iterables](info:iterable) para bucles sobre arrays y objetos iterables.
+
+De otra manera, por favor continúe leyendo.
+```
+
 ## El bucle "while"
 
 El bucle `while` (mientras) tiene la siguiente sintaxis:
@@ -159,9 +172,7 @@ for (i = 0; i < 3; i++) { // usa una variable existente
 
 alert(i); // 3, visible, porque fue declarada fuera del bucle
 ```
-
 ````
-
 
 ### Omitiendo partes
 
@@ -283,7 +294,6 @@ if (i > 5) {
 
 ...y lo reescribimos usando un signo de interrogación:
 
-
 ```js no-beautify
 (i > 5) ? alert(i) : *!*continue*/!*; // continue no está permitida aquí
 ```
@@ -319,7 +329,8 @@ Necesitamos una manera de detener el proceso si el usuario cancela la entrada.
 
 El `break` ordinario después de `input` solo nos sacaría del bucle interno. Eso no es suficiente. ¡Etiquetas, vengan al rescate!
 
-Una *etiqueta* es un identificador con un ":" antes de un bucle:
+Una *etiqueta* es un identificador con un signo de dos puntos ":" antes de un bucle:
+
 ```js
 labelName: for (...) {
   ...
@@ -341,6 +352,7 @@ La declaración `break <labelName>` en el bucle debajo nos saca hacia la etiquet
     // hacer algo con el valor...
   }
 }
+
 alert('Listo!');
 ```
 
@@ -361,13 +373,15 @@ La directiva `continue` también puede usar usada con una etiqueta. En este caso
 Las etiquetas no nos permiten saltar a un lugar arbitrario en el código.
 
 Por ejemplo, es imposible hacer esto:
+
 ```js
 break label;  // ¿saltar a label? No funciona.
 
 label: for (...)
 ```
 
-Una directiva `break` debe estar en el interior del bucle. Técnicamente, cualquier bloque de código etiquetado:
+Una directiva `break` debe estar en el interior del bucle. Aunque, técnicamente, puede estar en cualquier bloque de código etiquetado:
+
 ```js
 label: {
   // ...

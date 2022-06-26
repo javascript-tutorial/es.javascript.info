@@ -77,6 +77,8 @@ function loadScript(src, *!*callback*/!*) {
 }
 ```
 
+El evento `onload`, que se describe en el artículo <info:onload-onerror#loading-a-script>, básicamente ejecuta una función después de que el script es cargado y ejecutado.
+
 Ahora, si queremos llamar las nuevas funciones desde el script, deberíamos escribirlo en la callback:
 
 ```js
@@ -102,7 +104,7 @@ function loadScript(src, callback) {
 *!*
 loadScript('https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.js', script => {
   alert(`Genial, el script ${script.src} está cargado`);
-  alert( _ ); // función declarada en el script cargado
+  alert( _ ); // _ es una función declarada en el script cargado
 });
 */!*
 ```

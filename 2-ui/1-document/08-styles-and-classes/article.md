@@ -126,7 +126,15 @@ document.body.style.display = "none"; // ocultar
 setTimeout(() => document.body.style.display = "", 1000); // volverá a lo normal
 ```
 
-Si establecemos `style.display` como una cadena vacia, entonces el navegador aplica clases y estilos CSS incorporados normalmente por el navegador, como si no existiera tal `style.display`.
+Si establecemos `style.display` como una cadena vacía, entonces el navegador aplica clases y estilos CSS incorporados normalmente por el navegador, como si no existiera tal `style.display`.
+
+También hay un método especial para eso, `elem.style.removeProperty('style property')`. Así, podemos quitar una propiedad:
+
+```js run
+document.body.style.background = 'red'; //establece background a rojo
+
+setTimeout(() => document.body.style.removeProperty('background'), 1000); // quitar background después de 1 segundo
+```
 
 ````smart header="Reescribir todo usando `style.cssText`"
 Normalmente, podemos usar `style.*` para asignar propiedades de estilo individuales. No podemos establecer todo el estilo como `div.style="color: red; width: 100px"`, porque `div.style` es un objeto y es solo de lectura.

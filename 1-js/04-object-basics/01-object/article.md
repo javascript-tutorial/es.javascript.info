@@ -355,7 +355,7 @@ En el código anterior, la propiedad  `obj.test` técnicamente existe. Entonces 
 Situaciones como esta suceden raramente ya que `undefined` no debe ser explícitamente asignado. Comúnmente usamos `null` para valores "desconocidos" o "vacíos". Por lo que el operador `in` es un invitado exótico en nuestro código.
 
 
-## El bucle "for..in" 
+## El bucle "for..in" [#forin]
 
 Para recorrer todas las claves de un objeto existe una forma especial de bucle: `for..in`. Esto es algo completamente diferente a la construcción `for(;;)` que estudiaremos más adelante.
 
