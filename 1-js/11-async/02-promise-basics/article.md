@@ -258,7 +258,7 @@ Sin embargo, note que `finally(f) no es exactamente un alias de `then(f, f)`. Ha
 
     Esto es muy conveniente, porque `finally` no está destinado a procesar el resultado de una promesa. Como dijimos antes, es el lugar para hacer la limpieza general sin importar cuál haya sido el resultado.
 
-    Y aquí, el ejemplo de un error, para que veamos cómo se pasa, a través de `finally`, a `catch`:
+    Y aquí, el ejemplo de un error para que veamos cómo se pasa, a través de `finally`, a `catch`:
 
     ```js run
     new Promise((resolve, reject) => {
