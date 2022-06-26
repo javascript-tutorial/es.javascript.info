@@ -380,7 +380,7 @@ break label;  // ¿saltar a label? No funciona.
 label: for (...)
 ```
 
-Una directiva `break` debe estar en el interior del bucle. Aunque técnicamente, puede estar en cualquier bloque de código etiquetado:
+Una directiva `break` debe estar en el interior del bucle. Aunque, técnicamente, puede estar en cualquier bloque de código etiquetado:
 
 ```js
 label: {
