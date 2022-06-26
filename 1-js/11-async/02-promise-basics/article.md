@@ -228,7 +228,7 @@ El código puede verse como esto:
 
 ```js
 new Promise((resolve, reject) => {
-  /* hacer algo para tomar tiempo y luego llamar a resolve o quizas reject */
+  /* hacer algo para tomar tiempo y luego llamar a resolve o reject */
 })
 *!*
   // se ejecuta cuando se cumple la promesa, no importa con éxito o no
