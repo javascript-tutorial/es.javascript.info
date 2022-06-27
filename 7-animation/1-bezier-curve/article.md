@@ -4,7 +4,17 @@ Las curvas de Bézier se utilizan en gráficos por ordenador para dibujar formas
 
 En realidad, son algo muy sencillo, vale la pena estudiarlos una vez y luego sentirse cómodo en el mundo de los gráficos vectoriales y las animaciones avanzadas.
 
+<<<<<<< HEAD
 ## Puntos de control
+=======
+```smart header="Some theory, please"
+This article provides a theoretical, but very needed insight into what Bezier curves are, while [the next one](info:css-animations#bezier-curve) shows how we can use them for CSS animations.
+
+Please take your time to read and understand the concept, it'll serve you well.
+```
+
+## Control points
+>>>>>>> 30a5d5e2a7c3504c9afd5028f83f4a696e60aede
 
 Una [curva de Bézier](https://es.wikipedia.org/wiki/Curva_de_B%C3%A9zier) está definida por puntos de control.
 

@@ -1,6 +1,10 @@
 # WebSocket
 
+<<<<<<< HEAD
 El protocolo `WebSocket`, descrito en la especificación [RFC 6455](https://datatracker.ietf.org/doc/html/rfc6455), brinda una forma de intercambiar datos entre el navegador y el servidor por medio de una conexión persistente. Los datos pueden ser pasados en ambas direcciones como paquetes "packets", sin cortar la conexión y sin pedidos adicionales de HTTP "HTTP-requests".
+=======
+The `WebSocket` protocol, described in the specification [RFC 6455](https://datatracker.ietf.org/doc/html/rfc6455), provides a way to exchange data between browser and server via a persistent connection. The data can be passed in both directions as "packets", without breaking the connection and the need of additional HTTP-requests.
+>>>>>>> 30a5d5e2a7c3504c9afd5028f83f4a696e60aede
 
 WebSocket es especialmente bueno para servicios que requieren intercambio de información continua, por ejemplo juegos en línea, sistemas de negocios en tiempo real, entre otros.
 
@@ -19,7 +23,11 @@ El protocolo `wss://` no solamente está encriptado, también es más confiable.
 
 Esto es porque los datos en `ws://` no están encriptados y son visibles para cualquier intermediario. Entonces los servidores proxy viejos que no reconocen el protocolo WebSocket podrían interpretar los datos como cabeceras "extrañas" y abortar la conexión.
 
+<<<<<<< HEAD
 En cambio `wss://` es WebSocket sobre TLS (al igual que HTTPS es HTTP sobre TLS), la seguridad de la capa de transporte encripta los datos del que envía y los desencripta el que recibe. Los paquetes de datos pasan encriptados a través de los proxy. Estos servidores no pueden ver lo que hay dentro y los dejan pasar.
+=======
+On the other hand, `wss://` is WebSocket over TLS, (same as HTTPS is HTTP over TLS), the transport security layer encrypts the data at the sender and decrypts it at the receiver. So data packets are passed encrypted through proxies. They can't see what's inside and let them through.
+>>>>>>> 30a5d5e2a7c3504c9afd5028f83f4a696e60aede
 ```
 
 Una vez que el socket es creado, debemos escuchar los eventos que ocurren en él. Hay en total 4 eventos:
@@ -72,11 +80,19 @@ Ahora hablemos más en profundidad.
 
 Cuando se crea `new WebSocket(url)`, comienza la conexión de inmediato.
 
+<<<<<<< HEAD
 Durante la conexión, el navegador (usando cabeceras o "header") le pregunta al servidor: "¿Soportas Websockets?" y si si el servidor responde "Sí", la comunicación continúa en el protocolo WebSocket, que no es HTTP en absoluto.
 
 ![](websocket-handshake.svg)
 
 Aquí hay un ejemplo de cabeceras de navegador para una petición hecha por `new WebSocket("wss://javascript.info/chat")`.
+=======
+During the connection, the browser (using headers) asks the server: "Do you support Websocket?" And if the server replies "yes", then the talk continues in WebSocket protocol, which is not HTTP at all.
+
+![](websocket-handshake.svg)
+
+Here's an example of browser headers for a request made by `new WebSocket("wss://javascript.info/chat")`.
+>>>>>>> 30a5d5e2a7c3504c9afd5028f83f4a696e60aede
 
 ```
 GET /chat
@@ -88,11 +104,19 @@ Sec-WebSocket-Key: Iv8io/9s+lYFgZWcXczP8Q==
 Sec-WebSocket-Version: 13
 ```
 
+<<<<<<< HEAD
 - `Origin` -- La página de origen del cliente, ej. `https://javascript.info`. Los objetos WebSocket son cross-origin por naturaleza. No existen las cabeceras especiales ni otras limitaciones. De cualquier manera los servidores viejos son incapaces de manejar WebSocket, asi que no hay problemas de compatibilidad. Pero la cabecera `Origin` es importante, pues habilita al servidor decidir si permite o no la comunicación WebSocket con el sitio web.
 - `Connection: Upgrade` -- señaliza que el cliente quiere cambiar el protocolo.
 - `Upgrade: websocket` -- el protocolo requerido es "websocket".
 - `Sec-WebSocket-Key` -- una clave de seguridad aleatoria generada por el navegador.
 - `Sec-WebSocket-Version` -- Versión del protocolo WebSocket, 13 es la actual.
+=======
+- `Origin` -- the origin of the client page, e.g. `https://javascript.info`. WebSocket objects are cross-origin by nature. There are no special headers or other limitations. Old servers are unable to handle WebSocket anyway, so there are no compatibility issues. But the `Origin` header is important, as it allows the server to decide whether or not to talk WebSocket with this website.
+- `Connection: Upgrade` -- signals that the client would like to change the protocol.
+- `Upgrade: websocket` -- the requested protocol is "websocket".
+- `Sec-WebSocket-Key` -- a random browser-generated key for security.
+- `Sec-WebSocket-Version` -- WebSocket protocol version, 13 is the current one.
+>>>>>>> 30a5d5e2a7c3504c9afd5028f83f4a696e60aede
 
 ```smart header="El intercambio WebSocket no puede ser emulado"
 No podemos usar `XMLHttpRequest` o `fetch` para hacer este tipo de peticiones HTTP, porque JavaScript no tiene permitido establecer esas cabeceras.
@@ -109,7 +133,11 @@ Sec-WebSocket-Accept: hsBlbuDTkk24srzEOTBUlZAlC2g=
 
 Aquí `Sec-WebSocket-Accept` es `Sec-WebSocket-Key`, recodificado usando un algoritmo especial. El navegador lo usa para asegurarse de que la respuesta se corresponde a la petición.
 
+<<<<<<< HEAD
 A continuación los datos son transferidos usando el protocolo WebSocket. Pronto veremos su estructura ("frames", marcos o cuadros en español). Y no es HTTP en absoluto.
+=======
+Afterwards, the data is transferred using the WebSocket protocol, we'll see its structure ("frames") soon. And that's not HTTP at all.
+>>>>>>> 30a5d5e2a7c3504c9afd5028f83f4a696e60aede
 
 ### Extensiones y subprotocolos
 
@@ -117,9 +145,15 @@ Puede tener las cabeceras adicionales `Sec-WebSocket-Extensions` y `Sec-WebSocke
 
 Por ejemplo:
 
+<<<<<<< HEAD
 - `Sec-WebSocket-Extensions: deflate-frame` significa que el navegador soporta compresión de datos. una extensión es algo relacionado a la transferencia de datos, funcionalidad que extiende el protocolo WebSocket. La cabecera `Sec-WebSocket-Extensions` es enviada automáticamente por el navegador, con la lista de todas las extensiones que soporta.
 
 - `Sec-WebSocket-Protocol: soap, wamp` significa que queremos transferir no cualquier dato, sino datos en protocolos [SOAP](https://es.wikipedia.org/wiki/Simple_Object_Access_Protocol) o WAMP ("The WebSocket Application Messaging Protocol"). Los subprotocolos de WebSocket están registrados en el [catálogo IANA](https://www.iana.org/assignments/websocket/websocket.xml). Entonces, esta cabecera describe los formatos de datos que vamos a usar.
+=======
+- `Sec-WebSocket-Extensions: deflate-frame` means that the browser supports data compression. An extension is something related to transferring the data, functionality that extends the WebSocket protocol. The header `Sec-WebSocket-Extensions` is sent automatically by the browser, with the list of all extensions it supports.
+
+- `Sec-WebSocket-Protocol: soap, wamp` means that we'd like to transfer not just any data, but the data in [SOAP](https://en.wikipedia.org/wiki/SOAP) or WAMP ("The WebSocket Application Messaging Protocol") protocols. WebSocket subprotocols are registered in the [IANA catalogue](https://www.iana.org/assignments/websocket/websocket.xml). So, this header describes the data formats that we're going to use.
+>>>>>>> 30a5d5e2a7c3504c9afd5028f83f4a696e60aede
 
     Esta cabecera opcional se establece usando el segundo parámetro de `new WebSocket`, que es el array de subprotocolos. Por ejemplo, si queremos usar SOAP o WAMP:
 
@@ -173,7 +207,11 @@ En el navegador, trabajamos directamente solamente con frames de texto y binario
 
 **El método WebSocket `.send()` puede enviar tanto datos de texto como binarios.**
 
+<<<<<<< HEAD
 Una llamada `socket.send(body)` permite en `body` datos en formato string o binarios, incluyendo `Blob`, `ArrayBuffer`, etc. No se requiere configuración: simplemente se envían en cualquier formato.
+=======
+A call `socket.send(body)` allows `body` in string or a binary format, including `Blob`, `ArrayBuffer`, etc. No settings are required: just send it out in any format.
+>>>>>>> 30a5d5e2a7c3504c9afd5028f83f4a696e60aede
 
 **Cuando recibimos datos, el texto siempre viene como string. Y para datos binarios, podemos elegir entre los formatos `Blob` y `ArrayBuffer`.**
 
@@ -221,7 +259,11 @@ socket.close([code], [reason]);
 - `code` es un código especial de cierre de WebSocket (opcional)
 - `reason` es un string que describe el motivo de cierre (opcional)
 
+<<<<<<< HEAD
 Entonces el manejador del evento `close` de la otra parte obtiene el código y el motivo, por ejemplo:
+=======
+Then the other party in the `close` event handler gets the code and the reason, e.g.:
+>>>>>>> 30a5d5e2a7c3504c9afd5028f83f4a696e60aede
 
 ```js
 // la parte que hace el cierre:
@@ -249,7 +291,11 @@ Hay otros códigos como:
 
 La lista completa puede encontrarse en [RFC6455, §7.4.1](https://tools.ietf.org/html/rfc6455#section-7.4.1).
 
+<<<<<<< HEAD
 Los códigos de WebSocket son como los de HTTP pero diferentes. En particular, los códigos menores a `1000` son reservados, habrá un error si tratamos de establecerlos.
+=======
+WebSocket codes are somewhat like HTTP codes, but different. In particular, codes lower than `1000` are reserved, there'll be an error if we try to set such a code.
+>>>>>>> 30a5d5e2a7c3504c9afd5028f83f4a696e60aede
 
 ```js
 // en caso de conexión que se rompe 
@@ -320,10 +366,17 @@ El código de servidor está fuera de nuestro objetivo. Aquí usaremos Node.js p
 
 El algoritmo de lado de servidor será:
 
+<<<<<<< HEAD
 1. Crear `clients = new Set()` -- un conjunto de sockets.
 2. Para cada websocket aceptado, sumarlo al conjunto `clients.add(socket)` y establecer un "event listener" `message` para obtener sus mensajes.
 3. Cuando un mensaje es recibido: iterar sobre los clientes y enviarlo a todos ellos.
 4. Cuando una conexión se cierra: `clients.delete(socket)`.
+=======
+1. Create `clients = new Set()` -- a set of sockets.
+2. For each accepted websocket, add it to the set `clients.add(socket)` and set `message` event listener to get its messages.
+3. When a message is received: iterate over clients and send it to everyone.
+4. When a connection is closed: `clients.delete(socket)`.
+>>>>>>> 30a5d5e2a7c3504c9afd5028f83f4a696e60aede
 
 ```js
 const ws = new require('ws');
@@ -359,7 +412,11 @@ Aquí está el ejemplo funcionando:
 
 [iframe src="chat" height="100" zip]
 
+<<<<<<< HEAD
 Puedes descargarlo (botón arriba/derecha en el iframe) y ejecutarlo localmente. No olvides instalar [Node.js](https://nodejs.org/en/) y `npm install ws` antes de hacerlo.
+=======
+You can also download it (upper-right button in the iframe) and run it locally. Just don't forget to install [Node.js](https://nodejs.org/en/) and `npm install ws` before running.
+>>>>>>> 30a5d5e2a7c3504c9afd5028f83f4a696e60aede
 
 ## Resumen
 
@@ -383,6 +440,10 @@ Eventos:
 
 El WebSocket por sí mismo no incluye reconexión, autenticación ni otros mecanismos de alto nivel. Hay librerías cliente/servidor para eso, y también es posible implementar esas capacidades manualmente.
 
+<<<<<<< HEAD
 A veces, para integrar WebSocket a un proyecto existente, se ejecuta un servidor WebSocket en paralelo con el servidor HTTP principal compartiendo la misma base de datos. Las peticiones a WebSocket usan `wss://ws.site.com`, un subdominio que se dirige al servidor de WebSocket mientras que `https://site.com` va al servidor HTTP principal.
+=======
+Sometimes, to integrate WebSocket into existing projects, people run a WebSocket server in parallel with the main HTTP-server, and they share a single database. Requests to WebSocket use `wss://ws.site.com`, a subdomain that leads to the WebSocket server, while `https://site.com` goes to the main HTTP-server.
+>>>>>>> 30a5d5e2a7c3504c9afd5028f83f4a696e60aede
 
 Seguro, otras formas de integración también son posibles.

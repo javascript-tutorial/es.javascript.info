@@ -402,8 +402,13 @@ Unos ejemplos:
     alert( Math.random() ); // ... (cualquier número aleatorio)
     ```
 
+<<<<<<< HEAD
 `Math.max(a, b, c...)` y `Math.min(a, b, c...)`
 : Devuelven el mayor y el menor de entre una cantidad arbitraria de argumentos.
+=======
+`Math.max(a, b, c...)` and `Math.min(a, b, c...)`
+: Returns the greatest and smallest from the arbitrary number of arguments.
+>>>>>>> 30a5d5e2a7c3504c9afd5028f83f4a696e60aede
 
     ```js run
     alert( Math.max(3, 5, -10, 0, 1) ); // 5

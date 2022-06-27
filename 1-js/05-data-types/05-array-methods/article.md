@@ -675,7 +675,11 @@ Por eso `typeof` no ayuda a distinguir un objeto común de un array:
 
 ```js run
 alert(typeof {}); // object
+<<<<<<< HEAD
 alert(typeof []); // object
+=======
+alert(typeof []); // object (same)
+>>>>>>> 30a5d5e2a7c3504c9afd5028f83f4a696e60aede
 ```
 
 ...Pero los arrays son utilizados tan a menudo que tienen un método especial para eso: [Array.isArray(value)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/isArray). Este devuelve `true` si el `valor` es un array y `false` si no lo es.
@@ -765,8 +769,13 @@ Veamos el ayudamemoria de métodos para arrays:
   - `split/join` -- convierte una cadena en un array y viceversa.
   - `reduce/reduceRight(func, initial)` -- calcula un solo valor para todo el array, llamando a la `func` para cada elemento, obteniendo un resultado parcial en cada llamada y pasándolo a la siguiente.
 
+<<<<<<< HEAD
 - Adicional:
   - `Array.isArray(arr)` comprueba si `arr` es un array.
+=======
+- Additionally:
+  - `Array.isArray(value)` checks `value` for being an array, if so returns `true`, otherwise `false`.
+>>>>>>> 30a5d5e2a7c3504c9afd5028f83f4a696e60aede
 
 Por favor tener en cuenta que `sort`, `reverse` y `splice` modifican el propio array.
 
@@ -780,6 +789,11 @@ Estos métodos son los más utilizados y cubren el 99% de los casos. Pero existe
 
 Podemos usar `every` para comparar arrays:
 
+<<<<<<< HEAD
+=======
+  We can use `every` to compare arrays:
+
+>>>>>>> 30a5d5e2a7c3504c9afd5028f83f4a696e60aede
   ```js run
   function arraysEqual(arr1, arr2) {
     return arr1.length === arr2.length && arr1.every((value, index) => value === arr2[index]);

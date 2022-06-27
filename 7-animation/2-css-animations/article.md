@@ -254,7 +254,19 @@ Como sabemos, `y` mide "la finalización del proceso de animación". El valor `y
 
 Esa es una variante "suave" sin duda. Si ponemos valores `y` como `-99` y `99`, entonces el tren saltaría mucho más fuera del rango.
 
+<<<<<<< HEAD
 Pero, ¿cómo hacer la curva de Bézier para una tarea específica? Hay muchas herramientas. Por ejemplo, podemos hacerlo en el sitio <http://cubic-bezier.com/>.
+=======
+But how do we make a Bezier curve for a specific task? There are many tools.
+
+- For instance, we can do it on the site <https://cubic-bezier.com>.
+- Browser developer tools also have special support for Bezier curves in CSS:
+    1. Open the developer tools with `key:F12` (Mac: `key:Cmd+Opt+I`).
+    2. Select the `Elements` tab, then pay attention to the `Styles` sub-panel at the right side.
+    3. CSS properties with a word `cubic-bezier` will have an icon before this word.
+    4. Click this icon to edit the curve.
+
+>>>>>>> 30a5d5e2a7c3504c9afd5028f83f4a696e60aede
 
 ### Pasos
 
@@ -266,7 +278,23 @@ Aquí tenemos una lista de dígitos, sin animaciones, solo como fuente:
 
 [codetabs src="step-list"]
 
+<<<<<<< HEAD
 Haremos que los dígitos aparezcan de manera discreta haciendo invisible la parte de la lista fuera de la "ventana" roja y desplazando la lista a la izquierda con cada paso.
+=======
+In the HTML, a stripe of digits is enclosed into a fixed-length `<div id="digits">`:
+
+```html
+<div id="digit">
+  <div id="stripe">0123456789</div>
+</div>
+```
+
+The `#digit` div has a fixed width and a border, so it looks like a red window.
+
+We'll make a timer: the digits will appear one by one, in a discrete way.
+
+To achieve that, we'll hide the `#stripe` outside of `#digit` using `overflow: hidden`, and then shift the `#stripe` to the left step-by-step.
+>>>>>>> 30a5d5e2a7c3504c9afd5028f83f4a696e60aede
 
 Habrá 9 pasos, un paso para cada dígito:
 
@@ -277,17 +305,29 @@ Habrá 9 pasos, un paso para cada dígito:
 }
 ```
 
+<<<<<<< HEAD
 En acción:
 
 [codetabs src="step"]
 
 El primer argumento de `steps(9, start)` es el número de pasos. La transformación se dividirá en 9 partes (10% cada una). El intervalo de tiempo también se divide automáticamente en 9 partes, por lo que `transition: 9s` nos da 9 segundos para toda la animación: 1 segundo por dígito.
+=======
+The first argument of `steps(9, start)` is the number of steps. The transform will be split into 9 parts (10% each). The time interval is automatically divided into 9 parts as well, so `transition: 9s` gives us 9 seconds for the whole animation – 1 second per digit.
+>>>>>>> 30a5d5e2a7c3504c9afd5028f83f4a696e60aede
 
 El segundo argumento es una de dos palabras: `start` o `end`.
 
 El `start` significa que al comienzo de la animación debemos hacer el primer paso de inmediato.
 
+<<<<<<< HEAD
 Podemos observar eso durante la animación: cuando hacemos clic en el dígito, cambia a `1` (el primer paso) inmediatamente, y luego cambia al comienzo del siguiente segundo.
+=======
+In action:
+
+[codetabs src="step"]
+
+A click on the digit changes it to `1` (the first step) immediately, and then changes in the beginning of the next second.
+>>>>>>> 30a5d5e2a7c3504c9afd5028f83f4a696e60aede
 
 El proceso está progresando así:
 
@@ -297,7 +337,13 @@ El proceso está progresando así:
 - `8s` -- `-90%`
 - (el último segundo muestra el valor final).
 
+<<<<<<< HEAD
 El valor alternativo 'end' significaría que el cambio debe aplicarse no al principio, sino al final de cada segundo.
+=======
+Here, the first change was immediate because of `start` in the `steps`.
+
+The alternative value `end` would mean that the change should be applied not in the beginning, but at the end of each second.
+>>>>>>> 30a5d5e2a7c3504c9afd5028f83f4a696e60aede
 
 Entonces el proceso para `steps(9, end)` sería así:
 
@@ -307,20 +353,36 @@ Entonces el proceso para `steps(9, end)` sería así:
 - ...
 - `9s` -- `-90%`
 
+<<<<<<< HEAD
 Aquí está el `step(9, end)` en acción (observa la pausa entre el primer cambio de dígitos):
 
 [codetabs src="step-end"]
 
 También hay valores abreviados:
+=======
+Here's `steps(9, end)` in action (note the pause before the first digit change):
+
+[codetabs src="step-end"]
+
+There are also some pre-defined shorthands for `steps(...)`:
+>>>>>>> 30a5d5e2a7c3504c9afd5028f83f4a696e60aede
 
 - `step-start` -- es lo mismo que` steps(1, start)`. Es decir, la animación comienza de inmediato y toma 1 paso. Entonces comienza y termina inmediatamente, como si no hubiera animación.
 - `step-end` -- lo mismo que `steps(1, end)`: realiza la animación en un solo paso al final de `transition-duration`.
 
+<<<<<<< HEAD
 Estos valores rara vez se usan, porque eso no es realmente animación, sino un cambio de un solo paso.
 
 ## Evento transitionend
 
 Cuando finaliza la animación CSS, se dispara el evento `transitionend`.
+=======
+These values are rarely used, as they represent not a real animation, but rather a single-step change. We mention them here for completeness.
+
+## Event: "transitionend"
+
+When the CSS animation finishes, the `transitionend` event triggers.
+>>>>>>> 30a5d5e2a7c3504c9afd5028f83f4a696e60aede
 
 Es ampliamente utilizado para hacer una acción después que se realiza la animación. También podemos unir animaciones.
 

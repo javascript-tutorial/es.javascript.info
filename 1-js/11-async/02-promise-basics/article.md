@@ -60,7 +60,11 @@ Podemos ver dos cosas al ejecutar el código anterior:
 1. Se llama al ejecutor de forma automática e inmediata (por `new Promise`).
 2. El ejecutor recibe dos argumentos: `resolve` y `reject`. Estas funciones están predefinidas por el motor de JavaScript, por lo que no necesitamos crearlas. Solo debemos llamar a uno de ellos cuando esté listo.
 
+<<<<<<< HEAD
     Después de un segundo de "procesamiento", el ejecutor llama a `resolve("hecho")` para producir el resultado. Esto cambia el estado del objeto `promise`:
+=======
+    After one second of "processing", the executor calls `resolve("done")` to produce the result. This changes the state of the `promise` object:
+>>>>>>> 30a5d5e2a7c3504c9afd5028f83f4a696e60aede
 
     ![](promise-resolve-1.svg)
 
@@ -129,7 +133,11 @@ Las propiedades `state` y `result` del objeto Promise son internas. No podemos a
 
 ## Consumidores: then y catch
 
+<<<<<<< HEAD
 Un objeto Promise sirve como enlace entre el ejecutor (el "código productor" o el "cantante") y las funciones consumidoras (los "fanáticos"), que recibirán un resultado o un error. Las funciones de consumo pueden registrarse (suscribirse) utilizando los métodos `.then` y `.catch`.
+=======
+A Promise object serves as a link between the executor (the "producing code" or "singer") and the consuming functions (the "fans"), which will receive the result or error. Consuming functions can be registered (subscribed) using the methods `.then` and `.catch`.
+>>>>>>> 30a5d5e2a7c3504c9afd5028f83f4a696e60aede
 
 ### then
 
@@ -144,9 +152,15 @@ promise.then(
 );
 ```
 
+<<<<<<< HEAD
 El primer argumento de `.then` es una función que se ejecuta cuando se resuelve la promesa y recibe el resultado.
 
 El segundo argumento de `.then` es una función que se ejecuta cuando se rechaza la promesa y recibe el error.
+=======
+The first argument of `.then` is a function that runs when the promise is resolved and receives the result.
+
+The second argument of `.then` is a function that runs when the promise is rejected and receives the error.
+>>>>>>> 30a5d5e2a7c3504c9afd5028f83f4a696e60aede
 
 Por ejemplo, aquí hay una reacción a una promesa resuelta con éxito:
 
@@ -220,7 +234,11 @@ La llamada `.finally(f)` es similar a `.then(f, f)` en el sentido de que `f` sie
 
 La idea de `finally` es establecer un manejador para realizar la limpieza y finalización después de que las operaciones se hubieran completado.
 
+<<<<<<< HEAD
 Por ejemplo, detener indicadores de carga, cerrar conexiones que ya no son necesarias, etc.
+=======
+E.g. stopping loading indicators, closing no longer needed connections, etc.
+>>>>>>> 30a5d5e2a7c3504c9afd5028f83f4a696e60aede
 
 Puedes pensarlo como el finalizador de la fiesta. No importa si la fiesta fue buena o mala ni cuántos invitados hubo, aún necesitamos (o al menos deberíamos) hacer la limpieza después.
 
@@ -242,8 +260,19 @@ Sin embargo, note que `finally(f) no es exactamente un alias de `then(f, f)`. Ha
 `
 1. Un manejador `finally` no tiene argumentos. En `finally` no sabemos si la promesa es exitosa o no. Eso está bien, ya que usualmente nuestra tarea es realizar procedimientos de finalización "generales".
 
+<<<<<<< HEAD
     Por favor observe el ejemplo anterior: como puede ver, el manejador de `finally` no tiene argumentos, y la promesa que sale es manejada en el siguiente manejador.
 2. Un manejador `finally` traspasa resultados y errores al siguiente manejador que se adecúe.
+=======
+There are important differences:
+
+1. A `finally` handler has no arguments. In `finally` we don't know whether the promise is successful or not. That's all right, as our task is usually to perform "general" finalizing procedures.
+
+    Please take a look at the example above: as you can see, the `finally` handler has no arguments, and the promise outcome is handled by the next handler.
+2. A `finally` handler "passes through" the result or error to the next suitable handler.
+
+    For instance, here the result is passed through `finally` to `then`:
+>>>>>>> 30a5d5e2a7c3504c9afd5028f83f4a696e60aede
 
     Por ejemplo, aquí el resultado se pasa a través de `finally` a `then`:
     ```js run
@@ -270,13 +299,23 @@ Sin embargo, note que `finally(f) no es exactamente un alias de `then(f, f)`. Ha
 
 3. Un manejador de `finally` tampoco debería devolver nada. Y si lo hace, el valor devuelto es ignorado silenciosamente. 
 
+<<<<<<< HEAD
     La única excepción a esta regla es cuando el manejador mismo de `finally` dispara un error. Entonces este error pasa al siguiente manejador en lugar del resultado previo.
+=======
+    The only exception to this rule is when a `finally` handler throws an error. Then this error goes to the next handler, instead of any previous outcome.
+>>>>>>> 30a5d5e2a7c3504c9afd5028f83f4a696e60aede
 
 Para summarizar:
 
+<<<<<<< HEAD
 - Un manejador `finally` no obtiene lo que resultó del manejador previo (no tiene argumentos). Ese resultado es pasado a través de él al siguiente manejador.
 - Si el manejador de `finally` devuelve algo, será ignorado.
 - Cuando es `finally` el que dispara el error, la ejecución pasa al manejador de error más cercano.
+=======
+- A `finally` handler doesn't get the outcome of the previous handler (it has no arguments). This outcome is passed through instead, to the next suitable handler.
+- If a `finally` handler returns something, it's ignored.
+- When `finally` throws an error, then the execution goes to the nearest error handler.
+>>>>>>> 30a5d5e2a7c3504c9afd5028f83f4a696e60aede
 
 Estas características son de ayuda y hacen que las cosas funcionen tal como corresponde si "finalizamos" con `finally` como se supone: con procedimientos de limpieza genéricos.
 
