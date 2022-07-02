@@ -277,7 +277,7 @@ db.transaction(store[, type]);
   - `readonly` -- solo puede leer (es el predeterminado).
   - `readwrite` -- puede leer o escribir datos (pero no crear/quitar/alterar almacenes de objetos).
 
-También existe el tipo de transacción `versionchange`: tal transacción puede hacer de todo, pero no podemos crearla nosotros a mano. IndexedDB la crea automáticamente cuando abre la base de datos para el manejador `updateneeded`. Por ello, es el único lugar donde podemos actualizar la estructura de base de datos, crear o quitar almacenes de objetos.
+También existe el tipo de transacción `versionchange`: tal transacción puede hacer de todo, pero no podemos crearla nosotros a mano. IndexedDB la crea automáticamente cuando abre la base de datos para el manejador `upgradeneeded`. Por ello, es el único lugar donde podemos actualizar la estructura de base de datos, crear o quitar almacenes de objetos.
 
 ```smart header="¿Por qué hay diferentes tipos de transacciones?"
 El rendimiento es la razón por la que necesitamos identificar las transacciones como `readonly` (lectura solamente) o `readwrite` (lectura y escritura).

@@ -19,7 +19,7 @@ El protocolo `wss://` no solamente está encriptado, también es más confiable.
 
 Esto es porque los datos en `ws://` no están encriptados y son visibles para cualquier intermediario. Entonces los servidores proxy viejos que no reconocen el protocolo WebSocket podrían interpretar los datos como cabeceras "extrañas" y abortar la conexión.
 
-En cambio `wss://` es WebSocket sobre TLS (al igual que HTTPS es HTTP sobre TLS), la seguridad de la capa de transporte encripta los datos del que envía y los desencripta el que recibe. Los paquetes de datos pasan encriptados a través de los proxy. Estos servidores no pueden ver lo que hay dentro y los dejan pasar.
+En cambio `wss://` es WebSocket sobre TLS (al igual que HTTPS es HTTP sobre TLS), la seguridad de la capa de transporte encripta los datos en el envío y los desencripta en el destino. Así, los paquetes de datos pasan encriptados a través de los proxy, estos servidores no pueden ver lo que hay dentro y los dejan pasar.
 ```
 
 Una vez que el socket es creado, debemos escuchar los eventos que ocurren en él. Hay en total 4 eventos:

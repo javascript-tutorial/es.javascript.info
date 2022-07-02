@@ -675,7 +675,7 @@ Por eso `typeof` no ayuda a distinguir un objeto común de un array:
 
 ```js run
 alert(typeof {}); // object
-alert(typeof []); // object
+alert(typeof []); // object (lo mismo)
 ```
 
 ...Pero los arrays son utilizados tan a menudo que tienen un método especial para eso: [Array.isArray(value)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/isArray). Este devuelve `true` si el `valor` es un array y `false` si no lo es.
@@ -766,7 +766,7 @@ Veamos el ayudamemoria de métodos para arrays:
   - `reduce/reduceRight(func, initial)` -- calcula un solo valor para todo el array, llamando a la `func` para cada elemento, obteniendo un resultado parcial en cada llamada y pasándolo a la siguiente.
 
 - Adicional:
-  - `Array.isArray(arr)` comprueba si `arr` es un array.
+  - `Array.isArray(value)` comprueba si `value` es un array.
 
 Por favor tener en cuenta que `sort`, `reverse` y `splice` modifican el propio array.
 
@@ -779,6 +779,7 @@ Estos métodos son los más utilizados y cubren el 99% de los casos. Pero existe
   Estos métodos se comportan con similitud a los operadores `||` y `&&`: si `fn` devuelve un valor verdadero, `arr.some()` devuelve `true` y detiene la iteración de inmediato; si `fn`  devuelve un valor falso, `arr.every()` devuelve `false` y detiene la iteración también.
 
 Podemos usar `every` para comparar arrays:
+
 
   ```js run
   function arraysEqual(arr1, arr2) {

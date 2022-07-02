@@ -263,14 +263,16 @@ Algunos prefieren `typeof(x)`, aunque la sintaxis `typeof x` es mucho más comú
 
 Hay 8 tipos básicos en JavaScript.
 
-- `number` para números de cualquier tipo: enteros o de punto flotante, los enteros están limitados por <code>±(2<sup>53</sup>-1)</code>.
-- `bigint` para números enteros de longitud arbitraria.
-- `string` para cadenas. Una cadena puede tener cero o más caracteres, no hay un tipo especial para un único carácter.
-- `boolean` para verdadero y falso: `true`/`false`.
-- `null` para valores desconocidos -- un tipo independiente que tiene un solo valor nulo: `null`.
-- `undefined` para valores no asignados -- un tipo independiente que tiene un único valor "indefinido": `undefined`.
-- `object` para estructuras de datos complejas.
-- `symbol` para identificadores únicos.
+- Siete tipos de datos primitivos 
+    - `number` para números de cualquier tipo: enteros o de punto flotante, los enteros están limitados por <code>±(2<sup>53</sup>-1)</code>.
+    - `bigint` para números enteros de longitud arbitraria.
+    - `string` para cadenas. Una cadena puede tener cero o más caracteres, no hay un tipo especial para un único carácter.
+    - `boolean` para verdadero y falso: `true`/`false`.
+    - `null` para valores desconocidos -- un tipo independiente que tiene un solo valor nulo: `null`.
+    - `undefined` para valores no asignados -- un tipo independiente que tiene un único valor "indefinido": `undefined`.
+    - `symbol` para identificadores únicos.
+- Y un tipo de dato no primitivo:
+    - `object` para estructuras de datos complejas.
 
 El operador `typeof` nos permite ver qué tipo está almacenado en una variable.
 
