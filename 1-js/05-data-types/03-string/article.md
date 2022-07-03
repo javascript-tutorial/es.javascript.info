@@ -266,7 +266,7 @@ while (true) {
 }
 ```
 
-Podemos escribir el mismo algoritmo pero más corto:
+Podemos escribir el mismo algoritmo, pero más corto:
 
 ```js run
 let str = 'Astuto como un zorro, fuerte como un buey';
