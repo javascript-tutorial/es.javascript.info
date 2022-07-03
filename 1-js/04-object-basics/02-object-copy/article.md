@@ -248,7 +248,7 @@ Puede parecer que la linea `(*)` ocasionaría un error, pero no.  El valor de `u
 
 En otras palabras, `const user` solamente da error cuando intentamos asignar `user=...` como un todo.
 
-Si realmente queremos hacer constantes las propiedades del objeto, es también posible pero usando métodos totalmente diferentes, las veremos después en el capítulo <info:property-descriptors>.
+Si realmente queremos hacer constantes las propiedades del objeto, también es posible; pero usando métodos totalmente diferentes, los que veremos después en el capítulo <info:property-descriptors>.
 ````
 
 ## Resumen
