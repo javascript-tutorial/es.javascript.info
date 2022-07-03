@@ -48,7 +48,7 @@ Como puedes ver, `(a, b) => a + b` significa una función que acepta dos argumen
     alert( double(3) ); // 6
     ```
 
-- Si no hay parámetros, los paréntesis estarán vacíos pero deben estar presentes:
+- Si no hay parámetros, los paréntesis estarán vacíos; pero deben estar presentes:
 
     ```js run
     let sayHi = () => alert("¡Hola!");
