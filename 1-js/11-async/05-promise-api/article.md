@@ -94,9 +94,9 @@ Aquí la segunda promesa se rechaza en dos segundos. Esto lleva a un rechazo inm
 ```warn header="En caso de error, las demás promesas son ignoradas"
 Si una promesa se rechaza, `Promise.all` se rechaza inmediatamente, olvidando completamente las otras de la lista. Aquellos resultados son ignorados.
 
-Por ejemplo, si hay múltiples llamados `fetch`, como en el ejemplo arriba, y uno falla, los demás aún continuarán en ejecución, pero `Promise.all` no las observará más. Ellas probablemente respondan pero sus resultados serán ignorados.
+Por ejemplo: si hay múltiples llamados `fetch`, como en el ejemplo arriba, y uno falla, los demás aún continuarán en ejecución, pero `Promise.all` no las observará más. Ellas probablemente respondan, pero sus resultados serán ignorados.
 
-`Promise.all` no hace nada para cancelarlas, no existe un concepto de "cancelación" en las promesas. En [otro capítulo](info:fetch-abort) veremos `AbortController` que puede ayudar con ello pero no es parte de la API de las promesas.
+`Promise.all` no hace nada para cancelarlas, no existe un concepto de "cancelación" en las promesas. En [otro capítulo](info:fetch-abort) veremos `AbortController`, que puede ayudar con ello pero no es parte de la API de las promesas.
 ```
 
 ````smart header="`Promise.all(iterable)` permite valores \"comunes\" que no sean promesas en `iterable` "
@@ -196,7 +196,7 @@ Ahora podemos usar `Promise.allSettled` para obtener el resultado de *todas* las
 
 ## Promise.race
 
-Similar a `Promise.all` pero espera solamente por la primera respuesta y obtiene su resultado (o error).
+Similar a `Promise.all`, pero espera solamente por la primera respuesta y obtiene su resultado (o error).
 
 Su sintaxis es:
 
