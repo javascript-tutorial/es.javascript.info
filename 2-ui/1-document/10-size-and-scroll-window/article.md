@@ -74,7 +74,7 @@ alert('Desplazamiento actual desde la parte izquierda: ' + window.pageXOffset);
 Estas propiedades son de solo lectura.
 
 ```smart header="También disponible como propiedades `window`: `scrollX` y `scrollY`"
-Por razones históricas existen ambas propiedades pero ambas son lo mismo:
+Por razones históricas existen ambas propiedades, pero ambas son lo mismo:
 - `window.pageXOffset` es un alias de `window.scrollX`.
 - `window.pageYOffset` es un alias de `window.scrollY`.
 ```
