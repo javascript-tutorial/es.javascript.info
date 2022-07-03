@@ -153,7 +153,7 @@ function pow(x, n) {
 	Sin dichos comentarios, las siguientes situaciones son posibles:
 	1. Tú (o tu compañero) abres el código escrito hace ya algún tiempo, y te das cuenta de que es "subóptimo".
 	2. Piensas: "Que estúpido que era antes, y que inteligente que soy ahora", y lo reescribes utilizando la variante "más obvia y correcta".
-	3. ...El impulso de reescribir era bueno. Pero en el proceso ves que la solución "más obvia" en realidad falla. Incluso recuerdas vagamente el porqué, porque ya lo intentaste hace mucho. Vuelves a la variante correcta pero has estado perdiendo el tiempo.
+	3. ...El impulso de reescribir era bueno. Pero en el proceso ves que la solución "más obvia" en realidad falla. Incluso recuerdas vagamente el porqué, porque ya lo intentaste hace mucho. Vuelves a la variante correcta, pero has estado perdiendo el tiempo.
 	
 	Los comentarios que explican la solución correcta son muy importantes. Nos ayudan a continuar el desarrollo de forma correcta.
 	
