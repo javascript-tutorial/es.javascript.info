@@ -398,7 +398,7 @@ alert(lengths); // 5,7,6
 
 Cuando usamos [arr.sort()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/sort), este ordena el propio array cambiando el orden de los elementos.
 
-También devuelve un nuevo array ordenado pero éste usualmente se descarta ya que `arr` en sí mismo es modificado.
+También devuelve un nuevo array ordenado, pero este usualmente se descarta ya que `arr` en sí mismo es modificado.
 
 Por ejemplo:
 
@@ -575,7 +575,7 @@ Cuando necesitamos iterar sobre un array podemos usar `forEach`, `for` o `for..o
 
 Cuando necesitamos iterar y devolver un valor por cada elemento podemos usar `map`.
 
-Los métodos [arr.reduce](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/reduce) y [arr.reduceRight](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/reduceRight) también pertenecen a ese grupo de acciones pero son un poco más complejos. Se los utiliza para calcular un único valor a partir del array.
+Los métodos [arr.reduce](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/reduce) y [arr.reduceRight](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/reduceRight) también pertenecen a ese grupo de acciones, pero son un poco más complejos. Se los utiliza para calcular un único valor a partir del array.
 
 La sintaxis es la siguiente:
 
@@ -753,7 +753,7 @@ Veamos el ayudamemoria de métodos para arrays:
   - `indexOf/lastIndexOf(item, pos)` -- busca por `item` comenzando desde la posición `pos`, devolviendo el índice o `-1` si no se encuentra.
   - `includes(value)` -- devuelve `true` si el array tiene `value`, si no `false`.
   - `find/filter(func)` -- filtra elementos a través de la función, devuelve el primer/todos los valores que devuelven `true`.
-  - `findIndex` es similar a  `find` pero devuelve el índice en lugar del valor.
+  - `findIndex` es similar a  `find`, pero devuelve el índice en lugar del valor.
 
 - Para iterar sobre elementos:
   - `forEach(func)` -- llama la `func` para cada elemento, no devuelve nada.
