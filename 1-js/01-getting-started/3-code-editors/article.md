@@ -17,7 +17,7 @@ Si aún no has seleccionado un IDE, considera las siguientes opciones:
 
 Para Windows, también está "Visual Studio", no lo confundamos con "Visual Studio Code". "Visual Studio" es un poderoso editor pagado sólo para Windows, idóneo para la plataforma .NET. Una versión gratuita es de este editor se llama [Visual Studio Community](https://www.visualstudio.com/vs/community/).
 
-Muchos IDEs son de paga pero tienen un periodo de prueba. Su costo usualmente es pequeño si lo comparamos al salario de un desarrollador calificado, así que sólo escoge el mejor para ti.
+Muchos IDEs son de paga, pero tienen un periodo de prueba. Su costo usualmente es pequeño si lo comparamos al salario de un desarrollador calificado, así que sólo escoge el mejor para ti.
 
 ## Editores livianos
 
