@@ -22,7 +22,7 @@ let strings = ["Hare", "Krishna", "Hare", "Krishna",
 alert( unique(strings) ); // Hare, Krishna, :-O
 ```
 
-El código funciona pero tiene un problema potencial de desempeño.
+El código funciona, pero tiene un problema potencial de desempeño.
 
 El método `result.includes(str)` internamente recorre el array `result` y compara cada elemento con `str` para encontrar una coincidencia.
 
