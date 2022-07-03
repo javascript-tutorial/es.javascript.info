@@ -1,4 +1,4 @@
-# La solución simple pero equivocada
+# La solución simple, pero equivocada
 
 La solución más simple, pero equivocada, sería generar un valor entre `min` y `max` y redondearlo:
 
