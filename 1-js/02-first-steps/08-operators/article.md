@@ -366,7 +366,7 @@ let a = counter++; // (*) cambiado ++counter a counter++
 alert(a); // *!*1*/!*
 ```
 
-En la línea `(*)`, la forma *sufijo* `counter++` también incrementa `counter` pero devuelve el *antiguo* valor (antes de incrementar). Por lo tanto, el `alert` muestra `1`.
+En la línea `(*)`, la forma *sufijo* `counter++` también incrementa `counter`, pero devuelve el *antiguo* valor (antes de incrementar). Por lo tanto, el `alert` muestra `1`.
 
 Para resumir:
 
@@ -384,7 +384,7 @@ Para resumir:
     let counter = 0;
     alert( ++counter ); // 1
     ```
-- Si queremos incrementar un valor pero usamos su valor anterior, necesitamos la forma sufijo:
+- Si queremos incrementar un valor, pero usamos su valor anterior, necesitamos la forma sufijo:
 
     ```js run
     let counter = 0;
@@ -443,7 +443,7 @@ Estos operadores se usan muy raramente, cuando necesitamos manejar la representa
 
 El operador coma `,` es uno de los operadores más raros e inusuales. A veces, es utilizado para escribir código más corto, entonces tenemos que saberlo para poder entender qué está pasando.
 
-El operador coma nos permite evaluar varias expresiones, dividiéndolas con una coma `,`. Cada una de ellas es evaluada pero sólo el resultado de la última es devuelto.
+El operador coma nos permite evaluar varias expresiones, dividiéndolas con una coma `,`. Cada una de ellas es evaluada, pero sólo el resultado de la última es devuelto.
 
 Por ejemplo:
 
