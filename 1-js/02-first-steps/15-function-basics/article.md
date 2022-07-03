@@ -186,7 +186,7 @@ En el ejemplo de arriba, se puede decir: "la función `showMessage` es declarada
 
 ## Valores predeterminados
 
-Si una función es llamada pero no se le proporciona un argumento, su valor correspondiente se convierte en `undefined`.
+Si una función es llamada, pero no se le proporciona un argumento, su valor correspondiente se convierte en `undefined`.
 
 Por ejemplo, la función mencionada anteriormente `showMessage(from, text)` se puede llamar con un solo argumento:
 
