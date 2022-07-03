@@ -20,7 +20,7 @@ var message = "Hola";
 alert(message); // Hola
 ```
 
-Pero internamente `var` es una bestia diferente, originaria de muy viejas épocas. Generalmente no se usa en código moderno pero aún habita en el antiguo.
+Pero internamente `var` es una bestia diferente, originaria de muy viejas épocas. Generalmente no se usa en código moderno, pero aún habita en el antiguo.
 
 Si no planeas encontrarte con tal código bien puedes saltar este capítulo o posponerlo, pero hay posibilidades de que esta bestia pueda morderte más tarde.
 
