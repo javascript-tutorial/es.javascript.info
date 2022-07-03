@@ -118,7 +118,7 @@ alert(Object.getOwnPropertyNames(User.prototype)); // constructor, sayHi
 
 ## No es solamente azúcar sintáctica
 
-A veces se dice que `class` es "azúcar sintáctica" (sintaxis que es diseñada para que sea más fácil de leer pero no introduce nada nuevo), porque en realidad podemos declarar lo mismo sin la palabra clave `class` en absoluto:
+A veces se dice que `class` es "azúcar sintáctica" (sintaxis que es diseñada para una lectura más fácil, pero que no introduce nada nuevo), porque en realidad podemos declarar lo mismo sin la palabra clave `class` en absoluto:
 
 ```js run
 // reescribiendo la clase User puramente con funciones
