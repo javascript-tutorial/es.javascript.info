@@ -20,7 +20,7 @@ var message = "Hola";
 alert(message); // Hola
 ```
 
-Pero internamente `var` es una bestia diferente, originaria de muy viejas épocas. Generalmente no se usa en código moderno pero aún habita en el antiguo.
+Pero internamente `var` es una bestia diferente, originaria de muy viejas épocas. Generalmente no se usa en código moderno, pero aún habita en el antiguo.
 
 Si no planeas encontrarte con tal código bien puedes saltar este capítulo o posponerlo, pero hay posibilidades de que esta bestia pueda morderte más tarde.
 
@@ -162,7 +162,7 @@ sayHi();
 
 Este comportamiento también se llama "hoisting" (elevamiento), porque todos los `var` son "hoisted" (elevados) hacia el tope de la función.
 
-Entonces, en el ejemplo anterior, la rama `if (false)` nunca se ejecuta pero eso no tiene importancia. El `var` dentro es procesado al iniciar la función, entonces al momento de `(*)` la variable existe.
+Entonces, en el ejemplo anterior, la rama `if (false)` nunca se ejecuta, pero eso no tiene importancia. El `var` dentro es procesado al iniciar la función, entonces al momento de `(*)` la variable existe.
 
 **Las declaraciones son "hoisted" (elevadas), pero las asignaciones no lo son.**
 

@@ -285,7 +285,7 @@ Las tablas son un gran ejemplo de ello, y representan un particular caso importa
 **El elemento `<table>`**  soporta estas propiedades (añadidas a las que hemos dado anteriormente):
 - `table.rows` -- la colección de elementos`<tr>` de la tabla.
 - `table.caption/tHead/tFoot` -- referencias a los elementos `<caption>`, `<thead>`, `<tfoot>`.
-- `table.tBodies` -- la colección de elementos `<tbody>` (pueden ser muchos según el estándar pero siempre habrá al menos uno -- aunque no esté en el HTML el navegador lo pondrá en el DOM).
+- `table.tBodies` -- la colección de elementos `<tbody>` (pueden ser muchos según el estándar, pero siempre habrá al menos uno, aunque no esté en el HTML el navegador lo pondrá en el DOM).
 
 **`<thead>`, `<tfoot>`, `<tbody>`** estos elementos proporcionan las propiedades de las `filas`.
 - `tbody.rows` -- la colección dentro de `<tr>`.

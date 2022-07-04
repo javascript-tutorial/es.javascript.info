@@ -128,7 +128,7 @@ function pow(x, n) {
 
 ## Mejoramos el spec
 
-Lo que hemos hecho es una trampa. La función no funciona bien: ejecutar un cálculo diferente como   `pow(3,4)` nos devuelve un resultado incorrecto pero el test pasa.
+Lo que hemos hecho es una trampa. La función no funciona bien: ejecutar un cálculo diferente, como `pow(3,4)`, nos devuelve un resultado incorrecto, pero el test pasa.
 
 ... pero la situación es habitual, ocurre en la práctica. Los tests pasan, pero la función no funciona bien. Nuestra especificación está incompleta. Necesitamos añadir más casos de uso a la especificación.
 

@@ -46,7 +46,7 @@ alert(user.address ? user.address.street : undefined);
 
 Esto funciona, no hay error... Pero es bastante poco elegante. Como puedes ver, `"user.address"` aparece dos veces en el código. 
 
-Aquí, el mismo caso pero con la búsqueda de `document.querySelector`:
+El mismo caso, pero con la búsqueda de `document.querySelector`:
 
 ```js run
 let html = document.querySelector('.elem') ? document.querySelector('.elem').innerHTML : null;

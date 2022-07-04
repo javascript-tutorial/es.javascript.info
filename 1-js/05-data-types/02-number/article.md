@@ -448,4 +448,4 @@ Para números con decimales:
 
 Más funciones matemáticas:
 
-- Revisa el documento del objeto [Math](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Math) cuando las necesites. La biblioteca es pequeña pero puede cubrir las necesidades básicas.
+- Revisa el documento del objeto [Math](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Math) cuando las necesites. La biblioteca es pequeña, pero puede cubrir las necesidades básicas.

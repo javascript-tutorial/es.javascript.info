@@ -118,7 +118,7 @@ let promise = new Promise(function(resolve, reject) {
 });
 ```
 
-Por ejemplo, esto puede suceder cuando comenzamos una tarea pero luego vemos que todo ya se ha completado y almacenado en caché.
+Por ejemplo, esto puede suceder cuando comenzamos una tarea, pero luego vemos que todo ya se ha completado y almacenado en caché.
 
 Está bien. Inmediatamente tenemos una promesa resuelta.
 ````
@@ -238,12 +238,14 @@ new Promise((resolve, reject) => {
   .then(result => show result, err => show error)
 ```
 
-Sin embargo, note que `finally(f) no es exactamente un alias de `then(f, f)`. Hay varias diferencias importantes:
+Sin embargo, note que `finally(f) no es exactamente un alias de `then(f, f)`.
+
+Hay diferencias importantes:
 `
 1. Un manejador `finally` no tiene argumentos. En `finally` no sabemos si la promesa es exitosa o no. Eso está bien, ya que usualmente nuestra tarea es realizar procedimientos de finalización "generales".
 
-    Por favor observe el ejemplo anterior: como puede ver, el manejador de `finally` no tiene argumentos, y la promesa que sale es manejada en el siguiente manejador.
-2. Un manejador `finally` traspasa resultados y errores al siguiente manejador que se adecúe.
+    Por favor observe el ejemplo anterior: como puede ver, el manejador de `finally` no tiene argumentos, y lo que sale de la promesa es manejado en el siguiente manejador.
+2. Resultados y errores pasan "a través" del manejador de `finally`. Estos pasan al siguiente manejador que se adecúe.
 
     Por ejemplo, aquí el resultado se pasa a través de `finally` a `then`:
     ```js run
@@ -270,7 +272,7 @@ Sin embargo, note que `finally(f) no es exactamente un alias de `then(f, f)`. Ha
 
 3. Un manejador de `finally` tampoco debería devolver nada. Y si lo hace, el valor devuelto es ignorado silenciosamente. 
 
-    La única excepción a esta regla es cuando el manejador mismo de `finally` dispara un error. Entonces este error pasa al siguiente manejador en lugar del resultado previo.
+    La única excepción a esta regla se da cuando el manejador mismo de `finally` dispara un error. En ese caso, este error pasa al siguiente manejador de error en lugar del resultado previo al finally.
 
 Para summarizar:
 

@@ -135,7 +135,7 @@ Hay botones para esto en le panel superior derecho. Revisémoslos.
     Otro clic volverá a ejecutar otro comando, y así uno por uno, a través de todo el script.
 
 <span class="devtools" style="background-position:-62px -192px"></span> -- "saltar paso": corre al comando siguiente, pero *no te metas en la función*, hotkey `key:F10`.
-: Similar a "siguiente paso" pero se comporta diferente si la siguiente sentencia es un llamado a función. Esto es: no una nativa como alert, sino una función nuestra.
+: Similar a "siguiente paso", pero se comporta diferente si la siguiente sentencia es un llamado a función. Esto es: no una nativa como alert, sino una función nuestra.
 
     El comando "siguiente" entra y pausa en la primera línea, en cambio "saltar" ejecuta la función anidada de forma invisible, no mostrando el interior de la función.
 
@@ -144,7 +144,7 @@ Hay botones para esto en le panel superior derecho. Revisémoslos.
     Es útil si no estamos interesados en ver lo que pasa dentro de la función llamada.
 
 <span class="devtools" style="background-position:-4px -194px"></span> -- siguiente paso, hotkey `key:F11`.
-: Similar a "siguiente" pero se comporta diferente en las llamadas asincrónicas. Si apenas comienzas en javaScript, puedes ignorar esto por ahora pues no tenemos llamados asincrónicos aún.
+: Similar a "siguiente", pero se comporta diferente en las llamadas asincrónicas. Si apenas comienzas en javaScript, puedes ignorar esto por ahora pues no tenemos llamados asincrónicos aún.
 
     Para el futuro, simplemente recuerda que "Siguiente" ignora las acciones asincrónicas tales como `setTimeout` (llamada a función programada), que se ejecutan después. The "Siguiente dentro" va al interior de su código, esperando por él si es necesario. Puedes ver el [DevTools manual](https://developers.google.com/web/updates/2018/01/devtools#async) para más detalles.
 

@@ -398,7 +398,7 @@ alert(lengths); // 5,7,6
 
 Cuando usamos [arr.sort()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/sort), este ordena el propio array cambiando el orden de los elementos.
 
-También devuelve un nuevo array ordenado pero éste usualmente se descarta ya que `arr` en sí mismo es modificado.
+También devuelve un nuevo array ordenado, pero este usualmente se descarta ya que `arr` en sí mismo es modificado.
 
 Por ejemplo:
 
@@ -575,7 +575,7 @@ Cuando necesitamos iterar sobre un array podemos usar `forEach`, `for` o `for..o
 
 Cuando necesitamos iterar y devolver un valor por cada elemento podemos usar `map`.
 
-Los métodos [arr.reduce](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/reduce) y [arr.reduceRight](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/reduceRight) también pertenecen a ese grupo de acciones pero son un poco más complejos. Se los utiliza para calcular un único valor a partir del array.
+Los métodos [arr.reduce](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/reduce) y [arr.reduceRight](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/reduceRight) también pertenecen a ese grupo de acciones, pero son un poco más complejos. Se los utiliza para calcular un único valor a partir del array.
 
 La sintaxis es la siguiente:
 
@@ -675,7 +675,7 @@ Por eso `typeof` no ayuda a distinguir un objeto común de un array:
 
 ```js run
 alert(typeof {}); // object
-alert(typeof []); // object
+alert(typeof []); // object (lo mismo)
 ```
 
 ...Pero los arrays son utilizados tan a menudo que tienen un método especial para eso: [Array.isArray(value)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/isArray). Este devuelve `true` si el `valor` es un array y `false` si no lo es.
@@ -753,7 +753,7 @@ Veamos el ayudamemoria de métodos para arrays:
   - `indexOf/lastIndexOf(item, pos)` -- busca por `item` comenzando desde la posición `pos`, devolviendo el índice o `-1` si no se encuentra.
   - `includes(value)` -- devuelve `true` si el array tiene `value`, si no `false`.
   - `find/filter(func)` -- filtra elementos a través de la función, devuelve el primer/todos los valores que devuelven `true`.
-  - `findIndex` es similar a  `find` pero devuelve el índice en lugar del valor.
+  - `findIndex` es similar a  `find`, pero devuelve el índice en lugar del valor.
 
 - Para iterar sobre elementos:
   - `forEach(func)` -- llama la `func` para cada elemento, no devuelve nada.
@@ -766,7 +766,7 @@ Veamos el ayudamemoria de métodos para arrays:
   - `reduce/reduceRight(func, initial)` -- calcula un solo valor para todo el array, llamando a la `func` para cada elemento, obteniendo un resultado parcial en cada llamada y pasándolo a la siguiente.
 
 - Adicional:
-  - `Array.isArray(arr)` comprueba si `arr` es un array.
+  - `Array.isArray(value)` comprueba si `value` es un array.
 
 Por favor tener en cuenta que `sort`, `reverse` y `splice` modifican el propio array.
 
@@ -779,6 +779,7 @@ Estos métodos son los más utilizados y cubren el 99% de los casos. Pero existe
   Estos métodos se comportan con similitud a los operadores `||` y `&&`: si `fn` devuelve un valor verdadero, `arr.some()` devuelve `true` y detiene la iteración de inmediato; si `fn`  devuelve un valor falso, `arr.every()` devuelve `false` y detiene la iteración también.
 
 Podemos usar `every` para comparar arrays:
+
 
   ```js run
   function arraysEqual(arr1, arr2) {

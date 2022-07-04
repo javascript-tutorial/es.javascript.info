@@ -98,7 +98,7 @@ Esto ocurre solo si al menos uno de los argumentos es un string, en caso contrar
 
 La conversión a boolean es la más simple.
 
-Ocurre en operaciones lógicas (más adelante veremos test condicionales y otras cosas similares) pero también puede realizarse de forma explícita llamando a la función `Boolean(value)`.
+Ocurre en operaciones lógicas (más adelante veremos test condicionales y otras cosas similares), pero también puede realizarse de forma explícita llamando a la función `Boolean(value)`.
 
 Las reglas de conversión:
 

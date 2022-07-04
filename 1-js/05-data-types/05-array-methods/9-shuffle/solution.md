@@ -58,11 +58,11 @@ Un resultado de ejemplo (depende del motor JS):
 
 Podemos ver una clara tendencia: `123` y `213` aparecen mucho más seguido que otros.
 
-El resultado del código puede variar entre distintos motores JavaScript pero ya podemos ver que esta forma de abordar el problema es poco confiable.
+El resultado del código puede variar entre distintos motores JavaScript, pero ya podemos ver que esta forma de abordar el problema es poco confiable.
 
 ¿Por qué no funciona? Generalmente hablando, `sort` es una "caja negra": tiramos dentro un array y una función de ordenamiento y esperamos que el array se ordene. Pero debido a la total aleatoriedad de la comparación, la caja negra se vuelve loca y exactamente en que sentido se vuelve loca depende de la implementación específica, que difiere de un motor a otro.
 
-Existen otra formas mejores de realizar la tarea. Por ejemplo, hay un excelente algorítmo llamado [Algoritmo de Fisher-Yates](https://es.wikipedia.org/wiki/Algoritmo_de_Fisher-Yates). La idea es recorrer el array en sentido inverso e intercambiar cada elemento con un elemento aleatorio anterior:
+Existen otra formas mejores de realizar la tarea. Por ejemplo, hay un excelente algoritmo llamado [Algoritmo de Fisher-Yates](https://es.wikipedia.org/wiki/Algoritmo_de_Fisher-Yates). La idea es recorrer el array en sentido inverso e intercambiar cada elemento con un elemento aleatorio anterior:
 
 ```js
 function shuffle(array) {
@@ -70,7 +70,7 @@ function shuffle(array) {
     let j = Math.floor(Math.random() * (i + 1)); // índice aleatorio entre 0 e i
 
     // intercambia elementos array[i] y array[j]
-    // usamos la sintáxis "asignación de desestructuración" para lograr eso
+    // usamos la sintaxis "asignación de desestructuración" para lograr eso
     // encontrarás más información acerca de esa sintaxis en los capítulos siguientes
     // lo mismo puede ser escrito como:
     // let t = array[i]; array[i] = array[j]; array[j] = t

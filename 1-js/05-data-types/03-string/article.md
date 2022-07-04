@@ -266,7 +266,7 @@ while (true) {
 }
 ```
 
-Podemos escribir el mismo algoritmo pero más corto:
+Podemos escribir el mismo algoritmo, pero más corto:
 
 ```js run
 let str = 'Astuto como un zorro, fuerte como un buey';
@@ -296,9 +296,9 @@ if (str.indexOf("Widget")) {
 }
 ```
 
-La `alerta` en el ejemplo anterior no se muestra ya que `str.indexOf("Widget")` retorna `0` (lo que significa que encontró el string en la posición inicial). Correcto pero `if` considera `0` como `falso`.
+La `alerta` en el ejemplo anterior no se muestra ya que `str.indexOf("Widget")` retorna `0` (lo que significa que encontró el string en la posición inicial). Eos correcto, pero `if` considera `0` como `falso`.
 
-Por lo que debemos buscar por `-1` como sigue:
+Por ello debemos buscar por `-1` como sigue:
 
 ```js run
 let str = "Widget con id";
@@ -353,7 +353,7 @@ Ahora podemos ver este truco solo en código viejo, porque JavaScript moderno pr
 
 El método más moderno [str.includes(substr, pos)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/includes) retorna `true/false` dependiendo si `str` contiene `substr` dentro.
 
-Es la opción correcta si lo que necesitamos es encontrar el `substr` pero no necesitamos la posición.
+Es la opción correcta, si lo que necesitamos es encontrar el `substr` pero no necesitamos su posición.
 
 ```js run
 alert('Widget con id'.includes('Widget')); // true

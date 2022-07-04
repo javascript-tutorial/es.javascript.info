@@ -321,7 +321,7 @@ export {default as User} from './user.js'; // reexportar default
 
 ¿Por qué se necesitaría eso? Veamos un caso de uso práctico.
 
-Imagínese, estamos escribiendo un "paquete": una carpeta con muchos módulos, con algunas de las funciones exportadas al exterior (herramientas como NPM nos permiten publicar y distribuir dichos paquetes pero no estamos obligados a usarlas), y muchos módulos son solo "ayudantes", para uso interno en otros módulos de paquete.
+Imagine que estamos escribiendo un "paquete": una carpeta con muchos módulos, con algunas de las funciones exportadas al exterior (herramientas como NPM nos permiten publicar y distribuir dichos paquetes pero no estamos obligados a usarlas), y muchos módulos son solo "ayudantes", para uso interno en otros módulos de paquete.
 
 La estructura de archivos podría ser algo así:
 ```
@@ -368,7 +368,7 @@ export {User};
 
 Ahora los usuarios de nuestro paquete pueden hacer esto `import {login} from "auth/index.js"`.
 
-La sintaxis `export ... from ...` es solo una notación más corta para tales importación-exportación:
+La sintaxis `export ... from ...` es solo una notación más corta para tal importación-exportación:
 
 ```js
 // 📁 auth/index.js

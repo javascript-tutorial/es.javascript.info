@@ -254,7 +254,14 @@ Como sabemos, `y` mide "la finalización del proceso de animación". El valor `y
 
 Esa es una variante "suave" sin duda. Si ponemos valores `y` como `-99` y `99`, entonces el tren saltaría mucho más fuera del rango.
 
-Pero, ¿cómo hacer la curva de Bézier para una tarea específica? Hay muchas herramientas. Por ejemplo, podemos hacerlo en el sitio <http://cubic-bezier.com/>.
+Pero, ¿cómo hacer la curva de Bézier para una tarea específica? Hay muchas herramientas.
+
+- Por ejemplo, podemos hacerlo en el sitio <http://cubic-bezier.com/>.
+- El navegador también tiene soporte especial para curvas Bezier en CSS:
+    1. Abre las herramientas de desarrollador con `key:F12` (Mac: `key:Cmd+Opt+I`).
+    2. Selecciona la pestaña `Elementos` y presta atención al subpanel `Estilos`.
+    3. Las propiedades CSS que contengan la palabra `cubic-bezier` tendrán un icono antes de esta palabra.
+    4. Haz clic en este icono para editar la curva.
 
 ### Pasos
 
@@ -266,7 +273,19 @@ Aquí tenemos una lista de dígitos, sin animaciones, solo como fuente:
 
 [codetabs src="step-list"]
 
-Haremos que los dígitos aparezcan de manera discreta haciendo invisible la parte de la lista fuera de la "ventana" roja y desplazando la lista a la izquierda con cada paso.
+En el HTML, una línea de dígitos está encerrada en un div de largo fijo`<div id="digits">`:
+
+```html
+<div id="digit">
+  <div id="stripe">0123456789</div>
+</div>
+```
+
+El div `#digit`tiene ancho fijo y un borde, entonces se ve como una ventana roja.
+
+Haremos un temporizador: los dígitos aparecerán uno por uno, de una manera discreta.
+
+Para lograr esto, ocultaremos el `#stripe` fuera de `#digit` usando `overflow: hidden`, y luego desplazamos el `#stripe` a la izquierda paso a paso.
 
 Habrá 9 pasos, un paso para cada dígito:
 
@@ -277,17 +296,17 @@ Habrá 9 pasos, un paso para cada dígito:
 }
 ```
 
-En acción:
-
-[codetabs src="step"]
-
 El primer argumento de `steps(9, start)` es el número de pasos. La transformación se dividirá en 9 partes (10% cada una). El intervalo de tiempo también se divide automáticamente en 9 partes, por lo que `transition: 9s` nos da 9 segundos para toda la animación: 1 segundo por dígito.
 
 El segundo argumento es una de dos palabras: `start` o `end`.
 
 El `start` significa que al comienzo de la animación debemos hacer el primer paso de inmediato.
 
-Podemos observar eso durante la animación: cuando hacemos clic en el dígito, cambia a `1` (el primer paso) inmediatamente, y luego cambia al comienzo del siguiente segundo.
+En acción:
+
+[codetabs src="step"]
+
+Un clic en el dígito lo cambia a `1` (el primer paso) inmediatamente, y luego cambia al comienzo del siguiente segundo.
 
 El proceso está progresando así:
 
@@ -297,7 +316,9 @@ El proceso está progresando así:
 - `8s` -- `-90%`
 - (el último segundo muestra el valor final).
 
-El valor alternativo 'end' significaría que el cambio debe aplicarse no al principio, sino al final de cada segundo.
+Aquí el primer cambio fue inmediato por el`start` en el `steps`
+
+El valor alternativo 'end' haría que el cambio se aplicara no al principio sino al final de cada segundo.
 
 Entonces el proceso para `steps(9, end)` sería así:
 
@@ -307,22 +328,22 @@ Entonces el proceso para `steps(9, end)` sería así:
 - ...
 - `9s` -- `-90%`
 
-Aquí está el `step(9, end)` en acción (observa la pausa entre el primer cambio de dígitos):
+Aquí está el `step(9, end)` en acción (observa la pausa antes del primer cambio de dígitos):
 
 [codetabs src="step-end"]
 
-También hay valores abreviados:
+También hay algunas formas abreviadas predefinidas para `steps(...)`:
 
 - `step-start` -- es lo mismo que` steps(1, start)`. Es decir, la animación comienza de inmediato y toma 1 paso. Entonces comienza y termina inmediatamente, como si no hubiera animación.
 - `step-end` -- lo mismo que `steps(1, end)`: realiza la animación en un solo paso al final de `transition-duration`.
 
-Estos valores rara vez se usan, porque eso no es realmente animación, sino un cambio de un solo paso.
+Estos valores rara vez se usan porque no representan una verdadera animación sino un cambio de un solo paso.
 
 ## Evento transitionend
 
 Cuando finaliza la animación CSS, se dispara el evento `transitionend`.
 
-Es ampliamente utilizado para hacer una acción después que se realiza la animación. También podemos unir animaciones.
+Es ampliamente utilizado para hacer una acción después de que se realiza la animación. También podemos unir animaciones.
 
 Por ejemplo, el barco a continuación comienza a navegar ida y vuelta al hacer clic, cada vez más y más a la derecha:
 

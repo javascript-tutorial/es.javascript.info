@@ -180,7 +180,7 @@ El valor especial `undefined` también se distingue. Hace un tipo propio, igual 
 
 El significado de `undefined` es "valor no asignado".
 
-Si una variable es declarada pero no asignada, entonces su valor es `undefined`:
+Si una variable es declarada, pero no asignada, entonces su valor es `undefined`:
 
 ```js run
 let age;
@@ -247,7 +247,7 @@ Las últimas tres líneas pueden necesitar una explicación adicional:
 
 1. `Math` es un objeto incorporado que proporciona operaciones matemáticas. Lo aprenderemos en el capítulo <info:number>. Aquí sólo sirve como ejemplo de un objeto.
 2. El resultado de `typeof null` es `"object"`. Esto está oficialmente reconocido como un error de comportamiento de `typeof` que proviene de los primeros días de JavaScript y se mantiene por compatibilidad. Definitivamente `null` no es un objeto. Es un valor especial con un tipo propio separado.
-3. El resultado de `typeof alert` es `"function"` porque `alert` es una función. Estudiaremos las funciones en los próximos capítulos donde veremos que no hay ningún tipo especial "function" en JavaScript. Las funciones pertenecen al tipo objeto. Pero `typeof` las trata de manera diferente, devolviendo `function`. Además proviene de los primeros días de JavaScript. Técnicamente dicho comportamiento es incorrecto pero puede ser conveniente en la práctica.
+3. El resultado de `typeof alert` es `"function"` porque `alert` es una función. Estudiaremos las funciones en los próximos capítulos donde veremos que no hay ningún tipo especial "function" en JavaScript. Las funciones pertenecen al tipo objeto. Pero `typeof` las trata de manera diferente, devolviendo `function`. Además proviene de los primeros días de JavaScript. Técnicamente dicho comportamiento es incorrecto, pero puede ser conveniente en la práctica.
 
 ```smart header="Sintaxis de `typeof(x)`"
 Se puede encontrar otra sintaxis en algún código: `typeof(x)`. Es lo mismo que `typeof x`.
@@ -263,14 +263,16 @@ Algunos prefieren `typeof(x)`, aunque la sintaxis `typeof x` es mucho más comú
 
 Hay 8 tipos básicos en JavaScript.
 
-- `number` para números de cualquier tipo: enteros o de punto flotante, los enteros están limitados por <code>±(2<sup>53</sup>-1)</code>.
-- `bigint` para números enteros de longitud arbitraria.
-- `string` para cadenas. Una cadena puede tener cero o más caracteres, no hay un tipo especial para un único carácter.
-- `boolean` para verdadero y falso: `true`/`false`.
-- `null` para valores desconocidos -- un tipo independiente que tiene un solo valor nulo: `null`.
-- `undefined` para valores no asignados -- un tipo independiente que tiene un único valor "indefinido": `undefined`.
-- `object` para estructuras de datos complejas.
-- `symbol` para identificadores únicos.
+- Siete tipos de datos primitivos 
+    - `number` para números de cualquier tipo: enteros o de punto flotante, los enteros están limitados por <code>±(2<sup>53</sup>-1)</code>.
+    - `bigint` para números enteros de longitud arbitraria.
+    - `string` para cadenas. Una cadena puede tener cero o más caracteres, no hay un tipo especial para un único carácter.
+    - `boolean` para verdadero y falso: `true`/`false`.
+    - `null` para valores desconocidos -- un tipo independiente que tiene un solo valor nulo: `null`.
+    - `undefined` para valores no asignados -- un tipo independiente que tiene un único valor "indefinido": `undefined`.
+    - `symbol` para identificadores únicos.
+- Y un tipo de dato no primitivo:
+    - `object` para estructuras de datos complejas.
 
 El operador `typeof` nos permite ver qué tipo está almacenado en una variable.
 
