@@ -167,8 +167,13 @@ let user = {
 for (let key in user) alert(key); // nombre, edad (no aparecen symbols)
 */!*
 
+<<<<<<< HEAD
 // el acceso directo a la clave de symbol funciona
 alert( "Direct: " + user[id] );
+=======
+// the direct access by the symbol works
+alert( "Direct: " + user[id] ); // Direct: 123
+>>>>>>> 82ed8f11b40bd40797427a5dd1763edbe1fca523
 ```
 
 [Object.keys(user)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/keys) también los ignora. Esto forma parte del principio general de "ocultamiento de propiedades simbólicas". Si otro script o si otra librería itera sobre nuestro objeto, este no accesará inesperadamente a la clave de Symbol.
