@@ -39,7 +39,7 @@ Afortunadamente hay dos atributos de `<script>` que resuelven ese problema para 
 
 El atributo `defer` indica al navegador que no espere por el script. En lugar de ello, debe seguir procesando el HTML, construir el DOM. El script carga "en segundo plano" y se ejecuta cuando el DOM esta completo.
 
-Aquí está el mismo ejemplo de arriba pero con `defer`:
+Aquí está el mismo ejemplo de arriba, pero con `defer`:
 
 ```html run height=100
 <p>...contenido previo script...</p>

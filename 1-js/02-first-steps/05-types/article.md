@@ -68,9 +68,20 @@ Veremos más sobre el trabajo con números en el capítulo <info:number>.
 
 ## BigInt [#bigint-type]
 
-En JavaScript, el tipo "number" no puede representar valores enteros mayores que <code>(2<sup>53</sup>-1)</code> (eso es `9007199254740991`), o menor que <code>-(2<sup>53</sup>-1)</code> para negativos. Es una limitación técnica causada por su representación interna.
+En JavaScript, el tipo "number" no puede representar de forma segura valores enteros mayores que <code>(2<sup>53</sup>-1)</code> (eso es `9007199254740991`), o menor que <code>-(2<sup>53</sup>-1)</code> para negativos. 
 
-Para la mayoría de los propósitos es suficiente, pero a veces necesitamos números realmente grandes. Por ejemplo, para criptografía o marcas de tiempo de precisión de microsegundos.
+Para ser realmente precisos, el tipo de dato "number" puede almacenar enteros muy grandes (hasta <code>1.7976931348623157 * 10<sup>308</sup></code>), pero fuera del rango de enteros seguros <code>±(2<sup>53</sup>-1)</code> habrá un error de precisión, porque no todos los dígitos caben en el almacén fijo de 64-bit. Así que es posible que se almacene un valor "aproximado".
+
+Por ejemplo, estos dos números (justo por encima del rango seguro) son iguales:
+
+```js
+console.log(9007199254740991 + 1); // 9007199254740992
+console.log(9007199254740991 + 2); // 9007199254740992
+```
+
+Podemos decir que ningún entero impar mayor que <code>(2<sup>53</sup>-1)</code> puede almacenarse en el tipo de dato "number".
+
+Para la mayoría de los propósitos, el rango <code>±(2<sup>53</sup>-1)</code> es suficiente, pero a veces necesitamos números realmente grandes; por ejemplo, para criptografía o marcas de tiempo de precisión de microsegundos.
 
 `BigInt` se agregó recientemente al lenguaje para representar enteros de longitud arbitraria.
 

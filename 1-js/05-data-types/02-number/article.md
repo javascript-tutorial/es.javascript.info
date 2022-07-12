@@ -2,9 +2,9 @@
 
 En JavaScript moderno, hay dos tipos de números:
 
-1. Los números regulares en JavaScript son almacenados con el formato de 64-bit [IEEE-754](https://es.wikipedia.org/wiki/IEEE_coma_flotante), conocido como "números de doble precisión de coma flotante". Estos números son los que estaremos usando la mayor parte del tiempo y hablaremos de ellos en este capítulo.
+1. Los números regulares en JavaScript son almacenados con el formato de 64-bit [IEEE-754](https://es.wikipedia.org/wiki/IEEE_754), conocido como "números de doble precisión de coma flotante". Estos números son los que estaremos usando la mayor parte del tiempo, y hablaremos de ellos en este capítulo.
 
-2. Los números BigInt representan enteros de longitud arbitraria. A veces son necesarios porque un número regular no puede exceder <code>2<sup>53</sup></code> ni ser menor a <code>-2<sup>53</sup></code> manteniendo la precisión. Como los bigints son usados en algunas áreas especiales, les dedicamos un capítulo especial <info:bigint>.
+2. Los números BigInt representan enteros de longitud arbitraria. A veces son necesarios porque un número regular no puede exceder <code>2<sup>53</sup></code> ni ser menor a <code>-2<sup>53</sup></code> manteniendo la precisión, algo que mencionamos antes en el capítulo <info:types>. Como los bigints son usados en algunas áreas especiales, les dedicamos un capítulo especial <info:bigint>.
 
 Aquí hablaremos de números regulares. Ampliemos lo que ya sabemos de ellos.
 
@@ -192,7 +192,7 @@ Hay dos formas de hacerlo:
 
 ## Cálculo impreciso
 
-Internamente, un número es representado en formato de 64-bit [IEEE-754](http://en.wikipedia.org/wiki/IEEE_754-1985), donde hay exactamente 64 bits para almacenar un número: 52 de ellos son usados para almacenar los dígitos, 11 para almacenar la posición del punto decimal (son cero para los enteros), y 1 bit es para el signo.
+Internamente, un número es representado en formato de 64-bit [IEEE-754](https://es.wikipedia.org/wiki/IEEE_754), donde hay exactamente 64 bits para almacenar un número: 52 de ellos son usados para almacenar los dígitos, 11 para almacenar la posición del punto decimal, y 1 bit es para el signo.
 
 Si un número es verdaderamente grande, puede rebasar el almacén de 64 bit y obtenerse el valor numérico `Infinity`:
 

@@ -52,11 +52,11 @@ Por lo general, ese encabezado se establece automáticamente y contiene la URL d
 
 **La opción `referrer` permite establecer cualquier `Referer` (dentro del origen actual) o eliminarlo.**
 
-Para no enviar ningún referer, establece un string vacío:
+Para no enviar ningún referrer, establece un string vacío:
 ```js
 fetch('/page', {
 *!*
-  referrer: "" // sin encabezado Referer
+  referrer: "" // sin encabezado Referrer
 */!*
 });
 ```

@@ -38,7 +38,7 @@ Debemos tener en cuenta esa posibilidad cuando usemos `event.relatedTarget` en n
 
 ## Saltando elementos
 
-El evento `mousemove`  se activa cuando el mouse se mueve pero eso no significa que cada píxel nos lleve a un evento.
+El evento `mousemove`  se activa cuando el mouse se mueve, pero eso no significa que cada píxel nos lleve a un evento.
 
 El navegador verifica la posición del mouse de vez en cuando y si nota cambios entonces activan los eventos.
 

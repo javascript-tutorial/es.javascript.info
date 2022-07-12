@@ -5,7 +5,7 @@ Podemos crear elementos HTML personalizados con nuestras propias clases; con sus
 
 Una vez que definimos el elemento personalizado, podemos usarlo a la par de elementos HTML nativos.
 
-Esto es grandioso, porque el el diccionario HTML es rico pero no infinito. No hay `<aletas-faciles>`, `<gira-carrusel>`, `<bella-descarga>`... Solo piensa en cualquier otra etiqueta que puedas necesitar.
+Esto es grandioso, porque el el diccionario HTML es rico, pero no infinito. No hay `<aletas-faciles>`, `<gira-carrusel>`, `<bella-descarga>`... Solo piensa en cualquier otra etiqueta que puedas necesitar.
 
 Podemos definirlos con una clase especial, y luego usarlos como si siempre hubieran sido parte del HTML.
 

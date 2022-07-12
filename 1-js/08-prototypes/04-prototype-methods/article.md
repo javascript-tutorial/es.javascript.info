@@ -3,15 +3,18 @@
 
 En el primer capítulo de esta sección mencionamos que existen métodos modernos para configurar un prototipo.
 
-`__proto__` se considera desactualizado y algo obsoleto (en la parte propia del navegador dentro del estándar JavaScript).
+Leer y escribir en `__proto__` se considera desactualizado y algo obsoleto (fue movido al llamado "Anexo B" del estándar JavaScript, dedicado únicamente a navegadores).
 
-Los métodos modernos son:
+Los métodos modernos para obtener y establecer (get/set) un prototipo son:
+
+- [Object.getPrototypeOf(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/getPrototypeOf) -- devuelve el `[[Prototype]]` de `obj`.
+- [Object.setPrototypeOf(obj, proto)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/setPrototypeOf) -- establece el `[[Prototype]]` de `obj` a `proto`.
+
+El único uso de `__proto__` que no está mal visto, es como una propiedad cuando se crea un nuevo objeto: `{ __proto__: ... }`.
+
+Aunque hay un método especial para esto también:
 
 - [Object.create(proto, [descriptors])](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/create) -- crea un objeto vacío con el "proto" dado como `[[Prototype]]` y descriptores de propiedad opcionales.
-- [Object.getPrototypeOf(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/getPrototypeOf) -- devuelve el `[[Prototype]]` de `obj`.
-- [Object.setPrototypeOf(obj, proto)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/setPrototypeOf) -- establece el `[[Prototype]]` de `obj` en `proto`.
-
-Estos deben usarse en lugar de `__proto__`.
 
 Por ejemplo:
 
@@ -22,7 +25,7 @@ let animal = {
 
 // crear un nuevo objeto con animal como prototipo
 *!*
-let rabbit = Object.create(animal);
+let rabbit = Object.create(animal); // lo mismo que {__proto__: animal}
 */!*
 
 alert(rabbit.eats); // true
@@ -36,7 +39,9 @@ Object.setPrototypeOf(rabbit, {}); // cambia el prototipo de rabbit a {}
 */!*
 ```
 
-`Object.create` tiene un segundo argumento opcional: descriptores de propiedad. Podemos proporcionar propiedades adicionales al nuevo objeto allí, así:
+El método `Object.create` es más potente, tiene un segundo argumento opcional: descriptores de propiedad.
+
+Podemos proporcionar propiedades adicionales al nuevo objeto allí, así:
 
 ```js run
 let animal = {
@@ -57,26 +62,34 @@ Los descriptores están en el mismo formato que se describe en el capítulo <inf
 Podemos usar `Object.create` para realizar una clonación de objetos más poderosa que copiar propiedades en el ciclo `for..in`:
 
 ```js
-let clone = Object.create(Object.getPrototypeOf(obj), Object.getOwnPropertyDescriptors(obj));
+let clone = Object.create(
+  Object.getPrototypeOf(obj), Object.getOwnPropertyDescriptors(obj)
+);
 ```
 
 Esta llamada hace una copia verdaderamente exacta de `obj`, que incluye todas las propiedades: enumerables y no enumerables, propiedades de datos y setters/getters, todo, y con el `[[Prototype]]` correcto.
 
+
 ## Breve historia
 
-Si contamos todas las formas de administrar `[[Prototype]]`, ¡hay muchas! ¡Muchas maneras de hacer lo mismo!
+Hay muchas formas de administrar `[[Prototype]]`. ¿Cómo pasó esto? ¿Por qué?
 
-¿Por qué?
+Las razones son históricas.
 
-Eso es por razones históricas.
+La herencia prototípica estuvo en el lenguaje desde sus albores, pero la manera de manejarla evolucionó con el tiempo.
 
 - La propiedad "prototipo" de una función de constructor ha funcionado desde tiempos muy antiguos.
-- Más tarde, en el año 2012, apareció `Object.create` en el estándar. Le dio la capacidad de crear objetos con un prototipo dado, pero no proporcionó la capacidad de obtenerlo/configurarlo. Entonces, los navegadores implementaron el acceso no estándar `__proto__` que permitió al usuario obtener/configurar un prototipo en cualquier momento.
-- Más tarde, en el año 2015, `Object.setPrototypeOf` y `Object.getPrototypeOf` se agregaron al estándar, para realizar la misma funcionalidad que `__proto__`. Como `__proto__` se implementó de facto en todas partes, fue desaprobado y llegó al Anexo B de la norma, es decir: opcional para entornos que no son del navegador.
+- Más tarde, en el año 2012, apareció `Object.create` en el estándar. Este le dio la capacidad de crear objetos con un prototipo dado, pero no proporcionaba la capacidad de obtenerlo ni establecerlo. Algunos navegadores implementaron el accessor `__proto__` fuera del estándar, lo que permitía obtener/establecer un prototipo en cualquier momento, dando más flexibilidad al desarrollador.
+- Más tarde, en el año 2015, `Object.setPrototypeOf` y `Object.getPrototypeOf` se agregaron al estándar para realizar la misma funcionalidad que `__proto__` daba. Como `__proto__` se implementó de facto en todas partes, fue considerado obsoleto y pero logró hacerse camino al Anexo B de la norma, es decir: opcional para entornos que no son del navegador.
+- Más tarde, en el año 2022, fue oficialmente permitido el uso de `__proto__` en objetos literales `{...}` (movido fuera del Anexo B), pero no como getter/setter `obj.__proto__` (sigue en el Anexo B).
 
-A partir de ahora tenemos todas estas formas a nuestra disposición.
+¿Por qué se reemplazó `__proto__` por las funciones `getPrototypeOf/setPrototypeOf`? 
 
-¿Por qué se reemplazó `__proto__` por las funciones `getPrototypeOf/setPrototypeOf`? Esa es una pregunta interesante, que requiere que comprendamos por qué `__proto__` es malo. Sigue leyendo para obtener la respuesta.
+¿Por qué `__proto__` fue parcialmente rehabilitado y su uso permitido en `{...}`, pero no como getter/setter?
+
+Esa es una pregunta interesante, que requiere que comprendamos por qué `__proto__` es malo.
+
+Y pronto llegaremos a la respuesta.
 
 ```warn header="No cambie `[[Prototype]]` en objetos existentes si la velocidad es importante"
 Técnicamente, podemos obtener/configurar `[[Prototype]]` en cualquier momento. Pero generalmente solo lo configuramos una vez en el momento de creación del objeto y ya no lo modificamos: `rabbit` hereda de `animal`, y eso no va a cambiar.
@@ -101,25 +114,36 @@ obj[key] = "algún valor";
 alert(obj[key]); // [object Object], no es "algún valor"!
 ```
 
-Aquí, si el usuario escribe en `__proto__`, ¡la asignación se ignora!
+Aquí, si el usuario escribe en `__proto__`, ¡la asignación en la línea 4 es ignorada!
 
-Eso no debería sorprendernos. La propiedad `__proto__` es especial: debe ser un objeto o `null`. Una cadena no puede convertirse en un prototipo.
+Eso no debería sorprendernos. La propiedad `__proto__` es especial: debe ser un objeto o `null`. Una cadena no puede convertirse en un prototipo. Es por ello que la asignación de un string a `__proto__` es ignorado.
 
-Pero no *intentamos* implementar tal comportamiento, ¿verdad? Queremos almacenar pares clave/valor, y la clave llamada `"__proto__"` no se guardó correctamente. ¡Entonces eso es un error!
+Pero no *intentamos* implementar tal comportamiento, ¿verdad? Queremos almacenar pares clave/valor, y la clave llamada `"__proto__"` no se guardó correctamente. Entonces, ¡eso es un error!
 
-Aquí las consecuencias no son terribles. Pero en otros casos podemos estar asignando valores de objeto, y luego el prototipo puede ser cambiado. Como resultado, la ejecución irá mal de maneras totalmente inesperadas.
+Aquí las consecuencias no son terribles. Pero en otros casos podemos estar asignando objetos en lugar de strings, y el prototipo efectivamente ser cambiado. Como resultado, la ejecución irá mal de maneras totalmente inesperadas.
 
 Lo que es peor: generalmente los desarrolladores no piensan en tal posibilidad en absoluto. Eso hace que tales errores sean difíciles de notar e incluso los convierta en vulnerabilidades, especialmente cuando se usa JavaScript en el lado del servidor.
 
-También pueden ocurrir cosas inesperadas al asignar a `toString`, que es una función por defecto, y a otros métodos integrados.
+También pueden ocurrir cosas inesperadas al asignar a `obj.toString`, por ser un método integrado.
 
 ¿Cómo podemos evitar este problema?
 
-Primero, podemos elegir usar `Map` para almacenamiento en lugar de objetos simples, luego todo queda bien.
+Primero, podemos elegir usar `Map` para almacenamiento en lugar de objetos simples, entonces todo quedará bien.
 
-Pero 'Objeto' también puede servirnos bien aquí, porque los creadores del lenguaje pensaron en ese problema hace mucho tiempo.
+```js run
+let map = new Map();
 
-`__proto__` no es una propiedad de un objeto, sino una propiedad de acceso de `Object.prototype`:
+let key = prompt("¿Cuál es la clave?", "__proto__");
+map.set(key, "algún valor");
+
+alert(map.get(key)); // "algún valor" (tal como se pretende)
+```
+
+... pero la sintaxis con 'Objeto' es a menudo más atractiva, por ser más consisa.
+
+Afortunadamente *podemos* usar objetos, porque los creadores del lenguaje pensaron en ese problema hace mucho tiempo.
+
+Como sabemos, `__proto__` no es una propiedad de un objeto, sino una propiedad de acceso de `Object.prototype`:
 
 ![](object-prototype-2.svg)
 
@@ -132,6 +156,7 @@ Ahora, si pretendemos usar un objeto como una arreglo asociativa y no tener tale
 ```js run
 *!*
 let obj = Object.create(null);
+// o: obj = { __proto__: null }
 */!*
 
 let key = prompt("Cual es la clave", "__proto__");
@@ -173,32 +198,26 @@ alert(Object.keys(chineseDictionary)); // hola, adiós
 
 ## Resumen
 
-Los métodos modernos para configurar y acceder directamente al prototipo son:
+- Para crear un objeto con un prototipo dado, use:
 
-- [Object.create(proto, [descriptores])](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/create) -- crea un objeto vacío con un `proto` dado como `[[Prototype]]` (puede ser `null`) y descriptores de propiedad opcionales.
-- [Object.getPrototypeOf(obj)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf) -- devuelve el `[[Prototype]]` de `obj` (igual que el getter de `__proto__`).
-- [Object.setPrototypeOf(obj, proto)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf) -- establece el `[[Prototype]]` de `obj` en `proto` (igual que el setter de `__proto__`).
+    - sintaxis literal: `{ __proto__: ... }`, permite especificar multiples propiedades
+    - o [Object.create(proto, [descriptors])](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/create), permite especificar descriptores de propiedad.
 
-El getter/setter incorporado de `__proto__` no es seguro si queremos poner claves generadas por el usuario en un objeto. Aunque un usuario puede ingresar `"__proto __"` como clave, y habrá un error, con consecuencias levemente dañinas, pero generalmente impredecibles.
+    El `Object.create` brinda una forma fácil provides de hacer una copia superficial de un objeto con todos sus descriptores:
 
-Entonces podemos usar `Object.create(null)` para crear un objeto "muy simple" sin `__proto__`, o apegarnos a los objetos `Map` para eso.
+    ```js
+    let clone = Object.create(Object.getPrototypeOf(obj), Object.getOwnPropertyDescriptors(obj));
+    ```
 
-Además, `Object.create` proporciona una manera fácil de copiar llanamente un objeto con todos los descriptores:
+- Los métodos modernos para obtener y establecer el prototipo son:
 
-```js
-let clone = Object.create(Object.getPrototypeOf(obj), Object.getOwnPropertyDescriptors(obj));
-```
+    - [Object.getPrototypeOf(obj)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf) -- devuelve el `[[Prototype]]` de `obj` (igual que el getter de `__proto__`).
+    - [Object.setPrototypeOf(obj, proto)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf) -- establece el `[[Prototype]]` de `obj` en `proto` (igual que el setter de `__proto__`).
 
-También dejamos en claro que `__proto__` es un getter/setter para `[[Prototype]]`  y reside en `Object.prototype`, al igual que otros métodos.
+- No está recomendado obtener y establecer el prototipo usando los getter/setter nativos de `__proto__`. Ahora están en el Anexo B de la especificación.
 
-Podemos crear un objeto sin prototipo mediante `Object.create(null)`. Dichos objetos se utilizan como "diccionarios puros", no tienen problemas con `"__proto __"` como clave.
+- También hemos cubierto objetos sin prototipo, creados con `Object.create(null)` o `{__proto__: null}`.
 
-Otros métodos:
+    Estos objetos son usados como diccionarios, para almacenar cualquier (posiblemente generadas por el usuario) clave.
 
-- [Object.keys(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/keys) / [Object.values(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/values) / [Object.entries(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/entries): devuelve un arreglo enumerable de: nombres-de-propiedad / valores / pares-clave-valor.
-- [Object.getOwnPropertySymbols(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/getOwnPropertySymbols): devuelve un arreglo de todas las claves simbólicas propias.
-- [Object.getOwnPropertyNames(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/getOwnPropertyNames): devuelve un arreglo de todas las claves de cadena propias.
-- [Reflect.ownKeys(obj)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/ownKeys): devuelve un arreglo de todas las claves propias.
-- [obj.hasOwnProperty(key)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/hasOwnProperty): devuelve `true` si `obj` tiene su propia clave (no heredada) llamada `key`.
-
-Todos los métodos que devuelven propiedades de objeto (como `Object.keys` y otros) - devuelven propiedades "propias". Si queremos las heredadas, podemos usar `for..in`.
+    Normalmente, los objetos heredan métodos nativos y getter/setter de `__proto__` desde `Object.prototype`, haciendo sus claves correspondientes "ocupadas" y potencialmente causar efectos secundarios. Con el prototipo `null`, los objetos están verdaderamente vacíos.

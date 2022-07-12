@@ -269,7 +269,7 @@ La plantilla del shadow DOM con los slots adecuados:
 ```
 
 1. `<span slot="title">` entra en `<slot name="title">`.
-2. Hay muchos `<li slot="item">` en la plantilla, pero solo un `<slot name="item">` en la plantilla. Así que todos esos `<li slot="item">` se añaden a  `<slot name="item">` uno tras otro, formando así la lista.
+2. Hay muchos `<li slot="item">` en el `<custom-menu>`, pero solo un `<slot name="item">` en la plantilla. Así que todos esos `<li slot="item">` se añaden a  `<slot name="item">` uno tras otro, formando así la lista.
 
 El flattened DOM se convierte en:
 

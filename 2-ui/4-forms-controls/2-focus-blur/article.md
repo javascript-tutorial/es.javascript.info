@@ -90,7 +90,7 @@ Si introducimos algo en la entrada y luego intentamos pulsar `key:Tab` o hacer c
 
 Por favor tened en cuenta que no podemos "prevenir perder el foco" llamando a `event.preventDefault()` en `onblur`, porque `onblur` funciona *después* de que el elemento perdió el foco.
 
-Aunque en la práctica uno debería pensarlo bien antes de implementar algo como esto, porque generalmente *debemos mostrar errores* al usuario pero *no evitar que siga adelante* al llenar nuestro formulario. Podría querer llenar otros campos primero.
+Aunque en la práctica uno debería pensarlo bien antes de implementar algo como esto, porque generalmente *debemos mostrar errores* al usuario, pero *no evitar que siga adelante* al llenar nuestro formulario. Podría querer llenar otros campos primero.
 
 ```warn header="Pérdida de foco iniciada por JavaScript"
 Una pérdida de foco puede ocurrir por diversas razones. 
@@ -147,7 +147,7 @@ Clique sobre el primer ítem y pulse `key:Tab`. Fíjese en el orden. Note que su
 </style>
 ```
 
-El orden es el siguiente: `1 - 2 - 0`. Normalmente, `<li>` no admite enfocado pero `tabindex` lo habilita, junto con eventos y estilado con `:focus`. 
+El orden es el siguiente: `1 - 2 - 0`. Normalmente, `<li>` no admite enfocado, pero `tabindex` lo habilita, junto con eventos y estilado con `:focus`. 
 
 ```smart header="La propiedad `elem.tabIndex` también funciona"
 Podemos añadir `tabindex` desde JavaScript utilizando la propiedad `elem.tabIndex`. Se consigue el mismo resultado.

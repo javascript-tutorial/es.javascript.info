@@ -201,7 +201,7 @@ Sin embargo, hay algunas cosas que no podemos hacer:
 Hay dos métodos adicionales:
 
 - `arr.set(fromArr, [offset])` copia todos los elementos de `fromArr` al `arr`, empezando en la posición `offset` (0 por defecto).
-- `arr.subarray([begin, end])` crea una nueva vista del mismo tipo desde `begin` hasta `end` (excluyéndolo). Es similar al método `slice` (que también está soportado) pero no copia nada, sólo crea una nueva vista para operar sobre el trozo de datos dado.
+- `arr.subarray([begin, end])` crea una nueva vista del mismo tipo desde `begin` hasta `end` (excluyéndolo). Es similar al método `slice` (que también está soportado), pero no copia nada, sólo crea una nueva vista para operar sobre el trozo de datos dado.
 
 Estos métodos nos permiten copiar arrays tipados, mezclarlos, crear nuevos arrays a partir de los existentes, etc.
 
