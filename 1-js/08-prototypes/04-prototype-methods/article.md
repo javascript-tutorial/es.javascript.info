@@ -80,8 +80,8 @@ La herencia prototípica estuvo en el lenguaje desde sus albores, pero la manera
 
 - La propiedad "prototipo" de una función de constructor ha funcionado desde tiempos muy antiguos.
 - Más tarde, en el año 2012, apareció `Object.create` en el estándar. Este le dio la capacidad de crear objetos con un prototipo dado, pero no proporcionaba la capacidad de obtenerlo ni establecerlo. Algunos navegadores implementaron el accessor `__proto__` fuera del estándar, lo que permitía obtener/establecer un prototipo en cualquier momento, dando más flexibilidad al desarrollador.
-- Más tarde, en el año 2015, `Object.setPrototypeOf` y `Object.getPrototypeOf` se agregaron al estándar para realizar la misma funcionalidad que `__proto__` daba. Como `__proto__` se implementó de facto en todas partes, fue considerado obsoleto y pero logró hacerse camino al Anexo B de la norma, es decir: opcional para entornos que no son del navegador.
-- Más tarde, en el año 2022, fue oficialmente permitido el uso de `__proto__` en objetos literales `{...}` (movido fuera del Anexo B), pero no como getter/setter `obj.__proto__` (sigue en el Anexo B).
+- Más tarde, en el año 2015, `Object.setPrototypeOf` y `Object.getPrototypeOf` se agregaron al estándar para realizar la misma funcionalidad que `__proto__` daba. Como `__proto__` se implementó de facto en todas partes, fue considerado obsoleto pero logró hacerse camino al Anexo B de la norma, es decir: opcional para entornos que no son del navegador.
+- Más tarde, en el año 2022, fue oficialmente permitido el uso de `__proto__` en objetos literales `{...}` (y movido fuera del Anexo B), pero no como getter/setter `obj.__proto__` (sigue en el Anexo B).
 
 ¿Por qué se reemplazó `__proto__` por las funciones `getPrototypeOf/setPrototypeOf`? 
 
@@ -116,7 +116,7 @@ alert(obj[key]); // [object Object], no es "algún valor"!
 
 Aquí, si el usuario escribe en `__proto__`, ¡la asignación en la línea 4 es ignorada!
 
-Eso no debería sorprendernos. La propiedad `__proto__` es especial: debe ser un objeto o `null`. Una cadena no puede convertirse en un prototipo. Es por ello que la asignación de un string a `__proto__` es ignorado.
+Eso no debería sorprendernos. La propiedad `__proto__` es especial: debe ser un objeto o `null`. Una cadena no puede convertirse en un prototipo. Es por ello que la asignación de un string a `__proto__` es ignorada.
 
 Pero no *intentamos* implementar tal comportamiento, ¿verdad? Queremos almacenar pares clave/valor, y la clave llamada `"__proto__"` no se guardó correctamente. Entonces, ¡eso es un error!
 
@@ -203,7 +203,7 @@ alert(Object.keys(chineseDictionary)); // hola, adiós
     - sintaxis literal: `{ __proto__: ... }`, permite especificar multiples propiedades
     - o [Object.create(proto, [descriptors])](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/create), permite especificar descriptores de propiedad.
 
-    El `Object.create` brinda una forma fácil provides de hacer una copia superficial de un objeto con todos sus descriptores:
+    El `Object.create` brinda una forma fácil de hacer la copia superficial de un objeto con todos sus descriptores:
 
     ```js
     let clone = Object.create(Object.getPrototypeOf(obj), Object.getOwnPropertyDescriptors(obj));
