@@ -109,7 +109,7 @@ let deleteRequest = indexedDB.deleteDatabase(name)
 ```warn header="No se puede abrir una base de datos usando una versión más vieja de open"
 Si la base del usuario tiene una versión mayor que el `open` que la abre, por ejemplo: la base existente tiene versión `3` e intentamos `open(...2)`, se producirá un error que disparará `openRequest.onerror`.
 
-Es una situación rara pero puede ocurrir cuando un visitante carga código JavaScript viejo, por ejemplo desde un caché proxy. Así el código es viejo pero la base de datos nueva.
+Es una situación rara, pero puede ocurrir cuando un visitante carga código JavaScript viejo (por ejemplo desde un caché proxy). Así el código es viejo, pero la base de datos nueva.
 
 Para prevenir errores, debemos verificar `db.version` y sugerir la recarga de página. Usa cabeceras HTTP de caché apropiadas para evitar la carga de código viejo, así nunca tendrás tales problemas.
 ```
@@ -183,7 +183,7 @@ A pesar de llamarse "almacén de objetos", también puede almacenar tipos primit
 
 **Podemos almacenar casi cualquier valor, incluyendo objetos complejos.**
 
-IndexedDB usa el [algoritmo de serialización estándar](https://www.w3.org/TR/html53/infrastructure.html#section-structuredserializeforstorage) para clonar-y-almacenar un objeto. Es como `JSON.stringify` pero más poderoso, capaz de almacenar muchos tipos de datos más.
+IndexedDB usa el [algoritmo de serialización estándar](https://www.w3.org/TR/html53/infrastructure.html#section-structuredserializeforstorage) para clonar-y-almacenar un objeto. Es como `JSON.stringify`; pero más poderoso, capaz de almacenar muchos tipos de datos más.
 
 Hay objetos que no pueden ser almacenados, por ejemplo los que tienen referencias circulares. Tales objetos no son serializables. `JSON.stringify` también falla con ellos.
 

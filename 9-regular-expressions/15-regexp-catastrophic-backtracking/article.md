@@ -1,6 +1,6 @@
 # Backtracking catastrófico
 
-Algunas expresiones regulares parecen simples pero pueden ejecutarse durante demasiado tiempo e incluso "colgar" el motor de JavaScript.
+Algunas expresiones regulares parecen simples, pero pueden ejecutarse durante demasiado tiempo e incluso "colgar" el motor de JavaScript.
 
 Tarde o temprano la mayoría de los desarrolladores se enfrentan ocasionalmente a este comportamiento. El síntoma típico: una expresión regular funciona bien a veces, pero para ciertas cadenas se "cuelga" consumiendo el 100% de la CPU.
 
@@ -220,7 +220,7 @@ Ahora se ahorra el tiempo necesario para probar un montón de combinaciones (en 
 
 ## Previniendo el backtracking
 
-Sin embargo no siempre es conveniente reescribir una regexp. En el ejemplo anterior era fácil pero no siempre es obvio cómo hacerlo.
+Sin embargo no siempre es conveniente reescribir una regexp. En el ejemplo anterior era fácil, pero no siempre es obvio cómo hacerlo.
 
 Además una regexp reescrita suele ser más compleja y eso no es bueno. Las regexps son suficientemente complejas sin necesidad de esfuerzos adicionales.
 
@@ -256,7 +256,7 @@ Así que hemos llegado a temas realmente avanzados. Nos gustaría que un cuantif
 
 El patrón para tomar tantas repeticiones de `pattern:\w` como sea posible sin retroceder es: `pattern:(?=(\w+))\1`. Por supuesto, podríamos tomar otro patrón en lugar de `pattern:\w`.
 
-Puede parecer extraño pero en realidad es una transformación muy sencilla.
+Puede parecer extraño, pero en realidad es una transformación muy sencilla.
 
 Vamos a descifrarla:
 
