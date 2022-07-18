@@ -15,13 +15,13 @@ Si aún no has seleccionado un IDE, considera las siguientes opciones:
 - [Visual Studio Code](https://code.visualstudio.com/) (Multiplataforma, gratuito).
 - [WebStorm](https://www.jetbrains.com/webstorm/) (Multiplataforma, de pago).
 
-Para Windows, también está "Visual Studio", no lo confundamos con "Visual Studio Code". "Visual Studio" es un poderoso editor pagado sólo para Windows, idóneo para la plataforma .NET. Una versión gratuita es de este editor se llama [Visual Studio Community](https://www.visualstudio.com/vs/community/).
+Para Windows, también está "Visual Studio", no lo confundamos con "Visual Studio Code". "Visual Studio" es un poderoso editor de pago sólo para Windows, idóneo para la plataforma .NET. Una versión gratuita es de este editor se llama [Visual Studio Community](https://www.visualstudio.com/vs/community/).
 
 Muchos IDEs son de paga, pero tienen un periodo de prueba. Su costo usualmente es pequeño si lo comparamos al salario de un desarrollador calificado, así que sólo escoge el mejor para ti.
 
 ## Editores livianos
 
-"Editores livianos" no son tan poderosos como los IDEs, pero son rápidos, elegantes y simples.
+Los "editores livianos" no son tan poderosos como los IDEs, pero son rápidos, elegantes y simples.
 
 Son usados principalmente para abrir y editar un archivo al instante.
 
@@ -31,10 +31,9 @@ En la práctica, los editores livianos pueden tener montones de plugins incluyen
 
 Las siguientes opciones merecen tu atención:
 
-- [Atom](https://atom.io/) (multiplataforma, gratuito).
-- [Sublime Text](http://www.sublimetext.com) (multiplataforma, shareware).
+- [Sublime Text](https://www.sublimetext.com) (multiplataforma, shareware).
 - [Notepad++](https://notepad-plus-plus.org/) (Windows, gratuito).
-- [Vim](http://www.vim.org/) y [Emacs](https://www.gnu.org/software/emacs/) son geniales también si sabes como usarlos.
+- [Vim](https://www.vim.org/) y [Emacs](https://www.gnu.org/software/emacs/) son también interesantes si sabes cómo usarlos.
 
 ## No discutamos
 
