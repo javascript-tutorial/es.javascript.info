@@ -71,7 +71,11 @@ for(let num of view) {
 
 ## TypedArray
 
+<<<<<<< HEAD
 El término común para todas estas vistas (`Uint8Array`, `Uint32Array`, etc) es [TypedArray](https://tc39.github.io/ecma262/#sec-typedarray-objects). Comparten el mismo conjunto de métodos y propiedades.
+=======
+The common term for all these views (`Uint8Array`, `Uint32Array`, etc) is [TypedArray](https://tc39.github.io/ecma262/#sec-typedarray-objects). They share the same set of methods and properties.
+>>>>>>> 7000ede297bfd688f9a3767e8ca43abd9242f322
 
 Por favor ten en cuenta que no hay ningún constructor llamado `TypedArray`, es sólo un término "paraguas" común para representar una de las vistas sobre `ArrayBuffer`: `Int8Array`, `Uint8Array` y así sucesivamente, la lista completa seguirá pronto.
 

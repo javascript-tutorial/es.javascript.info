@@ -359,8 +359,13 @@ welcome(); // ahora ok
 ```
 
 
+<<<<<<< HEAD
 ```smart header="¿Cuándo debo elegir la Declaración de Función frente a la Expresión de Función?"
 Como regla general, cuando necesitamos declarar una función, la primera que debemos considerar es la sintaxis de la Declaración de Función. Da más libertad en cómo organizar nuestro código, porque podemos llamar a tales funciones antes de que sean declaradas.
+=======
+```smart header="When to choose Function Declaration versus Function Expression?"
+As a rule of thumb, when we need to declare a function, the first thing to consider is Function Declaration syntax. It gives more freedom in how to organize our code, because we can call such functions before they are declared.
+>>>>>>> 7000ede297bfd688f9a3767e8ca43abd9242f322
 
 También es un poco más fácil de buscar `function f(…) {…}` en el código comparado con `let f = function(…) {…}`. La Declaración de Función es más llamativa.
 
