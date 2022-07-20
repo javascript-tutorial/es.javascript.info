@@ -1,11 +1,11 @@
 # Planificación: setTimeout y setInterval
 
-Podemos decidir ejecutar una función no ahora, sino en un momento posterior. Eso se llama "planificar una llamada".
+Podemos decidir ejecutar una función no ahora, sino cierto tiempo después. Eso se llama "planificar una llamada".
 
 Hay dos métodos para ello:
 
-- `setTimeout` nos permite ejecutar una función una vez después del intervalo de tiempo.
-- `setInterval` nos permite ejecutar una función repetidamente, comenzando después del intervalo de tiempo, luego repitiéndose continuamente en ese intervalo.
+- `setTimeout` nos permite ejecutar una función una vez, pasado un intervalo de tiempo.
+- `setInterval` nos permite ejecutar una función repetidamente, comenzando después del intervalo de tiempo, luego repitiéndose continuamente cada intervalo.
 
 Estos métodos no son parte de la especificación de JavaScript. Pero la mayoría de los entornos tienen el planificador interno y proporcionan estos métodos. En particular, son compatibles con todos los navegadores y Node.js.
 
@@ -48,7 +48,7 @@ function sayHi(phrase, who) {
 }
 
 *!*
-setTimeout(sayHi, 1000, "Hola", "John"); // Hello, John
+setTimeout(sayHi, 1000, "Hola", "John"); // Hola, John
 */!*
 ```
 
@@ -100,7 +100,7 @@ alert(timerId); // mismo identificador (No se vuelve nulo después de cancelar)
 
 Como podemos ver en la salida `alert`, en un navegador el identificador del temporizador es un número. En otros entornos, esto puede ser otra cosa. Por ejemplo, Node.js devuelve un objeto de temporizador con métodos adicionales.
 
-Nuevamente, no hay una especificación universal para estos métodos.
+De nuevo: no hay una especificación universal para estos métodos.
 
 Para los navegadores, los temporizadores se describen en la [sección timers](https://www.w3.org/TR/html5/webappapis.html#timers) del estándar HTML5.
 
@@ -281,12 +281,12 @@ Lo mismo sucede si usamos `setInterval` en lugar de `setTimeout`: `setInterval(f
 
 Esa limitación proviene de la antigüedad y muchos scripts dependen de ella, por lo que existe por razones históricas.
 
-Para JavaScript del lado del servidor, esa limitación no existe, y existen otras formas de planificar un trabajo asincrónico inmediato, como [setImmediate](https://nodejs.org/api/timers.html) para Node.js. Entonces esta nota es específica del navegador.
+Para JavaScript del lado del servidor, esa limitación no existe, y existen otras formas de planificar un trabajo asincrónico inmediato, como [setImmediate](https://nodejs.org/api/timers.html) para Node.js. Así que esta nota es específica del navegador.
 ````
 
 ## Resumen
 
-- Los métodos `setTimeout(func, delay, ... args)` y `setInterval(func, delay, ... args)` nos permiten ejecutar el `func` una vez / regularmente después de un retardo (delay) en milisegundos.
+- Los métodos `setTimeout(func, delay, ... args)` y `setInterval(func, delay, ... args)` nos permiten ejecutar `func` "una vez" y "regularmente" después del retardo `delay` dado en milisegundos.
 - Para cancelar la ejecución, debemos llamar a `clearTimeout / clearInterval` con el valor devuelto por `setTimeout / setInterval`.
 - Las llamadas anidadas `setTimeout` son una alternativa más flexible a `setInterval`, lo que nos permite establecer el tiempo *entre* ejecuciones con mayor precisión.
 - La programación de retardo cero con `setTimeout(func, 0) `(lo mismo que `setTimeout(func)`) se usa para programar la llamada "lo antes posible, pero después de que se complete el script actual".
