@@ -4,10 +4,10 @@ Podemos decidir ejecutar una función no ahora, sino un determinado tiempo despu
 
 Hay dos métodos para ello:
 
-- `setTimeout` nos permite ejecutar una función una vez, pasado un intervalo de tiempo.
+- `setTimeout` nos permite ejecutar una función una vez, pasado un intervalo de tiempo dado.
 - `setInterval` nos permite ejecutar una función repetidamente, comenzando después del intervalo de tiempo, luego repitiéndose continuamente cada intervalo.
 
-Estos métodos no son parte de la especificación de JavaScript. Pero la mayoría de los entornos tienen el planificador interno y proporcionan estos métodos. En particular, son compatibles con todos los navegadores y Node.js.
+Estos métodos no son parte de la especificación de JavaScript. Pero la mayoría de los entornos tienen el planificador interno y proporcionan estos métodos. En particular, son soportados por todos los navegadores y por Node.js.
 
 ## setTimeout
 
