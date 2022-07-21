@@ -1,6 +1,6 @@
 # Planificación: setTimeout y setInterval
 
-Podemos decidir ejecutar una función no ahora, sino un determinadi tiempo después. Eso se llama "planificar una llamada".
+Podemos decidir ejecutar una función no ahora, sino un determinado tiempo después. Eso se llama "planificar una llamada".
 
 Hay dos métodos para ello:
 
