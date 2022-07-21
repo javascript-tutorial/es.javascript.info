@@ -41,9 +41,9 @@ El método `setTimeout` en el navegador es un poco especial: establece `this = w
 
 La tarea es bastante típica: queremos pasar un método de objeto a otro lugar (aquí, al planificador) donde se llamará. ¿Cómo asegurarse de que se llamará en el contexto correcto?
 
-## Solución 1: un wrapper (envoltura)
+## Solución 1: un contenedor (wrapper en inglés)
 
-La solución más simple es usar una función wrapper:
+La solución más simple es usar una función contenedora que la envuelva:
 
 ```js run
 let user = {
@@ -77,7 +77,7 @@ Se ve bien, pero aparece una ligera vulnerabilidad en nuestra estructura de cód
 let user = {
   firstName: "John",
   sayHi() {
-    alert(`Hello, ${this.firstName}!`);
+    alert(`Hola, ${this.firstName}!`);
   }
 };
 
@@ -85,10 +85,10 @@ setTimeout(() => user.sayHi(), 1000);
 
 // ...el valor de user cambia en 1 segundo
 user = {
-  sayHi() { alert("Another user in setTimeout!"); }
+  sayHi() { alert("¡Otro user en setTimeout!"); }
 };
 
-// Otro user en setTimeout!
+// ¡Otro user en setTimeout!
 ```
 
 La siguiente solución garantiza que tal cosa no sucederá.
@@ -106,7 +106,7 @@ let boundFunc = func.bind(context);
 
 El resultado de `func.bind(context)` es un "objeto exótico", una función similar a una función regular que se puede llamar como función; esta pasa la llamada de forma transparente a `func` estableciendo `this = context`.
 
-En otras palabras, llamar a `boundFunc` es como `func` con un `this` fijo.
+En otras palabras, llamar a `boundFunc` es como llamar a `func` pero con un `this` fijo.
 
 Por ejemplo, aquí `funcUser` pasa una llamada a `func` con `this = user`:
 
@@ -142,7 +142,7 @@ function func(phrase) {
 let funcUser = func.bind(user);
 
 *!*
-funcUser("Hello"); // Hello, John (argumento "Hello" se pasa, y this=user)
+funcUser("Hello"); // Hello, John (se pasa el argumento "Hello", y this=user)
 */!*
 ```
 
@@ -188,7 +188,7 @@ let user = {
 let say = user.say.bind(user);
 
 say("Hello"); // Hello, John! ("Hello" se pasa a say)
-say("Bye"); // Bye, John! ("Bye" is passed to say)
+say("Bye"); // Bye, John! ("Bye" se pasa a say)
 ```
 
 ````smart header="Convenience method:bindAll"
@@ -227,7 +227,7 @@ function mul(a, b) {
 }
 ```
 
-Usemos `bind` para crear una función` double` en su base:
+Usemos `bind` para crear, en su base, una función `double` para duplicar:
 
 ```js run
 function mul(a, b) {
@@ -243,7 +243,7 @@ alert( double(4) ); // = mul(2, 4) = 8
 alert( double(5) ); // = mul(2, 5) = 10
 ```
 
-La llamada a `mul.bind(null, 2)` crea una nueva función `double` que pasa las llamadas a `mul`, fijando `null` como contexto y `2` como primer argumento. Otros argumentos se pasan "tal cual".
+La llamada a `mul.bind(null, 2)` crea una nueva función `double` que pasa las llamadas a `mul`, fijando `null` como contexto y `2` como primer argumento. Los demás argumentos se pasan "tal cual".
 
 Esto se llama [aplicación parcial](https://en.wikipedia.org/wiki/Partial_application): creamos una nueva función fijando algunos parámetros a la existente.
 
@@ -267,7 +267,7 @@ alert( triple(5) ); // = mul(3, 5) = 15
 
 ¿Por qué solemos hacer una función parcial?
 
-El beneficio es que podemos crear una función independiente con un nombre legible (`double`,`triple`). Podemos usarlo y no proporcionar el primer argumento cada vez, ya que se fija con `bind`.
+El beneficio es que podemos crear una función independiente con un nombre legible (`double`,`triple`). Podemos usarla y evitamos proporcionar el primer argumento cada vez, ya que se fija con `bind`.
 
 En otros casos, la aplicación parcial es útil cuando tenemos una función muy genérica y queremos una variante menos universal para mayor comodidad.
 
@@ -308,7 +308,7 @@ user.sayNow("Hello");
 // [10:00] John: Hello!
 ```
 
-El resultado de la llamada `parcial(func [, arg1, arg2 ...])` es un contenedor wrapper `(*)` que llama a `func` con:
+El resultado de la llamada `parcial(func [, arg1, arg2 ...])` es un contenedor o "wrapper" `(*)` que llama a `func` con:
 - El mismo `this` (para la llamada a `user.sayNow` es `user`)
 - Luego le da `...argsBound`: argumentos desde la llamada a `partial` (`"10:00"`)
 - Luego le da `...args`: argumentos dados desde la envoltura (`"Hello"`)
@@ -319,7 +319,7 @@ También hay una implementación preparada [_.partial](https://lodash.com/docs#p
 
 ## Resumen
 
-El método `func.bind(context, ... args)` devuelve una "variante vinculada" de la función `func`, fijando el contexto `this` y los primeros argumentos si estos se dan.
+El método `func.bind(context, ... args)` devuelve una "variante vinculada" de la función `func`; fijando el contexto `this` y, si se proporcionan, fijando también los primeros argumentos.
 
 Por lo general, aplicamos `bind` para fijar `this` a un método de objeto, de modo que podamos pasarlo en otro lugar. Por ejemplo, en `setTimeout`.
 
