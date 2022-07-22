@@ -5,7 +5,7 @@ Como sabemos, los objetos pueden almacenar propiedades.
 
 Hasta ahora, para nosotros una propiedad era un simple par "clave-valor". Pero una propiedad de un objeto es algo más flexible y poderoso.
 
-En este capítulo vamos a estudiar opciones adicionales de configuración, y en el siguiente veremos como convertirlas invisiblemente en funciones 'getter/setter' (obtención y establecimiento).
+En este capítulo vamos a estudiar opciones adicionales de configuración, y en el siguiente veremos como convertirlas invisiblemente en funciones 'getter/setter' para obtener/asignar valores.
 
 ## Indicadores de propiedad
 
