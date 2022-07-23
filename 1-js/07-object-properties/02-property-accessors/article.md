@@ -135,7 +135,7 @@ alert(user.fullName); // John Smith
 for(let key in user) alert(key); // name, surname
 ```
 
-Tenga en cuenta que una propiedad puede ser un acceso (tiene métodos `get/set`)  o una propiedad de datos (tiene un `value`), no ambas.
+Tenga en cuenta que una propiedad puede ser un acceso (tiene métodos `get/set`) o una propiedad de datos (tiene un `value`), no ambas.
 
 Si intentamos poner ambos, `get` y `value`, en el mismo descriptor, habrá un error:
 
