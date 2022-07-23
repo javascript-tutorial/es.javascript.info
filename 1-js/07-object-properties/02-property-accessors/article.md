@@ -101,7 +101,7 @@ Como resultado, tenemos una propiedad virtual `fullName` que puede leerse y escr
 
 Los descriptores de propiedades de acceso son diferentes de aquellos para las propiedades de datos.
 
-Para las propiedades de acceso, no hay cosas como "valor" y "escritura", sino de "get" y "set".
+Para las propiedades de acceso, no hay cosas como `value` y `writable`, sino de "get" y "set".
 
 Así que un descriptor de accesos puede tener:
 
@@ -135,9 +135,9 @@ alert(user.fullName); // John Smith
 for(let key in user) alert(key); // name, surname
 ```
 
-Tenga en cuenta que una propiedad puede ser un acceso (tiene métodos `get/set`)  o una propiedad de datos (tiene un 'valor'), no ambas.
+Tenga en cuenta que una propiedad puede ser un acceso (tiene métodos `get/set`) o una propiedad de datos (tiene un `value`), no ambas.
 
-Si intentamos poner tanto `get` como `valor` en el mismo descriptor, habrá un error:
+Si intentamos poner ambos, `get` y `value`, en el mismo descriptor, habrá un error:
 
 ```js run
 *!*
