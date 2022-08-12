@@ -119,22 +119,22 @@ Esto brinda varios usos interesantes comparados al "OR puro, clásico, de solo b
 
 2. **Evaluación del camino más corto.**
 
-Otra característica de OR || operador es la evaluación de "el camino más corto".
+    Otra característica del operador OR || es la evaluación de "el camino más corto" o "cortocircuito".
 
-Esto significa que `||` procesa sus argumentos hasta que se alcanza el primer valor verdadero, y luego el valor se devuelve inmediatamente, sin siquiera tocar el otro argumento.
+    Esto significa que `||` procesa sus argumentos hasta que se alcanza el primer valor verdadero, y ese valor se devuelve inmediatamente sin siquiera tocar el otro argumento.
 
-La importancia de esta característica se vuelve obvia si un operando no es solo un valor, sino una expresión con un efecto secundario, como una asignación de variable o una llamada a función.
+    La importancia de esta característica se vuelve obvia si un operando no es solo un valor sino una expresión con un efecto secundario, como una asignación de variable o una llamada a función.
 
-En el siguiente ejemplo, solo se imprime el segundo mensaje:
+    En el siguiente ejemplo, solo se imprime el segundo mensaje:
 
- ```js run no-beautify
+    ```js run no-beautify
     *!*true*/!* || alert("not printed");
     *!*false*/!* || alert("printed");
- ```
+    ```
 
-En la primera línea, el operador OR `||` detiene la evaluación inmediatamente después de ver que es verdadera, por lo que la alerta no se ejecuta.
+    En la primera línea, el operador OR `||` detiene la evaluación inmediatamente después de ver que es verdadera, por lo que la alerta no se ejecuta.
 
-A veces, las personas usan esta función para ejecutar comandos solo si la condición en la parte izquierda es falsa.
+    A veces se usa esta función para ejecutar comandos solo si la condición en la parte izquierda es falsa.
 
 ## && (AND)
 
