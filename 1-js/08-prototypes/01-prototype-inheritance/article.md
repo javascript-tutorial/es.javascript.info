@@ -2,7 +2,7 @@
 
 En programación, a menudo queremos tomar algo y extenderlo.
 
-Por ejemplo: tenemos un objeto `user` con sus propiedades y métodos, y queremos hacer que `admin` y `guest` sean variantes ligeramente modificadas del mismo. Nos gustaría reutilizar lo que tenemos en `user`, no copiar/reimplementar sus métodos, solo construir un nuevo objeto encima de él.
+Por ejemplo: tenemos un objeto `user` con sus propiedades y métodos, y queremos hacer que `admin` y `guest` sean variantes ligeramente modificadas del mismo. Nos gustaría reutilizar lo que tenemos en `user`, no queremos copiar/reimplementar sus métodos sino solo construir un nuevo objeto encima de él.
 
 *La herencia de prototipos* es una característica del lenguaje que ayuda en eso.
 
@@ -138,7 +138,7 @@ Tenga en cuenta que `__proto__` *no es lo mismo* que `[[Prototype]]`. `__proto__
 
 La propiedad `__proto__` es algo vetusta. Existe por razones históricas, el JavaScript moderno sugiere el uso de las funciones `Object.getPrototypeOf/Object.setPrototypeOf` en lugar de get/set del prototipo. Estudiaremos estas funciones más adelante.
 
-Según la especificación, solo los navegadores están obligados a dar soporte a `__proto__`. Aunque de hecho, todos los entornos incluyendo los del lado del servidor soportan `__proto__`, así que es bastante seguro usarlo.
+Según la especificación, solo los navegadores deben dar soporte a `__proto__`. Aunque de hecho, todos los entornos incluyendo los del lado del servidor soportan `__proto__`, así que es bastante seguro usarlo.
 
 Como la notación `__proto__` es más intuitiva, la usaremos en los ejemplos.
 ```
