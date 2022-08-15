@@ -139,11 +139,11 @@ function pow(x, n) {
 }
 ```
 	
-	Este tipo de comentarios nos permite entender el propósito de la función y cómo usarla de la manera correcta sin tener que examinar su código.
+Este tipo de comentarios nos permite entender el propósito de la función y cómo usarla de la manera correcta sin tener que examinar su código.
 	
-	Por cierto, muchos editores como [WebStorm](https://www.jetbrains.com/webstorm/) también pueden entenderlos y usarlos para proveer auto completado y algún tipo de verificación automática para el código.
+Por cierto, muchos editores como [WebStorm](https://www.jetbrains.com/webstorm/) también pueden entenderlos y usarlos para proveer auto completado y algún tipo de verificación automática para el código.
 	
-	Además, existen herramientas como [JSDoc 3](https://github.com/jsdoc3/jsdoc) que pueden generar documentación en formato HTML de los comentarios. Puedes leer más información sobre JSDoc en <https://jsdoc.app>.
+Además, existen herramientas como [JSDoc 3](https://github.com/jsdoc3/jsdoc) que pueden generar documentación en formato HTML de los comentarios. Puedes leer más información sobre JSDoc en <https://jsdoc.app>.
 
 ¿Por qué se resuelve de esa manera?
 : Lo que está escrito es importante. Pero lo que *no* está escrito puede ser aún más importante para entender qué está pasando. ¿Por qué resuelven la tarea exactamente de esa manera? El código no nos da ninguna respuesta.
