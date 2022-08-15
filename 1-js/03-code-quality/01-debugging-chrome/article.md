@@ -38,7 +38,7 @@ Si presionamos `Esc`, la consola se abrirá debajo. Podemos escribir los comando
 
 Después de que se ejecuta una sentencia, el resultado se muestra debajo.
 
-Por ejemplo, si colocamos `1+2` el resultado es `3`, y `hello("debugger")` no devuelve nada, entonces el resultado es `undefined`:
+Por ejemplo, si colocamos `1+2` el resultado es `3`, mientras la función llama `hello("debugger")` no devuelve nada, entonces el resultado es `undefined`:
 
 ![](chrome-sources-console.svg)
 
@@ -63,12 +63,12 @@ Siempre podemos encontrar una lista de los breakpoints en el panel derecho. Esto
 - ...y mucho más.
 
 ```smart header="Breakpoints Condicionales"
-*Click derecho* en el número de línea nos permite crear un breakpoint *concional*. Solo se ejecutará cuando la expresión sea verdadera.
+*Click derecho* en el número de línea nos permite crear un breakpoint *condicional*. Solo se ejecutará cuando la expresión, que debes proporcionar sea verdadera.
 
 Esto es útil cuando necesitamos detener la ejecución para cierto valor de variable o para ciertos párametros de función.
 ```
 
-## Comando debugger 
+## El comando "debugger"
 
 También podemos pausar el código utilizando el comando `debugger`, así:
 
@@ -84,8 +84,7 @@ function hello(name) {
 }
 ```
 
-Esto es muy conveniente cuando estamos en un editor de código.  No necesitamos cambiar al explorador y revisar el script en la consola de desarrolladores para setear el breakpoint.
-
+Dicho comando funciona solo cuando las herramientas del navegador están abiertas; de lo contrario el navegador lo ignora.
 
 ## Pausar y mirar alrededor
 
@@ -99,13 +98,13 @@ Por favor abre el desplegable de informacion de la derecha (etiquetado con flech
 
 1. **`Watch` -- muestra el valor actual de cualquier expresión.**
 
-    Puedes hacer click en el màs `+` y agregar una expresión. El debugger mostrará su valor en cualquier momento, y se recalcurará automáticamente en el proceso de ejecución.
+    Puede hacer clic en el signo más `+` e ingresar una expresión. El depurador mostrará su valor, recalculándolo automáticamente en el proceso de ejecución.
 
 2. **`Call Stack` -- muestra las llamadas anidadas en la cadena.**
 
     En el momento actual el debugger está dentro de la función `hello()`, llamada por un script en `index.html` (no dentro de ninguna función, por lo que se llama "anonymous").
-
     Si haces click en un elemento de la pila (por ejemplo "anonymous"), el debugger saltará al código correspondiente, y todas sus variables también serán examinadas.
+
 3. **`Scope` -- variables activas.**
 
     `Local` muestra las variables de la función local. También puedes ver sus valores resaltados sobre el código fuente.
@@ -120,7 +119,7 @@ Ahora es tiempo de *trazar* el script.
 
 Hay botones para esto en le panel superior derecho. Revisémoslos.
 
-<span class="devtools" style="background-position:-7px -76px"></span> -- continuar la ejecución, hotkey `key:F8`.
+<span class="devtools" style="background-position:-7px -76px"></span> -- "Continuar": continua con la ejecución, hotkey `key:F8`.
 : Reanudar la ejecución. Si no hay breakpoints adicionales, entonces la ejecución continúa y el debugger pierde el control.
 
     Esto es lo que podemos ver al hacer click:
@@ -129,20 +128,33 @@ Hay botones para esto en le panel superior derecho. Revisémoslos.
 
     La ejecución continuó, alcanzando el siguiente breakpoint dentro de `say()` y pausándose allí. Revisa el "Call stack" a la derecha. Ha incrementado su valor una llamada. Ahora estamos dentro de `say()`.
 
-<span class="devtools" style="background-position:-137px -76px"></span> -- siguiente paso (corre el comando siguiente), pero *no te metas en la función*, hotkey `key:F10`.
-: Si hacemos click , se mostrará el `alert`. Lo importante es que ese `alert` puede ser cualquier función, la ejecución "se para sobre ella", saltándose los pasos internos.
+<span class="devtools" style="background-position:-200px -190px"></span> -- "Acción": ejecuta el siguiente comando, hotkey `key:F9`.
+: Ejecute la siguiente instrucción. Si hacemos clic ahora, se mostrará `alerta`.
 
-<span class="devtools" style="background-position:-72px -76px"></span> -- siguiente paso, hotkey `key:F11`.
-: Es lo mismo que la anterior, pero "Entras" en las funciones anidadas. Haciendo click en este caminarás por todos los pasos uno por uno.
+    Al hacer clic aquí una y otra vez, recorrerá todas las instrucciones del script una por una.
 
-<span class="devtools" style="background-position:-104px -76px"></span> -- continuar la ejecución hasta el final de la función actual, hotkey `key:Shift+F11`.
-: La ejecucion se detendrá en la última línea de la función actual. Esto es útil cuando accidentalmente entramos en una llamada anidada usando <span class="devtools" style="background-position:-72px -76px"></span>, pero esto no nos interesa, y queremos continuar hasta el final tan rápido como se pueda.
+<span class="devtools" style="background-position:-137px -76px"></span> -- "El siguiente paso": corre el comando siguiente, pero *no te metas en la función*, hotkey `key:F10`.
+: Similar al comando del "Paso" anterior, pero se comporta de otra forma si la siguiente declaración es llamada de una función (no una función integrada, como `alerta`, sino una función propia).
+
+Si los comparamos, el comando "Acción" entra en una llamada de función anidada y detiene la ejecución en su primera línea, mientras que "El siguiente paso" ejecuta la llamada de función anidada de forma invisible para nosotros, omitiendo las funciones internas.
+
+    Luego, la ejecución se detiene inmediatamente después de esa llamada de función.
+
+    Eso es bueno si no estamos interesados ​​en ver qué sucede dentro de la llamada a la función.
+
+<span class="devtools" style="background-position:-4px -194px"></span> -- "Vamos", hotkey `key:F11`.
+: Es similar a la "Acción", pero se comporta de manera diferente en el caso de las llamadas a las funciones asincrónicas. Si recién está comenzando a aprender JavaScript, puede ignorar la diferencia, ya que aún no tenemos llamadas asincrónicas.
+
+    Para el futuro, solo tenga en cuenta que el comando "Acción" ignora las acciones asíncronas, como `setTimeout` (llamada de función programada), que se ejecutan más tarde. El "Vamos" entra en su código, esperándolos si es necesario. Consulte el [manual de DevTools](https://developers.google.com/web/updates/2018/01/devtools#async) para obtener más detalles.
+
+<span class="devtools" style="background-position:-32px -194px"></span> -- "Al final": continua con la ejecución hasta el fin de la actual función, hotkey (acceso rápido) `key:Shift+F11`.
+: continúa la ejecución y la detiene en la última línea de la función actual. Eso es útil cuando accidentalmente ingresamos una llamada anidada usando <span class="devtools" style="background-position:-200px -190px"></span>, pero no nos interesa y queremos continuar hasta su final lo antes posible.
 
 <span class="devtools" style="background-position:-7px -28px"></span> -- activar/desactivar todos los breakpoints.
 : Este botón no mueve la ejecución. Solo prende y apaga los breakpoints.
 
 <span class="devtools" style="background-position:-264px -4px"></span> -- activar/desactivar pausa automática en caso de error.
-: Cuando está activo y la consola de developers tools esta abierta, un error de script automáticamente pausa la ejecución. Entonces podemos analizar las variables para ver qué está mal. Y si nuestro script muere por un error, podemos abrir el debugger, activar esta opción y recargar la página para ver dónde muere y cuál es el contexto en ese momento.
+: Cuando está habilitado, si las herramientas para desarrolladores están abiertas, un error durante la ejecución del script lo detiene automáticamente. Luego podemos analizar las variables en el depurador (debugger) para ver qué salió mal. Entonces, si nuestro script muere con un error, podemos abrir el depurador (debugger), habilitar esta opción y volver a cargar la página para ver dónde muere y cuál es el contexto en ese momento.
 
 ```smart header="Continuar hasta aquí"
 Click derecho en un una línea de código abre el menú contextual con una gran opción que dice "Continua hasta aquí".
@@ -174,7 +186,7 @@ Como podemos ver, hay tres formas principales para pausar un script:
 2. La declaración `debugger`.
 3. Un error (Si la consola esta abierta y el botón <span class="devtools" style="background-position:-264px -4px"></span> esta "activo").
 
-Entonces podemos examinar las variables y paso a paso ver qué falla en el proceso de ejecución.
+Cuando está en pausa, podemos depurar: examinar variables y rastrear el código para ver dónde falla la ejecución.
 
 Hay muchas más opciones en la consola de desarrollo que las que se cubren aquí. El manual completo lo conseguimos en <https://developers.google.com/web/tools/chrome-devtools>.
 
