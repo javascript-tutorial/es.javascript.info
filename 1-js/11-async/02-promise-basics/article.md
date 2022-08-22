@@ -35,8 +35,13 @@ Para resumir: el ejecutor corre automáticamente e intenta realizar una tarea. C
 
 El objeto `promise` devuelto por el constructor `new Promise` tiene estas propiedades internas:
 
+<<<<<<< HEAD
 - `state` - inicialmente `"pendiente"`, luego cambia a `"cumplido"` cuando se llama a `resolve` o `"rechazado"` cuando se llama a `reject`.
 - `result` - inicialmente `undefined`, luego cambia a `valor` cuando se llama a `resolve(valor)` o `error` cuando se llama a `reject(error)`.
+=======
+- `state` — initially `"pending"`, then changes to either `"fulfilled"` when `resolve` is called or `"rejected"` when `reject` is called.
+- `result` — initially `undefined`, then changes to `value` when `resolve(value)` is called or `error` when `reject(error)` is called.
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 Entonces el ejecutor, en algún momento, pasa la `promise` a uno de estos estados:
 
@@ -280,7 +285,11 @@ Para summarizar:
 - Si el manejador de `finally` devuelve algo, será ignorado.
 - Cuando es `finally` el que dispara el error, la ejecución pasa al manejador de error más cercano.
 
+<<<<<<< HEAD
 Estas características son de ayuda y hacen que las cosas funcionen tal como corresponde si "finalizamos" con `finally` como se supone: con procedimientos de limpieza genéricos.
+=======
+These features are helpful and make things work just the right way if we use `finally` how it's supposed to be used: for generic cleanup procedures.
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 ````smart header="Podemos adjuntar manejadores a promesas ya establecidas"
 Si una promesa está pendiente, los manejadores `.then/catch/finally` esperan por su resolución. 

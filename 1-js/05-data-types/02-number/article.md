@@ -334,15 +334,53 @@ alert( isFinite(num) );
 
 Ten en cuenta que un valor vacío o un string de solo espacios es tratado como `0` en todas las funciones numéricas incluyendo `isFinite`.  
 
+<<<<<<< HEAD
 ```smart header="Comparación con `Object.is`"
 Existe un método nativo especial `Object.is` que compara valores al igual que `===`, pero es más confiable para dos casos extremos:
+=======
+````smart header="`Number.isNaN` and `Number.isFinite`"
+[Number.isNaN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN) and [Number.isFinite](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isFinite) methods are the more "strict" versions of `isNaN` and `isFinite` functions. They do not autoconvert their argument into a number, but check if it belongs to the `number` type instead.
+
+- `Number.isNaN(value)` returns `true` if the argument belongs to the `number` type and it is `NaN`. In any other case it returns `false`.
+
+    ```js run
+    alert( Number.isNaN(NaN) ); // true
+    alert( Number.isNaN("str" / 2) ); // true
+
+    // Note the difference:
+    alert( Number.isNaN("str") ); // false, because "str" belongs to the string type, not the number type
+    alert( isNaN("str") ); // true, because isNaN converts string "str" into a number and gets NaN as a result of this conversion
+    ```
+
+- `Number.isFinite(value)` returns `true` if the argument belongs to the `number` type and it is not `NaN/Infinity/-Infinity`. In any other case it returns `false`.
+
+    ```js run
+    alert( Number.isFinite(123) ); // true
+    alert( Number.isFinite(Infinity) ); //false
+    alert( Number.isFinite(2 / 0) ); // false
+
+    // Note the difference:
+    alert( Number.isFinite("123") ); // false, because "123" belongs to the string type, not the number type
+    alert( isFinite("123") ); // true, because isFinite converts string "123" into a number 123
+    ```
+
+In a way, `Number.isNaN` and `Number.isFinite` are simpler and more straightforward than `isNaN` and `isFinite` functions. In practice though, `isNaN` and `isFinite` are mostly used, as they're shorter to write.
+````
+
+```smart header="Comparison with `Object.is`"
+There is a special built-in method `Object.is` that compares values like `===`, but is more reliable for two edge cases:
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 1. Funciona con `NaN`: `Object.is(NaN, NaN) === true`, lo que es una buena cosa.
 2. Los valores `0` y `-0` son diferentes: `Object.is(0, -0) === false`. `false` es técnicamente correcto, porque internamente el número puede tener el bit de signo diferente incluso aunque todos los demás sean ceros.
 
 En todos los demás casos, `Object.is(a, b)` es lo mismo que `a === b`.
 
+<<<<<<< HEAD
 Esta forma de comparación se usa a menudo en la especificación JavaScript. Cuando un algoritmo interno necesita comparar que dos valores sean exactamente iguales, usa `Object.is` (internamente llamado [SameValue](https://tc39.github.io/ecma262/#sec-samevalue)).
+=======
+We mention `Object.is` here, because it's often used in JavaScript specification. When an internal algorithm needs to compare two values for being exactly the same, it uses `Object.is` (internally called [SameValue](https://tc39.github.io/ecma262/#sec-samevalue)).
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 ```
 
 
@@ -434,8 +472,15 @@ Para sistemas numéricos diferentes:
 
 Para tests de números regulares:
 
+<<<<<<< HEAD
 - `isNaN(value)` convierte su argumento a number y luego verifica si es `NaN`
 - `isFinite(value)` convierte su argumento a number y devuelve `true` si es un número regular, no `NaN/Infinity/-Infinity`
+=======
+- `isNaN(value)` converts its argument to a number and then tests it for being `NaN`
+- `Number.isNaN(value)` checks whether its argument belongs to the `number` type, and if so, tests it for being `NaN`
+- `isFinite(value)` converts its argument to a number and then tests it for not being `NaN/Infinity/-Infinity`
+- `Number.isFinite(value)` checks whether its argument belongs to the `number` type, and if so, tests it for not being `NaN/Infinity/-Infinity`
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 Para convertir valores como `12pt` y `100px` a un número:
 

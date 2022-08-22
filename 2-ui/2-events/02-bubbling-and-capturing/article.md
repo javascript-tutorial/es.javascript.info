@@ -126,21 +126,36 @@ El estándar de [eventos del DOM](http://www.w3.org/TR/DOM-Level-3-Events/) desc
 2. Fase de objetivo -- el evento alcanza al elemento.
 3. Fase de propagación -- el evento se propaga hacia arriba del elemento.
 
+<<<<<<< HEAD
 Aquí está la imagen de un clic en `<td>` dentro de una tabla, tomada desde la especificación:
+=======
+Here's the picture, taken from the specification, of the capturing `(1)`, target `(2)` and bubbling `(3)` phases for a click event on a `<td>` inside a table:
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 ![](eventflow.svg)
 
 Se explica así: por un clic en `<td>` el evento va primero a través de la cadena de ancestros hacia el elemento (fase de captura), luego alcanza el objetivo y se desencadena ahí (fase de objetivo), y por último va hacia arriba (fase de propagación), ejecutando los manejadores en su camino.
 
+<<<<<<< HEAD
 **Antes solo hablamos de la propagación porque la fase de captura es raramente usada. Normalmente es invisible a nosotros.**
 
 Los manejadores agregados usando la propiedad `on<event>` ó usando atributos HTML ó `addEventListener(event, handler)` con dos argumentos no ejecutarán la fase de captura, únicamente ejecutarán la 2da y 3ra fase.
+=======
+Until now, we only talked about bubbling, because the capturing phase is rarely used.
+
+In fact, the capturing phase was invisible for us, because handlers added using `on<event>`-property or using HTML attributes or using two-argument `addEventListener(event, handler)` don't know anything about capturing, they only run on the 2nd and 3rd phases.
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 Para atrapar un evento en la fase de captura, necesitamos preparar la opción `capture` como `true` en el manejador:
 
 ```js
 elem.addEventListener(..., {capture: true})
+<<<<<<< HEAD
 // o, solo "true" es una forma más corta de {capture: true}
+=======
+
+// or, just "true" is an alias to {capture: true}
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 elem.addEventListener(..., true)
 ```
 
@@ -180,9 +195,16 @@ El código prepara manejadores de clic en *cada* elemento en el documento para v
 
 Si haces clic en `<p>`, verás que la secuencia es:
 
+<<<<<<< HEAD
 1. `HTML` -> `BODY` -> `FORM` -> `DIV` (fase de captura, el primer detector):
 2. `P` (fase de objetivo, se dispara dos veces, tan pronto como preparemos los dos detectores: de captura y propagación)
 3. `DIV` -> `FORM` -> `BODY` -> `HTML` (fase de propagación, el segundo detector).
+=======
+1. `HTML` -> `BODY` -> `FORM` -> `DIV -> P` (capturing phase, the first listener):
+2. `P` -> `DIV` -> `FORM` -> `BODY` -> `HTML` (bubbling phase, the second listener).
+
+Please note, the `P` shows up twice, because we've set two listeners: capturing and bubbling. The target triggers at the end of the first and at the beginning of the second phase.
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 Hay un propiedad `event.eventPhase` que nos dice el número de fase en la qué el evento fue capturado. Pero es raramente usada, ya que usualmente lo sabemos en el manejador.
 
@@ -199,7 +221,16 @@ elem.addEventListener("click", e => alert(2));
 ```
 ````
 
+<<<<<<< HEAD
 ## Resumen
+=======
+```smart header="The `event.stopPropagation()` during the capturing also prevents the bubbling"
+The `event.stopPropagation()` method and its sibling `event.stopImmediatePropagation()` can also be called on the capturing phase. Then not only the futher capturing is stopped, but the bubbling as well.
+
+In other words, normally the event goes first down ("capturing") and then up ("bubbling"). But if `event.stopPropagation()` is called during the capturing phase, then the event travel stops, no bubbling will occur.
+```
+
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 Cuando ocurre un evento, el elemento más anidado dónde ocurrió se reconoce como el "elemento objetivo" (`event.target`).
 
@@ -215,7 +246,11 @@ Cada manejador puede acceder a las propiedades del objeto `event`:
 
 Cualquier manejador de evento puede detener el evento al llamar `event.stopPropagation()`, pero no es recomendado porque no podemos realmente asegurar que no lo necesitaremos más adelante, quizá para completar diferentes cosas.
 
+<<<<<<< HEAD
 La fase de captura raramente es usada, usualmente manejamos los evento en propagación. Y hay una lógica atrás de eso.
+=======
+The capturing phase is used very rarely, usually we handle events on bubbling. And there's a logical explanation for that.
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 En el mundo real, cuando un accidente ocurre, las autoridades locales reaccionan primero. Ellos conocen mejor el área dónde ocurrió. Luego, si es necesario, autoridades de alto nivel.
 

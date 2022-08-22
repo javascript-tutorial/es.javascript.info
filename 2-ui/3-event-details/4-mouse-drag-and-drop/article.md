@@ -18,7 +18,11 @@ El algoritmo básico de Arrastrar y Soltar se ve así:
 2. En `mousemove` - moverlo cambiando `left/top` con `position:absolute`.
 3. En `mouseup` - realizar todas las acciones relacionadas con finalizar el Arrastrar y Soltar.
 
+<<<<<<< HEAD
 Esto es lo básico. Luego veremos como añadir características, como resaltar los elementos subyacentes mientras arrastramos sobre ellos.
+=======
+These are the basics. Later we'll see how to add other features, such as highlighting current underlying elements while we drag over them.
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 Aquí esta la implementación de arrastrar una pelota:
 

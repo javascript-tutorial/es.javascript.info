@@ -34,16 +34,26 @@ Es bueno recordar estos términos porque son usados en artículos para desarroll
 
 Los motores son complicados, pero los fundamentos son fáciles.
 
+<<<<<<< HEAD
 1. El motor (embebido si es un navegador) lee ("analiza") el script.
 2. Entonces convierte ("compila") el script a lenguaje máquina.
 3. y por último el código maquina se ejecuta muy rápido.
+=======
+1. The engine (embedded if it's a browser) reads ("parses") the script.
+2. Then it converts ("compiles") the script to machine code.
+3. And then the machine code runs, pretty fast.
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 El motor aplica optimizaciones en cada paso del proceso. Incluso observa como el script compilado se ejecuta, analiza los datos que fluyen a través de él y aplica optimizaciones al código maquina basadas en ese conocimiento.
 ```
 
 ## ¿Qué puede hacer JavaScript en el navegador?
 
+<<<<<<< HEAD
 JavaScript moderno es un lenguaje de programación "seguro". No proporciona acceso de bajo nivel a la memoria o la CPU (UCP), ya que se creó inicialmente para los navegadores los cuales no lo requieren.
+=======
+Modern JavaScript is a "safe" programming language. It does not provide low-level access to memory or the CPU, because it was initially created for browsers which do not require it.
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 Las capacidades de JavaScript dependen en gran medida en el entorno en que se ejecuta. Por ejemplo, [Node.JS](https://es.wikipedia.org/wiki/Node.js) soporta funciones que permiten a JavaScript leer y escribir archivos arbitrariamente, realizar solicitudes de red, etc.
 
@@ -59,7 +69,11 @@ Por ejemplo, en el navegador JavaScript es capaz de:
 
 ## ¿Qué NO PUEDE hacer JavaScript en el navegador?
 
+<<<<<<< HEAD
 Las capacidades de JavaScript en el navegador están limitadas por el bien de la seguridad de usuario. El objetivo es prevenir que una página maliciosa acceda a información privada o dañe los datos de usuario.
+=======
+JavaScript's abilities in the browser are limited to protect the user's safety. The aim is to prevent an evil webpage from accessing private information or harming the user's data.
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 Ejemplos de tales restricciones incluyen:
 
@@ -67,6 +81,7 @@ Ejemplos de tales restricciones incluyen:
 
   Los navegadores más modernos le permiten trabajar con archivos, pero el acceso es limitado y solo permitido si el usuario realiza ciertas acciones, como "arrastrar" un archivo a la ventana del navegador o seleccionarlo por medio de una etiqueta `<input`>.
 
+<<<<<<< HEAD
     Existen maneras de interactuar con la cámara, micrófono y otros dispositivos, pero eso requiere el permiso explícito del usuario. Por lo tanto, una página habilitada para JavaScript no puede habilitar una cámara web para observar el entorno y enviar la información a la [NSA](https://es.wikipedia.org/wiki/Agencia_de_Seguridad_Nacional).
 - Diferentes pestañas y ventanas generalmente no se conocen entre sí. A veces sí lo hacen, por ejemplo, cuando una ventana usa JavaScript para abrir otra. Pero incluso en este caso, JavaScript no puede acceder a la otra si provienen de diferentes sitios (de diferente dominio, protocolo o puerto).
 
@@ -78,6 +93,19 @@ Ejemplos de tales restricciones incluyen:
 ![](limitations.svg)
 
 Tales limitaciones no existen si JavaScript es usado fuera del navegador, por ejemplo, en un servidor. Los navegadores modernos también permiten complementos y extensiones que pueden solicitar permisos extendidos.
+=======
+    There are ways to interact with the camera/microphone and other devices, but they require a user's explicit permission. So a JavaScript-enabled page may not sneakily enable a web-camera, observe the surroundings and send the information to the [NSA](https://en.wikipedia.org/wiki/National_Security_Agency).
+- Different tabs/windows generally do not know about each other. Sometimes they do, for example when one window uses JavaScript to open the other one. But even in this case, JavaScript from one page may not access the other page if they come from different sites (from a different domain, protocol or port).
+
+    This is called the "Same Origin Policy". To work around that, *both pages* must agree for data exchange and must contain special JavaScript code that handles it. We'll cover that in the tutorial.
+
+    This limitation is, again, for the user's safety. A page from `http://anysite.com` which a user has opened must not be able to access another browser tab with the URL `http://gmail.com`, for example, and steal information from there.
+- JavaScript can easily communicate over the net to the server where the current page came from. But its ability to receive data from other sites/domains is crippled. Though possible, it requires explicit agreement (expressed in HTTP headers) from the remote side. Once again, that's a safety limitation.
+
+![](limitations.svg)
+
+Such limitations do not exist if JavaScript is used outside of the browser, for example on a server. Modern browsers also allow plugins/extensions which may ask for extended permissions.
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 ## ¿Qué hace a JavaScript único?
 
@@ -92,7 +120,11 @@ JavaScript es la única tecnología de los navegadores que combina estas tres co
 
 Eso es lo que hace a JavaScript único. Por esto es la herramienta mas extendida para crear interfaces de navegador.
 
+<<<<<<< HEAD
 Dicho esto, JavaScript también permite crear servidores, aplicaciones móviles, etc.
+=======
+That said, JavaScript can be used to create servers, mobile applications, etc.
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 ## Lenguajes "por arriba de" JavaScript
 
@@ -100,12 +132,17 @@ La sintaxis de JavaScript no se adapta a las necesidades de todos. Personas dife
 
 Esto es algo obvio, porque los proyectos y requerimientos son diferentes para cada persona.
 
+<<<<<<< HEAD
 Así que recientemente ha aparecido una gran cantidad de nuevos lenguajes, los cuales son _Convertidos_/_Transpilados_ a JavaScript antes de ser ejecutados en el navegador.
+=======
+So, recently a plethora of new languages appeared, which are *transpiled* (converted) to JavaScript before they run in the browser.
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 Las herramientas modernas hacen la conversión (Transpilación) muy rápida y transparente, permitiendo a los desarrolladores codificar en otros lenguajes y convertirlo automáticamente detrás de escena.
 
 Ejemplos de tales lenguajes:
 
+<<<<<<< HEAD
 - [CoffeeScript](https://coffeescript.org/) Es una "sintaxis azucarada" para JavaScript. Introduce una sintaxis corta, permitiéndonos escribir un código mas claro y preciso. Usualmente desarrolladores de Ruby prefieren este lenguaje.
 - [TypeScript](https://www.typescriptlang.org/) se concentra en agregar "tipado estricto" ("strict data typing") para simplificar el desarrollo y soporte de sistemas complejos. Es desarrollado por Microsoft.
 - [FLow](https://flow.org/) también agrega la escritura de datos, pero de una manera diferente. Desarrollado por Facebook.
@@ -114,6 +151,16 @@ Ejemplos de tales lenguajes:
 - [Kotlin](https://kotlinlang.org/docs/reference/js-overview.html) es un lenguaje moderno, seguro y conciso que puede apuntar al navegador o a Node.
 
 Hay más. Por supuesto, incluso si nosotros usamos alguno de estos lenguajes, deberíamos conocer también JavaScript para realmente entender qué estamos haciendo.
+=======
+- [CoffeeScript](https://coffeescript.org/) is "syntactic sugar" for JavaScript. It introduces shorter syntax, allowing us to write clearer and more precise code. Usually, Ruby devs like it.
+- [TypeScript](https://www.typescriptlang.org/) is concentrated on adding "strict data typing" to simplify the development and support of complex systems. It is developed by Microsoft.
+- [Flow](https://flow.org/) also adds data typing, but in a different way. Developed by Facebook.
+- [Dart](https://www.dartlang.org/) is a standalone language that has its own engine that runs in non-browser environments (like mobile apps), but also can be transpiled to JavaScript. Developed by Google.
+- [Brython](https://brython.info/) is a Python transpiler to JavaScript that enables the writing of applications in pure Python without JavaScript.
+- [Kotlin](https://kotlinlang.org/docs/reference/js-overview.html) is a modern, concise and safe programming language that can target the browser or Node.
+
+There are more. Of course, even if we use one of these transpiled languages, we should also know JavaScript to really understand what we're doing.
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 ## Resumen
 

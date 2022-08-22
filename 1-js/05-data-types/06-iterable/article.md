@@ -218,8 +218,13 @@ alert(arr.pop()); // Mundo (el método pop funciona)
 
 Lo mismo sucede para un iterable:
 
+<<<<<<< HEAD
 ```js
 // suponiendo que range se toma del ejemplo anterior
+=======
+```js run
+// assuming that range is taken from the example above
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 let arr = Array.from(range);
 alert(arr); // 1,2,3,4,5 (la conversión de matriz a cadena funciona)
 ```
@@ -233,8 +238,13 @@ El segundo argumento opcional `mapFn` puede ser una función que se aplicará a 
 
 Por ejemplo:
 
+<<<<<<< HEAD
 ```js
 // suponiendo que range se toma del ejemplo anterior
+=======
+```js run
+// assuming that range is taken from the example above
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 // el cuadrado de cada número
 let arr = Array.from(range, num => num * num);

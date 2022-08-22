@@ -262,8 +262,13 @@ El método [arr.lastIndexOf](mdn:js/Array/lastIndexOf) es lo mismo que `indexOf`
 ```js run
 let fruits = ['Apple', 'Orange', 'Apple']
 
+<<<<<<< HEAD
 alert( fruits.indexOf('Apple') ); // 0 (primera "Apple")
 alert( fruits.lastIndexOf('Apple') ); // 2 (última "Apple")
+=======
+alert( fruits.indexOf('Apple') ); // 0 (first Apple)
+alert( fruits.lastIndexOf('Apple') ); // 2 (last Apple)
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 ```
 
 ````smart header="El método `includes` maneja `NaN` correctamente"

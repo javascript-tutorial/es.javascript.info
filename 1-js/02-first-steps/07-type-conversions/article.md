@@ -67,8 +67,13 @@ Reglas de conversión numérica:
 |-------|-------------|
 |`undefined`|`NaN`|
 |`null`|`0`|
+<<<<<<< HEAD
 |<code>true&nbsp;and&nbsp;false</code> | `1` y `0` |
 | `string` | Se eliminan los espacios al inicio y final del texto. Si el string resultante es vacío, el resultado es `0`, en caso contrario el número es "leído" del string. Un error devuelve `NaN`. |
+=======
+|<code>true&nbsp;and&nbsp;false</code> | `1` and `0` |
+| `string` | Whitespaces (includes spaces, tabs `\t`, newlines `\n` etc.) from the start and end are removed. If the remaining string is empty, the result is `0`. Otherwise, the number is "read" from the string. An error gives `NaN`. |
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 Ejemplos:
 
@@ -140,7 +145,11 @@ La conversión sigue las reglas:
 |`undefined`|`NaN`|
 |`null`|`0`|
 |<code>true&nbsp;/&nbsp;false</code> | `1 / 0` |
+<<<<<<< HEAD
 | `string` | El string es leído "como es", los espacios en blanco tanto al inicio como al final son ignorados. Un string vacío se convierte en `0`. Un error entrega `NaN`. |
+=======
+| `string` | The string is read "as is", whitespaces (includes spaces, tabs `\t`, newlines `\n` etc.) from both sides are ignored. An empty string becomes `0`. An error gives `NaN`. |
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 **`ToBoolean`** -- Ocurren en operaciones lógicas. Se puede realizar con `Boolean(value)`.
 

@@ -141,7 +141,11 @@ Usémoslo para buscar precios en el formato "moneda, seguido de un dígito":
 ```js run
 let regexp = /\p{Sc}\d/gu;
 
+<<<<<<< HEAD
 let  str = `Precios: $2, €1, ¥9`;
+=======
+let str = `Prices: $2, €1, ¥9`;
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 alert( str.match(regexp) ); // $2,€1,¥9
 ```

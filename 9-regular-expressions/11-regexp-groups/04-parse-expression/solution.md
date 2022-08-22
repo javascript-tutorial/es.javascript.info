@@ -8,10 +8,17 @@ Necesitamos un número, un operador y luego otro número. Y espacios opcionales 
 
 La expresión regular completa: `pattern:-?\d+(\.\d+)?\s*[-+*/]\s*-?\d+(\.\d+)?`.
 
+<<<<<<< HEAD
 Tiene 3 partes, con `pattern:\s*` en medio de ellas:
 1. `pattern:-?\d+(\.\d+)?` - el primer número,
 1. `pattern:[-+*/]` - el operador,
 1. `pattern:-?\d+(\.\d+)?` - el segundo número.
+=======
+It has 3 parts, with `pattern:\s*` between them:
+1. `pattern:-?\d+(\.\d+)?` - the first number,
+2. `pattern:[-+*/]` - the operator,
+3. `pattern:-?\d+(\.\d+)?` - the second number.
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 Para hacer que cada una de estas partes sea un elemento separado del array de resultados, encerrémoslas entre paréntesis: `pattern:(-?\d+(\.\d+)?)\s*([-+*/])\s*(-?\d+(\.\d+)?)`.
 
@@ -53,4 +60,18 @@ function parse(expr) {
 }
 
 alert( parse("-1.23 * 3.45") );  // -1.23, *, 3.45
+```
+
+As an alternative to using the non-capturing `?:`, we could name the groups, like this:
+
+```js run
+function parse(expr) {
+	let regexp = /(?<a>-?\d+(?:\.\d+)?)\s*(?<operator>[-+*\/])\s*(?<b>-?\d+(?:\.\d+)?)/;
+
+	let result = expr.match(regexp);
+
+	return [result.groups.a, result.groups.operator, result.groups.b];
+}
+
+alert( parse("-1.23 * 3.45") );  // -1.23, *, 3.45;
 ```

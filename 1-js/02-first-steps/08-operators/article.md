@@ -194,6 +194,7 @@ Aquí hay un extracto de la [tabla de precedencia](https://developer.mozilla.org
 | Precedencia| Nombre | Signo |
 |------------|------|------|
 | ... | ... | ... |
+<<<<<<< HEAD
 | 15 | suma unaria | `+` |
 | 15 | negación unaria | `-` |
 | 14 | exponenciación | `**` |
@@ -201,11 +202,24 @@ Aquí hay un extracto de la [tabla de precedencia](https://developer.mozilla.org
 | 13 | división | `/` |
 | 12 | suma | `+` |
 | 12 | resta | `-` |
+=======
+| 14 | unary plus | `+` |
+| 14 | unary negation | `-` |
+| 13 | exponentiation | `**` |
+| 12 | multiplication | `*` |
+| 12 | division | `/` |
+| 11 | addition | `+` |
+| 11 | subtraction | `-` |
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 | ... | ... | ... |
 | 2 | asignación | `=` |
 | ... | ... | ... |
 
+<<<<<<< HEAD
 Como podemos ver, la "suma unaria" tiene una prioridad de `15`, que es mayor que el `12` de "suma" (suma binaria). Es por eso que, en la expresión `"+apples + +oranges"`, las sumas unarias se hacen antes de la adición.
+=======
+As we can see, the "unary plus" has a priority of `14` which is higher than the `11` of "addition" (binary plus). That's why, in the expression `"+apples + +oranges"`, unary pluses work before the addition.
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 ## Asignación
 
@@ -303,9 +317,13 @@ Tales operadores tienen la misma precedencia que la asignación normal, por lo t
 ```js run
 let n = 2;
 
-n *= 3 + 5;
+n *= 3 + 5; // right part evaluated first, same as n *= 8
 
+<<<<<<< HEAD
 alert( n ); // 16  (lado derecho evaluado primero, lo mismo que n *= 8)
+=======
+alert( n ); // 16  
+>>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 ```
 
 ## Incremento/decremento
