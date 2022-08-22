@@ -69,9 +69,6 @@ Reglas de conversión numérica:
 |`null`|`0`|
 |<code>true&nbsp;and&nbsp;false</code> | `1` y `0` |
 | `string` | Se eliminan los espacios (incluye espacios, tabs `\t`, saltos de línea `\n`, etc.) al inicio y final del texto. Si el string resultante es vacío, el resultado es `0`, en caso contrario el número es "leído" del string. Un error devuelve `NaN`. |
-=======
-| `string` | Whitespaces (includes spaces, tabs `\t`, newlines `\n` etc.) from the start and end are removed. If the remaining string is empty, the result is `0`. Otherwise, the number is "read" from the string. An error gives `NaN`. |
->>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 Ejemplos:
 
