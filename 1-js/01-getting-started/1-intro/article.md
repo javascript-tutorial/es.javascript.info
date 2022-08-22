@@ -92,11 +92,7 @@ JavaScript es la única tecnología de los navegadores que combina estas tres co
 
 Eso es lo que hace a JavaScript único. Por esto es la herramienta mas extendida para crear interfaces de navegador.
 
-<<<<<<< HEAD
 Dicho esto, JavaScript también permite crear servidores, aplicaciones móviles, etc.
-=======
-That said, JavaScript can be used to create servers, mobile applications, etc.
->>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 ## Lenguajes "por arriba de" JavaScript
 
