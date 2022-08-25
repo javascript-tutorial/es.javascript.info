@@ -206,17 +206,13 @@ function showMessage(from, *!*text = "sin texto"*/!*) {
 showMessage("Ann"); // Ann: sin texto
 ```
 
-<<<<<<< HEAD
-Ahora, si no existe el parámetro `text`, obtendrá el valor `"sin texto"`
-=======
-Now if the `text` parameter is not passed, it will get the value `"no text given"`.
+Ahora, si no se pasa el parámetro `text`, obtendrá el valor `"sin texto"`
 
 The default value also jumps in if the parameter exists, but strictly equals `undefined`, like this:
 
 ```js
-showMessage("Ann", undefined); // Ann: no text given
+showMessage("Ann", undefined); // Ann: sin texto
 ```
->>>>>>> 1edb0a38330b54d2e1916f5193fc043e6fbbea78
 
 Aquí `"sin texto"` es un string, pero puede ser una expresión más compleja, la cual solo es evaluada y asignada si el parámetro falta. Entonces, esto también es posible:
 
