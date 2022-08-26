@@ -445,7 +445,7 @@ Existen 3 métodos en JavaScript para obtener un substring: `substring`, `substr
     alert( str.substr(-4, 2) ); // gi, desde la 4ta posición toma 2 caracteres
     ```
 
-    Este método reside en el [Anexo B](https://tc39.es/ecma262/#sec-string.prototype.substr) de la especificación del lenguaje. Esto significa que solo deben darle soporte los motores Javascript de los navegadores y no es recomendable su uso. En la práctica, es soportado en todos lados.
+    Este método reside en el [Anexo B](https://tc39.es/ecma262/#sec-string.prototype.substr) de la especificación del lenguaje. Esto significa que solo necesitan darle soporte los motores Javascript de los navegadores, y no es recomendable su uso. Pero en la práctica, es soportado en todos lados.
 
 Recapitulemos los métodos para evitar confusiones:
 
@@ -456,7 +456,7 @@ Recapitulemos los métodos para evitar confusiones:
 | `substr(comienzo, largo)` | desde `comienzo` toma `largo` caracteres        | permite negativos `comienzo`  |
 
 ```smart header="¿Cuál elegir?"
-Todos son capaces de hacer el trabajo. Formalmente, `substr` tiene una pequeña desventaja: no es descrito en la especificación central de JavaScript, sino en el anexo B, el cual cubre características sólo de navegadores, que existen principalmente por razones históricas. Por lo que entornos sin navegador pueden fallar en compatibilidad. Pero en la práctica funciona en todos lados.
+Todos son capaces de hacer el trabajo. Formalmente, `substr` tiene una pequeña desventaja: no es descrito en la especificación central de JavaScript, sino en el anexo B, el cual cubre características sólo de navegadores, que existen principalmente por razones históricas. Por lo que entornos sin navegador pueden fallar en compatibilidad. Pero en la práctica, funciona en todos lados.
 
 De las otras dos variantes, `slice` es algo más flexible, permite argumentos negativos y es más corta. Entones, es suficiente con, de estos tres métodos, recordar únicamente `slice`.
 ```
