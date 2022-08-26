@@ -290,8 +290,8 @@ Esta notación puede ser acortada utilizando los operadores `+=` y `*=`:
 
 ```js run
 let n = 2;
-n += 5; // ahora n = 7 (lo mismo que n = n + 5)
-n *= 2; // ahora n = 14 (lo mismo que n = n * 2)
+n += 5; // ahora n = 7  (es lo mismo que n = n + 5)
+n *= 2; // ahora n = 14 (es lo mismo que n = n * 2)
 
 alert( n ); // 14
 ```
@@ -303,7 +303,7 @@ Tales operadores tienen la misma precedencia que la asignación normal, por lo t
 ```js run
 let n = 2;
 
-n *= 3 + 5; // lado derecho evaluado primero, es lo mismo que n *= 8
+n *= 3 + 5; // el lado derecho es evaluado primero, es lo mismo que n *= 8
 
 alert( n ); // 16  
 ```
