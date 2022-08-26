@@ -335,7 +335,7 @@ alert( isFinite(num) );
 Ten en cuenta que un valor vacío o un string de solo espacios es tratado como `0` en todas las funciones numéricas incluyendo `isFinite`.  
 
 ````smart header="`Number.isNaN` y `Number.isFinite`"
-Los métodos [Number.isNaN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN) y [Number.isFinite](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isFinite) son versiones más estrictas de las funciones `isNaN` e `isFinite`. No autoconvierten sus argumentos a `number`, en cambio verifican que pertenezcan al tipo de dato `number`.
+Los métodos [Number.isNaN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN) y [Number.isFinite](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Number/isFinite) son versiones más estrictas de las funciones `isNaN` e `isFinite`. No autoconvierten sus argumentos a `number`, en cambio verifican que pertenezcan al tipo de dato `number`.
 
 - `Number.isNaN(value)` devuelve `true` si el argumento pertenece al tipo de dato `number` y si es `NaN`. En cualquier otro caso devuelve `false`.
 
@@ -356,11 +356,11 @@ Los métodos [Number.isNaN](https://developer.mozilla.org/en-US/docs/Web/JavaScr
     alert( Number.isFinite(2 / 0) ); // false
 
     // Note la diferencia:
-    alert( Number.isFinite("123") ); // false, poerque "123" pertenece a "string", no a "number"
+    alert( Number.isFinite("123") ); // false, porque "123" pertenece a "string", no a "number"
     alert( isFinite("123") ); // true, porque isFinite convierte el string "123" al number 123
     ```
 
-En un sentido, `Number.isNaN` y `Number.isFinite` son más simples y directas que las funciones `isNaN` e `isFinite`. Pero en la práctica `isNaN` e `isFinite` son las más usadas porque son más cortas.
+En un sentido, `Number.isNaN` y `Number.isFinite` son más simples y directas que las funciones `isNaN` e `isFinite`. Pero en la práctica `isNaN` e `isFinite` son las más usadas, porque son más cortas.
 ````
 
 ```smart header="Comparación con `Object.is`"
@@ -369,7 +369,7 @@ Existe un método nativo especial, `Object.is`, que compara valores al igual que
 1. Funciona con `NaN`: `Object.is(NaN, NaN) === true`, lo que es una buena cosa.
 2. Los valores `0` y `-0` son diferentes: `Object.is(0, -0) === false`. `false` es técnicamente correcto, porque internamente el número puede tener el bit de signo diferente incluso aunque todos los demás sean ceros.
 
-En todos los demás casos, `Object.is(a, b)` es lo mismo que `a === b`.
+En todos los demás casos, `Object.is(a, b)` equivale `a === b`.
 
 Mencionamos `Object.is` aqui porque se usa a menudo en la especificación JavaScript. Cuando un algoritmo interno necesita comparar que dos valores sean exactamente iguales, usa `Object.is` (internamente llamado [SameValue](https://tc39.github.io/ecma262/#sec-samevalue)).
 ```
@@ -463,9 +463,9 @@ Para sistemas numéricos diferentes:
 Para tests de números regulares:
 
 - `isNaN(value)` convierte su argumento a number y luego verifica si es `NaN`
-- - `Number.isNaN(value)` verifica que su argumento pertenezca a `number`, y si lo hace, verifica si es `NaN`
+- - `Number.isNaN(value)` verifica que el tipo de dato sea `number`, y si lo es, verifica si es `NaN`
 - `isFinite(value)` convierte su argumento a number y devuelve `true` si es un número regular, no `NaN/Infinity/-Infinity`
-- `Number.isFinite(value)` verifica que su argumento pertenezca a `number`, y si lo hace, verifica que no sea `NaN/Infinity/-Infinity`
+- `Number.isFinite(value)` verifica que el tipo de dato sea `number`, y si lo es, verifica que no sea `NaN/Infinity/-Infinity`
 
 Para convertir valores como `12pt` y `100px` a un número:
 
