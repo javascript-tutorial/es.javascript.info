@@ -79,7 +79,7 @@ De tal forma, el desarrollo es iterativo. Escribimos la especificación, la impl
 
 Veamos el flujo de desarrollo en nuestro caso práctico.
 
-El primer paso fue completado, pues ya tenemos una spec inicial para `pow`. Ahora, antes de realizar la implementación, usemos algunas librerías JavaScript para ejecutar los tests, solo para verificar que funcionan (van a fallar todos).
+El primer paso ya está completo: tenemos una spec inicial para `pow`. Ahora, antes de realizar la implementación, usemos algunas librerías JavaScript para ejecutar los tests, solo para verificar que funcionan (van a fallar todos).
 
 ## La spec en acción
 
