@@ -55,7 +55,7 @@ function parse(expr) {
 alert( parse("-1.23 * 3.45") );  // -1.23, *, 3.45
 ```
 
-As an alternative to using the non-capturing `?:`, we could name the groups, like this:
+Como alternativa al uso de la exclusión de captura `?:`, podemos dar nombre a los grupos:
 
 ```js run
 function parse(expr) {
