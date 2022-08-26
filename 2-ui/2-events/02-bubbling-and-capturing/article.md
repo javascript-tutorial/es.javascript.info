@@ -126,7 +126,7 @@ El estándar de [eventos del DOM](http://www.w3.org/TR/DOM-Level-3-Events/) desc
 2. Fase de objetivo -- el evento alcanza al elemento.
 3. Fase de propagación -- el evento se propaga hacia arriba del elemento.
 
-Esta (tomada de la especificación) es la imagen de las fases de captura `(1)`, objetivo `(2)`, y propagación `(3)`, de un evento click en un `<td>` dentro de una tabla:
+Aquí (tomada de la especificación), tenemos la imagen de las fases de captura `(1)`, objetivo `(2)`, y propagación `(3)`, de un evento click en un `<td>` dentro de una tabla:
 
 ![](eventflow.svg)
 
@@ -185,12 +185,12 @@ Si haces clic en `<p>`, verás que la secuencia es:
 1. `HTML` -> `BODY` -> `FORM` -> `DIV` (fase de captura, el primer detector o "listener"):
 2. `P` -> `DIV` -> `FORM` -> `BODY` -> `HTML` (fase de propagación, el segundo detector).
 
-Nota que `P` aparece dos veces, porque establecimos dos listeners: captura y propagación. Los The target triggers at the end of the first and at the beginning of the second phase.
+Nota que `P` aparece dos veces, porque establecimos dos listeners: captura y propagación. Se disparan en el objtivo al final de la primera fase y al principio de la segunda fase.
 
-Hay un propiedad `event.eventPhase` que nos dice el número de fase en la qué el evento fue capturado. Pero es raramente usada, ya que usualmente lo sabemos en el manejador.
+Hay un propiedad `event.eventPhase` que nos dice el número de fase en la que el evento fue capturado. Pero es raramente usada, ya que usualmente lo sabemos en el manejador.
 
 ```smart header="Para quitar el manejador, `removeEventListener` necesita la misma fase"
-Si nosotros agregamos `addEventListener(..., true)`, entonces deberíamos mencionar la misma fase en `removeEventListener(..., true)` para remover el manejador correctamente.
+Si nosotros agregamos `addEventListener(..., true)`, entonces debemos mencionar la misma fase en `removeEventListener(..., true)` para remover el manejador correctamente.
 ```
 
 ````smart header="Detectores de eventos en el mismo elemento y en la misma fase se ejecutan en el orden de asignación"
@@ -203,9 +203,9 @@ elem.addEventListener("click", e => alert(2));
 ````
 
 ```smart header="`event.stopPropagation()` durante la captura también evita la propagación"
-El método `event.stopPropagation()` y su hermano `event.stopImmediatePropagation()` también pueden ser llamados en la fase de captura. Entonces no solo se detienen las capturas sino también la propagación.
+El método `event.stopPropagation()` y su hermano `event.stopImmediatePropagation()` también pueden ser llamados en la fase de captura. En este caso no solo se detienen las capturas sino también la propagación.
 
-En otras palabras, normalmente el evento primero va hacia abajo ("captura") y luego hacia arriba ("propagación"). Pero si se llama a `event.stopPropagation()` durante la fase de captura, se detiene la travesía del evento, no ocurrirá más la propagación.
+En otras palabras, normalmente el evento primero va hacia abajo ("captura") y luego hacia arriba ("propagación"). Pero si se llama a `event.stopPropagation()` durante la fase de captura, se detiene la travesía del evento, y la propagación no volverá a ocurrir.
 ```
 
 ## Resumen
@@ -224,7 +224,7 @@ Cada manejador puede acceder a las propiedades del objeto `event`:
 
 Cualquier manejador de evento puede detener el evento al llamar `event.stopPropagation()`, pero no es recomendado porque no podemos realmente asegurar que no lo necesitaremos más adelante, quizá para completar diferentes cosas.
 
-La fase de captura raramente es usada, usualmente manejamos los evento en la propagación. Y hay una explicación lógica.
+La fase de captura raramente es usada, usualmente manejamos los eventos en la propagación. Y hay una explicación lógica para ello.
 
 En el mundo real, cuando un accidente ocurre, las autoridades locales reaccionan primero. Ellos conocen mejor el área dónde ocurrió. Luego, si es necesario, las autoridades de alto nivel.
 
