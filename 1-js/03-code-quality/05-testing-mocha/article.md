@@ -75,7 +75,7 @@ El flujo de desarrollo se ve así:
 6. Ir a 3, actualizar la implementación hasta que los tests no den errores.
 7. Repetir pasos 3-6 hasta que la funcionalidad esté lista.
 
-De tal forma, el desarrollo es iterativo. Escribimos la especificación, la implementamos, nos aseguramos de que los tests pasen y entonces escribimos más tests y nos volvemos a asegurar de que pasen, etc. Al final tenemos una implementación funcionando con tests para ella.
+De tal forma, el desarrollo es iterativo. Escribimos la especificación, la implementamos, nos aseguramos de que los tests pasen, entonces escribimos más tests, y nos volvemos a asegurar de que pasen, etc. Al final tenemos una implementación funcionando con tests para ella.
 
 Veamos el flujo de desarrollo en nuestro caso práctico.
 
