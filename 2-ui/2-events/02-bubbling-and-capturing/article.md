@@ -126,7 +126,7 @@ El estándar de [eventos del DOM](http://www.w3.org/TR/DOM-Level-3-Events/) desc
 2. Fase de objetivo -- el evento alcanza al elemento.
 3. Fase de propagación -- el evento se propaga hacia arriba del elemento.
 
-Esta es (tomada de la especificación) la imagen de las fases de captura `(1)`, objetivo `(2), y propagación `(3)`, de un evento click en `<td>` dentro de una tabla:
+Esta (tomada de la especificación) es la imagen de las fases de captura `(1)`, objetivo `(2)`, y propagación `(3)`, de un evento click en un `<td>` dentro de una tabla:
 
 ![](eventflow.svg)
 
