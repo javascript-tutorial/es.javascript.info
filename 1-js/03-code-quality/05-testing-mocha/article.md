@@ -67,19 +67,19 @@ La especificación puede ser ejecutada, y hará los los test dictados en el bloq
 
 El flujo de desarrollo se ve así:
 
-1. Un spec inicial es escrito, con tests para la funcionalidad más básica.
-2. Una implementación inicial es creada.
-3. Para comprobar que funciona, ejecutamos el framework de test [Mocha](http://mochajs.org/) (detallado más adelante) que ejecuta el spec.  Mostrará los errores mientras la funcionalidad no esté completa. Hacemos correcciones hasta que todo funciona.
+1. Se escribe una spec inicial, con tests para la funcionalidad más básica.
+2. Se crea Una implementación inicial.
+3. Para comprobar que funciona, ejecutamos el framework de test [Mocha](http://mochajs.org/) (detallado más adelante) que ejecuta la spec.  Mostrará los errores mientras la funcionalidad no esté completa. Hacemos correcciones hasta que todo funciona.
 4. Ahora tenemos una implementación inicial con tests.
-5. Añadimos más casos de uso al spec, seguramente no soportados aún por la implementación. Los tests empiezan a fallar.
+5. Añadimos más casos de uso a la spec, seguramente no soportados aún por la implementación. Los tests empiezan a fallar.
 6. Ir a 3, actualizar la implementación hasta que los tests no den errores.
-7. Repetir pasos 3-6 hasta que la funcionalidad este lista.
+7. Repetir pasos 3-6 hasta que la funcionalidad esté lista.
 
-De tal forma que el desarrollo es iterativo. Escribimos la especificación, la implementamos, aseguramos que los tests pasen y entonces escribimos más tests y volvemos a asegurar que pasen, etc. Al final tenemos una implementación funcionando con tests para ella.
+De tal forma, el desarrollo es iterativo. Escribimos la especificación, la implementamos, nos aseguramos de que los tests pasen y entonces escribimos más tests y nos volvemos a asegurar de que pasen, etc. Al final tenemos una implementación funcionando con tests para ella.
 
 Veamos el flujo de desarrollo en nuestro caso práctico.
 
-El primer paso fue completado: ya tenemos una spec inicial para `pow`. Ahora, antes de realizar la implementación, usemos algunas librerías JavaScript para ejecutar los tests, solo para verificar que funcionan (van a fallar todos).
+El primer paso fue completado, pues ya tenemos una spec inicial para `pow`. Ahora, antes de realizar la implementación, usemos algunas librerías JavaScript para ejecutar los tests, solo para verificar que funcionan (van a fallar todos).
 
 ## La spec en acción
 
