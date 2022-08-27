@@ -369,7 +369,7 @@ Existe un método nativo especial, `Object.is`, que compara valores al igual que
 1. Funciona con `NaN`: `Object.is(NaN, NaN) === true`, lo que es una buena cosa.
 2. Los valores `0` y `-0` son diferentes: `Object.is(0, -0) === false`. `false` es técnicamente correcto, porque internamente el número puede tener el bit de signo diferente incluso aunque todos los demás sean ceros.
 
-En todos los demás casos, `Object.is(a, b)` equivale `a === b`.
+En todos los demás casos, `Object.is(a, b)` equivale a `a === b`.
 
 Mencionamos `Object.is` aqui porque se usa a menudo en la especificación JavaScript. Cuando un algoritmo interno necesita comparar que dos valores sean exactamente iguales, usa `Object.is` (internamente llamado [SameValue](https://tc39.github.io/ecma262/#sec-samevalue)).
 ```
