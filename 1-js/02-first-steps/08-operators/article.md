@@ -194,18 +194,18 @@ Aquí hay un extracto de la [tabla de precedencia](https://developer.mozilla.org
 | Precedencia| Nombre | Signo |
 |------------|------|------|
 | ... | ... | ... |
-| 15 | suma unaria | `+` |
-| 15 | negación unaria | `-` |
-| 14 | exponenciación | `**` |
-| 13 | multiplicación | `*` |
-| 13 | división | `/` |
-| 12 | suma | `+` |
-| 12 | resta | `-` |
+| 14 | suma unaria | `+` |
+| 14 | negación unaria | `-` |
+| 13 | exponenciación | `**` |
+| 12 | multiplicación | `*` |
+| 12 | división | `/` |
+| 11 | suma | `+` |
+| 11 | resta | `-` |
 | ... | ... | ... |
 | 2 | asignación | `=` |
 | ... | ... | ... |
 
-Como podemos ver, la "suma unaria" tiene una prioridad de `15`, que es mayor que el `12` de "suma" (suma binaria). Es por eso que, en la expresión `"+apples + +oranges"`, las sumas unarias se hacen antes de la adición.
+Como podemos ver, la "suma unaria" tiene una prioridad de `14`, que es mayor que el `11` de "suma" (suma binaria). Es por eso que, en la expresión `"+apples + +oranges"`, las sumas unarias se hacen antes de la adición.
 
 ## Asignación
 
@@ -290,8 +290,8 @@ Esta notación puede ser acortada utilizando los operadores `+=` y `*=`:
 
 ```js run
 let n = 2;
-n += 5; // ahora n = 7 (lo mismo que n = n + 5)
-n *= 2; // ahora n = 14 (lo mismo que n = n * 2)
+n += 5; // ahora n = 7  (es lo mismo que n = n + 5)
+n *= 2; // ahora n = 14 (es lo mismo que n = n * 2)
 
 alert( n ); // 14
 ```
@@ -303,9 +303,9 @@ Tales operadores tienen la misma precedencia que la asignación normal, por lo t
 ```js run
 let n = 2;
 
-n *= 3 + 5;
+n *= 3 + 5; // el lado derecho es evaluado primero, es lo mismo que n *= 8
 
-alert( n ); // 16  (lado derecho evaluado primero, lo mismo que n *= 8)
+alert( n ); // 16  
 ```
 
 ## Incremento/decremento

@@ -68,7 +68,7 @@ Reglas de conversión numérica:
 |`undefined`|`NaN`|
 |`null`|`0`|
 |<code>true&nbsp;and&nbsp;false</code> | `1` y `0` |
-| `string` | Se eliminan los espacios al inicio y final del texto. Si el string resultante es vacío, el resultado es `0`, en caso contrario el número es "leído" del string. Un error devuelve `NaN`. |
+| `string` | Se eliminan los espacios (incluye espacios, tabs `\t`, saltos de línea `\n`, etc.) al inicio y final del texto. Si el string resultante es vacío, el resultado es `0`, en caso contrario el número es "leído" del string. Un error devuelve `NaN`. |
 
 Ejemplos:
 
@@ -140,7 +140,7 @@ La conversión sigue las reglas:
 |`undefined`|`NaN`|
 |`null`|`0`|
 |<code>true&nbsp;/&nbsp;false</code> | `1 / 0` |
-| `string` | El string es leído "como es", los espacios en blanco tanto al inicio como al final son ignorados. Un string vacío se convierte en `0`. Un error entrega `NaN`. |
+| `string` | El string es leído "como es", los espacios en blanco (incluye espacios, tabs `\t`, saltos de línea `\n`, etc.) tanto al inicio como al final son ignorados. Un string vacío se convierte en `0`. Un error entrega `NaN`. |
 
 **`ToBoolean`** -- Ocurren en operaciones lógicas. Se puede realizar con `Boolean(value)`.
 

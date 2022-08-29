@@ -24,7 +24,7 @@ La palabra clave `function` va primero, luego va el *nombre de función*,  luego
 
 ```js
 function name(parameter1, parameter2, ... parameterN) {
-  ...body...
+ // body
 }
 ```
 
@@ -196,7 +196,7 @@ showMessage("Ann");
 
 Eso no es un error. La llamada mostraría `"Ann: undefined"`. Como no se pasa un valor de `text`, este se vuelve `undefined`.
 
-Podemos especificar un valor llamado "predeterminado" o "default" (que se usa si el argumento fue omitido) en la declaración de función usando `=`:
+Podemos especificar un valor llamado "predeterminado" o "por defecto" (es el valor que se usa si el argumento fue omitido) en la declaración de función usando `=`:
 
 ```js run
 function showMessage(from, *!*text = "sin texto"*/!*) {
@@ -206,7 +206,13 @@ function showMessage(from, *!*text = "sin texto"*/!*) {
 showMessage("Ann"); // Ann: sin texto
 ```
 
-Ahora, si no existe el parámetro `text`, obtendrá el valor `"sin texto"`
+Ahora, si no se pasa el parámetro `text`, obtendrá el valor `"sin texto"`
+
+El valor predeterminado también se asigna si el parámetro existe pero es estrictamente igual a `undefined`:
+
+```js
+showMessage("Ann", undefined); // Ann: sin texto
+```
 
 Aquí `"sin texto"` es un string, pero puede ser una expresión más compleja, la cual solo es evaluada y asignada si el parámetro falta. Entonces, esto también es posible:
 
