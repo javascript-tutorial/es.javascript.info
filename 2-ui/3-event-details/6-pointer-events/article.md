@@ -111,7 +111,11 @@ Las causas son:
 
 Demostraremos `pointercancel` en un ejemplo práctico para ver cómo nos afecta.
 
+<<<<<<< HEAD
 Digamos que queremos una implementación de "arrastrar y soltar" en una pelota, como la que está al principio del artículo <info:mouse-drag-and-drop>.
+=======
+Let's say we're implementing drag'n'drop for a ball, just as in the beginning of the article <info:mouse-drag-and-drop>.
+>>>>>>> 53b35c16835b7020a0a5046da5a47599d313bbb8
 
 A continuación, se muestra el flujo de acciones del usuario y los eventos correspondientes:
 

@@ -445,7 +445,13 @@ Existen 3 métodos en JavaScript para obtener un substring: `substring`, `substr
     alert( str.substr(-4, 2) ); // gi, desde la 4ta posición toma 2 caracteres
     ```
 
+<<<<<<< HEAD
 Recapitulemos los métodos para evitar confusiones:
+=======
+    This method resides in the [Annex B](https://tc39.es/ecma262/#sec-string.prototype.substr) of the language specification. It means that only browser-hosted Javascript engines should support it, and it's not recommended to use it. In practice, it's supported everywhere.
+
+Let's recap these methods to avoid any confusion:
+>>>>>>> 53b35c16835b7020a0a5046da5a47599d313bbb8
 
 | método                  | selecciona...                                  | negativos                |
 | ----------------------- | ------------------------------------------- | ------------------------ |

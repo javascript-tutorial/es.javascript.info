@@ -161,7 +161,11 @@ En el ejemplo a continuación, `id` se modifica como un atributo, y también pod
 </script>
 ```
 
+<<<<<<< HEAD
 Pero hay exclusiones, por ejemplo, `input.value` se sincroniza solo del atributo a la propiedad (atributo => propiedad), pero no de regreso:
+=======
+But there are exclusions, for instance `input.value` synchronizes only from attribute -> property, but not back:
+>>>>>>> 53b35c16835b7020a0a5046da5a47599d313bbb8
 
 ```html run
 <input>

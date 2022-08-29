@@ -28,7 +28,11 @@ Las clases son:
 
 - [Document](https://dom.spec.whatwg.org/#interface-document), por razones históricas, heredado a menudo por `HTMLDocument` (aunque la última especificación no lo exige) -- es el documento como un todo.
 
+<<<<<<< HEAD
     El objeto global `document` pertenece exactamente a esta clase. Sirve como punto de entrada al DOM.
+=======
+    The `document` global object belongs exactly to this class. It serves as an entry point to the DOM.
+>>>>>>> 53b35c16835b7020a0a5046da5a47599d313bbb8
 
 - [CharacterData](https://dom.spec.whatwg.org/#interface-characterdata) -- una clase "abstract" heredada por:
     - [Text](https://dom.spec.whatwg.org/#interface-text) -- la clase correspondiente a texto dentro de los elementos, por ejemplo `Hello` en `<p>Hello</p>`.

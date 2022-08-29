@@ -13,7 +13,11 @@ Para nombrar algunos (por razones históricas):
 - [CommonJS](http://wiki.commonjs.org/wiki/Modules/1.1) -- el sistema de módulos creado para el servidor Node.js.
 - [UMD](https://github.com/umdjs/umd) -- un sistema de módulos más, sugerido como universal, compatible con AMD y CommonJS.
 
+<<<<<<< HEAD
 Ahora, todo esto se convierte lentamente en una parte de la historia, pero aún podemos encontrarlos en viejos scripts.
+=======
+Now these all slowly became a part of history, but we still can find them in old scripts.
+>>>>>>> 53b35c16835b7020a0a5046da5a47599d313bbb8
 
 El sistema de módulos a nivel de idioma apareció en el estándar en 2015, evolucionó gradualmente desde entonces y ahora es compatible con todos los principales navegadores y en Node.js. Así que estudiaremos los módulos modernos de Javascript de ahora en adelante.
 

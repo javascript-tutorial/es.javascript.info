@@ -224,7 +224,11 @@ Esta característica nos permite integrar objetos personalizados con cadenas de 
 
 ## Ejemplo más grande: fetch
 
+<<<<<<< HEAD
 En la interfaz de programación, las promesas a menudo se usan para solicitudes de red. Así que veamos un ejemplo extendido de eso.
+=======
+In frontend programming, promises are often used for network requests. So let's see an extended example of that.
+>>>>>>> 53b35c16835b7020a0a5046da5a47599d313bbb8
 
 Utilizaremos el método [fetch](info:fetch) para cargar la información sobre el usuario desde el servidor remoto. Tiene muchos parámetros opcionales cubiertos en [capítulos separados](info:fetch), pero la sintaxis básica es bastante simple:
 

@@ -1,8 +1,12 @@
 # Bienvenidos nuevos contribuidores
 ## Tutorial moderno de JavaScript en Español
 
+<<<<<<< HEAD
 ```
 Novedades diciembre 2021: 
+=======
+This repository hosts the English content of the Modern JavaScript Tutorial, published at [https://javascript.info](https://javascript.info).
+>>>>>>> 53b35c16835b7020a0a5046da5a47599d313bbb8
 
 ¡¡ 90% !! (https://javascript.info/translate) solo 5 de los 50+ repos llegamos al tope. 
 
@@ -21,9 +25,15 @@ Y aún hay formas de colaborar:
   Las líneas modificadas con commit cuentan como contribución... 
   ... y mejoran el karma.
 
+<<<<<<< HEAD
 ```
 
 Abajo se les dan las instrucciones para comenzar a contribuir. Recuerden que al seleccionar un artículo, **deberán traducir todo su contenido**, incluidos los tasks y soluciones. No deben hacer PR si no está todo el artículo seleccionado traducido, haciendo esto, nos ayudarán a hacer mejores y más rápidas las revisiones.
+=======
+Something's wrong? A topic is missing? Explain it to people, add it as PR 👏
+
+**You can edit the text in any editor.** The tutorial uses an enhanced "markdown" format, easy to grasp. And if you want to see how it looks on-site, there's a server to run the tutorial locally at <https://github.com/javascript-tutorial/server>.
+>>>>>>> 53b35c16835b7020a0a5046da5a47599d313bbb8
 
 También aconsejamos cuidar la **ortografía**, lo que incluye no olvidar los acentos en las traducciones.
 
@@ -115,9 +125,15 @@ P.S. The full list of languages can be found at <https://javascript.info/transla
 
 ## Structure
 
+<<<<<<< HEAD
 Every chapter, an article or a task resides in its own folder.
 
 The folder is named `N-url`, where `N` – is the number for sorting (articles are ordered), and `url` is the URL-slug on the site.
+=======
+Every chapter, article, or task has its folder.
+
+The folder is named like `N-url`, where `N` is a number for the sorting purposes and `URL` is the URL part with the title of the material.
+>>>>>>> 53b35c16835b7020a0a5046da5a47599d313bbb8
 
 The folder has one of files:
 
