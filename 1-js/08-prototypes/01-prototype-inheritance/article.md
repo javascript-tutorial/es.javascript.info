@@ -2,7 +2,7 @@
 
 En programación, a menudo queremos tomar algo y extenderlo.
 
-Por ejemplo: tenemos un objeto `user` con sus propiedades y métodos, y queremos hacer que `admin` y `guest` sean variantes ligeramente modificadas del mismo. Nos gustaría reutilizar lo que tenemos en `user`, no queremos copiar/reimplementar sus métodos sino solo construir un nuevo objeto encima de él.
+Por ejemplo: tenemos un objeto `user` con sus propiedades y métodos, y queremos hacer que `admin` y `guest` sean variantes ligeramente modificadas del mismo. Nos gustaría reutilizar lo que tenemos en `user`; no queremos copiar ni reimplementar sus métodos, sino solamente construir un nuevo objeto encima de él.
 
 *La herencia de prototipos* es una característica del lenguaje que ayuda en eso.
 
@@ -138,7 +138,7 @@ Tenga en cuenta que `__proto__` *no es lo mismo* que `[[Prototype]]`. `__proto__
 
 La propiedad `__proto__` es algo vetusta. Existe por razones históricas, el JavaScript moderno sugiere el uso de las funciones `Object.getPrototypeOf/Object.setPrototypeOf` en lugar de get/set del prototipo. Estudiaremos estas funciones más adelante.
 
-Según la especificación, solo los navegadores deben dar soporte a `__proto__`. Aunque de hecho, todos los entornos incluyendo los del lado del servidor soportan `__proto__`, así que es bastante seguro usarlo.
+Según la especificación, solamente los navegadores deben dar soporte a `__proto__`. Aunque de hecho, todos los entornos, incluyendo los del lado del servidor, soportan `__proto__`, así que es bastante seguro usarlo.
 
 Como la notación `__proto__` es más intuitiva, la usaremos en los ejemplos.
 ```
@@ -317,7 +317,7 @@ Aquí tenemos la siguiente cadena de herencia: `rabbit` hereda de `animal`, que 
 
 Observa algo curioso. ¿De dónde viene el método `rabbit.hasOwnProperty`? No lo definimos. Mirando la cadena podemos ver que el método es proporcionado por `Object.prototype.hasOwnProperty`. En otras palabras, se hereda.
 
-... Pero, ¿por qué `hasOwnProperty` no aparece en el bucle `for..in` como `eats` y `jumps`, si `for..in` enumera las propiedades heredadas?
+... Pero ¿por qué `hasOwnProperty` no aparece en el bucle `for..in` como `eats` y `jumps`, si `for..in` enumera las propiedades heredadas?
 
 La respuesta es simple: no es enumerable. Al igual que todas las demás propiedades de `Object.prototype`, tiene la bandera `enumerable: false`. Y `for..in` solo enumera las propiedades enumerables. Es por eso que este y el resto de las propiedades de `Object.prototype` no están en la lista.
 
