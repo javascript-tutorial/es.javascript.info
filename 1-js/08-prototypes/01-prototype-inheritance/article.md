@@ -2,7 +2,7 @@
 
 En programación, a menudo queremos tomar algo y extenderlo.
 
-Por ejemplo: tenemos un objeto `user` con sus propiedades y métodos, y queremos hacer que `admin` y `guest` sean variantes ligeramente modificadas del mismo. Nos gustaría reutilizar lo que tenemos en `user`; no queremos copiar ni reimplementar sus métodos, sino solamente construir un nuevo objeto encima de él.
+Por ejemplo: tenemos un objeto `user` con sus propiedades y métodos, y queremos hacer que `admin` y `guest` sean variantes ligeramente modificadas del mismo. Nos gustaría reutilizar lo que tenemos en `user`; no queremos copiar ni reimplementar sus métodos, sino solamente construir un nuevo objeto encima del existente.
 
 *La herencia de prototipos* es una característica del lenguaje que ayuda en eso.
 
@@ -208,7 +208,7 @@ alert(admin.fullName); // Alice Cooper , estado de admin modificado
 alert(user.fullName); // John Smith , estado de user protegido
 ```
 
-Aquí, en la línea `(*)`, la propiedad `admin.fullName` tiene un getter en el prototipo `user`, y es llamado. Y en la línea `(**)`, la propiedad tiene un setter en el prototipo, por lo que es el llamado.
+Aquí, en la línea `(*)`, la propiedad `admin.fullName` tiene un getter en el prototipo `user`, entonces es llamado. Y en la línea `(**)`, la propiedad tiene un setter en el prototipo, por lo que es llamado.
 
 ## El valor de "this"
 
