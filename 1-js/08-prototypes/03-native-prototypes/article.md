@@ -50,7 +50,7 @@ Otros objetos integrados como `Array`, `Date` , `Function` y otros también mant
 
 Por ejemplo, cuando creamos una matriz `[1, 2, 3]`, el constructor predeterminado `new Array()` se usa internamente. Entonces `Array.prototype` se convierte en su prototipo y proporciona sus métodos. Eso es muy eficiente en memoria.
 
-Por especificación, todos los prototipos integrados tienen `Object.prototype` en la parte superior. Es por eso que algunas personas dicen que "todo hereda de los objetos".
+Por especificación, todos los prototipos integrados tienen `Object.prototype` en la parte superior. Es por eso que algunos dicen "todo hereda de los objetos".
 
 Aquí está la imagen general de 3 objetos integrados (3 para que quepan):
 
@@ -106,7 +106,7 @@ Como recordamos, no son objetos. Pero si tratamos de acceder a sus propiedades, 
 Estos objetos se crean de manera invisible para nosotros y la mayoría de los motores los optimizan, pero la especificación lo describe exactamente de esta manera. Los métodos de estos objetos también residen en prototipos, disponibles como `String.prototype`, `Number.prototype` y `Boolean.prototype`.
 
 ```warn header="Los valores `null` y `undefined` no tienen objetos contenedores"
-Los valores especiales `null` y `undefined` se distinguen. No tienen objetos contenedores, por lo que los métodos y propiedades no están disponibles para ellos. Y tampoco hay prototipos correspondientes.
+Los valores especiales `null` y `undefined` se distinguen. No tienen objetos contenedores, por lo que los métodos y propiedades no están disponibles para ellos. Y tampoco tienen prototipos.
 ```
 
 ## Cambiando prototipos nativos [#native-prototype-change]
@@ -134,7 +134,7 @@ Por lo tanto, en general, modificar un prototipo nativo se considera una mala id
 
 Cuando un método existe en la especificación de JavaScript, pero aún no está soportado por un motor de JavaScript en particular, podemos hacer "polyfill" (polirrelleno); esto es, crear un método sustituto. 
 
-Luego podemos implementarlo manualmente y llenar el prototipo integrado con él.
+Luego podemos implementarlo manualmente y completar el prototipo integrado con él.
 
 Por ejemplo:
 
