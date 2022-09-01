@@ -106,7 +106,7 @@ Como recordamos, no son objetos. Pero si tratamos de acceder a sus propiedades, 
 Estos objetos se crean de manera invisible para nosotros y la mayoría de los motores los optimizan, pero la especificación lo describe exactamente de esta manera. Los métodos de estos objetos también residen en prototipos, disponibles como `String.prototype`, `Number.prototype` y `Boolean.prototype`.
 
 ```warn header="Los valores `null` y `undefined` no tienen objetos contenedores"
-Los valores especiales `null` y `undefined` se distinguen. No tienen objetos contenedores, por lo que los métodos y propiedades no están disponibles para ellos. Y tampoco tienen prototipos.
+Los valores especiales `null` y `undefined` se distinguen. No tienen objetos contenedores, por lo que los métodos y propiedades no están disponibles para ellos. Y tampoco tienen los prototipos correspondientes.
 ```
 
 ## Cambiando prototipos nativos [#native-prototype-change]
