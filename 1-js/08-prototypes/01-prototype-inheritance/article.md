@@ -334,7 +334,7 @@ Solo operan en el objeto mismo. Las propiedades del prototipo *no* se tienen en 
 ## Resumen
 
 - En JavaScript, todos los objetos tienen una propiedad oculta `[[Prototype]]` que es: otro objeto, o `null`.
-- Podemos usar `obj.__proto__` para acceder a él (un getter/setter histórico, hay otras formas que se cubrirán pronto).
+- Podemos usar `obj.__proto__` para acceder a ella (un getter/setter histórico, también hay otras formas que se cubrirán pronto).
 - El objeto al que hace referencia `[[Prototype]]` se denomina "prototipo".
 - Si en `obj` queremos leer una propiedad o llamar a un método que no existe, entonces JavaScript intenta encontrarlos en el prototipo.
 - Las operaciones de escritura/eliminación actúan directamente sobre el objeto, no usan el prototipo (suponiendo que sea una propiedad de datos, no un setter).
