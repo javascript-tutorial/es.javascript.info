@@ -138,7 +138,11 @@ Tenga en cuenta que `__proto__` *no es lo mismo* que `[[Prototype]]`. `__proto__
 
 La propiedad `__proto__` es algo vetusta. Existe por razones históricas, el JavaScript moderno sugiere el uso de las funciones `Object.getPrototypeOf/Object.setPrototypeOf` en lugar de get/set del prototipo. Estudiaremos estas funciones más adelante.
 
-Según la especificación, solamente los navegadores deben dar soporte a `__proto__`. Aunque de hecho, todos los entornos, incluyendo los del lado del servidor, soportan `__proto__`, así que es bastante seguro usarlo.
+Según la especificación, solamente los navegadores debería
+
+
+
+n dar soporte a `__proto__`. Pero de hecho todos los entornos, incluyendo los del lado del servidor, soportan `__proto__`, así que es bastante seguro usarlo.
 
 Como la notación `__proto__` es más intuitiva, la usaremos en los ejemplos.
 ```
