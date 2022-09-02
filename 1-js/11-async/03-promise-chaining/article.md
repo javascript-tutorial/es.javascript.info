@@ -51,7 +51,6 @@ Cuando un controlador devuelve un valor, se convierte en el resultado de esa pro
 **Un error clásico de principiante: técnicamente también podemos agregar muchos '.then' a una sola promesa: eso no es encadenamiento.**
 
 Por ejemplo:
-
 ```js run
 let promise = new Promise(function(resolve, reject) {
   setTimeout(() => resolve(1), 1000);
@@ -83,9 +82,9 @@ Todos los '.then' en la misma promesa obtienen el mismo resultado: el resultado 
 
 En la práctica, rara vez necesitamos múltiples manejadores para una promesa. El encadenamiento se usa mucho más a menudo.
 
-## Retornando promesas
+## Devolviendo promesas
 
-Un controlador, utilizado en `.then(handler)` puede crear y devolver una promesa.
+Un controlador ("handler"), utilizado en `.then(handler)`, puede crear y devolver una promesa.
 
 En ese caso, otros manejadores esperan hasta que se estabilice (resuelva o rechace) y luego obtienen su resultado.
 
@@ -184,7 +183,7 @@ loadScript("/article/promise-chaining/one.js").then(script1 => {
 
 Este código hace lo mismo: carga 3 scripts en secuencia. Pero "crece hacia la derecha". Entonces tenemos el mismo problema que con los callbacks.
 
-Las personas que comienzan a usar promesas pueden desconocer el encadenamiento, y por ello escribirlo de esta manera. En general, se prefiere el encadenamiento.
+Quienes comienzan a usar promesas pueden desconocer el encadenamiento, y por ello escribirlo de esta manera. En general, se prefiere el encadenamiento.
 
 A veces es aceptable escribir `.then` directamente, porque la función anidada tiene acceso al ámbito externo. En el ejemplo anterior, el callback más anidado tiene acceso a todas las variables `script1`, `script2`, `script3`. Pero eso es una excepción más que una regla.
 
@@ -193,7 +192,7 @@ Para ser precisos, un controlador puede devolver no exactamente una promesa, sin
 
 La idea es que las librerías de terceros puedan implementar sus propios objetos "compatibles con la promesa". Pueden tener un conjunto extendido de métodos, pero también ser compatibles con las promesas nativas, porque implementan `.then`.
 
-Aquí hay un ejemplo de un objeto que se puede guardar:
+Aquí hay un ejemplo de un objeto "thenable":
 
 ```js run
 class Thenable {
@@ -224,7 +223,7 @@ Esta característica nos permite integrar objetos personalizados con cadenas de 
 
 ## Ejemplo más grande: fetch
 
-En la interfaz de programación, las promesas a menudo se usan para solicitudes de red. Así que veamos un ejemplo extendido de eso.
+En la programación "frontend", las promesas a menudo se usan para solicitudes de red. Veamos un ejemplo extendido de esto.
 
 Utilizaremos el método [fetch](info:fetch) para cargar la información sobre el usuario desde el servidor remoto. Tiene muchos parámetros opcionales cubiertos en [capítulos separados](info:fetch), pero la sintaxis básica es bastante simple:
 

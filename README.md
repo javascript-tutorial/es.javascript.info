@@ -115,9 +115,9 @@ P.S. The full list of languages can be found at <https://javascript.info/transla
 
 ## Structure
 
-Every chapter, an article or a task resides in its own folder.
+Every chapter, article, or task has its folder.
 
-The folder is named `N-url`, where `N` – is the number for sorting (articles are ordered), and `url` is the URL-slug on the site.
+The folder is named like `N-url`, where `N` is a number for the sorting purposes and `URL` is the URL part with the title of the material.
 
 The folder has one of files:
 
