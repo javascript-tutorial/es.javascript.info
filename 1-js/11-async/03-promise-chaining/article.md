@@ -84,7 +84,7 @@ En la práctica, rara vez necesitamos múltiples manejadores para una promesa. E
 
 ## Devolviendo promesas
 
-Un controlador utilizado en `.then(handler)` puede crear y devolver una promesa.
+Un controlador ("handler"), utilizado en `.then(handler)`, puede crear y devolver una promesa.
 
 En ese caso, otros manejadores esperan hasta que se estabilice (resuelva o rechace) y luego obtienen su resultado.
 
