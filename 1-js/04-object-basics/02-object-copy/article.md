@@ -307,7 +307,7 @@ structuredClone({
 
 Las propiedades de función no están soportadas.
 
-Para manejar estos casos complejos podemos necesitar una combinación de métodos de clonación, escribir código personalizado o, para no reinventar la rueda, tomar una implementación existente, por ejemplo [_.cloneDeep(obj)](https://lodash.com/docs#cloneDeep) de l librería JavaScript [lodash](https://lodash.com).
+Para manejar estos casos complejos podemos necesitar una combinación de métodos de clonación, escribir código personalizado o, para no reinventar la rueda, tomar una implementación existente, por ejemplo [_.cloneDeep(obj)](https://lodash.com/docs#cloneDeep) de la librería JavaScript [lodash](https://lodash.com).
 
 ## Resumen
 
@@ -315,4 +315,4 @@ Los objetos son asignados y copiados por referencia. En otras palabras, una vari
 
 Todas la operaciones a través de referencias copiadas (como agregar y borrar propiedades) son efectuadas en el mismo y único objeto .
 
-Para hacer una "verdadera copia" (un clon), podemos usar `Object.assign` para la denominada "clonación superficial" (los objetos anidados son copiados por referencia) o una función de "clonación profunda" como [_.cloneDeep(obj)](https://lodash.com/docs#cloneDeep).
+Para hacer una "verdadera copia" (un clon), podemos usar `Object.assign` para la denominada "clonación superficial" (los objetos anidados son copiados por referencia), o la función de "clonación profunda" `structuredClone` o usar una implementación personalizada como [_.cloneDeep(obj)](https://lodash.com/docs#cloneDeep).
