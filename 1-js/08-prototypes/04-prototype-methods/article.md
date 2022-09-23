@@ -173,7 +173,7 @@ Entonces, no hay getter/setter heredado para `__proto__`. Ahora se procesa como 
 
 Podemos llamar a estos objetos: objetos "muy simples" o "de diccionario puro", porque son aún más simples que el objeto simple normal `{...}`.
 
-Una desventaja es que dichos objetos carecen de métodos de objetos integrados, p.ej. `toString`:
+Una desventaja es que dichos objetos carecen de los métodos nativos que los objetos integrados sí tienen, p.ej. `toString`:
 
 ```js run
 *!*
@@ -183,7 +183,7 @@ let obj = Object.create(null);
 alert(obj); // Error (no hay toString)
 ```
 
-...Pero eso generalmente está bien para arreglos asociativas.
+...Pero eso generalmente está bien para arreglos asociativos.
 
 Tenga en cuenta que la mayoría de los métodos relacionados con objetos son `Object.algo(...)`, como `Object.keys(obj)`  y no están en el prototipo, por lo que seguirán trabajando en dichos objetos:
 

@@ -7,7 +7,7 @@ Para hacer que `toString` no sea enumerable, definámoslo usando un descriptor d
 *!*
 let dictionary = Object.create(null, {
   toString: { // define la propiedad toString
-    value() { // el valor es una funcion
+    value() { // el valor es una función
       return Object.keys(this).join();
     }
   }
