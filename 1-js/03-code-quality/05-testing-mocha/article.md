@@ -26,7 +26,7 @@ Vamos a usar una técnica llamada [Desarrollo guiado por comportamiento](https:/
 
 **BDD son tres cosas en uno: tests, documentación y ejemplos.**
 
-PAra entender BDD, examinaremos un caso de desarrollo práctico:
+Para entender BDD, examinaremos un caso de desarrollo práctico:
 
 ## Desarrollo de "pow": Especificación
 

@@ -168,7 +168,7 @@ Para una comparación no estricta `==`
 Para matemáticas y otras comparaciones `< > <= >=`
 : `null/undefined` se convierten en números: `null` se convierte en `0`, mientras que `undefined` se convierte en `NaN`.
 
-Ahora veamos algunos hechos graciosas que suceden cuando aplicamos estas reglas. Y, lo que es más importante, cómo no caer en una trampa con ellas.
+Ahora veamos algunos hechos graciosos que suceden cuando aplicamos estas reglas. Y, lo que es más importante, cómo no caer en una trampa con ellas.
 
 ### Resultado extraño: null vs 0
 
