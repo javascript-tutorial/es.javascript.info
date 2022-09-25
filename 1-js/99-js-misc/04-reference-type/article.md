@@ -48,7 +48,7 @@ Esto no funciona (método evaluado):
 
 Mirando de cerca podemos notar dos operaciones en la declaración  `obj.method()`:
 
-1. Primero, el punto '.'recupera la propiedad de `obj.method`.
+1. Primero, el punto '.' recupera la propiedad de `obj.method`.
 2. Luego el paréntesis `()` lo ejecuta.
 
 Entonces ¿cómo es trasladada la información de `this` de la primera parte a la segunda?
@@ -106,4 +106,3 @@ Eso se hace para la llamada `()` al siguiente método para obtener el objeto y e
 Para todas las demás operaciones, el tipo de referencia se convierte automáticamente en el valor de la propiedad (una función en nuestro caso).
 
 Toda la mecánica está oculta a nuestros ojos. Solo importa en casos sutiles, como cuando un método se obtiene dinámicamente del objeto, usando una expresión.
-
