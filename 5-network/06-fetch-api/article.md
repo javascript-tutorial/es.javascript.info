@@ -21,9 +21,15 @@ let promise = fetch(url, {
     // dependiendo del cuerpo de la solicitud
     "Content-Type": "text/plain;charset=UTF-8"
   },
+<<<<<<< HEAD
   body: undefined // string, FormData, Blob, BufferSource, o URLSearchParams
   referrer: "about:client", // o "" para no enviar encabezado de Referer,
   // o una URL del origen actual
+=======
+  body: undefined, // string, FormData, Blob, BufferSource, or URLSearchParams
+  referrer: "about:client", // or "" to send no Referer header,
+  // or an url from the current origin
+>>>>>>> ff4ef57c8c2fd20f4a6aa9032ad37ddac93aa3c4
   referrerPolicy: "no-referrer-when-downgrade", // no-referrer, origin, same-origin...
   mode: "cors", // same-origin, no-cors
   credentials: "same-origin", // omit, include

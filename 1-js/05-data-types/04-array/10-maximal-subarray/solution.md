@@ -59,7 +59,11 @@ alert( getMaxSubSum([100, -9, 2, -3, 5]) ); // 100
 
 La solución tiene una complejidad 2 en notación Landau [O(n<sup>2</sup>)](https://es.wikipedia.org/wiki/Notaci%C3%B3n_de_Landau) (coste respecto al tiempo). Es decir, si multiplicamos el tamaño del array por 2, el tiempo del algoritmo se multiplicará por 4.
 
+<<<<<<< HEAD
 Para arrays muy grandes (1000, 10000 o más items) tales algoritmos llevarán a una severa lentitud.
+=======
+For big arrays (1000, 10000 or more items) such algorithms can lead to serious sluggishness.
+>>>>>>> ff4ef57c8c2fd20f4a6aa9032ad37ddac93aa3c4
 
 # Solución rápida
 
@@ -91,4 +95,8 @@ alert( getMaxSubSum([-1, -2, -3]) ); // 0
 
 El algoritmo requiere exactamente una pasada, entonces la complejidad es O(n).
 
+<<<<<<< HEAD
 Puedes encontrar información detallada acerca del algoritmo: [Subvector de suma máxima](https://es.wikibooks.org/wiki/Algoritmia/Divide_y_vencer%C3%A1s#Subvector_de_suma_m%C3%A1xima). Si aún no es obvio cómo funciona, traza el algoritmo en los ejemplos de arriba y observa cómo trabaja, es mejor que cualquier explicación.
+=======
+You can find more detailed information about the algorithm here: [Maximum subarray problem](http://en.wikipedia.org/wiki/Maximum_subarray_problem). If it's still not obvious why that works, then please trace the algorithm on the examples above, see how it works, that's better than any words.
+>>>>>>> ff4ef57c8c2fd20f4a6aa9032ad37ddac93aa3c4

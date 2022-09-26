@@ -193,8 +193,13 @@ Hay un propiedad `event.eventPhase` que nos dice el número de fase en la que el
 Si nosotros agregamos `addEventListener(..., true)`, entonces debemos mencionar la misma fase en `removeEventListener(..., true)` para remover el manejador correctamente.
 ```
 
+<<<<<<< HEAD
 ````smart header="Detectores de eventos en el mismo elemento y en la misma fase se ejecutan en el orden de asignación"
 Si tenemos múltiples manejadores de eventos en la misma fase, asignados al mismo elemento con `addEventListener`, se ejecutarán en el orden que fueron creados:
+=======
+````smart header="Listeners on the same element and same phase run in their set order"
+If we have multiple event handlers on the same phase, assigned to the same element with `addEventListener`, they run in the same order as they are created:
+>>>>>>> ff4ef57c8c2fd20f4a6aa9032ad37ddac93aa3c4
 
 ```js
 elem.addEventListener("click", e => alert(1)); // garantizado que se ejecutará primero

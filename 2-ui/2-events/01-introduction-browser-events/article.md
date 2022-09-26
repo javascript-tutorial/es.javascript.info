@@ -24,7 +24,11 @@ Aquí hay una lista con los eventos del DOM más utilizados, solo para echar un 
 **Eventos del CSS:**
 - `transitionend` -- cuando una animación CSS concluye.
 
+<<<<<<< HEAD
 Hay muchos más eventos. Entraremos en detalle con eventos en particular en los siguientes capítulos.
+=======
+There are many other events. We'll get into more details of particular events in upcoming chapters.
+>>>>>>> ff4ef57c8c2fd20f4a6aa9032ad37ddac93aa3c4
 
 ## Controladores de eventos
 
@@ -195,7 +199,11 @@ Asignar un handler a `elem.onclick`, en lugar de `elem.ONCLICK`, ya que las prop
 
 ## addEventListener
 
+<<<<<<< HEAD
 El problema fundamental de las formas ya mencionadas para asignar handlers es que no podemos asignar multiples handlers a un solo evento.
+=======
+The fundamental problem of the aforementioned ways to assign handlers is that we *can't assign multiple handlers to one event*.
+>>>>>>> ff4ef57c8c2fd20f4a6aa9032ad37ddac93aa3c4
 
 Digamos que una parte de nuestro código quiere resaltar un botón al hacer click, y otra quiere mostrar un mensaje en el mismo click.
 
@@ -207,7 +215,11 @@ input.onclick = function() { alert(1); }
 input.onclick = function() { alert(2); } // reemplaza el handler anterior handler
 ```
 
+<<<<<<< HEAD
 Los desarrolladores de los estándares de la web entendieron eso hace mucho tiempo y sugirieron una forma alternativa de administrar los handlers utilizando los métodos especiales `addEventListener` and `removeEventListener`. Estos están libres de ese problema.
+=======
+Developers of web standards understood that long ago and suggested an alternative way of managing handlers using the special methods `addEventListener` and `removeEventListener` which aren't bound by such constraint.
+>>>>>>> ff4ef57c8c2fd20f4a6aa9032ad37ddac93aa3c4
 
 La sintaxis para agregar un handler:
 
@@ -261,7 +273,11 @@ input.removeEventListener("click", handler);
 Por favor nota que si no almacenamos la función en una variable entonces no podremos removerla. No hay forma de "volver a leer" los handlers asignados por `addEventListener`.
 ````
 
+<<<<<<< HEAD
 Múltiples llamadas a `addEventListener`permiten agregar múltiples handlers, como este:
+=======
+Multiple calls to `addEventListener` allow it to add multiple handlers, like this:
+>>>>>>> ff4ef57c8c2fd20f4a6aa9032ad37ddac93aa3c4
 
 ```html run no-beautify
 <input id="elem" type="button" value="Haz click en mí"/>
@@ -288,7 +304,11 @@ Como podemos ver en el ejemplo anterior, podemos establecer handlers *tanto* usa
 ````warn header="Para algunos eventos, los handlers solo funcionan con `addEventListener`"
 Hay eventos que no pueden ser asignados por medio de una propiedad del DOM. Solamente con `addEventListener`.
 
+<<<<<<< HEAD
 Por ejemplo, el evento `DOMContentLoaded`, que se activa cuando el documento está cargado y el DOM está construido.
+=======
+For instance, the `DOMContentLoaded` event, that triggers when the document is loaded and the DOM has been built.
+>>>>>>> ff4ef57c8c2fd20f4a6aa9032ad37ddac93aa3c4
 
 ```js
 // nunca se ejecutará
@@ -334,10 +354,17 @@ Algunas propiedades del objeto `event`:
 `event.currentTarget`
 : Elemento que maneja el evento. Lo que exactamente igual a `this`, a menos que el handler sea una función de flecha o su `this` esté vinculado a otra cosa, entonces podemos obtener el elemento desde `event.currentTarget`.
 
+<<<<<<< HEAD
 `event.clientX / event.clientY`
 : Coordenadas del cursor relativas a la ventana, para eventos de cursor.
 
 Hay más propiedades. La mayoría dependen del tipo de evento: los eventos del teclado tienen algunas propiedades establecidas, las de cursor otras, las estudiaremos después cuando lleguemos a los detalles de diferentes eventos.
+=======
+`event.clientX` / `event.clientY`
+: Window-relative coordinates of the cursor, for pointer events.
+
+There are more properties. Many of them depend on the event type: keyboard events have one set of properties, pointer events - another one, we'll study them later when as we move on to the details of different events.
+>>>>>>> ff4ef57c8c2fd20f4a6aa9032ad37ddac93aa3c4
 
 ````smart header="El objeto del evento también está disponible para handlers HTML"
 Si asignamos un handler en HTML también podemos usar el objeto `event`, así:
@@ -373,7 +400,11 @@ Por ejemplo:
 
 Como podemos ver, cuando `addEventListener` recibe como handler a un objeto, llama a `obj.handleEvent(event)` en caso de un evento.
 
+<<<<<<< HEAD
 También podríamos usar una clase para ello:
+=======
+We could also use objects of a custom class, like this:
+>>>>>>> ff4ef57c8c2fd20f4a6aa9032ad37ddac93aa3c4
 
 
 ```html run
@@ -395,6 +426,7 @@ También podríamos usar una clase para ello:
 
 *!*
   let menu = new Menu();
+
   elem.addEventListener('mousedown', menu);
   elem.addEventListener('mouseup', menu);
 */!*
