@@ -12,13 +12,14 @@ const birthday = '18.04.1982';
 const age = someCode(birthday);
 ```
 
-Aquí tenemos una constante `birthday` y `age` es calculada desde `birthday` con la ayuda de cierto código (no está provisto para abreviar y porque los detalles no importan aquí).
+Aquí tenemos una constante `birthday` para la fecha de cumpleaños, y la edad `age`, que también es constante.
+
+`age` es calculada desde `birthday` con la ayuda de "cierto código" `someCode()`; esto es una llamada a función que no explicamos aún (¡lo haremos pronto!), los detalles no importan aquí, el punto es que `age` se calcula de alguna forma basándose en `birthday`.
 
 ¿Sería correcto usar mayúsculas para `birthday`? ¿Para `age`? ¿O incluso para ambos?
 
 ```js
-const BIRTHDAY = '18.04.1982'; // make uppercase?
+const BIRTHDAY = '18.04.1982'; // ¿poner birthday en mayúsculas?
 
-const AGE = someCode(BIRTHDAY); // make uppercase?
+const AGE = someCode(BIRTHDAY); // ¿poner age en mayúsculas?
 ```
-

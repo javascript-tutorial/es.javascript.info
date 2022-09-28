@@ -91,4 +91,4 @@ alert( getMaxSubSum([-1, -2, -3]) ); // 0
 
 El algoritmo requiere exactamente una pasada, entonces la complejidad es O(n).
 
-Puedes encontrar información detallada acerca del algoritmo: [Subvector de suma máxima](https://es.wikibooks.org/wiki/Algoritmia/Divide_y_vencer%C3%A1s#Subvector_de_suma_m%C3%A1xima). Si aún no es obvio cómo funciona, traza el algoritmo en los ejemplos de arriba y observa cómo trabaja, es mejor que cualquier explicación.
+Puedes encontrar información más detallada acerca del algoritmo: [Subvector de suma máxima](https://es.wikibooks.org/wiki/Algoritmia/Divide_y_vencer%C3%A1s#Subvector_de_suma_m%C3%A1xima). Si aún no es obvio cómo funciona, traza el algoritmo en los ejemplos de arriba y observa cómo trabaja, es mejor que cualquier explicación.

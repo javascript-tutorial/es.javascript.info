@@ -15,12 +15,12 @@ Pero eso no es suficiente para la vida real. Por eso también existen `Map` y `S
 Los métodos y propiedades son:
 
 - `new Map()` -- crea el mapa.
-- `map.set(clave, valor)` -- almacena el valor asociado a la clave.
-- `map.get(clave)` -- devuelve el valor de la clave. Será `undefined` si la `clave` no existe en map.
-- `map.has(clave)` -- devuelve `true` si la `clave` existe en map, `false` si no existe.
-- `map.delete(clave)` -- elimina el valor de la clave.
-- `map.clear()` -- elimina todo de map.
-- `map.size` -- tamaño, devuelve la cantidad actual de elementos.
+- [`map.set(clave, valor)`](mdn:js/Map/set) -- almacena el valor asociado a la clave.
+- [`map.get(clave)`](mdn:js/Map/get) -- devuelve el valor de la clave. Será `undefined` si la `clave` no existe en map.
+- [`map.has(clave)`](mdn:js/Map/has) -- devuelve `true` si la `clave` existe en map, `false` si no existe.
+- [`map.delete(clave)`](mdn:js/Map/delete) -- elimina el valor de la clave.
+- [`map.clear()`](mdn:js/Map/clear) -- elimina todo de map.
+- [`map.size`](mdn:js/Map/size) -- tamaño, devuelve la cantidad actual de elementos.
 
 Por ejemplo:
 
@@ -105,9 +105,9 @@ map.set('1', 'str1')
 
 Para recorrer un `map`, hay 3 métodos:
 
-- `map.keys()` –- devuelve un iterable para las claves.
-- `map.values()` -– devuelve un iterable para los valores.
-- `map.entries()` -– devuelve un iterable para las entradas `[clave, valor]`. Es el que usa por defecto en `for..of`.
+- [`map.keys()`](mdn:js/Map/keys) –- devuelve un iterable para las claves.
+- [`map.values()`](mdn:js/Map/values) -– devuelve un iterable para los valores.
+- [`map.entries()`](mdn:js/Map/entries) -– devuelve un iterable para las entradas `[clave, valor]`. Es el que usa por defecto en `for..of`.
 
 Por ejemplo:
 
@@ -238,11 +238,11 @@ Un `Set` es una colección de tipo especial: "conjunto de valores" (sin claves),
 Sus principales métodos son:
 
 - `new Set(iterable)` -- crea el set. El argumento opcional es un objeto iterable (generalmente un array) con valores para inicializarlo.
-- `set.add(valor)` -- agrega un valor, y devuelve el set en sí.
-- `set.delete(valor)` -- elimina el valor, y devuelve `true` si el `valor` existía al momento de la llamada; si no, devuelve `false`.
-- `set.has(valor)` -- devuelve `true` si el valor existe en el set, si no, devuelve `false`.
-- `set.clear()` -- elimina todo el continido del set.
-- `set.size` -- es la cantidad de elementos.
+- [`set.add(valor)`](mdn:js/Set/add) -- agrega un valor, y devuelve el set en sí.
+- [`set.delete(valor)`](mdn:js/Set/delete) -- elimina el valor, y devuelve `true` si el `valor` existía al momento de la llamada; si no, devuelve `false`.
+- [`set.has(valor)`](mdn:js/Set/has) -- devuelve `true` si el valor existe en el set, si no, devuelve `false`.
+- [`set.clear()`](mdn:js/Set/clear) -- elimina todo el continido del set.
+- [`set.size`](mdn:js/Set/size) -- es la cantidad de elementos.
 
 La característica principal es que llamadas repetidas de `set.add(valor)` con el mismo valor no hacen nada. Esa es la razón por la cual cada valor aparece en `Set` solo una vez.
 
@@ -295,9 +295,9 @@ Eso es por compatibilidad con `Map` donde la función callback tiene tres argume
 
 También soporta los mismos métodos que `Map` tiene para los iteradores:
 
-- `set.keys()` – devuelve un iterable para las claves.
-- `set.values()` – lo mismo que `set.keys()`, por su compatibilidad con `Map`.
-- `set.entries()` – devuelve un iterable para las entradas `[clave, valor]`, por su compatibilidad con `Map`.
+- [`set.keys()`](mdn:js/Set/keys) – devuelve un iterable para las claves.
+- [`set.values()`](mdn:js/Set/values) – lo mismo que `set.keys()`, por su compatibilidad con `Map`.
+- [`set.entries()`](mdn:js/Set/entries) – devuelve un iterable para las entradas `[clave, valor]`, por su compatibilidad con `Map`.
 
 ## Resumen
 
@@ -306,12 +306,12 @@ También soporta los mismos métodos que `Map` tiene para los iteradores:
 Métodos y propiedades:
 
 - `new Map()` -- crea el mapa.
-- `map.set(clave, valor)` -- almacena el valor para la clave.
-- `map.get(clave)` -- devuelve el valor de la clave: será `undefined` si la `clave` no existe en Map.
-- `map.has(clave)` -- devuelve`true` si la `clave` existe, y `false` si no existe.
-- `map.delete(clave)` -- elimina el valor de esa clave.
-- `map.clear()` -- limpia el Map.
-- `map.size` -- devuelve la cantidad de elementos en el Map.
+- [`map.set(clave, valor)`](mdn:js/Map/set) -- almacena el valor para la clave.
+- [`map.get(clave)`](mdn:js/Map/get) -- devuelve el valor de la clave: será `undefined` si la `clave` no existe en Map.
+- [`map.has(clave)`](mdn:js/Map/has) -- devuelve`true` si la `clave` existe, y `false` si no existe.
+- [`map.delete(clave)`](mdn:js/Map/delete) -- elimina el valor de esa clave.
+- [`map.clear()`](mdn:js/Map/clear) -- limpia el Map.
+- [`map.size`](mdn:js/Map/size) -- devuelve la cantidad de elementos en el Map.
 
 La diferencia con un `Objeto` regular:
 
@@ -323,10 +323,10 @@ La diferencia con un `Objeto` regular:
 Métodos y propiedades:
 
 - `new Set(iterable)` -- crea el set. Tiene un argumento opcional, un objeto iterable (generalmente un array) de valores para inicializarlo.
-- `set.add(valor)` -- agrega un valor, devuelve el set en sí.
-- `set.delete(valor)` -- elimina el valor, devuelve `true` si `valor` existe al momento de la llamada; si no, devuelve `false`.
-- `set.has(valor)` -- devuelve `true` si el valor existe en el set, si no, devuelve `false`.
-- `set.clear()` -- elimina todo del set.
-- `set.size` -- es la cantidad de elementos.
+- [`set.add(valor)`](mdn:js/Set/add) -- agrega un valor, devuelve el set en sí.
+- [`set.delete(valor)`](mdn:js/Set/delete) -- elimina el valor, devuelve `true` si `valor` existe al momento de la llamada; si no, devuelve `false`.
+- [`set.has(valor)`](mdn:js/Set/has) -- devuelve `true` si el valor existe en el set, si no, devuelve `false`.
+- [`set.clear()`](mdn:js/Set/clear) -- elimina todo del set.
+- [`set.size`](mdn:js/Set/size) -- es la cantidad de elementos.
 
 La iteración sobre `Map` y `Set` siempre está en el orden de inserción, por lo que no podemos decir que estas colecciones están desordenadas, pero no podemos reordenar elementos u obtener un elemento directamente por su número.
