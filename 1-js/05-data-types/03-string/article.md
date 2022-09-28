@@ -520,7 +520,7 @@ JavaScript permite especificar un carácter no solo incluyéndolo directamente e
 
 - `\xXX` -- un carácter cuyo "punto de código" es `U+00XX`.
 
-    `XX` siempre son dos dígitos hexadecimales con valor entre `00` y `FF`, así la notación `\xXX` puede usarse solamente para los primeros 256 caracteres Unicode (esto incluye todos los caracteres ASCII, que son 128).
+    `XX` son dos dígitos hexadecimales con valor entre `00` y `FF`, así la notación `\xXX` puede usarse solamente para los primeros 256 caracteres Unicode (esto incluye todos los caracteres ASCII, que son 128).
 
     Estos primeros 256 caracteres incluyen el alfabeto latino, la mayoría de caracteres de sintaxis básicos y algunos otros. Por ejemplo, `"\x7A"` es lo mismo que `"z"` (Unicode `U+007A`).
 - `\uXXXX` -- un carácter cuyo "punto de código Unicode" es `U+XXXX` (un carácter con el código hex `XXXX` en UTF-16 encoding).
