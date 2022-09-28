@@ -6,7 +6,7 @@ importance: 5
 
 Crear una función constructora `Calculator` que crea objetos con 3 métodos:
 
-- `read()` pide dos valores usando `prompt` y los guarda en las propiedades de objeto con nombres `a` y `b`.
+- `read()` pide dos valores usando `prompt` y los guarda en las propiedades del objeto con los nombres `a` y `b`.
 - `sum()` devuelve la suma de estas propiedades.
 - `mul()` devuelve el producto de la multiplicación de estas propiedades.
 
