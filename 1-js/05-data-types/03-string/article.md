@@ -570,7 +570,7 @@ alert( '𝒳'[0] ); // muestra símbolos extraños...
 alert( '𝒳'[1] ); // ...partes del par sustituto
 ```
 
-Las 2 partes del par sustituto no tienen significado el uno sin el otro. Entonces los alerts del ejemplo en realidad muestran basura.
+Las 2 partes del par sustituto no tienen significado el uno sin el otro. Entonces las alertas del ejemplo en realidad muestran basura.
 
 Técnicamente, los pares sustitutos son también detectables por su propio código: si un carácter tiene código en el intervalo de `0xd800..0xdbff`, entonces es la primera parte de un par sustituto. El siguiente carácter (segunda parte) debe tener el código en el intervalo `0xdc00..0xdfff`. Estos intervalos son reservados exclusivamente para pares sustitutos por el estándar.
 
@@ -581,7 +581,7 @@ Esencialmente, son lo mismo que [String.fromCharCode](mdn:js/String/fromCharCode
 Se puede ver la diferencia aquí:
 
 ```js run
-// charCodeAt no percibe los pares sustitutos, entonces da el el código de la primera parte de 𝒳:
+// charCodeAt no percibe los pares sustitutos, entonces da el código de la primera parte de 𝒳:
 
 alert( '𝒳'.charCodeAt(0).toString(16) ); // d835
 
