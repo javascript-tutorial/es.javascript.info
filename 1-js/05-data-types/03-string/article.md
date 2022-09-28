@@ -552,7 +552,7 @@ Entonces, los símbolos raros que requieren más de 2 bytes son codificados con 
 Como efecto secundario, el largo de tales símbolos es `2`:
 
 ```js run
-alert( '𝒳'.length ); // 2, MATHEMATICAL SCRIPT CAPITAL X
+alert( '𝒳'.length ); // 2, carácter matemático X capitalizado
 alert( '😂'.length ); // 2, cara con lágrimas de risa
 alert( '𩷶'.length ); // 2, un raro glifo chino
 ```
