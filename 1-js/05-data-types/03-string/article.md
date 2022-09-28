@@ -440,7 +440,7 @@ Todos los strings son codificados usando [UTF-16](https://es.wikipedia.org/wiki/
     // mayúsculas y minúsculas tienen códigos diferentes
     alert( "Z".codePointAt(0) ); // 90
     alert( "z".codePointAt(0) ); // 122
-    alert( "z".codePointAt(0).toString(16) ); // 7a (si necesitamos un más comúnmente usado valor de código hexa)
+    alert( "z".codePointAt(0).toString(16) ); // 7a (el valor del código en hexadecimal, que es más usado)
     ```
 
 `String.fromCodePoint(code)`
