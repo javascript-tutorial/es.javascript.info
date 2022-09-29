@@ -21,7 +21,7 @@ let promise = fetch(url, {
     // dependiendo del cuerpo de la solicitud
     "Content-Type": "text/plain;charset=UTF-8"
   },
-  body: undefined // string, FormData, Blob, BufferSource, o URLSearchParams
+  body: undefined, // string, FormData, Blob, BufferSource, o URLSearchParams
   referrer: "about:client", // o "" para no enviar encabezado de Referer,
   // o una URL del origen actual
   referrerPolicy: "no-referrer-when-downgrade", // no-referrer, origin, same-origin...

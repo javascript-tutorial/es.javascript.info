@@ -2,7 +2,7 @@
 
 
 ```quote author="Confucio (Analectas)"
-Aprender sin pensar es inútil. Pensar sin aprender peligroso.
+Aprender sin pensar es inútil. Pensar sin aprender, peligroso.
 ```
 
 Los programadores ninjas del pasado usaron estos trucos para afilar la mente de los mantenedores de código.
@@ -11,9 +11,9 @@ Los gurús de revisión de código los buscan en tareas de prueba.
 
 Los desarrolladores novatos algunas veces los usan incluso mejor que los programadores ninjas.
 
-Léelos detenidamente y encuentra quién eres -- ¿un ninja?, ¿un novato?, o tal vez ¿un revisor de código?
+Léelos detenidamente y encuentra quién eres: ¿un ninja?, ¿un novato?, o tal vez ¿un revisor de código?
 
-```warn header="Ironía detectada"
+```warn header=" *IRONÍA* detectada"
 Muchos intentan seguir los caminos de los ninjas. Pocos tienen éxito.
 ```
 
@@ -38,8 +38,7 @@ Diles que mientras más corto mucho mejor. Guíalos a los caminos del ninja.
 ## Variables de una sola letra
 
 ```quote author="Laozi (Tao Te Ching)"
-El Dao se esconde sin palabras. Solo el Dao está bien comenzado y bien
-terminado.
+El Dao se esconde sin palabras. Solo el Dao está bien comenzado y bien terminado.
 ```
 
 Otra forma de programar más rápido es usando variables de una sola letra en todas partes. Como `a`, `b` o `c`.
@@ -48,7 +47,7 @@ Una variable corta desaparece en el código como lo hace un ninja en un bosque. 
 
 ...Pero hay una excepción. Un verdadero ninja nunca usaría `i` como el contador en un bucle `"for"`. En cualquier otro lugar, pero no aquí. Mira alrededor, hay muchas más letras exóticas. Por ejemplo, `x` o `y`.
 
-Una variable exótica como el contador de un bucle es especialmente genial si el cuerpo del bucle toma 1-2 páginas (hazlo más grande si puedes). Entonces si alguien mira en las profundidades del bucle, no será capaz de figurar rápidamente que la variable llamada `x` es el contador del bucle.
+Una variable exótica como el contador de un bucle es especialmente genial si el cuerpo del bucle toma 1-2 páginas (hazlo más grande si puedes). Entonces si alguien mira en las profundidades del bucle, no será capaz de figurarse rápidamente que la variable llamada `x` es el contador del bucle.
 
 ## Usa abreviaciones
 
@@ -74,15 +73,15 @@ La gran imagen no tiene forma.
 
 Cuando estés escogiendo un nombre intenta usar la palabra más abstracta. Como `obj`, `data`, `value`, `item`, `elem`, etc.
 
-- **El nombre ideal para una variable es `data`.** Usalo lo más que puedas. En efecto, toda variable contiene *data*, ¿no?
+- **El nombre ideal para una variable es `data`.** Úsalo lo más que puedas. En efecto, toda variable contiene *data*, ¿no?
 
-    ...¿Pero qué hacer si `data` ya está siendo usado? Intenta con `value`, también es universal. Después de todo, una variable eventualmente recibe un *value* (valor).
+    ...¿Pero qué hacer si `data` ya está siendo usado? Intenta con `valor`, también es universal. Después de todo, una variable eventualmente recibe un *valor* .
 
 - **Nombra una variable por su tipo: `str`, `num`...**
 
-    Pruébalos. Un recién iniciado puede preguntarse -- ¿Son estos nombres realmente útiles para un ninja? En efecto, ¡lo son!
+    Pruébalos. Un recién iniciado puede preguntarse: ¿Son estos nombres realmente útiles para un ninja? En efecto, ¡lo son!
 
-    Claro, el nombre de la variable sigue significando algo. Dice que hay en el interior de la variable: una cadena de texto, un número o cualquier otra cosa. Pero cuando una persona ajena intenta entender el código, se verá sorprendido al ver que en realidad no hay información. Y finalmente fracasara en el intento de alterar tu código bien pensado.
+    Claro, el nombre de la variable sigue significando algo. Dice que hay en el interior de la variable: una cadena de texto, un número o cualquier otra cosa. Pero cuando una persona ajena intenta entender el código, se verá sorprendido al ver que en realidad no hay información. Y finalmente fracasará en el intento de alterar tu código tan bien pensado.
 
     El tipo de valor es fácil de encontrar con una depuración. Pero, ¿cuál es el significado de la variable? ¿Qué cadena de texto o número guarda?
 
@@ -114,11 +113,11 @@ Por ejemplo, considera prefijos de funciones. Si una función muestra un mensaje
 
 Insinúa que hay una diferencia sutil entre dichas funciones, cuando no lo hay.
 
-Has un pacto con tus compañeros ninjas del equipo: si John comienza funciones de "mostrar" con `presentar...` en su código, entonces Peter podría usar `exhibir..`, y Ann -- `pintar...`. Nota como el código es mucho más interesante y diverso ahora.
+Haz un pacto con tus compañeros ninjas del equipo: si John comienza funciones de "mostrar" con `presentar...` en su código, entonces Peter podría usar `exhibir..`, y Ann -- `pintar...`. Nota como el código es mucho más interesante y diverso ahora.
 
 ...¡Y ahora el truco del sombrero!
 
-Para dos funciones con importantes diferencias -- ¡usa el mismo prefijo!
+Para dos funciones con importantes diferencias, ¡usa el mismo prefijo!
 
 Por ejemplo, la función `imprimirPágina(página)` usara una impresora. Y la función `imprimirTexto(texto)` mostrará el texto en la pantalla.. Deja que un lector no familiar a tu código piense bien sobre una función llamada de forma similar `imprimirMensaje`: "¿Dónde coloca el mensaje? ¿A una impresora o en la pantalla?. Para que realmente se destaque, ¡`imprimirMensaje(mensaje)` debería mostrar el mensaje en una nueva ventana!
 
@@ -205,13 +204,13 @@ Hay muchas funciones que parecen que no cambian nada. Como `estaListo()`, `compr
 
 **Un truco realmente bello es añadirles una acción "útil", además de su tarea principal.**
 
-Una expresión de sorpresa aturdida aparecerá en la cara de tus colegas cuando vean que la función llamada `es..`, `comprobar..` o `encontrar...` cambia algo -- definitivamente ampliará tus límites de razón.
+Una expresión de sorpresa aturdida aparecerá en la cara de tus colegas cuando vean que la función llamada `es..`, `comprobar..` o `encontrar...` cambia algo. Definitivamente ampliará tus límites de razón.
 
 **Otra forma de sorprender es retornar un resultado no estándar**
 
 ¡Muestra tu pensamiento original! Deja que la llamada de `comprobarPermiso` retorne no `true/false` sino un objeto complejo con los resultados de tu comprobación.
 
-## Funciones poderosas!
+## ¡Funciones poderosas!
 
 ```quote author="Laozi (Tao Te Ching)"
 El gran Tao fluye por todas partes, <br>
@@ -230,7 +229,7 @@ Imagina, otro desarrollador quiere solo comprobar el correo, y no mostrar ningú
 
 ## Resumen
 
-Todos los *consejos* anteriores son de código real... Algunas veces, escrito por desarrolladores experimentados. Quizás incluso más experimentado que tú ;)
+Todos los *consejos* anteriores fueron extraidos de código real... Algunas veces, escrito por desarrolladores experimentados. Quizás incluso más experimentado que tú ;)
 
 - Sigue alguno de ellos, y tu código estará lleno de sorpresas.
 - Sigue muchos de ellos, y tu código será realmente tuyo, nadie querrá cambiarlo.

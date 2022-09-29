@@ -140,9 +140,8 @@ Para atrapar un evento en la fase de captura, necesitamos preparar la opción `c
 
 ```js
 elem.addEventListener(..., {capture: true})
-<<<<<<< HEAD
 
-// o solamente "true", es una forma más corta de {capture: true}
+// o solamente "true". Es una forma más corta de {capture: true}
 elem.addEventListener(..., true)
 ```
 
@@ -185,12 +184,12 @@ Si haces clic en `<p>`, verás que la secuencia es:
 1. `HTML` -> `BODY` -> `FORM` -> `DIV` (fase de captura, el primer detector o "listener"):
 2. `P` -> `DIV` -> `FORM` -> `BODY` -> `HTML` (fase de propagación, el segundo detector).
 
-Nota que `P` aparece dos veces, porque establecimos dos listeners: captura y propagación. Se disparan en el objtivo al final de la primera fase y al principio de la segunda fase.
+Nota que `P` aparece dos veces, porque establecimos dos listeners: captura y propagación. Se disparan en el objetivo al final de la primera fase y al principio de la segunda fase.
 
 Hay un propiedad `event.eventPhase` que nos dice el número de fase en la que el evento fue capturado. Pero es raramente usada, ya que usualmente lo sabemos en el manejador.
 
 ```smart header="Para quitar el manejador, `removeEventListener` necesita la misma fase"
-Si nosotros agregamos `addEventListener(..., true)`, entonces debemos mencionar la misma fase en `removeEventListener(..., true)` para remover el manejador correctamente.
+Si agregamos `addEventListener(..., true)`, entonces debemos mencionar la misma fase en `removeEventListener(..., true)` para remover el manejador correctamente.
 ```
 
 ````smart header="Detectores de eventos en el mismo elemento y en la misma fase se ejecutan en el orden de asignación"
@@ -207,6 +206,7 @@ El método `event.stopPropagation()` y su hermano `event.stopImmediatePropagatio
 
 En otras palabras, normalmente el evento primero va hacia abajo ("captura") y luego hacia arriba ("propagación"). Pero si se llama a `event.stopPropagation()` durante la fase de captura, se detiene la travesía del evento, y la propagación no volverá a ocurrir.
 ```
+
 
 ## Resumen
 

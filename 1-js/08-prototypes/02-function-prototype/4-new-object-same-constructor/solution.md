@@ -13,9 +13,9 @@ let user2 = new user.constructor('Pete');
 alert( user2.name ); // Pete (funcionó!)
 ```
 
-Funcionó, porque `User.prototype.constructor == User`.
+Funcionó, porque `User.prototype.constructor == User`
 
-..Pero si alguien, por así decirlo, sobrescribe `User.prototype` y olvida recrear `constructor` para hacer referencia a `User`, entonces fallaría.
+... pero si alguien, por así decirlo, sobrescribiera `User.prototype` y olvidara recrear `constructor` para hacer referencia a `User`, entonces fallaría.
 
 Por ejemplo:
 
@@ -44,6 +44,6 @@ Así es como funciona `new user.constructor('Pete')`:
 
 Como resultado, tenemos `let user2 = new Object('Pete')`. 
 
-Probablemente no es lo que queremos. Buscábamos crear `new User`, no `new Object`. Este resultado se debe a la falta de  `constructor`.
+Probablemente no es lo que queremos. Buscábamos crear `new User`, no `new Object`. Este resultado se debe a la falta de `constructor`.
 
 (Solo por si eres curioso: la llamada `new Object(...)` convierte su argumento a un objeto. Esto en teoría, en la práctica nadie llama `new Object` con un valor, y generalmente no queremos usar `new Object` para crear objetos en absoluto).

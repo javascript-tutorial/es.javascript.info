@@ -3,7 +3,7 @@
 
 Las clases integradas como Array, Map y otras también son extensibles.
 
-Por ejemplo, aquí `PowerArray` hereda del nativo `Array`:
+Por ejemplo, aquí `PowerArray` hereda del `Array` nativo:
 
 ```js run
 // se agrega un método más (puedes hacer más)
@@ -21,7 +21,7 @@ alert(filteredArr); // 10, 50
 alert(filteredArr.isEmpty()); // falso
 ```
 
-Tenga en cuenta una cosa muy interesante. Métodos incorporados como `filter`, `map` y otros: devuelven nuevos objetos exactamente del tipo heredado `PowerArray`. Su implementación interna utiliza la propiedad `constructor` del objeto para eso.
+Tenga en cuenta una cosa muy interesante. Métodos nativos como `filter`, `map`, y otros, devuelven los nuevos objetos exactamente del tipo heredado `PowerArray`. Su implementación interna utiliza la propiedad `constructor` del objeto para eso.
 
 En el ejemplo anterior,
 ```js
@@ -62,25 +62,25 @@ let filteredArr = arr.filter(item => item >= 10);
 alert(filteredArr.isEmpty()); // Error: filteredArr.isEmpty no es una función
 ```
 
-Como puede ver, ahora `.filter` devuelve `Array`. Por lo tanto, la funcionalidad extendida ya no se pasa.
+Como puede ver, ahora `.filter` devuelve un `Array`. Por lo tanto, la funcionalidad extendida ya no se pasa.
 
-```smart header="Other collections trabaja similarmente"
+```smart header="Otras colecciones también trabajan del mismo modo"
 Otras colecciones, como `Map` y `Set`, funcionan igual. También usan `Symbol.species`.
 ```
 
 ## Sin herencia estática en incorporados
 
-Los objetos incorporados tienen sus propios métodos estáticos, por ejemplo, `Object.keys`, `Array.isArray`, etc.
+Los objetos nativos tienen sus propios métodos estáticos, por ejemplo, `Object.keys`, `Array.isArray`, etc.
 
 Como ya sabemos, las clases nativas se extienden entre sí. Por ejemplo, `Array` extiende `Object`.
 
 Normalmente, cuando una clase extiende a otra, se heredan los métodos estáticos y no estáticos. Eso se explicó a fondo en el artículo [](info:static-properties-methods#statics-and-inheritance).
 
-Pero las clases integradas son una excepción. No heredan estáticos el uno del otro.
+Pero las clases nativas son una excepción. No heredan estáticos el uno del otro.
 
 Por ejemplo, tanto `Array` como `Date` heredan de `Object`, por lo que sus instancias tienen métodos de `Object.prototype`. Pero `Array.[[Prototype]]` no hace referencia a `Object`, por lo que no existe, por ejemplo, el método estático `Array.keys()` (o `Date.keys()`).
 
-Aquí está la imagen, estructura para `Date` y `Object`:
+Imagen de la estructura para `Date` y `Object`:
 
 ![](object-date-inheritance.svg)
 
