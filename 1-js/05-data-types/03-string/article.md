@@ -486,7 +486,7 @@ El algoritmo "correcto" para realizar comparaciones de strings es más complejo 
 
 Por lo que el navegador necesita saber el lenguaje para comparar.
 
-Por suerte, todos los navegadores modernos (IE10- requiere adicionalmente la biblioteca [Intl.JS](https://github.com/andyearnshaw/Intl.js/)) mantienen la internacionalización del estándar [ECMA 402](http://www.ecma-international.org/ecma-402/1.0/ECMA-402.pdf).
+Por suerte, todos los navegadores modernos (IE10- requiere adicionalmente la biblioteca [Intl.JS](https://github.com/andyearnshaw/Intl.js/)) mantienen la internacionalización del estándar [ECMA 402](https://www.ecma-international.org/publications-and-standards/standards/ecma-402/).
 
 Este provee un método especial para comparar strings en distintos lenguajes, siguiendo sus reglas.
 
