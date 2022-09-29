@@ -17,7 +17,7 @@ let double = "comillas dobles";
 let backticks = `backticks`;
 ```
 
-Comillas simples y dobles son esencialmente lo mismo. En cambio, los "backticks" nos permiten ingresar expresiones dentro del string envolviéndolos en `${…}`:
+Comillas simples y dobles son esencialmente lo mismo. En cambio, los "backticks" nos permiten además ingresar expresiones dentro del string envolviéndolos en `${…}`:
 
 ```js run
 function sum(a, b) {
