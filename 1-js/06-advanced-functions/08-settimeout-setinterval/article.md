@@ -102,7 +102,11 @@ Como podemos ver en la salida `alert`, en un navegador el identificador del temp
 
 De nuevo: no hay una especificación universal para estos métodos.
 
+<<<<<<< HEAD
 Para los navegadores, los temporizadores se describen en la [sección timers](https://www.w3.org/TR/html5/webappapis.html#timers) del estándar HTML5.
+=======
+For browsers, timers are described in the [timers section](https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#timers) of HTML Living Standard.
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 
 ## setInterval
 
@@ -255,8 +259,13 @@ La primera línea "pone la llamada en el calendario después de 0 ms". Pero el p
 
 También hay casos de uso avanzados relacionados con el navegador y el tiempo de espera cero (zero-delay), que discutiremos en el capítulo <info:event-loop>.
 
+<<<<<<< HEAD
 ````smart header="De hecho, el retraso cero no es cero (en un navegador)"
 En el navegador, hay una limitación de la frecuencia con la que se pueden ejecutar los temporizadores anidados. EL [HTML5 standard](https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#timers) dice: "después de cinco temporizadores anidados, el intervalo debe ser de al menos 4 milisegundos".
+=======
+````smart header="Zero delay is in fact not zero (in a browser)"
+In the browser, there's a limitation of how often nested timers can run. The [HTML Living Standard](https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#timers) says: "after five nested timers, the interval is forced to be at least 4 milliseconds.".
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 
 Demostremos lo que significa con el siguiente ejemplo. La llamada `setTimeout` se planifica a sí misma con cero retraso. Cada llamada recuerda el tiempo real de la anterior en el array `times`. ¿Cómo son los retrasos reales? Veamos:
 

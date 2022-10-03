@@ -305,6 +305,7 @@ También soporta los mismos métodos que `Map` tiene para los iteradores:
 
 Métodos y propiedades:
 
+<<<<<<< HEAD
 - `new Map()` -- crea el mapa.
 - [`map.set(clave, valor)`](mdn:js/Map/set) -- almacena el valor para la clave.
 - [`map.get(clave)`](mdn:js/Map/get) -- devuelve el valor de la clave: será `undefined` si la `clave` no existe en Map.
@@ -312,6 +313,15 @@ Métodos y propiedades:
 - [`map.delete(clave)`](mdn:js/Map/delete) -- elimina el valor de esa clave.
 - [`map.clear()`](mdn:js/Map/clear) -- limpia el Map.
 - [`map.size`](mdn:js/Map/size) -- devuelve la cantidad de elementos en el Map.
+=======
+- `new Map([iterable])` -- creates the map, with optional `iterable` (e.g. array) of `[key,value]` pairs for initialization.
+- [`map.set(key, value)`](mdn:js/Map/set) -- stores the value by the key, returns the map itself.
+- [`map.get(key)`](mdn:js/Map/get) -- returns the value by the key, `undefined` if `key` doesn't exist in map.
+- [`map.has(key)`](mdn:js/Map/has) -- returns `true` if the `key` exists, `false` otherwise.
+- [`map.delete(key)`](mdn:js/Map/delete) -- removes the value by the key, returns `true` if `key` existed at the moment of the call, otherwise `false`.
+- [`map.clear()`](mdn:js/Map/clear) -- removes everything from the map.
+- [`map.size`](mdn:js/Map/size) -- returns the current element count.
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 
 La diferencia con un `Objeto` regular:
 

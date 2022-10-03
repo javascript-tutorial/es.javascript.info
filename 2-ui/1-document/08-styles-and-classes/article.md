@@ -268,6 +268,7 @@ Así que hoy en día `getComputedStyle` en realidad devuelve el valor resuelto d
 ````warn header="El método `getComputedStyle` requiere el nombre completo de la propiedad"
 Siempre deberíamos preguntar por la propiedad exacta que queremos, como `paddingLeft` o `marginTop` o `borderTopWidth`. De lo contrario, no se garantiza el resultado correcto.
 
+<<<<<<< HEAD
 Por ejemplo, si hay propiedades `paddingLeft/paddingTop`, ¿entonces qué deberíamos obtener de `getComputedStyle(elem).padding`? ¿Nada, o tal vez un valor "generado" de los paddings? No hay una regla estándar aquí.
 
 Hay otras inconsistencias. Por ejemplo, algunos navegadores (Chrome) muestran `10px` en el documento a continuación, y alguno de ellos (Firefox) no:
@@ -283,6 +284,9 @@ Hay otras inconsistencias. Por ejemplo, algunos navegadores (Chrome) muestran `1
   alert(style.margin); // cadena vacía en Firefox
 </script>
 ```
+=======
+For instance, if there are properties `paddingLeft/paddingTop`, then what should we get for `getComputedStyle(elem).padding`? Nothing, or maybe a "generated" value from known paddings? There's no standard rule here.
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 ````
 
 ```smart header="¡Los estilos aplicados a los enlaces `:visited` están ocultos!"

@@ -381,7 +381,11 @@ Si quisiéramos rastrear las modificaciones internas del Light DOM desde JavaScr
 
 Finalmente, mencionemos los métodos JavaScript relacionados con los slots.
 
+<<<<<<< HEAD
 Como hemos visto antes, JavaScript busca en el DOM "real", sin aplanar. Pero, si el shadow tree tiene `{mode: 'open'}`, averiguar qué elementos hay asignados a un slot y, viceversa, averiguar el slot por el elemento dentro de el:
+=======
+As we've seen before, JavaScript looks at the "real" DOM, without flattening. But, if the shadow tree has `{mode: 'open'}`, then we can figure out which elements assigned to a slot and, vice-versa, the slot by the element inside it:
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 
 - `node.assignedSlot` -- retorna el elemento `<slot>` al que está asignado el `nodo`.
 - `slot.assignedNodes({flatten: true/false})` -- Nodos DOM, asignados al slot. La opción `flatten` es `false` por defecto. Si se establece explícitamente a `true`, entonces mira más profundamente en el flattened DOM, retornando slots anidadas en caso de componentes anidados y el contenido de respaldo si ningún node está asignado.

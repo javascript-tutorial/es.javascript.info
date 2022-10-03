@@ -61,7 +61,7 @@ Cuando se llama a `pow(x, n)`, la ejecución se divide en dos ramas:
               if n==1  = x
              /
 pow(x, n) =
-             \       
+             \
               else     = x * pow(x, n - 1)
 ```
 
@@ -285,7 +285,11 @@ El `pow` iterativo utiliza un solo contexto, cambiando `i` y `result` en el proc
 
 **Cualquier recursión puede reescribirse como un bucle. La variante de bucle generalmente se puede hacer más eficaz.**
 
+<<<<<<< HEAD
 ... Pero a veces la reescritura no es trivial, especialmente cuando la función utiliza sub-llamadas recursivas diferentes según las condiciones y combina sus resultados, o cuando la ramificación es más intrincada. Y la optimización podría ser innecesaria y no merecer la pena el esfuerzo en absoluto.
+=======
+...But sometimes the rewrite is non-trivial, especially when a function uses different recursive subcalls depending on conditions and merges their results or when the branching is more intricate. And the optimization may be unneeded and totally not worth the efforts.
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 
 La recursión puede dar un código más corto y fácil de entender y mantener. No se requiere optimización en todo lugar, principalmente lo que nos interesa es un buen código y por eso se usa.
 

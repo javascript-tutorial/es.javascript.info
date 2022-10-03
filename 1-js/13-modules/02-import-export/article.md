@@ -46,7 +46,7 @@ También podemos colocar `export` por separado.
 
 Aquí primero declaramos y luego exportamos:
 
-```js  
+```js
 // 📁 say.js
 function sayHi(user) {
   alert(`Hello, ${user}!`);
@@ -93,6 +93,7 @@ A primera vista, "importar todo" parece algo tan genial, corto de escribir, por 
 
 Pues hay algunas razones.
 
+<<<<<<< HEAD
 1. Las herramientas de ensamblaje modernas ([webpack](https://webpack.js.org/) y otras) empaquetan los módulos juntos, los optimiza para acelerar la carga y quitan las cosas que no se usan.
 
     Digamos que agregamos una librería externa `say.js` a nuestro proyecto con varias funciones:
@@ -112,6 +113,16 @@ Pues hay algunas razones.
 
 2. Listar explícitamente qué importar da nombres más cortos: `sayHi()` en lugar de `say.sayHi()`.
 3. La lista explícita de importaciones ofrece una mejor visión general de la estructura del código: qué se usa y dónde. Facilita el soporte de código y la refactorización.
+=======
+1. Explicitly listing what to import gives shorter names: `sayHi()` instead of `say.sayHi()`.
+2. Explicit list of imports gives better overview of the code structure: what is used and where. It makes code support and refactoring easier.
+
+```smart header="Don't be afraid to import too much"
+Modern build tools, such as [webpack](https://webpack.js.org/) and others, bundle modules together and optimize them to speedup loading. They also removed unused imports.
+
+For instance, if you `import * as library` from a huge code library, and then use only few methods, then unused ones [will not be included](https://github.com/webpack/webpack/tree/main/examples/harmony-unused#examplejs) into the optimzed bundle.
+```
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 
 ## Importar "as"
 
@@ -224,7 +235,7 @@ Sin `default`, dicha exportación daría un error:
 export class { // Error! (exportación no predeterminada necesita un nombre)
   constructor() {}
 }
-```     
+```
 
 ### El nombre "default"
 
@@ -326,7 +337,7 @@ Imagine que estamos escribiendo un "paquete": una carpeta con muchos módulos, c
 La estructura de archivos podría ser algo así:
 ```
 auth/
-    index.js  
+    index.js
     user.js
     helpers.js
     tests/
@@ -372,7 +383,11 @@ La sintaxis `export ... from ...` es solo una notación más corta para tal impo
 
 ```js
 // 📁 auth/index.js
+<<<<<<< HEAD
 // re-exportar login/logout
+=======
+// re-export login/logout
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 export {login, logout} from './helpers.js';
 
 // re-exportar export default como User
@@ -380,7 +395,11 @@ export {default as User} from './user.js';
 ...
 ```
 
+<<<<<<< HEAD
 La diferencia notable de `export ... from` comparado a `import/export` es que los módulos re-exportados no están disponibles en el archivo actual. Entonces en el ejemplo anterior de `auth/index.js` no podemos usar las funciones re-exportadas `login/logout`. 
+=======
+The notable difference of `export ... from` compared to `import/export` is that re-exported modules aren't available in the current file. So inside the above example of `auth/index.js` we can't use re-exported `login/logout` functions.
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 
 ### Reexportando la exportación predeterminada
 
@@ -399,7 +418,11 @@ Podemos tener dos problemas:
 
 1. `export User from './user.js'` no funcionará. Nos dará un error de sintaxis.
 
+<<<<<<< HEAD
 Para reexportar la exportación predeterminada, tenemos que escribir `export {default as User}`, tal como en el ejemplo de arriba.    
+=======
+    To re-export the default export, we have to write `export {default as User}`, as in the example above.
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 
 2. `export * from './user.js'` reexporta únicamente las exportaciones con nombre, pero ignora la exportación predeterminada.
 
@@ -430,7 +453,11 @@ Importación:
 
 - Importa las exportaciones con nombre:
   - `import {x [as y], ...} from "module"`
+<<<<<<< HEAD
 - Importa la exportación predeterminada:  
+=======
+- Importing the default export:
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
   - `import x from "module"`
   - `import {default as x} from "module"`
 - Importa todo:

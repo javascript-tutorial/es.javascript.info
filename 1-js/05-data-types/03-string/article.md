@@ -50,7 +50,11 @@ let guestList = "Invitados:  // Error: Unexpected token ILLEGAL
 
 Las comillas simples y dobles provienen de la creación de lenguajes en tiempos ancestrales, cuando la necesidad de múltiples líneas no era tomada en cuenta. Los backticks aparecieron mucho después y por ende son más versátiles.
 
+<<<<<<< HEAD
 Los backticks además nos permiten especificar una "función de plantilla" antes del primer backtick. La sintaxis es: <code>func&#96;string&#96;</code>. La función `func` es llamada automáticamente, recibe el string y la expresión insertada, y los puede procesar. Eso se llama "plantillas etiquetadas". Esta característica hace que sea más fácil implementar plantillas personalizadas, pero es raramente usada en la práctica. Puedes leer más sobre esto en el [manual](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates). 
+=======
+Backticks also allow us to specify a "template function" before the first backtick. The syntax is: <code>func&#96;string&#96;</code>. The function `func` is called automatically, receives the string and embedded expressions and can process them. This feature is called "tagged templates", it's rarely seen, but you can read about it in the MDN: [Template literals](mdn:/JavaScript/Reference/Template_literals#Tagged_templates).
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 
 ## Caracteres especiales
 
@@ -74,7 +78,11 @@ World`;
 alert(str1 == str2); // true
 ```
 
+<<<<<<< HEAD
 Existen otros tipos de caracteres especiales, menos comunes. 
+=======
+There are other, less common special characters:
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 
 | Carácter | Descripción |
 |-----------|-------------|
@@ -109,7 +117,11 @@ Obviamente, solo necesitan ser escapadas las comillas que son iguales a las que 
 alert("¡Yo soy la 'morsa'!"); // ¡Yo soy la 'morsa'!
 ```
 
+<<<<<<< HEAD
 Además de estos caracteres especiales, también hay una notación especial para códigos Unicode `\u…`. Los cubriremos más adelante en este capítulo.
+=======
+Besides these special characters, there's also a special notation for Unicode codes `\u…`, it's rarely used and is covered in the optional chapter about [Unicode](info:unicode).
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 
 ## Largo del string
 
@@ -124,20 +136,29 @@ Nota que `\n` es un solo carácter, por lo que el largo total es `3`.
 ```warn header="`length` es una propiedad"
 Quienes tienen experiencia en otros lenguajes pueden cometer el error de escribir `str.length()` en vez de `str.length`. Eso no funciona.
 
+<<<<<<< HEAD
 Nota que `str.length` es una propiedad numérica, no una función. No hay que agregar paréntesis después de ella.
+=======
+Please note that `str.length` is a numeric property, not a function. There is no need to add parenthesis after it. Not `.length()`, but `.length`.
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 ```
 
 ## Accediendo caracteres
 
+<<<<<<< HEAD
 Para acceder a un carácter en la posición `pos`, se debe usar corchetes, `[pos]`, o llamar al método [str.charAt(pos)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/charAt). El primer carácter comienza desde la posición cero:
+=======
+To get a character at position `pos`, use square brackets `[pos]` or call the method [str.at(pos)](mdn:js/String/at). The first character starts from the zero position:
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 
 ```js run
 let str = `Hola`;
 
 // el primer carácter
 alert( str[0] ); // H
-alert( str.charAt(0) ); // H
+alert( str.at(0) ); // H
 
+<<<<<<< HEAD
 // el último carácter
 alert( str[str.length - 1] ); // a
 ```
@@ -145,12 +166,29 @@ alert( str[str.length - 1] ); // a
 Los corchetes son la forma moderna de acceder a los caracteres, mientras que `charAt` existe principalmente por razones históricas.
 
 La única diferencia entre ellos es que si no se encuentra un carácter, `[]` devuelve `undefined`, y `charAt` devuelve un string vacío:
+=======
+// the last character
+alert( str[str.length - 1] ); // o
+alert( str.at(-1) );
+```
+
+As you can see, the `.at(pos)` method has a benefit of allowing negative position. If `pos` is negative, then it's counted from the end of the string.
+
+So `.at(-1)` means the last character, and `.at(-2)` is the one before it, etc.
+
+The square brackets always return `undefined` for negative indexes, for instance:
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 
 ```js run
 let str = `Hola`;
 
+<<<<<<< HEAD
 alert(str[1000]); // undefined
 alert(str.charAt(1000)); // '' (un string vacío)
+=======
+alert( str[-2] ); // undefined
+alert( str.at(-2) ); // l
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 ```
 
 Podemos además iterar sobre los caracteres usando `for..of`:
@@ -429,9 +467,15 @@ Aunque existen algunas singularidades.
 
    Esto puede conducir a resultados extraños si ordenamos los nombres de estos países. Usualmente, se esperaría que `Zealand` apareciera después de `Österreich` en la lista.
 
+<<<<<<< HEAD
 Para entender qué pasa, revisemos la representación interna de strings en JavaScript.
 
 Todos los strings son codificados usando [UTF-16](https://es.wikipedia.org/wiki/UTF-16). Esto significa: cada carácter tiene un código numérico correspondiente. Existen métodos especiales que permiten obtener el carácter para el código y viceversa.
+=======
+To understand what happens, we should be aware that strings in Javascript are encoded using [UTF-16](https://en.wikipedia.org/wiki/UTF-16). That is: each character has a corresponding numeric code.
+
+There are special methods that allow to get the character for the code and back:
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 
 `str.codePointAt(pos)`
 : Devuelve un número decimal que representa el código de carácter en la posición `pos`:
@@ -440,7 +484,11 @@ Todos los strings son codificados usando [UTF-16](https://es.wikipedia.org/wiki/
     // mayúsculas y minúsculas tienen códigos diferentes
     alert( "Z".codePointAt(0) ); // 90
     alert( "z".codePointAt(0) ); // 122
+<<<<<<< HEAD
     alert( "z".codePointAt(0).toString(16) ); // 7a (el valor del código en hexadecimal, que es más usado)
+=======
+    alert( "z".codePointAt(0).toString(16) ); // 7a (if we need a hexadecimal value)
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
     ```
 
 `String.fromCodePoint(code)`
@@ -450,6 +498,7 @@ Todos los strings son codificados usando [UTF-16](https://es.wikipedia.org/wiki/
     alert( String.fromCodePoint(90) ); // Z
     alert( String.fromCodePoint(0x5a) ); // Z (también podemos usar un valor hexa como argumento)
     ```
+<<<<<<< HEAD
     
     También podemos agregar caracteres unicode por sus códigos usando `\u` seguido de un código hexadecimal:
 
@@ -459,6 +508,10 @@ Todos los strings son codificados usando [UTF-16](https://es.wikipedia.org/wiki/
     ```
 
 Ahora veamos los caracteres con códigos `65..220` (el alfabeto latino y algo más) transformándolos a string:
+=======
+
+Now let's see the characters with codes `65..220` (the latin alphabet and a little bit extra) by making a string of them:
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 
 ```js run
 let str = '';
@@ -466,7 +519,12 @@ let str = '';
 for (let i = 65; i <= 220; i++) {
   str += String.fromCodePoint(i);
 }
+<<<<<<< HEAD
 alert(str);
+=======
+alert( str );
+// Output:
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 // ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
 // ¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜ
 ```
@@ -486,7 +544,11 @@ El algoritmo "correcto" para realizar comparaciones de strings es más complejo 
 
 Por lo que el navegador necesita saber el lenguaje para comparar.
 
+<<<<<<< HEAD
 Por suerte, todos los navegadores modernos (IE10- requiere adicionalmente la biblioteca [Intl.JS](https://github.com/andyearnshaw/Intl.js/)) mantienen la internacionalización del estándar [ECMA 402](https://www.ecma-international.org/publications-and-standards/standards/ecma-402/).
+=======
+Luckily, modern browsers support the internationalization standard [ECMA-402](https://www.ecma-international.org/publications-and-standards/standards/ecma-402/).
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 
 Este provee un método especial para comparar strings en distintos lenguajes, siguiendo sus reglas.
 
@@ -504,6 +566,7 @@ alert('Österreich'.localeCompare('Zealand')); // -1
 
 Este método tiene dos argumentos adicionales especificados en [la documentación](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/localeCompare), la cual le permite especificar el lenguaje (por defecto lo toma del entorno) y configura reglas adicionales como sensibilidad a las mayúsculas y minúsculas, o si `"a"` y `"á"` deben ser tratadas como iguales, etc.
 
+<<<<<<< HEAD
 ## Internals, Unicode
 
 ```warn header="Conocimiento avanzado"
@@ -680,6 +743,17 @@ Si desea obtener más información sobre las reglas y variantes de normalizació
 - Para convertir un string en minúsculas/mayúsculas, usa: `toLowerCase/toUpperCase`.
 - Para buscar por un substring, usa: `indexOf`, o `includes/startsWith/endsWith` para chequeos simples.
 - Para comparar strings de acuerdo al idioma, usa: `localeCompare`, de otra manera serán comparados por sus códigos de carácter.
+=======
+## Summary
+
+- There are 3 types of quotes. Backticks allow a string to span multiple lines and embed expressions `${…}`.
+- We can use special characters, such as a line break `\n`.
+- To get a character, use: `[]`.
+- To get a substring, use: `slice` or `substring`.
+- To lowercase/uppercase a string, use: `toLowerCase/toUpperCase`.
+- To look for a substring, use: `indexOf`, or `includes/startsWith/endsWith` for simple checks.
+- To compare strings according to the language, use: `localeCompare`, otherwise they are compared by character codes.
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 
 Existen varios otros métodos útiles en cadenas:
 
@@ -687,4 +761,10 @@ Existen varios otros métodos útiles en cadenas:
 - `str.repeat(n)` -- repite el string `n` veces.
 - ...y más. Mira el [manual](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String) para más detalles.
 
+<<<<<<< HEAD
 Los strings también tienen métodos con expresiones regulares para buscar/reemplazar. Este es un tema importante, por ello es explicado en su propia sección <info:regular-expressions>.
+=======
+Strings also have methods for doing search/replace with regular expressions. But that's big topic, so it's explained in a separate tutorial section <info:regular-expressions>.
+
+Also, as of now it's important to know that strings are based on Unicode encoding, and hence there're issues with comparisons. There's more about Unicode in the chapter <info:unicode>.
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e

@@ -156,7 +156,11 @@ Si establecemos `expires` en una fecha en el pasado, la cookie es eliminada.
 
 -  **`max-age=3600`**
 
+<<<<<<< HEAD
 `max-age` es una alternativa a `expires` y especifica la expiración de la cookie en segundos desde el momento actual.
+=======
+It's an alternative to `expires` and specifies the cookie's expiration in seconds from the current moment.
+>>>>>>> 18b1314af4e0ead5a2b10bb4bacd24cecbb3f18e
 
 Si la configuramos a cero o un valor negativo, la cookie es eliminada:
 
