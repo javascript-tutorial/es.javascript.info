@@ -97,7 +97,7 @@ Pues hay algunas razones.
 2. La lista explícita de importaciones ofrece una mejor visión general de la estructura del código: qué se usa y dónde. Facilita el soporte de código y la refactorización.
 
 ```smart header="No temas importar demasiado"
-Las herramientas de empaquetado modernas, como [webpack](https://webpack.js.org/) y otras, construyen los módulos juntos y optimiza la velocidad de carga. También elimina las importaciones no usadas.
+Las herramientas de empaquetado modernas, como [webpack](https://webpack.js.org/) y otras, construyen los módulos juntos y optimizan la velocidad de carga. También eliminan las importaciones no usadas.
 
 Por ejemplo, si importas `import * as library` desde una librería de código enorme, y usas solo unos pocos métodos, los que no se usen [no son incluidos](https://github.com/webpack/webpack/tree/main/examples/harmony-unused#examplejs) en el paquete optimizado.
 ```
