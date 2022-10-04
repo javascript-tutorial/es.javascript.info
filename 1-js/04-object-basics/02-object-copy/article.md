@@ -166,7 +166,7 @@ Object.assign(dest, ...sources)
 - El primer argumento `dest` es el objeto destinatario.
 - Los argumentos que siguen son una lista de objetos fuentes.
 
-Esto copia las propiedades de todos los objetos fuentes dentro del destino `dest`, y lo devuelve cmo resultado
+Esto copia las propiedades de todos los objetos fuentes dentro del destino `dest` y lo devuelve como resultado
 
 Ejemplo. Tenemos el objeto `user`, agreguémosle un par de permisos:
 ```js run
