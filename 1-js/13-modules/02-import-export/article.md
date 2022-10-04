@@ -46,7 +46,7 @@ También podemos colocar `export` por separado.
 
 Aquí primero declaramos y luego exportamos:
 
-```js  
+```js
 // 📁 say.js
 function sayHi(user) {
   alert(`Hello, ${user}!`);
@@ -93,25 +93,14 @@ A primera vista, "importar todo" parece algo tan genial, corto de escribir, por 
 
 Pues hay algunas razones.
 
-1. Las herramientas de ensamblaje modernas ([webpack](https://webpack.js.org/) y otras) empaquetan los módulos juntos, los optimiza para acelerar la carga y quitan las cosas que no se usan.
+1. Listar explícitamente qué importar da nombres más cortos: `sayHi()` en lugar de `say.sayHi()`.
+2. La lista explícita de importaciones ofrece una mejor visión general de la estructura del código: qué se usa y dónde. Facilita el soporte de código y la refactorización.
 
-    Digamos que agregamos una librería externa `say.js` a nuestro proyecto con varias funciones:
-    ```js
-    // 📁 say.js
-    export function sayHi() { ... }
-    export function sayBye() { ... }
-    export function becomeSilent() { ... }
-    ```
+```smart header="No temas importar demasiado"
+Las herramientas de empaquetado modernas, como [webpack](https://webpack.js.org/) y otras, construyen los módulos juntos y optimiza la velocidad de carga. También elimina las importaciones no usadas.
 
-    Ahora si solamente utilizamos una de las funciones de `say.js` en nuestro proyecto:
-    ```js
-    // 📁 main.js
-    import {sayHi} from './say.js';
-    ```    
-    ...Entonces el optimizador lo verá y eliminará las otras funciones del código empaquetado, por lo tanto la compilación es más pequeña. Esto se llama "tree-shaking".
-
-2. Listar explícitamente qué importar da nombres más cortos: `sayHi()` en lugar de `say.sayHi()`.
-3. La lista explícita de importaciones ofrece una mejor visión general de la estructura del código: qué se usa y dónde. Facilita el soporte de código y la refactorización.
+Por ejemplo, si importas `import * as library` desde una librería de código enorme, y usas solo unos pocos métodos, los que no se usen [no son incluidos](https://github.com/webpack/webpack/tree/main/examples/harmony-unused#examplejs) en el paquete optimizado.
+```
 
 ## Importar "as"
 
@@ -224,7 +213,7 @@ Sin `default`, dicha exportación daría un error:
 export class { // Error! (exportación no predeterminada necesita un nombre)
   constructor() {}
 }
-```     
+```
 
 ### El nombre "default"
 
@@ -326,7 +315,7 @@ Imagine que estamos escribiendo un "paquete": una carpeta con muchos módulos, c
 La estructura de archivos podría ser algo así:
 ```
 auth/
-    index.js  
+    index.js
     user.js
     helpers.js
     tests/
@@ -399,7 +388,7 @@ Podemos tener dos problemas:
 
 1. `export User from './user.js'` no funcionará. Nos dará un error de sintaxis.
 
-Para reexportar la exportación predeterminada, tenemos que escribir `export {default as User}`, tal como en el ejemplo de arriba.    
+    Para reexportar la exportación predeterminada, tenemos que escribir `export {default as User}`, tal como en el ejemplo de arriba.    
 
 2. `export * from './user.js'` reexporta únicamente las exportaciones con nombre, pero ignora la exportación predeterminada.
 

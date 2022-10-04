@@ -160,16 +160,16 @@ También podemos usar el método [Object.assign](https://developer.mozilla.org/e
 La sintaxis es:
 
 ```js
-Object.assign(dest, src1[, src2, src3...])
+Object.assign(dest, ...sources)
 ```
 
 - El primer argumento `dest` es el objeto destinatario.
-- Los siguientes argumentos `src1, ..., srcN` (tantos como sea necesario) son objetos fuentes.
-- Esto copia todas las propiedades de todos los objetos fuentes `src1, ..., srcN` dentro del destino `dest`. En otras palabras, las propiedades de todos los argumentos, comenzando desde el segundo, son copiadas en el primer objeto.
-- El llamado devuelve `dest`.
+- Los argumentos que siguen son una lista de objetos fuentes.
 
-Por ejemplo, podemos usarlo para combinar distintos objetos en uno:
-```js
+Esto copia las propiedades de todos los objetos fuentes dentro del destino `dest`, y lo devuelve cmo resultado
+
+Ejemplo. Tenemos el objeto `user`, agreguémosle un par de permisos:
+```js run
 let user = { name: "John" };
 
 let permissions1 = { canView: true };
@@ -180,7 +180,10 @@ let permissions2 = { canEdit: true };
 Object.assign(user, permissions1, permissions2);
 */!*
 
-// ahora user = { name: "John", canView: true, canEdit: true }
+// ahora, user = { name: "John", canView: true, canEdit: true }
+alert(user.name); // John
+alert(user.canView); // true
+alert(user.canEdit); // true
 ```
 
 Si la propiedad por copiar ya existe, se sobrescribe:
@@ -193,9 +196,9 @@ Object.assign(user, { name: "Pete" });
 alert(user.name); // ahora user = { name: "Pete" }
 ```
 
-También podemos usar `Object.assign` reemplazando el bucle `for..in` para hacer una clonación simple:
+También podemos usar `Object.assign` para hacer una clonación simple:
 
-```js
+```js run
 let user = {
   name: "John",
   age: 30
@@ -204,9 +207,12 @@ let user = {
 *!*
 let clone = Object.assign({}, user);
 */!*
+
+alert(clone.name); // John
+alert(clone.age); // 30
 ```
 
-Copia todas las propiedades de `user` en un objeto vacío y lo devuelve.
+Aquí, copia todas las propiedades de `user` en un objeto vacío y lo devuelve.
 
 También hay otras formas de clonar un objeto, por ejemplo usando la [sintaxis spread](info:rest-parameters-spread) `clone = {...user}`, cubierto más adelante en el tutorial.
 
@@ -272,7 +278,7 @@ let clone = structuredClone(user);
 alert( user.sizes === clone.sizes ); // false, objetos diferentes
 
 // ahora user y clone están totalmente separados
-user.sizes.width = 60;    // canmbia una propiedad de un lugar
+user.sizes.width = 60;    // cambia una propiedad de un lugar
 alert(clone.sizes.width); // 50, no están relacionados
 ```
 

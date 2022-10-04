@@ -61,7 +61,7 @@ Cuando se llama a `pow(x, n)`, la ejecución se divide en dos ramas:
               if n==1  = x
              /
 pow(x, n) =
-             \       
+             \
               else     = x * pow(x, n - 1)
 ```
 
