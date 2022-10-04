@@ -168,7 +168,7 @@ Object.assign(dest, ...sources)
 
 Esto copia las propiedades de todos los objetos fuentes dentro del destino `dest` y lo devuelve como resultado
 
-Ejemplo. Tenemos el objeto `user`, agreguémosle un par de permisos:
+Por ejemplo, tenemos el objeto `user`, agreguemos un par de permisos:
 ```js run
 let user = { name: "John" };
 
@@ -180,7 +180,7 @@ let permissions2 = { canEdit: true };
 Object.assign(user, permissions1, permissions2);
 */!*
 
-// ahora, user = { name: "John", canView: true, canEdit: true }
+// ahora es user = { name: "John", canView: true, canEdit: true }
 alert(user.name); // John
 alert(user.canView); // true
 alert(user.canEdit); // true
@@ -317,7 +317,7 @@ Para manejar estos casos complejos podemos necesitar una combinación de método
 
 ## Resumen
 
-Los objetos son asignados y copiados por referencia. En otras palabras, una variable almacena no el valor del objeto sino una referencia (dirección de memoria) del valor. Entonces copiar tal variable o pasarla como argumento de función copia la referencia, no el objeto.
+Los objetos son asignados y copiados por referencia. En otras palabras, una variable almacena no el valor del objeto sino una referencia (la dirección en la memoria) del valor. Entonces, copiar tal variable o pasarla como argumento de función copia la referencia, no el objeto.
 
 Todas la operaciones a través de referencias copiadas (como agregar y borrar propiedades) son efectuadas en el mismo y único objeto .
 
