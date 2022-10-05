@@ -171,7 +171,7 @@ alert( new SmallUser().name );  // John
 Normalmente los constructores no tienen una sentencia `return`. Aquí mencionamos el comportamiento especial con devolución de objetos principalmente por el bien de la integridad.
 
 ````smart header="Omitir paréntesis"
-Por cierto, podemos omitir paréntesis después de `new`, si no tiene argumentos:
+Por cierto, podemos omitir paréntesis después de `new`:
 
 ```js
 let user = new User; // <-- sin paréntesis

@@ -50,7 +50,7 @@ let guestList = "Invitados:  // Error: Unexpected token ILLEGAL
 
 Las comillas simples y dobles provienen de la creación de lenguajes en tiempos ancestrales, cuando la necesidad de múltiples líneas no era tomada en cuenta. Los backticks aparecieron mucho después y por ende son más versátiles.
 
-Los backticks además nos permiten especificar una "función de plantilla" antes del primer backtick. La sintaxis es: <code>func&#96;string&#96;</code>. La función `func` es llamada automáticamente, recibe el string y la expresión insertada, y los puede procesar. Eso se llama "plantillas etiquetadas". Esta característica hace que sea más fácil implementar plantillas personalizadas, pero es raramente usada en la práctica. Puedes leer más sobre esto en el [manual](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates). 
+Los backticks además nos permiten especificar una "función de plantilla" antes del primer backtick. La sintaxis es: <code>func&#96;string&#96;</code>. La función `func` es llamada automáticamente, recibe el string y la expresión insertada, y los puede procesar. Eso se llama "plantillas etiquetadas". Es raro verlo implementado, pero puedes leer más sobre esto en el [manual](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates). 
 
 ## Caracteres especiales
 
@@ -74,7 +74,7 @@ World`;
 alert(str1 == str2); // true
 ```
 
-Existen otros tipos de caracteres especiales, menos comunes. 
+Existen otros caracteres especiales, menos comunes. 
 
 | Carácter | Descripción |
 |-----------|-------------|
@@ -109,7 +109,7 @@ Obviamente, solo necesitan ser escapadas las comillas que son iguales a las que 
 alert("¡Yo soy la 'morsa'!"); // ¡Yo soy la 'morsa'!
 ```
 
-Además de estos caracteres especiales, también hay una notación especial para códigos Unicode `\u…`. Los cubriremos más adelante en este capítulo.
+Además de estos caracteres especiales, también hay una notación especial para códigos Unicode `\u…` que se usa raramente. Los cubrimos en el capítulo opcional acerca de [Unicode](info:unicode).
 
 ## Largo del string
 
@@ -124,33 +124,36 @@ Nota que `\n` es un solo carácter, por lo que el largo total es `3`.
 ```warn header="`length` es una propiedad"
 Quienes tienen experiencia en otros lenguajes pueden cometer el error de escribir `str.length()` en vez de `str.length`. Eso no funciona.
 
-Nota que `str.length` es una propiedad numérica, no una función. No hay que agregar paréntesis después de ella.
+Nota que `str.length` es una propiedad numérica, no una función. No hay que agregar paréntesis después de ella. No es `.length()`, sino `.length`.
 ```
 
 ## Accediendo caracteres
 
-Para acceder a un carácter en la posición `pos`, se debe usar corchetes, `[pos]`, o llamar al método [str.charAt(pos)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/charAt). El primer carácter comienza desde la posición cero:
+Para acceder a un carácter en la posición `pos`, se debe usar corchetes, `[pos]`, o llamar al método [str.at(pos)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/at). El primer carácter comienza desde la posición cero:
 
 ```js run
 let str = `Hola`;
 
 // el primer carácter
 alert( str[0] ); // H
-alert( str.charAt(0) ); // H
+alert( str.at(0) ); // H
 
 // el último carácter
 alert( str[str.length - 1] ); // a
+alert( str.at(-1) );
 ```
 
-Los corchetes son la forma moderna de acceder a los caracteres, mientras que `charAt` existe principalmente por razones históricas.
+Como puedes ver, el método `.at(pos)` tiene el beneficio de permitir una posición negativa. Si `pos` es negativa, se cuenta desde el final del string.
 
-La única diferencia entre ellos es que si no se encuentra un carácter, `[]` devuelve `undefined`, y `charAt` devuelve un string vacío:
+Así, `.at(-1)` significa el último carácter, y `.at(-2)` es el anterior a él, etc.
+
+Los corchetes siempre devuelven `undefined` para índices negativos:
 
 ```js run
 let str = `Hola`;
 
-alert(str[1000]); // undefined
-alert(str.charAt(1000)); // '' (un string vacío)
+alert( str[-2] ); // undefined
+alert( str.at(-2) ); // l
 ```
 
 Podemos además iterar sobre los caracteres usando `for..of`:
@@ -429,9 +432,9 @@ Aunque existen algunas singularidades.
 
    Esto puede conducir a resultados extraños si ordenamos los nombres de estos países. Usualmente, se esperaría que `Zealand` apareciera después de `Österreich` en la lista.
 
-Para entender qué pasa, revisemos la representación interna de strings en JavaScript.
+Para entender lo que pasa, debemos tener en cuenta que los strings en JavaScript son codificados usando [UTF-16](https://es.wikipedia.org/wiki/UTF-16). Esto significa: cada carácter tiene un código numérico correspondiente. 
 
-Todos los strings son codificados usando [UTF-16](https://es.wikipedia.org/wiki/UTF-16). Esto significa: cada carácter tiene un código numérico correspondiente. Existen métodos especiales que permiten obtener el carácter para el código y viceversa.
+Existen métodos especiales que permiten obtener el carácter para el código y viceversa.
 
 `str.codePointAt(pos)`
 : Devuelve un número decimal que representa el código de carácter en la posición `pos`:
@@ -440,7 +443,7 @@ Todos los strings son codificados usando [UTF-16](https://es.wikipedia.org/wiki/
     // mayúsculas y minúsculas tienen códigos diferentes
     alert( "Z".codePointAt(0) ); // 90
     alert( "z".codePointAt(0) ); // 122
-    alert( "z".codePointAt(0).toString(16) ); // 7a (el valor del código en hexadecimal, que es más usado)
+    alert( "z".codePointAt(0).toString(16) ); // 7a (si necesitamos el valor del código en hexadecimal)
     ```
 
 `String.fromCodePoint(code)`
@@ -449,13 +452,6 @@ Todos los strings son codificados usando [UTF-16](https://es.wikipedia.org/wiki/
     ```js run
     alert( String.fromCodePoint(90) ); // Z
     alert( String.fromCodePoint(0x5a) ); // Z (también podemos usar un valor hexa como argumento)
-    ```
-    
-    También podemos agregar caracteres unicode por sus códigos usando `\u` seguido de un código hexadecimal:
-
-    ```js run
-    // 90 es 5a en el sistema hexadecimal
-    alert( '\u005a' ); // Z
     ```
 
 Ahora veamos los caracteres con códigos `65..220` (el alfabeto latino y algo más) transformándolos a string:
@@ -466,7 +462,8 @@ let str = '';
 for (let i = 65; i <= 220; i++) {
   str += String.fromCodePoint(i);
 }
-alert(str);
+alert( str );
+// salida:
 // ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
 // ¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜ
 ```
@@ -486,7 +483,7 @@ El algoritmo "correcto" para realizar comparaciones de strings es más complejo 
 
 Por lo que el navegador necesita saber el lenguaje para comparar.
 
-Por suerte, todos los navegadores modernos (IE10- requiere adicionalmente la biblioteca [Intl.JS](https://github.com/andyearnshaw/Intl.js/)) mantienen la internacionalización del estándar [ECMA 402](https://www.ecma-international.org/publications-and-standards/standards/ecma-402/).
+Por suerte, todos los navegadores modernos mantienen la internacionalización del estándar [ECMA 402](https://www.ecma-international.org/publications-and-standards/standards/ecma-402/).
 
 Este provee un método especial para comparar strings en distintos lenguajes, siguiendo sus reglas.
 
@@ -504,187 +501,22 @@ alert('Österreich'.localeCompare('Zealand')); // -1
 
 Este método tiene dos argumentos adicionales especificados en [la documentación](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/localeCompare), la cual le permite especificar el lenguaje (por defecto lo toma del entorno) y configura reglas adicionales como sensibilidad a las mayúsculas y minúsculas, o si `"a"` y `"á"` deben ser tratadas como iguales, etc.
 
-## Internals, Unicode
-
-```warn header="Conocimiento avanzado"
-Esta sección ahonda en los interiores de los string. Este conocimiento será útil para ti si planeas lidiar con emoticones, raros caracteres matemáticos, glifos u otros símbolos extraños.
-```
-
-### Caracteres Unicode
-
-Como ya mencionamos, los strings de JavaScript están basados en [Unicode](https://es.wikipedia.org/wiki/Unicode).
-
-Cada carácter está representado por una secuencia de entre 1 y 4 bytes.
-
-JavaScript permite especificar un carácter no solo incluyéndolo directamente en el string, sino también por medio de su código hexadecimal Unicode usando estas tres notaciones:
-
-- `\xXX` -- un carácter cuyo "punto de código" es `U+00XX`.
-
-    `XX` son dos dígitos hexadecimales con valor entre `00` y `FF`, así la notación `\xXX` puede usarse solamente para los primeros 256 caracteres Unicode (esto incluye todos los caracteres ASCII, que son 128).
-
-    Estos primeros 256 caracteres incluyen el alfabeto latino, la mayoría de caracteres de sintaxis básicos y algunos otros. Por ejemplo, `"\x7A"` es lo mismo que `"z"` (Unicode `U+007A`).
-- `\uXXXX` -- un carácter cuyo "punto de código Unicode" es `U+XXXX` (un carácter con el código hex `XXXX` en UTF-16 encoding).
-
-    `XXXX` siempre deben ser exactamente 4 dígitos hexa, con valor entre `0000` y `FFFF`. Entonces la notación `\uXXXX` puede usarse  para los primeros 65536 caracteres Unicode. Caracteres con valor Unicode mayor que `U+FFFF` también pueden ser representados con esta notación, pero en ese caso necesitamos usar los llamados "pares sustitutos" (hablaremos de pares sustitutos más adelante en este capítulo).
-- `\u{X…XXXXXX}` -- un carácter con cualquier "punto de código Unicode" (un carácter con el código hexa en codificación UTF-32).
-
-    `X…XXXXXX` debe ser un valor hexadecimal de 1 a 6 bytes entre `0` y `10FFFF` (el mayor punto de código definido por Unicode). Esta notación nos permite fácilmente representar todos los caracteres Unicode existentes.
-
-Ejemplos con Unicode:
-
-```js run
-alert( "\uA9" ); // ©, el símbolo de copyright
-
-alert( "\u00A9" ); // ©, lo mismo que arriba, usando la notación de 4 dígitos hexa
-alert( "\u044F" ); // я, letra del alfabeto cirílico
-alert( "\u2191" ); // ↑, el símbolo flecha apuntando arriba
-
-alert( "\u{20331}" ); // 佫, un raro glifo Chino (long Unicode)
-alert( "\u{1F60D}" ); // 😍, un símbolo de cara sonriente (another long Unicode)
-```
-
-### Pares sustitutos
-
-Inicialmente, JavaScript estaba basado en la codificación UTF-16 que solo permite 2 bytes por carácter. Pero 2 bytes solo permiten 65536 combinaciones y eso no es suficiente para cada símbolo Unicode posible.
-
-Entonces, los símbolos raros que requieren más de 2 bytes son codificados con un par de caracteres de 2 bytes llamado "par sustituto".
-
-Como efecto secundario, el largo de tales símbolos es `2`:
-
-```js run
-alert( '𝒳'.length ); // 2, carácter matemático X capitalizado
-alert( '😂'.length ); // 2, cara con lágrimas de risa
-alert( '𩷶'.length ); // 2, un raro glifo chino
-```
-
-Esto es porque los pares sustitutos no existían cuando JavaScript fue creado, por ello ¡no es procesado correctamente por el lenguaje!
-
-En realidad tenemos un solo símbolo en cada línea de los string de arriba, pero la propiedad `length` los muestra con un largo de `2`.
-
-Obtener un símbolo puede ser intrincado, porque la mayoría de las características del lenguaje trata a los pares sustitutos como de 2 caracteres.
-
-Por ejemplo, aquí vemos dos caracteres extraños en la salida:
-
-```js run
-alert( '𝒳'[0] ); // muestra símbolos extraños...
-alert( '𝒳'[1] ); // ...partes del par sustituto
-```
-
-Las 2 partes del par sustituto no tienen significado el uno sin el otro. Entonces las alertas del ejemplo en realidad muestran basura.
-
-Técnicamente, los pares sustitutos son también detectables por su propio código: si un carácter tiene código en el intervalo de `0xd800..0xdbff`, entonces es la primera parte de un par sustituto. El siguiente carácter (segunda parte) debe tener el código en el intervalo `0xdc00..0xdfff`. Estos intervalos son reservados exclusivamente para pares sustitutos por el estándar.
-
-Los métodos `String.fromCodePoint` y `str.codePointAt` fueron añadidos en JavaScript para manejar los pares sustitutos.
-
-Esencialmente, son lo mismo que [String.fromCharCode](mdn:js/String/fromCharCode) y [str.charCodeAt](mdn:js/String/charCodeAt), pero tratan a los pares sustitutos correctamente.
-
-Se puede ver la diferencia aquí:
-
-```js run
-// charCodeAt no percibe los pares sustitutos, entonces da el código de la primera parte de 𝒳:
-
-alert( '𝒳'.charCodeAt(0).toString(16) ); // d835
-
-// codePointAt reconoce los pares sustitutos
-alert( '𝒳'.codePointAt(0).toString(16) ); // 1d4b3, lee ambas partes de los pares sustitutos
-```
-
-Dicho esto, si tomamos desde la posición 1 (y es incorrecto aquí), ambas funciones devolverán solo la segunda parte del par:
-
-```js run
-alert( '𝒳'.charCodeAt(1).toString(16) ); // dcb3
-alert( '𝒳'.codePointAt(1).toString(16) ); // dcb3
-// segunda parte del par, sin sentido
-```
-
-Encontrarás más formas de trabajar con pares sustitutos más adelante en el capítulo <info:iterable>. Probablemente hay bibliotecas especiales para eso también, pero nada lo suficientemente famoso como para sugerirlo aquí.
-
-````warn header="En conclusión: partir strings en un punto arbitrario es peligroso"
-No podemos simplemente separar un string en una posición arbitraria, ej. tomar `str.slice(0, 4)`, y confiar en que sea un string válido, por ejemplo:
-
-```js run
-alert( 'hi 😂'.slice(0, 4) ); //  hi [?]
-```
-
-Aquí podemos ver basura (la primera mitad del par sustituto de la sonrisa) en la salida.
-
-Simplemente sé consciente de esto si intentas trabajar con confianza con los pares sustitutos. Puede que no sea un gran problema, pero al menos deberías entender lo que pasa.
-````
-
-### Marcas diacríticas y normalización
-
-En muchos idiomas hay símbolos compuestos, con un carácter de base y una marca arriba o debajo.
-
-Por ejemplo, la letra `a` puede ser el carácter base para estos caracteres:` àáâäãåā`.
- 
-Los caracteres "compuestos" más comunes tienen su propio código en la tabla UTF-16. Pero no todos ellos, porque hay demasiadas combinaciones posibles.
-
-Para mantener composiciones arbitrarias, UTF-16 nos permite usar varios caracteres Unicode. El carácter base y uno o varios caracteres de "marca" que lo "decoran".
-
-Por ejemplo, si tenemos `S` seguido del carácter especial" punto arriba "(código` \ u0307`), se muestra como Ṡ.
-
-```js run
-alert('S\u0307'); // Ṡ
-```
-
-Si necesitamos una marca adicional sobre la letra (o debajo de ella), no hay problema, simplemente agrega el carácter de marca necesario.
-
-Por ejemplo, si agregamos un carácter "punto debajo" (código `\u0323`), entonces tendremos" S con puntos arriba y abajo ": `Ṩ`.
-
-Por ejemplo:
-
-```js run
-alert('S\u0307\u0323'); // Ṩ
-```
-
-Esto proporciona una gran flexibilidad, pero también un problema interesante: dos caracteres pueden ser visualmente iguales, pero estar representados con diferentes composiciones Unicode.
-
-Por ejemplo:
-
-```js run
-let s1 = 'S\u0307\u0323'; // Ṩ, S + punto arriba + punto debajo
-let s2 = 'S\u0323\u0307'; // Ṩ, S + punto debajo + punto arriba
-
-alert( `s1: ${s1}, s2: ${s2}` );
-
-alert( s1 == s2 ); // false aunque los caracteres se ven idénticos (?!)
-```
-
-Para resolver esto, existe un algoritmo de "normalización Unicode" que lleva cada cadena a la forma "normal".
-
-Este es implementado por [str.normalize()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/normalize).
-
-```js run
-alert('S\u0307\u0323'.normalize() == 'S\u0323\u0307'.normalize()); // true
-```
-
-Es curioso que en esta situación `normalize ()` realmente reúna una secuencia de 3 caracteres en uno: `\u1e68` (S con dos puntos).
-
-```js run
-alert('S\u0307\u0323'.normalize().length); // 1
-
-alert('S\u0307\u0323'.normalize() == '\u1e68'); // true
-```
-
-En realidad, este no es siempre el caso. La razón es que el símbolo `Ṩ` es "bastante común", por lo que los creadores de Unicode lo incluyeron en la tabla principal y le dieron el código.
-
-Si desea obtener más información sobre las reglas y variantes de normalización, se describen en el apéndice del estándar Unicode: [Formas de normalización Unicode](http://www.unicode.org/reports/tr15/), pero para la mayoría de los propósitos prácticos, la información de esta sección es suficiente.
-
 ## Resumen
 
 - Existen 3 tipos de entrecomillado. Los backticks permiten que una cadena abarque varias líneas e incorporar expresiones `${…}`.
-- Los strings en JavaScript son codificados usando UTF-16, y "pares sustitutos" para caracteres raros (y estos pueden causar fallos).
 - Podemos usar caracteres especiales como `\n` e insertar letras por medio de su Unicode usando `\u ... `.
 - Para obtener un carácter, usa: `[]`.
 - Para obtener un substring, usa: `slice` o `substring`.
 - Para convertir un string en minúsculas/mayúsculas, usa: `toLowerCase/toUpperCase`.
-- Para buscar por un substring, usa: `indexOf`, o `includes/startsWith/endsWith` para chequeos simples.
+- Para buscar un substring, usa: `indexOf`, o  para chequeos simples `includes/startsWith/endsWith`.
 - Para comparar strings de acuerdo al idioma, usa: `localeCompare`, de otra manera serán comparados por sus códigos de carácter.
 
-Existen varios otros métodos útiles en cadenas:
+Existen otros métodos útiles:
 
 - `str.trim()` -- remueve ("recorta") espacios desde el comienzo y final de un string.
 - `str.repeat(n)` -- repite el string `n` veces.
 - ...y más. Mira el [manual](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String) para más detalles.
 
-Los strings también tienen métodos con expresiones regulares para buscar/reemplazar. Este es un tema importante, por ello es explicado en su propia sección <info:regular-expressions>.
+Los strings también tienen métodos para buscar/reemplazar que usan "expresiones regulares". Este es un tema muy amplio, por ello es explicado en una sección separada del tutorial <info:regular-expressions>.
+
+Además, es importante saber que los strings están basados en la codificación Unicode, y la implementación presenta algunos problemas, en particular con las comparaciones de string. Hay más acerca de Unicode en el capítulo <info:unicode>.
