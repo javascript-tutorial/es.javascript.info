@@ -1,165 +1,165 @@
 
 # Unicode, String internals
 
-```warn header="Advanced knowledge"
-The section goes deeper into string internals. This knowledge will be useful for you if you plan to deal with emoji, rare mathematical or hieroglyphic characters or other rare symbols.
+```warn header="Conocimiento avanzado"
+Esta sección ahonda en los interioridades de los string. Este conocimiento será útil para ti si planeas lidiar con emoticones, raros caracteres matemáticos, glifos u otros símbolos extraños.
 ```
 
-As we already know, JavaScript strings are based on [Unicode](https://en.wikipedia.org/wiki/Unicode): each character is represented by a byte sequence of 1-4 bytes.
+Como ya mencionamos, los strings de JavaScript están basados en [Unicode](https://es.wikipedia.org/wiki/Unicode): cada carácter está representado por una secuencia de entre 1 y 4 bytes.
 
-JavaScript allows us to insert a character into a string by specifying its hexadecimal Unicode code with one of these three notations:
+JavaScript nos permite insertar un carácter en un string por medio de su código hexadecimal Unicode, usando estas tres notaciones:
 
 - `\xXX`
 
-    `XX` must be two hexadecimal digits with value between `00` and `FF`, then it's character whose Unicode code is `XX`.
+    `XX` son dos dígitos hexadecimales con un valor entre `00` y `FF`. Entonces, `\xXX` es el carácter cuyo código Unicode es `XX`.
 
-    Because the `\xXX` notation supports only two digits, it can be used only for the first 256 Unicode characters.
+    Como la notación `\xXX` soporta solo dos dígitos, puede representar solamente los primeros 256 caracteres Unicode.
 
-    These first 256 characters include latin alphabet, most basic syntax characters and some others. For example, `"\x7A"` is the same as `"z"` (Unicode `U+007A`).
+    Estos primeros 256 caracteres incluyen el alfabeto latino, la mayoría de caracteres de sintaxis básicos, y algunos otros. Por ejemplo, `"\x7A"` es lo mismo que `"z"` (Unicode `U+007A`).
 
     ```js run
     alert( "\x7A" ); // z
-    alert( "\xA9" ); // ©, the copyright symbol
+    alert( "\xA9" ); // ©, el  símbolo de copyright
     ```
 
 - `\uXXXX`
-    `XXXX` must be exactly 4 hex digits with the value between `0000` and `FFFF`, then `\uXXXX` is a character whose Unicode code is `XXXX` .
+    `XXXX` deben ser exactamente 4 dígitos hexadecimales con un valor entre `0000` y `FFFF`. Entonces, `\uXXXX` es el carácter cuyo código Unicode es `XXXX`.
 
-    Characters with Unicode value greater than `U+FFFF` can also be represented with this notation, but in this case we will need to use a so called surrogate pair (we will talk about surrogate pairs later in this chapter).
+    Caracteres con un valor Unicode mayor que `U+FFFF` también pueden ser representados con esta notación, pero en ese caso necesitamos usar los llamados "pares sustitutos", descritos más adelante.
 
     ```js run
-    alert( "\u00A9" ); // ©, the same as \xA9, using the 4-digit hex notation
-    alert( "\u044F" ); // я, the cyrillic alphabet letter
-    alert( "\u2191" ); // ↑, the arrow up symbol
+    alert( "\u00A9" ); // ©, lo mismo que \xA9, usando la notación de 4 dígitos hexa
+    alert( "\u044F" ); // я, letra del alfabeto cirílico
+    alert( "\u2191" ); // ↑, símbolo flecha
     ```
 
 - `\u{X…XXXXXX}`
 
-    `X…XXXXXX` must be a hexadecimal value of 1 to 6 bytes between `0` and `10FFFF` (the highest code point defined by Unicode). This notation allows us to easily represent all existing Unicode characters.
+    `X…XXXXXX` debe ser un valor hexadecimal de 1 a 6 bytes entre `0` y `10FFFF` (el mayor punto de código definido por Unicode). Esta notación nos permite fácilmente representar todos los caracteres Unicode existentes.
 
     ```js run
-    alert( "\u{20331}" ); // 佫, a rare Chinese hieroglyph (long Unicode)
-    alert( "\u{1F60D}" ); // 😍, a smiling face symbol (another long Unicode)
+    alert( "\u{20331}" ); // 佫, un raro glifo Chino (long Unicode)
+    alert( "\u{1F60D}" ); // 😍, un símbolo de cara sonriente (otro long Unicode)
     ```
 
-## Surrogate pairs
+## Pares sustitutos [#surrogate-pairs]
 
-All frequently used characters have 2-byte codes. Letters in most european languages, numbers, and even most hieroglyphs, have a 2-byte representation.
+Todos los caracteres usados frecuentemente tienen códigos de 2 bytes. Las letras de la mayoría de los lenguajes europeos, números, incluso la mayoría de los glifos, tienen un representación de 2 bytes.
 
-Initially, JavaScript was based on UTF-16 encoding that only allowed 2 bytes per character. But 2 bytes only allow 65536 combinations and that's not enough for every possible symbol of Unicode.
+Inicialmente, JavaScript estaba basado en la codificación UTF-16 que solo permite 2 bytes por carácter. Pero 2 bytes solo permiten 65536 combinaciones y eso no es suficiente para cada símbolo Unicode posible.
 
-So rare symbols that require more than 2 bytes are encoded with a pair of 2-byte characters called "a surrogate pair".
+Entonces, los símbolos raros que requieren más de 2 bytes son codificados con un par de caracteres de 2 bytes llamado "par sustituto".
 
-As a side effect, the length of such symbols is `2`:
+Como efecto secundario, el largo de tales símbolos es `2`:
 
 ```js run
-alert( '𝒳'.length ); // 2, MATHEMATICAL SCRIPT CAPITAL X
-alert( '😂'.length ); // 2, FACE WITH TEARS OF JOY
-alert( '𩷶'.length ); // 2, a rare Chinese hieroglyph
+alert( '𝒳'.length ); // 2, carácter matemático X capitalizado
+alert( '😂'.length ); // 2, cara con lágrimas de risa
+alert( '𩷶'.length ); // 2, un raro glifo chino
 ```
 
-That's because surrogate pairs did not exist at the time when JavaScript was created, and thus are not correctly processed by the language!
+Esto es porque los pares sustitutos no existían cuando JavaScript fue creado, por ello no es procesado correctamente por el lenguaje.
 
-We actually have a single symbol in each of the strings above, but the `length` property shows a length of `2`.
+En realidad tenemos un solo símbolo en cada línea de los string de arriba, pero la propiedad `length` los muestra con un largo de `2`.
 
-Getting a symbol can also be tricky, because most language features treat surrogate pairs as two characters.
+Obtener un símbolo puede ser intrincado, porque la mayoría de las características del lenguaje trata a los pares sustitutos como de 2 caracteres.
 
-For example, here we can see two odd characters in the output:
+Por ejemplo, aquí vemos dos caracteres extraños en la salida:
 
 ```js run
-alert( '𝒳'[0] ); // shows strange symbols...
-alert( '𝒳'[1] ); // ...pieces of the surrogate pair
+alert( '𝒳'[0] ); // muestra símbolos extraños...
+alert( '𝒳'[1] ); // ...partes del par sustituto
 ```
 
-Pieces of a surrogate pair have no meaning without each other. So the alerts in the example above actually display garbage.
+Las 2 partes del par sustituto no tienen significado el uno sin el otro. Entonces las alertas del ejemplo en realidad muestran basura.
 
-Technically, surrogate pairs are also detectable by their codes: if a character has the code in the interval of `0xd800..0xdbff`, then it is the first part of the surrogate pair. The next character (second part) must have the code in interval `0xdc00..0xdfff`. These intervals are reserved exclusively for surrogate pairs by the standard.
+Técnicamente, los pares sustitutos son también detectables por su propio código: si un carácter tiene código en el intervalo de `0xd800..0xdbff`, entonces es la primera parte de un par sustituto. El siguiente carácter (segunda parte) debe tener el código en el intervalo `0xdc00..0xdfff`. Estos intervalos son reservados exclusivamente para pares sustitutos por el estándar.
 
-So the methods `String.fromCodePoint` and `str.codePointAt` were added in JavaScript to deal with surrogate pairs.
+Los métodos `String.fromCodePoint` y `str.codePointAt` fueron añadidos en JavaScript para manejar los pares sustitutos.
 
-They are essentially the same as [String.fromCharCode](mdn:js/String/fromCharCode) and [str.charCodeAt](mdn:js/String/charCodeAt), but they treat surrogate pairs correctly.
+Esencialmente, son lo mismo que [String.fromCharCode](mdn:js/String/fromCharCode) y [str.charCodeAt](mdn:js/String/charCodeAt), pero tratan a los pares sustitutos correctamente.
 
-One can see the difference here:
+Se puede ver la diferencia aquí:
 
 ```js run
-// charCodeAt is not surrogate-pair aware, so it gives codes for the 1st part of 𝒳:
+// charCodeAt no percibe los pares sustitutos, entonces da el código de la primera parte de 𝒳:
 
 alert( '𝒳'.charCodeAt(0).toString(16) ); // d835
 
-// codePointAt is surrogate-pair aware
-alert( '𝒳'.codePointAt(0).toString(16) ); // 1d4b3, reads both parts of the surrogate pair
+// codePointAt reconoce los pares sustitutos
+alert( '𝒳'.codePointAt(0).toString(16) ); // 1d4b3, lee ambas partes del par sustituto
 ```
 
-That said, if we take from position 1 (and that's rather incorrect here), then they both return only the 2nd part of the pair:
+Dicho esto, si tomamos desde la posición 1 (y hacerlo es incorrecto aquí), ambas funciones devolverán solo la segunda parte del par:
 
 ```js run
 alert( '𝒳'.charCodeAt(1).toString(16) ); // dcb3
 alert( '𝒳'.codePointAt(1).toString(16) ); // dcb3
-// meaningless 2nd half of the pair
+// segunda parte del par, sin sentido
 ```
 
-You will find more ways to deal with surrogate pairs later in the chapter <info:iterable>. There are probably special libraries for that too, but nothing famous enough to suggest here.
+Encontrarás más formas de trabajar con pares sustitutos más adelante en el capítulo <info:iterable>. Probablemente hay bibliotecas especiales para eso también, pero nada lo suficientemente famoso como para sugerirlo aquí.
 
-````warn header="Takeaway: splitting strings at an arbitrary point is dangerous"
-We can't just split a string at an arbitrary position, e.g. take `str.slice(0, 4)` and expect it to be a valid string, e.g.:
+````warn header="En conclusión: partir strings en un punto arbitrario es peligroso"
+No podemos simplemente separar un string en una posición arbitraria, ej. tomar `str.slice(0, 4)`, y confiar en que sea un string válido, por ejemplo:
 
 ```js run
 alert( 'hi 😂'.slice(0, 4) ); //  hi [?]
 ```
 
-Here we can see a garbage character (first half of the smile surrogate pair) in the output.
+Aquí podemos ver basura (la primera mitad del par sustituto de la sonrisa) en la salida.
 
-Just be aware of it if you intend to reliably work with surrogate pairs. May not be a big problem, but at least you should understand what happens.
+Simplemente sé consciente de esto si intentas trabajar con confianza con los pares sustitutos. Puede que no sea un gran problema, pero al menos deberías entender lo que pasa.
 ````
 
-## Diacritical marks and normalization
+### Marcas diacríticas y normalización
 
-In many languages, there are symbols that are composed of the base character with a mark above/under it.
+En muchos idiomas hay símbolos compuestos, con un carácter de base y una marca arriba o debajo.
 
-For instance, the letter `a` can be the base character for these characters: `àáâäãåā`.
+Por ejemplo, la letra `a` puede ser el carácter base para estos caracteres: `àáâäãåā`.
 
-Most common "composite" characters have their own code in the Unicode table. But not all of them, because there are too many possible combinations.
+Los caracteres "compuestos" más comunes tienen su propio código en la tabla UTF-16. Pero no todos ellos, porque hay demasiadas combinaciones posibles.
 
-To support arbitrary compositions, Unicode standard allows us to use several Unicode characters: the base character followed by one or many "mark" characters that "decorate" it.
+Para soportar composiciones arbitrarias, el estándar Unicode permite usar varios caracteres Unicode: el carácter base y uno o varios caracteres de "marca" que lo "decoran".
 
-For instance, if we have `S` followed by the special "dot above" character (code `\u0307`), it is shown as Ṡ.
+Por ejemplo, si tenemos `S` seguido del carácter especial" punto arriba "(código` \ u0307`), se muestra como Ṡ.
 
 ```js run
-alert( 'S\u0307' ); // Ṡ
+alert('S\u0307'); // Ṡ
 ```
 
-If we need an additional mark above the letter (or below it) -- no problem, just add the necessary mark character.
+Si necesitamos una marca adicional sobre la letra (o debajo de ella), no hay problema, simplemente se agrega el carácter de marca necesario.
 
-For instance, if we append a character "dot below" (code `\u0323`), then we'll have "S with dots above and below": `Ṩ`.
+Por ejemplo, si agregamos un carácter "punto debajo" (código `\u0323`), entonces tendremos" S con puntos arriba y abajo ": `Ṩ`.
 
-For example:
+Ejemplo:
 
 ```js run
 alert( 'S\u0307\u0323' ); // Ṩ
 ```
 
-This provides great flexibility, but also an interesting problem: two characters may visually look the same, but be represented with different Unicode compositions.
+Esto proporciona una gran flexibilidad, pero también un problema interesante: dos caracteres pueden ser visualmente iguales, pero estar representados con diferentes composiciones Unicode.
 
-For instance:
+Por ejemplo:
 
 ```js run
-let s1 = 'S\u0307\u0323'; // Ṩ, S + dot above + dot below
-let s2 = 'S\u0323\u0307'; // Ṩ, S + dot below + dot above
+let s1 = 'S\u0307\u0323'; // Ṩ, S + punto arriba + punto debajo
+let s2 = 'S\u0323\u0307'; // Ṩ, S + punto debajo + punto arriba
 
 alert( `s1: ${s1}, s2: ${s2}` );
 
-alert( s1 == s2 ); // false though the characters look identical (?!)
+alert( s1 == s2 ); // false aunque los caracteres se ven idénticos (?!)
 ```
 
-To solve this, there exists a "Unicode normalization" algorithm that brings each string to the single "normal" form.
+Para resolver esto, existe un algoritmo de "normalización Unicode" que lleva cada cadena a la forma "normal".
 
-It is implemented by [str.normalize()](mdn:js/String/normalize).
+Este es implementado por [str.normalize()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/normalize).
 
 ```js run
 alert( "S\u0307\u0323".normalize() == "S\u0323\u0307".normalize() ); // true
 ```
 
-It's funny that in our situation `normalize()` actually brings together a sequence of 3 characters to one: `\u1e68` (S with two dots).
+Lo curioso de esta situación particular es que `normalize ()` reúne una secuencia de 3 caracteres en uno: `\u1e68` (S con dos puntos).
 
 ```js run
 alert( "S\u0307\u0323".normalize().length ); // 1
@@ -167,6 +167,6 @@ alert( "S\u0307\u0323".normalize().length ); // 1
 alert( "S\u0307\u0323".normalize() == "\u1e68" ); // true
 ```
 
-In reality, this is not always the case. The reason being that the symbol `Ṩ` is "common enough", so Unicode creators included it in the main table and gave it the code.
+En realidad, este no es siempre el caso. La razón es que el símbolo `Ṩ` es "bastante común", por lo que los creadores de Unicode lo incluyeron en la tabla principal y le dieron el código.
 
-If you want to learn more about normalization rules and variants -- they are described in the appendix of the Unicode standard: [Unicode Normalization Forms](https://www.unicode.org/reports/tr15/), but for most practical purposes the information from this section is enough.
+Si desea obtener más información sobre las reglas y variantes de normalización, se describen en el apéndice del estándar: [Unicode](https://www.unicode.org/reports/tr15/), pero para la mayoría de los propósitos prácticos, la información de esta sección es suficiente.
