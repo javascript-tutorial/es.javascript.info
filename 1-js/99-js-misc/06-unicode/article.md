@@ -2,7 +2,7 @@
 # Unicode, String internals
 
 ```warn header="Conocimiento avanzado"
-Esta sección ahonda en los interioridades de los string. Este conocimiento será útil para ti si planeas lidiar con emoticones, raros caracteres matemáticos, glifos u otros símbolos extraños.
+Esta sección ahonda en los interioridades de los string. Este conocimiento será útil para ti si planeas lidiar con emojis, raros caracteres matemáticos, logogramas, u otros símbolos extraños.
 ```
 
 Como ya mencionamos, los strings de JavaScript están basados en [Unicode](https://es.wikipedia.org/wiki/Unicode): cada carácter está representado por una secuencia de entre 1 y 4 bytes.
@@ -13,13 +13,13 @@ JavaScript nos permite insertar un carácter en un string por medio de su códig
 
     `XX` son dos dígitos hexadecimales con un valor entre `00` y `FF`. Entonces, `\xXX` es el carácter cuyo código Unicode es `XX`.
 
-    Como la notación `\xXX` soporta solo dos dígitos, puede representar solamente los primeros 256 caracteres Unicode.
+    Como la notación `\xXX` admite solo dos dígitos, puede representar solamente los primeros 256 caracteres Unicode.
 
     Estos primeros 256 caracteres incluyen el alfabeto latino, la mayoría de caracteres de sintaxis básicos, y algunos otros. Por ejemplo, `"\x7A"` es lo mismo que `"z"` (Unicode `U+007A`).
 
     ```js run
     alert( "\x7A" ); // z
-    alert( "\xA9" ); // ©, el  símbolo de copyright
+    alert( "\xA9" ); // ©, el símbolo de copyright
     ```
 
 - `\uXXXX`
@@ -38,13 +38,13 @@ JavaScript nos permite insertar un carácter en un string por medio de su códig
     `X…XXXXXX` debe ser un valor hexadecimal de 1 a 6 bytes entre `0` y `10FFFF` (el mayor punto de código definido por Unicode). Esta notación nos permite fácilmente representar todos los caracteres Unicode existentes.
 
     ```js run
-    alert( "\u{20331}" ); // 佫, un raro glifo Chino (long Unicode)
-    alert( "\u{1F60D}" ); // 😍, un símbolo de cara sonriente (otro long Unicode)
+    alert( "\u{20331}" ); // 佫, un raro logograma chino
+    alert( "\u{1F60D}" ); // 😍, un símbolo de cara sonriente
     ```
 
 ## Pares sustitutos [#surrogate-pairs]
 
-Todos los caracteres usados frecuentemente tienen códigos de 2 bytes. Las letras de la mayoría de los lenguajes europeos, números, incluso la mayoría de los glifos, tienen un representación de 2 bytes.
+Todos los caracteres frecuentes tienen códigos de 2 bytes. Las letras de la mayoría de los lenguajes europeos, números, incluso la mayoría de los logogramas, tienen un representación de 2 bytes.
 
 Inicialmente, JavaScript estaba basado en la codificación UTF-16 que solo permite 2 bytes por carácter. Pero 2 bytes solo permiten 65536 combinaciones y eso no es suficiente para cada símbolo Unicode posible.
 
@@ -55,7 +55,7 @@ Como efecto secundario, el largo de tales símbolos es `2`:
 ```js run
 alert( '𝒳'.length ); // 2, carácter matemático X capitalizado
 alert( '😂'.length ); // 2, cara con lágrimas de risa
-alert( '𩷶'.length ); // 2, un raro glifo chino
+alert( '𩷶'.length ); // 2, un raro logograma chino
 ```
 
 Esto es porque los pares sustitutos no existían cuando JavaScript fue creado, por ello no es procesado correctamente por el lenguaje.
@@ -101,7 +101,7 @@ alert( '𝒳'.codePointAt(1).toString(16) ); // dcb3
 Encontrarás más formas de trabajar con pares sustitutos más adelante en el capítulo <info:iterable>. Probablemente hay bibliotecas especiales para eso también, pero nada lo suficientemente famoso como para sugerirlo aquí.
 
 ````warn header="En conclusión: partir strings en un punto arbitrario es peligroso"
-No podemos simplemente separar un string en una posición arbitraria, ej. tomar `str.slice(0, 4)`, y confiar en que sea un string válido, por ejemplo:
+No podemos simplemente separar un string en una posición arbitraria, por ejemplo tomar `str.slice(0, 4)`, y confiar en que sea un string válido:
 
 ```js run
 alert( 'hi 😂'.slice(0, 4) ); //  hi [?]
@@ -109,7 +109,7 @@ alert( 'hi 😂'.slice(0, 4) ); //  hi [?]
 
 Aquí podemos ver basura (la primera mitad del par sustituto de la sonrisa) en la salida.
 
-Simplemente sé consciente de esto si intentas trabajar con confianza con los pares sustitutos. Puede que no sea un gran problema, pero al menos deberías entender lo que pasa.
+Simplemente sé consciente de esto si quieres trabajar con confianza con los pares sustitutos. Puede que no sea un gran problema, pero al menos deberías entender lo que pasa.
 ````
 
 ### Marcas diacríticas y normalización
