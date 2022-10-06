@@ -122,7 +122,7 @@ Los caracteres "compuestos" más comunes tienen su propio código en la tabla UT
 
 Para soportar composiciones arbitrarias, el estándar Unicode permite usar varios caracteres Unicode: el carácter base y uno o varios caracteres de "marca" que lo "decoran".
 
-Por ejemplo, si tenemos `S` seguido del carácter especial" punto arriba "(código` \ u0307`), se muestra como Ṡ.
+Por ejemplo, si tenemos `S` seguido del carácter especial "punto arriba" (código `\u0307`), se muestra como Ṡ.
 
 ```js run
 alert('S\u0307'); // Ṡ
