@@ -107,8 +107,8 @@ Abra los menús desplegables informativos a la derecha (etiquetados con flechas)
 
 3. **`Scope` : variables actuales.**
 
-    `Local` muestra variables de funciones locales. También puedes ver sus valores resaltados justo sobre el código fuente.
-    `Global` contiene variables globales (fuera de cualquier función).
+    - `Local` muestra variables de funciones locales. También puedes ver sus valores resaltados justo sobre el código fuente.
+    - `Global` contiene variables globales (fuera de cualquier función).
 
     También existe `this`, palabra clave que no estudiamos todavía, pero lo haremos pronto.
 
@@ -121,30 +121,30 @@ Hay botones para ello en la parte superior del panel derecho. Involucrémoslos.
 <span class="devtools" style="background-position:-146px -168px"></span> -- "Reanudar": continúa la ejecución, tecla de acceso rápido `tecla:F8`.
 : Reanuda la ejecución. Si no hay puntos de interrupción adicionales, la ejecución continúa y el depurador pierde el control.
 
-    Esto es lo que podemos ver después de hacer clic en él:
+  Esto es lo que podemos ver después de hacer clic en él:
 
-    ![](chrome-sources-debugger-trace-1.svg)
+![](chrome-sources-debugger-trace-1.svg)
 
-    La ejecución se reanudó, alcanzó otro punto de interrupción dentro de `say()` y se detuvo allí. Eche un vistazo a la "Pila de llamadas" o "Call Stack" a la derecha. Ha aumentado en una convocatoria más. Estamos dentro de `say()` ahora.
+  La ejecución se reanudó, alcanzó otro punto de interrupción dentro de `say()` y se detuvo allí. Eche un vistazo a la "Pila de llamadas" o "Call Stack" a la derecha. Ha aumentado en una convocatoria más. Estamos dentro de `say()` ahora.
 
 <span class="devtools" style="background-position:-200px -190px"></span> -- "Paso": ejecute el siguiente comando, tecla de acceso rápido `tecla:F9`.
 : Ejecute la siguiente sentencia. Si hacemos clic ahora, se mostrará `alerta`.
 
-    Al hacer clic aquí una y otra vez, recorrerá todas las instrucciones del script una por una.
+  Al hacer clic aquí una y otra vez, recorrerá todas las instrucciones del script una por una.
     
 <span class="devtools" style="background-position:-62px -192px"></span> -- "Siguiente paso": ejecute el siguiente comando, pero *no entre en una función*, tecla de acceso rápido `tecla :F10`.
 : Similar al comando "Paso" anterior, pero se comporta de manera diferente si la siguiente declaración es una llamada de función (no una función incorporada, como `alerta`, sino una función propia).
 
 Si los comparamos, el comando "Paso" entra en una llamada de función anidada y detiene la ejecución en su primera línea, mientras que "Siguiente paso" ejecuta la llamada de función anidada de forma invisible para nosotros, omitiendo las funciones internas.
 
-    Luego, la ejecución se detiene inmediatamente después de esa llamada de función.
+  Luego, la ejecución se detiene inmediatamente después de esa llamada de función.
     
-    Eso es bueno si no estamos interesados en ver qué sucede dentro de la llamada a la función.
+  Eso es bueno si no estamos interesados en ver qué sucede dentro de la llamada a la función.
     
 <span class="devtools" style="background-position:-4px -194px"></span> -- "Paso a", tecla de acceso rápido `tecla:F11`.
 : Eso es similar a "Paso", pero se comporta de manera diferente en el caso de llamadas a funciones asincrónicas. Si recién está comenzando a aprender JavaScript, puede ignorar la diferencia, ya que aún no tenemos llamadas asincrónicas.
 
-    Para el futuro, solo tenga en cuenta que el comando "Paso" ignora las acciones asíncronas, como `setTimeout` (llamada de función programada), que se ejecutan más tarde. El "Paso a" entra en su código, esperándolos si es necesario. Consulte el [manual de DevTools](https://developers.google.com/web/updates/2018/01/devtools#async) para obtener más detalles.
+  Para el futuro, solo tenga en cuenta que el comando "Paso" ignora las acciones asíncronas, como `setTimeout` (llamada de función programada), que se ejecutan más tarde. El "Paso a" entra en su código, esperándolos si es necesario. Consulte el [manual de DevTools](https://developers.google.com/web/updates/2018/01/devtools#async) para obtener más detalles.
 
 <span class="devtools" style="background-position:-32px -194px"></span> -- "Salir": continuar la ejecución hasta el final de la función actual, tecla de acceso rápido `tecla:Shift+F11` .
 : continúa la ejecución y la detiene en la última línea de la función actual. Eso es útil cuando accidentalmente ingresamos una llamada anidada usando <span class="devtools" style="background-position:-200px -190px"></span>, pero no nos interesa y queremos continuar hasta el final lo antes posible.
@@ -155,10 +155,10 @@ Si los comparamos, el comando "Paso" entra en una llamada de función anidada y 
 <span class="devtools" style="background-position:-90px -146px"></span> -- habilitar/deshabilitar la pausa automática en caso de error.
 : cuando está habilitado, si las herramientas de desarrollo están abiertas, un error durante la ejecución del script lo detiene automáticamente. Luego podemos analizar las variables en el depurador para ver qué salió mal. Entonces, si nuestro script muere con un error, podemos abrir el depurador, habilitar esta opción y volver a cargar la página para ver dónde muere y cuál es el contexto en ese momento.
 
-```smart header="Continue to here"
-Right click on a line of code opens the context menu with a great option called "Continue to here".
+```smart header="Continuar hasta aquí"
+Al hacer clic con el botón derecho en una línea de código, se abre el menú contextual con una excelente opción llamada "Continuar hasta aquí".
 
-That's handy when we want to move multiple steps forward to the line, but we're too lazy to set a breakpoint.
+Eso es útil cuando queremos avanzar varios pasos hacia la línea, pero somos demasiado perezosos para establecer un punto de interrupción.
 ```
 
 ## Inicio sesión
