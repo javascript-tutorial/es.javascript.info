@@ -6,7 +6,7 @@ importance: 4
 
 Digamos que tenemos un cliente con baja velocidad de conexión y queremos cuidar su tarifa de datos.
 
-Para ello decidimos no mostrar las imágenes inmediatemente, sino sustituirlas por marcadores de posición, como este:
+Para ello decidimos no mostrar las imágenes inmediatamente, sino sustituirlas por marcadores de posición, como este:
 
 ```html
 <img *!*src="placeholder.svg"*/!* width="128" height="128" *!*data-src="real.jpg"*/!*>
@@ -18,7 +18,7 @@ Aquí hay un ejemplo en `iframe`:
 
 [iframe src="solution"]
 
-Desplázate para ver las imagenes cargadas "bajo demanda".
+Desplázate para ver las imágenes cargadas "bajo demanda".
 
 Requerimientos:
 - Cuando la página se carga, las imágenes que están en pantalla deben cargarse inmediatamente, antes de cualquier desplazamiento.

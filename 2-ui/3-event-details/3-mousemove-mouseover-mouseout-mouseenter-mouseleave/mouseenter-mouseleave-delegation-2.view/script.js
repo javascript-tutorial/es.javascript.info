@@ -24,7 +24,7 @@ table.onmouseover = function(event) {
 
 table.onmouseout = function(event) {
   // si estamos afuera de algún <td> ahora, entonces ignoramos el evento
-  // pueden haber movimientos dentro de una tabla pero fuera de <td>,
+  // puede haber movimientos dentro de una tabla, pero fuera de <td>,
   // por ejemplo: de un <tr> a otro <tr>
   if (!currentElem) return;
 

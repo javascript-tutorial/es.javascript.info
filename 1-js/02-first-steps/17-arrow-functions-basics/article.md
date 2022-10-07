@@ -5,15 +5,15 @@ Hay otra sintaxis muy simple y concisa para crear funciones, que a menudo es mej
 Se llama "funciones de flecha", porque se ve así:
 
 ```js
-let func = (arg1, arg2, ...argN) => expression
+let func = (arg1, arg2, ..., argN) => expression;
 ```
 
-...Esto crea una función `func` que acepta parámetros `arg1..argN`, luego evalúa la `expression` de la derecha con su uso y devuelve su resultado.
+Esto crea una función `func` que acepta los parámetros `arg1..argN`, luego evalúa la `expression` del lado derecho mediante su uso y devuelve su resultado.
 
 En otras palabras, es la versión más corta de:
 
 ```js
-let func = function(arg1, arg2, ...argN) {
+let func = function(arg1, arg2, ..., argN) {
   return expression;
 };
 ```
@@ -33,7 +33,7 @@ let sum = function(a, b) {
 alert( sum(1, 2) ); // 3
 ```
 
-Como puedes ver `(a, b) => a + b` significa una función que acepta dos parámetros llamados `a` y `b`. Tras la ejecución, evalúa la expresión `a + b` y devuelve el resultado.
+Como puedes ver, `(a, b) => a + b` significa una función que acepta dos argumentos llamados `a` y `b`. Tras la ejecución, evalúa la expresión `a + b` y devuelve el resultado.
 
 - Si solo tenemos un argumento, se pueden omitir paréntesis alrededor de los parámetros, lo que lo hace aún más corto.
 
@@ -48,10 +48,10 @@ Como puedes ver `(a, b) => a + b` significa una función que acepta dos parámet
     alert( double(3) ); // 6
     ```
 
-- Si no hay parámetros, los paréntesis estarán vacíos (pero deben estar presentes):
+- Si no hay parámetros, los paréntesis estarán vacíos; pero deben estar presentes:
 
     ```js run
-    let sayHi = () => alert("Hello!");
+    let sayHi = () => alert("¡Hola!");
 
     sayHi();
     ```
@@ -64,8 +64,8 @@ Por ejemplo, para crear dinámicamente una función:
 let age = prompt("What is your age?", 18);
 
 let welcome = (age < 18) ?
-  () => alert('Hello') :
-  () => alert("Greetings!");
+  () => alert('¡Hola!') :
+  () => alert("¡Saludos!");
 
 welcome();
 ```
@@ -76,9 +76,9 @@ Son muy convenientes para acciones simples de una línea, cuando somos demasiado
 
 ## Funciones de flecha multilínea
 
-Los ejemplos anteriores tomaron parámetros de la izquierda de `=>` y evaluaron el lado derecho de la expressión con ellos.
+Las funciones de flecha que estuvimos viendo eran muy simples. Toman los parámetros a la izquierda de `=>`, los evalúan y devuelven la expresión del lado derecho.
 
-A veces necesitamos algo un poco más complejo, como múltiples expresiones o declaraciones. También es posible, pero debemos encerrarlos entre llaves. Luego usa un `return` normal dentro de ellas.
+A veces necesitamos una función más compleja, con múltiples expresiones o sentencias. En ese caso debemos encerrarlos entre llaves. La diferencia principal es que las llaves necesitan usar un `return` para devolver un valor (tal como lo hacen las funciones comunes).
 
 Como esto:
 
@@ -105,7 +105,7 @@ Por ahora, ya podemos usar las funciones de flecha para acciones de una línea y
 
 ## Resumen
 
-Las funciones de flecha son útiles para líneas simples. Vienen en dos variantes:
+Las funciones de flecha son útiles para acciones simples, especialmente las de una sola línea. Vienen en dos variantes:
 
-1. Sin llaves: `(...args) => expression` -- el lado derecho es una expresión: la función lo evalúa y devuelve el resultado.
-2. Con llaves: `(...args) => { body }` -- los paréntesis nos permiten escribir varias declaraciones dentro de la función, pero necesitamos un `return` explícito para devolver algo.
+1. Sin llaves: `(...args) => expression` -- el lado derecho es una expresión: la función la evalúa y devuelve el resultado. Pueden omitirse los paréntesis si solo hay un argumento, por ejemplo `n => n*2`.
+2. Con llaves: `(...args) => { body }` -- las llaves nos permiten escribir varias declaraciones dentro de la función, pero necesitamos un `return` explícito para devolver algo.

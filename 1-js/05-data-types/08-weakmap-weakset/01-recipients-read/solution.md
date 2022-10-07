@@ -25,7 +25,7 @@ messages.shift();
 // ahora readMessages tiene 1 elemento (técnicamente la memoria puede limpiarse más tarde)
 ```
 
-El `WeakEst` permite almacenar un conjunto de mensajes y verificar fácilmente la existencia de un mensaje en él.
+El `WeakSet` permite almacenar un conjunto de mensajes y verificar fácilmente la existencia de un mensaje en él.
 
 Se limpia automáticamente. La desventaja es que no podemos iterar sobre él, no podemos obtener "todos los mensajes leídos" directamente. Pero podemos hacerlo iterando sobre todos los mensajes y filtrando los que están en el conjunto.
 

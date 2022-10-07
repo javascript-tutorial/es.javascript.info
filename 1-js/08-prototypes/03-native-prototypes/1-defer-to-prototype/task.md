@@ -13,5 +13,5 @@ function f() {
   alert("Hola!");
 }
 
-f.defer(1000); // muestra "Hola!" despues de 1 segundo
+f.defer(1000); // muestra "Hola!" después de 1 segundo
 ```

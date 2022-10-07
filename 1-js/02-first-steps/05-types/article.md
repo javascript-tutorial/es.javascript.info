@@ -1,10 +1,10 @@
 # Tipos de datos
 
-Un valor en JavaScript siempre pertenece a un tipo determinado. Por ejemplo, un string o un número.
+Un valor en JavaScript siempre pertenece a un tipo de dato determinado. Por ejemplo, un string o un número.
 
-Hay ocho tipos básicos de datos en JavaScript. Aquí los cubriremos en general y en los próximos capítulos hablaremos de cada uno de ellos en detalle.
+Hay ocho tipos de datos básicos en JavaScript. En este capítulo los cubriremos en general y en los próximos hablaremos de cada uno de ellos en detalle.
 
-Podemos poner cualquier tipo dentro de una variable. Por ejemplo, una variable puede ser en un momento un string y luego almacenar un número:
+Podemos almacenar un valor de cualquier tipo dentro de una variable. Por ejemplo, una variable puede contener en un momento un string y luego almacenar un número:
 
 ```js
 // no hay error
@@ -14,8 +14,8 @@ message = 123456;
 
 Los lenguajes de programación que permiten estas cosas, como JavaScript, se denominan "dinámicamente tipados", lo que significa que allí hay tipos de datos, pero las variables no están vinculadas rígidamente a ninguno de ellos.
 
+## Number
 
-## Número
 ```js
 let n = 123;
 n = 12.345;
@@ -32,13 +32,13 @@ Además de los números comunes, existen los llamados "valores numéricos especi
     Podemos obtenerlo como resultado de la división por cero:
 
     ```js run
-    alert( 1 / 0 ); // Infinito
+    alert( 1 / 0 ); // Infinity
     ```
 
     O simplemente hacer referencia a él directamente:
 
     ```js run
-    alert( Infinity ); // Infinito
+    alert( Infinity ); // Infinity
     ```
 - `NaN` representa un error de cálculo. Es el resultado de una operación matemática incorrecta o indefinida, por ejemplo:
 
@@ -49,10 +49,12 @@ Además de los números comunes, existen los llamados "valores numéricos especi
     `NaN` es "pegajoso". Cualquier otra operación sobre `NaN` devuelve `NaN`:
 
     ```js run
-    alert( "no es un número" / 2 + 5); // NaN
+    alert( NaN + 1 ); // NaN
+    alert( 3 * NaN ); // NaN
+    alert( "not a number" / 2 - 1 ); // NaN
     ```
 
-    Por lo tanto, si hay un `NaN` en alguna parte de una expresión matemática, se propaga a todo el resultado.
+    Por lo tanto, si hay un `NaN` en alguna parte de una expresión matemática, se propaga a todo el resultado (con una única excepción: `NaN ** 0` es `1`).
 
 ```smart header="Las operaciones matemáticas son seguras"
 Hacer matemáticas es "seguro" en JavaScript. Podemos hacer cualquier cosa: dividir por cero, tratar las cadenas no numéricas como números, etc.
@@ -64,11 +66,22 @@ Los valores numéricos especiales pertenecen formalmente al tipo "número". Por 
 
 Veremos más sobre el trabajo con números en el capítulo <info:number>.
 
-## BigInt
+## BigInt [#bigint-type]
 
-En JavaScript, el tipo "number" no puede representar valores enteros mayores que <code>(2<sup>53</sup>-1)</code> (eso es `9007199254740991`), o menor que <code>-(2<sup>53</sup>-1)</code> para negativos. Es una limitación técnica causada por su representación interna.
+En JavaScript, el tipo "number" no puede representar de forma segura valores enteros mayores que <code>(2<sup>53</sup>-1)</code> (eso es `9007199254740991`), o menor que <code>-(2<sup>53</sup>-1)</code> para negativos. 
 
-Para la mayoría de los propósitos es suficiente, pero a veces necesitamos números realmente grandes. Por ejemplo, para criptografía o marcas de tiempo de precisión de microsegundos.
+Para ser realmente precisos, el tipo de dato "number" puede almacenar enteros muy grandes (hasta <code>1.7976931348623157 * 10<sup>308</sup></code>), pero fuera del rango de enteros seguros <code>±(2<sup>53</sup>-1)</code> habrá un error de precisión, porque no todos los dígitos caben en el almacén fijo de 64-bit. Así que es posible que se almacene un valor "aproximado".
+
+Por ejemplo, estos dos números (justo por encima del rango seguro) son iguales:
+
+```js
+console.log(9007199254740991 + 1); // 9007199254740992
+console.log(9007199254740991 + 2); // 9007199254740992
+```
+
+Podemos decir que ningún entero impar mayor que <code>(2<sup>53</sup>-1)</code> puede almacenarse en el tipo de dato "number".
+
+Para la mayoría de los propósitos, el rango <code>±(2<sup>53</sup>-1)</code> es suficiente, pero a veces necesitamos números realmente grandes; por ejemplo, para criptografía o marcas de tiempo de precisión de microsegundos.
 
 `BigInt` se agregó recientemente al lenguaje para representar enteros de longitud arbitraria.
 
@@ -82,15 +95,15 @@ const bigInt = 1234567890123456789012345678901234567890n;
 Como los números `BigInt` rara vez se necesitan, no los cubrimos aquí sino que les dedicamos un capítulo separado <info: bigint>. Léelo cuando necesites números tan grandes.
 
 
-
 ```smart header="Problemas de compatibilidad"
-En este momento, `BigInt` es compatible con Firefox / Chrome / Edge / Safari, pero no con IE.
+En este momento, `BigInt` está soportado por Firefox/Chrome/Edge/Safari, pero no por IE.
 ```
 
 Puedes revisar la [tabla de compatibilidad de BigInt en *MDN*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt#Browser_compatibility) para saber qué versiones de navegador tienen soporte.
 
 ## String
-Un string (cadena de caracteres) en JavaScript debe colocarse entre comillas.
+
+Un *string* en JavaScript es una cadena de caracteres y debe colocarse entre comillas.
 
 ```js
 let str = "Hola";
@@ -129,12 +142,13 @@ En el capítulo <info:string> trataremos más a fondo las cadenas.
 
 ```smart header="No existe el tipo *carácter*".
 En algunos lenguajes, hay un tipo especial "carácter" para un solo carácter. Por ejemplo, en el lenguaje C y en Java es `char`.
-En JavaScript no existe tal tipo. Sólo hay un tipo: `string`. Un string puede estar formado por un solo carácter o por varios de ellos.
+
+En JavaScript no existe tal tipo. Sólo hay un tipo: `string`. Un string puede estar formado por un solo carácter, por ninguno, o por varios de ellos.
 ```
 
-## Booleano (tipo lógico)
+## Boolean (tipo lógico)
 
-El tipo booleano tiene sólo dos valores: `true` y `false`.
+El tipo *boolean* tiene sólo dos valores posibles: `true` y `false`.
 
 Este tipo se utiliza comúnmente para almacenar valores de sí/no: `true` significa "sí, correcto, verdadero", y `false` significa "no, incorrecto, falso".
 
@@ -177,7 +191,7 @@ El valor especial `undefined` también se distingue. Hace un tipo propio, igual 
 
 El significado de `undefined` es "valor no asignado".
 
-Si una variable es declarada pero no asignada, entonces su valor es `undefined`:
+Si una variable es declarada, pero no asignada, entonces su valor es `undefined`:
 
 ```js run
 let age;
@@ -198,7 +212,7 @@ alert(age); // "undefined"
 
 ...Pero no recomendamos hacer eso. Normalmente, usamos `null` para asignar un valor "vacío" o "desconocido" a una variable, mientras `undefined` es un valor inicial reservado para cosas que no han sido asignadas.
 
-## Objetos y símbolos
+## Object y Symbol
 
 El tipo `object` (objeto) es especial.
 
@@ -211,13 +225,6 @@ El tipo `symbol` (símbolo) se utiliza para crear identificadores únicos para l
 ## El operador typeof [#type-typeof]
 
 El operador `typeof` devuelve el tipo del argumento. Es útil cuando queremos procesar valores de diferentes tipos de forma diferente o simplemente queremos hacer una comprobación rápida.
-
-Soporta dos formas de sintaxis:
-
-1. Como operador: `typeof x`.
-2. Como una función: `typeof(x)`.
-
-En otras palabras, funciona con paréntesis o sin ellos. El resultado es el mismo.
 
 La llamada a `typeof x` devuelve una cadena con el nombre del tipo:
 
@@ -251,20 +258,32 @@ Las últimas tres líneas pueden necesitar una explicación adicional:
 
 1. `Math` es un objeto incorporado que proporciona operaciones matemáticas. Lo aprenderemos en el capítulo <info:number>. Aquí sólo sirve como ejemplo de un objeto.
 2. El resultado de `typeof null` es `"object"`. Esto está oficialmente reconocido como un error de comportamiento de `typeof` que proviene de los primeros días de JavaScript y se mantiene por compatibilidad. Definitivamente `null` no es un objeto. Es un valor especial con un tipo propio separado.
-3. El resultado de `typeof alert` es `"function"` porque `alert` es una función. Estudiaremos las funciones en los próximos capítulos donde veremos que no hay ningún tipo especial "function" en JavaScript. Las funciones pertenecen al tipo objeto. Pero `typeof` las trata de manera diferente, devolviendo `function`. Además proviene de los primeros días de JavaScript. Técnicamente dicho comportamiento es incorrecto pero puede ser conveniente en la práctica.
+3. El resultado de `typeof alert` es `"function"` porque `alert` es una función. Estudiaremos las funciones en los próximos capítulos donde veremos que no hay ningún tipo especial "function" en JavaScript. Las funciones pertenecen al tipo objeto. Pero `typeof` las trata de manera diferente, devolviendo `function`. Además proviene de los primeros días de JavaScript. Técnicamente dicho comportamiento es incorrecto, pero puede ser conveniente en la práctica.
+
+```smart header="Sintaxis de `typeof(x)`"
+Se puede encontrar otra sintaxis en algún código: `typeof(x)`. Es lo mismo que `typeof x`.
+
+Para ponerlo en claro: `typeof` es un operador, no una función. Los paréntesis aquí no son parte del operador `typeof`. Son del tipo usado en agrupamiento matemático. 
+
+Usualmente, tales paréntesis contienen expresiones matemáticas tales como `(2 + 2)`, pero aquí solo tienen un argumento `(x)`. Sintácticamente, permiten evitar el espacio entre el operador `typeof` y su argumento, y a algunas personas les gusta así.
+
+Algunos prefieren `typeof(x)`, aunque la sintaxis `typeof x` es mucho más común.
+```
 
 ## Resumen
 
 Hay 8 tipos básicos en JavaScript.
 
-- `number` para números de cualquier tipo: enteros o de punto flotante, los enteros están limitados por <code>±(2<sup>53</sup>-1)</code>.
-- `bigint` para números enteros de longitud arbitraria.
-- `string` para cadenas. Una cadena puede tener cero o más caracteres, no hay un tipo especial para un único carácter.
-- `boolean` para verdadero y falso: `true`/`false`.
-- `null` para valores desconocidos -- un tipo independiente que tiene un solo valor nulo: `null`.
-- `undefined` para valores no asignados -- un tipo independiente que tiene un único valor "indefinido": `undefined`.
-- `object` para estructuras de datos complejas.
-- `symbol` para identificadores únicos.
+- Siete tipos de datos primitivos 
+    - `number` para números de cualquier tipo: enteros o de punto flotante, los enteros están limitados por <code>±(2<sup>53</sup>-1)</code>.
+    - `bigint` para números enteros de longitud arbitraria.
+    - `string` para cadenas. Una cadena puede tener cero o más caracteres, no hay un tipo especial para un único carácter.
+    - `boolean` para verdadero y falso: `true`/`false`.
+    - `null` para valores desconocidos -- un tipo independiente que tiene un solo valor nulo: `null`.
+    - `undefined` para valores no asignados -- un tipo independiente que tiene un único valor "indefinido": `undefined`.
+    - `symbol` para identificadores únicos.
+- Y un tipo de dato no primitivo:
+    - `object` para estructuras de datos complejas.
 
 El operador `typeof` nos permite ver qué tipo está almacenado en una variable.
 

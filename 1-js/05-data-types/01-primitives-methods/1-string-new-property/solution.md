@@ -19,6 +19,6 @@ Depende de si usas el modo estricto "use strict" o no, el resultado será:
 2. Con modo estricto, tratar de alterarlo produce error.
 3. Sin modo estricto, la operación es llevada a cabo y el objeto obtiene la propiedad `test`, pero después de ello el "objeto envolvente" desaparece, entonces en la última linea `str` queda sin rastros de la propiedad.
 
-**Este ejemlplo claramente muestra que los tipos primitivos no son objetos.**
+**Este ejemplo claramente muestra que los tipos primitivos no son objetos.**
 
 Ellos no pueden almacenar datos adicionales.

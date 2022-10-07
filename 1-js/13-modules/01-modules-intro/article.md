@@ -39,7 +39,7 @@ export function sayHi(user) {
 
 ```js
 // 📁 main.js
-import {sayHi} desde'./sayHi.js';
+import {sayHi} from './sayHi.js';
 
 alert(sayHi); // function...
 sayHi('John'); // Hello, John!
@@ -57,8 +57,8 @@ Asi:
 
 El navegador busca y evalúa automáticamente el módulo importado (y sus importaciones si es necesario), y luego ejecuta el script.
 
-```warn header="Los módulos funcionan solo a través de HTTP(s), no en archivos locales"
-Si intenta abrir una página web localmente a través del protocolo `file://`, encontrará que las directivas `import / export` no funcionan. Use un servidor web local, como [static-server](https://www.npmjs.com/package/static-server#getting-started)  o use la capacidad de "servidor en vivo" de su editor, como VS Code [Live Server Extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) para probar los módulos.
+```warn header="Los módulos funcionan solo a través de HTTP(s), no localmente"
+Si intenta abrir una página web localmente a través del protocolo `file://`, encontrará que las directivas `import y export` no funcionan. Use un servidor web local, como [static-server](https://www.npmjs.com/package/static-server#getting-started)  o use la capacidad de "servidor en vivo" de su editor, como VS Code [Live Server Extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) para probar los módulos.
 ```	
 
 ## Características del módulo central
@@ -67,9 +67,9 @@ Si intenta abrir una página web localmente a través del protocolo `file://`, e
 
 Hay características principales, válidas tanto para el navegador como para JavaScript del lado del servidor.
 
-### Siempre "use strict"
+### Siempre en modo estricto
 
-Los módulos siempre llevan `use strict` de forma predeterminada. Por ejemplo, asignar a una variable sin declarar nos dará un error.
+Los módulos siempre trabajan en modo estricto. Por ejemplo, asignar a una variable sin declarar nos dará un error.
 
 ```html run
 <script type="module">
@@ -81,19 +81,24 @@ Los módulos siempre llevan `use strict` de forma predeterminada. Por ejemplo, a
 
 Cada módulo tiene su propio alcance de nivel superior. En otras palabras, las variables y funciones de nivel superior de un módulo no se ven en otros scripts.
 
-En el siguiente ejemplo, se importan dos scripts y `hello.js` intenta usar la variable `user` declarada en `user.js`, y falla:
+En el siguiente ejemplo, se importan dos scripts y `hello.js` intenta usar la variable `user` declarada en `user.js`. Falla, porque es un módulo separado (puedes ver el error en la consola):
 
 [codetabs src="scopes" height="140" current="index.html"]
 
-Se espera que los módulos realicen `export` a lo que ellos quieren que esté accesible desde afuera e `import` lo que necesiten.
+Los módulos deben hacer `export` a lo que ellos quieren que esté accesible desde afuera y hacer `import` de lo que necesiten.
 
-Por lo tanto, deberíamos importar `user.js` en `hello.js` y obtener la funcionalidad requerida en lugar de depender de variables globales.
+- `user.js` debe exportar la variable `user` .
+- `hello.js` debe importarla desde el módulo `user.js`.
+
+En otra palabras, con módulos usamos import/export en lugar de depender de variables globales.
 
 Esta es la variante correcta:
 
 [codetabs src="scopes-working" height="140" current="hello.js"]
 
-En el navegador, también existe el alcance independiente de alto nivel para cada `<script type="module">`:
+En el navegador, hablando de páginas HTML, también existe el alcance independiente de nivel superior para cada `<script type="module">`:
+
+Aquí hay dos scripts en la misma página, ambos `type="module"`. No ven entre sí sus variables de nivel superior:
 
 ```html run
 <script type="module">
@@ -108,13 +113,21 @@ En el navegador, también existe el alcance independiente de alto nivel para cad
 </script>
 ```
 
-Si realmente necesitamos hacer una variable global a nivel de ventana, podemos asignarla explícitamente a `window` y acceder como `window.user`. Pero esa es una excepción que requiere una buena razón.
+```smart
+En el navegador, podemos hacer que una variable sea global a nivel window si explícitamente la asignamos a la propiedad `window`, por ejemplo `window.user = "John"`. 
+
+Así todos los scripts la verán, con o sin `type="module"`. 
+
+Dicho esto, hacer este tipo de variables globales está muy mal visto. Por favor evítalas.
+```
 
 ### Un código de módulo se evalúa solo la primera vez cuando se importa
 
-Si el mismo módulo se importa en varios otros lugares, su código se ejecuta solo la primera vez, luego se otorgan exportaciones a todos los importadores.
+Si el mismo módulo se importa en varios otros módulos, su código se ejecuta solo una vez: en el primer import. Luego, sus exportaciones se otorgan a todos los importadores que siguen.
 
-Eso tiene consecuencias importantes. Echemos un vistazo usando ejemplos:
+Eso tiene consecuencias importantes para las que debemos estar prevenidos. 
+
+Echemos un vistazo usando ejemplos:
 
 Primero, si ejecutar un código de módulo trae efectos secundarios, como mostrar un mensaje, importarlo varias veces lo activará solo una vez, la primera vez:
 
@@ -133,9 +146,11 @@ import `./alert.js`; // Módulo es evaluado!
 import `./alert.js`; // (no muestra nada)
 ```
 
-En la práctica, el código del módulo de nivel superior se usa principalmente para la inicialización, la creación de estructuras de datos internas y, si queremos que algo sea reutilizable, expórtelo.
+El segundo import no muestra nada, porque el módulo ya fue evaluado.
 
-Ahora, un ejemplo más avanzado.
+Existe una regla: el código de módulos del nivel superior debe ser usado para la inicialización y creación de estructuras de datos internas específicas del módulo. Si necesitamos algo que pueda ser llamado varias veces debemos exportarlo como una función, como hicimos con el `sayHi` de arriba.
+
+Consideremos un ejemplo más avanzado.
 
 Digamos que un módulo exporta un objeto:
 
@@ -152,49 +167,61 @@ Todos los importadores obtienen exactamente el único objeto `admin`:
 
 ```js
 // 📁 1.js
-import {admin} desde './admin.js';
+import {admin} from './admin.js';
 admin.name = "Pete";
 
 // 📁 2.js
-import {admin} desde './admin.js';
+import {admin} from './admin.js';
 alert(admin.name); // Pete
 
 *!*
-// Ambos 1.js y 2.js han importado el mismo objeto
+// Ambos 1.js y 2.js hacen referencia al mismo objeto admin
 // Los cambios realizados en 1.js son visibles en 2.js
 */!*
 ```
 
-Entonces, reiteremos: el módulo se ejecuta solo una vez. Se generan exportaciones y luego se comparten entre los importadores, por lo que si algo cambia el objeto `admin`, otros módulos lo verán.
+Como puedes ver, cuando `1.js` cambia la propiedad `name` en el `admin` importado, entonces `2.js` puede ver el nuevo `admin.name`.
 
-Tal comportamiento nos permite *configurar* módulos en la primera importación. Podemos configurar sus propiedades una vez, y luego en futuras importaciones está listo.
+Esto es porque el modulo se ejecuta solo una vez. Los exports son generados y luego compartidos entre importadores, entonces si algo cambia en el objeto `admin`, otros importadores lo verán.
 
-Por ejemplo, el módulo `admin.js` puede proporcionar cierta funcionalidad, pero espera que las credenciales entren al objeto `admin` desde afuera:
+**Tal comportamiento es en verdad muy conveniente, porque nos permite *configurar* módulos.**
+
+En otras palabras, un módulo puede brindar una funcionalidad genérica que necesite ser configurada. Por ejemplo, la autenticación necesita credenciales. Entonces se puede exportar un objeto de configuración esperando que el código externo se lo asigne.
+
+Aquí está el patrón clásico:
+1. Un módulo exporta algún medio de configuración, por ejemplo un  objeto configuración.
+2. En el primer import lo inicializamos, escribimos en sus propiedades. Los scripts de la aplicación de nivel superior pueden hacerlo.
+3. Importaciones posteriores usan el módulo.
+
+Por ejemplo, el módulo `admin.js` puede proporcionar cierta funcionalidad (ej. autenticación), pero espera que las credenciales entren al objeto `admin` desde afuera:
+
 
 ```js
 // 📁 admin.js
-export let admin = { };
+export let config = { };
 
 export function sayHi() {
-  alert(`Ready to serve, ${admin.name}!`);
+  alert(`Ready to serve, ${config.user}!`);
 }
 ```
 
-En `init.js`, el primer script de nuestra app, establecemos `admin.name`. Luego, todos lo verán, incluyendo llamadas desde dentro de el mismo `admin.js`:
+Aquí `admin.js` exporta el objeto `config` (inicialmente vacío, pero podemos tener propiedades por defecto también).
+
+Entonces en `init.js`, el primer script de nuestra app, importamos `config` de él y establecemos `config.user`: 
 
 ```js
 // 📁 init.js
-import {admin} desde './admin.js';
-admin.name = "Pete";
+import {config} from './admin.js';
+config.user = "Pete";
 ```
 
-Otro módulo también puede ver `admin.name`:
+...Ahora el módulo `admin.js` está configurado. 
+
+Importadores posteriores pueden llamarlo, y él muestra correctamente el usuario actual:
 
 ```js
-// 📁 other.js
-import {admin, sayHi} desde './admin.js';
-
-alert(admin.name); // *!*Pete*/!*
+// 📁 another.js
+import {sayHi} from './admin.js';
 
 sayHi(); // Ready to serve, *!*Pete*/!*!
 ```
@@ -203,11 +230,12 @@ sayHi(); // Ready to serve, *!*Pete*/!*!
 
 El objeto `import.meta` contiene la información sobre el módulo actual.
 
-Su contenido depende del entorno. En el navegador, contiene la url del script, o la url de una página web actual si está dentro de HTML:
+Su contenido depende del entorno. En el navegador, contiene la URL del script, o la URL de una página web actual si está dentro de HTML:
 
 ```html run height=0
 <script type="module">
-  alert(import.meta.url); // script url (url de la página html para un script en línea)
+  alert(import.meta.url); // script URL 
+  // para un script inline es la URL de la página HTML actual   
 </script>
 ```
 
@@ -242,7 +270,7 @@ Los módulos están *siempre* diferidos, el mismo efecto que el atributo `defer`
 En otras palabras:
 - descargar módulos externo `<script type="module" src="...">` no bloquea el procesamiento de HTML, se cargan en paralelo con otros recursos.
 - los módulos esperan hasta que el documento HTML esté completamente listo (incluso si son pequeños y cargan más rápido que HTML), y luego lo ejecuta.
-- se mantiene el órden relativo de los scripts: los scripts que van primero en el documento, se ejecutan primero.
+- se mantiene el orden relativo de los scripts: los scripts que van primero en el documento, se ejecutan primero.
 
 Como efecto secundario, los módulos siempre "ven" la página HTML completamente cargada, incluidos los elementos HTML debajo de ellos.
 
@@ -268,7 +296,7 @@ Abajo compare con un script normal:
 <button id="button">Button</button>
 ```
 
-Tenga en cuenta: en realidad el segundo script se ejecuta antes que el primero! Entonces veremos primero `undefined`, y después `object`.
+Note que: ¡el segundo script se ejecuta antes que el primero! Entonces vemos primero `undefined`, y después `object`.
 
 Esto se debe a que los módulos están diferidos, por lo que esperamos a que se procese el documento. El script normal se ejecuta inmediatamente, por lo que vemos su salida primero.
 
@@ -307,7 +335,7 @@ Los scripts externos que tengan `type="module"` son diferentes en dos aspectos:
     <script type="module" src="my.js"></script>
     ```
 
-2. Los scripts externos que se buscan desde otro origen (p.ej. otra sitio web) require encabezados [CORS](https://developer.mozilla.org/es/docs/Web/HTTP/Access_control_CORS), como se describe en el capítulo <info:fetch-crossorigin>. En otras palabras, si un script de módulo es extraido desde otro origen, el servidor remoto debe proporcionar un encabezado `Access-Control-Allow-Origin` permitiendo la búsqueda.
+2. Los scripts externos que se buscan desde otro origen (p.ej. otra sitio web) require encabezados [CORS](https://developer.mozilla.org/es/docs/Web/HTTP/Access_control_CORS), como se describe en el capítulo <info:fetch-crossorigin>. En otras palabras, si un script de módulo es extraído desde otro origen, el servidor remoto debe proporcionar un encabezado `Access-Control-Allow-Origin` permitiendo la búsqueda.
     ```html
     <!-- otro-sitio-web.com debe proporcionar Access-Control-Allow-Origin -->
     <!-- si no, el script no se ejecutará -->
@@ -335,7 +363,7 @@ Los navegadores antiguos no entienden `type = "module"`. Los scripts de un tipo 
 
 ```html run
 <script type="module">
-  alert("Ejectua en navegadores modernos");
+  alert("Ejecuta en navegadores modernos");
 </script>
 
 <script nomodule>
@@ -358,7 +386,7 @@ Las herramientas de compilación hacen lo siguiente:
 4. Durante el proceso, otras transformaciones y optimizaciones se pueden aplicar:
     - Se elimina código inaccesible.
     - Se elimina exportaciones sin utilizar ("tree-shaking").
-    - Sentencias específicas de dessarrollo tales como `console` y `debugger` se eliminan.
+    - Sentencias específicas de desarrollo tales como `console` y `debugger` se eliminan.
     - La sintaxis JavaScript moderna puede transformarse en una sintaxis más antigua con una funcionalidad similar utilizando [Babel](https://babeljs.io/).
     - El archivo resultante se minimiza. (se eliminan espacios, las variables se reemplazan con nombres cortos, etc).
 
@@ -376,10 +404,10 @@ Dicho esto, los módulos nativos también se pueden utilizar. Por lo tanto no es
 Para resumir, los conceptos centrales son:
 
 1. Un módulo es un archivo. Para que funcione `import/export`, los navegadores necesitan `<script type="module">`. Los módulos tienen varias diferencias:
-     - Diferido por defecto.
-     - Async funciona en scripts en línea.
-     - Para cargar scripts externos de otro origen (dominio/protocolo/puerto), se necesitan encabezados CORS.
-     - Se ignoran los scripts externos duplicados.
+    - Diferido por defecto.
+    - Async funciona en scripts en línea. 
+    - Para cargar scripts externos de otro origen (dominio/protocolo/puerto), se necesitan encabezados CORS. 
+    - Se ignoran los scripts externos duplicados.
 2. Los módulos tienen su propio alcance local de alto nivel y funcionalidad de intercambio a través de 'import/export'.
 3. Los módulos siempre usan `use strict`.
 4. El código del módulo se ejecuta solo una vez. Las exportaciones se crean una vez y se comparten entre los importadores.

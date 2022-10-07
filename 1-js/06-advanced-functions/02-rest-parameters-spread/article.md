@@ -43,7 +43,7 @@ alert( sumAll(1, 2) ); // 3
 alert( sumAll(1, 2, 3) ); // 6
 ```
 
-Podermos elegir obtener los primeros parámetros como variables, y juntar solo el resto.
+Podemos elegir obtener los primeros parámetros como variables, y juntar solo el resto.
 
 Aquí los primeros dos argumentos van a variables y el resto va al array `titles`:
 
@@ -65,7 +65,7 @@ showName("Julio", "Cesar", "Cónsul", "Emperador");
 Los parámetros rest recogen todos los argumentos sobrantes, por lo que el siguiente código no tiene sentido y causa un error:
 
 ```js
-function f(arg1, ...rest, arg2) { // arg2 despues de ...rest ?!
+function f(arg1, ...rest, arg2) { // arg2 después de ...rest ?!
   // error
 }
 ```
@@ -118,7 +118,7 @@ function f() {
 f(1); // 1
 ```
 
-Como recordamos, las funciones flecha no tienen su propio `this`. Ahora sabemos que tampoco tienen el objeto especial `arguments`.
+Como recordamos, las funciones de flecha no tienen su propio `this`. Ahora sabemos que tampoco tienen el objeto especial `arguments`.
 ````
 
 
@@ -204,7 +204,7 @@ alert( [...str] ); // H,o,l,a
 
 El operador spread utiliza internamente iteradores para iterar los elementos, de la misma manera que `for..of` hace.
 
-Entones, para una cadena `for..of` retorna characters y `...str` se convierte en `"H","o","l","a"`. La lista de caracteres es pasada a la inicialización del array `[...str]`.
+Entonces, para una cadena `for..of` retorna caracteres y `...str` se convierte en `"H","o","l","a"`. La lista de caracteres es pasada a la inicialización del array `[...str]`.
 
 Para esta tarea en particular también podríamos haber usado `Array.from`, ya que convierte un iterable (como una cadena de caracteres) en un array:
 
@@ -222,10 +222,10 @@ Pero hay una sutil diferencia entre `Array.from(obj)` y `[...obj]`:
 - `Array.from` opera con símil-arrays e iterables.
 - El operador spread solo opera con iterables.
 
-Por lo tanto, para la tarea de convertir algo en un array, `Array.from` tiende a ser mas universal.
+Por lo tanto, para la tarea de convertir algo en un array, `Array.from` tiende a ser más universal.
 
 
-## Obtener una copia de un objeto array
+## Copia de un objeto array
 
 ¿Recuerdas cuando hablamos acerca de `Object.assign()` [anteriormente](info:object-copy#cloning-and-merging-object-assign)?
 
@@ -233,8 +233,11 @@ Es posible hacer lo mismo con la sintaxis de spread
 
 ```js run
 let arr = [1, 2, 3];
+
+*!*
 let arrCopy = [...arr]; // separa el array en una lista de parameters
                         // luego pone el resultado en un nuevo array
+*/!*
 
 // ¿los arrays tienen el mismo contenido?
 alert(JSON.stringify(arr) === JSON.stringify(arrCopy)); // true
@@ -252,8 +255,11 @@ Nota que es posible hacer lo mismo para hacer una copia de un objeto:
 
 ```js run
 let obj = { a: 1, b: 2, c: 3 };
+
+*!*
 let objCopy = { ...obj }; // separa el objeto en una lista de parámetros
                           // luego devuelve el resultado en un nuevo objeto
+*/!*
 
 // ¿tienen los objetos el mismo contenido?
 alert(JSON.stringify(obj) === JSON.stringify(objCopy)); // true

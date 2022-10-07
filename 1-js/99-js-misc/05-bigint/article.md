@@ -79,7 +79,7 @@ alert( 1 === 1n ); // false
 
 ## Operaciones booleanas 
 
-Cuando estan dentro de un `if` u otra operación booleana, los bigints se comportan como numbers.
+Cuando están dentro de un `if` u otra operación booleana, los bigints se comportan como numbers.
 
 Por ejemplo, en `if`, el bigint `0n` es falso, los otros valores son verdaderos:
 

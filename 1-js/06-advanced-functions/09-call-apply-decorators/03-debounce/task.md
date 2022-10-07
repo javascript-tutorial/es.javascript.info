@@ -14,7 +14,7 @@ Entonces, si la función contenedora se llama a 0ms, 200ms y 500ms, y luego no h
 
 ![](debounce.svg)
 
-... Y obtendrá los argumentos de la última llamada, y se ignorarán otras llamadas.
+... Y obtendrá los argumentos de la última llamada, y se ignoran las otras llamadas.
 
 Aquí está el código para ello (usa el decorador debounce del [Lodash library](https://lodash.com/docs/4.17.15#debounce):
 
@@ -30,7 +30,7 @@ setTimeout( () => f("c"), 500);
 
 Ahora un ejemplo práctico. Digamos que el usuario escribe algo y nos gustaría enviar una solicitud al servidor cuando finalice la entrada.
 
-No tiene sentido enviar la solicitud para cada caracter escrito. En su lugar, nos gustaría esperar y luego procesar todo el resultado.
+No tiene sentido enviar la solicitud para cada carácter escrito. En su lugar, nos gustaría esperar y luego procesar todo el resultado.
 
 En un navegador web, podemos configurar un controlador de eventos, una función que se llama en cada cambio de un campo de entrada. Normalmente, se llama a un controlador de eventos con mucha frecuencia, por cada tecla escrita. Pero si le pasamos `debounce` por 1000ms, entonces solo se llamará una vez, después de 1000ms después de la última entrada.
 
@@ -40,7 +40,7 @@ En este ejemplo en vivo, el controlador coloca el resultado en un cuadro a conti
 
 [iframe border=1 src="debounce" height=200]
 
-¿Ve? La segunda entrada llama a la función debounce, por lo que su contenido se procesa después de 1000 ms desde la última entrada.
+¿Lo ve? La segunda entrada llama a la función debounce, por lo que su contenido se procesa después de 1000 ms desde la última entrada.
 ```
 
 Entonces, `debounce` es una excelente manera de procesar una secuencia de eventos: ya sea una secuencia de pulsaciones de teclas, movimientos del mouse u otra cosa.

@@ -6,7 +6,7 @@ importance: 2
 
 Usando el constructor `if..else`, escribe el código que pregunta: '¿Cuál es el nombre "oficial" de JavaScript?'
 
-Si el visitador escribe "ECMAScript", Entonces muestras "¡Correcto!", de lo contrario -- muestra: "¿No lo sabes? ¡ECMAScript!"
+Si el visitante escribe "ECMAScript", entonces muestra: "¡Correcto!", de lo contrario muestra: "¿No lo sabes? ¡ECMAScript!"
 
 ![](ifelse_task2.svg)
 

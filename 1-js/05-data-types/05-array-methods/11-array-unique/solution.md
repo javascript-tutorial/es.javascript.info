@@ -1,7 +1,6 @@
 Recorramos los elementos dentro del array:
 - Para cada elemento vamos a comprobar si el array resultante ya tiene ese elemento.
-- If it is so, then ignore, otherwise add to results.
-- Si ya lo tiene ignora y continúa, si no, agrega el resultado.
+- Si ya lo tiene, ignora. Si no, agrega el resultado.
 
 ```js run demo
 function unique(arr) {
@@ -23,7 +22,7 @@ let strings = ["Hare", "Krishna", "Hare", "Krishna",
 alert( unique(strings) ); // Hare, Krishna, :-O
 ```
 
-El código funciona pero tiene un problema potencial de desempeño.
+El código funciona, pero tiene un problema potencial de desempeño.
 
 El método `result.includes(str)` internamente recorre el array `result` y compara cada elemento con `str` para encontrar una coincidencia.
 

@@ -69,10 +69,10 @@ La ejecución de la función es pausada en la línea `(*)` y se reanuda cuando l
 
 Enfaticemos: `await` literalmente suspende la ejecución de la función hasta que se establezca la promesa, y luego la reanuda con el resultado de la promesa. Eso no cuesta ningún recurso de CPU, porque el motor de JavaScript puede hacer otros trabajos mientras tanto: ejecutar otros scripts, manejar eventos, etc.
 
-Es simplemente una sintaxis más elegante para tener el resultado de una promesa que `promise.then`, es más facil de leer y de escribir.
+Es simplemente una sintaxis más elegante para tener el resultado de una promesa que `promise.then`, es más fácil de leer y de escribir.
 
-````warn header="No se puede usar *await* en funciones regulares"
-Si tratamos de usar `await` en una función no async, habría un error de sintaxis:
+````warn header="No se puede usar `await` en funciones comunes"
+Si tratamos de usar `await` en una función no async, tendremos un error de sintaxis:
 
 ```js run
 function f() {
@@ -121,16 +121,22 @@ showAvatar();
 
 Bien limpio y fácil de leer, ¿no es cierto? Mucho mejor que antes.
 
-````smart header="`await` no funcionará en el código de nivel superior"
-La gente que empieza a usar `await` tiende a olvidar el hecho de que no podemos uar `await` en el código de nivel superior. Por ejemplo, esto no funcionará:
+````smart header="Los navegadores modernos permiten `await` en el nivel superior de los módulos"
+En los navegadores modernos, `await` de nivel superior funciona, siempre que estamos dentro de un módulo. Cubriremos módulos en el artículo <info:modules-intro>.
 
-```js run
-// error de sintaxis en el nivel superior de código
+Por ejemplo:
+
+```js run module
+// asumimos que este código se ejecuta en el nivel superior dentro de un módulo
 let response = await fetch('/article/promise-chaining/user.json');
 let user = await response.json();
+
+console.log(user);
 ```
 
-Pero podemos envolverlo dentro de una función async anónima, como esto:
+Si no estamos usando módulos, o necesitamos soportar [navegadores antiguos](https://caniuse.com/mdn-javascript_operators_await_top_level), tenemos una receta universal: envolverlos en una función async anónima.
+
+Así:
 
 ```js
 (async () => {
@@ -140,7 +146,6 @@ Pero podemos envolverlo dentro de una función async anónima, como esto:
 })();
 ```
 
-P.S. A partir de la versión 8.9+ del motor V8 de JS, await funciona en el nivel superior de los [módulos](info:modules).
 ````
 
 ````smart header="*await* acepta \"thenables\""
@@ -186,14 +191,14 @@ class Waiter {
 
 new Waiter()
   .wait()
-  .then(alert); // 1
+  .then(alert); // 1 (lo mismo que (result => alert(result)))
 ```
 El significado es el mismo: Asegura que el valor devuelto es una promesa y habilita `await`.
 
 ````
 ## Manejo de Error
 
-Si una promesa se resuelve normalmente, entonces `await promise` devuelve el resultado. Pero en caso de rechazo, dispara un error, tal como si hubiera una intrucción `throw` en aquella línea.
+Si una promesa se resuelve normalmente, entonces `await promise` devuelve el resultado. Pero en caso de rechazo, dispara un error, tal como si hubiera una instrucción `throw` en aquella línea.
 
 Este código:
 
@@ -234,7 +239,7 @@ async function f() {
 f();
 ```
 
-En el casso de un error, el control salta al bloque `catch`. Podemos también envolver múltiples líneas:
+En el caso de un error, el control salta al bloque `catch`. Podemos también envolver múltiples líneas:
 
 ```js run
 async function f() {
@@ -264,7 +269,7 @@ f().catch(alert); // TypeError: failed to fetch // (*)
 */!*
 ```
 
-Si olvidamos añadir `.catch` allí, obtendrenos un error de promesa no manejado (visible en consola). Podemos atrapar tales errores usando un manejador de evento global `unhandledrejection` como está descrito en el capítulo <info:promise-error-handling>.
+Si olvidamos añadir `.catch` allí, obtendremos un error de promesa no manejado (visible en consola). Podemos atrapar tales errores usando un manejador de evento global `unhandledrejection` como está descrito en el capítulo <info:promise-error-handling>.
 
 
 ```smart header="`async/await` y `promise.then/catch`"
@@ -296,7 +301,7 @@ El comando `async` antes de una función tiene dos efectos:
 1. Hace que siempre devuelva una promesa.
 2. Permite que sea usado `await` dentro de ella.
 
-El comando `await` antes de una promesa hace que JavaScript espere hasta que la promesa responda, entonces:
+El comando `await` antes de una promesa hace que JavaScript espere hasta que la promesa responda. Entonces:
 
 1. Si es un error, la excepción es generada — lo mismo que si `throw error` fuera llamado en ese mismo lugar.
 2. De otro modo, devuelve el resultado.

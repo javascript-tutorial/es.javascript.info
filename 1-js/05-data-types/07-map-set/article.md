@@ -10,17 +10,17 @@ Pero eso no es suficiente para la vida real. Por eso también existen `Map` y `S
 
 ## Map
 
-[Map](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Map) es una colección de de datos relacionados, al igual que un `Objeto`. Pero la principal diferencia es que `Map` permite claves de cualquier tipo.
+[Map](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Map) es, al igual que `Objet`, una colección de datos identificados por claves. Pero la principal diferencia es que `Map` permite claves de cualquier tipo.
 
 Los métodos y propiedades son:
 
 - `new Map()` -- crea el mapa.
-- `map.set(clave, valor)` -- almacena el valor para la clave.
-- `map.get(clave)` -- devuelve el valor de la clave: será `undefined` si la `clave` no exite en Map.
-- `map.has(clave)` -- devuelve `true` si la `clave` exite, y `false` si no existe.
-- `map.delete(clave)` -- elimina los valores de la clave.
-- `map.clear()` -- limpia el Map.
-- `map.size` -- retorna el número actual de elementos.
+- [`map.set(clave, valor)`](mdn:js/Map/set) -- almacena el valor asociado a la clave.
+- [`map.get(clave)`](mdn:js/Map/get) -- devuelve el valor de la clave. Será `undefined` si la `clave` no existe en map.
+- [`map.has(clave)`](mdn:js/Map/has) -- devuelve `true` si la `clave` existe en map, `false` si no existe.
+- [`map.delete(clave)`](mdn:js/Map/delete) -- elimina el valor de la clave.
+- [`map.clear()`](mdn:js/Map/clear) -- elimina todo de map.
+- [`map.size`](mdn:js/Map/size) -- tamaño, devuelve la cantidad actual de elementos.
 
 Por ejemplo:
 
@@ -31,7 +31,7 @@ map.set('1', 'str1');   // un string como clave
 map.set(1, 'num1');     // un número como clave
 map.set(true, 'bool1'); // un booleano como clave
 
-// recuerda el objeto regular? convertiría las claves en un string
+// ¿recuerda el objeto regular? convertiría las claves a string.
 // Map mantiene el tipo de dato en las claves, por lo que estas dos son diferentes:
 alert( map.get(1)   ); // 'num1'
 alert( map.get('1') ); // 'str1'
@@ -39,15 +39,15 @@ alert( map.get('1') ); // 'str1'
 alert( map.size ); // 3
 ```
 
-Como podemos ver, a diferencia de los objetos, las claves no se convierten en strings. Cualquier tipo de clave es posible en un Map.
+Podemos ver que, a diferencia de los objetos, las claves no se convierten en strings. Cualquier tipo de clave es posible en un Map.
 
-```smart header="map[clave] no es la forma correcta para usar Map"
-Aunque el `map[clave]` también funciona, por ejemplo, podemos establecer `map[clave]` = 2, esto es tratar a `map` como un objeto JavaScript simple, por lo que implica todas las limitaciones correspondientes (sin objetos como clave, etc.).
+```smart header="map[clave] no es la forma correcta de usar Map"
+Aunque `map[clave]` también funciona (por ejemplo podemos establecer `map[clave]` = 2), esto es tratar a `map` como un objeto JavaScript simple, lo que implica tener todas las limitaciones correspondientes (que solo se permita string/symbol como clave, etc.).
 
-Por lo tanto, deberíamos usar los métodos de `Map`: `set`, `get`, etc.
+Por lo tanto, debemos usar los métodos de `Map`: `set`, `get` y demás.
 ```
 
-**El mapa también puede usar objetos como claves.**
+**También podemos usar objetos como claves.**
 
 Por ejemplo:
 
@@ -63,7 +63,7 @@ visitsCountMap.set(john, 123);
 alert( visitsCountMap.get(john) ); // 123
 ```
 
-El uso de objetos como claves es una de las características de `Map` más notables e importantes. Para las claves de tipo string, `Object` puede estar bien, pero no para las claves de tipo objeto.
+El uso de objetos como claves es una de las características de `Map` más notables e importantes. Esto no se aplica a los objetos: una clave de tipo `string` está bien en un `Object`, pero no podemos usar otro `Object` como clave.
 
 Intentémoslo:
 
@@ -73,7 +73,8 @@ let ben = { name: "Ben" };
 
 let visitsCountObj = {}; // intenta usar un objeto
 
-visitsCountObj[john] = 123; // intenta usar el objeto john como clave
+visitsCountObj[ben] = 234; // intenta usar el objeto ben como clave
+visitsCountObj[john] = 123; // intenta usar el objeto john como clave, el objeto ben es reemplazado
 
 *!*
 // Esto es lo que se escribió!
@@ -81,16 +82,16 @@ alert( visitsCountObj["[object Object]"] ); // 123
 */!*
 ```
 
-Como `visitsCountObj` es un objeto, convierte todas las claves, como `john` en string, por lo que tenemos la clave de tipo string `"[objeto Objeto]"`. Definitivamente no es lo que queremos.
+Como `visitsCountObj` es un objeto, convierte todas los objetos como `john` y `ben` en el mismo string `"[objeto Objeto]"`. Definitivamente no es lo que queremos.
 
 ```smart header="Cómo `Map` compara las claves" 
-Para probar la equivalencia de claves, `Map` utiliza el algoritmo [SameValueZero](https://tc39.es/ecma262/#sec-samevaluezero). Es aproximadamente lo mismo que la igualdad estricta `===`, pero la diferencia es que `NaN` se considera igual a `NaN`. Por lo tanto, `NaN` también se puede usar como clave.
+Para probar la equivalencia de claves, `Map` utiliza el algoritmo [SameValueZero](https://tc39.github.io/ecma262/#sec-samevaluezero). Es aproximadamente lo mismo que la igualdad estricta `===`, pero la diferencia es que `NaN` se considera igual a `NaN`. Por lo tanto, `NaN` también se puede usar como clave.
 
 Este algoritmo no se puede cambiar ni personalizar.
 ```
 
 ````smart header="Encadenamiento"
-Cada llamada a `map.set` devuelve Map en sí, para que podamos "encadenar" las llamadas:
+Cada llamada a `map.set` devuelve map en sí, así que podamos "encadenar" las llamadas:
 
 ```js
 map.set('1', 'str1')
@@ -104,9 +105,9 @@ map.set('1', 'str1')
 
 Para recorrer un `map`, hay 3 métodos:
 
-- `map.keys()` – devuelve un iterable para las claves.
-- `map.values()` – devuelve un iterable para los valores.
-- `map.entries()` – devuelve un iterable para las entradas `[clave, valor]`, se usa por defecto en `for..of`.
+- [`map.keys()`](mdn:js/Map/keys) –- devuelve un iterable para las claves.
+- [`map.values()`](mdn:js/Map/values) -– devuelve un iterable para los valores.
+- [`map.entries()`](mdn:js/Map/entries) -– devuelve un iterable para las entradas `[clave, valor]`. Es el que usa por defecto en `for..of`.
 
 Por ejemplo:
 
@@ -137,7 +138,7 @@ for (let entry of recipeMap) { // lo mismo que recipeMap.entries()
 La iteración va en el mismo orden en que se insertaron los valores. `Map` conserva este orden, a diferencia de un `Objeto` normal.
 ```
 
-Además de eso, `Map` tiene un método `forEach` incorporado, similar a `Array`:
+Además, `Map` tiene un método `forEach` incorporado, similar al de `Array`:
 
 ```js
 // recorre la función para cada par (clave, valor)
@@ -148,7 +149,7 @@ recipeMap.forEach( (value, key, map) => {
 
 ## Object.entries: Map desde Objeto
 
-Cuando se crea un `Map`, podemos pasar un array (u otro iterable) con pares clave / valor para la inicialización, de esta manera:
+Al crear un `Map`, podemos pasarle un array (u otro iterable) con pares clave/valor para la inicialización:
 
 ```js run
 // array de [clave, valor]
@@ -161,9 +162,9 @@ let map = new Map([
 alert( map.get('1') ); // str1
 ```
 
-Aquí hay un método incorporado [Object.entries(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/entries) que devuelve un array de pares clave / valor para un objeto exactamente en ese formato.
+Si tenemos un objeto plano y queremos crear un `Map` a partir de él, podemos usar el método incorporado [Object.entries(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/entries) que devuelve un array de pares clave/valor para un objeto exactamente en ese formato.
 
-Entonces podemos inicializar un mapa desde un objeto como este:
+Entonces podemos inicializar un map desde un objeto:
 
 ```js run
 let obj = {
@@ -178,12 +179,12 @@ let map = new Map(Object.entries(obj));
 alert( map.get('name') ); // John
 ```
 
-Aquí, `Object.entries` devuelve el array de pares clave / valor: [["" name "," John "], [" age ", 30]]. Eso es lo que necesita `Map`.
+Aquí, `Object.entries` devuelve el array de pares clave/valor: `[ ["name","John"], ["age", 30] ]`. Es lo que necesita `Map`.
 
 
 ## Object.fromEntries: Objeto desde Map
 
-Acabamos de ver cómo crear un `Map` a partir de un objeto simple con `Object.entries (obj).`
+Acabamos de ver cómo crear un `Map` a partir de un objeto simple con `Object.entries (obj)`.
 
 Existe el método `Object.fromEntries` que hace lo contrario: dado un array de pares [clave, valor], crea un objeto a partir de ellos:
 
@@ -199,9 +200,9 @@ let prices = Object.fromEntries([
 alert(prices.orange); // 2
 ```
 
-Podemos usar `Object.fromEntries` para obtener un objeto plano de `Map`.
+Podemos usar `Object.fromEntries` para obtener un objeto desde `Map`.
 
-Ej. almacenamos los datos en un `Map`, pero necesitamos pasarlos a un código de terceros que espera un objeto simple.
+Ejemplo: almacenamos los datos en un `Map`, pero necesitamos pasarlos a un código de terceros que espera un objeto simple.
 
 Aquí vamos:
 
@@ -212,7 +213,7 @@ map.set('orange', 2);
 map.set('meat', 4);
 
 *!*
-let obj = Object.fromEntries(map.entries()); // hace un objeto simple
+let obj = Object.fromEntries(map.entries()); // hace un objeto simple (*)
 */!*
 
 // Hecho!
@@ -221,31 +222,31 @@ let obj = Object.fromEntries(map.entries()); // hace un objeto simple
 alert(obj.orange); // 2
 ```
 
-Una llamada a `map.entries()` devuelve un array de pares clave / valor, exactamente en el formato correcto para `Object.fromEntries.`
+Una llamada a `map.entries()` devuelve un array de pares clave/valor, exactamente en el formato correcto para `Object.fromEntries.`
 
 También podríamos acortar la línea `(*)`:
 ```js
 let obj = Object.fromEntries(map); // omitimos .entries()
 ```
 
-Es lo mismo, porque `Object.fromEntries` espera un objeto iterable como argumento. No necesariamente un array. Y la iteración estándar para el `Map` devuelve los mismos pares clave / valor que `map.entries()`. Entonces obtenemos un objeto simple con las mismas claves / valores que `Map`.
+Es lo mismo, porque `Object.fromEntries` espera un objeto iterable como argumento. No necesariamente un array. Y la iteración estándar para el `Map` devuelve los mismos pares clave/valor que `map.entries()`. Entonces obtenemos un objeto simple con las mismas claves/valores que `Map`.
 
 ## Set
 
-`Set` es una colección de tipo especial: "conjunto de valores" (sin claves), donde cada valor puede aparecer solo una vez.
+Un `Set` es una colección de tipo especial: "conjunto de valores" (sin claves), donde cada valor puede aparecer solo una vez.
 
 Sus principales métodos son:
 
-- `new Set(iterable)` -- crea el set y, si se proporciona un objeto iterable (generalmente un array), copia los valores del mismo en el set.
-- `set.add(valor)` -- agrega un valor, devuelve el set en sí.
-- `set.delete(valor)` -- elimina el valor, devuelve `true` si `valor` existe al momento de la llamada, si no, devuelve `false`.
-- `set.has(valor)` -- devuelve `true` si el valor existe en el set, si no, devuelve `false`.
-- `set.clear()` -- elimina todo del set.
-- `set.size` -- es el contador de los elementos.
+- `new Set(iterable)` -- crea el set. El argumento opcional es un objeto iterable (generalmente un array) con valores para inicializarlo.
+- [`set.add(valor)`](mdn:js/Set/add) -- agrega un valor, y devuelve el set en sí.
+- [`set.delete(valor)`](mdn:js/Set/delete) -- elimina el valor, y devuelve `true` si el `valor` existía al momento de la llamada; si no, devuelve `false`.
+- [`set.has(valor)`](mdn:js/Set/has) -- devuelve `true` si el valor existe en el set, si no, devuelve `false`.
+- [`set.clear()`](mdn:js/Set/clear) -- elimina todo el continido del set.
+- [`set.size`](mdn:js/Set/size) -- es la cantidad de elementos.
 
-La característica principal es que las llamadas repetidas de `set.add (valor)` con el mismo valor no hacen nada. Esa es la razón por la cual cada valor aparece en `Set` solo una vez.
+La característica principal es que llamadas repetidas de `set.add(valor)` con el mismo valor no hacen nada. Esa es la razón por la cual cada valor aparece en `Set` solo una vez.
 
-Por ejemplo, tenemos visitantes que vienen y nos gustaría recordar a todos. Pero las visitas repetidas no deberían conducir a duplicados. Un visitante debe ser "contado" solo una vez.
+Por ejemplo, vienen visitantes y queremos recordarlos a todos. Pero las visitas repetidas no deberían llevar a duplicados. Un visitante debe ser "contado" solo una vez.
 
 `Set` es lo correcto para eso:
 
@@ -271,7 +272,7 @@ for (let user of set) {
 }
 ```
 
-La alternativa a `Set` podría ser un array de usuarios y el código para verificar si hay duplicados en cada inserción usando [arr.find](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/find). Pero el rendimiento sería mucho peor, porque este método recorre el array completo comprobando cada elemento. `Set` está mucho mejor optimizado internamente para verificaciones de unicidad.
+La alternativa a `Set` podría ser un array de usuarios y el código para verificar si hay duplicados en cada inserción usando [arr.find](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/find). Pero el rendimiento sería mucho peor, porque este método recorre el array completo comprobando cada elemento. `Set` está optimizado internamente para verificar unicidad.
 
 ## Iteración sobre Set
 
@@ -288,15 +289,15 @@ set.forEach((value, valueAgain, set) => {
 });
 ```
 
-Tenga en cuenta algo gracioso: la función callback pasada en forEach tiene 3 argumentos:  un valor, luego el mismo valor "valueAgain" y luego el objeto de destino que es set. El mismo valor aparece en los argumentos dos veces.
+Tenga en cuenta algo peculiar: la función callback pasada en forEach tiene 3 argumentos:  un valor, luego el mismo valor "valueAgain" y luego el objeto de destino que es set. El mismo valor aparece en los argumentos dos veces.
 
-Eso es por compatibilidad con `Map` donde la función callback tiene tres argumentos. Parece un poco extraño, seguro. Pero puede ayudar a reemplazar `Map` con `Set` en ciertos casos con facilidad, y viceversa.
+Eso es por compatibilidad con `Map` donde la función callback tiene tres argumentos. Parece un poco extraño, seguro. Pero en ciertos casos puede ayudar a reemplazar `Map` con `Set` y viceversa con facilidad.
 
 También soporta los mismos métodos que `Map` tiene para los iteradores:
 
-- `set.keys()` – devuelve un iterable para las claves.
-- `set.values()` – lo mismo que `set.keys()`, por su compatibilidad con `Map`.
-- `set.entries()` – devuelve un iterable para las entradas `[clave, valor]`, por su compatibilidad con `Map`.
+- [`set.keys()`](mdn:js/Set/keys) – devuelve un iterable para las claves.
+- [`set.values()`](mdn:js/Set/values) – lo mismo que `set.keys()`, por su compatibilidad con `Map`.
+- [`set.entries()`](mdn:js/Set/entries) – devuelve un iterable para las entradas `[clave, valor]`, por su compatibilidad con `Map`.
 
 ## Resumen
 
@@ -305,27 +306,27 @@ También soporta los mismos métodos que `Map` tiene para los iteradores:
 Métodos y propiedades:
 
 - `new Map()` -- crea el mapa.
-- `map.set(clave, valor)` -- almacena el valor para la clave.
-- `map.get(clave)` -- devuelve el valor de la clave: será `undefined` si la `clave` no exite en Map.
-- `map.has(clave)` -- devuelve`true` si la `clave` exite, y `false` si no existe.
-- `map.delete(clave)` -- elimina los valores de la clave.
-- `map.clear()` -- limpia el Map.
-- `map.size` -- retorna el número del elemento actual en el recuento de elementos en el Map.
+- [`map.set(clave, valor)`](mdn:js/Map/set) -- almacena el valor para la clave.
+- [`map.get(clave)`](mdn:js/Map/get) -- devuelve el valor de la clave: será `undefined` si la `clave` no existe en Map.
+- [`map.has(clave)`](mdn:js/Map/has) -- devuelve`true` si la `clave` existe, y `false` si no existe.
+- [`map.delete(clave)`](mdn:js/Map/delete) -- elimina el valor de esa clave.
+- [`map.clear()`](mdn:js/Map/clear) -- limpia el Map.
+- [`map.size`](mdn:js/Map/size) -- devuelve la cantidad de elementos en el Map.
 
-La diferencia con `Objeto` regular:
+La diferencia con un `Objeto` regular:
 
-- Cualquier clave, los objetos tambien pueden ser claves.
-- Adicionalmente tiene métodos que nos convienen, como la clave `size`.
+- Cualquier clave. Los objetos también pueden ser claves.
+- Métodos adicionales convenientes, y la propiedad `size`.
 
 `Set`: es una colección de valores únicos.
 
 Métodos y propiedades:
 
-- `new Set(iterable)` -- crea el set y, si se proporciona un objeto iterable (generalmente un array), copia los valores del mismo en el set.
-- `set.add(valor)` -- agrega un valor, devuelve el set en sí.
-- `set.delete(valor)` -- elimina el valor, devuelve `true` si `valor` existe al momento de la llamada, si no, devuelve `false`.
-- `set.has(valor)` -- devuelve `true` si el valor existe en el set, si no, devuelve `false`.
-- `set.clear()` -- elimina todo del set.
-- `set.size` -- es el contador de los elementos.
+- `new Set(iterable)` -- crea el set. Tiene un argumento opcional, un objeto iterable (generalmente un array) de valores para inicializarlo.
+- [`set.add(valor)`](mdn:js/Set/add) -- agrega un valor, devuelve el set en sí.
+- [`set.delete(valor)`](mdn:js/Set/delete) -- elimina el valor, devuelve `true` si `valor` existe al momento de la llamada; si no, devuelve `false`.
+- [`set.has(valor)`](mdn:js/Set/has) -- devuelve `true` si el valor existe en el set, si no, devuelve `false`.
+- [`set.clear()`](mdn:js/Set/clear) -- elimina todo del set.
+- [`set.size`](mdn:js/Set/size) -- es la cantidad de elementos.
 
 La iteración sobre `Map` y `Set` siempre está en el orden de inserción, por lo que no podemos decir que estas colecciones están desordenadas, pero no podemos reordenar elementos u obtener un elemento directamente por su número.

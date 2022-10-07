@@ -8,7 +8,7 @@ Utilizamos las variables para almacenar esta información.
 
 ## Una variable
 
-Una [variable](https://es.wikipedia.org/wiki/Variable_(programaci%C3%B3n))) es un "almacenaje nombrado" para datos. Podemos usar variables para almacenar golosinas, visitantes, y otros datos.
+Una [variable](https://es.wikipedia.org/wiki/Variable_(programaci%C3%B3n)) es un "almacén con un nombre" para guardar datos. Podemos usar variables para almacenar golosinas, visitantes, y otros datos.
 
 
 Para generar una variable en JavaScript, se usa la palabra clave `let`.
@@ -24,7 +24,7 @@ Ahora podemos introducir datos en ella al utilizar el operador de asignación `=
 let message;
 
 *!*
-message = 'Hola'; // almacena la cadena
+message = 'Hola'; // almacenar la cadena 'Hola' en la variable llamada message
 */!*
 ```
 
@@ -64,6 +64,7 @@ let message = 'Hola';
 ```
 
 Algunas personas también definen variables múltiples en estilo multilínea:
+
 ```js no-beautify
 let user = 'John',
   age = 25,
@@ -89,7 +90,7 @@ En scripts más viejos, a veces se encuentra otra palabra clave: `var` en lugar 
 
 La palabra clave `var` es *casi* lo mismo que `let`. También hace la declaración de una variable, aunque de un modo ligeramente distinto, y más antiguo.
 
-Existen sutiles diferencias entre `let` y `var`, pero no nos constan en este momento. Cubriremos el tema a detalle en el capítulo <info:var>.
+Existen sutiles diferencias entre `let` y `var`, pero no nos interesan en este momento. Cubriremos el tema a detalle en el capítulo <info:var>.
 ````
 
 ## Una analogía de la vida real
@@ -103,6 +104,7 @@ Por ejemplo, podemos imaginar la variable `message` como una caja etiquetada `"m
 Podemos introducir cualquier valor a la caja.
 
 También la podemos cambiar cuantas veces queramos:
+
 ```js run
 let message;
 
@@ -135,7 +137,7 @@ alert(message); // Hola mundo!
 ```
 
 ````warn header="Declarar dos veces lanza un error"
-Una variable debería ser declarada solamente una vez.
+Una variable debe ser declarada solamente una vez.
 
 Una declaración repetida de la misma variable es un error:
 
@@ -145,7 +147,7 @@ let message = "This";
 // 'let' repetidos lleva a un error
 let message = "That"; // SyntaxError: 'message' ya fue declarado
 ```
-Debermos declarar una variable una sola vez y desde entonces referirnos a ella sin `let`.
+Debemos declarar una variable una sola vez y desde entonces referirnos a ella sin `let`.
 ````
 
 ```smart header="Lenguajes funcionales"
@@ -172,7 +174,7 @@ let test123;
 
 Cuando el nombre contiene varias palabras, comúnmente se utiliza [camelCase](https://es.wikipedia.org/wiki/Camel_case). Es decir: palabras van una detrás de otra, con cada palabra iniciando con letra mayúscula: `miNombreMuyLargo`.
 
-Es interesante notar -- el símbolo del dólar `'$'` y el guión bajo `'_'` también se utilizan en nombres. Son símbolos comunes, tal como las letras, sin ningún significado especial.
+Es interesante notar que el símbolo del dólar `'$'` y el guion bajo `'_'` también se utilizan en nombres. Son símbolos comunes, tal como las letras, sin ningún significado especial.
 
 Los siguientes nombres son válidos:
 
@@ -192,7 +194,7 @@ let my-name; // los guiones '-' no son permitidos en nombres
 ```
 
 ```smart header="La Capitalización es Importante"
-Variables con el nombre `manzana` y `manzANA` son distintas.
+Dos variables con nombres `manzana` y `MANZANA` son variables distintas.
 ```
 
 ````smart header="Letras que no son del alfabeto inglés están permitidas, pero no se recomiendan"
@@ -260,7 +262,6 @@ myBirthday = '01.01.2001'; // ¡error, no se puede reasignar la constante!
 
 Cuando un programador está seguro de que una variable nunca cambiará, puede declarar la variable con `const` para garantizar y comunicar claramente este hecho a todos.
 
-
 ### Constantes mayúsculas
 
 Existe una práctica utilizada ampliamente de utilizar constantes como aliases de valores difíciles-de-recordar y que se conocen previo a la ejecución.
@@ -291,13 +292,14 @@ Ventajas:
 Ser una "constante" solo significa que el valor de la variable nunca cambia. Pero hay constantes que son conocidas previo a la ejecución (como el valor hexadecimal del color rojo) y hay constantes que son *calculadas* en el tiempo de ejecución, pero no cambian después de su asignación inicial.
 
 Por ejemplo:
+
 ```js
 const pageLoadTime = /* el tiempo que tardó la página web para cargar */;
 ```
 
 El valor de `pageLoadTime` no se conoce antes de cargar la página, así que la nombramos normalmente. No obstante, es una constante porque no cambia después de su asignación inicial.
 
-En otras palabras, las constantes nombradas con mayúscula son utilizadas como áliases para valores que son "hard-coded".
+En otras palabras, las constantes con nombres en mayúscula son utilizadas solamente como alias para valores invariables y preestablecidos ("hard-coded").
 
 ## Nombrar cosas correctamente
 
@@ -316,7 +318,7 @@ Algunas reglas buenas para seguir:
 - Use términos legibles para humanos como `userName` p `shoppingCart`.
 - Evite abreviaciones o nombres cortos `a`, `b`, `c`, al menos que en serio sepa lo que está haciendo.
 - Cree nombres que describen al máximo lo que son y sean concisos. Ejemplos que no son adecuados son `data` y `value`. Estos nombres no nos dicen nada. Estos solo está bien usarlos en el contexto de un código que deje excepcionalmente obvio cuál valor o cuales datos está referenciando la variable.
-- Se debe estar de acuerdo cuáles términos utilizara un equipo y uno mismo. Si un visitante se le llamara "user", deberíamos llamar las variables relacionadas `currentUser` o `newUser` en vez de `currentVisitor` o `newManInTown`.
+- Acuerda en tu propia mente y con tu equipo cuáles términos se utilizarán. Si a un visitante se le llamara "user", debemos llamar las variables relacionadas `currentUser` o `newUser` en vez de `currentVisitor` o `newManInTown`.
 
 ¿Suena simple? De hecho lo es, pero no es tan fácil crear nombres de variables descriptivos y concisos a la hora de practicar. Inténtelo.
 
@@ -336,8 +338,8 @@ Los minificadores de JavaScript moderno, y los navegadores optimizan el código 
 
 Podemos declarar variables para almacenar datos al utilizar las palabra clave `var`, `let`, o `const`.
 
-- `let` -- es una declaración de variable moderna.
-- `var` -- es una declaración de variable más vieja-escuela. Normalmente no lo utilizamos en absoluto, aunque cubriremos sus sutiles diferencias con `let` en el capítulo <info:var>, en caso de que sea necesario.
+- `let` -- es la forma moderna de declaración de una variable.
+- `var` -- es la declaración de variable de vieja escuela. Normalmente no lo utilizamos en absoluto. Cubriremos sus sutiles diferencias con `let` en el capítulo <info:var>, por si lo necesitaras.
 - `const` -- es como `let`, pero el valor de la variable no puede ser alterado.
 
 Las variables deben ser nombradas de tal manera que entendamos fácilmente lo que está en su interior.

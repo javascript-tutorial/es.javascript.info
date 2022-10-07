@@ -37,7 +37,7 @@ Existe además una variable global nombrada por el `id` que hace referencia al e
   // elem es una referencia al elemento del DOM con id="elem"
   elem.style.background = 'red';
 
-  // id="elem-content" tiene un guión en su interior, por lo que no puede ser un nombre de variable
+  // id="elem-content" tiene un guion en su interior, por lo que no puede ser un nombre de variable
   // ...pero podemos acceder a él usando corchetes: window['elem-content']
 </script>
 ```
@@ -55,9 +55,9 @@ Existe además una variable global nombrada por el `id` que hace referencia al e
 ```
 
 ```warn header="Por favor, no utilice variables globales nombradas por id para acceder a los elementos"
-Este comportamiento se encuentra descrito [en la especificación](http://www.whatwg.org/specs/web-apps/current-work/#dom-window-nameditem), por lo que es una especie de estándar. Pero está soportado principalmente para compatibilidad.
+Este comportamiento se encuentra descrito [en la especificación](http://www.whatwg.org/specs/web-apps/current-work/#dom-window-nameditem), por lo que es una especie de estándar, pero está soportado principalmente para compatibilidad.
 
-El navegador intenta ayudarnos mezclando espacios de nombres (*namespaces*) de JS y DOM. Esto está bien para los scripts simples, incrustrados en HTML, pero generalmente no es una buena práctica. Puede haber conflictos de nombres. Además, cuando uno lee el código de JS y no tiene el HTML a la vista, no es obvio de dónde viene la variable. 
+El navegador intenta ayudarnos mezclando espacios de nombres (*namespaces*) de JS y DOM. Esto está bien para los scripts simples, incrustados en HTML, pero generalmente no es una buena práctica. Puede haber conflictos de nombres. Además, cuando uno lee el código de JS y no tiene el HTML a la vista, no es obvio de dónde viene la variable. 
 
 Aquí en el tutorial usamos `id` para referirnos directamente a un elemento por brevedad, cuando es obvio de dónde viene el elemento.
 
@@ -116,7 +116,7 @@ En otras palabras, el resultado es el mismo que `elem.querySelectorAll(css)[0]`,
 
 Los métodos anteriores consistían en buscar en el DOM.
 
-El [elem.matches(css)](http://dom.spec.whatwg.org/#dom-element-matches) no busca nada, sólo comprueba si el `elem` coincide con el selector CSS dado. Devuelve `true` o `false`.
+El [elem.matches(css)](https://dom.spec.whatwg.org/#dom-element-matches) no busca nada, sólo comprueba si el `elem` coincide con el selector CSS dado. Devuelve `true` o `false`.
 
 Este método es útil cuando estamos iterando sobre elementos (como en un array) y tratando de filtrar los que nos interesan.
 
@@ -140,7 +140,7 @@ Por ejemplo:
 
 ## closest
 
-Los *ancestros* de un elmento son: el padre, el padre del padre, su padre y así sucesivamente. Todos los ancestros juntos forman la cadena de padres desde el elemento hasta la cima.
+Los *ancestros* de un elemento son: el padre, el padre del padre, su padre y así sucesivamente. Todos los ancestros juntos forman la cadena de padres desde el elemento hasta la cima.
 
 El método `elem.closest(css)` busca el ancestro más cercano que coincide con el selector CSS. El propio `elem` también se incluye en la búsqueda.
 
@@ -154,7 +154,7 @@ Por ejemplo:
 <div class="contents">
   <ul class="book">
     <li class="chapter">Capítulo 1</li>
-    <li class="chapter">Capítulo 1</li>
+    <li class="chapter">Capítulo 2</li>
   </ul>
 </div>
 

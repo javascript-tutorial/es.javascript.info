@@ -8,7 +8,7 @@ A primera vista, los comentarios pueden ser obvios, pero los principiantes en pr
 
 ## Comentarios incorrectos
 
-Los rincipiantes tienden a utilizar los comentarios para explicar "lo que está pasando en el código". Así:
+Los principiantes tienden a utilizar los comentarios para explicar "lo que está pasando en el código". Así:
 
 ```js
 // Este código hará esto (...) y esto (...)
@@ -44,6 +44,7 @@ function showPrimes(n) {
 ```
 
 La mejor variante, con una función externa `isPrime`:
+
 
 ```js
 function showPrimes(n) {
@@ -124,26 +125,26 @@ Describe la arquitectura
 Documenta la utilización de una función
 : Hay una sintaxis especial [JSDoc](https://en.wikipedia.org/wiki/JSDoc) para documentar una función: utilización, parámetros, valor devuelto.
 
-	Por ejemplo:
-	```js
-    /**
-     * Devuelve x elevado a la potencia de n.
-     *
-     * @param {number} x El número a elevar.
-     * @param {number} n La potencia, debe ser un número natural.
-     * @return {number} x elevado a la potencia de n.
-     */
-    function pow(x, n) {
-      ...
-    }
-    ```
+Por ejemplo:
+```js
+/**
+  * Devuelve x elevado a la potencia de n.
+  *
+  * @param {number} x El número a elevar.
+  * @param {number} n La potencia, debe ser un número natural.
+  * @return {number} x elevado a la potencia de n.
+  */
+function pow(x, n) {
+  ...
+}
+```
 	
-	Estos tipos de comentarios nos permiten entender el propósito de la función y cómo usarla de la manera correcta sin mirar su código.
+Este tipo de comentarios nos permite entender el propósito de la función y cómo usarla de la manera correcta sin tener que examinar su código.
 	
-	Por cierto, muchos editores como [WebStorm](https://www.jetbrains.com/webstorm/) también pueden entenderlos y usarlos para proveer auto completado y algún tipo de verificación automática para el código.
+Por cierto, muchos editores como [WebStorm](https://www.jetbrains.com/webstorm/) también pueden entenderlos y usarlos para proveer auto completado y algún tipo de verificación automática para el código.
 	
-	Además, existen herramientas como [JSDoc 3](https://github.com/jsdoc3/jsdoc) que pueden generar documentación en formato HTML de los comentarios. Puedes leer más información sobre JSDoc aquí <http://usejsdoc.org/>.
-	
+Además, existen herramientas como [JSDoc 3](https://github.com/jsdoc3/jsdoc) que pueden generar documentación en formato HTML de los comentarios. Puedes leer más información sobre JSDoc en <https://jsdoc.app>.
+
 ¿Por qué se resuelve de esa manera?
 : Lo que está escrito es importante. Pero lo que *no* está escrito puede ser aún más importante para entender qué está pasando. ¿Por qué resuelven la tarea exactamente de esa manera? El código no nos da ninguna respuesta.
 
@@ -152,7 +153,7 @@ Documenta la utilización de una función
 	Sin dichos comentarios, las siguientes situaciones son posibles:
 	1. Tú (o tu compañero) abres el código escrito hace ya algún tiempo, y te das cuenta de que es "subóptimo".
 	2. Piensas: "Que estúpido que era antes, y que inteligente que soy ahora", y lo reescribes utilizando la variante "más obvia y correcta".
-	3. ...El impulso de reescribir era bueno. Pero en el proceso ves que la solución "más obvia" en realidad falla. Incluso recuerdas vagamente el porqué, porque ya lo intentaste hace mucho. Vuelves a la variante correcta pero has estado perdiendo el tiempo.
+	3. ...El impulso de reescribir era bueno. Pero en el proceso ves que la solución "más obvia" en realidad falla. Incluso recuerdas vagamente el porqué, porque ya lo intentaste hace mucho. Vuelves a la variante correcta, pero has estado perdiendo el tiempo.
 	
 	Los comentarios que explican la solución correcta son muy importantes. Nos ayudan a continuar el desarrollo de forma correcta.
 	

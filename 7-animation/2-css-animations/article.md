@@ -8,7 +8,7 @@ Se puede utilizar JavaScript para controlar la animación CSS y mejorarla con un
 
 La idea de las transiciones CSS es simple. Describimos una propiedad y cómo se deberían animar sus cambios. Cuando la propiedad cambia, el navegador pinta la animación.
 
-Es decir: todo lo que necesitamos es cambiar la propiedad. Y la transición fluida es realizada por el navegador.
+Es decir: todo lo que necesitamos es cambiar la propiedad, y la transición fluida la hará el navegador.
 
 Por ejemplo, el CSS a continuación anima los cambios de `background-color` durante 3 segundos:
 
@@ -86,7 +86,7 @@ En `transition-duration` podemos especificar cuánto tiempo debe durar la animac
 
 En `transition-delay` podemos especificar el retraso *antes* de la animación. Por ejemplo, si `transition-delay` es `1s` y `transition-duration` es `2s`, la animación comienza después de 1 segundo tras el cambio de la propiedad y la duración total será de 2 segundos.
 
-Los valores negativos también son posibles. Entonces la animación comienza inmediatamente, pero el punto de inicio de la animación sera el del valor dado (tiempo). Por ejemplo, si `transition-delay` es `-1s` y `transition-duration` es `2s`, entonces la animación comienza desde la mitad y la duración total será de 1 segundo.
+Los valores negativos también son posibles. De esta manera la animación comienza inmediatamente, pero el punto de inicio de la animación será el del valor dado (tiempo). Por ejemplo, si `transition-delay` es `-1s` y `transition-duration` es `2s`, entonces la animación comienza desde la mitad y la duración total será de 1 segundo.
 
 Aquí la animación cambia los números de `0` a `9` usando la propiedad CSS `translate`:
 
@@ -168,7 +168,7 @@ La `transition` de CSS se basa en esa curva:
 .train {
   left: 0;
   transition: left 5s cubic-bezier(0, 0, 1, 1);
-  /* JavaScript establece left a 450px */
+  /* el clic en un tren establece left a 450px, disparando la animación */
 }
 ```
 
@@ -191,7 +191,7 @@ CSS:
 .train {
   left: 0;
   transition: left 5s cubic-bezier(0, .5, .5, 1);
-  /* JavaScript establece left a 450px */
+  /* el clic en un tren establece left a 450px, disparando la animación */
 }
 ```
 
@@ -210,27 +210,27 @@ Otros nombres son abreviaturas para la siguiente `cubic-bezier`:
 
 Por lo tanto, podríamos usar `ease-out` para nuestro tren desacelerando:
 
-
 ```css
 .train {
   left: 0;
   transition: left 5s ease-out;
-  /* transition: left 5s cubic-bezier(0, .5, .5, 1); */
+  /* igual que transition: left 5s cubic-bezier(0, .5, .5, 1); */
 }
 ```
 
 Pero se ve un poco diferente.
 
-**Una curva de Bézier puede hacer que la animación "salte fuera" de su rango.**
+**Una curva de Bézier puede hacer que la animación exceda su rango.**
 
 Los puntos de control en la curva pueden tener cualquier coordenada `y`: incluso negativa o enorme. Entonces la curva de Bézier también saltaría muy bajo o alto, haciendo que la animación vaya más allá de su rango normal.
 
 En el siguiente ejemplo, el código de animación es:
+
 ```css
 .train {
   left: 100px;
   transition: left 5s cubic-bezier(.5, -1, .5, 2);
-  /* JavaScript establece left a 400px */
+  /* clic en un tren establece left a 400px */
 }
 ```
 
@@ -254,11 +254,18 @@ Como sabemos, `y` mide "la finalización del proceso de animación". El valor `y
 
 Esa es una variante "suave" sin duda. Si ponemos valores `y` como `-99` y `99`, entonces el tren saltaría mucho más fuera del rango.
 
-Pero, ¿cómo hacer la curva de Bézier para una tarea específica? Hay muchas herramientas. Por ejemplo, podemos hacerlo en el sitio <http://cubic-bezier.com/>.
+Pero, ¿cómo hacer la curva de Bézier para una tarea específica? Hay muchas herramientas.
+
+- Por ejemplo, podemos hacerlo en el sitio <http://cubic-bezier.com/>.
+- El navegador también tiene soporte especial para curvas Bezier en CSS:
+    1. Abre las herramientas de desarrollador con `key:F12` (Mac: `key:Cmd+Opt+I`).
+    2. Selecciona la pestaña `Elementos` y presta atención al subpanel `Estilos`.
+    3. Las propiedades CSS que contengan la palabra `cubic-bezier` tendrán un icono antes de esta palabra.
+    4. Haz clic en este icono para editar la curva.
 
 ### Pasos
 
-La función de temporización `steps(number of steps[, start/end])` permite dividir la animación en pasos.
+La función de temporización `steps(number of steps[, start/end])` permite dividir la animación en múltiples pasos.
 
 Veamos eso en un ejemplo con dígitos.
 
@@ -266,7 +273,19 @@ Aquí tenemos una lista de dígitos, sin animaciones, solo como fuente:
 
 [codetabs src="step-list"]
 
-Haremos que los dígitos aparezcan de manera discreta haciendo invisible la parte de la lista fuera de la "ventana" roja y desplazando la lista a la izquierda con cada paso.
+En el HTML, una línea de dígitos está encerrada en un div de largo fijo`<div id="digits">`:
+
+```html
+<div id="digit">
+  <div id="stripe">0123456789</div>
+</div>
+```
+
+El div `#digit`tiene ancho fijo y un borde, entonces se ve como una ventana roja.
+
+Haremos un temporizador: los dígitos aparecerán uno por uno, de una manera discreta.
+
+Para lograr esto, ocultaremos el `#stripe` fuera de `#digit` usando `overflow: hidden`, y luego desplazamos el `#stripe` a la izquierda paso a paso.
 
 Habrá 9 pasos, un paso para cada dígito:
 
@@ -277,52 +296,54 @@ Habrá 9 pasos, un paso para cada dígito:
 }
 ```
 
-En acción:
-
-[codetabs src="step"]
-
 El primer argumento de `steps(9, start)` es el número de pasos. La transformación se dividirá en 9 partes (10% cada una). El intervalo de tiempo también se divide automáticamente en 9 partes, por lo que `transition: 9s` nos da 9 segundos para toda la animación: 1 segundo por dígito.
 
 El segundo argumento es una de dos palabras: `start` o `end`.
 
 El `start` significa que al comienzo de la animación debemos hacer el primer paso de inmediato.
 
-Podemos observar eso durante la animación: cuando hacemos clic en el dígito, cambia a `1` (el primer paso) inmediatamente, y luego cambia al comienzo del siguiente segundo.
+En acción:
+
+[codetabs src="step"]
+
+Un clic en el dígito lo cambia a `1` (el primer paso) inmediatamente, y luego cambia al comienzo del siguiente segundo.
 
 El proceso está progresando así:
 
 - `0s` -- `-10%` (primer cambio al comienzo del primer segundo, inmediatamente)
 - `1s` -- `-20%`
 - ...
-- `8s` -- `-80%`
+- `8s` -- `-90%`
 - (el último segundo muestra el valor final).
 
-El valor alternativo 'end' significaría que el cambio debe aplicarse no al principio, sino al final de cada segundo.
+Aquí el primer cambio fue inmediato por el`start` en el `steps`
 
-Entonces el proceso sería así:
+El valor alternativo 'end' haría que el cambio se aplicara no al principio sino al final de cada segundo.
 
-- `0s` -- `0`
+Entonces el proceso para `steps(9, end)` sería así:
+
+- `0s` -- `0` (durante el primer segundo nada cambia)
 - `1s` -- `-10%` (primer cambio al final del primer segundo)
 - `2s` -- `-20%`
 - ...
 - `9s` -- `-90%`
 
-Aquí está el `step(9, end)` en acción (observa la pausa entre el primer cambio de dígitos):
+Aquí está el `step(9, end)` en acción (observa la pausa antes del primer cambio de dígitos):
 
 [codetabs src="step-end"]
 
-También hay valores abreviados:
+También hay algunas formas abreviadas predefinidas para `steps(...)`:
 
 - `step-start` -- es lo mismo que` steps(1, start)`. Es decir, la animación comienza de inmediato y toma 1 paso. Entonces comienza y termina inmediatamente, como si no hubiera animación.
 - `step-end` -- lo mismo que `steps(1, end)`: realiza la animación en un solo paso al final de `transition-duration`.
 
-Estos valores rara vez se usan, porque eso no es realmente animación, sino un cambio de un solo paso.
+Estos valores rara vez se usan porque no representan una verdadera animación sino un cambio de un solo paso.
 
 ## Evento transitionend
 
 Cuando finaliza la animación CSS, se dispara el evento `transitionend`.
 
-Es ampliamente utilizado para hacer una acción después que se realiza la animación. También podemos unir animaciones.
+Es ampliamente utilizado para hacer una acción después de que se realiza la animación. También podemos unir animaciones.
 
 Por ejemplo, el barco a continuación comienza a navegar ida y vuelta al hacer clic, cada vez más y más a la derecha:
 
@@ -407,9 +428,90 @@ Hay muchos artículos sobre `@keyframes` y una [especificación detallada](https
 
 Probablemente no necesitarás `@keyframes` a menudo, a menos que todo esté en constante movimiento en tus sitios.
 
+## Performance
+
+La mayoría de las propiedades CSS pueden ser animadas, porque la mayoría son valores numéricos. Por ejemplo `width`, `color`, `font-size` son todas números. Cuando las animamos, el navegador cambia estos valores gradualmente grama por grama, creando un efecto suave.
+
+Sin embargo, no todas las animaciones se verán tan suaves como quisieras, porque diferentes propiedades CSS tienen diferente costo para cambiar.
+
+En detalles más técnicos, cuando hay un cambio de estilo, el navegador atraviesa 3 pasos para renderizar la nueva vista:
+
+1. **Layout**: (diagrama) recalcula la geometría y posición de cada elemento, luego
+2. **Paint**: (dibuja) recalcula cómo debe verse todo en sus lugares, incluyendo background, colores,
+3. **Composite**: (render) despliega el resultado final en pixels de la pantalla, aplicando transformaciones CSS si existen.
+
+Durante una animación CSS , este proceso se repite para cada frame. Sin embargo las propiedades CSS que nunca afectan geometría o posición, como `color`, pueden saltar el paso "Layout". Si un `color` cambia, el navegador no recalcula geometría, va a Paint -> Composite. Y hay unas pocas propiedades que saltan directo a "Composite". Puedes encontrar la lista de propiedades CSS y cuáles estados disparan en <https://csstriggers.com>.
+
+Los cálculos pueden tomar un tiempo, especialmente en páginas con muchos elementos y diagramación compleja. Y los retrasos pueden ser notorios en muchos dispositivos, provocando "jitter": animaciones irregulares, menos fluidas.
+
+La animación de propiedades que salten el paso "Layout" son más rápidas. Mucho mejor si el paso "Paint" se salta también.
+
+La propiedad `transform` es una excelente opción porque:
+- CSS transform afecta el elemento objetivo como un todo (rotar, tornar, estirar, desplazar).
+- CSS transform nunca afecta a los elementos vecinos.
+
+...entonces los navegadores aplican `transform` "por encima" de "Layout" y "Paint" ya calculados, en el paso "Composite".
+
+En otras palabras, el navegador calcula la diagramación en la etapa Layout (tamaños, posiciones); lo dibuja con colores, backgrounds, etc., en la etapa "Paint"; y luego aplica `transform` a los elementos que lo necesitan.
+
+Cambios (animaciones) de la propiedad `transform` nunca disparan los pasos Layout y Paint. Aún más, el navegador delega las transformaciones CSS en el acelerador gráfico (un chip especial en la CPU o placa gráfica), haciéndolas muy eficientes.
+
+Afortunadamente la propiedad  `transform` es muy poderosa. Usando `transform` en un elemento, puedes rotarlo, darlo vuelta, estirarlo o comprimirlo, desplazarlo y [mucho más](https://developer.mozilla.org/docs/Web/CSS/transform#syntax). Así que en lugar de las propiedades `left/margin-left` podemos usar `transform: translateX(…)`, o usar `transform: scale` para incrementar su tamaño, etc.
+
+La propiedad `opacity` tampoco dispara "Layout" (también se salta "Paint" en Gecko de Mozilla). Podemos usarlo para efectos de mostrar/ocultar o desvanecer/aparecer.
+
+Aparear `transform` con `opacity` puede usualmente resolver la mayoría de nuestras necesidades brindando animaciones vistosas y fluidas.
+
+Aquí por ejemplo, clic en el elemento `#boat` le agrega la clase con `transform: translateX(300)` y `opacity: 0`, haciendo que se mueva `300px` a la derecha y desaparezca:
+
+```html run height=260 autorun no-beautify
+<img src="https://js.cx/clipart/boat.png" id="boat">
+
+<style>
+#boat {
+  cursor: pointer;
+  transition: transform 2s ease-in-out, opacity 2s ease-in-out;
+}
+
+.move {
+  transform: translateX(300px);
+  opacity: 0;
+}
+</style>
+<script>
+  boat.onclick = () => boat.classList.add('move');
+</script>
+```
+
+Un ejemplo más complejo con `@keyframes`:
+
+```html run height=80 autorun no-beautify
+<h2 onclick="this.classList.toggle('animated')">click me to start / stop</h2>
+<style>
+  .animated {
+    animation: hello-goodbye 1.8s infinite;
+    width: fit-content;
+  }
+  @keyframes hello-goodbye {
+    0% {
+      transform: translateY(-60px) rotateX(0.7turn);
+      opacity: 0;
+    }
+    50% {
+      transform: none;
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(230px) rotateZ(90deg) scale(0.5);
+      opacity: 0;
+    }
+  }
+</style>
+```
+
 ## Resumen
 
-Las animaciones CSS permiten animar suavemente (o no) los cambios de una o varias propiedades CSS.
+Las animaciones CSS permiten animar, suavemente o por pasos, los cambios de una o varias propiedades CSS.
 
 Son buenas para la mayoría de las tareas de animación. También podemos usar JavaScript para animaciones, el siguiente capítulo está dedicado a eso.
 
@@ -421,6 +523,8 @@ Limitaciones de las animaciones CSS en comparación con las animaciones JavaScri
 - Las animaciones de JavaScript son flexibles. Pueden implementar cualquier lógica de animación, como una "explosión" de un elemento.
 - No solo cambios de propiedad. Podemos crear nuevos elementos en JavaScript para fines de animación.
 ```
+
+En los ejemplos de este artículo animamos `font-size`, `left`, `width`, `height`, etc. En proyectos de la vida real es preferible usar `transform: scale()` y `transform: translate()` para obtener mejor performance.
 
 La mayoría de las animaciones se pueden implementar usando CSS como se describe en este capítulo. Y el evento `transitionend` permite ejecutar JavaScript después de la animación, por lo que se integra bien con el código.
 

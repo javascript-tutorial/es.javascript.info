@@ -42,14 +42,14 @@ Como se puede ver, la implementación es sencilla: son solo dos contenedores.
 - Cuando se llama como `curriedSum(1)`, el argumento se guarda en el entorno léxico y se devuelve un nuevo contenedor `function(b)`.
 - Luego se llama a este contenedor con `2` como argumento, y pasa la llamada a la función `sum` original.
 
-Las implementaciones más avanzadas de currificación, como [_.curry](https://lodash.com/docs#curry) de la libreria lodash, devuelven un contenedor que permite llamar a una función de manera normal y parcial:
+Las implementaciones más avanzadas de currificación, como [_.curry](https://lodash.com/docs#curry) de la librería lodash, devuelven un contenedor que permite llamar a una función de manera normal y parcial:
 
 ```js run
 function sum(a, b) {
   return a + b;
 }
 
-let curriedSum = _.curry(sum); // usando _.curry desde la libreria lodash
+let curriedSum = _.curry(sum); // usando _.curry desde la librería lodash
 
 alert( curriedSum(1, 2) ); // 3, todavía se puede llamar normalmente
 alert( curriedSum(1)(2) ); // 3, llamada parcial

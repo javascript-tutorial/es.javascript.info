@@ -27,6 +27,6 @@
     alert( table.money ); // undefined
     ```
 
-2. En los motores modernos, en términos de rendimiento, no hay diferencia si tomamos una propiedad de un objeto o su prototipo. Recuerdan dónde se encontró la propiedad y la reutilizan en la siguiente solicitud.
+2. En los motores modernos, no hay diferencia de rendimiento si tomamos una propiedad de un objeto o de su prototipo. Recuerdan dónde se encontró la propiedad y la reutilizan en la siguiente solicitud.
 
     Por ejemplo, para `pockets.glasses` recuerdan dónde encontraron `glasses` (en `head`), y la próxima vez buscarán allí. También son lo suficientemente inteligentes como para actualizar cachés internos si algo cambia, de modo que la optimización sea segura.

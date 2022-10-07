@@ -56,17 +56,21 @@ alert( 8 % 3 ); // 2 es un resto de 8 dividido por 3
 
 ## Exponenciación **
 
-El operador de exponenciación `**` es una inclusión reciente al lenguaje.
+El operador exponenciación `a ** b` eleva `a` a la potencia de `b`.
+
+En matemáticas de la escuela, lo escribimos como a<sup>b</sup>.
 
 Por ejemplo:
 
 ```js run
-alert( 2 ** 2 ); // 4  (2 * 2)
-alert( 2 ** 3 ); // 8  (2 * 2 * 2)
-alert( 2 ** 4 ); // 16 (2 * 2 * 2 * 2)
+alert( 2 ** 2 ); // 2² = 4
+alert( 2 ** 3 ); // 2³ = 8
+alert( 2 ** 4 ); // 2⁴ = 16
 ```
 
-Matemáticamente, la exponenciación es definida para números no enteros también, Por ejemplo la raíz cuadrada es el exponente `1/2`:
+Matemáticamente, la exponenciación es definida para números no enteros también.
+
+Por ejemplo, la raíz cuadrada es el exponente ½:
 
 ```js run
 alert( 4 ** (1/2) ); // 2 (potencia de 1/2 es lo mismo que raíz cuadrada, eso es matemáticas)
@@ -104,7 +108,7 @@ Aquí hay un ejemplo algo más complejo:
 alert(2 + 2 + '1' ); // "41" y no "221"
 ```
 
-Aquí, los operandores trabajan uno después de otro. El primer `+` suma dos números entonces devuelve `4`, luego el siguiente `+` le agrega la cadena `1`, así que se evalúa como `4 + '1' = 41`.
+Aquí, los operadores trabajan uno después de otro. El primer `+` suma dos números entonces devuelve `4`, luego el siguiente `+` le agrega la cadena `1`, así que se evalúa como `4 + '1' = 41`.
 
 ```js run
 alert('1' + 2 + 2); // "122", no es "14"
@@ -171,7 +175,7 @@ alert( +apples + +oranges ); // 5
 // alert( Number(apples) + Number(oranges) ); // 5
 ```
 
-Desde el punto de vista de un matemático, la abundancia de signos más puede parecer extraña. Pero desde el punto de vista de un programador, no hay nada especial: primero se aplican los signos más unarias, convierten las cadenas en números, y luego el signos más binario las resume.
+Desde el punto de vista de un matemático, la abundancia de signos más puede parecer extraña. Pero desde el punto de vista de un programador no hay nada especial: primero se aplican los signos más unarios que convierten las cadenas en números, y luego el signo más binario los suma.
 
 ¿Por qué se aplican los signos más unarios a los valores antes que los binarios? Como veremos, eso se debe a su *mayor precedencia*.
 
@@ -190,22 +194,22 @@ Aquí hay un extracto de la [tabla de precedencia](https://developer.mozilla.org
 | Precedencia| Nombre | Signo |
 |------------|------|------|
 | ... | ... | ... |
-| 16 | suma unaria | `+` |
-| 16 | negación unaria | `-` |
-| 16 | exponenciación | `**` |
-| 14 | multiplicación | `*` |
-| 14 | division | `/` |
-| 13 | suma | `+` |
-| 13 | resta | `-` |
+| 14 | suma unaria | `+` |
+| 14 | negación unaria | `-` |
+| 13 | exponenciación | `**` |
+| 12 | multiplicación | `*` |
+| 12 | división | `/` |
+| 11 | suma | `+` |
+| 11 | resta | `-` |
 | ... | ... | ... |
-| 3 | asignación | `=` |
+| 2 | asignación | `=` |
 | ... | ... | ... |
 
-Como podemos ver, la "suma unaria" tiene una prioridad de `16`, que es mayor que el `13` de "suma" (suma binaria). Es por eso que, en la expresión `"+apples + +oranges"`, las sumas unarias funcionan antes de la adición.
+Como podemos ver, la "suma unaria" tiene una prioridad de `14`, que es mayor que el `11` de "suma" (suma binaria). Es por eso que, en la expresión `"+apples + +oranges"`, las sumas unarias se hacen antes de la adición.
 
 ## Asignación
 
-Tengamos en cuenta que una asignación `=` también es un operador. Está listado en la tabla de precedencia con la prioridad muy baja de `3`.
+Tengamos en cuenta que una asignación `=` también es un operador. Está listado en la tabla de precedencia con la prioridad muy baja de `2`.
 
 Es por eso que, cuando asignamos una variable, como `x = 2 * 2 + 1`, los cálculos se realizan primero y luego se evalúa el `=`, almacenando el resultado en `x`.
 
@@ -217,7 +221,7 @@ alert( x ); // 5
 
 ### Asignación = devuelve un valor
 
-El hecho de que `=` sea un operador, no una construcción "mágica" del lenguaje, tiene un implicanción interesante.
+El hecho de que `=` sea un operador, no una construcción "mágica" del lenguaje, tiene un implicación interesante.
 
 Todos los operadores en JavaScript devuelven un valor. Esto es obvio para `+` y `-`, pero también es cierto para `=`.
 
@@ -286,8 +290,8 @@ Esta notación puede ser acortada utilizando los operadores `+=` y `*=`:
 
 ```js run
 let n = 2;
-n += 5; // ahora n = 7 (lo mismo que n = n + 5)
-n *= 2; // ahora n = 14 (lo mismo que n = n * 2)
+n += 5; // ahora n = 7  (es lo mismo que n = n + 5)
+n *= 2; // ahora n = 14 (es lo mismo que n = n * 2)
 
 alert( n ); // 14
 ```
@@ -299,9 +303,9 @@ Tales operadores tienen la misma precedencia que la asignación normal, por lo t
 ```js run
 let n = 2;
 
-n *= 3 + 5;
+n *= 3 + 5; // el lado derecho es evaluado primero, es lo mismo que n *= 8
 
-alert( n ); // 16  (lado derecho evaluado primero, lo mismo que n *= 8)
+alert( n ); // 16  
 ```
 
 ## Incremento/decremento
@@ -319,7 +323,7 @@ Entonces, hay operadores especiales para ello:
     counter++;      // funciona igual que counter = counter + 1, pero es más corto
     alert( counter ); // 3
     ```
-- **Decrement** `--` decrementa una variable por 1:
+- **Decremento** `--` decrementa una variable por 1:
 
     ```js run no-beautify
     let counter = 2;
@@ -334,7 +338,7 @@ Incremento/decremento sólo puede ser aplicado a variables. Intentar utilizarlo 
 Los operadores `++` y `--` pueden ser colocados antes o después de una variable.
 
 - Cuando el operador va después de la variable, está en "forma de sufijo": `counter++`.
-- La "forma de prefijo" es cuando el operador va después de la variable: `++counter`.
+- La "forma de prefijo" es cuando el operador va antes de la variable: `++counter`.
 
 Ambas sentencias hacen la misma cosa: aumentar `counter` por `1`.
 
@@ -362,7 +366,7 @@ let a = counter++; // (*) cambiado ++counter a counter++
 alert(a); // *!*1*/!*
 ```
 
-En la línea `(*)`, la forma *sufijo* `counter++` también incrementa `counter` pero devuelve el *antiguo* valor (antes de incrementar). Por lo tanto, el `alert` muestra `1`.
+En la línea `(*)`, la forma *sufijo* `counter++` también incrementa `counter`, pero devuelve el *antiguo* valor (antes de incrementar). Por lo tanto, el `alert` muestra `1`.
 
 Para resumir:
 
@@ -380,7 +384,7 @@ Para resumir:
     let counter = 0;
     alert( ++counter ); // 1
     ```
-- Si queremos incrementar un valor pero usamos su valor anterior, necesitamos la forma sufijo:
+- Si queremos incrementar un valor, pero usamos su valor anterior, necesitamos la forma sufijo:
 
     ```js run
     let counter = 0;
@@ -433,13 +437,13 @@ La lista de operadores:
 - RIGHT SHIFT ( `>>` )
 - ZERO-FILL RIGHT SHIFT ( `>>>` )
 
-Estos operadores se usan muy raramente. Para comprenderlos, necesitamos profundizar en la representación de números de bajo nivel y no sería óptimo hacerlo en este momento, especialmente porque no los necesitaremos pronto. Si tienes curiosidad, puedes leer el artículo [Operadores a nivel de bit](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Bitwise_Operators#Bitwise_AND) en MDN. Sería más práctico hacerlo cuando surja una necesidad real.
+Estos operadores se usan muy raramente, cuando necesitamos manejar la representación de números en su más bajo nivel. No tenemos en vista usarlos pronto pues en el desarrollo web tiene poco uso; pero en ciertas áreas especiales, como la criptografía, son útiles. Puedes leer el artículo [Operadores a nivel de bit](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Bitwise_Operators#Bitwise_AND) en MDN cuando surja la necesidad.
 
 ## Coma
 
 El operador coma `,` es uno de los operadores más raros e inusuales. A veces, es utilizado para escribir código más corto, entonces tenemos que saberlo para poder entender qué está pasando.
 
-El operador coma nos permite evaluar varias expresiones, dividiéndolas con una coma `,`. Cada una de ellas es evaluada pero sólo el resultado de la última es devuelto.
+El operador coma nos permite evaluar varias expresiones, dividiéndolas con una coma `,`. Cada una de ellas es evaluada, pero sólo el resultado de la última es devuelto.
 
 Por ejemplo:
 
@@ -456,7 +460,7 @@ Aquí, se evalúa la primera expresión `1 + 2` y se desecha su resultado. Luego
 ```smart header="Coma tiene muy baja precedencia"
 Tenga en cuenta que el operador coma tiene una precedencia muy baja, inferior a `=`, por lo que los paréntesis son importantes en el ejemplo anterior.
 
-Sin ellos: `a = 1 + 2, 3 + 4` se evalua primero el `+`, sumando los números a `a = 3, 7`, luego el operador de asignación `=` asigna `a = 3`, y el resto es ignorado. Es igual que `(a = 1 + 2), 3 + 4`.
+Sin ellos: `a = 1 + 2, 3 + 4` se evalúa primero el `+`, sumando los números a `a = 3, 7`, luego el operador de asignación `=` asigna `a = 3`, y el resto es ignorado. Es igual que `(a = 1 + 2), 3 + 4`.
 ```
 
 ¿Por qué necesitamos un operador que deseche todo excepto la última expresión?

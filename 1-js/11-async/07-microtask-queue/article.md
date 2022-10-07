@@ -36,17 +36,17 @@ Es por eso que el "código finalizado" en el ejemplo anterior se muestra primero
 
 ![](promiseQueue.svg)
 
-Los controladoes de promesas siempre pasan por esta cola interna.
+Los controladores de promesas siempre pasan por esta cola interna.
 
 Si hay una cadena con múltiples `.then/catch/finally`, entonces cada uno de ellos se ejecuta de forma asincrónica. Es decir, primero se pone en la cola, luego se ejecuta cuando se completa el código actual y se finalizan los controladores previamente en la cola.
 
-**¿Qué pasa si lo que estamos pidiendo es importante? ¿Cómo podemos hacer que `código finalizado` se ejecute después de `¡promesa realizada!`?**
+**¿y si el orden es importante para nosotros? ¿Cómo podemos hacer que `código finalizado` se ejecute después de `¡promesa realizada!`?**
 
 Fácil, solo ponlo en la cola con `.then`:
 
 ```js run
 Promise.resolve()
-  .then(() => alert("promesa realiazada!"))
+  .then(() => alert("promesa realizada!"))
   .then(() => alert("código finalizado"));
 ```
 

@@ -1,6 +1,6 @@
 # Funciones
 
-Muy a menudo necesitamos realizar una acción similar en muchos lugares del script.
+Muy a menudo necesitamos realizar acciones similares en muchos lugares del script.
 
 Por ejemplo, debemos mostrar un mensaje atractivo cuando un visitante inicia sesión, cierra sesión y tal vez en otros momentos.
 
@@ -12,7 +12,7 @@ Ya hemos visto ejemplos de funciones integradas, como `alert(message)`, `prompt(
 
 Para crear una función podemos usar una *declaración de función*.
 
-Se Parece a esto:
+Se ve como aquí:
 
 ```js
 function showMessage() {
@@ -20,9 +20,13 @@ function showMessage() {
 }
 ```
 
-La palabra clave `function` va primero, luego una lista de *parámetros* entre paréntesis (vacía en el ejemplo anterior) y finalmente el código de la función, también llamado "el cuerpo de la función" , entre llaves.
+La palabra clave `function` va primero, luego va el *nombre de función*,  luego una lista de *parámetros* entre paréntesis (separados por comas, vacía en el ejemplo anterior) y finalmente el código de la función entre llaves, también llamado "el cuerpo de la función".
 
-![](function_basics.png)
+```js
+function name(parameter1, parameter2, ... parameterN) {
+ // body
+}
+```
 
 Nuestra nueva función puede ser llamada por su nombre: `showMessage()`.
 
@@ -62,7 +66,7 @@ function showMessage() {
 
 showMessage(); // Hola, ¡Soy JavaScript!
 
-alert( message ); // <-- Error! La variable es local para esta función
+alert( message ); // <-- ¡Error! La variable es local para esta función
 ```
 
 ## Variables Externas
@@ -101,12 +105,12 @@ showMessage();
 alert( userName ); // *!*Bob*/!*, el valor fué modificado por la función
 ```
 
-La variable externa solo se usa si no hay una local. Por lo tanto, puede ocurrir una modificación ocasional si olvidamos colocar el `let`.
+La variable externa solo se usa si no hay una local.
 
-Si una variable con el mismo nombre se declara dentro de la función, entonces *hace shadowing* a la externa. Por ejemplo, en el siguiente código, la función usa el `userName` local. El exterior se ignora:
+Si una variable con el mismo nombre se declara dentro de la función, le *hace sombra* a la externa. Por ejemplo, en el siguiente código, la función usa la variable `userName` local. La exterior se ignora:
 
 ```js run
-let userName = 'Juan';
+let userName = 'John';
 
 function showMessage() {
 *!*
@@ -124,34 +128,31 @@ alert( userName ); // *!*John*/!*, se mantiene, la función no accedió a la var
 ```
 
 ```smart header="Variables globales"
-Variables declaradas fuera de cualquier función, como la variable externa `userName` en el código anterior, se llaman *global*.
+Variables declaradas fuera de cualquier función, como la variable externa `userName` en el código anterior, se llaman *globales*.
 
-Las variables globales son visibles desde cualquier función (a menos que se haga shadowing en el contexto local).
+Las variables globales son visibles desde cualquier función (a menos que se les superpongan variables locales con el mismo nombre).
 
-Por lo general, una función declara todas las variables específicas de su tarea. Las variables globales solo almacenan datos a nivel de proyecto, y es importante que estas variables sean accesibles desde cualquier lugar. El código moderno tiene pocos o ninguna variable global. La mayoría de las variables residen en sus funciones.
+Es una buena práctica reducir el uso de variables globales. El código moderno tiene pocas o ninguna variable global. La mayoría de las variables residen en sus funciones. Aunque a veces puede justificarse almacenar algunos datos a nivel de proyecto.
 ```
 
 ## Parámetros
 
-Podemos pasar datos arbitrarios a funciones usando parámetros (también llamados *argumentos de función*).
+Podemos pasar datos arbitrarios a funciones usando parámetros.
 
 En el siguiente ejemplo, la función tiene dos parámetros: `from` y `text`.
 
 ```js run
-function showMessage(*!*from, text*/!*) { // argumentos: from, text
+function showMessage(*!*from, text*/!*) { // parámetros: from, text
   alert(from + ': ' + text);
 }
 
-*!*
-showMessage('Ann', '¡Hola!'); // Ann: ¡Hola! (*)
-showMessage('Ann', "¿Cómo estás?"); // Ann: ¿Cómo estás? (**)
-*/!*
+*!*showMessage('Ann', '¡Hola!');*/!* // Ann: ¡Hola! (*)
+*!*showMessage('Ann', "¿Cómo estás?");*/!* // Ann: ¿Cómo estás? (**)
 ```
 
 Cuando la función se llama `(*)` y `(**)`, los valores dados se copian en variables locales `from` y `text`. Y la función las utiliza.
 
 Aquí hay un ejemplo más: tenemos una variable `from` y la pasamos a la función. Tenga en cuenta: la función cambia `from`, pero el cambio no se ve afuera, porque una función siempre obtiene una copia del valor:
-
 
 ```js run
 function showMessage(from, text) {
@@ -171,9 +172,21 @@ showMessage(from, "Hola"); // *Ann*: Hola
 alert( from ); // Ann
 ```
 
+Cuando un valor es pasado como un parámetro de función, también se denomina *argumento*.
+
+Para poner los términos claros:
+
+- Un parámetro es una variable listada dentro de los paréntesis en la declaración de función (es un término para el momento de la declaración)
+- Un argumento es el valor que es pasado a la función cuando esta es llamada (es el término para el momento en que se llama).
+
+Declaramos funciones listando sus parámetros, luego las llamamos pasándoles argumentos.
+
+En el ejemplo de arriba, se puede decir: "la función `showMessage` es declarada con dos parámetros, y luego llamada con dos argumentos: `from` y `"Hola"`".
+
+
 ## Valores predeterminados
 
-Si no se proporciona un parámetro, su valor se convierte en `undefined`.
+Si una función es llamada, pero no se le proporciona un argumento, su valor correspondiente se convierte en `undefined`.
 
 Por ejemplo, la función mencionada anteriormente `showMessage(from, text)` se puede llamar con un solo argumento:
 
@@ -181,9 +194,9 @@ Por ejemplo, la función mencionada anteriormente `showMessage(from, text)` se p
 showMessage("Ann");
 ```
 
-Eso no es un error. la llamada saldría `"Ann: undefined"`. No existe `text`, entonces asumimos que `text === undefined`.
+Eso no es un error. La llamada mostraría `"Ann: undefined"`. Como no se pasa un valor de `text`, este se vuelve `undefined`.
 
-Si quisiéramos usar un `text` "predeterminado" en este caso, lo podemos identificar después del `=`:
+Podemos especificar un valor llamado "predeterminado" o "por defecto" (es el valor que se usa si el argumento fue omitido) en la declaración de función usando `=`:
 
 ```js run
 function showMessage(from, *!*text = "sin texto"*/!*) {
@@ -193,34 +206,43 @@ function showMessage(from, *!*text = "sin texto"*/!*) {
 showMessage("Ann"); // Ann: sin texto
 ```
 
-Ahora, si no existe el parámetro `text`, obtendrá el valor `"sin texto"`
+Ahora, si no se pasa el parámetro `text`, obtendrá el valor `"sin texto"`
 
-Aquí `"sin texto"` es un string, pero puede ser una expresión más compleja, la cual solo es evaluada y asignada si el parámetro falta. Entonces, esto es posible:
+El valor predeterminado también se asigna si el parámetro existe pero es estrictamente igual a `undefined`:
+
+```js
+showMessage("Ann", undefined); // Ann: sin texto
+```
+
+Aquí `"sin texto"` es un string, pero puede ser una expresión más compleja, la cual solo es evaluada y asignada si el parámetro falta. Entonces, esto también es posible:
 
 ```js run
 function showMessage(from, text = anotherFunction()) {
-  // anotherFunction() solo se ejecuta si el parámetro texto no fué asignado
-  // y su resultado se convierte en el valor de texto
+  // anotherFunction() solo se ejecuta si text no fue asignado
+  // su resultado se convierte en el valor de texto
 }
 ```
 
-```smart header="Evaluación de parámetros predeterminado"
+```smart header="Evaluación de parámetros predeterminados"
+En JavaScript, se evalúa un parámetro predeterminado cada vez que se llama a la función sin el parámetro respectivo. 
 
-En JavaScript, se evalúa un parámetro predeterminado cada vez que se llama a la función sin el parámetro respectivo. En el ejemplo anterior, se llama a `anotherFunction()` cada vez que se llama a `showMessage()` sin el parámetro `text`. Esto contrasta con otros lenguajes como Python, donde los parámetros predeterminados se evalúan solo una vez durante la interpretación inicial.
+En el ejemplo anterior, `anotherFunction()` no será llamado en absoluto si se provee el parámetro `text`. 
 
+Por otro lado, se llamará independientemente cada vez que `text` se omita.
 ```
 
+````smart header="Parámetros predeterminados en viejo código JavaScript"
+Años atrás, JavaScript no soportaba la sintaxis para parámetros predeterminados. Entonces se usaban otras formas para especificarlos.
 
-````smart header="Parámetros predeterminados de estilo antiguo"
-Las ediciones anteriores de JavaScript no admitían parámetros predeterminados. Por lo tanto, hay formas alternativas de admitirlos, que se pueden encontrar principalmente en los scripts antiguos.
+En estos días, aún podemos encontrarlos en viejos scripts.
 
-Por ejemplo, una comprobación explícita de ser `undefined`:
+Por ejemplo, una verificación explícita de `undefined`:
 
 ```js
 function showMessage(from, text) {
 *!*
   if (text === undefined) {
-    text = 'sin texto';
+    text = 'sin texto dado';
   }
 */!*
 
@@ -228,19 +250,63 @@ function showMessage(from, text) {
 }
 ```
 
-...O el operador `||`
+... O usando el operador `||` :
 
 ```js
 function showMessage(from, text) {
-  // si text es falso entonces text se convierte en el valor "predeterminado"
-  text = text || 'sin texto';
+  // Si el valor de "text" es falso, asignar el valor predeterminado
+  // esto asume que text == "" es lo mismo que sin texto en absoluto
+  text = text || 'sin texto dado';
+  ...
+}
+```
+````
+
+
+### Parámetros predeterminados alternativos
+
+A veces tiene sentido asignar valores predeterminados a los parámetros más tarde, después de la declaración de función.
+
+Podemos verificar si un parámetro es pasado durante la ejecución de la función comparándolo con `undefined`:
+
+```js run
+function showMessage(text) {
+  // ...
+
+*!*
+  if (text === undefined) { // si falta el parámetro
+    text = 'mensaje vacío';
+  }
+*/!*
+
+  alert(text);
+}
+
+showMessage(); // mensaje vacío
+```
+
+...O podemos usar el operador `||`:
+
+```js
+function showMessage(text) {
+  // si text es indefinida o falsa, la establece a 'vacío'
+  text = text || 'vacío';
   ...
 }
 ```
 
+Los intérpretes de JavaScript modernos soportan el [operador nullish coalescing](info:nullish-coalescing-operator) `??`, que es mejor cuando el valor de `0` debe ser considerado "normal" en lugar de falso:
 
-````
+```js run
+function showCount(count) {
+  // si count es undefined o null, muestra "desconocido"
+  alert(count ?? "desconocido");
+}
 
+showCount(0); // 0
+showCount(null); // desconocido
+showCount(); // desconocido
+```
 
 ## Devolviendo un valor
 
@@ -303,8 +369,8 @@ function showMovie(age) {
 
 En el código de arriba, si `checkAge(age)` devuelve `false`, entonces `showMovie` no mostrará la `alert`.
 
-````smart header="Una función con un `return` vacio o sin el devuelve `undefined`"
-Si una función no devuelve un valor, es lo mismo que si devuelve `undefined`:
+````smart header="Una función con un `return` vacío, o sin return, devuelve `undefined`"
+Si una función no devuelve un valor, es lo mismo que si devolviera `undefined`:
 
 ```js run
 function doNothing() { /* empty */ }
@@ -373,17 +439,17 @@ Dos acciones independientes por lo general merecen dos funciones, incluso si gen
 
 Algunos ejemplos de cómo se rompen estas reglas:
 
-- `getAge` -- sería malo si mostrara una `alert` con la edad (solo debería obtener).
-- `createForm` -- sería malo si modifica el documento y lo agrega (solo debe crearlo y devolverlo).
-- `checkPermission` -- sería malo si muestra el mensaje `acceso otorgsado/denegado`(solo debe realizar la verificación y devolver el resultado).
+- `getAge` -- está mal que muestre una `alert` con la edad (solo debe obtenerla).
+- `createForm` -- está mal que modifique el documento agregándole el form (solo debe crearlo y devolverlo).
+- `checkPermission` -- está mal que muestre el mensaje `acceso otorgado/denegado`(solo debe realizar la verificación y devolver el resultado).
 
-Estos ejemplos asumen significados comunes de prefijos. Lo que significan para ti está determinado por ti y tu equipo. Tal vez es bastante normal que su código se comporte de manera diferente. Pero debe tener una comprensión firme de lo que significa un prefijo, lo que una función con prefijo puede y no puede hacer. Todas las funciones con el mismo prefijo deben obedecer las reglas. Y el equipo debe compartir el conocimiento.
+En estos ejemplos asumimos los significados comunes de los prefijos. Tú y tu equipo pueden acordar significados diferentes, aunque usualmente no muy diferente. En cualquier caso, debe haber una compromiso firme de lo que significa un prefijo, de lo que una función con prefijo puede y no puede hacer. Todas las funciones con el mismo prefijo deben obedecer las reglas. Y el equipo debe compartir ese conocimiento.
 ```
 
 ```smart header="Nombres de funciones ultracortos"
 Las funciones que se utilizan *muy a menudo* algunas veces tienen nombres ultracortos.
 
-Por ejemplo, el framework [jQuery](http://jquery.com) define una función con `$`. La librería [LoDash](http://lodash.com/) tiene como nombre de funccion principal `_`.
+Por ejemplo, el framework [jQuery](http://jquery.com) define una función con `$`. La librería [LoDash](http://lodash.com/) tiene como nombre de función principal `_`.
 
 Estas son excepciones. En general, los nombres de las funciones deben ser concisos y descriptivos.
 ```

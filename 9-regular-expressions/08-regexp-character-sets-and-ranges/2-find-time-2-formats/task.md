@@ -1,4 +1,4 @@
-# Encuetra la hora como hh:mm o hh-mm
+# Encuentra la hora como hh:mm o hh-mm
 
 La hora puede estar en el formato `horas:minutos` u `horas-minutos`. Tanto las horas como los minutos tienen 2 dígitos: `09:00` ó `21-30`.
 

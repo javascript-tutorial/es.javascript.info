@@ -1,4 +1,6 @@
+importance: 5
 
+---
 # Función en if
 
 Mira el código ¿Cuál será el resultado de la llamada en la última línea?

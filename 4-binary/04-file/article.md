@@ -62,7 +62,7 @@ Los métodos principales:
 La opción del método `read*` depende de qué formato preferimos y cómo vamos a usar los datos.
 
 - `readAsArrayBuffer` -- para archivos binarios, en donde se hacen operaciones binarias de bajo nivel. Para operaciones de alto nivel, como slicing, `File` hereda de `Blob` por lo que podemos llamarlas directamente sin tener que leer.
-- `readAsText` -- para archivos de texto, cuando nesecitamos obtener una cadena.
+- `readAsText` -- para archivos de texto, cuando necesitamos obtener una cadena.
 - `readAsDataURL` -- cuando necesitamos usar estos datos como valores de `src` en `img` u otras etiquetas html. Hay otra alternativa para leer archivos de ese tipo como discutimos en el capítulo <info:blob>: `URL.createObjectURL(file)`.
 
 Mientras se va realizando la lectura, suceden varios eventos:

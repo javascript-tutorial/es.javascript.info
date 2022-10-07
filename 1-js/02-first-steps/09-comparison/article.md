@@ -6,12 +6,12 @@ En Javascript se escriben así:
 
 - Mayor/menor que: <code>a &gt; b</code>, <code>a &lt; b</code>.
 - Mayor/menor o igual que: <code>a &gt;= b</code>, <code>a &lt;= b</code>.
-- Igual: `a == b` (ten en cuenta el doble signo `==`. Un solo símbolo `a = b` significaría una asignación).
+- Igual: `a == b` (ten en cuenta que el doble signo `==` significa comparación, mientras que un solo símbolo `a = b` significaría una asignación).
 - Distinto. En matemáticas la notación es <code>&ne;</code>, pero en JavaScript se escribe como una asignación con un signo de exclamación delante: <code>a != b</code>.
 
-En este artículo, aprenderemos más sobre los diferentes tipos de comparaciones, cómo las realiza JavaScript, incluidas las peculiaridades importantes.
+En este artículo, aprenderemos más sobre los diferentes tipos de comparaciones y de cómo las realiza JavaScript, incluidas las peculiaridades importantes.
 
-Al final, encontrará una buena receta para evitar problemas relacionados con "peculiaridades de JavaScript"("javascript quirks").
+Al final, encontrará una buena receta para evitar problemas relacionadas con las "peculiaridades" de JavaScript.
 
 ## Booleano es el resultado
 
@@ -37,7 +37,7 @@ alert( result ); // true
 
 ## Comparación de cadenas
 
-Para ver si una cadena es "mayor" que otra, JavaScript utiliza el llamado orden "diccionario" u "lexicográfico".
+Para ver si una cadena es "mayor" que otra, JavaScript utiliza el llamado orden "de diccionario" o "lexicográfico".
 
 En otras palabras, las cadenas se comparan letra por letra.
 
@@ -158,7 +158,7 @@ Para un control de igualdad estricto `===`
     alert( null === undefined ); // false
     ```
 
-Para una camparación no estricta `==`
+Para una comparación no estricta `==`
 : Hay una regla especial. Estos dos son una " pareja dulce ": son iguales entre sí (en el sentido de `==`), pero no a ningún otro valor.
 
     ```js run
@@ -168,7 +168,7 @@ Para una camparación no estricta `==`
 Para matemáticas y otras comparaciones `< > <= >=`
 : `null/undefined` se convierten en números: `null` se convierte en `0`, mientras que `undefined` se convierte en `NaN`.
 
-Ahora veamos algunos hechos graciosas que suceden cuando aplicamos estas reglas. Y, lo que es más importante, cómo no caer en una trampa con ellas.
+Ahora veamos algunos hechos graciosos que suceden cuando aplicamos estas reglas. Y, lo que es más importante, cómo no caer en una trampa con ellas.
 
 ### Resultado extraño: null vs 0
 
@@ -205,16 +205,16 @@ Obtenemos estos resultados porque:
 
 ### Evitar los problemas
 
-¿Por qué repasamos estos ejemplos? ¿Deberíamos recordar estas peculiaridades todo el tiempo? Bueno, en realidad no. En realidad, estas cosas difíciles se volverán familiares con el tiempo, pero hay una manera sólida de evadir los problemas con ellas:
+¿Por qué repasamos estos ejemplos? ¿Deberíamos recordar estas peculiaridades todo el tiempo? Bueno, en realidad no. De hecho, estas peculiaridades se volverán familiares con el tiempo, pero hay una manera sólida de evadir los problemas con ellas:
 
-Trata cualquier comparación con `undefined/null` excepto la igualdad estricta `===` con sumo cuidado.
+- Trata cualquier comparación con `undefined/null` (excepto la igualdad estricta `===`) con sumo cuidado.
 
-No uses comparaciones `>= > < <=` con una variable que puede ser `null/undefined`, a menos que estés realmente seguro de lo que estás haciendo. Si una variable puede tener estos valores, verifícalos por separado.
+- No uses comparaciones `>= > < <=` con una variable que puede ser `null/undefined`, a menos que estés realmente seguro de lo que estás haciendo. Si una variable puede tener estos valores, verifícalos por separado.
 
 ## Resumen
 
 - Los operadores de comparación retornan un valor booleano.
 - Las cadenas se comparan letra por letra en el orden del "diccionario".
-- Cuando se comparan valores de diferentes tipos, se convierten en números (con la exclusión de un control de igualdad estricta).
+- Cuando se comparan valores de diferentes tipos, se convierten en números (excepto un control de igualdad estricta).
 - Los valores `null` y `undefined` son iguales `==` entre sí y no equivalen a ningún otro valor.
 - Ten cuidado al usar comparaciones como `>` o `<` con variables que ocasionalmente pueden ser `null/undefined`. Revisar por separado si hay `null/undefined` es una buena idea.

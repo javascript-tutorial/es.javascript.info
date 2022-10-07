@@ -54,3 +54,17 @@ function parse(expr) {
 
 alert( parse("-1.23 * 3.45") );  // -1.23, *, 3.45
 ```
+
+Como alternativa al uso de la exclusión de captura `?:`, podemos dar nombre a los grupos:
+
+```js run
+function parse(expr) {
+	let regexp = /(?<a>-?\d+(?:\.\d+)?)\s*(?<operator>[-+*\/])\s*(?<b>-?\d+(?:\.\d+)?)/;
+
+	let result = expr.match(regexp);
+
+	return [result.groups.a, result.groups.operator, result.groups.b];
+}
+
+alert( parse("-1.23 * 3.45") );  // -1.23, *, 3.45;
+```

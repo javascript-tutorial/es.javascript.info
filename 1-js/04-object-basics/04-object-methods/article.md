@@ -81,7 +81,7 @@ user = {
 // la forma abreviada se ve mejor, ¿verdad?
 user = {
 *!*
-  sayHi() { // igual que "sayHi: function()"
+  sayHi() {   // igual que "sayHi: function(){...}"
 */!*
     alert("Hello");
   }
@@ -90,7 +90,7 @@ user = {
 
 Como se demostró, podemos omitir `"function"` y simplemente escribir `sayHi()`.
 
-A decir verdad, las notaciones no son completamente idénticas. Hay diferencias sutiles relacionadas a la herencia de objetos (por cubrir más adelante) que no importan ahora. En casi todos los casos la sintaxis abreviada es la preferida.
+A decir verdad, las notaciones no son completamente idénticas. Hay diferencias sutiles relacionadas a la herencia de objetos (por cubrir más adelante) que por ahora no son relevantes. En casi todos los casos la sintaxis abreviada es la preferida.
 
 ## "this" en métodos
 
@@ -220,7 +220,7 @@ sayHi(); // undefined
 
 En este caso `this` es `undefined` en el modo estricto. Si tratamos de acceder a `this.name`, habrá un error.
 
-En modo no estricto el valor de `this` en tal caso será el *objeto global* (`window` en un navegador, llegaremos a ello en el capítulo [](info:global-object)). Este es un comportamiento histórico que `"use strict"` corrije.
+En modo no estricto el valor de `this` en tal caso será el *objeto global* (`window` en un navegador, llegaremos a ello en el capítulo [](info:global-object)). Este es un comportamiento histórico que `"use strict"` corrige.
 
 Usualmente tal llamado es un error de programa. Si hay `this` dentro de una función, se espera que sea llamada en un contexto de objeto.
 ````

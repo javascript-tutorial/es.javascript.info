@@ -16,9 +16,9 @@ Este manejador está asignado a `<div>`, pero también se ejecuta si haces clic 
 
 El principio de propagación es simple.
 
-**Cuando un evento ocurre en un elemento, este primero ejecuta los manejadores que tiene asignados, luego los manejadores de su padre, y así hasta otros ancentros.**
+**Cuando un evento ocurre en un elemento, este primero ejecuta los manejadores que tiene asignados, luego los manejadores de su padre, y así hasta otros ancestros.**
 
-Dígamos que tenemos 3 elementos anidados `FORM > DIV > P` con un manejador en cada uno de ellos:
+Digamos que tenemos 3 elementos anidados `FORM > DIV > P` con un manejador en cada uno de ellos:
 
 ```html run autorun
 <style>
@@ -126,21 +126,22 @@ El estándar de [eventos del DOM](http://www.w3.org/TR/DOM-Level-3-Events/) desc
 2. Fase de objetivo -- el evento alcanza al elemento.
 3. Fase de propagación -- el evento se propaga hacia arriba del elemento.
 
-Aquí está la imagen de un clic en `<td>` dentro de una tabla, tomada desde la específicación:
+Aquí (tomada de la especificación), tenemos la imagen de las fases de captura `(1)`, objetivo `(2)`, y propagación `(3)`, de un evento click en un `<td>` dentro de una tabla:
 
 ![](eventflow.svg)
 
 Se explica así: por un clic en `<td>` el evento va primero a través de la cadena de ancestros hacia el elemento (fase de captura), luego alcanza el objetivo y se desencadena ahí (fase de objetivo), y por último va hacia arriba (fase de propagación), ejecutando los manejadores en su camino.
 
-**Antes solo hablamos de la propagación porque la fase de captura es raramente usada. Normalmente es invisible a nosotros.**
+Hasta ahora solo hablamos de la propagación, porque la fase de captura es raramente usada.
 
-Los manejadores agregados usando la propiedad `on<event>` ó usando atributos HTML ó `addEventListener(event, handler)` con dos argumentos no ejecutarán la fase de captura, únicamente ejecutarán la 2da y 3ra fase.
+De hecho, la fase de captura es invisible para nosotros, porque los manejadores agregados que usan la propiedad `on<event>`, ó usan atributos HTML, ó `addEventListener(event, handler)` de dos argumentos, no ven la fase de captura, únicamente se ejecutan en la 2da y 3ra fase.
 
 Para atrapar un evento en la fase de captura, necesitamos preparar la opción `capture` como `true` en el manejador:
 
 ```js
 elem.addEventListener(..., {capture: true})
-// o, solo "true" es una forma más corta de {capture: true}
+
+// o solamente "true". Es una forma más corta de {capture: true}
 elem.addEventListener(..., true)
 ```
 
@@ -180,24 +181,32 @@ El código prepara manejadores de clic en *cada* elemento en el documento para v
 
 Si haces clic en `<p>`, verás que la secuencia es:
 
-1. `HTML` -> `BODY` -> `FORM` -> `DIV` (fase de captura, el primer detector):
-2. `P` (fase de objetivo, se dispara dos veces, tan pronto como preparemos los dos detectores: de captura y propagación)
-3. `DIV` -> `FORM` -> `BODY` -> `HTML` (fase de propagación, el segundo detector).
+1. `HTML` -> `BODY` -> `FORM` -> `DIV` (fase de captura, el primer detector o "listener"):
+2. `P` -> `DIV` -> `FORM` -> `BODY` -> `HTML` (fase de propagación, el segundo detector).
 
-Hay un propiedad `event.eventPhase` que nos dice el número de fase en la qué el evento fue capturado. Pero es raramente usada, ya que usualmente lo sabemos en el manejador.
+Nota que `P` aparece dos veces, porque establecimos dos listeners: captura y propagación. Se disparan en el objetivo al final de la primera fase y al principio de la segunda fase.
+
+Hay un propiedad `event.eventPhase` que nos dice el número de fase en la que el evento fue capturado. Pero es raramente usada, ya que usualmente lo sabemos en el manejador.
 
 ```smart header="Para quitar el manejador, `removeEventListener` necesita la misma fase"
-Si nosotros `addEventListener(..., true)`, entonces deberíamos mencionar la misma fase en `removeEventListener(..., true)` para remover el manejador correctamente.
+Si agregamos `addEventListener(..., true)`, entonces debemos mencionar la misma fase en `removeEventListener(..., true)` para remover el manejador correctamente.
 ```
 
 ````smart header="Detectores de eventos en el mismo elemento y en la misma fase se ejecutan en el orden de asignación"
-Si tenemos multiples manejadores de eventos en la misma fase, asignados al mismo elemento con `addEventListener`, se ejecutarán en el orden que fueron creados:
+Si tenemos múltiples manejadores de eventos en la misma fase, asignados al mismo elemento con `addEventListener`, se ejecutarán en el orden que fueron creados:
 
 ```js
 elem.addEventListener("click", e => alert(1)); // garantizado que se ejecutará primero
 elem.addEventListener("click", e => alert(2));
 ```
 ````
+
+```smart header="`event.stopPropagation()` durante la captura también evita la propagación"
+El método `event.stopPropagation()` y su hermano `event.stopImmediatePropagation()` también pueden ser llamados en la fase de captura. En este caso no solo se detienen las capturas sino también la propagación.
+
+En otras palabras, normalmente el evento primero va hacia abajo ("captura") y luego hacia arriba ("propagación"). Pero si se llama a `event.stopPropagation()` durante la fase de captura, se detiene la travesía del evento, y la propagación no volverá a ocurrir.
+```
+
 
 ## Resumen
 
@@ -215,9 +224,9 @@ Cada manejador puede acceder a las propiedades del objeto `event`:
 
 Cualquier manejador de evento puede detener el evento al llamar `event.stopPropagation()`, pero no es recomendado porque no podemos realmente asegurar que no lo necesitaremos más adelante, quizá para completar diferentes cosas.
 
-La fase de captura raramente es usada, usualmente manejamos los evento en propagación. Y hay una lógica atrás de eso.
+La fase de captura raramente es usada, usualmente manejamos los eventos en la propagación. Y hay una explicación lógica para ello.
 
-En el mundo real, cuando un accidente ocurre, las autoridades locales reaccionan primero. Ellos conocen mejor el área dónde ocurrió. Luego, si es necesario, autoridades de alto nível.
+En el mundo real, cuando un accidente ocurre, las autoridades locales reaccionan primero. Ellos conocen mejor el área dónde ocurrió. Luego, si es necesario, las autoridades de alto nivel.
 
 Lo mismo para los manejadores de eventos. El código que se prepara en el manejador de un elemento en particular conoce el máximo de detalles sobre el elemento y qué hace. Un manejador en un `<td>` particular puede ser adecuado para ese exacto `<td>`, conocer todo sobre él, entonces debe tener su oportunidad primero. Luego su padre inmediato también conoce sobre el contexto, pero un poco menos, y así sucesivamente hasta el elemento de arriba que maneja conceptos generales y se ejecuta al final.
 

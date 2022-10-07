@@ -47,7 +47,7 @@ Tal como se puede ver, es prácticamente una línea:
 </script>
 ```
 
-En este ejemplo, el código del servidor no es representado ya que está fuera de nuestro alcance. El servidor acepta le solicitud POST y responde "Usuario registrado".
+En este ejemplo, el código del servidor no es representado ya que está fuera de nuestro alcance. El servidor acepta la solicitud POST y responde "Usuario registrado".
 
 ## Métodos de FormData
 
@@ -61,7 +61,7 @@ Contamos con métodos para poder modificar los campos del `FormData`:
 
 Un formulario técnicamente tiene permitido contar con muchos campos con el mismo atributo `name`, por lo que múltiples llamadas a `append` agregarán más campos con el mismo nombre.
 
-Por otra parte existe un método `set`, con la misma sintáxis que `append`. La diferencia está en que `.set` remueve todos los campos con el `name` que se le ha pasado, y luego agrega el nuevo campo. De este modo nos aseguramos de que sólo un campo éxiste con determinado `name`, el resto es tal como en `append`:
+Por otra parte existe un método `set`, con la misma sintaxis que `append`. La diferencia está en que `.set` remueve todos los campos con el `name` que se le ha pasado, y luego agrega el nuevo campo. De este modo nos aseguramos de que exista solamente un campo con determinado `name`, el resto es tal como en `append`:
 
 - `formData.set(name, value)`,
 - `formData.set(name, blob, fileName)`.
@@ -168,7 +168,7 @@ El servidor lee el formulario `form-data` y el archivo tal como si de un formula
 
 Los objetos [FormData](https://xhr.spec.whatwg.org/#interface-formdata) son utilizados para capturar un formulario HTML y enviarlo utilizando `fetch` u otro método de red.
 
-Podemos crear el objeto con `new FormData(form)` desde un formulario HTML, o crearlo sin un formulario en absoluto, y agregar los campos con los siguientes métodos:
+Podemos crear el objeto con `new FormData(form)` desde un formulario HTML, o crear un objeto sin un formulario en absoluto y agregar los campos con los siguientes métodos:
 
 - `formData.append(nombre, valor)`
 - `formData.append(nombre, blob, nombreDeArchivo)`

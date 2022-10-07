@@ -448,6 +448,28 @@ try {
 
 Si no detectamos el error allí, entonces, como de costumbre, pasa al código de llamada externo (si lo hay) y, si no se detecta, mata el script.
 
+## generator.return
+
+`generator.return(value)` detiene la ejecución de generator y devuelve el valor `value` dado.
+
+```js
+function* gen() {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+
+const g = gen();
+
+g.next();        // { value: 1, done: false }
+g.return('foo'); // { value: "foo", done: true }
+g.next();        // { value: undefined, done: true }
+```
+
+Si volvemos a usar `generator.return()` en un generator finalizado, devolverá ese valor nuevamente ([MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator/return)).
+
+No lo usamos a menudo, ya que la mayor parte del tiempo queremos todos los valores, pero puede ser útil cuando queremos detener el generador en una condición específica.
+
 ## Resumen
 
 - Los generadores son creados por funciones generadoras `function* f(…) {…}`.

@@ -5,11 +5,11 @@
 En informática, una clase es una plantilla para la creación de objetos de datos según un modelo predefinido. Las clases se utilizan para representar entidades o conceptos, como los sustantivos en el lenguaje. Cada clase es un modelo que define un conjunto de variables —el estado—, y métodos apropiados para operar con dichos datos —el comportamiento—.
 ```
 
-En la práctica a menudo necesitamos crear muchos objetos del mismo tipo, como usuarios, bienes, lo que sea.
+En la práctica a menudo necesitamos crear muchos objetos del mismo tipo: usuarios, bienes, lo que sea.
 
 Como ya sabemos del capítulo <info:constructor-new>, `new function` puede ayudar con eso.
 
-Pero en JavaScript moderno hay un constructor más avanzado, "class", que introduce grandes características nuevas muy útiles para la programación orientada a objetos.
+Pero en JavaScript moderno hay un constructor más avanzado, "class", que introduce características nuevas muy útiles para la programación orientada a objetos.
 
 ## La sintaxis "class"
 
@@ -51,7 +51,7 @@ user.sayHi();
 
 Cuando se llama a `new User("John")`:
 1. Un objeto nuevo es creado.
-2. El `constructor` se ejecuta con el argumento dado y lo asigna `this.name`.
+2. El `constructor` se ejecuta con el argumento dado y lo asigna a `this.name`.
 
 ...Entonces podemos llamar a sus métodos, como `user.sayHi()`.
 
@@ -66,11 +66,11 @@ La notación aquí no debe ser confundida con la sintaxis de objeto literal. Den
 
 Entonces, ¿qué es exactamente `class`? No es una entidad completamente nueva a nivel de lenguaje como uno podría pensar.
 
-Develemos la magia y veamos lo que realmente es una clase. Ayudará a entender muchos aspectos complejos.
+Desvelemos la magia y veamos lo que realmente es una clase. Ayudará a entender muchos aspectos complejos.
 
 En JavaScript, una clase es un tipo de función.
 
-Aquí, hecha un vistazo:
+Veamos:
 
 ```js run
 class User {
@@ -84,7 +84,7 @@ alert(typeof User); // function
 */!*
 ```
 
-Lo que la contrucción `class User {...}` hace realmente es:
+Lo que la construcción `class User {...}` hace realmente es:
 
 1. Crea una función llamada `User`, la que se vuelve el resultado de la declaración de la clase. El código de la función es tomado del método `constructor` (se asume vacío si no se escribe tal método).
 2. Almacena los métodos de clase, tales como `sayHi`, en `User.prototype`.
@@ -106,11 +106,11 @@ class User {
 // una clase es una función
 alert(typeof User); // function
 
-// ...o, más precisamente, el método contructor
+// ...o, más precisamente, el método constructor
 alert(User === User.prototype.constructor); // true
 
 // Los métodos están en User.prototype, por ejemplo:
-alert(User.prototype.sayHi); // alert(this.name);
+alert(User.prototype.sayHi); // el código del método sayHi
 
 // Hay exactamente dos métodos en el prototipo
 alert(Object.getOwnPropertyNames(User.prototype)); // constructor, sayHi
@@ -118,7 +118,7 @@ alert(Object.getOwnPropertyNames(User.prototype)); // constructor, sayHi
 
 ## No es solamente azúcar sintáctica
 
-A veces se dice que `class` es "azúcar sintáctica" (sintaxis que es diseñada para que sea más fácil de leer pero no introduce nada nuevo), porque en realidad podemos declarar lo mismo sin la palabra clave `class` en absoluto:
+A veces se dice que `class` es "azúcar sintáctica" (sintaxis que es diseñada para una lectura más fácil, pero que no introduce nada nuevo), porque en realidad podemos declarar lo mismo sin la palabra clave `class` en absoluto:
 
 ```js run
 // reescribiendo la clase User puramente con funciones
@@ -144,7 +144,7 @@ El resultado de esta definición es el mismo. Así, efectivamente hay razones pa
 
 Aún así hay diferencias importantes.
 
-1. Primero, una función creada por `class` es etiquetada por una propiedad interna especial `[[FunctionKind]]:"classConstructor"`. Entones no es exactamente lo mismo que crearla manualmente.
+1. Primero, una función creada por `class` es etiquetada por una propiedad interna especial `[[IsClassConstructor]]:true`. Entones no es exactamente lo mismo que crearla manualmente.
 
     El lenguaje verifica esa propiedad en varios lugares. Por ejemplo, a diferencia de las funciones regulares, esta debe ser llamada con `new`:
 
@@ -154,10 +154,10 @@ Aún así hay diferencias importantes.
     }
 
     alert(typeof User); // function
-    User(); // Error: El contructor de clase User no puede ser invocado sin 'new'
+    User(); // Error: El constructor de clase User no puede ser invocado sin 'new'
     ```
 
-    Además una representación string de un contructor de clase en la mayoría de los motores JavaScript comienzan con "class..."
+    Además una representación string de un constructor de clase en la mayoría de los motores JavaScript comienzan con "class..."
 
     ```js run
     class User {
@@ -174,7 +174,7 @@ Aún así hay diferencias importantes.
     Esto es bueno porque si hacemos `for..in` a un objeto usualmente no queremos sus métodos de clase.
 
 3. Las clases siempre asumen `use strict`.
-    Todo el código dentro del contructor de clase está automáticamente en modo estricto.
+    Todo el código dentro del constructor de clase está automáticamente en modo estricto.
 
 Además la sintaxis de `class` brinda muchas otras características que exploraremos luego.
 
@@ -372,7 +372,7 @@ setTimeout(button.click, 1000); // undefined
 
 Este problema es denominado "pérdida de `this`".
 
-Hay dos enfoques para solucionarlos, como se discute en el capítulo <info:bind>:
+Hay dos enfoques para solucionarlo, como se discute en el capítulo <info:bind>:
 
 1. Pasar un contenedor o wrapper-function como: `setTimeout(() => button.click(), 1000)`.
 2. Vincular el método al objeto, por ejemplo en el constructor.

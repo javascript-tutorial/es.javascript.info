@@ -1,6 +1,6 @@
 # Operadores Lógicos
 
-Hay tres operadores lógicos en JavaScript: `||` (O), `&&` (Y), `!` (NO).
+Hay cuatro operadores lógicos en JavaScript: `||` (O), `&&` (Y), `!` (NO), `??` (Fusión de nulos). Aquí cubrimos los primeros tres, el operador  `??` se verá en el siguiente artículo. 
 
 Aunque sean llamados lógicos, pueden ser aplicados a valores de cualquier tipo, no solo booleanos. El resultado también puede ser de cualquier tipo.
 
@@ -8,13 +8,13 @@ Veamos los detalles.
 
 ## || (OR)
 
-El operador `OR` se representa con dos simbolos de linea vertical:
+El operador `OR` se representa con dos símbolos de linea vertical:
 
 ```js
 result = a || b;
 ```
 
-En la programación clasica, el OR lógico esta pensado para manipular solo valores booleanos. Si cualquiera de sus argumentos es `true`, retorna `true`, de lo contrario retorna `false`.
+En la programación clásica, el OR lógico esta pensado para manipular solo valores booleanos. Si cualquiera de sus argumentos es `true`, retorna `true`, de lo contrario retorna `false`.
 
 En JavaScript, el operador es un poco más complicado y poderoso. Pero primero, veamos qué pasa con los valores booleanos.
 
@@ -78,8 +78,8 @@ result = value1 || value2 || value3;
 
 El operador OR `||` realiza lo siguiente:
 
--  Evalua los operandos de izquierda a derecha.
--  Para cada operando, convierte el valor a booleano. Si el resultado es `true`, se detiene y retorna el valor orginal de ese operando.
+-  Evalúa los operandos de izquierda a derecha.
+-  Para cada operando, convierte el valor a booleano. Si el resultado es `true`, se detiene y retorna el valor original de ese operando.
 -  Si todos los operandos han sido evaluados (todos eran `false`), retorna el ultimo operando.
 
 Un valor es retornado en su forma original, sin la conversión.
@@ -89,7 +89,7 @@ En otras palabras, una cadena de OR `"||"` devuelve el primer valor verdadero o 
 Por ejemplo:
 
 ```js run
-alert(1 || 0); // 1 (1 es un valor verdado)
+alert(1 || 0); // 1 (1 es un valor verdadero)
 
 alert(null || 1); // 1 (1 es el primer valor verdadero)
 alert(null || 0 || 1); // 1 (el primer valor verdadero)
@@ -119,22 +119,22 @@ Esto brinda varios usos interesantes comparados al "OR puro, clásico, de solo b
 
 2. **Evaluación del camino más corto.**
 
-Otra característica de OR || operador es la evaluación de "el camino más corto".
+    Otra característica del operador OR || es la evaluación de "el camino más corto" o "cortocircuito".
 
-Esto significa que `||` procesa sus argumentos hasta que se alcanza el primer valor verdadero, y luego el valor se devuelve inmediatamente, sin siquiera tocar el otro argumento.
+    Esto significa que `||` procesa sus argumentos hasta que se alcanza el primer valor verdadero, y ese valor se devuelve inmediatamente sin siquiera tocar el otro argumento.
 
-La importancia de esta característica se vuelve obvia si un operando no es solo un valor, sino una expresión con un efecto secundario, como una asignación de variable o una llamada a función.
+    La importancia de esta característica se vuelve obvia si un operando no es solo un valor sino una expresión con un efecto secundario, como una asignación de variable o una llamada a función.
 
-En el siguiente ejemplo, solo se imprime el segundo mensaje:
+    En el siguiente ejemplo, solo se imprime el segundo mensaje:
 
- ```js run no-beautify
+    ```js run no-beautify
     *!*true*/!* || alert("not printed");
     *!*false*/!* || alert("printed");
- ```
+    ```
 
-En la primera línea, el operador OR `||` detiene la evaluación inmediatamente después de ver que es verdadera, por lo que la alerta no se ejecuta.
+    En la primera línea, el operador OR `||` detiene la evaluación inmediatamente después de ver que es verdadera, por lo que la alerta no se ejecuta.
 
-A veces, las personas usan esta función para ejecutar comandos solo si la condición en la parte izquierda es falsa.
+    A veces se usa esta función para ejecutar comandos solo si la condición en la parte izquierda es falsa.
 
 ## && (AND)
 
@@ -144,7 +144,7 @@ El operador AND es representado con dos ampersands `&&`:
 result = a && b;
 ```
 
-En la programación clasica, AND retorna `true` si ambos operandos son valores verdaderos y `false` en cualquier otro caso.
+En la programación clásica, AND retorna `true` si ambos operandos son valores verdaderos y `false` en cualquier otro caso.
 
 ```js run
 alert(true && true); // true
@@ -182,13 +182,13 @@ result = value1 && value2 && value3;
 
 El operador AND `&&` realiza lo siguiente:
 
--  Evalua los operandos de izquierda a derecha.
+-  Evalúa los operandos de izquierda a derecha.
 -  Para cada operando, los convierte a un booleano. Si el resultado es `false`, se detiene y retorna el valor original de dicho operando.
 -  Si todos los operandos han sido evaluados (todos fueron valores verdaderos), retorna el último operando.
 
 En otras palabras, AND retorna el primer valor falso o el último valor si ninguno fue encontrado.
 
-Las reglas anteriores son similares a las de OR. La difierence es que AND retorna el primer valor *falso* mientras que OR retorna el primer valor *verdadero*.
+Las reglas anteriores son similares a las de OR. La diferencia es que AND retorna el primer valor *falso* mientras que OR retorna el primer valor *verdadero*.
 
 Ejemplo:
 

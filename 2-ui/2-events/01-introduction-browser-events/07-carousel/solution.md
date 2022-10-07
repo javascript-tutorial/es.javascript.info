@@ -1,6 +1,6 @@
 La cinta de imágenes se puede representar como una lista `ul/li` de imágenes `<img>`.
 
-Normalmente dicha cinta es ancha pero colocamos un tamaño fijo `<div>` alrededor para "cortarla", de modo que solo una parte de la cinta sea visible:
+Normalmente dicha cinta es ancha, pero colocamos un tamaño fijo `<div>` alrededor para "cortarla", de modo que solo una parte de la cinta sea visible:
 
 ![](carousel1.svg)
 

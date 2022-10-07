@@ -12,4 +12,4 @@ arr.push(function() {
 arr[2](); // a,b,function(){...}
 ```
 
-El array tiene 3 valores: Iniciamente tenía 2 y se agregó la función. 
+El array tiene 3 valores: Inicialmente tenía 2 y se agregó la función. 

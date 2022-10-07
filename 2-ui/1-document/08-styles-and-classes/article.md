@@ -120,13 +120,21 @@ Por ejemplo, para ocultar un elemento, podemos establecer `elem.style.display = 
 Luego, más tarde, es posible que queramos remover `style.display` como si no estuviera establecido. En lugar de `delete elem.style.display` deberíamos asignarle una cadena vacía: `elem.style.display = ""`.
 
 ```js run
-// si ejecutamos este código, el <body> papadeará
+// si ejecutamos este código, el <body> parpadeará
 document.body.style.display = "none"; // ocultar
 
 setTimeout(() => document.body.style.display = "", 1000); // volverá a lo normal
 ```
 
-Si establecemos `style.display` como una cadena vacia, entonces el navegador aplica clases y estilos CSS incorporados normalmente por el navegador, como si no existiera tal `style.display`.
+Si establecemos `style.display` como una cadena vacía, entonces el navegador aplica clases y estilos CSS incorporados normalmente por el navegador, como si no existiera tal `style.display`.
+
+También hay un método especial para eso, `elem.style.removeProperty('style property')`. Así, podemos quitar una propiedad:
+
+```js run
+document.body.style.background = 'red'; //establece background a rojo
+
+setTimeout(() => document.body.style.removeProperty('background'), 1000); // quitar background después de 1 segundo
+```
 
 ````smart header="Reescribir todo usando `style.cssText`"
 Normalmente, podemos usar `style.*` para asignar propiedades de estilo individuales. No podemos establecer todo el estilo como `div.style="color: red; width: 100px"`, porque `div.style` es un objeto y es solo de lectura.
@@ -148,7 +156,7 @@ Para establecer todo el estilo como una cadena, hay una propiedad especial: `sty
 </script>
 ```
 
-Esta propiedad es rara vez usada, porque tal asignación remueve todo los estilos: no agrega, pero si las reemplaza. Lo que ocasionalmente puede eliminar algo necesario. Pero podemos usarlo de manera segura para nuevos elementos, cuando sabemos que no vamos a eliminar un estilo existente.
+Esta propiedad es rara vez usada, porque tal asignación remueve todo los estilos: no agrega estilos sino que los reemplaza en su totalidad. Ocasionalmente podría eliminar algo necesario. Pero podemos usarlo de manera segura para nuevos elementos, cuando sabemos que no vamos a eliminar un estilo existente.
 
 Lo mismo se puede lograr estableciendo un atributo: `div.setAttribute('style', 'color: red...')`.
 ````
@@ -212,7 +220,7 @@ Pero si necesitamos incrementar el margen a  `20px`? vamos el querer el valor de
 
 Hay otro método para eso: `getComputedStyle`.
 
-La síntaxis es:
+La sintaxis es:
 
 ```js
 getComputedStyle(element, [pseudo])
@@ -260,21 +268,7 @@ Así que hoy en día `getComputedStyle` en realidad devuelve el valor resuelto d
 ````warn header="El método `getComputedStyle` requiere el nombre completo de la propiedad"
 Siempre deberíamos preguntar por la propiedad exacta que queremos, como `paddingLeft` o `marginTop` o `borderTopWidth`. De lo contrario, no se garantiza el resultado correcto.
 
-Por ejemplo, si hay propiedades `paddingLeft/paddingTop`, ¿entonces qué deberíamos obtener de `getComputedStyle(elem).padding`? ¿Nada, o tal vez un valor "generado" de los paddings? No hay una regla estándar aquí.
-
-Hay otras inconsistencias. Por ejemplo, algunos navegadores (Chrome) muestran `10px` en el documento a continuación, y alguno de ellos (Firefox) no:
-
-```html run
-<style>
-  body {
-    margin: 10px;
-  }
-</style>
-<script>
-  let style = getComputedStyle(document.body);
-  alert(style.margin); // cadena vacía en Firefox
-</script>
-```
+Por ejemplo, si hay propiedades `paddingLeft/paddingTop`, entonces ¿qué deberíamos obtener de `getComputedStyle(elem).padding`? ¿Nada, o tal vez un valor "generado" de los paddings? No hay una regla estándar aquí.
 ````
 
 ```smart header="¡Los estilos aplicados a los enlaces `:visited` están ocultos!"
@@ -282,8 +276,7 @@ Los enlaces visitados pueden ser coloreados usando la pseudo-clase `:visited` de
 
 Pero `getComputedStyle` no da acceso a ese color, porque de lo contrario una página cualquiera podría averiguar si el usuario visitó un enlace creándolo en la página y verificar los estilos.
 
-JavaScript puede que no vea los estilos aplicados por `:visited`. Y también, 
-hay una limitación en CSS que prohíbe la aplicación de estilos de cambio de geometría en `:visited`. Eso es para garantizar que no haya forma para que una página maligna pruebe si un enlace fue visitado y rompa la privacidad.
+JavaScript no puede ver los estilos aplicados por `:visited`. También hay una limitación en CSS que prohíbe la aplicación de estilos de cambio de geometría en `:visited`. Eso es para garantizar que no haya forma para que una página maligna pruebe si un enlace fue visitado y vulnere la privacidad.
 ```
 
 ## Resumen

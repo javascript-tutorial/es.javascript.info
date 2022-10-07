@@ -1,6 +1,6 @@
 # Límite de palabra: \b
 
-Un límite de palabra `pattern:\b` es una prueba, al igual que `pattern:^` y `pattter:$`.
+Un límite de palabra `pattern:\b` es una prueba, al igual que `pattern:^` y `pattern:$`.
 
 Cuando el motor regex (módulo de programa que implementa la búsqueda de expresiones regulares) se encuentra con `pattern:\b`, comprueba que la posición en la cadena es un límite de palabra.
 

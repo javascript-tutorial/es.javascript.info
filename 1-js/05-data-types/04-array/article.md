@@ -4,7 +4,7 @@ Los objetos te permiten almacenar colecciones de datos a través de nombres. Eso
 
 Pero a menudo necesitamos una *colección ordenada*, donde tenemos un 1ro, un 2do, un 3er elemento y así sucesivamente. Por ejemplo, necesitamos almacenar una lista de algo: usuarios, bienes, elementos HTML, etc.
 
-No es conveniente usar objetos aquí, porque no proveen métodos para manejar el orden de los elementos. No podemos insertar una nueva propiedad “entre” los exitentes. Los objetos no están hechos para eso.
+No es conveniente usar objetos aquí, porque no proveen métodos para manejar el orden de los elementos. No podemos insertar una nueva propiedad “entre” los existentes. Los objetos no están hechos para eso.
 
 Existe una estructura llamada `Array` (llamada en español arreglo o matriz/vector) para almacenar colecciones ordenadas.
 
@@ -92,6 +92,38 @@ let fruits = [
 La "coma final" hace más simple insertar y remover items, porque todas la líneas se vuelven similares.
 ````
 
+## Obtener los últimos elementos con "at"
+
+[recent browser="new"]
+
+Digamos que queremos el último elemento de un array.
+
+Algunos lenguajes de programación permiten el uso de índices negativos para este propósito, como `fruits[-1]`.
+
+Aunque en JavaScript esto no funcionará. El resultado será `undefined`, porque el índice de los corchetes es tratado literalmente.
+
+Podemos calcular explícitamente el último índice y luego acceder al elemento: `fruits[fruits.length - 1]`.
+
+```js run
+let fruits = ["Apple", "Orange", "Plum"];
+
+alert( fruits[fruits.length-1] ); // Plum
+```
+
+Un poco engorroso, ¿no es cierto? Necesitamos escribir el nombre de la variable dos veces.
+
+Afortunadamente, hay una sintaxis más corta: `fruits.at(-1)`:
+
+```js run
+let fruits = ["Apple", "Orange", "Plum"];
+
+// es lo mismo que fruits[fruits.length-1]
+alert( fruits.at(-1) ); // Plum
+```
+
+En otras palabras, `arr.at(i)`:
+- es exactamente lo mismo que `arr[i]`, si `i >= 0`.
+- para valores negativos de `i`, salta hacia atrás desde el final del array.
 
 ## Métodos pop/push, shift/unshift
 
@@ -123,7 +155,7 @@ Para las pilas, la última introducida es la primera en ser recibida, en inglés
 
 Los arrays en JavaScript pueden trabajar como colas o pilas. Ellos permiten agregar/quitar elementos al/del principio o al/del final.
 
-En ciencias de la computación la estructura de datos que permite esto se denomina cola de doble extremo o [bicola](https://es.wikipedia.org/wiki/Bicola).
+En ciencias de la computación, la estructura de datos que permite esto se denomina cola de doble extremo o [bicola](https://es.wikipedia.org/wiki/Bicola).
 
 **Métodos que trabajan sobre el final del array:**
 
@@ -137,6 +169,8 @@ En ciencias de la computación la estructura de datos que permite esto se denomi
 
     alert( fruits ); // Apple, Orange
     ```
+
+    Tanto `fruits.pop()` como `fruits.at(-1)` devuelven el último elemento del array, pero `fruits.pop()` también modifica el array eliminando tal elemento.
 
 `push`
 : Agrega el elemento al final del array:
@@ -241,7 +275,7 @@ Los métodos `push/pop` son rápidos, mientras que `shift/unshift` son lentos.
 
 ![](array-speed.svg)
 
-¿Por qué es más rapido trabajar con el final del array que con el principio? Veamos qué pasa durante la ejecución:
+¿Por qué es más rápido trabajar con el final del array que con el principio? Veamos qué pasa durante la ejecución:
 
 ```js
 fruits.shift(); // toma 1 elemento del principio
@@ -320,7 +354,7 @@ Pero es una mala idea. Existen problemas potenciales con esto:
 
     Existen objetos "simil-array" en el navegador y otros ambientes que *parecen arrays*. Esto es, tienen `length` y propiedades indexadas, pero pueden también tener propiedades no numéricas y métodos que usualmente no necesitemos. Y el bucle `for..in` los listará. Entonces si necesitamos trabajar con objetos simil-array, estas propiedades "extras" pueden volverse un problema.
 
-2. El bucle `for..in` está optimizado para objetos genéricos, no arrays, y es de 10 a 100 veces más lento. Por supuesto es aún muy rápido. La aceleración puede ser solamente cuestión de cuellos de botella. Pero aún necesitamos percatarnos de la diferencia.
+2. El bucle `for..in` está optimizado para objetos genéricos, no para arrays, y es de 10 a 100 veces más lento. Por supuesto es aún muy rápido. Una optimización puede que solo sea importante en cuellos de botella, pero necesitamos ser concientes de la diferencia.
 
 En general, no deberíamos usar `for..in` en arrays.
 
@@ -378,8 +412,6 @@ alert( arr[0] ); // undefined! sin elementos.
 
 alert( arr.length ); // longitud 2
 ```
-
-En el código anterior, `new Array(number)` tiene todos los elementos `undefined`.
 
 Para evitar sorpresas solemos usar corchetes, salvo que sepamos lo que estamos haciendo.
 
@@ -480,22 +512,27 @@ Simple: no utilices el operador `==`. En lugar, compáralas elemento a elemento 
 
 Los arrays son una clase especial de objeto, adecuados para almacenar y manejar items de datos ordenados.
 
-- La declaración:
+La declaración:
 
-    ```js
-    // corchetes (usual)
-    let arr = [item1, item2...];
+```js
+// corchetes (lo usual)
+let arr = [item1, item2...];
 
-    // new Array (excepcionalmente raro)
-    let arr = new Array(item1, item2...);
-    ```
+// new Array (excepcionalmente raro)
+let arr = new Array(item1, item2...);
+```
 
-    Un llamado a `new Array(number)` crea un array con la longitud dada, pero sin elementos.
+El llamado a `new Array(number)` crea un array con la longitud dada, pero sin elementos.
 
 - La propiedad `length` es la longitud del array o, para ser preciso, el último índice numérico más uno. Se autoajusta al usar los métodos de array.
 - Si acortamos `length` manualmente, el array se trunca.
 
-Podemos usar un array como "bicola" con las siguientes operaciones:
+Obtener los elementos:
+
+- Podemos obtener un elemento por su índice, como `arr[0]`
+- También podemos usar el método `at(i)`, que permite índices negativos. Para valores negativos de `i`, cuenta hacia atrás desde el final del array. Cuando `i >= 0`, funciona igual que `arr[i]`.
+
+Podemos usar un array como una pila "deque" o "bicola" con las siguientes operaciones:
 
 - `push(...items)` agrega `items` al final.
 - `pop()` remueve el elemento del final y lo devuelve.

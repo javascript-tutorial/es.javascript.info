@@ -1,6 +1,6 @@
 # Formularios: evento y método submit
 
-El evento `submit` se activa cuando el formlario es enviado, normalmente se utiliza para validar el formulario antes de ser enviado al servidor o bien para abortar el envío y procesarlo con JavaScript.
+El evento `submit` se activa cuando el formulario es enviado, normalmente se utiliza para validar el formulario antes de ser enviado al servidor o bien para abortar el envío y procesarlo con JavaScript.
 
 El método `form.submit()` permite iniciar el envío del formulario mediante JavaScript. Podemos utilizarlo para crear y enviar nuestros propios formularios al servidor.
 
@@ -29,7 +29,7 @@ Ambas acciones muestran `alert` y el formulario no es enviado debido a la presen
 ```
 
 ````smart header="Relación entre `submit` y `click`"
-Cuando un formulario es enviado utlizando `key:Enter` en un campo tipo texto, un evento `click` se genera en el `<input type="submit">`
+Cuando un formulario es enviado utilizando `key:Enter` en un campo tipo texto, un evento `click` se genera en el `<input type="submit">`
 
 Muy curioso, dado que no hubo ningún click en absoluto.
 
@@ -49,7 +49,7 @@ Para enviar un formulario al servidor manualmente, podemos usar `form.submit()`.
 
 Entonces el evento `submit` no será generado. Se asume que si el programador llama `form.submit()`, entonces el script ya realizó todo el procesamiento relacionado.
 
-A veces es usado para crear y enviar un formlario manualmente, como en este ejemplo:
+A veces es usado para crear y enviar un formulario manualmente, como en este ejemplo:
 
 ```js run
 let form = document.createElement('form');

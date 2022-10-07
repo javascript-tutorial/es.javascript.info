@@ -1,14 +1,14 @@
-# Shadow DOM and events
+# Shadow DOM y eventos
 
-The idea behind shadow tree is to encapsulate internal implementation details of a component.
+La idea detrás del shadow tree es encapsular los detalles internos de implementación de un componente.
 
-Let's say, a click event happens inside a shadow DOM of `<user-card>` component. But scripts in the main document have no idea about the shadow DOM internals, especially if the component comes from a 3rd-party library.  
+Digamos que ocurre un evento click dentro de un shadow DOM del componente `<user-card>`. Pero los scripts en el documento principal no tienen idea acerca del interior del shadow DOM, especialmente si el componente es de una librería de terceros.  
 
-So, to keep the details encapsulated, the browser *retargets* the event.
+Entonces, para mantener los detalles encapsulados, el navegador *redirige* el evento.
 
-**Events that happen in shadow DOM have the host element as the target, when caught outside of the component.**
+**Los eventos que ocurren en el shadow DOM tienen el elemento host como objetivo cuando son atrapados fuera del componente.**
 
-Here's a simple example:
+Un ejemplo simple:
 
 ```html run autorun="no-epub" untrusted height=60
 <user-card></user-card>
@@ -30,16 +30,16 @@ document.onclick =
 </script>
 ```
 
-If you click on the button, the messages are:
+Si haces clic en el botón, los mensajes son:
 
-1. Inner target: `BUTTON` -- internal event handler gets the correct target, the element inside shadow DOM.
-2. Outer target: `USER-CARD` -- document event handler gets shadow host as the target.
+1. Inner target: `BUTTON` -- el manejador de evento interno obtiene el objetivo correcto, el elemento dentro del shadow DOM.
+2. Outer target: `USER-CARD` -- el manejador de evento del documento obtiene el shadow host como objetivo.
 
-Event retargeting is a great thing to have, because the outer document doesn't have to know  about component internals. From its point of view, the event happened on `<user-card>`.
+Tener la "redirección de eventos" es muy bueno, porque el documento externo no necesita tener conocimiento acerca del interior del componente. Desde su punto de vista, el evento ocurrió sobre `<user-card>`.
 
-**Retargeting does not occur if the event occurs on a slotted element, that physically lives in the light DOM.**
+**No hay redirección si el evento ocurre en un elemento eslotado (slot element), que físicamente se aloja en el "light DOM", el DOM visible.**
 
-For example, if a user clicks on `<span slot="username">` in the example below, the event target is exactly this `span` element, for both shadow and light handlers:
+Por ejemplo, si un usuario hace clic en `<span slot="username">` en el ejemplo siguiente, el objetivo del evento es precisamente ese elemento `span` para ambos manejadores, shadow y light.
 
 ```html run autorun="no-epub" untrusted height=60
 <user-card id="userCard">
@@ -65,19 +65,19 @@ userCard.onclick = e => alert(`Outer target: ${e.target.tagName}`);
 </script>
 ```
 
-If a click happens on `"John Smith"`, for both inner and outer handlers the target is `<span slot="username">`. That's an element from the light DOM, so no retargeting.
+Si un clic ocurre en `"John Smith"`, el target es `<span slot="username">` para ambos manejadores: el interno y el externo. Es un elemento del light DOM, entonces no hay redirección.
 
-On the other hand, if the click occurs on an element originating from shadow DOM, e.g. on `<b>Name</b>`, then, as it bubbles out of the shadow DOM, its `event.target` is reset to `<user-card>`.
+Por otro lado, si el clic ocurre en un elemento originalmente del shadow DOM, ej. en `<b>Name</b>`, entonces, como se propaga hacia fuera del shadow DOM, su `event.target` se reestablece a `<user-card>`.
 
-## Bubbling, event.composedPath()
+## Propagación, event.composedPath()
 
-For purposes of event bubbling, flattened DOM is used.
+Para el propósito de propagación de eventos, es usado un "flattened DOM" (DOM aplanado, fusión de light y shadow).
 
-So, if we have a slotted element, and an event occurs somewhere inside it, then it bubbles up to the `<slot>` and upwards.
+Así, si tenemos un elemento eslotado y un evento ocurre dentro, entonces se propaga hacia arriba a `<slot>` y más allá.
 
-The full path to the original event target, with all the shadow elements, can be obtained using `event.composedPath()`. As we can see from the name of the method, that path is taken after the composition.
+La ruta completa del destino original "event target", con todos sus elementos shadow, puede ser obtenida usando `event.composedPath()`. Como podemos ver del nombre del método, la ruta se toma despúes de la composición.
 
-In the example above, the flattened DOM is:
+En el ejemplo de arriba, el "flattened DOM" es:
 
 ```html
 <user-card id="userCard">
@@ -92,22 +92,22 @@ In the example above, the flattened DOM is:
 ```
 
 
-So, for a click on `<span slot="username">`, a call to `event.composedPath()` returns an array: [`span`, `slot`, `div`, `shadow-root`, `user-card`, `body`, `html`, `document`, `window`]. That's exactly the parent chain from the target element in the flattened DOM, after the composition.
+Entonces, para un clic sobre `<span slot="username">`, una llamada a `event.composedPath()` devuelve un array: [`span`, `slot`, `div`, `shadow-root`, `user-card`, `body`, `html`, `document`, `window`]. Que es precisamente la cadena de padres desde el elemento target en el flattened DOM, después de la composición.
 
-```warn header="Shadow tree details are only provided for `{mode:'open'}` trees"
-If the shadow tree was created with `{mode: 'closed'}`, then the composed path starts from the host: `user-card` and upwards.
+```warn header="Los detalles del árbol Shadow solo son provistos en árboles con `{mode:'open'}`"
+Si el árbol shadow fue creado con `{mode: 'closed'}`, la ruta compuesta comienza desde el host: `user-card` en adelante.
 
-That's the similar principle as for other methods that work with shadow DOM. Internals of closed trees are completely hidden.
+Este principio es similar a otros métodos que trabajan con el shadow DOM. El interior de árboles cerrados está completamente oculto.
 ```
 
 
 ## event.composed
 
-Most events successfully bubble through a shadow DOM boundary. There are few events that do not.
+La mayoría de los eventos se propagan exitosamente a través de los límites de un shadow DOM. Hay unos pocos eventos que no.
 
-This is governed by the `composed` event object property. If it's `true`, then the event does cross the boundary. Otherwise, it only can be caught from inside the shadow DOM.
+Esto está gobernado por la propiedad `composed` del objeto de evento. Si es `true`, el evento cruza los límites. Si no, solamente puede ser capturado dentro del shadow DOM.
 
-If you take a look at [UI Events specification](https://www.w3.org/TR/uievents), most events have `composed: true`:
+Vemos en la [especificación UI Events](https://www.w3.org/TR/uievents) que la mayoría de los eventos tienen `composed: true`:
 
 - `blur`, `focus`, `focusin`, `focusout`,
 - `click`, `dblclick`,
@@ -115,22 +115,22 @@ If you take a look at [UI Events specification](https://www.w3.org/TR/uievents),
 - `wheel`,
 - `beforeinput`, `input`, `keydown`, `keyup`.
 
-All touch events and pointer events also have `composed: true`.
+Todos los eventos de toque y puntero también tienen `composed: true`.
 
-There are some events that have `composed: false` though:
+Algunos eventos tienen `composed: false`:
 
-- `mouseenter`, `mouseleave` (they do not bubble at all),
+- `mouseenter`, `mouseleave` (que no se propagan en absoluto),
 - `load`, `unload`, `abort`, `error`,
 - `select`,
 - `slotchange`.
 
-These events can be caught only on elements within the same DOM, where the event target resides.
+Estos eventos solo pueden ser capturados dentro del mismo DOM, donde reside el evento target.
 
-## Custom events
+## Eventos personalizados
 
-When we dispatch custom events, we need to set both `bubbles` and `composed` properties to `true` for it to bubble up and out of the component.
+Cuando enviamos eventos personalizados, necesitamos establecer ambas propiedades `bubbles` y `composed` a `true` para que se propague hacia arriba y afuera del componente.
 
-For example, here we create `div#inner` in the shadow DOM of `div#outer` and trigger two events on it. Only the one with `composed: true` makes it outside to the document:
+Por ejemplo, aquí creamos `div#inner` en el shadow DOM de `div#outer` y disparamos dos eventos en él. Solo el que tiene `composed: true` logra salir hacia el documento:
 
 ```html run untrusted height=0
 <div id="outer"></div>
@@ -167,26 +167,26 @@ inner.dispatchEvent(new CustomEvent('test', {
 </script>
 ```
 
-## Summary
+## Resumen
 
-Events only cross shadow DOM boundaries if their `composed` flag is set to `true`.
+Los eventos solo cruzan los límites de shadow DOM si su bandera `composed` se establece como `true`.
 
-Built-in events mostly have `composed: true`, as described in the relevant specifications:
+La mayoría de los eventos nativos tienen `composed: true`, tal como se describe en las especificaciones relevantes:
 
-- UI Events <https://www.w3.org/TR/uievents>.
-- Touch Events <https://w3c.github.io/touch-events>.
-- Pointer Events <https://www.w3.org/TR/pointerevents>.
-- ...And so on.
+- Eventos UI <https://www.w3.org/TR/uievents>.
+- Eventos Touch  <https://w3c.github.io/touch-events>.
+- Eventos Pointer <https://www.w3.org/TR/pointerevents>.
+- ...y así.
 
-Some built-in events that have `composed: false`:
+Algunos eventos nativos que tienen `composed: false`:
 
-- `mouseenter`, `mouseleave` (also do not bubble),
+- `mouseenter`, `mouseleave` (que tampoco se propagan),
 - `load`, `unload`, `abort`, `error`,
 - `select`,
 - `slotchange`.
 
-These events can be caught only on elements within the same DOM.
+Estos eventos solo pueden ser capturados en elementos dentro del mismo DOM.
 
-If we dispatch a `CustomEvent`, then we should explicitly set `composed: true`.
+Si enviamos un evento personalizado `CustomEvent`, debemos establecer explícitamente `composed: true`.
 
-Please note that in case of nested components, one shadow DOM may be nested into another. In that case composed events bubble through all shadow DOM boundaries. So, if an event is intended only for the immediate enclosing component, we can also dispatch it on the shadow host and set `composed: false`. Then it's out of the component shadow DOM, but won't bubble up to higher-level DOM.
+Tenga en cuenta que en caso de componentes anidados, un shadow DOM puede estar anidado dentro de otro. En ese caso los eventos se propagan a través de los límites de todos los shadow DOM. Entonces, si se pretende que un evento sea solo para el componente inmediato que lo encierra, podemos enviarlo también en el shadow host y establecer `composed: false`. Entonces saldrá al shadow DOM del componente, pero no se propagará hacia un DOM de mayor nivel.

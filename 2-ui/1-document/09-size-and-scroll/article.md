@@ -1,12 +1,12 @@
-# Elementos de tamaño y desplazamiento
+# Tamaño de elementos y desplazamiento
 
-Estas son muchas de las propiedades de JavaScript que nos permiten leer información de los elementos sobre el ancho, alto y otras características geométricas.
+Hay muchas propiedades en JavaScript que nos permiten leer información sobre el ancho, alto y otras características geométricas de los elementos.
 
-Nosotros a menudo necesitamos de ellas cuando movemos o posicionamos un elemento en JavaScript.
+A menudo necesitamos de ellas cuando movemos o posicionamos un elemento en JavaScript.
 
 ## Elemento de muestra
 
-Como un elemento de muestra para demostrar las propiedades, usaremos el que se indica acontinuación:
+Como un elemento de muestra para demostrar las propiedades, usaremos el que se indica a continuación:
 
 ```html no-beautify
 <div id="example">
@@ -17,24 +17,24 @@ Como un elemento de muestra para demostrar las propiedades, usaremos el que se i
     width: 300px;
     height: 200px;
     border: 25px solid #E8C48F;
-    padding: 20px;              
-    overflow: auto;             
+    padding: 20px;
+    overflow: auto;
   }
 </style>
 ```
 
-Este tiene el borde, relleno y desplazamiento. El conjunto completo de funciones. No hay margenes, ya que no son parte del elemento en sí, y estos no tiene propiedades especiales.
+Este tiene borde, relleno y desplazamiento. El conjunto completo de funciones. No hay márgenes porque no son parte del elemento en sí, y no tienen propiedades especiales.
 
 El elemento tiene este aspecto:
 
 ![](metric-css.svg)
 
-Tu puedes [abrir el documento en la zona de pruebas](sandbox:metric).
+Puedes [abrir el documento en la zona de pruebas](sandbox:metric).
 
-```smart header="Mind the scrollbar"
-La imagen de arriba muestra el caso más complejo cuando el elemento tiene una barra de desplazamiento. Algunos navegadores (no todos) reservan espacio para tomarlo del contenido (etiquedado como "content width" arriba).
+```smart header="Atento a la barra de desplazamiento (scrollbar)"
+La imagen de arriba muestra el caso más complejo cuando el elemento tiene una barra de desplazamiento. Algunos navegadores (no todos) reservan espacio para tomarlo del contenido (el etiquetado como "content width" arriba).
 
-Entonces, sin la barra de desplazamiento el ancho del contenido sería `300px`, pero si la barra de desplazamiento tiene un ancho de `16px` (el ancho puede variar entre dispositivos y navegadores) entonces solo queda `300 - 16 = 284px`, y deberíamos tenerlo en cuenta. Es por eso que los ejemplos de este capítulo asumen que hay una barra de desplazamiento. Sin él, algunos cálculos son más sencillos.
+Entonces, sin la barra de desplazamiento el ancho del contenido sería `300px`, pero si la barra de desplazamiento tiene un ancho de `16px` (el ancho puede variar entre dispositivos y navegadores) entonces solo queda `300 - 16 = 284px`, y deberíamos tenerlo en cuenta. Es por eso que los ejemplos de este capítulo asumen que hay una barra de desplazamiento. Sin ella, algunos cálculos son más sencillos.
 ```
 
 ```smart header="El área `padding-bottom` puede estar lleno de texto"
@@ -43,29 +43,29 @@ Por lo general, los rellenos se muestran vacíos en nuestras ilustraciones, pero
 
 ## Geometría
 
-Aquí está la iamgen gereal con propiedades geométricas:
+Aquí está la imagen general con propiedades geométricas:
 
 ![](metric-all.svg)
 
-Los valores de estas propiedades son tecnicamente números, pero estos numeros son "de píxeles", así que estas son medidas de píxeles.
+Los valores de estas propiedades son técnicamente números, pero estos números son "de píxeles", así que estas son medidas de píxeles.
 
-Comencemos a explotar las propiedades, iniciando desde el interior del elemento.
+Comencemos a explotar las propiedades, iniciando desde el exterior del elemento.
 
 ## offsetParent, offsetLeft/Top
 
-Estas propiedades son raramente necesarias, pero aún son las propiedades de geometría "más externas", así que comenzaremos con ellas.
+Estas propiedades son raramente necesarias, pero aún son las propiedades de geometría "más externas" así que comenzaremos con ellas.
 
 El `offsetParent` es el antepasado más cercano que usa el navegador para calcular las coordenadas durante el renderizado.
 
 Ese es el antepasado más cercano que es uno de los siguientes:
 
-1. CSS-positioned (`position` is `absolute`, `relative`, `fixed` or `sticky`),  or
-2. `<td>`, `<th>`, or `<table>`,  or
+1. Posicionado por CSS (`position` es `absolute`, `relative`, `fixed` o `sticky`),  o...
+2. `<td>`, `<th>`, or `<table>`,  o...
 3. `<body>`.
 
 Las propiedades `offsetLeft/offsetTop` proporcionan coordenadas x/y relativas a la esquina superior izquierda de `offsetParent`.
 
-En el siguiente ejemplo el `<div>` interno tiene `<main>` como `offsetParent` y `offsetLeft/offsetTop` se desplaza desde su esquina superior izquierda (`180`):
+En el siguiente ejemplo el `<div>` más interno tiene `<main>` como `offsetParent`, y `offsetLeft/offsetTop` lo desplaza desde su esquina superior izquierda (`180`):
 
 ```html run height=10
 <main style="position: relative" id="main">
@@ -75,16 +75,16 @@ En el siguiente ejemplo el `<div>` interno tiene `<main>` como `offsetParent` y 
 </main>
 <script>
   alert(example.offsetParent.id); // main
-  alert(example.offsetLeft); // 180 (note: a number, not a string "180px")
+  alert(example.offsetLeft); // 180 (nota: es un número, no un string "180px")
   alert(example.offsetTop); // 180
 </script>
 ```
 
 ![](metric-offset-parent.svg)
 
-Hay varias ocaciones en la que `offsetParent` es `null`:
+Hay varias ocasiones en la que `offsetParent` es `null`:
 
-1. Para elmentos no mostrados (`display:none` o no en el documento).
+1. Para elementos no mostrados (`display:none` o no en el documento).
 2. Para `<body>` y `<html>`.
 3. Para elementos con `position:fixed`.
 
@@ -101,12 +101,12 @@ Para nuestro elemento de muestra:
 - `offsetWidth = 390` -- el ancho exterior, puede ser calculado como CSS-width interno (`300px`) más acolchonados (`2 * 20px`) y bordes (`2 * 25px`).
 - `offsetHeight = 290` -- el alto exterior.
 
-````smart header="Geometry properties are zero/null for elements that are not displayed"
-Las propiedades geomátricas son calculadas solo para elementos mostrados.
+````smart header="Las propiedades geométricas para elementos no mostrados son cero o null"
+Las propiedades geométricas son calculadas solo para elementos mostrados.
 
 En un elemento (o cualquiera de sus antepasados) tiene `display:none` o no está en el documento, entonces las propiedades geométricas son cero (o `null` para `offsetParent`).
 
-Por ejemplo, `offsetParent` es `null`, y `offsetWidth`, `offsetHeight` son `0` cuando creamos un elemento, pero aún no lo han insertado en el documento, o eso (o su antecesor) tiene `display:none`.
+Por ejemplo, `offsetParent` es `null`, y `offsetWidth`, `offsetHeight` son `0` cuando creamos un elemento pero aún no lo han insertado en el documento, o cuando éste (o su ancestro) tiene `display:none`.
 
 Nosotros podemos usar esto para verificar si un elemento está oculto, así: 
 
@@ -116,12 +116,12 @@ function isHidden(elem) {
 }
 ```
 
-Por favor ten en cuenta que `isHidden` retorna `true` para elementos que están en pantalla, pero tienen tamaño cero (como un `<div>` vacío).
+Observa que tal `isHidden` devuelve `true` para elementos que están en pantalla pero tienen tamaño cero.
 ````
 
 ## clientTop/Left
 
-Dentro del elemento, nosotros tenemos los bordes.
+Dentro del elemento, tenemos los bordes.
 
 Para medirlos, están las propiedades `clientTop` y `clientLeft`.
 
@@ -132,13 +132,13 @@ En nuestro ejemplo:
 
 ![](metric-client-left-top.svg)
 
-...Para ser precisos -- Estas propiedades no son el ancho/alto del borde, sino las coordenadas relativas del lado interior del lado exterior.
+... pero para ser precisos: estas propiedades no son el ancho/alto del borde sino las coordenadas relativas del lado interior respecto al lado exterior.
 
-Cuál es la diferencia?
+¿Cuál es la diferencia?
 
-Se vuelve visible cuando el documento está de derecha a izquierda (el sistema operativo está en idioma Árabe o Hebreo). La barra de desplazamiento no está a la derecha, sino a la izquierda, y luego `clientLeft` también incluye el ancho de la barra de desplazamiento.
+Esto se vuelve evidente cuando el documento está de derecha a izquierda (con el sistema operativo en idioma árabe, o hebreo). La barra de desplazamiento no está a la derecha sino a la izquierda, entonces `clientLeft` también incluye el ancho de la barra de desplazamiento.
 
-En este caso, `clientLeft` no sería `25`, pero con ancho de la barra de desplazamiento `25 + 16 = 41`.
+En este caso, `clientLeft` no es `25`, sino que se suma el ancho de la barra de desplazamiento `25 + 16 = 41`.
 
 Aquí está el ejemplo en hebreo:
 
@@ -146,7 +146,7 @@ Aquí está el ejemplo en hebreo:
 
 ## clientWidth/Height
 
-Esta propiedad proporciona el tamaño del área dentro del los bordes del elemento.
+Esta propiedad proporciona el tamaño del área dentro de los bordes del elemento.
 
 Incluyen el ancho del contenido junto con los rellenos, pero sin la barra de desplazamiento:
 
@@ -154,9 +154,9 @@ Incluyen el ancho del contenido junto con los rellenos, pero sin la barra de des
 
 En la imagen de arriba, consideramos primero `clientHeight`.
 
-No hay barra de desplazamiento horizontal, por lo que es exactamente la suma de lo que está dentro de los bordes: CSS-height `200px` más relleno superior e inferior (`2 * 20px`) total `240px`.
+No hay una barra de desplazamiento horizontal, por lo que es exactamente la suma de lo que está dentro de los bordes: CSS-height `200px` más el relleno superior e inferior (`2 * 20px`) totaliza `240px`.
 
-Ahora `clientWidth` -- aquí el ancho del contenido no es `300px`, sino `284px`, porque los `16px` son ocupados por la barra de desplazamiento. Entonces la suma es `284px` más los rellenos de izquierda y derecha, total `324px`.
+Ahora `clientWidth`: aquí el ancho del contenido no es `300px`, sino `284px`, porque los `16px` son ocupados por la barra de desplazamiento. Entonces la suma es `284px` más los rellenos de izquierda y derecha, total `324px`.
 
 **Si no hay rellenos, entonces `clientWidth/Height` es exactamente el área de contenido, dentro de los bordes y la barra de desplazamiento (si la hay).**
 
@@ -173,7 +173,7 @@ Estas propiedades son como `clientWidth/clientHeight`, pero también incluyen la
 En la imagen de arriba:
 
 - `scrollHeight = 723` -- es la altura interior completa del área de contenido, incluyendo las partes desplazadas.
-- `scrollWidth = 324` -- es el ancho interior completo, aqui no tenemos desplazamiento horizontal, por lo que es igual a `clientWidth`.
+- `scrollWidth = 324` -- es el ancho interior completo, aquí no tenemos desplazamiento horizontal, por lo que es igual a `clientWidth`.
 
 Podemos usar estas propiedades para expandir el elemento a su ancho/alto completo.
 
@@ -214,13 +214,13 @@ Si haces clic en el elemento de abajo, se ejecuta el código `elem.scrollTop += 
 Establecer `scrollTop` en `0` o un valor grande, como `1e9` hará que el elemento se desplace hacia arriba/abajo respectivamente.
 ````
 
-## No uses width/height de CSS
+## No uses width/height obtenidos de CSS
 
 Acabamos de cubrir las propiedades geométricas de los elementos DOM, que se pueden usar para obtener anchos, alturas y calcular distancias.
 
 Pero como sabemos por el capítulo <info:styles-and-classes>, podemos leer CSS-height y width usando `getComputedStyle`.
 
-Entonces, ¿Por qué no leer el ancho de un elemento con `getComputedStyle`, como este?
+Entonces, ¿Por qué no leer el ancho de un elemento con `getComputedStyle` como aquí?
 
 ```js run
 let elem = document.body;
@@ -245,7 +245,7 @@ alert( getComputedStyle(elem).width ); // muestra CSS width por elemento
 
     Desde el punto de vista de CSS, `width:auto` es perfectamente normal, pero en JavaScript necesitamos un tamaño exacto en `px` que podríamos usar en los cálculos. Entonces, aquí el ancho de CSS width es inútil.
 
-Y hay una razón más: una barra de desplazamiento. A veces, el código que funcionaba bien sin una barra de desplazamiento tiene errores, porque una barra de desplazmiento toma el espacio del contenido en algunos navegadores. Entonces, el ancho real disponible para el contenido es *menor* que el ancho de CSS. Y `clientWidth/clientHeight` tiene eso en cuenta.
+Y hay una razón más: una barra de desplazamiento. A veces, el código que funcionaba bien sin una barra de desplazamiento tiene errores, porque una barra de desplazamiento toma el espacio del contenido en algunos navegadores. Entonces, el ancho real disponible para el contenido es *menor* que el ancho de CSS. Y `clientWidth/clientHeight` tiene eso en cuenta.
 
 ...Pero con `getComputedStyle(elem).width` la situación es diferente. Algunos navegadores (p.e. Chrome) devuelven el ancho interno real, menos la barra de desplazamiento, y algunos de ellos (p.e. Firefox) -- CSS width (ignora la barra de desplazamiento). Estas diferencias entre los navegadores son la razón para no usar `getComputedStyle`, sino confiar en las propiedades geométricas.
 

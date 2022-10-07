@@ -3,7 +3,7 @@
 
 Como hemos visto, una barra invertida `pattern:\` se usa para denotar clases de caracteres, p.ej. `pattern:\d`. Por lo tanto, es un carácter especial en expresiones regulares (al igual que en las cadenas regulares).
 
-También hay otros caracteres especiales que tienen un significado especial en una expresión regular. Se utilizan para hacer búsquedas más potentes. Aquí hay una lista completa de ellos: `pattern:[ \ ^ $ . | ? * + ( )`.
+También hay otros caracteres especiales que tienen un significado especial en una expresión regular, tales como `pattern:[ ] { } ( ) \ ^ $ . | ? * +`. Se utilizan para hacer búsquedas más potentes.
 
 No intentes recordar la lista: pronto nos ocuparemos de cada uno de ellos por separado y los recordarás fácilmente.
 

@@ -100,7 +100,7 @@ Como ya vimos, el `.catch` del final es similar a `try..catch`. Podemos tener ta
 
 En un `try..catch` normal, podemos analizar el error y quizá volver a lanzarlo si no se puede manejar. Lo mismo podemos hacer con las promesas.
 
-Si hacemos `throw` dentro de `.catch`, el control pasa a otro manejador de errores más cercano. Y, si manejamos el error y terminamos de forma correcta, entonces se continúa con el siguiente manejador `.then` existoso.
+Si hacemos `throw` dentro de `.catch`, el control pasa a otro manejador de errores más cercano. Y, si manejamos el error y terminamos de forma correcta, entonces se continúa con el siguiente manejador `.then` exitoso.
 
 En el ejemplo de abajo, el `.catch` maneja el error de forma exitosa:
 
@@ -117,7 +117,7 @@ new Promise((resolve, reject) => {
 }).then(() => alert("El siguiente manejador exitoso se ejecuta"));
 ```
 
-Aqui el `.catch` termina de forma correcta. Entonces se ejecuta el siguiente manejador exitoso `.then`.
+Aquí el `.catch` termina de forma correcta. Entonces se ejecuta el siguiente manejador exitoso `.then`.
 
 En el siguiente ejemplo podemos ver otra situación con `.catch`. El manejador `(*)` detecta el error y simplemente no puede manejarlo (en el ejemplo solo sabe que hacer con un `URIError`), por lo que lo lanza nuevamente:
 
@@ -130,7 +130,7 @@ new Promise((resolve, reject) => {
 }).catch(function(error) { // (*)
 
   if (error instanceof URIError) {
-    // Aqui se manejaría el error
+    // Aquí se manejaría el error
   } else {
     alert("No puedo manejar este error");
 
@@ -160,7 +160,7 @@ new Promise(function() {
   noSuchFunction(); // Aquí hay un error (no existe la función)
 })
   .then(() => {
-    // manejador de una o más promesas existosas
+    // manejador de una o más promesas exitosas
   }); // sin .catch al final!
 ```
 
@@ -199,6 +199,7 @@ En entornos fuera del navegador como Node.js existen otras formas de rastrear er
 ## Resumen
 
 - `.catch` maneja errores de todo tipo: ya sea una llamada a `reject()`, o un error que arroja un manejador.
-- Debemos colocar `.catch` exáctamente en los lugares donde queremos manejar los errores y saber como manejarlos. El manejador analiza los errores (los errores personalizados) y, (en caso de no conocerse la razón del error) se lanzan los errores desconocidos (tal vez sean errores de programación).
-- Está bien no usar siempre `.catch`, si no hay forma de recuperarse de un error.
-- En cualquier caso, deberíamos tener el evento `unhandledrejection` (para navegadores, o el equivalente en otros entornos) para rastrear errores no manejados e informar al usuario (y probablemente al servidor) para que nuestra aplicación nunca "simplemente muera".
+- `.then` también atrapa los errores de la misma manera si se le da el segundo argumento (que es el manejador de error).
+- Debemos colocar `.catch` exactamente en los lugares donde queremos manejar los errores y saber cómo manejarlos. El manejador debe analizar los errores (los errores personalizados ayudan), y relanzar los errores desconocidos (tal vez sean errores de programación).
+- Es correcto no usar `.catch` en absoluto si no hay forma de recuperarse de un error.
+- En cualquier caso, deberíamos tener el evento `unhandledrejection` (para navegadores, o el equivalente en otros entornos) para monitorear errores no manejados e informar al usuario (y probablemente al servidor) para que nuestra aplicación nunca "simplemente muera".

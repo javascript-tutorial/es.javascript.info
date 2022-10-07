@@ -102,7 +102,7 @@ table.onclick = function(event) {
 Explicación:
 1. El método `elem.closest(selector)` devuelve el ancestro más cercano que coincide con el selector. En nuestro caso buscamos `<td>` hacia arriba desde el elemento de origen.
 2. Si `event.target` no ocurrió dentro de algún `<td>`, el llamado retorna inmediatamente pues no hay nada que hacer.
-3. En caso de tablas anidadas, `event.target` podría ser un `<td>` pero fuera de la tabla actual. Entonces verificamos que sea realmente un `<td>` de *nuestra tabla*.
+3. En caso de tablas anidadas, `event.target` podría ser un `<td>`, pero fuera de la tabla actual. Entonces verificamos que sea realmente un `<td>` de *nuestra tabla*.
 4. Y, si es así, destacarla.
 
 Como resultado, tenemos un código de realzado rápido y eficiente al que no le afecta la cantidad total de `<td>` en la tabla.

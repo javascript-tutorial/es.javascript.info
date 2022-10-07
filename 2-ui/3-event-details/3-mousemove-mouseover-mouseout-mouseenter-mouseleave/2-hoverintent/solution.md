@@ -1,6 +1,6 @@
 
-El algorítmo luce simple:
-1. Coloca los controladores `onmouseover/out` en el elemento. Aquí también podemos usar `onmouseenter/leave` pero son menos universales, no funcionan si introducimos delegaciones.
+El algoritmo se ve simple:
+1. Coloca los controladores `onmouseover/out` en el elemento. Aquí también podemos usar `onmouseenter/leave`, pero son menos universales, no funcionan si introducimos delegaciones.
 2. Cuando el cursor ingrese al elemento debes medir la velocidad en `mousemove`.
 3. Si la velocidad es lenta hay que ejecutar `over`.
 4. Si estamos saliendo del elemento, y `over` ya se había ejecutado, ahora ejecutamos `out`.

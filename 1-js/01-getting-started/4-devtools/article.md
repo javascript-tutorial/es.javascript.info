@@ -2,7 +2,7 @@
 
 El código es propenso a errores. Es muy probable que cometas errores ... Oh, ¿de qué estoy hablando? *Definitivamente* vas a cometer errores, al menos si eres un humano, no un [robot](https://en.wikipedia.org/wiki/Bender_(Futurama)).
 
-Pero en el navegador, por defecto los usuarios no ven errores. Entonces, si algo sale mal en el script, no veremos lo que está roto y no podemos arreglarlo.
+Pero el navegador, de forma predeterminada, no muestra los errores al usuario. Entonces si algo sale mal en el script, no veremos lo que está roto y no podemos arreglarlo.
 
 Para ver los errores y obtener mucha otra información útil sobre los scripts, se han incorporado "herramientas de desarrollo" en los navegadores.
 

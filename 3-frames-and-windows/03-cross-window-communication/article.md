@@ -116,6 +116,13 @@ document.domain = 'site.com';
 
 Eso es todo. Ahora pueden interactuar sin limitaciones. Nuevamente, eso solo es posible para páginas con el mismo dominio de segundo nivel.
 
+```warn header="Obsoleto, pero aún funcionando"
+La propiedad `document.domain` está en proceso de ser removido de la [especificación](https://html.spec.whatwg.org/multipage/origin.html#relaxing-the-same-origin-restriction). Los mensajería cross-window  (explicado pronto más abajo) es el reemplazo sugerido.
+
+Dicho esto, hasta ahora todos los navegadores lo soportan. Y tal soporte será mantenido en el futuro, para no romper el código existente que se apoya en `document.domain`.
+```
+
+
 ## Iframe: trampa del documento incorrecto
 
 Cuando un iframe proviene del mismo origen y podemos acceder a su `document`, existe una trampa. No está relacionado con cross-origin, pero es importante saberlo.
@@ -268,7 +275,7 @@ Argumentos:
 `targetOrigin`
 : Especifica el origen de la ventana de destino, de modo que solo una ventana del origen dado recibirá el mensaje.
 
-El argumento "targetOrigin" es una medida de seguridad. Recuerde, si la ventana de destino proviene de otro origen, no podemos leer su `location` en la ventana del remitente. Por lo tanto, no podemos estar seguros de qué sitio está abierto en la ventana deseada en este momento: el usuario podría navegar fuera y la ventana del remitente no tiene idea de ello.
+El argumento "targetOrigin" es una medida de seguridad. Recuerde que si la ventana de destino proviene de otro origen, no podemos leer su `location` en la ventana del remitente. Por lo tanto, no podemos estar seguros qué sitio está abierto en la ventana deseada en este momento: el usuario podría navegar fuera del sitio y la ventana del remitente no tener idea de ello.
 
 Especificar `targetOrigin` asegura que la ventana solo reciba los datos si todavía está en el sitio correcto. Importante cuando los datos son sensibles.
 

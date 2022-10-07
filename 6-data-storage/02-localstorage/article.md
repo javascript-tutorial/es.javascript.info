@@ -6,11 +6,11 @@ Lo que es interesante sobre ellos es que los datos sobreviven a una recarga de p
 
 Ya tenemos cookies. ¿Por qué tener objetos adicionales?
 
-- Al contrario que las cookies, los objetos de almacenaje web no se envian al servidor en cada petición. Debido a esto, podemos almacenar mucha más información. La mayoría de navegadores permiten almacenar, como mínimo, 2 megabytes de datos (o más) y tienen opciones para configurar éstos límites.
-- El servidor no puede manipular los objetos de almacenaje via cabeceras HTTP, todo se hace via JavaScript.
+- Al contrario que las cookies, los objetos de almacenaje web no se envían al servidor en cada petición. Debido a esto, podemos almacenar mucha más información. La mayoría de los navegadores modernos permiten almacenar, como mínimo, 5 megabytes de datos y tienen opciones para configurar estos límites.
+- También diferente de las cookies es que el servidor no puede manipular los objetos de almacenaje via cabeceras HTTP, todo se hace via JavaScript.
 - El almacenaje está vinculado al orígen (al triplete dominio/protocolo/puerto). Esto significa que distintos protocolos o subdominios tienen distintos objetos de almacenaje, no pueden acceder a otros datos que no sean los suyos.
 
-Ámbos objetos de almacenaje proveen los mismos métodos y propiedades:
+Ambos objetos de almacenaje proveen los mismos métodos y propiedades:
 
 - `setItem(clave, valor)` -- almacenar un par clave/valor.
 - `getItem(clave)` -- obtener el valor por medio de la clave.
@@ -19,7 +19,7 @@ Ya tenemos cookies. ¿Por qué tener objetos adicionales?
 - `key(índice)` -- obtener la clave de una posición dada.
 - `length` -- el número de ítems almacenados.
 
-Como puedes ver, es como una colección `Map` (`setItem/getItem/removeItem`), pero también permite el accesso a través de index con `key(index)`.
+Como puedes ver, es como una colección `Map` (`setItem/getItem/removeItem`), pero también permite el acceso a través de index con `key(index)`.
 
 Vamos a ver cómo funciona.
 
@@ -27,15 +27,15 @@ Vamos a ver cómo funciona.
 
 Las principales funcionalidades de `localStorage` son:
 
-- Es compartido entre todas las pestañas y ventanas del mismo orígen.
-- Los datos no expiran. Persisten reinicios de navegador y hasta del sistema operativo.
+- Es compartido entre todas las pestañas y ventanas del mismo origen.
+- Los datos no expiran. Persisten a los reinicios de navegador y hasta del sistema operativo.
 
 Por ejemplo, si ejecutas éste código...
 ```js run
 localStorage.setItem('test', 1);
 ```
 
-... y cierras/abres el navegador, o simplemente abres la misma página en otra ventana, puedes cojer el ítem que hemos guardado de éste modo:
+... y cierras/abres el navegador, o simplemente abres la misma página en otra ventana, puedes coger el ítem que hemos guardado de este modo:
 
 ```js run
 alert( localStorage.getItem('test') ); // 1
@@ -47,13 +47,13 @@ Solo tenemos que estar en el mismo dominio/puerto/protocolo, la url puede ser di
 
 ## Acceso tipo Objeto
 
-Tambien podemos utilizar un modo de acceder/guardar claves del mismo modo que se hace con objetos, así:
+También podemos utilizar un modo de acceder/guardar claves del mismo modo que se hace con objetos, así:
 
 ```js run
 // guarda una clave
 localStorage.test = 2;
 
-// coje una clave
+// coge una clave
 alert( localStorage.test ); // 2
 
 // borra una clave
@@ -62,7 +62,8 @@ delete localStorage.test;
 
 Esto se permite por razones históricas, y principalmente funciona, pero en general no se recomienda por dos motivos:
 
-1. Si la clave es generada por el usuario, puede ser cualquier cosa, como `length` o `toString`, u otro método propio de `localStorage`. En este caso `getItem/setItem` funcionan correctamente, mientras que el acceso tipo objeto falla;
+1. Si la clave es generada por el usuario, puede ser cualquier cosa, como `length` o `toString`, u otro método propio de `localStorage`. En este caso `getItem/setItem` funcionan correctamente, pero el acceso de simil-objeto falla;
+
     ```js run
     let key = 'length';
     localStorage[key] = 5; // Error, no se puede asignar 'length'
@@ -125,17 +126,17 @@ Hay que tener en cuenta que tanto la clave como el valor deben ser strings.
 Cualquier otro tipo, como un número o un objeto, se convierte a cadena de texto automáticamente:
 
 ```js run
-sessionStorage.user = {name: "John"};
-alert(sessionStorage.user); // [object Object]
+localStorage.user = {name: "John"};
+alert(localStorage.user); // [object Object]
 ```
 
 A pesar de eso, podemos utilizar `JSON` para almacenar objetos:
 
 ```js run
-sessionStorage.user = JSON.stringify({name: "John"});
+localStorage.user = JSON.stringify({name: "John"});
 
 // en algún momento más tarde
-let user = JSON.parse( sessionStorage.user );
+let user = JSON.parse( localStorage.user );
 alert( user.name ); // John
 ```
 
@@ -145,7 +146,6 @@ También es posible pasar a texto todo el objeto de almacenaje, por ejemplo para
 // se ha añadido opciones de formato a JSON.stringify para que el objeto se lea mejor
 alert( JSON.stringify(localStorage, null, 2) );
 ```
-
 
 ## sessionStorage
 
@@ -178,7 +178,7 @@ Esto es exactamente porque `sessionStorage` no está vinculado solamente al orí
 
 ## Evento storage
 
-Cuando los datos se actualizan en `localStorage` o en `sessionStorage`, el evento se dispara [storage](https://www.w3.org/TR/webstorage/#the-storage-event) con las propiedades:
+Cuando los datos se actualizan en `localStorage` o en `sessionStorage`, se dispara el evento [storage](https://html.spec.whatwg.org/multipage/webstorage.html#the-storageevent-interface) con las propiedades:
 
 - `key` – la clave que ha cambiado, (`null` si se llama `.clear()`).
 - `oldValue` – el anterior valor (`null` si se añade una clave).
@@ -200,7 +200,7 @@ Si ambas ventanas están escuchando el evento `window.onstorage`, cada una reacc
 
 ```js run
 // se dispara en actualizaciones hechas en el mismo almacenaje, desde otros documentos
-window.onstorage = event => {  // igual que en window.addEventListener('storage', event => {
+window.onstorage = event => {  // también puede usar window.addEventListener('storage', event => {
   if (event.key != 'now') return;
   alert(event.key + ':' + event.newValue + " at " + event.url);
 };
@@ -219,10 +219,11 @@ Los navegadores modernos también soportan la [API de Broadcast channel API](htt
 ## Resumen
 
 Los objetos de almacenaje web `localStorage` y `sessionStorage` permiten guardar pares de clave/valor en el navegador.
-- Tanto la `clave` como el `valor` deben ser strings, cadenas de texto.
-- El límite es de más de 5mb+; depende del navegador.
+
+- Tanto la `clave` como el `valor` deben ser strings.
+- El límite es de más de 5mb+, dependiendo del navegador.
 - No expiran.
-- Los datos están vinculados al orígen (domínio/puerto/protocolo).
+- Los datos están vinculados al origen (dominio/puerto/protocolo).
 
 | `localStorage` | `sessionStorage` |
 |----------------|------------------|
@@ -232,10 +233,10 @@ Los objetos de almacenaje web `localStorage` y `sessionStorage` permiten guardar
 API:
 
 - `setItem(clave, valor)` -- guarda pares clave/valor.
-- `getItem(clave)` -- coje el valor de una clave.
+- `getItem(clave)` -- coge el valor de una clave.
 - `removeItem(clave)` -- borra una clave con su valor.
 - `clear()` -- borra todo.
-- `key(índice)` -- coje la clave en una posición determinada.
+- `key(índice)` -- coge la clave en una posición determinada.
 - `length` -- el número de ítems almacenados.
 - Utiliza `Object.keys` para conseguir todas las claves.
 - Puede utilizar las claves como propiedades de objetor, pero en ese caso el evento `storage` no se dispara

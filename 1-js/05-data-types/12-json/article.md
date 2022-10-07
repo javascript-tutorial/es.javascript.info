@@ -4,7 +4,7 @@ Digamos que tenemos un objeto complejo y nos gustaría convertirlo en un string 
 
 Naturalmente, tal string debe incluir todas las propiedades importantes.
 
-Podríamos implementar la conversión de ésta manera:
+Podríamos implementar la conversión de esta manera:
 
 ```js run
 let user = {
@@ -21,13 +21,13 @@ let user = {
 alert(user); // {name: "John", age: 30}
 ```
 
-...Pero en el proceso de desarrollo, se agregan nuevas propiedades, viejas propiedades son renombradas y eliminadas. Actualizar el `toString` todas las veces puede ser un dolor. Podemos intentar recorrer las propiedades, pero ¿qué pasa si el objeto es complejo y tiene objetos anidados en las propiedades? Vamos a necesitar implementar su conversión también.
+...Pero en el proceso de desarrollo se agregan nuevas propiedades, y otras son renombradas y eliminadas. Actualizar el `toString` cada vez se vuelve penoso. Podemos intentar recorrer las propiedades, pero ¿qué pasa si el objeto es complejo y tiene objetos anidados en las propiedades? Vamos a necesitar implementar su conversión también.
 
 Por suerte no hay necesidad de escribir el código para manejar todo esto. La tarea ya ha sido resuelta.
 
 ## JSON.stringify
 
-[JSON](https://es.wikipedia.org/wiki/JSON) (Notación de objeto JavaScript) es un formato general para representar valores y objetos. Se lo describe como en el estándar [RFC 4627](http://tools.ietf.org/html/rfc4627). En un principio fue creado para Javascript pero varios lenguajes tienen librerias para manejarlo también. Por lo tanto es fácil utilizar JSON para intercambio de información cuando el cliente utiliza JavaScript y el servidor está escrito en Ruby/PHP/Java/Lo que sea.
+[JSON](https://es.wikipedia.org/wiki/JSON) (Notación de objeto JavaScript) es un formato general para representar valores y objetos. Se lo describe como el estándar [RFC 4627](http://tools.ietf.org/html/rfc4627). En un principio fue creado para Javascript, pero varios lenguajes tienen librerías para manejarlo también. Por lo tanto es fácil utilizar JSON para intercambio de información cuando el cliente utiliza JavaScript y el servidor está escrito en Ruby, PHP, Java, lo que sea.
 
 JavaScript proporciona métodos:
 
@@ -41,7 +41,7 @@ let student = {
   age: 30,
   isAdmin: false,
   courses: ['html', 'css', 'js'],
-  wife: null
+  spouse: null
 };
 
 *!*
@@ -58,7 +58,7 @@ alert(json);
   "age": 30,
   "isAdmin": false,
   "courses": ["html", "css", "js"],
-  "wife": null
+  "spouse": null
 }
 */
 */!*
@@ -146,7 +146,7 @@ alert( JSON.stringify(meetup) );
 */
 ```
 
-La limitación importante: no debe existir referencias circulares.
+La limitación importante: no deben existir referencias circulares.
 
 Por ejemplo:
 
@@ -453,7 +453,7 @@ Además, JSON no admite comentarios. Agregar un comentario a JSON lo hace invál
 
 Existe otro formato llamado [JSON5](http://json5.org/), que permite propiedades sin comillas, comentarios, etcétera. Pero es una librería independiente, no una especificación del lenguaje.
 
-El JSON normal es tan estricto no porque sus desarrolladores sean flojos, sino para permitir la implementación fácil, confiable y muy rápida del algorimo analizador.
+El JSON normal es tan estricto no porque sus desarrolladores sean flojos, sino para permitir la implementación fácil, confiable y muy rápida del algoritmo analizador.
 
 ## Utilizando reactivador
 
@@ -484,7 +484,7 @@ alert( meetup.date.getDate() ); // Error!
 
 El valor de `meetup.date` es un string, no un objeto `Date`. Cómo puede saber `JSON.parse` que debe transformar ese string a una `Date`?
 
-Le pasemos a `JSON.parse` la función reactivadora como el segundo argumento, esto devuelve todos los valores "tal cual" pero `date` se convertirá en una `Date`:
+Le pasemos a `JSON.parse` la función reactivadora como el segundo argumento, esto devuelve todos los valores "tal cual", pero `date` se convertirá en una `Date`:
 
 ```js run
 let str = '{"title":"Conference","date":"2017-11-30T12:00:00.000Z"}';
@@ -525,6 +525,6 @@ alert( schedule.meetups[1].date.getDate() ); // ¡Funciona!
 
 - JSON es un formato de datos que tiene su propio estándar independiente y librerías para la mayoría de los lenguajes de programación.
 - JSON admite objetos simples, arrays, strings, números, booleanos y `null`.
-- JavaScript proporciona métodos [JSON.stringify](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/JSON/stringify) para serializar en JSON y [JSON.parse](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse) para leer desde JSON.
-- Ambos métodos admiten funciones transformadoras para lectura / escritura inteligente.
+- JavaScript proporciona los métodos [JSON.stringify](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/JSON/stringify) para serializar en JSON y [JSON.parse](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse) para leer desde JSON.
+- Ambos métodos admiten funciones transformadoras para lectura/escritura inteligente.
 - Si un objeto tiene `toJSON`, entonces es llamado por` JSON.stringify`.

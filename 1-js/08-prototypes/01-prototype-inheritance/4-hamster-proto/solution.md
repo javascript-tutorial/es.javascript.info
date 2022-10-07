@@ -2,15 +2,15 @@ Echemos un vistazo a lo que sucede en la llamada `speedy.eat("manzana")`.
 
 1. El método `speedy.eat` se encuentra en el prototipo (`=hamster`), luego se ejecuta con `this=speedy` (el objeto antes del punto).
 
-2. Entonces `this.stomach.push()` necesita encontrar la propiedad `stomach` y llamar a `push` sobre ella. Busca `stomach` en `this` (`=speedy`), pero no se encuentra nada.
+2. Entonces `this.stomach.push()` necesita encontrar la propiedad `stomach` y llamar a `push` sobre ella. Busca `stomach` en `this` (`=speedy`), pero no lo encuentra.
 
-3. Luego sigue la cadena del prototipo y encuentra `stomach` en `hamster`.
+3. Luego la búsqueda sigue la cadena del prototipo y encuentra `stomach` en `hamster`.
 
 4. Luego se llama 'push' en él, agregando la comida en *el stomach del prototipo*.
 
 ¡Así que todos los hámsters comparten un solo estómago!
 
-Tanto para `lazy.stomach.push(...)` como para `speedy.stomach.push ()`, la propiedad `stomach` se encuentra en el prototipo (ya que no está en el objeto mismo), entonces los nuevos datos son empujado hacia dentro.
+Tanto para `lazy.stomach.push(...)` como para `speedy.stomach.push ()`, la propiedad `stomach` se encuentra en el prototipo (ya que no está en el objeto mismo), entonces los nuevos datos son empujados dentro.
 
 Tenga en cuenta que tal cosa no sucede en caso de una asignación simple `this.stomach=`:
 
@@ -38,7 +38,7 @@ let lazy = {
 speedy.eat("manzana");
 alert( speedy.stomach ); // manzana
 
-// El estomago de Lazy está vacio
+// El estomago de Lazy está vacío
 alert( lazy.stomach ); // <nada>
 ```
 
@@ -73,7 +73,7 @@ let lazy = {
 speedy.eat("manzana");
 alert( speedy.stomach ); // manzana
 
-// El estómago de Lazy está vacio
+// El estómago de Lazy está vacío
 alert( lazy.stomach ); // <nada>
 ```
-Como solución común, todas las propiedades que describen el estado de un objeto en particular, como el "stomach" anterior, deben escribirse en ese objeto. Eso evita tales problemas.
+Ls solución general es: todas las propiedades que describen el estado de un objeto en particular, como el "stomach" anterior, deben escribirse en ese objeto. Eso evita tales problemas.

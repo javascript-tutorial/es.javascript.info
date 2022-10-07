@@ -17,7 +17,7 @@ new Blob(blobParts, opciones);
 - **`blobParts`** es un array de valores `Blob`/`BufferSource`/`String`.
 - **`opciones`** objeto opcional:
   - **`tipo`** -- `Blob`, usualmente un tipo MIME, por ej. `image/png`,
-  - **`endings`** -- para transformar los finales de línea para hacer que el `Blob` coincida con los carácteres de nueva línea del Sistema Operativo actual (`\r\n` or `\n`). Por omisión es `"transparent"` (no hacer nada), pero también puede ser `"native"` (transformar).
+  - **`endings`** -- para transformar los finales de línea para hacer que el `Blob` coincida con los caracteres de nueva línea del Sistema Operativo actual (`\r\n` or `\n`). Por omisión es `"transparent"` (no hacer nada), pero también puede ser `"native"` (transformar).
 
 Por ejemplo:
 
@@ -50,7 +50,7 @@ Los argumentos son similares a `array.slice`, los números negativos también so
 ```smart header="los objetos `Blob` son inmutables"
 No podemos cambiar datos directamente en un `Blob`, pero podemos obtener partes de un `Blob`, crear nuevos objetos `Blob` a partir de ellos, mezclarlos en un nuevo `Blob` y así por el estilo.
 
-Este comportamiento es similar a las cadenas de JavaScript: no podemos cambiar un caractér en una cadena, pero podemos hacer una nueva, corregida.
+Este comportamiento es similar a las cadenas de JavaScript: no podemos cambiar un carácter en una cadena, pero podemos hacer una nueva, corregida.
 ```
 
 ## Blob como URL
@@ -62,7 +62,7 @@ Gracias al `tipo`, también podemos descargar/cargar objetos `Blob`, y el `tipo`
 Empecemos con un ejemplo simple. Al hacer click en un link, descargas un `Blob` dinámicamente generado con contenido `hello world` en forma de archivo:
 
 ```html run
-<!-- descargar atributos forza el navegador a descargar en lugar de navegar -->
+<!-- descargar atributos fuerza al navegador a descargar en lugar de navegar -->
 <a download="hello.txt" href='#' id="link">Descargar</a>
 
 <script>
@@ -103,7 +103,7 @@ Una URL generada (y por lo tanto su enlace) solo es válida en el documento actu
 
 También hay efectos secundarios. Mientras haya un mapeado para un `Blob`, el `Blob` en sí mismo se guarda en la memoria. El navegador no puede liberarlo.
 
-El mapeado se limpia automáticamente al vaciar un documento, así los objetos `Blob` son liberados. Pero si una applicación es de larga vida, entonces eso no va a pasar pronto.
+El mapeado se limpia automáticamente al vaciar un documento, así los objetos `Blob` son liberados. Pero si una aplicación es de larga vida, entonces eso no va a pasar pronto.
 
 **Entonces, si creamos una URL, este `Blob` se mantendrá en la memoria, incluso si ya no se necesita.**
 
@@ -111,13 +111,13 @@ El mapeado se limpia automáticamente al vaciar un documento, así los objetos `
 
 En el último ejemplo, intentamos que el `Blob` sea utilizado una sola vez, para descargas instantáneas, así llamamos `URL.revokeObjectURL(link.href)` inmediatamente.
 
-En el ejemplo anterior con el link HTML clickeable, no llamamos `URL.revokeObjectURL(link.href)`, porque eso puede hacer la URL del `Blob` inválido. Después de la revocación, como el mapeo es eliminado, la URL ya no volverá a funcionar.
+En el ejemplo anterior con el link HTML cliqueable, no llamamos `URL.revokeObjectURL(link.href)`, porque eso puede hacer la URL del `Blob` inválido. Después de la revocación, como el mapeo es eliminado, la URL ya no volverá a funcionar.
 
 ## Blob a base64
 
 Una alternativa a `URL.createObjectURL` es convertir un `Blob` en una cadena codificada en base64.
 
-Esa codificación representa datos binarios como una cadena ultra segura de caractéres "legibles" con códigos ASCII desde el 0 al 64. Y lo que es más importante, podemos utilizar codificación en las "URLs de datos".
+Esa codificación representa datos binarios como una cadena ultra segura de caracteres "legibles" con códigos ASCII desde el 0 al 64. Y lo que es más importante, podemos utilizar codificación en las "URLs de datos".
 
 Un [URL de datos](https://developer.mozilla.org/es/docs/Web/HTTP/Basics_of_HTTP/Datos_URIs) tiene la forma `data:[<mediatype>][;base64],<data>`. Podemos usar suficientes URLs por doquier, junto a URLs "regulares".
 
@@ -186,7 +186,7 @@ let context = canvas.getContext('2d');
 context.drawImage(img, 0, 0);
 // podemos hacer un context.rotate(), y muchas otras cosas en canvas
 
-// toBlob es una operación sincrónica, callback es llamada al terminar
+// toBlob es una operación asincrónica, callback es llamada al terminar
 canvas.toBlob(function(blob) {
   // blob listo, descárgalo
   let link = document.createElement('a');
@@ -211,21 +211,44 @@ Para capturar la página, podemos utilizar una librería como <https://github.co
 
 El constructor de `Blob` permite crear un blob de casi cualquier cosa, incluyendo cualquier `BufferSource`.
 
-Pero si queremos ejecutar un procesamiento de bajo nivel, podemos obtener el nivel más bajo de un `ArrayBuffer` utilizando `FileReader`:
+Pero si queremos ejecutar un procesamiento de bajo nivel, podemos obtener el nivel más bajo de un `ArrayBuffer` desde `blob.arrayBuffer()`:
 
 ```js
 // obtener un arrayBuffer desde un blob
-let fileReader = new FileReader();
+const bufferPromise = await blob.arrayBuffer();
 
-*!*
-fileReader.readAsArrayBuffer(blob);
-*/!*
-
-fileReader.onload = function(event) {
-  let arrayBuffer = fileReader.result;
-};
+// or
+blob.arrayBuffer().then(buffer => /* process the ArrayBuffer */);
 ```
 
+## De Blob a stream
+
+Cuando leemos y escribimos un blob de más de `2 GB`, `arrayBuffer` hace un uso demasiado intensivo de la memoria para nosotros. En este punto, podemos convertir directamente el blob a un stream.
+
+Un stream (flujo, corriente) es un objeto especial que permite leer (o escribir) porción por porción. Está fuera de nuestro objetivo aquí, pero este es un ejemplo que puedes leer <https://developer.mozilla.org/en-US/docs/Web/API/Streams_API>. Los streams son convenientes para datos que son adecuados para el proceso pieza por pieza. 
+
+El método interfaz `stream()` de `Blob` devuelve un `ReadableStream` que al leerlo devuelve datos contenidos dentro del `Blob`.
+
+Entonces podemos leerlos desde él, como aquí:
+
+```js
+// obtiene readableStream desde blob
+const readableStream = blob.stream();
+const stream = readableStream.getReader();
+
+while (true) {
+  // para cada iteración: data es el siguiente fragmento del blob
+  let { done, value } = await stream.read();
+  if (done) {
+    // no hay más data en el stream
+    console.log('todo el blob procesado.');
+    break;
+  }
+
+   // hacer algo con la porción de datos que acabamos de leer del blob
+  console.log(value);
+}
+```
 
 ## Resumen
 
@@ -237,5 +260,7 @@ Los métodos que ejecutan solicitudes web, como [XMLHttpRequest](info:xmlhttpreq
 
 Podemos convertir fácilmente entre `Blob` y tipos de datos binarios de bajo nivel:
 
-- Podemos convertir a Blob desde un array tipado usando el constructor `new Blob(...)`.
-- Podemos obtener un `ArrayBuffer` de un Blob usando `FileReader`, y entonces crear una vista sobre él para procesamiento binario de bajo nivel.
+- Podemos crear un Blob desde un array tipado usando el constructor `new Blob(...)`.
+- Podemos obtener de vuelta un `ArrayBuffer` desde un Blob usando `blob.arrayBuffer()`, y entonces crear una vista sobre él para procesamiento binario de bajo nivel.
+
+Los streams de conversión son muy útiles cuando necesitamos manejar grandes blob. Puedes crear un `ReadableStream` desde un blob. El método interfaz `stream()` de `Blob` devuelve un `ReadableStream` que una vez leído devuelve los datos contenido en el blob.

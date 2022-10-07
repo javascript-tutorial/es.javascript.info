@@ -23,9 +23,9 @@ dictionary.__proto__ = "prueba"; // // aquí proto es una propiedad clave común
 
 // solo manzana y __proto__ están en el ciclo
 for(let key in dictionary) {
-  alert(key); // "manzana", despues "__proto__"
+  alert(key); // "manzana", después "__proto__"
 }  
 
-// tu toString en accion
+// tu toString en acción
 alert(dictionary); // "manzana,__proto__"
 ```

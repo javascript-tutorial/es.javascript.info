@@ -1,9 +1,9 @@
-# Page: DOMContentLoaded, load, beforeunload, unload
+# Página: DOMContentLoaded, load, beforeunload, unload
 
 El ciclo de vida de una página HTML tiene tres eventos importantes:
 
 - `DOMContentLoaded` -- el navegador HTML está completamente cargado y el árbol DOM está construido, pero es posible que los recursos externos como `<img>` y hojas de estilo aún no se hayan cargado.
-- `load` -- no solo se carga el HTML, sino también todos los recursos externos: imágenes, estilos, etc.
+- `load` -- no solo se cargó el HTML, sino también todos los recursos externos: imágenes, estilos, etc.
 - `beforeunload/unload` -- el usuario sale de la pagina.
 
 Cada evento puede ser útil:
@@ -45,7 +45,7 @@ Por ejemplo:
 <img id="img" src="https://en.js.cx/clipart/train.gif?speed=1&cache=0">
 ```
 
-En el ejemplo, el controlador `DOMContentLoaded` se ejecuta cuando se carga el documento, por lo que puede ver todos los elementos, incluido `<img>` a continuación.
+En el ejemplo, el controlador del evento `DOMContentLoaded` se ejecuta cuando el documento está cargado, por lo que puede ver todos los elementos, incluido el `<img>` que está después de él.
 
 Pero no espera a que se cargue la imagen. Entonces, `alert` muestra los tamaños en cero.
 
@@ -53,7 +53,7 @@ A primera vista, el evento `DOMContentLoaded` es muy simple. El árbol DOM está
 
 ### DOMContentLoaded y scripts
 
-Cuando el navegador procesa un documento HTML y se encuentra con una etiqueta `<script>`, debe ejecutarse antes de continuar construyendo el DOM. Esa es una precaución, ya que los scripts pueden querer modificar el DOM, e incluso hacer `document.write` en él, por lo que` DOMContentLoaded` tiene que esperar.
+Cuando el navegador procesa un documento HTML y se encuentra con una etiqueta `<script>`, debe ejecutarla antes de continuar construyendo el DOM. Esa es una precaución, ya que los scripts pueden querer modificar el DOM, e incluso hacer `document.write` en él, por lo que` DOMContentLoaded` tiene que esperar.
 
 Entonces DOMContentLoaded siempre ocurre después de tales scripts:
 
@@ -114,7 +114,7 @@ El siguiente ejemplo muestra correctamente los tamaños de las imágenes, porque
 
 ```html run height=200 refresh
 <script>
-  window.onload = function() { // similar a window.addEventListener('load', (event) => {
+  window.onload = function() { // también puede usar window.addEventListener('load', (event) => {
     alert('Página cargada');
 
     // la imagen es cargada al mismo tiempo
@@ -185,6 +185,26 @@ window.onbeforeunload = function() {
 
 El comportamiento se modificó, porque algunos webmasters abusaron de este controlador de eventos mostrando mensajes engañosos y molestos. Entonces, en este momento, los navegadores antiguos aún pueden mostrarlo como un mensaje, pero aparte de eso, no hay forma de personalizar el mensaje que se muestra al usuario.
 
+````warn header="El `event.preventDefault()` no funciona desde un manejador `beforeunload`"
+Esto puede sonar extraño, pero la mayoría de los navegadores ignoran `event.preventDefault()`.
+
+Lo que significa que el siguiente código puede no funcionar:
+```js run
+window.addEventListener("beforeunload", (event) => {
+  // no funciona, así que el manejador de evento no hace nada
+	event.preventDefault();
+});
+```
+
+En lugar de ello, en tales manejadores uno debe establecer `event.returnValue` a un string para obtener un resultado similar al pretendido en el código de arriba:
+```js run
+window.addEventListener("beforeunload", (event) => {
+  // funciona, lo mismo que si devolviera desde window.onbeforeunload
+	event.returnValue = "Hsy cambios sin grabar. ¿Abandonar ahora?";
+});
+```
+````
+
 ## readyState
 
 ¿Qué sucede si configuramos el controlador `DOMContentLoaded` después de cargar el documento?
@@ -254,7 +274,7 @@ Aquí hay un documento con `<iframe>`, `<img>` y controladores que registran eve
 El ejemplo práctico está [en el sandbox](sandbox:readystate).
 
 La salida típica:
-1. [1] readyState incial: loading
+1. [1] readyState inicial: loading
 2. [2] readyState: interactive
 3. [2] DOMContentLoaded
 4. [3] iframe onload
@@ -279,6 +299,6 @@ Eventos de carga de página:
 - El evento `beforeunload` en `window` se activa cuando el usuario quiere salir de la página. Si cancelamos el evento, el navegador pregunta si el usuario realmente quiere irse (por ejemplo, tenemos cambios sin guardar).
 - El evento `unload` en `window` se dispara cuando el usuario finalmente se está yendo, en el controlador solo podemos hacer cosas simples que no impliquen demoras o preguntas al usuario. Debido a esa limitación, rara vez se usa. Podemos enviar una solicitud de red con `navigator.sendBeacon`.
 - `document.readyState` es el estado actual del documento, los cambios se pueden rastrear con el evento `readystatechange`:
-  - `loading` -- el documetno esta cargando.
+  - `loading` -- el documento esta cargando.
   - `interactive` -- el documento se analiza, ocurre aproximadamente casi al mismo tiempo que `DOMContentLoaded`, pero antes.
   - `complete` -- el documento y los recursos se cargan, ocurre aproximadamente casi al mismo tiempo que `window.onload`, pero antes.

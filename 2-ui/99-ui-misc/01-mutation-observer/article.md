@@ -101,7 +101,7 @@ Así, `MutationObserver` permite reaccionar a cualquier cambio dentro del subár
 
 ¿Cuándo puede ser práctico esto?
 
-Imagina la situación cuando necesitas añadir un script de terceros que contiene funcionalidad útil pero que también hace algo no deseado, por ejemplo añadir publicidad `<div class="ads">Unwanted ads</div>`.
+Imagina la situación cuando necesitas añadir un script de terceros que contiene funcionalidad útil, pero también hace algo no deseado, por ejemplo añadir publicidad `<div class="ads">Unwanted ads</div>`.
 
 Naturalmente el script de terceras partes no proporciona mecanismos para removerlo.
 

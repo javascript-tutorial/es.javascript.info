@@ -1,3 +1,4 @@
+
 # Eventos del Mouse
 
 En este capítulo vamos a entrar en más detalles sobre los eventos del mouse y sus propiedades.
@@ -32,14 +33,14 @@ Ya hemos visto algunos de estos eventos:
 
 Como pudiste ver en la lista anterior, una acción del usuario puede desencadenar varios eventos.
 
-Por ejemlo , un click izquierdo primero activa `mousedown`cuando se presiona el botón, enseguida `mouseup` y `click` cuando se suelta.
+Por ejemplo , un click izquierdo primero activa `mousedown`cuando se presiona el botón, enseguida `mouseup` y `click` cuando se suelta.
 
 En casos así, el orden es fijo. Es decir, los controladores son llamados en el siguiente orden `mousedown` -> `mouseup` -> `click`. 
 
 ```online
 Haz click en el botón abajo y verás los eventos. Intenta con doble click también.
 
-En el testeador de abajo todos los eventos quedan registrados. Si hay mas de un segundo de retraso entre cada uno de ellos quedan separados por una regla horizontal.
+En el testeador de abajo todos los eventos quedan registrados. Si hay mas de un segundo de retraso entre cada uno de ellos quedan separados por una línea horizontal.
 
 Además podemos ver la propiedad de `button` que nos permite detectar el botón del mouse. Lo explicaremos a continuación.
 
@@ -52,7 +53,7 @@ Los eventos relacionados con clics siempre tienen la propiedad `button`, esta no
 
 Normalmente no la usamos para eventos `click` y `contextmenu` events, porque sabemos que ocurren solo con click izquierdo y derecho respectivamente. 
 
-Por otro lado, los controladores `mousedown` y `mouseup` pueden necesitar `event.button` ya que estos eventos se activan con cualquier botón y `button` nos permitirá distinguir entre "mousedown derecho" y "mousedown izquierdo".
+Por otro lado, los controladores `mousedown` y `mouseup` pueden necesitar `event.button` ya que estos eventos se activan con cualquier botón, y `button` nos permitirá distinguir entre "mousedown derecho" y "mousedown izquierdo".
 
 Los valores posibles para `event.button` son:
 
@@ -116,7 +117,7 @@ Es decir: cuando un usuario de Windows usa `key:Ctrl+Enter` o `key:Ctrl+A`, un u
 
 Entonces si queremos darle soporte a combinaciones como `key:Ctrl`+click, entonces para Mac tendría más sentido usar `key:Cmd`+click. Esto es más cómodo para los usuarios de Mac.
 
-Incluso si quisieramos obligar a los usuarios de Mac a hacer `key:Ctrl`+click -- esto supone algo de dificultad. El problema es que: un click izquierdo con `key:Ctrl` es intrepetado como  *click derecho* en MacOS, y esto genera un evento `contextmenu`, no un `click` como en Windows/Linux.
+Incluso si quisiéramos obligar a los usuarios de Mac a hacer `key:Ctrl`+click -- esto supone algo de dificultad. El problema es que: un click izquierdo con `key:Ctrl` es interpretado como  *click derecho* en MacOS, y esto genera un evento `contextmenu`, no un `click` como en Windows/Linux.
 
 Así que si queremos que los usuarios de todos los sistemas operativos se sientan cómodos, entonces junto con `ctrlKey` debemos verificar `metaKey`.
 
@@ -202,7 +203,7 @@ Los eventos del mouse tienen las siguientes propiedades:
 
 - Botón: `button`.
 - Teclas modificadoras (`true` si fueron presionadas): `altKey`, `ctrlKey`, `shiftKey` y `metaKey` (Mac).
-  - Si quieres controlar las acciones de la tecla `key:Ctrl` no te olvides de los usuarios de Mac que generalmente usan `key:Cmd`, de manera que es mejor ferificar con la condicional: `if (e.metaKey || e.ctrlKey)`.
+  - Si quieres controlar las acciones de la tecla `key:Ctrl` no te olvides de los usuarios de Mac que generalmente usan `key:Cmd`, de manera que es mejor verificar con la condicional: `if (e.metaKey || e.ctrlKey)`.
 
 - Coordenadas relativas a la ventana: `clientX/clientY`.
 - Coordenadas relativas al documento: `pageX/pageY`.

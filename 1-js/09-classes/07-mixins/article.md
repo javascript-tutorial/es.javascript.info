@@ -27,7 +27,7 @@ let sayHiMixin = {
     alert(`Hola ${this.name}`);
   },
   sayBye() {
-    alert(`Adios ${this.name}`);
+    alert(`Adiós ${this.name}`);
   }
 };
 
@@ -69,7 +69,7 @@ let sayMixin = {
 };
 
 let sayHiMixin = {
-  __proto__: sayMixin, // (o podríamos usar Object.create para configurar el prototype aquí)
+  __proto__: sayMixin, // (o podríamos usar Object.setPrototypeOf para configurar el prototype aquí)
 
   sayHi() {
     *!*
@@ -103,7 +103,7 @@ Aquí está el diagrama (ver la parte derecha):
 
 Esto se debe a que los métodos `sayHi` y `sayBye` se crearon inicialmente en `sayHiMixin`. Entonces, a pesar de que se copiaron, su propiedad interna `[[[HomeObject]]` hace referencia a `sayHiMixin`, como se muestra en la imagen de arriba.
 
-Como `super` busca métodos primarios en `[[HomeObject]].[[Prototype]]`,  significa que busca `sayHiMixin.[[Prototype]]`, no `User.[[Prototype]]`.
+Como `super` busca los métodos padres en `[[HomeObject]].[[Prototype]]`, esto significa que busca `sayHiMixin.[[Prototype]]`.
 
 ## EventMixin
 

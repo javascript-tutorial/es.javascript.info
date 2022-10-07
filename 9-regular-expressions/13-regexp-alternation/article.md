@@ -45,7 +45,7 @@ Podemos utilizar una combinación más cuidadosa. Primero, las horas:
 
 Podemos escribir ambas variantes en una expresión regular usando alternancia: `pattern:[01]\d|2[0-3]`.
 
-A continuación, los minutos deben estar comprendidos entre `00` y `59`. En el lenguaje de expresiones regulares que se puede escribir como `pattern:[0-5]\d`: el primer dígito `0-5`, y luego culquier otro.
+A continuación, los minutos deben estar comprendidos entre `00` y `59`. En el lenguaje de expresiones regulares se puede escribir como `pattern:[0-5]\d`: el primer dígito `0-5`, y luego cualquier otro.
 
 Si pegamos minutos y segundos juntos, obtenemos el patrón: `pattern:[01]\d|2[0-3]:[0-5]\d`.
 

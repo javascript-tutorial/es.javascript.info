@@ -2,7 +2,7 @@
 
 `XMLHttpRequest` es un objeto nativo del navegador que permite hacer solicitudes HTTP desde JavaScript.
 
-A pesar de tener la palabra "XML" en su nombre, se puede operar sobre cualquier dato, no solo en formato XML. Podemos cargar/descargar archivos, dar seguimiento y mucho más.
+A pesar de tener la palabra "XML" en su nombre, se puede operar sobre cualquier dato, no solo en formato XML. Podemos cargar y descargar archivos, dar seguimiento y mucho más.
 
 Ahora hay un método más moderno `fetch` que en algún sentido hace obsoleto a `XMLHttpRequest`.
 
@@ -68,9 +68,9 @@ Para hacer la petición, necesitamos seguir 3 pasos:
       alert(`Error de red`);
     };
 
-    xhr.onprogress = function(event) { // se dispara periodicamente
+    xhr.onprogress = function(event) { // se dispara periódicamente
       // event.loaded - cuántos bytes se han descargado
-      // event.lengthComputable = devuelve true si el servidor envia la cabecera Content-Length (longitud del contenido)
+      // event.lengthComputable = devuelve true si el servidor envía la cabecera Content-Length (longitud del contenido)
       // event.total - número total de bytes (si `lengthComputable` es `true`)
       alert(`Recibido ${event.loaded} of ${event.total}`);
     };
@@ -315,7 +315,7 @@ Existen 3 métodos para las cabeceras HTTP:
 
     Así, si queremos obtener un objeto con pares nombre/valor, necesitamos tratarlas con un poco de JS.
 
-    Como esto (asumiendo que si dos cabeceras tienen el mismo nombre, entonces el útimo sobreecribe al primero):
+    Como esto (asumiendo que si dos cabeceras tienen el mismo nombre, entonces el último sobreescribe al primero):
 
     ```js
     let headers = xhr
@@ -405,7 +405,7 @@ Hay otro objeto, sin métodos, exclusivamente para rastrear los eventos de subid
 Este genera eventos similares a `xhr`, pero `xhr.upload` se dispara solo en las subidas:
 
 - `loadstart` -- carga iniciada.
-- `progress` -- se dispara periodicamente durante la subida.
+- `progress` -- se dispara periódicamente durante la subida.
 - `abort` -- carga abortada.
 - `error` -- error no HTTP.
 - `load` -- carga finalizada con éxito.
@@ -505,7 +505,7 @@ xhr.onprogress = function(event) {
 };
 
 xhr.onerror = function() {
-  // manejo de un error no HTTP (ej. red caida)
+  // manejo de un error no HTTP (ej. red caída)
 };
 ```
 
@@ -523,6 +523,6 @@ Los eventos `error`, `abort`, `timeout`, y `load` son mutuamente exclusivos. Sol
 
 Los eventos más usados son la carga terminada (`load`), falla de carga (`error`), o podemos usar un solo manejador `loadend` y comprobar las propiedades del objeto solicitado `xhr` para ver qué ha pasado.
 
-Ya hemos visto otro evento: `readystatechange`. Históricamente, apareció hace mucho tiempo, antes de que la especificación fuera publicada. Hoy en día no es necesario usarlo, podemos reemplazarlo con eventos más nuevos pero puede ser encontrado a menudo en scripts viejos.
+Ya hemos visto otro evento: `readystatechange`. Históricamente, apareció hace mucho tiempo, antes de que la especificación fuera publicada. Hoy en día no es necesario usarlo; podemos reemplazarlo con eventos más nuevos, pero puede ser encontrado a menudo en scripts viejos.
 
 Si necesitamos rastrear específicamente, entonces debemos escuchar a los mismos eventos en el objeto `xhr.upload`.

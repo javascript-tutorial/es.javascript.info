@@ -17,8 +17,8 @@ let controller = new AbortController();
 
 Este controlador es un objeto extremadamente simple.
 
-- Tiene un único método `abort()`
-- Y una única propiedad `signal`.
+- Tiene un único método `abort()`,
+- y una única propiedad `signal` que permite establecerle escuchadores de eventos.
 
 Cuando `abort()` es invocado:
 - `controller.signal` emite el evento `"abort"`.
@@ -26,7 +26,7 @@ Cuando `abort()` es invocado:
 
 Generalmente tenemos dos partes en el proceso: 
 1. El que ejecuta la operación de cancelación, genera un listener que escucha a `controller.signal`.
-2. El que cancela: este llama a `controller.abort()` cuendo es necesario.
+2. El que cancela: este llama a `controller.abort()` cuando es necesario.
 
 Tal como se muestra a continuación (por ahora sin `fetch`):
 
@@ -34,7 +34,7 @@ Tal como se muestra a continuación (por ahora sin `fetch`):
 let controller = new AbortController();
 let signal = controller.signal;
 
-// El que ejecuta la operación de cancelación 
+// La parte que ejecuta la operación de cancelación 
 // obtiene el objeto "signal"
 // y genera un listener que se dispara cuando es llamado controller.abort()
 signal.addEventListener('abort', () => alert("abort!"));
@@ -143,6 +143,6 @@ let results = await Promise.all([...fetchJobs, ourJob]);
 
 ## Resumen
 
-- `AbortController` es un simple objeto que genera un evento `abort` sobre su propiedad `signal` cuando el método `abort()` es llamado (y tambien establece `signal.aborted` en `true`).
+- `AbortController` es un simple objeto que genera un evento `abort` sobre su propiedad `signal` cuando el método `abort()` es llamado (y también establece `signal.aborted` en `true`).
 - `fetch` está integrado con él: pasamos la propiedad `signal` como opción, y entonces `fetch` la escucha, así se vuelve posible abortar `fetch`.
 - Podemos usar `AbortController` en nuestro código. La interacción "llamar `abort()`" -> "escuchar evento `abort`" es simple y universal. Podemos usarla incluso sin `fetch`.

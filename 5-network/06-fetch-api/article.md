@@ -21,7 +21,7 @@ let promise = fetch(url, {
     // dependiendo del cuerpo de la solicitud
     "Content-Type": "text/plain;charset=UTF-8"
   },
-  body: undefined // string, FormData, Blob, BufferSource, o URLSearchParams
+  body: undefined, // string, FormData, Blob, BufferSource, o URLSearchParams
   referrer: "about:client", // o "" para no enviar encabezado de Referer,
   // o una URL del origen actual
   referrerPolicy: "no-referrer-when-downgrade", // no-referrer, origin, same-origin...
@@ -52,11 +52,11 @@ Por lo general, ese encabezado se establece automáticamente y contiene la URL d
 
 **La opción `referrer` permite establecer cualquier `Referer` (dentro del origen actual) o eliminarlo.**
 
-Para no enviar ningún referer, establece un string vacío:
+Para no enviar ningún referrer, establece un string vacío:
 ```js
 fetch('/page', {
 *!*
-  referrer: "" // sin encabezado Referer
+  referrer: "" // sin encabezado Referrer
 */!*
 });
 ```
@@ -147,7 +147,7 @@ Esta opción puede ser útil cuando la URL de `fetch` proviene de un tercero y q
 La opción `credentials` especifica si `fetch` debe enviar cookies y encabezados de autorización HTTP con la solicitud.
 
 - **`"same-origin"`** -- el valor predeterminado, no enviar solicitudes cross-origin,
-- **`"include"`** -- enviar siempre, requiere `Accept-Control-Allow-Credentials` del servidor cross-origin para que JavaScript acceda a la respuesta, que se cubrió en el capítulo <info:fetch-crossorigin>,
+- **`"include"`** -- enviar siempre, requiere `Access-Control-Allow-Credentials` del servidor cross-origin para que JavaScript acceda a la respuesta, que se cubrió en el capítulo <info:fetch-crossorigin>,
 - **`"omit"`** -- nunca enviar, incluso para solicitudes del mismo origen.
 
 ## cache
@@ -171,7 +171,7 @@ La opción `redirect` permite cambiar eso:
 
 - **`"follow"`** -- el predeterminado, sigue las redirecciones HTTP,
 - **`"error"`** -- error en caso de redireccionamiento HTTP,
-- **`"manual"`** -- no sigue el redireccionamiento HTTP, pero `response.url` será la nueva URL y `response.redirected` será `true`, de modo que podamos realizar el redireccionamiento manualmente a la nueva URL (si es necesario).
+- **`"manual"`** -- permite procesar redireccionamiento HTTP manualmente. En caso de redireccionamiento obtendremos un objeto response especial, con `response.type="opaqueredirect"` y cero o vacío en la mayor parte de las demás propiedades.
 
 ## integrity
 
@@ -193,7 +193,7 @@ Luego, `fetch` calculará SHA-256 por sí solo y lo comparará con nuestro strin
 
 ## keepalive
 
-La opción `keepalive` indica que la solicitud puede "vivir más alla" de la página web que la inició.
+La opción `keepalive` indica que la solicitud puede "vivir más allá" de la página web que la inició.
 
 Por ejemplo, recopilamos estadísticas sobre cómo el visitante actual usa nuestra página (clics del mouse, fragmentos de página que ve), para analizar y mejorar la experiencia del usuario.
 

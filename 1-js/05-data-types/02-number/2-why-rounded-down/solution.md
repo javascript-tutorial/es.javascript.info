@@ -28,5 +28,5 @@ Observa que `63.5` no tiene pérdida de precisión en absoluto. Esto es porque l
 
 
 ```js run
-alert( Math.round(6.35 * 10) / 10); // 6.35 -> 63.5 -> 64(redondeado) -> 6.4
+alert( Math.round(6.35 * 10) / 10 ); // 6.35 -> 63.5 -> 64(redondeado) -> 6.4
 ```

@@ -116,7 +116,7 @@ class CoffeeMachine {
 let coffeeMachine = new CoffeeMachine(100);
 
 // agregar agua
-coffeeMachine.waterAmount = -10; // Error: Agua en negativo
+coffeeMachine.waterAmount = -10; // _waterAmount se vuelve 0, no -10
 ```
 
 Ahora el acceso está bajo control, por lo que establecer una cantidad de agua por debajo de cero se volvió imposible.
@@ -187,11 +187,12 @@ Por lo tanto, los campos protegidos son naturalmente heredables. A diferencia de
 ## "#waterLimit" Privada
 
 [recent browser=none]
+
 Hay una propuesta de JavaScript terminada, casi en el estándar, que proporciona soporte a nivel de lenguaje para propiedades y métodos privados.
 
 Los privados deberían comenzar con `#`. Solo son accesibles desde dentro de la clase.
 
-Por ejemplo, aquí hay una propiedad privada `#waterLimit` y el método privado de control de agua `#checkWater`:
+Por ejemplo, aquí hay una propiedad privada `#waterLimit` y el método privado de control de agua `#fixWaterAmount`:
 
 ```js run
 class CoffeeMachine {
@@ -288,7 +289,8 @@ En términos de POO, la delimitación de la interfaz interna de la externa se ll
 
 Ofrece los siguientes beneficios:
 
-Protección para los usuarios, para que no se disparen en el pie: Imagínese, hay un equipo de desarrolladores que usan una máquina de café. Fue hecho por la compañía "Best CoffeeMachine" y funciona bien, pero se quitó una cubierta protectora. Entonces la interfaz interna está expuesta.
+Protección para los usuarios, para que no se disparen en el pie
+: Imagínese, hay un equipo de desarrolladores que usan una máquina de café. Fue hecho por la compañía "Best CoffeeMachine" y funciona bien, pero se quitó una cubierta protectora. Entonces la interfaz interna está expuesta.
 
     Todos los desarrolladores son civilizados: usan la máquina de café según lo previsto. Pero uno de ellos, John, decidió que él era el más inteligente e hizo algunos ajustes en el interior de la máquina de café. Entonces la máquina de café falló dos días después.
 

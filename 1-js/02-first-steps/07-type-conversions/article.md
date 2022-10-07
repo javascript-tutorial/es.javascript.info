@@ -7,7 +7,9 @@ Por ejemplo, `alert` convierte automáticamente cualquier valor a string para mo
 También hay casos donde necesitamos convertir de manera explícita un valor al tipo esperado.
 
 ```smart header="Aún no hablamos de objetos"
-En este capítulo no cubriremos los objetos. Estudiaremos los valores primitivos primero. Luego, después de haber hablado sobre objetos, veremos cómo funciona la conversión de objetos en este capítulo <info:object-toprimitive>.
+En este capítulo no hablamos de objetos. Por ahora, solamente veremos los valores primitivos.
+
+Más adelante, después de haberlos tratado, veremos en el capítulo <info:object-toprimitive> cómo funciona la conversión de objetos.
 ```
 
 ## ToString
@@ -66,9 +68,9 @@ Reglas de conversión numérica:
 |`undefined`|`NaN`|
 |`null`|`0`|
 |<code>true&nbsp;and&nbsp;false</code> | `1` y `0` |
-| `string` | Se eliminan los espacios al inicio y final del texto. Si el string resultante es vacío, el resultado es `0`, en caso contario el número es "leído" del string. Un error devuelve `NaN`. |
+| `string` | Se eliminan los espacios (incluye espacios, tabs `\t`, saltos de línea `\n`, etc.) al inicio y final del texto. Si el string resultante es vacío, el resultado es `0`, en caso contrario el número es "leído" del string. Un error devuelve `NaN`. |
 
-Examples:
+Ejemplos:
 
 ```js run
 alert( Number("   123   ") ); // 123
@@ -86,17 +88,17 @@ Luego, los concatena (une):
 
 ```js run
 alert( 1 + '2' ); // '12' (string a la derecha)
-alert( '1' + 2 ); // '12' (string a la izqueirda)
+alert( '1' + 2 ); // '12' (string a la izquierda)
 ```
 
-Esto ocurre solo si al menos uno de los argumentos es un string, en caso contario los valores son convertidos a número.
+Esto ocurre solo si al menos uno de los argumentos es un string, en caso contrario los valores son convertidos a número.
 ````
 
 ## ToBoolean
 
 La conversión a boolean es la más simple.
 
-Ocurre en operaciones lógicas (más adelante veremos test condicionales y otras cosas similares) pero también puede realizarse de forma explícita llamando a la función `Boolean(value)`.
+Ocurre en operaciones lógicas (más adelante veremos test condicionales y otras cosas similares), pero también puede realizarse de forma explícita llamando a la función `Boolean(value)`.
 
 Las reglas de conversión:
 
@@ -138,7 +140,7 @@ La conversión sigue las reglas:
 |`undefined`|`NaN`|
 |`null`|`0`|
 |<code>true&nbsp;/&nbsp;false</code> | `1 / 0` |
-| `string` | El string es leído "como es", los espacios en blanco tanto al inicio como al final son ignorados. Un string vacío se convierte en `0`. Un error entrega `NaN`. |
+| `string` | El string es leído "como es", los espacios en blanco (incluye espacios, tabs `\t`, saltos de línea `\n`, etc.) tanto al inicio como al final son ignorados. Un string vacío se convierte en `0`. Un error entrega `NaN`. |
 
 **`ToBoolean`** -- Ocurren en operaciones lógicas. Se puede realizar con `Boolean(value)`.
 

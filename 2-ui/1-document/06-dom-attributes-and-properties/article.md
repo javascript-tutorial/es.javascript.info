@@ -103,6 +103,7 @@ Aquí hay una demostración de la lectura de una propiedad no estándar:
   <script>
 *!*
     alert(document.body.getAttribute('something')); // no estándar
+*/!*    
   </script>
 </body>
 ```
@@ -141,9 +142,9 @@ Tenga en cuenta:
 
 ## Sincronización de propiedad y atributo
 
-Cuando cambia un atributo estándar, la propiedad correspondiente se actualiza automáticamente (con algunas excepciones) y viceversa.
+Cuando cambia un atributo estándar, la propiedad correspondiente se actualiza automáticamente, y (con algunas excepciones) viceversa.
 
-En el ejemplo a continuación, `id` se modifica como un atributo, y también podemos ver la propiedad cambiada. Y luego lo mismo al revés:
+En el ejemplo a continuación, `id` se modifica como un atributo, y podemos ver que la propiedad también es cambiada. Y luego lo mismo al revés:
 
 ```html run
 <input>
@@ -151,17 +152,17 @@ En el ejemplo a continuación, `id` se modifica como un atributo, y también pod
 <script>
   let input = document.querySelector('input');
 
-  // atributo => propiedad
+  // atributo -> propiedad
   input.setAttribute('id', 'id');
   alert(input.id); // id (actualizado)
 
-  // propiedad => atributo
+  // propiedad -> atributo
   input.id = 'newId';
   alert(input.getAttribute('id')); // newId (actualizado)
 </script>
 ```
 
-Pero hay exclusiones, por ejemplo, `input.value` se sincroniza solo del atributo a la propiedad (atributo => propiedad), pero no de regreso:
+Pero hay exclusiones, por ejemplo, `input.value` se sincroniza solo del atributo a la propiedad (atributo -> propiedad), pero no de regreso:
 
 ```html run
 <input>
@@ -169,12 +170,12 @@ Pero hay exclusiones, por ejemplo, `input.value` se sincroniza solo del atributo
 <script>
   let input = document.querySelector('input');
 
-  // atributo => propiedad
+  // atributo -> propiedad
   input.setAttribute('value', 'text');
   alert(input.value); // text
 
 *!*
-  // NO propiedad => atributo
+  // NO propiedad -> atributo
   input.value = 'newValue';
   alert(input.getAttribute('value')); // text (¡no actualizado!)
 */!*
@@ -302,7 +303,7 @@ Por ejemplo, aquí para el estado del pedido se usa el atributo `order-state`:
 Porque un atributo es más conveniente de administrar. El estado se puede cambiar tan fácil como:
 
 ```js
-// un poco más simple que eliminar antiguos / agregar una nueva clase
+// un poco más simple que eliminar/agregar clases
 div.setAttribute('order-state', 'canceled');
 ```
 

@@ -1,8 +1,8 @@
 # Métodos en tipos primitivos
 
-JavaScript nos permite trabajar con tipos de datos primitivos (string, number, etc) como si fueran objetos. Los primitivos también brindan métodos para ser llamados. Los estudiaremos pronto, pero primero veamos cómo trabajan porque, por supuesto, los primitivos no son objetos. (y aquí lo haremos aún más evidente).
+JavaScript nos permite trabajar con tipos de datos primitivos (string, number, etc) como si fueran objetos. Los primitivos también ofrecen métodos que podemos llamar. Los estudiaremos pronto, pero primero veamos cómo trabajan porque, por supuesto, los primitivos no son objetos (y aquí lo haremos aún más evidente).
 
-Veamos las diferencias clave entre primitivos y objetos.
+Veamos las diferencias fundamentales entre primitivos y objetos.
 
 Un primitivo
 
@@ -39,8 +39,8 @@ Los objetos son más "pesados" que los primitivos. Ellos requieren recursos adic
 
 Aquí el dilema que enfrentó el creador de JavaScript:
 
-- Hay muchas cosas que uno querría hacer con los primitivos como string o number. Sería grandioso accederlas como métodos.
-- Los Primitivos deben ser tan rápidos y livianos como sea posible
+- Hay muchas cosas que uno querría hacer con los tipos primitivos, como un string o un number. Sería grandioso accederlas usando métodos.
+- Los Primitivos deben ser tan rápidos y livianos como sea posible.
 
 La solución es algo enrevesada, pero aquí está:
 
@@ -48,7 +48,7 @@ La solución es algo enrevesada, pero aquí está:
 2. El lenguaje permite el acceso a métodos y propiedades de strings, numbers, booleans y symbols.
 3. Para que esto funcione, se crea una envoltura especial, un "object wrapper" (objeto envoltorio) que provee la funcionalidad extra y luego es destruido.
 
-Los "object wrappers" son diferentes para cada primitivo y son llamados: `String`, `Number`, `Boolean` y `Symbol`.  Así, proveen diferentes sets de métodos.
+Los "object wrappers" son diferentes para cada primitivo y son llamados: `String`, `Number`, `Boolean`, `Symbol` y `BigInt`.  Así, proveen diferentes sets de métodos.
 
 Por ejemplo, existe un método [str.toUpperCase()](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/toUpperCase) que devuelve un string en mayúsculas.
 
@@ -104,9 +104,10 @@ if (cero) { // cero es true, porque es un objeto
 }
 ```
 
-Por otro lado, usar las mismas funciones `String/Number/Boolean` sin `new` es totalmente sano y útil. Ellas convierten un valor al tipo correspondiente: a un string, number, o boolean (primitivo).
+Por otro lado, usar las mismas funciones `String/Number/Boolean` sin `new` es totalmente sano y útil. Ellas convierten un valor al tipo primitivo correspondiente: a un string, number, o boolean.
 
-Por ejemplo, esto es perfectamente válido::
+Por ejemplo, esto es perfectamente válido:
+
 ```js
 let num = Number("123"); // convierte string a number
 ```

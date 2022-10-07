@@ -23,7 +23,7 @@ else // <- podría escribirlo en una sola línea como "} else {"
 }
 ```
 
-La variante fija:
+La variante corregida:
 
 ```js
 function pow(x, n) {

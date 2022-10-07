@@ -15,7 +15,7 @@ Tenemos un `<select>`:
 
 Utiliza JavaScript para:
 
-1. Mosrar el valor y el texto del option seleccionado.
+1. Mostrar el valor y el texto del option seleccionado.
 2. Añadir un option: `<option value="classic">Classic</option>`.
 3. Seleccionarlo.
 

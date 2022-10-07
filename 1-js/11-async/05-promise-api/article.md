@@ -1,6 +1,6 @@
 # Promise API
 
-Hay 5 métodos estáticos en la clase `Promise`. Veremos sus casos de uso aquí.
+Hay 6 métodos estáticos en la clase `Promise`. Veremos sus casos de uso aquí.
 
 ## Promise.all
 
@@ -13,12 +13,12 @@ Para ello es `Promise.all`.
 La sintaxis es:
 
 ```js
-let promise = Promise.all([...promises...]);
+let promise = Promise.all(iterable);
 ```
 
-`Promise.all` toma un array de promesas (técnicamente puede ser cualquier iterable pero usualmente es un array) y devuelve una nueva promesa.
+`Promise.all` toma un iterable (usualmente un array de promesas) y devuelve una nueva promesa.
 
-Esta nueva promesa es resuelta en cuanto todas las promesas listadas se resuelven y el array de aquellos resultados se vuelve su resultado.
+Esta nueva promesa es resuelta en cuanto todas las promesas listadas se resuelven, y el array de aquellos resultados se vuelve su resultado.
 
 Por ejemplo, el `Promise.all` debajo se resuelve después de 3 segundos, y su resultado es un array `[1, 2, 3]`:
 
@@ -94,9 +94,9 @@ Aquí la segunda promesa se rechaza en dos segundos. Esto lleva a un rechazo inm
 ```warn header="En caso de error, las demás promesas son ignoradas"
 Si una promesa se rechaza, `Promise.all` se rechaza inmediatamente, olvidando completamente las otras de la lista. Aquellos resultados son ignorados.
 
-Por ejemplo, si hay múltiples llamados `fetch`, como en el ejemplo arriba, y uno falla, los demás aún continuarán en ejecución, pero `Promise.all` no las observará más. Ellas probablemente respondan pero sus resultados serán ignorados.
+Por ejemplo: si hay múltiples llamados `fetch`, como en el ejemplo arriba, y uno falla, los demás aún continuarán en ejecución, pero `Promise.all` no las observará más. Ellas probablemente respondan, pero sus resultados serán ignorados.
 
-`Promise.all` no hace nada para cancelarlas, no existe un concepto de "cancelación" en las promesas. En [otro capítulo](info:fetch-abort) veremos `AbortController` que puede ayudar con ello pero no es parte de la API de las promesas.
+`Promise.all` no hace nada para cancelarlas, no existe un concepto de "cancelación" en las promesas. En [otro capítulo](info:fetch-abort) veremos `AbortController`, que puede ayudar con ello pero no es parte de la API de las promesas.
 ```
 
 ````smart header="`Promise.all(iterable)` permite valores \"comunes\" que no sean promesas en `iterable` "
@@ -190,13 +190,13 @@ if (!Promise.allSettled) {
 
 En este código, `promises.map` toma los valores de entrada, los transforma en promesas (por si no lo eran) con `p => Promise.resolve(p)`, entonces agrega un manejador `.then` a cada una.
 
-Este manejador ("handler") transforma un resultado extitoso `value` en `{status:'fulfilled', value}`, y un error `reason` en `{status:'rejected', reason}`. Ese es exactamente el formato de `Promise.allSettled`.
+Este manejador ("handler") transforma un resultado exitoso `value` en `{status:'fulfilled', value}`, y un error `reason` en `{status:'rejected', reason}`. Ese es exactamente el formato de `Promise.allSettled`.
 
 Ahora podemos usar `Promise.allSettled` para obtener el resultado de *todas* las promesas dadas incluso si algunas son rechazadas.
 
 ## Promise.race
 
-Similar a `Promise.all` pero espera solamente por la primera respuesta y obtiene su resultado (o error).
+Similar a `Promise.all`, pero espera solamente por la primera respuesta y obtiene su resultado (o error).
 
 Su sintaxis es:
 
@@ -239,7 +239,7 @@ Promise.any([
 
 La primera promesa fue la más rápida, pero fue rechazada entonces devuelve el resultado de la segunda. Una vez que la primera promesa cumplida "gana la carrera", los demás resultados serán ignorados.
 
-Aquí hay un ejemplo donde todas la promesas fallab:
+Aquí hay un ejemplo donde todas la promesas fallan:
 
 ```js run
 Promise.any([
@@ -248,7 +248,7 @@ Promise.any([
 ]).catch(error => {
   console.log(error.constructor.name); // AggregateError
   console.log(error.errors[0]); // Error: Ouch!
-  console.log(error.errors[1]); // Error: Error
+  console.log(error.errors[1]); // Error: Error!
 });
 ```
 

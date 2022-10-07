@@ -38,7 +38,7 @@ Debemos tener en cuenta esa posibilidad cuando usemos `event.relatedTarget` en n
 
 ## Saltando elementos
 
-El evento `mousemove`  se activa cuando el mouse se mueve pero eso no significa que cada píxel nos lleve a un evento.
+El evento `mousemove`  se activa cuando el mouse se mueve, pero eso no significa que cada píxel nos lleve a un evento.
 
 El navegador verifica la posición del mouse de vez en cuando y si nota cambios entonces activan los eventos.
 
@@ -86,13 +86,13 @@ Si estamos sobre `#parent` y luego movemos el cursor hacia dentro de `#child`, �
 
 Eso puede parecer extraño, pero puede explicarse fácilmente.
 
-**De acuerdo con la lógica del navegador, el cursor podría estar sobre un elemento *individual* en cualquier momento -- el anidado y el más alto segun el z-index.**
+**De acuerdo con la lógica del navegador, el cursor podría estar sobre un elemento *individual* en cualquier momento -- el anidado y el más alto según el z-index.**
 
 Entonces si se dirige hacia otro elemento (incluso uno anidado), está dejando al anterior.
 
 Por favor, note otro importante detalle sobre el procesamiento de eventos.
 
-El evento `mouseover` se aparece en un un elemento anidado (brota o nace, por decirlo así). Entonces si `#parent` tiene el cotrolador `mouseover`, se activa:
+El evento `mouseover` se aparece en un un elemento anidado (brota o nace, por decirlo así). Entonces si `#parent` tiene el controlador `mouseover`, se activa:
 
 ![](mouseover-bubble-nested.svg)
 
@@ -119,7 +119,7 @@ parent.onmouseover = function(event) {
 
 **Si no examinamos `event.target` dentro de los controladores podría parecer que el cursor dejo el elemento `#parent` y volvió a él inmediatamente.**
 
-Pero ese no es el caso. El cusor aún está sobre el elemento padre, simplemente se adentró más en el elemento hijo.
+Pero ese no es el caso. El cursor aún está sobre el elemento padre, simplemente se adentró más en el elemento hijo.
 
 Si hay algunas acciones al abandonar el elemento padre,por ejemplo: una animación se ejecuta con `parent.onmouseout`, usualmente no la queremos cuando el cursor se adentre más sobre `#parent`.
 
@@ -196,7 +196,7 @@ Aquí hay un ejemplo de código que explica todas las situaciones posibles:
 [js src="mouseenter-mouseleave-delegation-2/script.js"]
 
 Una vez más, las características importantes son:
-1. Utilizar la delegación de eventos para manejar la entrada/salida de cualquier `<td>` dentro de la tabla. Pues depende de `mouseover/out` en lugar de `mouseenter/leave` que no broten y por lo tanto no permita ninguna delgación.
+1. Utilizar la delegación de eventos para manejar la entrada/salida de cualquier `<td>` dentro de la tabla. Pues depende de `mouseover/out` en lugar de `mouseenter/leave` que no broten y por lo tanto no permita ninguna delegación.
 2. Los eventos adicionales, como moverse entre descendientes de `<td>` son filtrados, así que `onEnter/Leave` solamente se ejecuta si el cursor ingresa a `<td>` o lo deja absolutamente.
 
 ```online
@@ -204,7 +204,7 @@ Aquí está el ejemplo completo con todos los detalles:
 
 [codetabs height=460 src="mouseenter-mouseleave-delegation-2"]
 
-Intenta mover el cursor dentro y fuera de las celdas de la tabla y dentro de cada una de ellas. Rápido o lento -- no importa --. Solo se ilumina `<td>` como un todo, a diferiencia del ejemplo anterior.
+Intenta mover el cursor dentro y fuera de las celdas de la tabla y dentro de cada una de ellas. Rápido o lento -- no importa --. Solo se ilumina `<td>` como un todo, a diferencia del ejemplo anterior.
 ```
 
 ## Resumen

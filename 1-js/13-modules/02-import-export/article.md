@@ -1,6 +1,6 @@
 # Export e Import
 
-Las directivas export e import tienen varias variantes de sintáxis.
+Las directivas export e import tienen varias variantes de sintaxis.
 
 En el artículo anterior vimos un uso simple, ahora exploremos más ejemplos.
 
@@ -46,7 +46,7 @@ También podemos colocar `export` por separado.
 
 Aquí primero declaramos y luego exportamos:
 
-```js  
+```js
 // 📁 say.js
 function sayHi(user) {
   alert(`Hello, ${user}!`);
@@ -93,25 +93,14 @@ A primera vista, "importar todo" parece algo tan genial, corto de escribir, por 
 
 Pues hay algunas razones.
 
-1. Las herramientas de ensamblaje modernas ([webpack](http://webpack.github.io) y otras) empaquetan los módulos juntos y los optimiza para acelerar la carga y quitan las cosas sin usar.
+1. Listar explícitamente qué importar da nombres más cortos: `sayHi()` en lugar de `say.sayHi()`.
+2. La lista explícita de importaciones ofrece una mejor visión general de la estructura del código: qué se usa y dónde. Facilita el soporte de código y la refactorización.
 
-    Digamos que agregamos una librería externa `say.js` a nuestro proyecto con varias funciones:
-    ```js
-    // 📁 say.js
-    export function sayHi() { ... }
-    export function sayBye() { ... }
-    export function becomeSilent() { ... }
-    ```
+```smart header="No temas importar demasiado"
+Las herramientas de empaquetado modernas, como [webpack](https://webpack.js.org/) y otras, construyen los módulos juntos y optimizan la velocidad de carga. También eliminan las importaciones no usadas.
 
-    Ahora si solamnente utilizamos una de las funciones de `say.js` en nuestro proyecto:
-    ```js
-    // 📁 main.js
-    import {sayHi} from './say.js';
-    ```    
-    ...Entonces el optimizador lo verá y eliminará las otras funciones del código empaquetado, por lo tanto la compilación es más pequeña. Esto se llama "tree-shaking".
-
-2. Listar explícitamente qué importar da nombres más cortos: `sayHi()` en lugar de `say.sayHi()`.
-3. La lista explícita de importaciones ofrece una mejor visión general de la estructura del código: qué se usa y dónde. Facilita el soporte de código y la refactorización.
+Por ejemplo, si importas `import * as library` desde una librería de código enorme, y usas solo unos pocos métodos, los que no se usen [no son incluidos](https://github.com/webpack/webpack/tree/main/examples/harmony-unused#examplejs) en el paquete optimizado.
+```
 
 ## Importar "as"
 
@@ -131,7 +120,7 @@ bye('John'); // Bye, John!
 
 ## Exportar "as"
 
-Existe un sintáxis similar para `export`.
+Existe un sintaxis similar para `export`.
 
 Exportemos funciones como `hi` y `bye`:
 
@@ -224,7 +213,7 @@ Sin `default`, dicha exportación daría un error:
 export class { // Error! (exportación no predeterminada necesita un nombre)
   constructor() {}
 }
-```     
+```
 
 ### El nombre "default"
 
@@ -286,7 +275,7 @@ import {User} from './user.js';
 // import {MyUser} no funcionará, el nombre debe ser {User}
 ```
 
-...Mientras que para una exporación predeterminada siempre elegimos el nombre al importar:
+...Mientras que para una exportación predeterminada siempre elegimos el nombre al importar:
 
 ```js
 import User from './user.js'; // funciona
@@ -311,7 +300,7 @@ Eso también hace que la reexportación (ver más abajo) sea un poco más fácil
 
 ## Reexportación 
 
-La sintáxis "Reexportar" `export ... from ...` permite importar cosas e inmediatamente exportarlas (posiblemente bajo otro nombre), de esta manera:
+La sintaxis "Reexportar" `export ... from ...` permite importar cosas e inmediatamente exportarlas (posiblemente bajo otro nombre), de esta manera:
 
 ```js
 export {sayHi} from './say.js'; // reexportar sayHi
@@ -321,12 +310,12 @@ export {default as User} from './user.js'; // reexportar default
 
 ¿Por qué se necesitaría eso? Veamos un caso de uso práctico.
 
-Imagínese, estamos escribiendo un "paquete": una carpeta con muchos módulos, con algunas de las funciones exportadas al exterior (herramientas como NPM nos permiten publicar y distribuir dichos paquetes pero no estamos obligados a usarlas), y muchos módulos son solo "ayudantes", para uso interno en otros módulos de paquete.
+Imagine que estamos escribiendo un "paquete": una carpeta con muchos módulos, con algunas de las funciones exportadas al exterior (herramientas como NPM nos permiten publicar y distribuir dichos paquetes pero no estamos obligados a usarlas), y muchos módulos son solo "ayudantes", para uso interno en otros módulos de paquete.
 
 La estructura de archivos podría ser algo así:
 ```
 auth/
-    index.js  
+    index.js
     user.js
     helpers.js
     tests/
@@ -337,11 +326,17 @@ auth/
         ...
 ```
 
-Nos gustaría exponer la funcionalidad del paquete a través de un único punto de entrada, el "archivo principal" `auth/index.js`, para ser utilizado así:
+Nos gustaría exponer la funcionalidad del paquete a través de un único punto de entrada.
+
+En otras palabras, una persona que quiera usar nuestro paquete, debería importar solamente el archivo principal `auth/index.js`.
+
+Como esto:
 
 ```js
 import {login, logout} from 'auth/index.js'
 ```
+
+El "archivo principal", `auth/index.js`, exporta toda la funcionalidad que queremos brindar en nuestro paquete.
 
 La idea es que los extraños, los desarrolladores que usan nuestro paquete, no deben entrometerse con su estructura interna, buscar archivos dentro de nuestra carpeta de paquetes. Exportamos solo lo que es necesario en `auth/index.js` y mantenemos el resto oculto a miradas indiscretas.
 
@@ -362,17 +357,19 @@ export {User};
 
 Ahora los usuarios de nuestro paquete pueden hacer esto `import {login} from "auth/index.js"`.
 
-La sintáxis `export ... from ...` es solo una notación más corta para tales importación-exportación:
+La sintaxis `export ... from ...` es solo una notación más corta para tal importación-exportación:
 
 ```js
 // 📁 auth/index.js
-// importar login/logout e inmediatamente exportarlos
+// re-exportar login/logout
 export {login, logout} from './helpers.js';
 
-// importar default como User y exportarlo
+// re-exportar export default como User
 export {default as User} from './user.js';
 ...
 ```
+
+La diferencia notable de `export ... from` comparado a `import/export` es que los módulos re-exportados no están disponibles en el archivo actual. Entonces en el ejemplo anterior de `auth/index.js` no podemos usar las funciones re-exportadas `login/logout`. 
 
 ### Reexportando la exportación predeterminada
 
@@ -391,11 +388,11 @@ Podemos tener dos problemas:
 
 1. `export User from './user.js'` no funcionará. Nos dará un error de sintaxis.
 
-Para reexportar la exportación predeterminada, tenemos que escribir `export {default as User}`, tal como en el ejemplo de arriba.    
+    Para reexportar la exportación predeterminada, tenemos que escribir `export {default as User}`, tal como en el ejemplo de arriba.    
 
 2. `export * from './user.js'` reexporta únicamente las exportaciones con nombre, pero ignora la exportación predeterminada.
 
-Si nos gustaría reexportar tanto la exportación con nombre como la predeterminada, se necesitan dos declaraciones:
+    Si queremos reexportar tanto la exportación con nombre como la predeterminada, se necesitan dos declaraciones:
     ```js
     export * from './user.js'; // para reexportar exportaciones con nombre
     export {default} from './user.js'; // para reexportar la exportación predeterminada
@@ -420,14 +417,14 @@ Puede comprobarlo al leerlos y recordar lo que significan:
 
 Importación:
 
-- Exportación con nombre desde módulo:
+- Importa las exportaciones con nombre:
   - `import {x [as y], ...} from "module"`
-- Exportación predeterminada:  
+- Importa la exportación predeterminada:  
   - `import x from "module"`
   - `import {default as x} from "module"`
-- Todo:
+- Importa todo:
   - `import * as obj from "module"`
-- Importar el módulo (su código se ejecuta), pero no lo asigna a una variable:
+- Importa el módulo (su código se ejecuta), pero no asigna ninguna de las exportaciones a variables:
   - `import "module"`
 
 Podemos poner las declaraciones `import/export` en la parte superior o inferior de un script, eso no importa.

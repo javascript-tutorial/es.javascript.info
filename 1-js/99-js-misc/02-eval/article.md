@@ -77,7 +77,7 @@ Ahora casi no hay razones para usar `eval`. Si alguien lo está usando, hay buen
 
 Por favor ten en cuenta que su habilidad para acceder a variables externas tiene efectos colaterales.
 
-Los Code minifiers (minimizadores de código, herramientas usadas antes de poner JS en producción para comprimirlo) renombran las variables locales acortándolas (como `a`, `b` etc) para achicar el código. Usualmente esto es seguro, pero no si `eval` es usado porque las variables locales puden ser accedidas desde la cadena de código evaluada. Por ello los minimizadores no hacen tal renombado en todas las variables potencialmente visibles por `eval`. Esto afecta negativamente en el índice de compresión.
+Los Code minifiers (minimizadores de código, herramientas usadas antes de poner JS en producción para comprimirlo) renombran las variables locales acortándolas (como `a`, `b` etc) para achicar el código. Usualmente esto es seguro, pero no si `eval` es usado porque las variables locales pueden ser accedidas desde la cadena de código evaluada. Por ello los minimizadores no hacen tal renombrado en todas las variables potencialmente visibles por `eval`. Esto afecta negativamente en el índice de compresión.
 
 El uso de variables locales dentro de `eval` es también considerado una mala práctica de programación, porque hace el mantenimiento de código más difícil.
 
@@ -103,7 +103,7 @@ let f = new Function('a', 'alert(a)');
 f(5); // 5
 ```
 
-La contrucción `new Function` es explicada en el capítulo <info:new-function>. Esta crea una función desde una cadena, también en el entorno global, y así no puede ver las variables locales. Pero es mucho más claro pasarlas explícitamente como argumentos como en el ejemplo de arriba.
+La construcción `new Function` es explicada en el capítulo <info:new-function>. Esta crea una función desde una cadena, también en el entorno global, y así no puede ver las variables locales. Pero es mucho más claro pasarlas explícitamente como argumentos como en el ejemplo de arriba.
 
 ## Resumen
 

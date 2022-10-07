@@ -6,7 +6,7 @@ Ese es en realidad el arte de la programación: tomar una tarea compleja y codif
 
 ## Sintaxis
 
-Aqui hay un cheatsheet con algunas reglas sugeridas (ver abajo para más detalles):
+Aquí hay una hoja de ayuda con algunas reglas sugeridas (ver abajo para más detalles):
 
 ![](code-style.svg)
 <!--
@@ -37,12 +37,12 @@ if (n < 0) {
 Ahora discutamos en detalle las reglas y las razones para ellas.
 
 ```warn header="No existen reglas \"usted debe\""
-Nada está escrito en piedra aqui. Estos son preferencias de estilos, no dogmas religiosos.
+Nada está escrito en piedra aquí. Estos son preferencias de estilos, no dogmas religiosos.
 ```
 
 ### Llaves
 
-En la mayoria de proyectos de Javascript las llaves estan escritas en estilo "Egipcio" con la llave de apertura en la misma linea como la correspondiente palabra clave -- no en una nueva linea. Debe haber tambien un espacio despues de la llave de apertura, como esto: 
+En la mayoría de proyectos de Javascript las llaves están escritas en estilo "Egipcio" con la llave de apertura en la misma linea como la correspondiente palabra clave -- no en una nueva linea. Debe haber también un espacio después de la llave de apertura, como esto: 
 
 ```js
 if (condition) {
@@ -54,7 +54,7 @@ if (condition) {
 
 Una construcción de una sola línea, como `if (condition) doSomething()`, es un caso límite importante. ¿Deberíamos usar llaves?
 
-Aqui estan las variantes anotadas para que puedas juzgar la legibilidad por ti mismo. 
+Aquí están las variantes anotadas para que puedas juzgar la legibilidad por ti mismo. 
 
 1. 😠 Los principiantes a veces hacen eso. ¡Malo! Las llaves no son necesarias:
     ```js
@@ -104,13 +104,13 @@ if (
 }
 ```
 
-La longitud máxima de la línea debe acordarse a nivel de equipo. Suele tener 80 o 120 caracteres.
+La longitud máxima de la línea debe acordarse con el equipo de trabajo. Suele tener 80 o 120 caracteres.
 
-### Identaciones
+### Indentación (sangría)
 
-Hay dos tipo de identaciones:
+Hay dos tipos de indentación:
 
-- **Identacion horizontal: 2 o 4 espacios.**
+- **Indentación horizontal: 2 o 4 espacios.**
 
     Se realiza una sangría horizontal utilizando 2 o 4 espacios o el símbolo de tabulación horizontal (key `key:Tabulador`). Cuál elegir es una vieja guerra santa. Los espacios son más comunes hoy en día.
 
@@ -129,7 +129,7 @@ Hay dos tipo de identaciones:
     }
     ```
 
-- **Identación vertical: líneas vacias para dividir código en bloques lógicos.**
+- **Indentación vertical: líneas vacías para dividir código en bloques lógicos.**
 
     Incluso una sola función a menudo se puede dividir en bloques lógicos. En el siguiente ejemplo, la inicialización de variables, el bucle principal y la devolución del resultado se dividen verticalmente:
 
@@ -145,7 +145,7 @@ Hay dos tipo de identaciones:
     }
     ```
 
-    Insertar una nueva línea extra donde ayude a hacer el código mas legible. No debe de haber más de nueve líneas de código sin una identación vertical.
+    Insertar una nueva línea extra donde ayude a hacer el código mas legible. No debe haber más de nueve líneas de código sin una indentación vertical.
 
 ### Punto y coma
 
@@ -271,13 +271,13 @@ Si está escribiendo varias funciones "auxiliares" y el código que las usa, hay
     ```
 3. Mixto: una función es declarada donde se usa por primera vez.
 
-La mayoria del tiempo, la segunda variante es preferida.
+La mayoría del tiempo, la segunda variante es preferida.
 
 Eso es porque al leer el código, primero queremos saber *qué hace*. Si el código va primero, entonces queda claro desde el principio. Entonces, tal vez no necesitemos leer las funciones, especialmente si sus nombres son descriptivos de lo que realmente hacen.
 
 ## Guías de estilo
 
-Una guía de estilo contiene reglas generales sobre "cómo escribir" el código, cúales comillas usar, cuántos espacios para endentar, la longitud máxima de la línea, etc. Muchas cosas menores.
+Una guía de estilo contiene reglas generales sobre "cómo escribir" el código, cuáles comillas usar, cuántos espacios para indentar, la longitud máxima de la línea, etc. Muchas cosas menores.
 
 Cuando todos los miembros de un equipo usan la misma guía de estilo, el código se ve uniforme, independientemente de qué miembro del equipo lo haya escrito.
 
@@ -291,7 +291,7 @@ Algunas opciones populares:
 - [StandardJS](https://standardjs.com/)
 - (y mucho mas)
 
-Si eres un desarrollador novato, puedes comenzar con la cheet sheet al comienzo de este capítulo. Luego, puedes buscar otras guías de estilo para recoger más ideas y decidir cuál te gusta más.
+Si eres un desarrollador novato, puedes comenzar con la guía al comienzo de este capítulo. Luego, puedes buscar otras guías de estilo para recoger más ideas y decidir cuál te gusta más.
 
 ## Linters automatizados
 
@@ -301,9 +301,9 @@ Lo mejor de ellos es que la comprobación de estilo también puede encontrar alg
 
 Aquí hay algunas herramientas de linting conocidas:
 
-- [JSLint](http://www.jslint.com/) -- uno de los primeros linters.
-- [JSHint](http://www.jshint.com/) -- mas ajustes que JSLint.
-- [ESLint](http://eslint.org/) -- probablemente el mas reciente.
+- [JSLint](https://www.jslint.com/) -- uno de los primeros linters.
+- [JSHint](https://www.jshint.com/) -- más ajustes que JSLint.
+- [ESLint](https://eslint.org/) -- probablemente el más reciente.
 
 Todos ellos pueden hacer el trabajo. El autor usa [ESLint](http://eslint.org/).
 
@@ -313,8 +313,8 @@ Por ejemplo, para ESLint debe hacer lo siguiente:
 
 1. Instala [Node.JS](https://nodejs.org/).
 2. Instala ESLint con el comando `npm install -g eslint` (npm es un instalador de paquetes de Javascript).
-3. Crea un archivo de configuracion llamado `.eslintrc` en la raiz de tu proyecto de javascript (en la carpeta que contiene todos tus archivos).
-4. Instala/Habilita el plugin para que tu editor se integre con ESLint. La mayoria de editores tienen uno.
+3. Crea un archivo de configuración llamado `.eslintrc` en la raíz de tu proyecto de javascript (en la carpeta que contiene todos tus archivos).
+4. Instala/Habilita el plugin para que tu editor se integre con ESLint. La mayoría de editores tienen uno.
 
 Aquí un ejemplo de un archivo `.eslintrc`:
 
@@ -335,7 +335,7 @@ Aquí un ejemplo de un archivo `.eslintrc`:
 
 Aquí la directiva `"extends"` denota que la configuración se basa en el conjunto de configuraciones "eslint: recomendado". Después de eso, especificamos el nuestro.
 
-También es posible descargar conjuntos de reglas de estilo de la web y extenderlos en su lugar. Consulte <http://eslint.org/docs/user-guide/getting-started> para obtener más detalles sobre la instalación.
+También es posible descargar conjuntos de reglas de estilo de la web y extenderlos. Consulte <https://eslint.org/docs/user-guide/getting-started> para obtener más detalles sobre la instalación.
 
 También algunos IDE tienen linting incorporado, lo cual es conveniente pero no tan personalizable como ESLint.
 
