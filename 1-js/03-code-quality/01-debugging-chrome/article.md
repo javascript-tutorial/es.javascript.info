@@ -1,76 +1,76 @@
-# Debugging en Chrome
+# Debugging en el navegador
 
 Antes de escribir código más complejo, hablemos de debugging.
 
-Todos lo exploradores modernos y la mayoría de los otros ambientes soportan el "debugging" -- una herramienta especial de UI para desarrolladores que nos permite encontrar y reparar errores más fácilmente.
+[Debugging o Depuración en español](https://es.wikipedia.org/wiki/Depuraci%C3%B3n_de_programas#:~:text=La%20depuraci%C3%B3n%20de%20programas%20es%20el%20proceso%20de,se%20conoce%20informalmente%20a%20los%20errores%20de%20programaci%C3%B3n.) es el proceso de encontrar y corregir errores dentro de un script. Todos los navegadores modernos y la mayoría de los demás entornos admiten herramientas de depuración: una interfaz de usuario especial en las herramientas de desarrollo que facilita mucho la depuración. También permite rastrear el código paso a paso para ver qué está pasando exactamente.
 
-Aquí utilizaremos Chrome porque es uno de los que mejores herramientas tienen en este aspecto.
+Usaremos Google Chrome Canary aquí en este tutorial, porque tiene suficientes funciones incluso en español; y la mayoría de los otros navegadores tienen un proceso similar.
 
-## El panel "sources/recursos"
+## El panel Fuentes
 
-Tu version de Chrome posiblemente se vea distinta, pero sigue siendo obvio lo que hablamos aquí.
+Tu versión de Chrome puede verse un poco diferente, pero aún así debería ser obvio lo que hay allí.
 
-- Abre la [pagina de ejemplo](debugging/index.html) en Chrome.
-- Activa las herramientas de desarrollo con `key:F12` (Mac: `key:Cmd+Opt+I`).
-- Selecciona el panel `sources/recursos`.
+- Abre esta [pagina de ejemplo](debugging/index.html).
+- Activa las herramientas de desarrollo con `Tecla:F12` (Mac: `Tecla:Cmd+Opt+I`).
+- Selecciona el panel `Sources/Fuentes`.
 
 Esto es lo que debería ver si lo está haciendo por primera vez:
 
 ![](chrome-open-sources.svg)
 
-El botón botón de activación (toggle button) <span class="devtools" style="background-position:-168px -76px"></span> abre la pestaña con los archivos.
+El botón de alternancia <span class="devtools" style="background-position:-172px -98px"></span> abre la pestaña con los archivos.
 
-Hagamos click allí y seleccionemos `index.html` y luego `hello.js` en el árbol de archivos. Esto es lo que se debería ver:
+Hagamos clic en él y seleccionemos `hello.js` en la vista de árbol. Esto es lo que debería aparecer:
 
 ![](chrome-tabs.svg)
 
-Podemos ver tres zonas:
+El panel Fuentes tiene 3 partes:
 
-1. La **Zona de recursos** lista los archivos HTML, JavaScript, CSS y otros, incluyendo imágenes que están incluidas en la página. Las extensiones de Chrome quizás también aparezcan aquí.
-2. La **Zona de Recursos** muestra el código fuente de los archivos.
-3. La  **Zona de información y control** es para "debugging", la exploraremos pronto.
+1. La sección **Navegador de archivos** enumera HTML, JavaScript, CSS y otros archivos, incluidas las imágenes que se adjuntan a la página. Las extensiones de Chrome también pueden aparecer aquí.
+2. La sección **Editor de código** muestra el código fuente.
+3. La  sección **Depuración de JavaScript** es para la depuración, lo exploraremos pronto.
 
-Ahora puedes hacer click en el mismo botón de activación <span class="devtools" style="background-position:-200px -76px"></span> otra vez para esconder la lista de recursos y darnos más espacio.
+Ahora puede hacer clic en el mismo conmutador <span class="devtools" style="background-position:-172px -122px"></span> nuevamente para ocultar la lista de recursos y darle algo de espacio al código.
 
 ## Consola
 
-Si presionamos `Esc`, la consola se abrirá debajo. Podemos escribir los comandos y presionar `key:Enter` para ejecutar.
+Si presionamos `la tecla:Esc`, se abre una consola debajo. Podemos escribir comandos allí y presionar `la tecla:Enter` para ejecutar.
 
-Después de que se ejecuta una sentencia, el resultado se muestra debajo.
+Después de ejecutar una declaración, su resultado se muestra a continuación.
 
-Por ejemplo, si colocamos `1+2` el resultado es `3`, mientras la función llama `hello("debugger")` no devuelve nada, entonces el resultado es `undefined`:
+Por ejemplo, aquí `1+2` da como resultado `3`, mientras que la llamada a la función `hello("debugger")` no devuelve nada, por lo que el resultado es `indefinido`:
 
 ![](chrome-sources-console.svg)
 
-## Breakpoints (puntos de interrupción)
+## Puntos de interrupción
 
-Examinemos qué pasa con el código de la [página de ejemplo](debugging/index.html). En `hello.js`, haz click en el número de línea `4`. Si, en el número `4`, no en el código.
+Examinemos lo que sucede dentro del código de la [página de ejemplo](debugging/index.html). En `hello.js`, haga clic en el número de línea `4`. Sí, justo en el dígito '4', no en el código.
 
-¡Felicidades! Ya configuraste un breakpoint. Por favor haz click también en el número de la linea `8`.
+¡Felicidades! Has establecido un punto de interrupción. Haz clic también en el número de la línea `8`.
 
-Debería verse así (en donde está azul es donde deberías hacer click):
+Debería verse así (el azul es en donde debes hacer clic):
 
 ![](chrome-sources-breakpoint.svg)
 
-Un *breakpoint* es un punto de código donde el debugger pausará automáticamente la ejecución de JavaScript.
+Un *punto de interrupción* es un punto de código donde el depurador pausará automáticamente la ejecución de JavaScript.
 
-Mientras se pausa el código, podemos examinar las variables actuales, ejecutar comandos en la consola, etc. En otras palabras, podemos depurar.
+Mientras el código está en pausa, podemos examinar las variables actuales, ejecutar comandos en la consola, etc. En otras palabras, podemos depurarlo.
 
-Siempre podemos encontrar una lista de los breakpoints en el panel derecho. Esto es muy útil cuando tenemos muchos breakpoints en varios archivos. Ya que nos permite:
-- Saltar rápidamente al breakpoint en el código (haciendo click en él dentro del panel).
-- Desactivar temporalmente el breakpoint desmarcándolo.
-- Eliminar el breakpoint haciendo click derecho y seleccionando quitar/eliminar/remove.
-- ...y mucho más.
+Siempre podemos encontrar una lista de puntos de interrupción en el panel derecho. Eso es útil cuando tenemos muchos puntos de interrupción en varios archivos. Ya que nos permite:
+- Saltar rápidamente al punto de interrupción en el código (haciendo clic en él dentro del panel).
+- Deshabilitar temporalmente el punto de interrupción desmarcándolo.
+- Eliminar el punto de interrupción haciendo clic con el botón derecho y seleccionando Eliminar.
+- ...Y así.
 
-```smart header="Breakpoints Condicionales"
-*Click derecho* en el número de línea nos permite crear un breakpoint *condicional*. Solo se ejecutará cuando la expresión, que debes proporcionar sea verdadera.
-
-Esto es útil cuando necesitamos detener la ejecución para cierto valor de variable o para ciertos párametros de función.
+```smart header="Puntos de interrupción Conditionales"
+*Hacer clic con el botón derecho* en el número de línea permite crear un punto de interrupción *condicional*. Solo se activa cuando la expresión dada es veraz.
+*Hacer clic con el botón derecho* en el número de línea permite crear un punto de interrupción *condicional*. Solo se activa cuando la expresión dada, que debe proporcionar cuando la crea, es veraz.
+Eso es útil cuando necesitamos detenernos solo para un determinado valor de variable o para ciertos parámetros de función.
 ```
 
 ## El comando "debugger"
 
-También podemos pausar el código utilizando el comando `debugger`, así:
+También podemos pausar el código usando el comando `debugger`, así:
 
 ```js
 function hello(name) {
@@ -86,87 +86,86 @@ function hello(name) {
 
 Dicho comando funciona solo cuando las herramientas del navegador están abiertas; de lo contrario el navegador lo ignora.
 
-## Pausar y mirar alrededor
+## Haz una pausa y mira a tu alrededor
 
-En nuestro ejemplo, `hello()` se llama durante la carga de la página, entonces la forma mas fácil de activar el debugger es recargando la página. Entonces presionemos `key:F5` (en Windows ó Linux) ó `key:Cmd+R` (en Mac).
+En nuestro ejemplo, se llama a `hello()` durante la carga de la página, por lo que la forma más fácil de activar el depurador (después de establecer los puntos de interrupción) es recargar la página. Así que presionemos `tecla:F5` (Windows, Linux) o `tecla:Cmd+R` (Mac).
 
-Como el breakpoint está definido, la ejecución se detiene en la línea 4:
+Cuando se establece el punto de interrupción, la ejecución se detiene en la cuarta línea:
 
 ![](chrome-sources-debugger-pause.svg)
 
-Por favor abre el desplegable de informacion de la derecha (etiquetado con flechas). Este nos permite examinar el estado del código actual:
+Abra los menús desplegables informativos a la derecha (etiquetados con flechas). Le permiten examinar el estado actual del código:
 
-1. **`Watch` -- muestra el valor actual de cualquier expresión.**
+1. **`Watch`: muestra los valores actuales de cualquier expresión.**
 
-    Puede hacer clic en el signo más `+` e ingresar una expresión. El depurador mostrará su valor, recalculándolo automáticamente en el proceso de ejecución.
+    Puedes hacer clic en el signo más `+` e ingresar una expresión. El depurador mostrará su valor, recalculándolo automáticamente en el proceso de ejecución.
 
-2. **`Call Stack` -- muestra las llamadas anidadas en la cadena.**
+2. **`Call Stack`: muestra la cadena de llamadas anidadas.**
 
-    En el momento actual el debugger está dentro de la función `hello()`, llamada por un script en `index.html` (no dentro de ninguna función, por lo que se llama "anonymous").
-    Si haces click en un elemento de la pila (por ejemplo "anonymous"), el debugger saltará al código correspondiente, y todas sus variables también serán examinadas.
+    En el momento actual, el depurador está dentro de la llamada `hello()`, llamado por un guión o script en `index.html` (no hay función allí, por lo que se llama "anónimo").
+    Si haces clic en un elemento de la pila (por ejemplo, "anónimo"), el depurador salta al código correspondiente y también se pueden examinar todas sus variables.
 
-3. **`Scope` -- variables activas.**
+3. **`Scope` : variables actuales.**
 
-    `Local` muestra las variables de la función local. También puedes ver sus valores resaltados sobre el código fuente.
+    `Local` muestra variables de funciones locales. También puedes ver sus valores resaltados justo sobre el código fuente.
+    `Global` contiene variables globales (fuera de cualquier función).
 
-    `Global` contiene las variables globales (fuera de cualquier función).
+    También existe `this`, palabra clave que no estudiamos todavía, pero lo haremos pronto.
 
-    Tambien tenemos la palabra `this` la cual no estudiaremos ahora, pero pronto lo haremos.
+## Seguimiento de la ejecución
 
-## Trazado de la ejecución
+Ahora es el momento de *rastrear* el guión.
 
-Ahora es tiempo de *trazar* el script.
+Hay botones para ello en la parte superior del panel derecho. Involucrémoslos.
 
-Hay botones para esto en le panel superior derecho. Revisémoslos.
+<span class="devtools" style="background-position:-146px -168px"></span> -- "Reanudar": continúa la ejecución, tecla de acceso rápido `tecla:F8`.
+: Reanuda la ejecución. Si no hay puntos de interrupción adicionales, la ejecución continúa y el depurador pierde el control.
 
-<span class="devtools" style="background-position:-7px -76px"></span> -- "Continuar": continua con la ejecución, hotkey `key:F8`.
-: Reanudar la ejecución. Si no hay breakpoints adicionales, entonces la ejecución continúa y el debugger pierde el control.
-
-    Esto es lo que podemos ver al hacer click:
+    Esto es lo que podemos ver después de hacer clic en él:
 
     ![](chrome-sources-debugger-trace-1.svg)
 
-    La ejecución continuó, alcanzando el siguiente breakpoint dentro de `say()` y pausándose allí. Revisa el "Call stack" a la derecha. Ha incrementado su valor una llamada. Ahora estamos dentro de `say()`.
+    La ejecución se reanudó, alcanzó otro punto de interrupción dentro de `say()` y se detuvo allí. Eche un vistazo a la "Pila de llamadas" o "Call Stack" a la derecha. Ha aumentado en una convocatoria más. Estamos dentro de `say()` ahora.
 
-<span class="devtools" style="background-position:-200px -190px"></span> -- "Acción": ejecuta el siguiente comando, hotkey `key:F9`.
-: Ejecute la siguiente instrucción. Si hacemos clic ahora, se mostrará `alerta`.
+<span class="devtools" style="background-position:-200px -190px"></span> -- "Paso": ejecute el siguiente comando, tecla de acceso rápido `tecla:F9`.
+: Ejecute la siguiente sentencia. Si hacemos clic ahora, se mostrará `alerta`.
 
     Al hacer clic aquí una y otra vez, recorrerá todas las instrucciones del script una por una.
+    
+<span class="devtools" style="background-position:-62px -192px"></span> -- "Siguiente paso": ejecute el siguiente comando, pero *no entre en una función*, tecla de acceso rápido `tecla :F10`.
+: Similar al comando "Paso" anterior, pero se comporta de manera diferente si la siguiente declaración es una llamada de función (no una función incorporada, como `alerta`, sino una función propia).
 
-<span class="devtools" style="background-position:-137px -76px"></span> -- "El siguiente paso": corre el comando siguiente, pero *no te metas en la función*, hotkey `key:F10`.
-: Similar al comando del "Paso" anterior, pero se comporta de otra forma si la siguiente declaración es llamada de una función (no una función integrada, como `alerta`, sino una función propia).
-
-Si los comparamos, el comando "Acción" entra en una llamada de función anidada y detiene la ejecución en su primera línea, mientras que "El siguiente paso" ejecuta la llamada de función anidada de forma invisible para nosotros, omitiendo las funciones internas.
+Si los comparamos, el comando "Paso" entra en una llamada de función anidada y detiene la ejecución en su primera línea, mientras que "Siguiente paso" ejecuta la llamada de función anidada de forma invisible para nosotros, omitiendo las funciones internas.
 
     Luego, la ejecución se detiene inmediatamente después de esa llamada de función.
+    
+    Eso es bueno si no estamos interesados en ver qué sucede dentro de la llamada a la función.
+    
+<span class="devtools" style="background-position:-4px -194px"></span> -- "Paso a", tecla de acceso rápido `tecla:F11`.
+: Eso es similar a "Paso", pero se comporta de manera diferente en el caso de llamadas a funciones asincrónicas. Si recién está comenzando a aprender JavaScript, puede ignorar la diferencia, ya que aún no tenemos llamadas asincrónicas.
 
-    Eso es bueno si no estamos interesados ​​en ver qué sucede dentro de la llamada a la función.
+    Para el futuro, solo tenga en cuenta que el comando "Paso" ignora las acciones asíncronas, como `setTimeout` (llamada de función programada), que se ejecutan más tarde. El "Paso a" entra en su código, esperándolos si es necesario. Consulte el [manual de DevTools](https://developers.google.com/web/updates/2018/01/devtools#async) para obtener más detalles.
 
-<span class="devtools" style="background-position:-4px -194px"></span> -- "Vamos", hotkey `key:F11`.
-: Es similar a la "Acción", pero se comporta de manera diferente en el caso de las llamadas a las funciones asincrónicas. Si recién está comenzando a aprender JavaScript, puede ignorar la diferencia, ya que aún no tenemos llamadas asincrónicas.
+<span class="devtools" style="background-position:-32px -194px"></span> -- "Salir": continuar la ejecución hasta el final de la función actual, tecla de acceso rápido `tecla:Shift+F11` .
+: continúa la ejecución y la detiene en la última línea de la función actual. Eso es útil cuando accidentalmente ingresamos una llamada anidada usando <span class="devtools" style="background-position:-200px -190px"></span>, pero no nos interesa y queremos continuar hasta el final lo antes posible.
 
-    Para el futuro, solo tenga en cuenta que el comando "Acción" ignora las acciones asíncronas, como `setTimeout` (llamada de función programada), que se ejecutan más tarde. El "Vamos" entra en su código, esperándolos si es necesario. Consulte el [manual de DevTools](https://developers.google.com/web/updates/2018/01/devtools#async) para obtener más detalles.
+<span class="devtools" style="background-position:-61px -74px"></span> -- habilitar/deshabilitar todos los puntos de interrupción.
+: Ese botón no mueve la ejecución. Solo  prende y apaga los puntos de interrupción.
 
-<span class="devtools" style="background-position:-32px -194px"></span> -- "Al final": continua con la ejecución hasta el fin de la actual función, hotkey (acceso rápido) `key:Shift+F11`.
-: continúa la ejecución y la detiene en la última línea de la función actual. Eso es útil cuando accidentalmente ingresamos una llamada anidada usando <span class="devtools" style="background-position:-200px -190px"></span>, pero no nos interesa y queremos continuar hasta su final lo antes posible.
+<span class="devtools" style="background-position:-90px -146px"></span> -- habilitar/deshabilitar la pausa automática en caso de error.
+: cuando está habilitado, si las herramientas de desarrollo están abiertas, un error durante la ejecución del script lo detiene automáticamente. Luego podemos analizar las variables en el depurador para ver qué salió mal. Entonces, si nuestro script muere con un error, podemos abrir el depurador, habilitar esta opción y volver a cargar la página para ver dónde muere y cuál es el contexto en ese momento.
 
-<span class="devtools" style="background-position:-7px -28px"></span> -- activar/desactivar todos los breakpoints.
-: Este botón no mueve la ejecución. Solo prende y apaga los breakpoints.
+```smart header="Continue to here"
+Right click on a line of code opens the context menu with a great option called "Continue to here".
 
-<span class="devtools" style="background-position:-264px -4px"></span> -- activar/desactivar pausa automática en caso de error.
-: Cuando está habilitado, si las herramientas para desarrolladores están abiertas, un error durante la ejecución del script lo detiene automáticamente. Luego podemos analizar las variables en el depurador (debugger) para ver qué salió mal. Entonces, si nuestro script muere con un error, podemos abrir el depurador (debugger), habilitar esta opción y volver a cargar la página para ver dónde muere y cuál es el contexto en ese momento.
-
-```smart header="Continuar hasta aquí"
-Click derecho en un una línea de código abre el menú contextual con una gran opción que dice "Continua hasta aquí".
-
-Esto es útil cuando queremos movernos múltiples pasos adelante, pero somos muy flojos como para definir un breakpoint.
+That's handy when we want to move multiple steps forward to the line, but we're too lazy to set a breakpoint.
 ```
 
-## Logging
+## Inicio sesión
 
-Para escribir algo en la consola, existe la función `console.log`.
+Para enviar algo a la consola desde nuestro código, existe la función `console.log`.
 
-Por ejemplo, esto muestra los valores desde el `0` hasta el `4` en la consola:
+Por ejemplo, esto genera valores de `0` a `4` en la consola:
 
 ```js run
 // open console to see
@@ -174,22 +173,22 @@ for (let i = 0; i < 5; i++) {
   console.log("value,", i);
 }
 ```
-Los usuarios regulares no ven este output, ya que está en la consola. Para verlo, debemos abrir la consola de desarrolladores y presionar la tecla `key:Esc` y en otro tab: se abrirá la consola debajo.
 
+Los usuarios regulares no ven esa salida y está en la consola. Para verlo, abra el panel Consola de herramientas de desarrollador o presione la `tecla: Esc` mientras está en otro panel: eso abre la consola en la parte inferior.
 
-Si tenemos suficiente log en nuestro código, podemos entonces ver lo que va pasando en nuestro registro, sin el debugger.
+Si tenemos suficientes registros en nuestro código, entonces podemos ver lo que sucede en los registros, sin el depurador.
 
 ## Resumen
 
-Como podemos ver, hay tres formas principales para pausar un script:
-1. Un breakpoint.
-2. La declaración `debugger`.
-3. Un error (Si la consola esta abierta y el botón <span class="devtools" style="background-position:-264px -4px"></span> esta "activo").
+Como podemos ver, existen tres maneras principales de pausar un guión o script:
+1. Un punto de interrupción o breakpoint.
+2. Las sentencias del `depurador` o `debugger`.
+3. Un error (si las herramientas de desarrollo están abiertas y el botón <span class="devtools" style="background-position:-90px -146px"></span> está "activado").
 
 Cuando está en pausa, podemos depurar: examinar variables y rastrear el código para ver dónde falla la ejecución.
 
-Hay muchas más opciones en la consola de desarrollo que las que se cubren aquí. El manual completo lo conseguimos en <https://developers.google.com/web/tools/chrome-devtools>.
+Hay muchas más opciones en las herramientas para desarrolladores de las que se tratan aquí. El manual completo está en <https://developers.google.com/web/tools/chrome-devtools>.
 
-La información de este capítulo es suficiente para debuggear, pero luego, especialmente si hacemos muchas cosas con el explorador, por favor revisa las capacidades avanzadas de la consola de desarrolladores.
+La información de este capítulo es suficiente para comenzar la depuración, pero más adelante, especialmente si hace muchas cosas del navegador, vaya allí y revise las capacidades más avanzadas de las herramientas de desarrollo.
 
-Ah, y también puedes hacer click en todos lados en la consola a ver qué pasa. Esta es probablemente la ruta más rapida para aprender a usar la consola de desarrolladores. ¡Tampoco olvides el click derecho!
+Ah, y también puede hacer clic en varios lugares de las herramientas de desarrollo y ver lo que aparece. Esa es probablemente la ruta más rápida para aprender herramientas de desarrollo. ¡No te olvides del clic derecho y los menús contextuales!
