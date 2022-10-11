@@ -2,7 +2,7 @@
 # Unicode, String internals
 
 ```warn header="Conocimiento avanzado"
-Esta sección ahonda en los interioridades de los string. Este conocimiento será útil para ti si planeas lidiar con emojis, raros caracteres matemáticos, logogramas, u otros símbolos extraños.
+Esta sección ahonda en los interioridades de los string. Este conocimiento será útil para ti si planeas lidiar con emojis, raros caracteres matemáticos, jeroglíficos, u otros símbolos extraños.
 ```
 
 Como ya mencionamos, los strings de JavaScript están basados en [Unicode](https://es.wikipedia.org/wiki/Unicode): cada carácter está representado por una secuencia de entre 1 y 4 bytes.
@@ -11,9 +11,9 @@ JavaScript nos permite insertar un carácter en un string por medio de su códig
 
 - `\xXX`
 
-    `XX` son dos dígitos hexadecimales con un valor entre `00` y `FF`. Entonces, `\xXX` es el carácter cuyo código Unicode es `XX`.
+    `XX` deben ser dos dígitos hexadecimales con un valor entre `00` y `FF`. Entonces, `\xXX` es el carácter cuyo código Unicode es `XX`.
 
-    Como la notación `\xXX` admite solo dos dígitos, puede representar solamente los primeros 256 caracteres Unicode.
+    Como la notación `\xXX` admite solo dos dígitos hexadecimales, puede representar solamente los primeros 256 caracteres Unicode.
 
     Estos primeros 256 caracteres incluyen el alfabeto latino, la mayoría de caracteres de sintaxis básicos, y algunos otros. Por ejemplo, `"\x7A"` es lo mismo que `"z"` (Unicode `U+007A`).
 
@@ -38,13 +38,13 @@ JavaScript nos permite insertar un carácter en un string por medio de su códig
     `X…XXXXXX` debe ser un valor hexadecimal de 1 a 6 bytes entre `0` y `10FFFF` (el mayor punto de código definido por Unicode). Esta notación nos permite fácilmente representar todos los caracteres Unicode existentes.
 
     ```js run
-    alert( "\u{20331}" ); // 佫, un raro logograma chino
+    alert( "\u{20331}" ); // 佫, un raro carácter chino
     alert( "\u{1F60D}" ); // 😍, un símbolo de cara sonriente
     ```
 
 ## Pares sustitutos [#surrogate-pairs]
 
-Todos los caracteres frecuentes tienen códigos de 2 bytes. Las letras de la mayoría de los lenguajes europeos, números, incluso la mayoría de los logogramas, tienen un representación de 2 bytes.
+Todos los caracteres frecuentes tienen códigos de 2 bytes (4 dígitos hexa). Las letras de la mayoría de los lenguajes europeos, números, los conjuntos básicos de caracteres ideográficos CJK unificados (CJK: de los sistemas chino, japonés y coreano), tienen un representación de 2 bytes.
 
 Inicialmente, JavaScript estaba basado en la codificación UTF-16 que solo permite 2 bytes por carácter. Pero 2 bytes solo permiten 65536 combinaciones y eso no es suficiente para cada símbolo Unicode posible.
 
@@ -55,7 +55,7 @@ Como efecto secundario, el largo de tales símbolos es `2`:
 ```js run
 alert( '𝒳'.length ); // 2, carácter matemático X capitalizado
 alert( '😂'.length ); // 2, cara con lágrimas de risa
-alert( '𩷶'.length ); // 2, un raro logograma chino
+alert( '𩷶'.length ); // 2, un raro carácter chino
 ```
 
 Esto es porque los pares sustitutos no existían cuando JavaScript fue creado, por ello no es procesado correctamente por el lenguaje.
