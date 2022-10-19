@@ -84,7 +84,7 @@ document.addEventListener('mousedown', function(event) {
 
       window.scrollBy(0, scrollY);
 
-      // un movimiento rápido del mouse pone el cursor después del final del documento
+      // un movimiento rápido del mouse puede poner el cursor después del final del documento
       // si ocurre,
       // limitar el nuevo "Y" al máximo posible (justo en la base del documento)
       newY = Math.min(newY, document.documentElement.clientHeight - dragElement.offsetHeight);
@@ -94,7 +94,7 @@ document.addEventListener('mousedown', function(event) {
     if (newY < 0) {
       // desplazamiento hacia arriba
       let scrollY = Math.min(-newY, 10);
-      if (scrollY < 0) scrollY = 0; // verifica errores de precisión
+      if (scrollY < 0) scrollY = 0; // corrige errores de precisión
 
       window.scrollBy(0, -scrollY);
       // un movimiento rápido del mouse puede poner el cursor más allá del principio del documento
