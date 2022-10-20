@@ -75,7 +75,7 @@ document.addEventListener('mousedown', function(event) {
 
       // desplazar hacia abajo el documento en 10px tiene un problema
       // puede desplazarse más allá del fin del documento
-      // Math.min(cuánto faltapara el final, 10)
+      // Math.min(cuánto-falta-para-el-final, 10)
       let scrollY = Math.min(docBottom - newBottom, 10);
 
       // los cálculos son imprecisos, puede haber errores de redondeo que hagan un desplazamiento hacia arriba
