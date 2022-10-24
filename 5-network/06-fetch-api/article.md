@@ -21,10 +21,17 @@ let promise = fetch(url, {
     // dependiendo del cuerpo de la solicitud
     "Content-Type": "text/plain;charset=UTF-8"
   },
+<<<<<<< HEAD
   body: undefined, // string, FormData, Blob, BufferSource, o URLSearchParams
   referrer: "about:client", // o "" para no enviar encabezado de Referer,
   // o una URL del origen actual
   referrerPolicy: "no-referrer-when-downgrade", // no-referrer, origin, same-origin...
+=======
+  body: undefined, // string, FormData, Blob, BufferSource, or URLSearchParams
+  referrer: "about:client", // or "" to send no Referer header,
+  // or an url from the current origin
+  referrerPolicy: "strict-origin-when-cross-origin", // no-referrer-when-downgrade, no-referrer, origin, same-origin...
+>>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
   mode: "cors", // same-origin, no-cors
   credentials: "same-origin", // omit, include
   cache: "default", // no-store, reload, no-cache, force-cache, o only-if-cached
@@ -85,6 +92,7 @@ A diferencia de la opción `referrer` que permite establecer el valor exacto de 
 
 Los valores posibles se describen en la [Especificación de la política Referrer](https://w3c.github.io/webappsec-referrer-policy/):
 
+<<<<<<< HEAD
 - **`"no-referrer-when-downgrade"`** -- el valor predeterminado: el `Referer` completo se envía siempre, a menos que enviemos una solicitud de HTTPS a HTTP (a un protocolo menos seguro).
 - **`"no-referrer"`** -- nunca envía `Referer`.
 - **`"origin"`** -- solo envía el origen en `Referer`, no la URL de la página completa. Por ejemplo, solo `http://site.com` en lugar de `http://site.com/path`.
@@ -93,12 +101,23 @@ Los valores posibles se describen en la [Especificación de la política Referre
 - **`"strict-origin"`** -- envía solo el origen, no envía `Referer` para solicitudes HTTPS→HTTP.
 - **`"strict-origin-when-cross-origin"`** -- para el mismo origen, envía el `Referer` completo. Para el envío cross-origin envía solo el origen, a menos que sea una solicitud HTTPS→HTTP, entonces no envía nada.
 - **`"unsafe-url"`** -- envía siempre la URL completa en `Referer`, incluso para solicitudes HTTPS→HTTP.
+=======
+- **`"strict-origin-when-cross-origin"`** -- the default value: for same-origin send the full `Referer`, for cross-origin send only the origin, unless it's HTTPS→HTTP request, then send nothing.
+- **`"no-referrer-when-downgrade"`** -- full `Referer` is always sent, unless we send a request from HTTPS to HTTP (to the less secure protocol).
+- **`"no-referrer"`** -- never send `Referer`.
+- **`"origin"`** -- only send the origin in `Referer`, not the full page URL, e.g. only `http://site.com` instead of `http://site.com/path`.
+- **`"origin-when-cross-origin"`** -- send the full `Referer` to the same origin, but only the origin part for cross-origin requests (as above).
+- **`"same-origin"`** -- send the full `Referer` to the same origin, but no `Referer` for cross-origin requests.
+- **`"strict-origin"`** -- send only the origin, not the `Referer` for HTTPS→HTTP requests.
+- **`"unsafe-url"`** -- always send the full url in `Referer`, even for HTTPS→HTTP requests.
+>>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
 
 Aquí hay una tabla con todas las combinaciones:
 
 | Valor | Al mismo origen | A otro origen | HTTPS→HTTP |
 |-------|----------------|-------------------|------------|
 | `"no-referrer"` | - | - | - |
+<<<<<<< HEAD
 | `"no-referrer-when-downgrade"` o `""` (predeterminado) | completo | completo | - |
 | `"origin"` | origen | origen | origen |
 | `"origin-when-cross-origin"` | completo | origen | origen |
@@ -106,6 +125,15 @@ Aquí hay una tabla con todas las combinaciones:
 | `"strict-origin"` | origen | origen | - |
 | `"strict-origin-when-cross-origin"` | completo | origen | - |
 | `"unsafe-url"` | completo | completo | completo |
+=======
+| `"no-referrer-when-downgrade"` | full | full | - |
+| `"origin"` | origin | origin | origin |
+| `"origin-when-cross-origin"` | full | origin | origin |
+| `"same-origin"` | full | - | - |
+| `"strict-origin"` | origin | origin | - |
+| `"strict-origin-when-cross-origin"` or `""` (default) | full | origin | - |
+| `"unsafe-url"` | full | full | full |
+>>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
 
 Digamos que tenemos una zona de administración con una estructura de URL que no debería conocerse desde fuera del sitio.
 

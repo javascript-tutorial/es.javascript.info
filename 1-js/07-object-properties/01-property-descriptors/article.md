@@ -122,8 +122,13 @@ user.name = "Pedro"; // Error: No se puede asignar a la propiedad de solo lectur
 
 Ahora nadie puede cambiar el nombre de nuestro usuario, a menos que le apliquen su propio `defineProperty` para sobrescribir el nuestro.
 
+<<<<<<< HEAD
 ```smart header="Los errores aparecen solo en modo estricto"
 En el modo no estricto, no se producen errores al escribir en propiedades no grabables y demás. Aún así, la operación no tendrá éxito. Las acciones que infringen el indicador se ignoran silenciosamente en el modo no estricto.
+=======
+```smart header="Errors appear only in strict mode"
+In non-strict mode, no errors occur when writing to non-writable properties and such. But the operation still won't succeed. Flag-violating actions are just silently ignored in non-strict.
+>>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
 ```
 
 Aquí está el mismo ejemplo, pero la propiedad se crea desde cero:

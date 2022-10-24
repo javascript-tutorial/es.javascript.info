@@ -632,7 +632,11 @@ Por ejemplo:
 
 El rol del controlador global `window.onerror` generalmente no es recuperar la ejecución del script, probablemente sea imposible en caso de errores de programación, pero sí enviar el mensaje de error a los desarrolladores.
 
+<<<<<<< HEAD
 También hay servicios web que proporcionan registro de errores para tales casos, como <https://errorception.com> o <http://www.muscula.com>.
+=======
+There are also web-services that provide error-logging for such cases, like <https://errorception.com> or <https://www.muscula.com>.
+>>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
 
 Estos servicios funcionan así:
 

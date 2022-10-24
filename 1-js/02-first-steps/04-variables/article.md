@@ -150,8 +150,13 @@ let message = "That"; // SyntaxError: 'message' ya fue declarado
 Debemos declarar una variable una sola vez y desde entonces referirnos a ella sin `let`.
 ````
 
+<<<<<<< HEAD
 ```smart header="Lenguajes funcionales"
 Es interesante notar el hecho que lenguajes de programación [funcional](https://es.wikipedia.org/wiki/Programaci%C3%B3n_funcional), como [Scala](http://www.scala-lang.org/) o [Erlang](http://www.erlang.org) prohíben cambiar el valor de variables.
+=======
+```smart header="Functional languages"
+It's interesting to note that there exist [functional](https://en.wikipedia.org/wiki/Functional_programming) programming languages, like [Scala](https://www.scala-lang.org/) or [Erlang](https://www.erlang.org/) that forbid changing variable values.
+>>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
 
 En tales lenguajes, una vez la variable ha sido almacenada "en la caja", permanece allí por siempre. Si necesitamos almacenar algo más, el lenguaje nos obliga a crear una nueva caja (generar una nueva variable). No podemos reusar la antigua.
 
@@ -197,8 +202,13 @@ let my-name; // los guiones '-' no son permitidos en nombres
 Dos variables con nombres `manzana` y `MANZANA` son variables distintas.
 ```
 
+<<<<<<< HEAD
 ````smart header="Letras que no son del alfabeto inglés están permitidas, pero no se recomiendan"
 Es posible utilizar letras de cualquier alfabeto, incluyendo el cirílico e incluso jeroglíficos, por ejemplo:
+=======
+````smart header="Non-Latin letters are allowed, but not recommended"
+It is possible to use any language, including cyrillic letters, Chinese logograms and so on, like this:
+>>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
 
 ```js
 let имя = '...';
