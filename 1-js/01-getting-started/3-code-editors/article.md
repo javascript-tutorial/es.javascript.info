@@ -46,4 +46,4 @@ La elección de un editor, como cualquier otra herramienta, es individual y depe
 Opinión personal del author:
 
 - Usaría [Visual Studio Code](https://code.visualstudio.com/) si desarrollara mayormente "frontend".
-- De otro modo, si es mayormente otro lenguaje, plataforma, y parcialmente frontend; entonces consideraría otros editores, como XCode (Mac), Visual Studio (Windows) o la familia Jetbrains (Webstorm, PHPStorm, RubyMine, etc., dependiendo del lenguaje).
+- De otro modo, si es mayormente otro lenguaje, plataforma, y parcialmente frontend; entonces consideraría otros editores, como XCode (Mac), Visual Studio (Windows) o la familia Jetbrains (Webstorm, PHPStorm, RubyMine, etc.; dependiendo del lenguaje).
