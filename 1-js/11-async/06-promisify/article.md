@@ -124,7 +124,7 @@ Para formatos más exóticos de callback, como aquellos sin `err` en absoluto: `
 También hay módulos con funciones de promisificación un poco más flexibles, ej. [es6-promisify](https://github.com/digitaldesignlabs/es6-promisify). En Node.js, hay una función integrada `util.promisify` para ello.
 
 ```smart
-Promisification is a great approach, especially when you use `async/await` (see the next chapter), but not a total replacement for callbacks.
+La promisificación es un excelente recurso, especialmente cuando se usa `async/await` (que cubriremos en el artículo <info:async-await>), pero no un reemplazo total de los callbacks.
 
 Recuerda, una promesa puede tener sólo un resultado, pero un callback puede ser técnicamente llamado muchas veces.
 
