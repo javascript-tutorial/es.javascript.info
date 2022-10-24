@@ -75,7 +75,7 @@ Las 2 partes del par sustituto no tienen significado el uno sin el otro. Entonce
 
 Técnicamente, los pares sustitutos son también detectables por su propio código: si un carácter tiene código en el intervalo de `0xd800..0xdbff`, entonces es la primera parte de un par sustituto. El siguiente carácter (segunda parte) debe tener el código en el intervalo `0xdc00..0xdfff`. Estos intervalos son reservados exclusivamente para pares sustitutos por el estándar.
 
-Los métodos `String.fromCodePoint` y `str.codePointAt` fueron añadidos en JavaScript para manejar los pares sustitutos.
+Los métodos [String.fromCodePoint](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCodePoint) y [str.codePointAt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/codePointAt) fueron añadidos en JavaScript para manejar los pares sustitutos.
 
 Esencialmente, son lo mismo que [String.fromCharCode](mdn:js/String/fromCharCode) y [str.charCodeAt](mdn:js/String/charCodeAt), pero tratan a los pares sustitutos correctamente.
 

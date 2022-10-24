@@ -120,7 +120,7 @@ Usualmente no hay una necesidad real para prevenir la propagación, pero una tar
 
 Hay otra fase en el procesamiento de eventos llamada "captura". Es raro usarla en código real, pero a veces puede ser útil.
 
-El estándar de [eventos del DOM](http://www.w3.org/TR/DOM-Level-3-Events/) describe 3 fases de la propagación de eventos:
+El estándar de [eventos del DOM](https://www.w3.org/TR/DOM-Level-3-Events/) describe 3 fases de la propagación de eventos:
 
 1. Fase de captura -- el evento desciende al elemento.
 2. Fase de objetivo -- el evento alcanza al elemento.

@@ -80,7 +80,7 @@ No todas las propiedades pueden ser animadas, pero sí [la mayoría de las gener
 
 ## transition-duration
 
-En `transition-duration` podemos especificar cuánto tiempo debe durar la animación. El tiempo debe estar en [formato de tiempo CSS](http://www.w3.org/TR/css3-values/#time): en segundos `s` o milisegundos `ms`.
+En `transition-duration` podemos especificar cuánto tiempo debe durar la animación. El tiempo debe estar en [formato de tiempo CSS](https://www.w3.org/TR/css3-values/#time): en segundos `s` o milisegundos `ms`.
 
 ## transition-delay
 

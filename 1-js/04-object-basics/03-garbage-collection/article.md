@@ -205,8 +205,8 @@ Los motores modernos implementan algoritmos avanzados de recolección de basura.
 
 Un libro general "The Garbage Collection Handbook: The Art of Automatic Memory Management" (R. Jones et al) cubre algunos de ellos.
 
-Si estás familiarizado con la programación de bajo nivel, la información más detallada sobre el recolector de basura V8 se encuentra en el artículo [A tour of V8: Garbage Collection](http://jayconrod.com/posts/55/a-tour-of-v8-garbage-collection).
+Si estás familiarizado con la programación de bajo nivel, la información más detallada sobre el recolector de basura V8 se encuentra en el artículo [A tour of V8: Garbage Collection](https://jayconrod.com/posts/55/a-tour-of-v8-garbage-collection).
 
-[V8 blog](http://v8project.blogspot.com/) también publica artículos sobre cambios en la administración de memoria de vez en cuando. Naturalmente, para aprender la recolección de basura, es mejor que se prepare aprendiendo sobre los componentes internos de V8 en general y lea el blog de [Vyacheslav Egorov](http://mrale.ph) que trabajó como uno de los ingenieros de V8. Estoy diciendo: "V8", porque se cubre mejor con artículos en Internet. Para otros motores, muchos enfoques son similares, pero la recolección de basura difiere en muchos aspectos.
+[V8 blog](https://v8project.blogspot.com/) también publica artículos sobre cambios en la administración de memoria de vez en cuando. Naturalmente, para aprender la recolección de basura, es mejor que se prepare aprendiendo sobre los componentes internos de V8 en general y lea el blog de [Vyacheslav Egorov](https://mrale.ph) que trabajó como uno de los ingenieros de V8. Estoy diciendo: "V8", porque se cubre mejor con artículos en Internet. Para otros motores, muchos enfoques son similares, pero la recolección de basura difiere en muchos aspectos.
 
 Es bueno tener un conocimiento profundo de los motores cuando se necesitan optimizaciones de bajo nivel. Sería prudente planificar eso como el siguiente paso después de que esté familiarizado con el lenguaje.

@@ -48,7 +48,7 @@ Si también queremos buscar letras minúsculas, podemos agregar el rango `a-f`: 
 
 También podemos usar clases de caracteres dentro de los `[…]`.
 
-Por ejemplo, si quisiéramos buscar un carácter de palabra `pattern:\w` o un guión `pattern:-`, entonces el conjunto es `pattern:[\w-]`.
+Por ejemplo, si quisiéramos buscar un carácter de palabra `pattern:\w` o un guion `pattern:-`, entonces el conjunto es `pattern:[\w-]`.
 
 También es posible combinar varias clases, p.ej.: `pattern:[\s\d]` significa "un carácter de espacio o un dígito".
 
@@ -71,7 +71,7 @@ Decifrémoslo. Similar a `pattern:\w`, estamos creando un conjunto propio que in
 - `Alfabético` (`Alpha`) - para letras,
 - `Marca` (`M`) - para acentos,
 - `Numero_Decimal` (`Nd`) - para dígitos,
-- `Conector_Puntuación` (`Pc`) - para guión bajo `'_'` y caracteres similares,
+- `Conector_Puntuación` (`Pc`) - para guion bajo `'_'` y caracteres similares,
 - `Control_Unión` (`Join_C`) - dos códigos especiales `200c` and `200d`, utilizado en ligaduras, p.ej. en árabe.
 
 Un ejemplo de uso:
@@ -88,7 +88,7 @@ alert( str.match(regexp) ); // H,o,l,a,你,好,1,2
 Por supuesto, podemos editar este patrón: agregar propiedades unicode o eliminarlas. Las propiedades Unicode se cubren con más detalle en el artículo <info:regexp-unicode>.
 
 ```warn header="Las propiedades Unicode no son compatibles con IE"
-Las propiedades Unicode `pattern:p{…}` no se implementaron en IE. Si realmente las necesitamos, podemos usar la biblioteca [XRegExp](http://xregexp.com/).
+Las propiedades Unicode `pattern:p{…}` no se implementaron en IE. Si realmente las necesitamos, podemos usar la biblioteca [XRegExp](https://xregexp.com/).
 
 O simplemente usa rangos de caracteres en el idioma de tu interés, p.ej. `pattern:[а-я]` para letras cirílicas.
 ```
@@ -118,7 +118,7 @@ Por lo general, cuando queremos encontrar exactamente un carácter especial, nec
 Entre corchetes podemos usar la gran mayoría de caracteres especiales sin escaparlos:
 
 - Los símbolos `pattern:. + ( )` nunca necesitan escape.
-- Un guión `pattern:-` no se escapa al principio ni al final (donde no define un rango).
+- Un guion `pattern:-` no se escapa al principio ni al final (donde no define un rango).
 - Un carácter caret `pattern:^` solo se escapa al principio (donde significa exclusión).
 - El corchete de cierre `pattern:]` siempre se escapa (si se necesita buscarlo).
 

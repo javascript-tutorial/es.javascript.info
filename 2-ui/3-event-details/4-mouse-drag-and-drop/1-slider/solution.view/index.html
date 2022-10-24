@@ -16,10 +16,10 @@
     let thumb = slider.querySelector('.thumb');
 
     thumb.onmousedown = function(event) {
-      event.preventDefault(); // prevent selection start (browser action)
+      event.preventDefault(); // evita el inicio de la selección (acción del navegador)
 
       let shiftX = event.clientX - thumb.getBoundingClientRect().left;
-      // shiftY not needed, the thumb moves only horizontally
+      // shiftY no es necesario, el dedo se mueve solo horizontalmente
 
       document.addEventListener('mousemove', onMouseMove);
       document.addEventListener('mouseup', onMouseUp);
@@ -27,7 +27,7 @@
       function onMouseMove(event) {
         let newLeft = event.clientX - shiftX - slider.getBoundingClientRect().left;
 
-        // the pointer is out of slider => lock the thumb within the bounaries
+        // el puntero está fuera del slider => bloquear el dedo dentro de los límites
         if (newLeft < 0) {
           newLeft = 0;
         }

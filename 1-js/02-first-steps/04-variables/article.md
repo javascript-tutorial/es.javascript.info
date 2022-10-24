@@ -151,7 +151,7 @@ Debemos declarar una variable una sola vez y desde entonces referirnos a ella si
 ````
 
 ```smart header="Lenguajes funcionales"
-Es interesante notar el hecho que lenguajes de programación [funcional](https://es.wikipedia.org/wiki/Programaci%C3%B3n_funcional), como [Scala](http://www.scala-lang.org/) o [Erlang](http://www.erlang.org) prohíben cambiar el valor de variables.
+Es interesante notar el hecho que lenguajes de programación [funcional](https://es.wikipedia.org/wiki/Programaci%C3%B3n_funcional), como [Scala](https://www.scala-lang.org/) o [Erlang](https://www.erlang.org) prohíben cambiar el valor de las variables.
 
 En tales lenguajes, una vez la variable ha sido almacenada "en la caja", permanece allí por siempre. Si necesitamos almacenar algo más, el lenguaje nos obliga a crear una nueva caja (generar una nueva variable). No podemos reusar la antigua.
 
@@ -198,7 +198,7 @@ Dos variables con nombres `manzana` y `MANZANA` son variables distintas.
 ```
 
 ````smart header="Letras que no son del alfabeto inglés están permitidas, pero no se recomiendan"
-Es posible utilizar letras de cualquier alfabeto, incluyendo el cirílico e incluso jeroglíficos, por ejemplo:
+Es posible utilizar letras de cualquier alfabeto, incluyendo letras del cirílico, e logogramas chinos, etc.; por ejemplo:
 
 ```js
 let имя = '...';

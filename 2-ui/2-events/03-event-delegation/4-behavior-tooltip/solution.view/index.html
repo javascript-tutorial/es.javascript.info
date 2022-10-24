@@ -6,7 +6,7 @@
   <style>
     body {
       height: 2000px;
-      /* make body scrollable, the tooltip should work after the scroll */
+      /* hacer body desplazable, el tooltip debe funcionar después del desplazamiento */
     }
 
     .tooltip {
@@ -28,10 +28,10 @@
   <p>LaLaLa LaLaLa LaLaLa LaLaLa LaLaLa LaLaLa LaLaLa LaLaLa LaLaLa</p>
   <p>LaLaLa LaLaLa LaLaLa LaLaLa LaLaLa LaLaLa LaLaLa LaLaLa LaLaLa</p>
 
-  <button data-tooltip="the tooltip is longer than the element">Short button</button>
-  <button data-tooltip="HTML<br>tooltip">One more button</button>
+  <button data-tooltip="the tooltip is longer than the element">Botón corto</button>
+  <button data-tooltip="HTML<br>tooltip">Un botón más</button>
 
-  <p>Scroll the page to make buttons appear on the top, check if the tooltips show up correctly.</p>
+  <p>Desplaza la página para que los botones aparezcan arriba de todo, verifica que los tooltips se muestren correctamente.</p>
 
 
   <script>
@@ -40,25 +40,25 @@
     document.onmouseover = function(event) {
       let target = event.target;
 
-      // if we have tooltip HTML...
+      // si tenemos HTML de tooltip...
       let tooltipHtml = target.dataset.tooltip;
       if (!tooltipHtml) return;
 
-      // ...create the tooltip element
+      // ...crear el elemento tooltip
 
       tooltipElem = document.createElement('div');
       tooltipElem.className = 'tooltip';
       tooltipElem.innerHTML = tooltipHtml;
       document.body.append(tooltipElem);
 
-      // position it above the annotated element (top-center)
+      // posicionarlo arriba del elemento (top-center)
       let coords = target.getBoundingClientRect();
 
       let left = coords.left + (target.offsetWidth - tooltipElem.offsetWidth) / 2;
-      if (left < 0) left = 0; // don't cross the left window edge
+      if (left < 0) left = 0; // no cruzar el borde izquierdo de la ventana
 
       let top = coords.top - tooltipElem.offsetHeight - 5;
-      if (top < 0) { // if crossing the top window edge, show below instead
+      if (top < 0) { // en cambio, si cruza el borde superior de la ventana, mostrarlo debajo
         top = coords.top + target.offsetHeight + 5;
       }
 

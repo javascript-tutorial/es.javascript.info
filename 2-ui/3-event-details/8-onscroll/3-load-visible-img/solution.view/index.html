@@ -6,9 +6,9 @@
 
 <body>
 
-  <p>Text and pictures are from https://wikipedia.org.</p>
+  <p>Texto e imágenes son de https://wikipedia.org.</p>
 
-  <h3>All images with <code>data-src</code> load when become visible.</h3>
+  <h3>Todas las imágenes con <code>data-src</code> se cargan cuando se vuelven visibles.</h3>
 
   <h1>Solar system</h1>
 
@@ -165,8 +165,8 @@
 
    <script>
     /**
-     * Tests if the element is visible (within the visible part of the page)
-     * It's enough that the top or bottom edge of the element are visible
+     * Testea si el elemento es visible (que está dentro de la parte visible de la página)
+     * Es suficiente que los bordes superior o inferior del elemento sean visibles
      */
     function isVisible(elem) {
 
@@ -174,7 +174,7 @@
 
       let windowHeight = document.documentElement.clientHeight;
 
-      // top elem edge is visible OR bottom elem edge is visible
+      // el borde superior del elemento es visible O el borde inferior es visible
       let topVisible = coords.top > 0 && coords.top < windowHeight;
       let bottomVisible = coords.bottom < windowHeight && coords.bottom > 0;
 
@@ -182,8 +182,8 @@
     }
 
     /**
-    A variant of the test that considers the element visible if it's no more than
-    one page after/behind the current screen.
+    Una variante del test, considera al elemento visible si no hay más que 
+    una página delante/detrás de la pantalla actual.
 
     function isVisible(elem) {
 
@@ -208,8 +208,8 @@
         if (!realSrc) continue;
 
         if (isVisible(img)) {
-          // disable caching
-          // this line should be removed in production code
+          // deshabilita caching
+          // esta línea debe ser quitada del código de producción
           realSrc += '?nocache=' + Math.random();
 
           img.src = realSrc;

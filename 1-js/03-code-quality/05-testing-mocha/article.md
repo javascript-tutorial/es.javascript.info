@@ -69,7 +69,7 @@ El flujo de desarrollo se ve así:
 
 1. Se escribe una spec inicial, con tests para la funcionalidad más básica.
 2. Se crea Una implementación inicial.
-3. Para comprobar que funciona, ejecutamos el framework de test [Mocha](http://mochajs.org/) (detallado más adelante) que ejecuta la spec.  Mostrará los errores mientras la funcionalidad no esté completa. Hacemos correcciones hasta que todo funciona.
+3. Para comprobar que funciona, ejecutamos el framework de test [Mocha](https://mochajs.org/) (detallado más adelante) que ejecuta la spec.  Mostrará los errores mientras la funcionalidad no esté completa. Hacemos correcciones hasta que todo funciona.
 4. Ahora tenemos una implementación inicial con tests.
 5. Añadimos más casos de uso a la spec, seguramente no soportados aún por la implementación. Los tests empiezan a fallar.
 6. Ir a 3, actualizar la implementación hasta que los tests no den errores.
@@ -85,9 +85,9 @@ El primer paso ya está completo: tenemos una spec inicial para `pow`. Ahora, an
 
 En este tutorial estamos usando las siguientes librerías JavaScript para los tests:
 
-- [Mocha](http://mochajs.org/) -- el framework central: provee funciones para test comunes como `describe` e `it` y la función principal que ejecuta los tests.
-- [Chai](http://chaijs.com) -- una librería con muchas funciones de comprobación (assertions). Permite el uso de diferentes comprobaciones. De momento usaremos `assert.equal`.
-- [Sinon](http://sinonjs.org/) -- una librería para espiar funciones. Simula funciones incorporadas al lenguaje y mucho más. La necesitaremos a menudo más adelante.
+- [Mocha](https://mochajs.org/) -- el framework central: provee funciones para test comunes como `describe` e `it` y la función principal que ejecuta los tests.
+- [Chai](https://chaijs.com) -- una librería con muchas funciones de comprobación (assertions). Permite el uso de diferentes comprobaciones. De momento usaremos `assert.equal`.
+- [Sinon](https://sinonjs.org/) -- una librería para espiar funciones. Simula funciones incorporadas al lenguaje y mucho más. La necesitaremos a menudo más adelante.
 
 Estas librerías son adecuadas tanto para tests en el navegador como en el lado del servidor. Aquí nos enfocaremos en el navegador.
 
@@ -338,14 +338,14 @@ El test recién creado falla, porque nuestra implementación no lo soporta. Así
 ```smart header="Otras comprobaciones"
 Por favor, ten en cuenta la comprobación `assert.isNaN`: ella comprueba que el valor es `NaN`.
 
-Hay otras comprobaciones en Chai también [Chai](http://chaijs.com), por ejemplo:
+Hay otras comprobaciones en Chai también [Chai](https://chaijs.com), por ejemplo:
 
 - `assert.equal(value1, value2)` -- prueba la igualdad  `value1 == value2`.
 - `assert.strictEqual(value1, value2)` -- prueba la igualdad estricta `value1 === value2`.
 - `assert.notEqual`, `assert.notStrictEqual` -- el contrario que arriba.
 - `assert.isTrue(value)` -- prueba que `value === true`
 - `assert.isFalse(value)` -- prueba que `value === false`
-- ... la lista entera se puede encontrar en [docs](http://chaijs.com/api/assert/)
+- ... la lista entera se puede encontrar en [docs](https://chaijs.com/api/assert/)
 ```
 
 Así que podemos añadir un par de líneas a `pow`:

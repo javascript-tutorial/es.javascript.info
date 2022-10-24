@@ -79,7 +79,7 @@ Estos varios redibujos independientes deben agruparse para facilitar el redibuja
 
 Hay una cosa más a tener en cuenta. A veces, cuando el CPU está sobrecargado, o hay otras razones para volver a dibujar con menos frecuencia (como cuando la pestaña del navegador está oculta), no deberíamos ejecutarlo cada `20ms`.
 
-Pero, ¿cómo sabemos eso en JavaScript? Hay una especificación [Sincronización de animación](http://www.w3.org/TR/animation-timing/) que proporciona la función `requestAnimationFrame`. Aborda todos estos problemas y aún más.
+Pero, ¿cómo sabemos eso en JavaScript? Hay una especificación [Sincronización de animación](https://www.w3.org/TR/animation-timing/) que proporciona la función `requestAnimationFrame`. Aborda todos estos problemas y aún más.
 
 La sintaxis:
 ```js

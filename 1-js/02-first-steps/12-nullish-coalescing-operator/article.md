@@ -29,7 +29,7 @@ Por ejemplo, aquí mostramos `user` si su valor está "definido" (que no es `nul
 ```js run
 let user;
 
-alert(user ?? "Anonymous"); // Anonymous (user no definido)
+alert(user ?? "Anonymous"); // Anonymous (user es undefined)
 ```
 
 Aquí el ejemplo de `user` con un nombre asignado:
@@ -37,7 +37,7 @@ Aquí el ejemplo de `user` con un nombre asignado:
 ```js run
 let user = "John";
 
-alert(user ?? "Anonymous"); // John (user definido)
+alert(user ?? "Anonymous"); // John (user no es null/undefined)
 ```
 
 También podemos usar una secuencia de `??` para seleccionar el primer valor que no sea `null/undefined` de una lista.

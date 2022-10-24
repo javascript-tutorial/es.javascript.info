@@ -18,13 +18,13 @@
       "https://en.js.cx/images-load/3.jpg"
     ];
 
-    // add random characters to prevent browser caching
+    // agrega caracteres aleatorios para evitar el "caching" del navegador
     for (let i = 0; i < sources.length; i++) {
       sources[i] += '?' + Math.random();
     }
 
-    // for each image,
-    // let's create another img with the same src and check that we have its width immediately
+    // para cada imagen,
+    // creemos otra img con el mismo src y verificamos que tenemos su ancho "width" inmediatamente
     function testLoaded() {
       let widthSum = 0;
       for (let i = 0; i < sources.length; i++) {
@@ -35,7 +35,7 @@
       alert(widthSum);
     }
 
-    // every image is 100x100, the total width should be 300
+    // cada imagen es de 100x100, el ancho total debe ser 300
     preloadImages(sources, testLoaded);
   </script>
 

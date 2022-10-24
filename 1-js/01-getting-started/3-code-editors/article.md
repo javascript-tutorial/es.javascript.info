@@ -29,7 +29,7 @@ La diferencia principal entre un "editor liviano" y un "IDE" es que un IDE traba
 
 En la práctica, los editores livianos pueden tener montones de plugins incluyendo analizadores de sintaxis a nivel de directorio y autocompletado, por lo que no hay un límite estricto entre un editor liviano y un IDE.
 
-Las siguientes opciones merecen tu atención:
+Existen muchas opciones, por ejemplo:
 
 - [Sublime Text](https://www.sublimetext.com) (multiplataforma, shareware).
 - [Notepad++](https://notepad-plus-plus.org/) (Windows, gratuito).
@@ -42,3 +42,8 @@ Los editores en las listas anteriores son aquellos que yo o mis amigos a quienes
 Existen otros grandes editores en este gran mundo. Por favor escoge el que más te guste.
 
 La elección de un editor, como cualquier otra herramienta, es individual y depende de tus proyectos, hábitos y preferencias personales.
+
+Opinión personal del author:
+
+- Usaría [Visual Studio Code](https://code.visualstudio.com/) si desarrollara mayormente "frontend".
+- De otro modo, si es mayormente otro lenguaje, plataforma, y parcialmente frontend; entonces consideraría otros editores, como XCode (Mac), Visual Studio (Windows) o la familia Jetbrains (Webstorm, PHPStorm, RubyMine, etc., dependiendo del lenguaje).

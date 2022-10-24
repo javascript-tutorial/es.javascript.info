@@ -14,7 +14,7 @@ let url = location.host == 'localhost' ?
 
 let socket = new WebSocket(url);
 
-// send message from the form
+// envío de mensaje desde el form
 document.forms.publish.onsubmit = function() {
   let outgoingMessage = this.message.value;
 
@@ -22,7 +22,7 @@ document.forms.publish.onsubmit = function() {
   return false;
 };
 
-// handle incoming messages
+// manejo de mensajes entrantes
 socket.onmessage = function(event) {
   let incomingMessage = event.data;
   showMessage(incomingMessage);
@@ -30,7 +30,7 @@ socket.onmessage = function(event) {
 
 socket.onclose = event => console.log(`Closed ${event.code}`);
 
-// show message in div#messages
+// mostrar mensaje en div#messages
 function showMessage(message) {
   let messageElem = document.createElement('div');
   messageElem.textContent = message;
