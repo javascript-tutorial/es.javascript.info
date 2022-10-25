@@ -104,7 +104,7 @@ Aquí hay una tabla con todas las combinaciones:
 | `"origin-when-cross-origin"` | completo | origen | origen |
 | `"same-origin"` | completo | - | - |
 | `"strict-origin"` | origen | origen | - |
-| `"strict-origin-when-cross-origin"` or `""` (default) | completo | origen | - |
+| `"strict-origin-when-cross-origin"` or `""` (predeterminado) | completo | origen | - |
 | `"unsafe-url"` | completo | completo | completo |
 
 Digamos que tenemos una zona de administración con una estructura de URL que no debería conocerse desde fuera del sitio.
