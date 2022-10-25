@@ -449,7 +449,7 @@ En estos ejemplos asumimos los significados comunes de los prefijos. Tú y tu eq
 ```smart header="Nombres de funciones ultracortos"
 Las funciones que se utilizan *muy a menudo* algunas veces tienen nombres ultracortos.
 
-Por ejemplo, el framework [jQuery](http://jquery.com) define una función con `$`. La librería [LoDash](http://lodash.com/) tiene como nombre de función principal `_`.
+Por ejemplo, el framework [jQuery](https://jquery.com) define una función con `$`. La librería [LoDash](https://lodash.com/) tiene como nombre de función principal `_`.
 
 Estas son excepciones. En general, los nombres de las funciones deben ser concisos y descriptivos.
 ```

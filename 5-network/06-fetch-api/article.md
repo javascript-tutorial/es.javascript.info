@@ -22,9 +22,9 @@ let promise = fetch(url, {
     "Content-Type": "text/plain;charset=UTF-8"
   },
   body: undefined, // string, FormData, Blob, BufferSource, o URLSearchParams
-  referrer: "about:client", // o "" para no enviar encabezado de Referer,
+  referrer: "about:client", // o "" para no enviar encabezado de Referrer,
   // o una URL del origen actual
-  referrerPolicy: "no-referrer-when-downgrade", // no-referrer, origin, same-origin...
+  referrerPolicy: "strict-origin-when-cross-origin", // no-referrer-when-downgrade, no-referrer, origin, same-origin...
   mode: "cors", // same-origin, no-cors
   credentials: "same-origin", // omit, include
   cache: "default", // no-store, reload, no-cache, force-cache, o only-if-cached
@@ -85,13 +85,13 @@ A diferencia de la opción `referrer` que permite establecer el valor exacto de 
 
 Los valores posibles se describen en la [Especificación de la política Referrer](https://w3c.github.io/webappsec-referrer-policy/):
 
-- **`"no-referrer-when-downgrade"`** -- el valor predeterminado: el `Referer` completo se envía siempre, a menos que enviemos una solicitud de HTTPS a HTTP (a un protocolo menos seguro).
+- **`"strict-origin-when-cross-origin"`** -- El valor predeterminado. Para el mismo origen, envía el `Referer` completo. Para el envío cross-origin envía solo el origen, a menos que sea una solicitud HTTPS→HTTP, entonces no envía nada.
+- **`"no-referrer-when-downgrade"`** -- el `Referer` completo se envía siempre, a menos que enviemos una solicitud de HTTPS a HTTP (a un protocolo menos seguro).
 - **`"no-referrer"`** -- nunca envía `Referer`.
 - **`"origin"`** -- solo envía el origen en `Referer`, no la URL de la página completa. Por ejemplo, solo `http://site.com` en lugar de `http://site.com/path`.
 - **`"origin-when-cross-origin"`** -- envía el `Referrer` completo al mismo origen, pero solo la parte de origen para solicitudes cross-origin (como se indica arriba).
 - **`"same-origin"`** -- envía un `Referer` completo al mismo origen, pero no un `Referer` para solicitudes cross-origin.
 - **`"strict-origin"`** -- envía solo el origen, no envía `Referer` para solicitudes HTTPS→HTTP.
-- **`"strict-origin-when-cross-origin"`** -- para el mismo origen, envía el `Referer` completo. Para el envío cross-origin envía solo el origen, a menos que sea una solicitud HTTPS→HTTP, entonces no envía nada.
 - **`"unsafe-url"`** -- envía siempre la URL completa en `Referer`, incluso para solicitudes HTTPS→HTTP.
 
 Aquí hay una tabla con todas las combinaciones:
@@ -99,12 +99,12 @@ Aquí hay una tabla con todas las combinaciones:
 | Valor | Al mismo origen | A otro origen | HTTPS→HTTP |
 |-------|----------------|-------------------|------------|
 | `"no-referrer"` | - | - | - |
-| `"no-referrer-when-downgrade"` o `""` (predeterminado) | completo | completo | - |
+| `"no-referrer-when-downgrade"` | completo | completo | - |
 | `"origin"` | origen | origen | origen |
 | `"origin-when-cross-origin"` | completo | origen | origen |
 | `"same-origin"` | completo | - | - |
 | `"strict-origin"` | origen | origen | - |
-| `"strict-origin-when-cross-origin"` | completo | origen | - |
+| `"strict-origin-when-cross-origin"` or `""` (predeterminado) | completo | origen | - |
 | `"unsafe-url"` | completo | completo | completo |
 
 Digamos que tenemos una zona de administración con una estructura de URL que no debería conocerse desde fuera del sitio.

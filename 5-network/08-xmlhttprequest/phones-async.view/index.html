@@ -5,7 +5,7 @@
 </head>
 <body>
 
-  <button onclick="loadPhones()" id="button">Load phones.json!</button>
+  <button onclick="loadPhones()" id="button">Cargar phones.json!</button>
 
   <script>
     function loadPhones() {
@@ -21,19 +21,19 @@
       xhr.onreadystatechange = function() {
         if (xhr.readyState != 4) return;
 
-        button.innerHTML = 'Complete!';
+        button.innerHTML = '¡Finalizado!';
 
         if (xhr.status != 200) {
-          // handle error
+          // manejar error
           alert(xhr.status + ': ' + xhr.statusText);
         } else {
-          // show result
+          // mostrar resultado
           alert(xhr.responseText);
         }
 
       }
 
-      button.innerHTML = 'Loading...';
+      button.innerHTML = 'Cargando...';
       button.disabled = true;
     }
   </script>

@@ -1,7 +1,7 @@
 
 # Polyfills y transpiladores
 
-El lenguaje JavaScript evoluciona constantemente. Nuevas propuestas al lenguaje aparecen regularmente, son analizadas y, si se consideran valiosas, se agregan a la lista en <https://tc39.github.io/ecma262/> y luego avanzan a la [especificación](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
+El lenguaje JavaScript evoluciona constantemente. Nuevas propuestas al lenguaje aparecen regularmente, son analizadas y, si se consideran valiosas, se agregan a la lista en <https://tc39.github.io/ecma262/> y luego avanzan a la [especificación](https://www.ecma-international.org/publications/standards/ecma-262.htm).
 
 Los equipos de desarrollo detrás de los intérpretes (engines) de JavaScript tienen sus propias ideas sobre qué implementar primero. Pueden decidir implementar propuestas que están en borrador y posponer cosas que ya están en la especificación porque son menos interesantes o simplemente porque son más difíciles de hacer.
 
@@ -73,7 +73,7 @@ JavaScript es un lenguaje muy dinámico, los scripts pueden agregar o modificar 
 
 Dos librerías interesantes de polyfills son:
 - [core js](https://github.com/zloirock/core-js) - da muchísimo soporte, pero permite que se incluyan solamente las características necesitadas.
-- [polyfill.io](http://polyfill.io) - servicio que brinda un script con polyfills dependiendo de las características del navegador del usuario.
+- [polyfill.io](https://polyfill.io) - servicio que brinda un script con polyfills dependiendo de las características del navegador del usuario.
 
 
 ## Resumen

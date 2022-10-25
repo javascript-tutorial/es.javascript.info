@@ -48,7 +48,7 @@ Para reanudar una carga, necesitamos saber *exactamente* el número de bytes rec
 
 3. Entonces, podemos usar el método `Blob` `slice` para enviar el archivo desde `startByte`:
     ```js
-    xhr.open("POST", "upload", true);
+    xhr.open("POST", "upload");
 
     // Archivo, de modo que el servidor sepa qué archivo subimos
     xhr.setRequestHeader('X-File-Id', fileId);
