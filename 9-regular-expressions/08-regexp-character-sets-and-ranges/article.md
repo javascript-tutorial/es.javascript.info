@@ -87,8 +87,13 @@ alert( str.match(regexp) ); // H,o,l,a,你,好,1,2
 
 Por supuesto, podemos editar este patrón: agregar propiedades unicode o eliminarlas. Las propiedades Unicode se cubren con más detalle en el artículo <info:regexp-unicode>.
 
+<<<<<<< HEAD
 ```warn header="Las propiedades Unicode no son compatibles con IE"
 Las propiedades Unicode `pattern:p{…}` no se implementaron en IE. Si realmente las necesitamos, podemos usar la biblioteca [XRegExp](https://xregexp.com/).
+=======
+```warn header="Unicode properties aren't supported in IE"
+Unicode properties `pattern:p{…}` are not implemented in IE. If we really need them, we can use library [XRegExp](https://xregexp.com/).
+>>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
 
 O simplemente usa rangos de caracteres en el idioma de tu interés, p.ej. `pattern:[а-я]` para letras cirílicas.
 ```

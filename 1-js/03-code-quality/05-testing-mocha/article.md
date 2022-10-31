@@ -67,6 +67,7 @@ La especificación puede ser ejecutada, y hará los los test dictados en el bloq
 
 El flujo de desarrollo se ve así:
 
+<<<<<<< HEAD
 1. Se escribe una spec inicial, con tests para la funcionalidad más básica.
 2. Se crea Una implementación inicial.
 3. Para comprobar que funciona, ejecutamos el framework de test [Mocha](https://mochajs.org/) (detallado más adelante) que ejecuta la spec.  Mostrará los errores mientras la funcionalidad no esté completa. Hacemos correcciones hasta que todo funciona.
@@ -74,6 +75,15 @@ El flujo de desarrollo se ve así:
 5. Añadimos más casos de uso a la spec, seguramente no soportados aún por la implementación. Los tests empiezan a fallar.
 6. Ir a 3, actualizar la implementación hasta que los tests no den errores.
 7. Repetir pasos 3-6 hasta que la funcionalidad esté lista.
+=======
+1. An initial spec is written, with tests for the most basic functionality.
+2. An initial implementation is created.
+3. To check whether it works, we run the testing framework [Mocha](https://mochajs.org/) (more details soon) that runs the spec. While the functionality is not complete, errors are displayed. We make corrections until everything works.
+4. Now we have a working initial implementation with tests.
+5. We add more use cases to the spec, probably not yet supported by the implementations. Tests start to fail.
+6. Go to 3, update the implementation till tests give no errors.
+7. Repeat steps 3-6 till the functionality is ready.
+>>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
 
 De tal forma, el desarrollo es iterativo. Escribimos la especificación, la implementamos, nos aseguramos de que los tests pasen, entonces escribimos más tests, y nos volvemos a asegurar de que pasen, etc. Al final tenemos una implementación funcionando con tests para ella.
 
@@ -85,9 +95,15 @@ El primer paso ya está completo: tenemos una spec inicial para `pow`. Ahora, an
 
 En este tutorial estamos usando las siguientes librerías JavaScript para los tests:
 
+<<<<<<< HEAD
 - [Mocha](https://mochajs.org/) -- el framework central: provee funciones para test comunes como `describe` e `it` y la función principal que ejecuta los tests.
 - [Chai](https://chaijs.com) -- una librería con muchas funciones de comprobación (assertions). Permite el uso de diferentes comprobaciones. De momento usaremos `assert.equal`.
 - [Sinon](https://sinonjs.org/) -- una librería para espiar funciones. Simula funciones incorporadas al lenguaje y mucho más. La necesitaremos a menudo más adelante.
+=======
+- [Mocha](https://mochajs.org/) -- the core framework: it provides common testing functions including `describe` and `it` and the main function that runs tests.
+- [Chai](https://www.chaijs.com/) -- the library with many assertions. It allows to use a lot of different assertions, for now we need only `assert.equal`.
+- [Sinon](https://sinonjs.org/) -- a library to spy over functions, emulate built-in functions and more, we'll need it much later.
+>>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
 
 Estas librerías son adecuadas tanto para tests en el navegador como en el lado del servidor. Aquí nos enfocaremos en el navegador.
 
@@ -338,6 +354,7 @@ El test recién creado falla, porque nuestra implementación no lo soporta. Así
 ```smart header="Otras comprobaciones"
 Por favor, ten en cuenta la comprobación `assert.isNaN`: ella comprueba que el valor es `NaN`.
 
+<<<<<<< HEAD
 Hay otras comprobaciones en Chai también [Chai](https://chaijs.com), por ejemplo:
 
 - `assert.equal(value1, value2)` -- prueba la igualdad  `value1 == value2`.
@@ -346,6 +363,16 @@ Hay otras comprobaciones en Chai también [Chai](https://chaijs.com), por ejempl
 - `assert.isTrue(value)` -- prueba que `value === true`
 - `assert.isFalse(value)` -- prueba que `value === false`
 - ... la lista entera se puede encontrar en [docs](https://chaijs.com/api/assert/)
+=======
+There are other assertions in [Chai](https://www.chaijs.com/) as well, for instance:
+
+- `assert.equal(value1, value2)` -- checks the equality  `value1 == value2`.
+- `assert.strictEqual(value1, value2)` -- checks the strict equality `value1 === value2`.
+- `assert.notEqual`, `assert.notStrictEqual` -- inverse checks to the ones above.
+- `assert.isTrue(value)` -- checks that `value === true`
+- `assert.isFalse(value)` -- checks that `value === false`
+- ...the full list is in the [docs](https://www.chaijs.com/api/assert/)
+>>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
 ```
 
 Así que podemos añadir un par de líneas a `pow`:

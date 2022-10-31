@@ -210,7 +210,11 @@ Hay [12 tipos de nodos](https://dom.spec.whatwg.org/#node). En la práctica gene
 
 ## Véalo usted mismo
 
+<<<<<<< HEAD
 Para ver la estructura del DOM en tiempo real, intente [Live DOM Viewer](https://software.hixie.ch/utilities/js/live-dom-viewer/). Simplemente escriba el documento, y se mostrará como un DOM al instante.
+=======
+To see the DOM structure in real-time, try [Live DOM Viewer](https://software.hixie.ch/utilities/js/live-dom-viewer/). Just type in the document, and it will show up as a DOM at an instant.
+>>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
 
 Otra forma de explorar el DOM es usando la herramienta para desarrolladores del navegador. En realidad, eso es lo que usamos cuando estamos desarrollando.
 

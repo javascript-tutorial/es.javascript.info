@@ -80,7 +80,11 @@ alert( 8 ** (1/3) ); // 2 (potencia de 1/3 es lo mismo que raíz cúbica)
 
 ## Concatenación de cadenas con el binario +
 
+<<<<<<< HEAD
 Ahora veamos las características de los operadores de JavaScript que van más allá de las aritméticas escolares.
+=======
+Let's meet the features of JavaScript operators that are beyond school arithmetics.
+>>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
 
 Normalmente el operador `+` suma números.
 

@@ -8,7 +8,11 @@ No solo podemos generar eventos completamente nuevos, que inventamos para nuestr
 
 ## Constructor de eventos
 
+<<<<<<< HEAD
 Las clases de eventos integradas forman una jerarquía, similar a las clases de elementos DOM. La raíz es la clase incorporada [Event](https://dom.spec.whatwg.org/#events).
+=======
+Built-in event classes form a hierarchy, similar to DOM element classes. The root is the built-in [Event](https://dom.spec.whatwg.org/#events) class.
+>>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
 
 Podemos crear objetos `Event` así:
 

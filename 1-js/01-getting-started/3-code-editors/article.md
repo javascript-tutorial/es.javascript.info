@@ -29,11 +29,19 @@ La diferencia principal entre un "editor liviano" y un "IDE" es que un IDE traba
 
 En la práctica, los editores livianos pueden tener montones de plugins incluyendo analizadores de sintaxis a nivel de directorio y autocompletado, por lo que no hay un límite estricto entre un editor liviano y un IDE.
 
+<<<<<<< HEAD
 Existen muchas opciones, por ejemplo:
 
 - [Sublime Text](https://www.sublimetext.com) (multiplataforma, shareware).
 - [Notepad++](https://notepad-plus-plus.org/) (Windows, gratuito).
 - [Vim](https://www.vim.org/) y [Emacs](https://www.gnu.org/software/emacs/) son también interesantes si sabes cómo usarlos.
+=======
+There are many options, for instance:
+
+- [Sublime Text](https://www.sublimetext.com/) (cross-platform, shareware).
+- [Notepad++](https://notepad-plus-plus.org/) (Windows, free).
+- [Vim](https://www.vim.org/) and [Emacs](https://www.gnu.org/software/emacs/) are also cool if you know how to use them.
+>>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
 
 ## No discutamos
 
@@ -41,9 +49,18 @@ Los editores en las listas anteriores son aquellos que yo o mis amigos a quienes
 
 Existen otros grandes editores en este gran mundo. Por favor escoge el que más te guste.
 
+<<<<<<< HEAD
 La elección de un editor, como cualquier otra herramienta, es individual y depende de tus proyectos, hábitos y preferencias personales.
 
 Opinión personal del author:
 
 - Usaría [Visual Studio Code](https://code.visualstudio.com/) si desarrollara mayormente "frontend".
 - De otro modo, si es mayormente otro lenguaje, plataforma, y parcialmente frontend; entonces consideraría otros editores, como XCode (Mac), Visual Studio (Windows) o la familia Jetbrains (Webstorm, PHPStorm, RubyMine, etc.; dependiendo del lenguaje).
+=======
+The choice of an editor, like any other tool, is individual and depends on your projects, habits, and personal preferences.
+
+The author's personal opinion:
+
+- I'd use [Visual Studio Code](https://code.visualstudio.com/) if I develop mostly frontend.
+- Otherwise, if it's mostly another language/platform and partially frontend, then consider other editors, such as XCode (Mac), Visual Studio (Windows) or Jetbrains family (Webstorm, PHPStorm, RubyMine etc, depending on the language).
+>>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8

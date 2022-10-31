@@ -9,9 +9,15 @@ Pero con el tiempo los scripts se volvieron cada vez más complejos, por lo que 
 
 Para nombrar algunos (por razones históricas):
 
+<<<<<<< HEAD
 - [AMD](https://es.wikipedia.org/wiki/Asynchronous_module_definition) -- uno de los sistemas de módulos más antiguos, implementado inicialmente por la biblioteca [require.js](https://requirejs.org/).
 - [CommonJS](https://wiki.commonjs.org/wiki/Modules/1.1) -- el sistema de módulos creado para el servidor Node.js.
 - [UMD](https://github.com/umdjs/umd) -- un sistema de módulos más, sugerido como universal, compatible con AMD y CommonJS.
+=======
+- [AMD](https://en.wikipedia.org/wiki/Asynchronous_module_definition) -- one of the most ancient module systems, initially implemented by the library [require.js](https://requirejs.org/).
+- [CommonJS](https://wiki.commonjs.org/wiki/Modules/1.1) -- the module system created for Node.js server.
+- [UMD](https://github.com/umdjs/umd) -- one more module system, suggested as a universal one, compatible with AMD and CommonJS.
+>>>>>>> 5dff42ba283bce883428c383c080fa9392b71df8
 
 Ahora, todo esto se convierte lentamente en una parte de la historia, pero aún podemos encontrarlos en viejos scripts.
 
