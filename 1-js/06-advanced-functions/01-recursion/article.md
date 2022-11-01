@@ -350,7 +350,7 @@ El algoritmo es probablemente aún más fácil de leer desde el código:
 
 ```js run
 let company = { // el mismo objeto, comprimido por brevedad
-  sales: [{name: 'John', salary: 1000}, {name: 'Alice', salary: 600 }],
+  sales: [{name: 'John', salary: 1000}, {name: 'Alice', salary: 1600 }],
   development: {
     sites: [{name: 'Peter', salary: 2000}, {name: 'Alex', salary: 1800 }],
     internals: [{name: 'Jack', salary: 1300}]
