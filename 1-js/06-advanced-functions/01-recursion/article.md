@@ -372,7 +372,7 @@ function sumSalaries(department) {
 }
 */!*
 
-alert(sumSalaries(company)); // 7700
+alert(sumSalaries(company)); // 6700
 ```
 
 El código es corto y fácil de entender (¿Quizás?). Ese es el poder de la recursividad. También funciona para cualquier nivel de anidamiento de subdepartamentos.
