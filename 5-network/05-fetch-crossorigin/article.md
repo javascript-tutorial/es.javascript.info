@@ -36,7 +36,7 @@ Pero los desarrolladores web demandaron más poder. Una variedad de trucos fuero
 
 ### Utilizando formularios
 
-Una forma de comunicarse con otros servidores es y era utilizando un `<form>`. Las personas lo utilizaban para enviar el resultado hacia un `<iframe>`, y de este modo mantenerse en el mismo sitio, de este modo:
+Una forma de comunicarse con otros servidores es y era utilizando un `<form>`. Se lo utilizaba para enviar el resultado hacia un `<iframe>`, y de este modo mantenerse en el mismo sitio:
 
 ```html
 <!-- objetivo del form -->
@@ -91,7 +91,7 @@ Digamos que, en nuestro sitio es necesario obtener datos de `http://another.com`
     ```
 4. Entonces el script remoto carga y es ejecutado, la función `gotWeather` se invoca, y ya que es nuestra función, obtenemos los datos.
 
-Esto funciona, y no viola la seguridad, ya que ambos sitios acuerdan en intercambiar los datos de este modo. Y cuando ambos lados concuerdan, definitivamente no se trata de un hackeo. Aún hay servicios que proveen este tipo de acceso, lo que puede ser útil ya que funciona en navegadores obsoletos.
+Esto funciona, y no viola la seguridad ya que ambos sitios acuerdan en intercambiar los datos de este modo. Y cuando ambos lados concuerdan, definitivamente no se trata de un hackeo. Aún hay servicios que proveen este tipo de acceso, lo que puede ser útil ya que funciona en navegadores obsoletos.
 
 Tiempo después aparecieron métodos de red en los navegadores para JavaScript.
 
@@ -177,7 +177,7 @@ Para las respuestas de origen cruzado, por defecto JavaScript sólo puede accede
 
 El acceso a otro tipo de cabeceras de la respuesta generará un error.
 
-Para permitir a JavaScript acceso a cualquier otra cabeceras de respuesta, el servidor debe incluir la cabecera `Access-Control-Expose-Headers`. Este campo contiene una lista separada por comas de las cabeceras inseguras que podrán ser accesibles.
+Para permitir a JavaScript acceso a cualquier otra cabecera de respuesta, el servidor debe incluir la cabecera `Access-Control-Expose-Headers`. Este campo contiene una lista separada por comas de las cabeceras inseguras que podrán ser accesibles.
 
 Por ejemplo:
 
@@ -193,7 +193,7 @@ Access-Control-Expose-Headers: Content-Encoding,API-Key
 */!*
 ```
 
-Con este valor de cabecera `Access-Control-Expose-Headers`, el script tendrá permitido acceder a los valores de las cabeceras `Content-Encoding` y `API-Key` de la respuesta.
+Con tal cabecera, `Access-Control-Expose-Headers`, el script tendrá permitido acceder a los valores de las cabeceras `Content-Encoding` y `API-Key` de la respuesta.
 
 ## Solicitudes "inseguras"
 

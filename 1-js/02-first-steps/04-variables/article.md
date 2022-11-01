@@ -197,8 +197,8 @@ let my-name; // los guiones '-' no son permitidos en nombres
 Dos variables con nombres `manzana` y `MANZANA` son variables distintas.
 ```
 
-````smart header="Letras que no son del alfabeto inglés están permitidas, pero no se recomiendan"
-Es posible utilizar letras de cualquier alfabeto, incluyendo letras del cirílico, e logogramas chinos, etc.; por ejemplo:
+````smart header="Las letras que no son del alfabeto inglés están permitidas, pero no se recomiendan"
+Es posible utilizar letras de cualquier alfabeto, incluyendo letras del cirílico, logogramas chinos, etc.:
 
 ```js
 let имя = '...';
