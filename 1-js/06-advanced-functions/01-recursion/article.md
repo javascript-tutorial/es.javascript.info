@@ -350,7 +350,7 @@ El algoritmo es probablemente aún más fácil de leer desde el código:
 
 ```js run
 let company = { // el mismo objeto, comprimido por brevedad
-  sales: [{name: 'John', salary: 1000}, {name: 'Alice', salary: 600 }],
+  sales: [{name: 'John', salary: 1000}, {name: 'Alice', salary: 1600 }],
   development: {
     sites: [{name: 'Peter', salary: 2000}, {name: 'Alex', salary: 1800 }],
     internals: [{name: 'Jack', salary: 1300}]
@@ -372,7 +372,7 @@ function sumSalaries(department) {
 }
 */!*
 
-alert(sumSalaries(company)); // 6700
+alert(sumSalaries(company)); // 7700
 ```
 
 El código es corto y fácil de entender (¿Quizás?). Ese es el poder de la recursividad. También funciona para cualquier nivel de anidamiento de subdepartamentos.
