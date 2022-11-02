@@ -376,7 +376,7 @@ for (let i = 0; i < 10; i++) {
 ```warn header="Cuidado con los micro-benchmarks"
 Los motores Modernos de JavaScript realizan varias optimizaciones al ejecutar código. Esto podría alterar los resultados de las "pruebas artificiales" respecto del "uso normal", especialmente cuando hacemos un *benchmark* tan pequeño, como por ejemplo: el funcionamiento de un operador o una función incorporada de JavaScript. Por esta razón, si se quiere entender más en profundidad cómo funciona la performance, se recomienda estudiar el funcionamiento del motor de JavaScript. Probablemente no necesites realizar *microbenchmarks* en absoluto.
 
-Se pueden encontrar una gran cantidad de artículos acerca del motor V8 en <https://mrale.ph>.
+Existe un excelente conjunto de artículos acerca del motor V8 en <https://mrale.ph>.
 ```
 
 ## Date.parse a partir de un string

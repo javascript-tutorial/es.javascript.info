@@ -451,7 +451,7 @@ let json = `{
 
 Además, JSON no admite comentarios. Agregar un comentario a JSON lo hace inválido.
 
-Existe otro formato llamado [JSON5](https://json5.org/), que permite propiedades sin comillas, comentarios, etcétera. Pero es una librería independiente, no una especificación del lenguaje.
+Existe otro formato llamado [JSON5](https://json5.org/), que permite claves sin comillas, comentarios, etcétera. Pero es una librería independiente, no una especificación del lenguaje.
 
 El JSON normal es tan estricto no porque sus desarrolladores sean flojos, sino para permitir la implementación fácil, confiable y muy rápida del algoritmo analizador.
 
