@@ -224,9 +224,15 @@ Por el contrario, `Symbol.toPrimitive` es más estricto, *debe* devolver un valo
 
 Como ya sabemos, muchos operadores y funciones realizan conversiones de tipo, por ejemplo la multiplicación `*` convierte operandos en números.
 
+<<<<<<< HEAD
 Si pasamos un objeto como argumento, entonces hay dos etapas de cómputo:
 1. El objeto se convierte en un valor primitivo (utilizando las reglas descritas anteriormente).
 2. Si es necesario para más cómputo, el valor primitivo resultante también se convierte.
+=======
+If we pass an object as an argument, then there are two stages of calculations:
+1. The object is converted to a primitive (using the rules described above).
+2. If necessary for further calculations, the resulting primitive is also converted.
+>>>>>>> 8d9ecb724c7df59774d1e5ffb5e5167740b7d321
 
 Por ejemplo:
 
