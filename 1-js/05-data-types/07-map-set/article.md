@@ -10,31 +10,17 @@ Pero eso no es suficiente para la vida real. Por eso también existen `Map` y `S
 
 ## Map
 
-<<<<<<< HEAD
 [Map](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Map) es, al igual que `Objet`, una colección de datos identificados por claves. Pero la principal diferencia es que `Map` permite claves de cualquier tipo.
-=======
-[Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) is a collection of keyed data items, just like an `Object`. But the main difference is that `Map` allows keys of any type.
->>>>>>> 8d9ecb724c7df59774d1e5ffb5e5167740b7d321
 
 Los métodos y propiedades son:
 
-<<<<<<< HEAD
-- `new Map()` -- crea el mapa.
-- [`map.set(clave, valor)`](mdn:js/Map/set) -- almacena el valor asociado a la clave.
-- [`map.get(clave)`](mdn:js/Map/get) -- devuelve el valor de la clave. Será `undefined` si la `clave` no existe en map.
-- [`map.has(clave)`](mdn:js/Map/has) -- devuelve `true` si la `clave` existe en map, `false` si no existe.
-- [`map.delete(clave)`](mdn:js/Map/delete) -- elimina el valor de la clave.
-- [`map.clear()`](mdn:js/Map/clear) -- elimina todo de map.
-- [`map.size`](mdn:js/Map/size) -- tamaño, devuelve la cantidad actual de elementos.
-=======
-- [`new Map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/Map) -- creates the map.
-- [`map.set(key, value)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/set) -- stores the value by the key.
-- [`map.get(key)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/get) -- returns the value by the key, `undefined` if `key` doesn't exist in map.
-- [`map.has(key)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/has) -- returns `true` if the `key` exists, `false` otherwise.
-- [`map.delete(key)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/delete) -- removes the value by the key.
-- [`map.clear()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/clear) -- removes everything from the map.
-- [`map.size`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/size) -- returns the current element count.
->>>>>>> 8d9ecb724c7df59774d1e5ffb5e5167740b7d321
+- [`new Map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/Map) -- crea el mapa.
+- [`map.set(clave, valor)`]([mdn:js/Map/set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/set)) -- almacena el valor asociado a la clave.
+- [`map.get(clave)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/get) -- devuelve el valor de la clave. Será `undefined` si la `clave` no existe en map.
+- [`map.has(clave)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/has) -- devuelve `true` si la `clave` existe en map, `false` si no existe.
+- [`map.delete(clave)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/delete) -- elimina el valor de la clave.
+- [`map.clear()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/clear) -- elimina todo de map.
+- [`map.size`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/size) -- tamaño, devuelve la cantidad actual de elementos.
 
 Por ejemplo:
 
@@ -123,15 +109,9 @@ map.set('1', 'str1')
 
 Para recorrer un `map`, hay 3 métodos:
 
-<<<<<<< HEAD
-- [`map.keys()`](mdn:js/Map/keys) –- devuelve un iterable para las claves.
-- [`map.values()`](mdn:js/Map/values) -– devuelve un iterable para los valores.
-- [`map.entries()`](mdn:js/Map/entries) -– devuelve un iterable para las entradas `[clave, valor]`. Es el que usa por defecto en `for..of`.
-=======
-- [`map.keys()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/keys) -- returns an iterable for keys,
-- [`map.values()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/values) -- returns an iterable for values,
-- [`map.entries()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/entries) -- returns an iterable for entries `[key, value]`, it's used by default in `for..of`.
->>>>>>> 8d9ecb724c7df59774d1e5ffb5e5167740b7d321
+- [`map.keys()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/keys) –- devuelve un iterable con las claves.
+- [`map.values()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/values) -– devuelve un iterable con los valores.
+- [`map.entries()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/entries) -– devuelve un iterable para las entradas `[clave, valor]`. Es el que usa por defecto en `for..of`.
 
 Por ejemplo:
 
@@ -186,11 +166,7 @@ let map = new Map([
 alert( map.get('1') ); // str1
 ```
 
-<<<<<<< HEAD
-Si tenemos un objeto plano y queremos crear un `Map` a partir de él, podemos usar el método incorporado [Object.entries(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/entries) que devuelve un array de pares clave/valor para un objeto exactamente en ese formato.
-=======
-If we have a plain object, and we'd like to create a `Map` from it, then we can use built-in method [Object.entries(obj)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries) that returns an array of key/value pairs for an object exactly in that format.
->>>>>>> 8d9ecb724c7df59774d1e5ffb5e5167740b7d321
+Si tenemos un objeto plano, y queremos crear un `Map` a partir de él, podemos usar el método incorporado [Object.entries(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/entries) que devuelve un array de pares clave/valor para un objeto en ese preciso formato.
 
 Entonces podemos inicializar un map desde un objeto:
 
@@ -261,29 +237,16 @@ Es lo mismo, porque `Object.fromEntries` espera un objeto iterable como argument
 
 ## Set
 
-<<<<<<< HEAD
-Un `Set` es una colección de tipo especial: "conjunto de valores" (sin claves), donde cada valor puede aparecer solo una vez.
-=======
-A [`Set`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) is a special type collection - "set of values" (without keys), where each value may occur only once.
->>>>>>> 8d9ecb724c7df59774d1e5ffb5e5167740b7d321
+Un [`Set`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Set) es una colección de tipo especial: "conjunto de valores" (sin claves), donde cada valor puede aparecer solo una vez.
 
 Sus principales métodos son:
 
-<<<<<<< HEAD
-- `new Set(iterable)` -- crea el set. El argumento opcional es un objeto iterable (generalmente un array) con valores para inicializarlo.
+- [`new Set([iterable])`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/Set) -- crea el set. El argumento opcional es un objeto iterable (generalmente un array) con los valores para inicializarlo.
 - [`set.add(valor)`](mdn:js/Set/add) -- agrega un valor, y devuelve el set en sí.
 - [`set.delete(valor)`](mdn:js/Set/delete) -- elimina el valor, y devuelve `true` si el `valor` existía al momento de la llamada; si no, devuelve `false`.
 - [`set.has(valor)`](mdn:js/Set/has) -- devuelve `true` si el valor existe en el set, si no, devuelve `false`.
 - [`set.clear()`](mdn:js/Set/clear) -- elimina todo el continido del set.
 - [`set.size`](mdn:js/Set/size) -- es la cantidad de elementos.
-=======
-- [`new Set([iterable])`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/Set) -- creates the set, and if an `iterable` object is provided (usually an array), copies values from it into the set.
-- [`set.add(value)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/add) -- adds a value, returns the set itself.
-- [`set.delete(value)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/delete) -- removes the value, returns `true` if `value` existed at the moment of the call, otherwise `false`.
-- [`set.has(value)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/has) -- returns `true` if the value exists in the set, otherwise `false`.
-- [`set.clear()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/clear) -- removes everything from the set.
-- [`set.size`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/size) -- is the elements count.
->>>>>>> 8d9ecb724c7df59774d1e5ffb5e5167740b7d321
 
 La característica principal es que llamadas repetidas de `set.add(valor)` con el mismo valor no hacen nada. Esa es la razón por la cual cada valor aparece en `Set` solo una vez.
 
@@ -313,11 +276,7 @@ for (let user of set) {
 }
 ```
 
-<<<<<<< HEAD
-La alternativa a `Set` podría ser un array de usuarios y el código para verificar si hay duplicados en cada inserción usando [arr.find](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/find). Pero el rendimiento sería mucho peor, porque este método recorre el array completo comprobando cada elemento. `Set` está optimizado internamente para verificar unicidad.
-=======
-The alternative to `Set` could be an array of users, and the code to check for duplicates on every insertion using [arr.find](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find). But the performance would be much worse, because this method walks through the whole array checking every element. `Set` is much better optimized internally for uniqueness checks.
->>>>>>> 8d9ecb724c7df59774d1e5ffb5e5167740b7d321
+La alternativa a `Set` podría ser un array de usuarios, y código para verificar si hay duplicados en cada inserción usando [arr.find](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/find). Pero el rendimiento sería mucho peor, porque este método recorre el array completo comprobando cada elemento. `Set` está optimizado internamente para verificar unicidad.
 
 ## Iteración sobre Set
 
@@ -340,71 +299,38 @@ Eso es por compatibilidad con `Map` donde la función callback tiene tres argume
 
 También soporta los mismos métodos que `Map` tiene para los iteradores:
 
-<<<<<<< HEAD
-- [`set.keys()`](mdn:js/Set/keys) – devuelve un iterable para las claves.
-- [`set.values()`](mdn:js/Set/values) – lo mismo que `set.keys()`, por su compatibilidad con `Map`.
-- [`set.entries()`](mdn:js/Set/entries) – devuelve un iterable para las entradas `[clave, valor]`, por su compatibilidad con `Map`.
-=======
-- [`set.keys()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/keys) -- returns an iterable object for values,
-- [`set.values()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/values) -- same as `set.keys()`, for compatibility with `Map`,
-- [`set.entries()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/entries) -- returns an iterable object for entries `[value, value]`, exists for compatibility with `Map`.
->>>>>>> 8d9ecb724c7df59774d1e5ffb5e5167740b7d321
+- [`set.keys()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/keys) – devuelve un iterable para las claves.
+- [`set.values()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/values) – lo mismo que `set.keys()`, por su compatibilidad con `Map`.
+- [`set.entries()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/entries) – devuelve un iterable para las entradas `[clave, valor]`, por su compatibilidad con `Map`.
 
 ## Resumen
 
-<<<<<<< HEAD
-`Map`: es una colección de valores con clave.
-=======
-[`Map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) -- is a collection of keyed values.
->>>>>>> 8d9ecb724c7df59774d1e5ffb5e5167740b7d321
+[`Map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) -- es una colección de valores con clave.
 
 Métodos y propiedades:
 
-<<<<<<< HEAD
-- `new Map()` -- crea el mapa.
-- [`map.set(clave, valor)`](mdn:js/Map/set) -- almacena el valor para la clave.
-- [`map.get(clave)`](mdn:js/Map/get) -- devuelve el valor de la clave: será `undefined` si la `clave` no existe en Map.
-- [`map.has(clave)`](mdn:js/Map/has) -- devuelve`true` si la `clave` existe, y `false` si no existe.
-- [`map.delete(clave)`](mdn:js/Map/delete) -- elimina el valor de esa clave.
-- [`map.clear()`](mdn:js/Map/clear) -- limpia el Map.
-- [`map.size`](mdn:js/Map/size) -- devuelve la cantidad de elementos en el Map.
-=======
-- [`new Map([iterable])`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/Map) -- creates the map, with optional `iterable` (e.g. array) of `[key,value]` pairs for initialization.
-- [`map.set(key, value)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/set) -- stores the value by the key, returns the map itself.
-- [`map.get(key)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/get) -- returns the value by the key, `undefined` if `key` doesn't exist in map.
-- [`map.has(key)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/has) -- returns `true` if the `key` exists, `false` otherwise.
-- [`map.delete(key)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/delete) -- removes the value by the key, returns `true` if `key` existed at the moment of the call, otherwise `false`.
-- [`map.clear()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/clear) -- removes everything from the map.
-- [`map.size`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/size) -- returns the current element count.
->>>>>>> 8d9ecb724c7df59774d1e5ffb5e5167740b7d321
+- [`new Map([iterable])`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/Map) -- crea el mapa, con un `iterable` (p.ej. array) de pares `[clave,valor]` para su inicialización. 
+- [`map.set(clave, valor)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/set) -- almacena el valor para la clave.
+- [`map.get(clave)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/get) -- devuelve el valor de la clave: será `undefined` si la `clave` no existe en Map.
+- [`map.has(clave)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/has) -- devuelve`true` si la `clave` existe, y `false` si no existe.
+- [`map.delete(clave)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/delete) -- elimina del map el elemento con esa clave.
+- [`map.clear()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/clear) -- vacía el Map.
+- [`map.size`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/size) -- devuelve la cantidad de elementos del Map.
 
 La diferencia con un `Objeto` regular:
 
 - Cualquier clave. Los objetos también pueden ser claves.
 - Métodos adicionales convenientes, y la propiedad `size`.
 
-<<<<<<< HEAD
-`Set`: es una colección de valores únicos.
-=======
-[`Set`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) -- is a collection of unique values.
->>>>>>> 8d9ecb724c7df59774d1e5ffb5e5167740b7d321
+[`Set`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) -- es una colección de valores únicos (sin duplicados).
 
 Métodos y propiedades:
 
-<<<<<<< HEAD
-- `new Set(iterable)` -- crea el set. Tiene un argumento opcional, un objeto iterable (generalmente un array) de valores para inicializarlo.
-- [`set.add(valor)`](mdn:js/Set/add) -- agrega un valor, devuelve el set en sí.
-- [`set.delete(valor)`](mdn:js/Set/delete) -- elimina el valor, devuelve `true` si `valor` existe al momento de la llamada; si no, devuelve `false`.
-- [`set.has(valor)`](mdn:js/Set/has) -- devuelve `true` si el valor existe en el set, si no, devuelve `false`.
-- [`set.clear()`](mdn:js/Set/clear) -- elimina todo del set.
-- [`set.size`](mdn:js/Set/size) -- es la cantidad de elementos.
-=======
-- [`new Set([iterable])`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/Set) -- creates the set, with optional `iterable` (e.g. array) of values for initialization.
-- [`set.add(value)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/add) -- adds a value (does nothing if `value` exists), returns the set itself.
-- [`set.delete(value)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/delete) -- removes the value, returns `true` if `value` existed at the moment of the call, otherwise `false`.
-- [`set.has(value)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/has) -- returns `true` if the value exists in the set, otherwise `false`.
-- [`set.clear()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/clear) -- removes everything from the set.
-- [`set.size`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/size) -- is the elements count.
->>>>>>> 8d9ecb724c7df59774d1e5ffb5e5167740b7d321
+- [`new Set([iterable])`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/Set) -- crea el set. El argumento opcional es un objeto iterable (por ejemplo un array) de valores para inicializarlo.
+- [`set.add(valor)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/add) -- agrega un valor, devuelve el set en sí.
+- [`set.delete(valor)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/delete) -- elimina el valor, devuelve `true` si `valor` existe al momento de la llamada; si no, devuelve `false`.
+- [`set.has(valor)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/has) -- devuelve `true` si el valor existe en el set, si no, devuelve `false`.
+- [`set.clear()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/clear) -- elimina todo del set.
+- [`set.size`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/size) -- es la cantidad de elementos.
 
 La iteración sobre `Map` y `Set` siempre está en el orden de inserción, por lo que no podemos decir que estas colecciones están desordenadas, pero no podemos reordenar elementos u obtener un elemento directamente por su número.
