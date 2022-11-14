@@ -503,34 +503,20 @@ Este método tiene dos argumentos adicionales especificados en [la documentació
 
 ## Resumen
 
-<<<<<<< HEAD
-- Existen 3 tipos de entrecomillado. Los backticks permiten que una cadena abarque varias líneas e incorporar expresiones `${…}`.
-- Podemos usar caracteres especiales como `\n` e insertar letras por medio de su Unicode usando `\u ... `.
-- Para obtener un carácter, usa: `[]`.
+- Existen 3 tipos de entrecomillado. Los backticks permiten que una cadena abarque varias líneas e insertar expresiones `${…}`.
+- Podemos usar caracteres especiales como el salto de línea `\n`.
+- Para obtener un carácter, usa: `[]` o el método `at`.
 - Para obtener un substring, usa: `slice` o `substring`.
 - Para convertir un string en minúsculas/mayúsculas, usa: `toLowerCase/toUpperCase`.
 - Para buscar un substring, usa: `indexOf`, o  para chequeos simples `includes/startsWith/endsWith`.
 - Para comparar strings de acuerdo al idioma, usa: `localeCompare`, de otra manera serán comparados por sus códigos de carácter.
-=======
-- There are 3 types of quotes. Backticks allow a string to span multiple lines and embed expressions `${…}`.
-- We can use special characters, such as a line break `\n`.
-- To get a character, use: `[]` or `at` method.
-- To get a substring, use: `slice` or `substring`.
-- To lowercase/uppercase a string, use: `toLowerCase/toUpperCase`.
-- To look for a substring, use: `indexOf`, or `includes/startsWith/endsWith` for simple checks.
-- To compare strings according to the language, use: `localeCompare`, otherwise they are compared by character codes.
->>>>>>> 8d9ecb724c7df59774d1e5ffb5e5167740b7d321
 
 Existen otros métodos útiles:
 
 - `str.trim()` -- remueve ("recorta") espacios desde el comienzo y final de un string.
 - `str.repeat(n)` -- repite el string `n` veces.
-- ...y más. Mira el [manual](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String) para más detalles.
+- ... y más. Puedes ver el [manual](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String) para más detalles.
 
 Los strings también tienen métodos para buscar/reemplazar que usan "expresiones regulares". Este es un tema muy amplio, por ello es explicado en una sección separada del tutorial <info:regular-expressions>.
 
-<<<<<<< HEAD
-Además, es importante saber que los strings están basados en la codificación Unicode, y la implementación presenta algunos problemas, en particular con las comparaciones de string. Hay más acerca de Unicode en el capítulo <info:unicode>.
-=======
-Also, as of now it's important to know that strings are based on Unicode encoding, and hence there're issues with comparisons. There's more about Unicode in the chapter <info:unicode>.
->>>>>>> 8d9ecb724c7df59774d1e5ffb5e5167740b7d321
+Además, es importante saber que los strings están basados en la codificación Unicode, y se presentan algunas complicaciones en las comparaciones de string. Hay más acerca de Unicode en el capítulo <info:unicode>.
