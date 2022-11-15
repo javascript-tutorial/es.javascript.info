@@ -10,11 +10,7 @@ Ya tenemos cookies. ¿Por qué tener objetos adicionales?
 - También diferente de las cookies es que el servidor no puede manipular los objetos de almacenaje via cabeceras HTTP, todo se hace via JavaScript.
 - El almacenaje está vinculado al orígen (al triplete dominio/protocolo/puerto). Esto significa que distintos protocolos o subdominios tienen distintos objetos de almacenaje, no pueden acceder a otros datos que no sean los suyos.
 
-<<<<<<< HEAD
 Ambos objetos de almacenaje proveen los mismos métodos y propiedades:
-=======
-Both storage objects provide the same methods and properties:
->>>>>>> 8d9ecb724c7df59774d1e5ffb5e5167740b7d321
 
 - `setItem(clave, valor)` -- almacenar un par clave/valor.
 - `getItem(clave)` -- obtener el valor por medio de la clave.
@@ -127,11 +123,7 @@ Esta última opción funciona, ya que `Object.keys` solo devuelve las claves que
 
 Hay que tener en cuenta que tanto la clave como el valor deben ser strings.
 
-<<<<<<< HEAD
-Cualquier otro tipo, como un número o un objeto, se convierte a cadena de texto automáticamente:
-=======
-If they were any other type, like a number, or an object, they would get converted to a string automatically:
->>>>>>> 8d9ecb724c7df59774d1e5ffb5e5167740b7d321
+Si fueran de cualquier otro tipo, como un número o un objeto, se convertirían a cadena de texto automáticamente:
 
 ```js run
 localStorage.user = {name: "John"};
@@ -226,11 +218,7 @@ Los navegadores modernos también soportan la [API de Broadcast channel API](htt
 
 ## Resumen
 
-<<<<<<< HEAD
 Los objetos de almacenaje web `localStorage` y `sessionStorage` permiten guardar pares de clave/valor en el navegador.
-=======
-Web storage objects `localStorage` and `sessionStorage` allow to store key/value pairs in the browser.
->>>>>>> 8d9ecb724c7df59774d1e5ffb5e5167740b7d321
 
 - Tanto la `clave` como el `valor` deben ser strings.
 - El límite es de más de 5mb+, dependiendo del navegador.
