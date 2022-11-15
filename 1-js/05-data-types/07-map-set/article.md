@@ -100,12 +100,9 @@ map.set('1', 'str1')
 ```
 ````
 
-<<<<<<< HEAD
 
 ## Iteración sobre Map
-=======
-## Iteration over Map
->>>>>>> 8d9ecb724c7df59774d1e5ffb5e5167740b7d321
+
 
 Para recorrer un `map`, hay 3 métodos:
 
