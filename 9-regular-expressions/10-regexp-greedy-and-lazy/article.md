@@ -8,11 +8,7 @@ Tomemos la siguiente tarea como ejemplo.
 
 Tenemos un texto y necesitamos reemplazar todas las comillas `"..."` con comillas latinas: `«...»`. En muchos paises los tipógrafos las prefieren.
 
-<<<<<<< HEAD
-Por ejemplo: `"Hola, mundo"` debe ser `«Hola, mundo»`. Existen otras comillas, como `„Witam, świat!”` (Polaco) o `「你好，世界」` (Chino), pero para nuestra tarea elegimos `«...»`.
-=======
-For instance: `"Hello, world"` should become `«Hello, world»`. There exist other quotes, such as `„Witaj, świecie!”` (Polish) or `「你好，世界」` (Chinese), but for our task let's choose `«...»`.
->>>>>>> 8d9ecb724c7df59774d1e5ffb5e5167740b7d321
+Por ejemplo: `"Hola, mundo"` debe volverse `«Hola, mundo»`. Existen otras comillas, como `„Witaj, świecie!”` (Polaco) o `「你好，世界」` (Chino), pero para nuestra tarea elegimos `«...»`.
 
 Lo primero que debe hacer es ubicar las cadenas entre comillas, y luego podemos reemplazarlas.
 
