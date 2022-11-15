@@ -15,7 +15,7 @@ Pero eso no es suficiente para la vida real. Por eso también existen `Map` y `S
 Los métodos y propiedades son:
 
 - [`new Map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/Map) -- crea el mapa.
-- [`map.set(clave, valor)`]([mdn:js/Map/set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/set)) -- almacena el valor asociado a la clave.
+- [`map.set(clave, valor)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/set)) -- almacena el valor asociado a la clave.
 - [`map.get(clave)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/get) -- devuelve el valor de la clave. Será `undefined` si la `clave` no existe en map.
 - [`map.has(clave)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/has) -- devuelve `true` si la `clave` existe en map, `false` si no existe.
 - [`map.delete(clave)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/delete) -- elimina el valor de la clave.
