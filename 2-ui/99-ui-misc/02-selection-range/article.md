@@ -407,15 +407,10 @@ From <input id="from" disabled> – To <input id="to" disabled>
 
 Hay dos enfoques para la copia de contenido seleccionado:
 
-<<<<<<< HEAD
 1. Podemos usar `document.getSelection().toString()` para obtenerlo como texto.
-2. O copiar el DOM entero, por ejemplo si necesitamos mantener el formato, podemos obtener los rangos correspondientes con `getRangesAt(...)`. Un objeto `Range`, a su vez, tiene el método `cloneContents()` que clona su contenido y devuelve un objeto `DocumentFragment`, que podemos insertar en algún otro lugar.
-=======
-1. We can use `document.getSelection().toString()` to get it as text.
-2. Otherwise, to copy the full DOM, e.g. if we need to keep formatting, we can get the underlying ranges with `getRangeAt(...)`. A `Range` object, in turn, has `cloneContents()` method that clones its content and returns as `DocumentFragment` object, that we can insert elsewhere.
->>>>>>> 8d9ecb724c7df59774d1e5ffb5e5167740b7d321
+2. O copiar el DOM entero; por ejemplo, si necesitamos mantener el formato, podemos obtener los rangos correspondientes con `getRangeAt(...)`. Un objeto `Range`, a su vez, tiene el método `cloneContents()` que clona su contenido y devuelve un objeto `DocumentFragment`, que podemos insertar en algún otro lugar.
 
-Aquí está la demostración de cómo obtener la selección como texto y como nodos DOM:
+Una demostración de cómo obtener la selección como texto y como nodos DOM:
 
 ```html run height=100
 <p id="p">Select me: <i>italic</i> and <b>bold</b></p>
