@@ -62,7 +62,7 @@ Veamos qué significa esto en los ejemplos.
 
 ## WeakMap
 
-La primera diferencia con [`Map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) es que en [`WeakMap`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap)  las claves deben ser objetos, no valores primitivos:
+La primera diferencia con [`Map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) es que en [`WeakMap`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap) las claves deben ser objetos, no valores primitivos:
 
 ```js run
 let weakMap = new WeakMap();
