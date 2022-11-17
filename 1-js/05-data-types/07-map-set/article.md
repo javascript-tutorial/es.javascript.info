@@ -10,7 +10,7 @@ Pero eso no es suficiente para la vida real. Por eso también existen `Map` y `S
 
 ## Map
 
-[Map](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Map) es, al igual que `Objet`, una colección de datos identificados por claves. Pero la principal diferencia es que `Map` permite claves de cualquier tipo.
+[Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) es, al igual que `Objet`, una colección de datos identificados por claves. La principal diferencia es que `Map` permite claves de cualquier tipo.
 
 Los métodos y propiedades son:
 
@@ -100,9 +100,7 @@ map.set('1', 'str1')
 ```
 ````
 
-
 ## Iteración sobre Map
-
 
 Para recorrer un `map`, hay 3 métodos:
 
