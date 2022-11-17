@@ -224,7 +224,7 @@ El tipo `symbol` (símbolo) se utiliza para crear identificadores únicos para l
 
 ## El operador typeof [#type-typeof]
 
-El operador `typeof` devuelve el tipo del argumento. Es útil cuando queremos procesar valores de diferentes tipos de forma diferente o simplemente queremos hacer una comprobación rápida.
+El operador `typeof` devuelve el tipo de dato del operando. Es útil cuando queremos procesar valores de diferentes tipos de forma diferente o simplemente queremos hacer una comprobación rápida.
 
 La llamada a `typeof x` devuelve una cadena con el nombre del tipo:
 

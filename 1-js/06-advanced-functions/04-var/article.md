@@ -58,7 +58,7 @@ alert(test); // ReferenceError: test no está definido
 
 Lo mismo para los bucles: `var` no puede ser local en los bloques ni en los bucles:
 
-```js
+```js run
 for (var i = 0; i < 10; i++) {
   var one = 1;
   // ...
@@ -170,7 +170,7 @@ Es mejor demostrarlo con un ejemplo:
 
 ```js run
 function sayHi() {
-  alert(phrase);  
+  alert(phrase);
 
 *!*
   var phrase = "Hello";

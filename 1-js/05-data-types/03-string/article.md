@@ -503,9 +503,9 @@ Este método tiene dos argumentos adicionales especificados en [la documentació
 
 ## Resumen
 
-- Existen 3 tipos de entrecomillado. Los backticks permiten que una cadena abarque varias líneas e incorporar expresiones `${…}`.
-- Podemos usar caracteres especiales como `\n` e insertar letras por medio de su Unicode usando `\u ... `.
-- Para obtener un carácter, usa: `[]`.
+- Existen 3 tipos de entrecomillado. Los backticks permiten que una cadena abarque varias líneas e insertar expresiones `${…}`.
+- Podemos usar caracteres especiales como el salto de línea `\n`.
+- Para obtener un carácter, usa: `[]` o el método `at`.
 - Para obtener un substring, usa: `slice` o `substring`.
 - Para convertir un string en minúsculas/mayúsculas, usa: `toLowerCase/toUpperCase`.
 - Para buscar un substring, usa: `indexOf`, o  para chequeos simples `includes/startsWith/endsWith`.
@@ -515,8 +515,8 @@ Existen otros métodos útiles:
 
 - `str.trim()` -- remueve ("recorta") espacios desde el comienzo y final de un string.
 - `str.repeat(n)` -- repite el string `n` veces.
-- ...y más. Mira el [manual](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String) para más detalles.
+- ... y más. Puedes ver el [manual](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String) para más detalles.
 
 Los strings también tienen métodos para buscar/reemplazar que usan "expresiones regulares". Este es un tema muy amplio, por ello es explicado en una sección separada del tutorial <info:regular-expressions>.
 
-Además, es importante saber que los strings están basados en la codificación Unicode, y la implementación presenta algunos problemas, en particular con las comparaciones de string. Hay más acerca de Unicode en el capítulo <info:unicode>.
+Además, es importante saber que los strings están basados en la codificación Unicode, y se presentan algunas complicaciones en las comparaciones de string. Hay más acerca de Unicode en el capítulo <info:unicode>.

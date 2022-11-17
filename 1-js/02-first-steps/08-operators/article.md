@@ -50,8 +50,10 @@ El resultado de `a % b` es el [resto](https://es.wikipedia.org/wiki/Resto) de la
 Por ejemplo:
 
 ```js run
-alert( 5 % 2 ); // 1 es un resto de 5 dividido por 2
-alert( 8 % 3 ); // 2 es un resto de 8 dividido por 3
+alert( 5 % 2 ); // 1, es el resto de 5 dividido por 2
+alert( 8 % 3 ); // 2, es el resto de 8 dividido por 3
+alert( 8 % 4 ); // 0, es el resto de 8 dividido por 4
+>>>>>>> 8d9ecb724c7df59774d1e5ffb5e5167740b7d321
 ```
 
 ## Exponenciación **
@@ -68,12 +70,12 @@ alert( 2 ** 3 ); // 2³ = 8
 alert( 2 ** 4 ); // 2⁴ = 16
 ```
 
-Matemáticamente, la exponenciación es definida para números no enteros también.
+Matemáticamente, la exponenciación está definida para operadores no enteros también.
 
 Por ejemplo, la raíz cuadrada es el exponente ½:
 
 ```js run
-alert( 4 ** (1/2) ); // 2 (potencia de 1/2 es lo mismo que raíz cuadrada, eso es matemáticas)
+alert( 4 ** (1/2) ); // 2 (potencia de 1/2 es lo mismo que raíz cuadrada)
 alert( 8 ** (1/3) ); // 2 (potencia de 1/3 es lo mismo que raíz cúbica)
 ```
 
@@ -305,7 +307,7 @@ let n = 2;
 
 n *= 3 + 5; // el lado derecho es evaluado primero, es lo mismo que n *= 8
 
-alert( n ); // 16  
+alert( n ); // 16
 ```
 
 ## Incremento/decremento

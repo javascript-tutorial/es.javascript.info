@@ -123,7 +123,7 @@ Esta última opción funciona, ya que `Object.keys` solo devuelve las claves que
 
 Hay que tener en cuenta que tanto la clave como el valor deben ser strings.
 
-Cualquier otro tipo, como un número o un objeto, se convierte a cadena de texto automáticamente:
+Si fueran de cualquier otro tipo, como un número o un objeto, se convertirían a cadena de texto automáticamente:
 
 ```js run
 localStorage.user = {name: "John"};

@@ -38,26 +38,6 @@ button.onclick = () => {
 
 De esta manera, los usuarios están algo protegidos de ventanas emergentes no deseadas, pero la funcionalidad no está totalmente deshabilitada.
 
-¿Qué pasa si la ventana emergente se abre desde `onclick`, pero después de `setTimeout`? Eso es un poco complicado.
-
-Intenta este código:
-
-```js run
-// open after 3 seconds
-setTimeout(() => window.open("http://google.com"), 3000);
-```
-
-Las ventanas emergentes se abren en Chrome , pero se bloquean en Firefox.
-
-...Si disminuimos el retraso, la ventana emergente también funciona en Firefox:
-
-```js run
-// open after 1 seconds
-setTimeout(() => window.open("http://google.com"), 1000);
-```
-
-La diferencia es que Firefox trata al timeout de 2000ms o menos como aceptable, pero después elimina la "confianza" asumiendo que ahora está "fuera de la acción del usuario". Entonces el primero está bloqueado, y el segundo no lo está.
-
 ## window.open
 
 La sintaxis para abrir una ventana emergente es: `window.open(url, name, params)`:
