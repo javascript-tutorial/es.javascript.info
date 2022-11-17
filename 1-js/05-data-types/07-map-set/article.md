@@ -18,7 +18,7 @@ Los métodos y propiedades son:
 - [`map.set(clave, valor)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/set)) -- almacena el valor asociado a la clave.
 - [`map.get(clave)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/get) -- devuelve el valor de la clave. Será `undefined` si la `clave` no existe en map.
 - [`map.has(clave)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/has) -- devuelve `true` si la `clave` existe en map, `false` si no existe.
-- [`map.delete(clave)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/delete) -- elimina el valor de la clave.
+- [`map.delete(clave)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/delete) -- elimina el elemento con esa clave.
 - [`map.clear()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/clear) -- elimina todo de map.
 - [`map.size`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/size) -- tamaño, devuelve la cantidad actual de elementos.
 
