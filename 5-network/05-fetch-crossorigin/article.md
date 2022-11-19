@@ -2,11 +2,11 @@
 
 Si enviamos una petición `fetch` hacia otro sitio seguramente fallará.
 
-Por ejemplo, probemos realizar una petición a `http://example.com`:
+Por ejemplo, probemos una petición a `https://example.com`:
 
 ```js run async
 try {
-  await fetch('http://example.com');
+  await fetch('https://example.com');
 } catch(err) {
   alert(err); // Failed to fetch
 }
