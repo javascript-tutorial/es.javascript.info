@@ -53,7 +53,6 @@ Por ejemplo:
 alert( 5 % 2 ); // 1, es el resto de 5 dividido por 2
 alert( 8 % 3 ); // 2, es el resto de 8 dividido por 3
 alert( 8 % 4 ); // 0, es el resto de 8 dividido por 4
->>>>>>> 8d9ecb724c7df59774d1e5ffb5e5167740b7d321
 ```
 
 ## Exponenciación **
