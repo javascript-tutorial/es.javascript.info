@@ -50,10 +50,16 @@ El resultado de `a % b` es el [resto](https://es.wikipedia.org/wiki/Resto) de la
 Por ejemplo:
 
 ```js run
+<<<<<<< HEAD
 alert( 5 % 2 ); // 1, es el resto de 5 dividido por 2
 alert( 8 % 3 ); // 2, es el resto de 8 dividido por 3
 alert( 8 % 4 ); // 0, es el resto de 8 dividido por 4
 >>>>>>> 8d9ecb724c7df59774d1e5ffb5e5167740b7d321
+=======
+alert( 5 % 2 ); // 1, the remainder of 5 divided by 2
+alert( 8 % 3 ); // 2, the remainder of 8 divided by 3
+alert( 8 % 4 ); // 0, the remainder of 8 divided by 4
+>>>>>>> 746ad803c878e33182e7fab1578c0d15b9b75ca0
 ```
 
 ## Exponenciación **
