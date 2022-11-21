@@ -155,7 +155,7 @@ Es interesante notar la existencia de la [programación funcional](https://es.wi
 
 En tales lenguajes, una vez que la variable ha sido almacenada "en la caja", permanece allí por siempre. Si necesitamos almacenar algo más, el lenguaje nos obliga a crear una nueva caja (generar una nueva variable). No podemos reusar la antigua.
 
-Aunque a primera vista puede parecer un poco extraño, estos lenguajes son muy capaces de desarrollo serio. Más aún, existen áreas como computación en paralelo en las cuales esta limitación otorga ciertos beneficios.
+Aunque a primera vista puede parecer un poco extraño, estos lenguajes son muy capaces de desarrollo serio. Más aún: existen áreas, como la computación en paralelo, en las cuales esta limitación otorga ciertas ventajas.
 ```
 
 ## Nombramiento de variables [#variable-naming]
