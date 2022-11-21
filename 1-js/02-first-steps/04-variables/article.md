@@ -151,11 +151,11 @@ Debemos declarar una variable una sola vez y desde entonces referirnos a ella si
 ````
 
 ```smart header="Lenguajes funcionales"
-Es interesante notar la existencia de lenguajes de [programación funcional](https://es.wikipedia.org/wiki/Programaci%C3%B3n_funcional). Los lenguajes funcionales "puros" como [Haskell](https://es.wikipedia.org/wiki/Haskell) prohíben el cambio de valor de las variables.
+Es interesante notar la existencia de la [programación funcional](https://es.wikipedia.org/wiki/Programaci%C3%B3n_funcional). Los lenguajes funcionales "puros", como [Haskell](https://es.wikipedia.org/wiki/Haskell), prohíben cambiar el valor de las variables.
 
-En tales lenguajes, una vez que la variable ha sido almacenada "en la caja", permanece allí por siempre. Si necesitamos almacenar algo más, el lenguaje nos obliga a crear una nueva caja (generar una nueva variable). No podemos reusar la antigua.
+En tales lenguajes, una vez que la variable ha sido almacenada "en la caja" permanece allí por siempre. Si necesitamos almacenar algo más, el lenguaje nos obliga a crear una nueva caja (generar una nueva variable). No podemos reusar la antigua.
 
-Aunque puede parecer un poco extraño a primera vista, estos lenguajes son muy capaces de desarrollo serio. Más aún, existen áreas como computación en paralelo en las cuales esta limitación otorga ciertos beneficios.
+Aunque a primera vista puede parecer un poco extraño, estos lenguajes son muy capaces de desarrollo serio. Más aún, existen áreas como computación en paralelo en las cuales esta limitación otorga ciertos beneficios.
 ```
 
 ## Nombramiento de variables [#variable-naming]
