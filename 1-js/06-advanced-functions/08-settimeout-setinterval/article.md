@@ -26,7 +26,7 @@ Parámetros:
 : El retraso o *delay* antes de la ejecución, en milisegundos (1000 ms = 1 segundo), por defecto 0.
 
 `arg1`, `arg2`...
-: Argumentos para la función (no compatible con IE9-)
+: Argumentos para la función
 
 Por ejemplo, este código llama a `sayHi()` después de un segundo:
 

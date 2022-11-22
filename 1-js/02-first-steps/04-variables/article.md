@@ -151,11 +151,11 @@ Debemos declarar una variable una sola vez y desde entonces referirnos a ella si
 ````
 
 ```smart header="Lenguajes funcionales"
-Es interesante notar el hecho que lenguajes de programación [funcional](https://es.wikipedia.org/wiki/Programaci%C3%B3n_funcional), como [Scala](https://www.scala-lang.org/) o [Erlang](https://www.erlang.org) prohíben cambiar el valor de las variables.
+Es interesante notar la existencia de la [programación funcional](https://es.wikipedia.org/wiki/Programaci%C3%B3n_funcional). Los lenguajes funcionales "puros", como [Haskell](https://es.wikipedia.org/wiki/Haskell), prohíben cambiar el valor de las variables.
 
-En tales lenguajes, una vez la variable ha sido almacenada "en la caja", permanece allí por siempre. Si necesitamos almacenar algo más, el lenguaje nos obliga a crear una nueva caja (generar una nueva variable). No podemos reusar la antigua.
+En tales lenguajes, una vez que la variable ha sido almacenada "en la caja", permanece allí por siempre. Si necesitamos almacenar algo más, el lenguaje nos obliga a crear una nueva caja (generar una nueva variable). No podemos reusar la antigua.
 
-Aunque puede parecer un poco extraño a primera vista, estos lenguajes son muy capaces de desarrollo serio. Más aún, existen áreas como computación en paralelo en las cuales esta limitación otorga ciertos beneficios. Estudiar tales lenguajes (incluso sin la intención de usarlo en el futuro cercano) es recomendable para ampliar la mente.
+Aunque a primera vista puede parecer un poco extraño, estos lenguajes son muy capaces de desarrollo serio. Más aún: existen áreas, como la computación en paralelo, en las cuales esta limitación otorga ciertas ventajas.
 ```
 
 ## Nombramiento de variables [#variable-naming]
@@ -172,7 +172,7 @@ let userName;
 let test123;
 ```
 
-Cuando el nombre contiene varias palabras, comúnmente se utiliza [camelCase](https://es.wikipedia.org/wiki/Camel_case). Es decir: palabras van una detrás de otra, con cada palabra iniciando con letra mayúscula: `miNombreMuyLargo`.
+Cuando el nombre contiene varias palabras, se suele usar el estilo [camelCase](https://es.wikipedia.org/wiki/Camel_case) (capitalización en camello), donde las palabras van pegadas una detrás de otra, con cada inicial en mayúscula: `miNombreMuyLargo`.
 
 Es interesante notar que el símbolo del dólar `'$'` y el guion bajo `'_'` también se utilizan en nombres. Son símbolos comunes, tal como las letras, sin ningún significado especial.
 
