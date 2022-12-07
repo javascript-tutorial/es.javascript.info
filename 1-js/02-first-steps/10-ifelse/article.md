@@ -2,7 +2,7 @@
 
 A veces necesitamos ejecutar diferentes acciones, dependiendo de diferentes condiciones.
 
-Para hacer esto podemos usar: la sentencia `if`; y el "operador condicional" `?`, también llamado "operador de signo de interrogación".
+Para esto podemos usar la sentencia `if`, y el "operador condicional" `?` o también llamado "operador de signo de interrogación".
 
 ## La sentencia "if"
 
@@ -83,7 +83,7 @@ if (year == 2015) {
 
 ## Muchas condiciones: "else if"
 
-Algunas veces, queremos probar distintas variantes de una condición. La clausula `else if` nos permite hacer esto.
+A veces queremos probar distintas variantes de una condición. La clausula `else if` nos permite hacer esto.
 
 Por ejemplo:
 
@@ -183,7 +183,7 @@ Puede ser difícil al principio comprender lo que está sucediendo. Pero despué
 1. El primer signo de pregunta revisa si `age < 3`.
 2. Si es cierto, devuelve `'¡Hola, bebé!'`. De lo contrario, continúa a la expresión que está después de los dos puntos ":", que revisa `age < 18`.
 3. Si es cierto, devuelve `'¡Hola!'`. De lo contrario, continúa con la expresión que está después de los dos puntos siguientes ":", que revisa `age < 100`.
-4. Si es cierto, devuelve `'¡Felicidades!'`. De lo contrario, continúa a la expresión que está después de los dos puntos ":", la que devuelve `'¡Qué edad tan inusual!'`.
+4. Si es cierto, devuelve `'¡Felicidades!'`. De lo contrario, continúa a la expresión que está después de los dos puntos ":", que devuelve `'¡Qué edad tan inusual!'`.
 
 Aquí lo podemos ver utilizando `if..else`:
 
