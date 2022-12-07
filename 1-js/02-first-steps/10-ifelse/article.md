@@ -1,12 +1,12 @@
 # Ejecución condicional: if, '?'
 
-Algunas veces, necesitamos ejecutar diferentes acciones basadas en diferentes condiciones.
+A veces necesitamos ejecutar diferentes acciones, dependiendo de diferentes condiciones.
 
-Para esto podemos usar la sentencia `if` y el operador condicional `?`, también llamado operador de “signo de interrogación”.
+Para hacer esto podemos usar: la sentencia `if`; y el "operador condicional" `?`, también llamado "operador de signo de interrogación".
 
 ## La sentencia "if"
 
-La sentencia `if(...)` evalúa la condición en los paréntesis, y si el resultado es `true` ejecuta un bloque de código.
+La sentencia `if(...)` evalúa la condición en los paréntesis, y "si" (`if`) el resultado es verdadero (`true`), ejecuta un bloque de código.
 
 Por ejemplo:
 
@@ -18,7 +18,7 @@ if (year == 2015) alert( '¡Estás en lo cierto!' );
 */!*
 ```
 
-Aquí la condición es una simple igualdad (`year == 2015`), pero podría ser mucho mas complejo.
+Aquí la condición es una simple igualdad (`year == 2015`), pero podría ser mucho más compleja.
 
 Si quisiéramos ejecutar más de una sentencia, debemos encerrar nuestro bloque de código entre llaves:
 
@@ -29,7 +29,7 @@ if (year == 2015) {
 }
 ```
 
-Recomendamos siempre encerrar nuestro bloque de código entre llaves `{}` siempre que se utilice la sentencia `if`, inclusive si solo se va a ejecutar una sola sentencia en este caso. Hacer eso mejora la legibilidad.
+Recomendamos encerrar nuestro bloque de código entre llaves `{}` siempre que se utilice la sentencia `if`, inclusive si solo se va a ejecutar una sola sentencia. Hacerlo mejora la legibilidad.
 
 ## Conversión Booleana
 
@@ -37,8 +37,8 @@ La sentencia `if (…)` evalúa la expresión dentro de sus paréntesis y convie
 
 Recordemos las reglas de conversión del capítulo <info:type-conversions>:
 
-- El número `0`, un string vacío `""`, `null`, `undefined`, y `NaN` se convierte en `false`. Por esto son llamados valores "falso".
-- El resto de los valores se convierten en  `true`, entonces los llamaremos valores "verdadero".
+- El número `0`, un string vacío `""`, `null`, `undefined`, y `NaN` se convierte en `false`. Por esto son llamados valores "falsos".
+- El resto de los valores se convierten en  `true`, entonces los llamaremos valores "verdaderos".
 
 Entonces, el código bajo esta condición nunca se ejecutaría:
 
@@ -68,7 +68,7 @@ if (cond) {
 
 ## La cláusula "else"
 
-La sentencia `if` quizás contenga un bloque "else" opcional. Este se ejecutará cuando la condición sea falsa.
+La sentencia `if` puede contener un bloque `else` ("si no" "en caso contrario") opcional. Este bloque se ejecutará cuando la condición sea falsa.
 
 Por ejemplo:
 ```js run
@@ -83,7 +83,7 @@ if (year == 2015) {
 
 ## Muchas condiciones: "else if"
 
-Algunas veces, queremos probar variantes de una condición. La clausula `else if` nos permite hacer esto.
+Algunas veces, queremos probar distintas variantes de una condición. La clausula `else if` nos permite hacer esto.
 
 Por ejemplo:
 
@@ -105,7 +105,7 @@ Podría haber más bloques `else if`.  Y el último  `else` es opcional.
 
 ## Operador ternario '?'
 
-A veces necesitamos asignar una variable dependiendo de alguna condición.
+A veces necesitamos que la asignación a una variable dependa de alguna condición.
 
 Por ejemplo:
 
@@ -124,9 +124,9 @@ if (age > 18) {
 alert(accessAllowed);
 ```
 
-Entonces el operador "ternario" también llamado  "signo de interrogación" nos permite ejecutar esto en una forma más corta y simple.
+El "operador condicional", también llamado "operador interrogación", nos permite ejecutar esto en una forma más corta y simple.
 
-El operador está representado por un signo de interrogación de cierre `?`.  A veces es llamado "ternario" porque el operador tiene tres operandos. Es el único operador de JavaScript que tiene esta cantidad de ellos.
+El operador está representado por un signo de interrogación de cierre `?`.  A veces es llamado "ternario" porque el operador tiene tres operandos. Es el único operador de JavaScript que tiene tantos.
 
 La Sintaxis es:
 ```js
@@ -181,9 +181,9 @@ alert( message );
 Puede ser difícil al principio comprender lo que está sucediendo. Pero después de una mirada más cercana, podemos ver que es solo una secuencia ordinaria de condiciones:
 
 1. El primer signo de pregunta revisa si `age < 3`.
-2. Si es cierto -- devuelve `'¡Hola, bebé!'`. De lo contrario, continúa a la expresión que está después de los dos puntos ":", revisando `age < 18`.
-3. Si es cierto -- devuelve `'¡Hola!'`. De lo contrario, continúa con la expresión que está después de los dos puntos siguientes ":", revisando `age < 100`.
-4. Si es cierto -- devuelve `'¡Felicidades!'`. De lo contrario, continúa a la expresión que está después de los dos puntos ":", devolviendo `'¡Qué edad tan inusual!'`.
+2. Si es cierto, devuelve `'¡Hola, bebé!'`. De lo contrario, continúa a la expresión que está después de los dos puntos ":", que revisa `age < 18`.
+3. Si es cierto, devuelve `'¡Hola!'`. De lo contrario, continúa con la expresión que está después de los dos puntos siguientes ":", que revisa `age < 100`.
+4. Si es cierto, devuelve `'¡Felicidades!'`. De lo contrario, continúa a la expresión que está después de los dos puntos ":", la que devuelve `'¡Qué edad tan inusual!'`.
 
 Aquí lo podemos ver utilizando `if..else`:
 
