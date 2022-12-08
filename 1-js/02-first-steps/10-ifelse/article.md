@@ -2,7 +2,7 @@
 
 A veces necesitamos ejecutar diferentes acciones, dependiendo de diferentes condiciones.
 
-Para esto podemos usar la sentencia `if`, y el "operador condicional" `?` o también llamado "operador de signo de interrogación".
+Para esto podemos usar la sentencia `if` y el "operador condicional" `?`, también llamado "operador de signo de interrogación".
 
 ## La sentencia "if"
 
@@ -29,7 +29,7 @@ if (year == 2015) {
 }
 ```
 
-Recomendamos encerrar nuestro bloque de código entre llaves `{}` siempre que se utilice la sentencia `if`, inclusive si solo se va a ejecutar una sola sentencia. Hacerlo mejora la legibilidad.
+Recomendamos encerrar nuestro bloque de código entre llaves `{}` siempre que se utilice la sentencia `if`, incluso si solo se va a ejecutar una sola sentencia. Hacerlo mejora la legibilidad.
 
 ## Conversión Booleana
 
@@ -124,7 +124,7 @@ if (age > 18) {
 alert(accessAllowed);
 ```
 
-El "operador condicional", también llamado "operador interrogación", nos permite ejecutar esto en una forma más corta y simple.
+El "operador condicional", también llamado "operador de interrogación", nos permite ejecutar esto en una forma más corta y simple.
 
 El operador está representado por un signo de interrogación de cierre `?`.  A veces es llamado "ternario" porque el operador tiene tres operandos. Es el único operador de JavaScript que tiene tantos.
 
