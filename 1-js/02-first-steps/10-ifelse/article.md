@@ -6,7 +6,7 @@ Para esto podemos usar la sentencia `if` y el "operador condicional" `?`, tambi�
 
 ## La sentencia "if"
 
-La sentencia `if(...)` evalúa la condición en los paréntesis, y "si" (`if`) el resultado es verdadero (`true`), ejecuta un bloque de código.
+La sentencia `if(...)` evalúa la condición en los paréntesis, y si (`if`) el resultado es verdadero (`true`), ejecuta un bloque de código.
 
 Por ejemplo:
 
@@ -29,7 +29,7 @@ if (year == 2015) {
 }
 ```
 
-Recomendamos encerrar nuestro bloque de código entre llaves `{}` siempre que se utilice la sentencia `if`, incluso si solo se va a ejecutar una sola sentencia. Hacerlo mejora la legibilidad.
+Recomendamos encerrar nuestro bloque de código entre llaves `{}` siempre que se utilice la sentencia `if`, incluso si solo se va a ejecutar una sola sentencia. Al hacerlo mejoramos la legibilidad.
 
 ## Conversión Booleana
 
@@ -68,7 +68,7 @@ if (cond) {
 
 ## La cláusula "else"
 
-La sentencia `if` puede contener un bloque `else` ("si no" "en caso contrario") opcional. Este bloque se ejecutará cuando la condición sea falsa.
+La sentencia `if` puede contener un bloque `else` ("si no", "en caso contrario") opcional. Este bloque se ejecutará cuando la condición sea falsa.
 
 Por ejemplo:
 ```js run
@@ -83,7 +83,7 @@ if (year == 2015) {
 
 ## Muchas condiciones: "else if"
 
-A veces queremos probar distintas variantes de una condición. La clausula `else if` nos permite hacer esto.
+A veces queremos probar varias condiciones. La clausula `else if` nos permite hacer esto.
 
 Por ejemplo:
 
@@ -101,7 +101,7 @@ if (year < 2015) {
 
 En el código de arriba, JavaScript primero revisa si `year < 2015`. Si esto es falso, continúa a la siguiente condición `year > 2015`. Si esta también es falsa, mostrará la última `alert`.
 
-Podría haber más bloques `else if`.  Y el último  `else` es opcional.
+Podría haber más bloques `else if`. Y el último `else` es opcional.
 
 ## Operador ternario '?'
 
@@ -201,7 +201,7 @@ if (age < 3) {
 
 ## Uso no tradicional de '?'
 
-A veces el signo de interrogación cerrado `?` se utiliza para reemplazar `if`:
+A veces, el signo de interrogación de cierre `?` se utiliza para reemplazar `if`:
 
 ```js run no-beautify
 let company = prompt('¿Qué compañía creó JavaScript?', '');
