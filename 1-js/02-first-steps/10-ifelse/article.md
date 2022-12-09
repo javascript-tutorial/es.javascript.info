@@ -6,7 +6,7 @@ Para esto podemos usar la sentencia `if` y el "operador condicional" `?`, tambi�
 
 ## La sentencia "if"
 
-La sentencia `if(...)` evalúa la condición en los paréntesis, y si (`if`) el resultado es verdadero (`true`), ejecuta un bloque de código.
+La sentencia `if(...)` evalúa la condición en los paréntesis, y si el resultado es verdadero (`true`), ejecuta un bloque de código.
 
 Por ejemplo:
 
