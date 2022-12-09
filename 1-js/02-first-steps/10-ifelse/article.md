@@ -1,6 +1,6 @@
 # Ejecución condicional: if, '?'
 
-A veces necesitamos ejecutar diferentes acciones, dependiendo de diferentes condiciones.
+A veces necesitamos que, bajo condiciones diferentes, se ejecuten acciones diferentes.
 
 Para esto podemos usar la sentencia `if` y el "operador condicional" `?`, también llamado "operador de signo de interrogación".
 
