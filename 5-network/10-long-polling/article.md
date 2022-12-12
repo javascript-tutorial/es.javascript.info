@@ -91,8 +91,8 @@ El código del navegador está en `browser.js`.
 
 El sondeo largo funciona muy bien en situaciones en las que los mensajes son escasos.
 
-Pero si los mensajes llegan con mucha frecuencia, el gráfico de mensajes solicitados/recibidos se vuelve en forma de diente de sierra.
+Pero si los mensajes llegan con mucha frecuencia; el gráfico de mensajes solicitados/recibidos se vuelve en forma de dientes de sierra.
 
 Cada mensaje es una solicitud separada; provista de encabezados, sobrecarga de autenticación, etc.
 
-Entonces, en este caso, se prefieren otros métodos, como [Websocket](info:websocket) o [SSE, Eventos enviados por el servidor](info:server-sent-events).
+Entonces, en este caso se prefieren otros métodos, como [Websocket](info:websocket) o [SSE, Eventos enviados por el servidor](info:server-sent-events).
