@@ -25,7 +25,7 @@ También es muy fácil de implementar, y envía los mensajes sin demoras.
 El flujo es:
 
 1. El navegador envía una solicitud al servidor.
-2. El servidor no cierra la conexión mientras no tenga mensajes para enviar.
+2. El servidor mantiene la conexión abierta mientras no tenga mensajes para enviar.
 3. Cuando aparece un mensaje, el servidor responde a la solicitud con él.
 4. El navegador recibe el mensaje y de inmediato realiza una nueva solicitud.
 
