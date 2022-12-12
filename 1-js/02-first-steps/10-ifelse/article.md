@@ -126,7 +126,7 @@ alert(accessAllowed);
 
 El "operador condicional", también llamado "operador de interrogación", nos permite ejecutar esto en una forma más corta y simple.
 
-El operador está representado por un signo de interrogación de cierre `?`.  A veces es llamado "ternario" porque el operador tiene tres operandos. Es el único operador de JavaScript que tiene tantos.
+El operador está representado por un signo de interrogación de cierre `?`.  A veces es llamado "ternario" porque el operador tiene tres operandos, es el único operador de JavaScript que tiene esa cantidad.
 
 La Sintaxis es:
 ```js
