@@ -81,7 +81,7 @@ Dicho esto, no es un problema del lenguaje sino de implementación. La mayoría 
 
 ## Demostración: un chat
 
-Aquí está la demo de un chat, que también puedes descargar y ejecutar localmente (si estás familiarizado con Node.js y puedes instalar módulos):
+Aquí hay un chat de demostración, que también puedes descargar y ejecutar localmente (si estás familiarizado con Node.js y puedes instalar módulos):
 
 [codetabs src="longpoll" height=500]
 
