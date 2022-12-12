@@ -74,7 +74,7 @@ Algunas arquitecturas de servidor ejecutan un proceso por conexión, resultando 
 
 Este suele ser el caso de los backends escritos en lenguajes como PHP y Ruby.
 
-Los servidores escritos con Node.js generalmente no tienen este problemas.
+Los servidores escritos con Node.js generalmente no tienen este problema.
 
 Dicho esto, no es un problema del lenguaje sino de implementación. La mayoría de los lenguajes modernos, incluyendo PHP y Ruby, permiten la implementación de un backend adecuado. Por favor asegúrate de que la arquitectura del servidor funcione bien con múltiples conexiones simultáneas.
 ```
