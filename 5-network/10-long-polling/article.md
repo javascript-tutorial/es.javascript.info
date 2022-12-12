@@ -10,7 +10,7 @@ La forma más sencilla de obtener información nueva desde el servidor es un son
 
 En respuesta, el servidor: primero, se da cuenta de que el cliente está en línea; segundo, envía un paquete de mensajes que recibió hasta ese momento.
 
-Esto funciona, pero tiene desventajas:
+Esto funciona, pero tiene sus desventajas:
 1. Los mensajes desde el servidor se transmiten con un retraso de hasta 10 segundos (el lapso entre solicitudes).
 2. Incluso si no hay mensajes, el servidor es bombardeado con solicitudes cada 10 segundos; aunque el usuario haya cambiado a otro lugar, o esté dormido. En términos de rendimiento, esto es bastante difícil de manejar.
 
