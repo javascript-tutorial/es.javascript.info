@@ -35,7 +35,7 @@ Esta situación, en la que el navegador envió una solicitud y tiene una conexi�
 
 Si se pierde la conexión (por ejemplo, debido a un error de red), el navegador envía inmediatamente una nueva solicitud.
 
-Este es un esquema, del lado del cliente, de la función de suscripción que realiza solicitudes largas:
+Esquema de una función `subscribe` que realiza solicitudes largas desde el lado del cliente:
 
 ```js
 async function subscribe() {
