@@ -46,19 +46,19 @@ async function subscribe() {
     // puede suceder cuando la conexión estuvo pendiente durante demasiado tiempo,
     // y el servidor remoto o un proxy la cerró
     // vamos a reconectarnos
-    await subscribe();
+    subscribe();
   } else if (response.status != 200) {
     // Un error : vamos a mostrarlo
     showMessage(response.statusText);
     // Vuelve a conectar en un segundo
     await new Promise(resolve => setTimeout(resolve, 1000));
-    await subscribe();
+    subscribe();
   } else {
     // Recibe y muestra el mensaje
     let message = await response.text();
     showMessage(message);
     // Llama a subscribe () nuevamente para obtener el siguiente mensaje
-    await subscribe();
+    subscribe();
   }
 }
 
@@ -91,7 +91,7 @@ El código del navegador está en `browser.js`.
 
 El sondeo largo funciona muy bien en situaciones en las que los mensajes son escasos.
 
-Pero si los mensajes llegan con mucha frecuencia; el gráfico de mensajes solicitados/recibidos se vuelve en forma de dientes de sierra.
+Pero si los mensajes llegan con mucha frecuencia; el gráfico de arriba, mensajes solicitados/recibidos, se vuelve en forma de dientes de sierra.
 
 Cada mensaje es una solicitud separada; provista de encabezados, sobrecarga de autenticación, etc.
 
