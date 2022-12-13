@@ -14,7 +14,7 @@ Esto funciona, pero tiene sus desventajas:
 1. Los mensajes desde el servidor se transmiten con un retraso de hasta 10 segundos (el lapso entre solicitudes).
 2. Incluso si no hay mensajes, el servidor es bombardeado con solicitudes cada 10 segundos; aunque el usuario haya cambiado a otro lugar, o esté dormido. En términos de rendimiento, esto es bastante difícil de manejar.
 
-Entonces: si hablamos de un servicio muy pequeño, el enfoque puede ser viable; pero en general, se necesita algo mejor.
+Entonces: si hablamos de un servicio muy pequeño, este enfoque puede ser viable; pero en general, se necesita algo mejor.
 
 ## Sondeo largo
 
