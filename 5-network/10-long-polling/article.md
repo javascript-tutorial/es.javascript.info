@@ -1,6 +1,10 @@
 # Sondeo largo
 
+<<<<<<< HEAD
 Sondeo largo es la forma más sencilla de tener una conexión persistente con el servidor, que no utiliza ningún protocolo específico como WebSocket o Eventos enviados por el servidor.
+=======
+Long polling is the simplest way of having persistent connection with server, that doesn't use any specific protocol like WebSocket or Server Sent Events.
+>>>>>>> ea7738bb7c3616bb51ff14ae3db2a2747d7888ff
 
 Al ser muy fácil de implementar, también es suficientemente bueno en muchos casos.
 
