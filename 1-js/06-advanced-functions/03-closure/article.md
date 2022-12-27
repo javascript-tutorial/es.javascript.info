@@ -80,7 +80,7 @@ if (true) {
 alert(phrase); // ¡Error, no hay tal variable!
 ```
 
-Aquí, después de que `if` termine, la` alerta` a continuación no verá la `phrase`, de ahí el error.
+Aquí, después de que `if` termine, la `alerta` a continuación no verá la `phrase`, de ahí el error.
 
 Eso es genial, ya que nos permite crear variables locales de bloque, específicas de una rama `if`.
 
