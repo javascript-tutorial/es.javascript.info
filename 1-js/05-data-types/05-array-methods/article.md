@@ -255,7 +255,11 @@ alert( arr.includes(1) ); // true
 
 Tener en cuenta que el método usa la comparación estricta (`===`). Por lo tanto, si buscamos `false`, encontrará exactamente `false` y no cero.
 
+<<<<<<< HEAD
 Si queremos comprobar si un elemento existe en el array, pero no necesitamos saber su ubicación exacta, es preferible usar `arr.includes`
+=======
+If we want to check if `item` exists in the array, and don't need the index, then `arr.includes` is preferred.
+>>>>>>> ea7738bb7c3616bb51ff14ae3db2a2747d7888ff
 
 El método [arr.lastIndexOf](mdn:js/Array/lastIndexOf) es lo mismo que `indexOf`, pero busca de derecha a izquierda.
 
@@ -338,7 +342,10 @@ alert(users.findIndex(user => user.name == 'John')); // 0
 alert(users.findLastIndex(user => user.name == 'John')); // 3
 ```
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> ea7738bb7c3616bb51ff14ae3db2a2747d7888ff
 ### filter
 
 El método `find` busca un único elemento (el primero) que haga a la función devolver `true`.
