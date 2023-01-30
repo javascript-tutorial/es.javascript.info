@@ -103,6 +103,7 @@ Más en: <info:variables> y <info:types>.
 
 Estamos utilizando un navegador como entorno de trabajo, por lo que las funciones básicas de la interfaz de usuario serán:
 
+<<<<<<< HEAD
 [`prompt(question, [default])`](https://developer.mozilla.org/es/docs/Web/API/Window/prompt)
 : Hace una pregunta `question`, y devuelve lo que ingresó el visitante o `null` si presiona "cancelar".
 
@@ -111,6 +112,16 @@ Estamos utilizando un navegador como entorno de trabajo, por lo que las funcione
 
 [`alert(message)`](https://developer.mozilla.org/es/docs/Web/API/Window/alert)
 : Muestra un `message`.
+=======
+[`prompt(question, [default])`](https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt)
+: Ask a `question`, and return either what the visitor entered or `null` if they clicked "cancel".
+
+[`confirm(question)`](https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm)
+: Ask a `question` and suggest to choose between Ok and Cancel. The choice is returned as `true/false`.
+
+[`alert(message)`](https://developer.mozilla.org/en-US/docs/Web/API/Window/alert)
+: Output a `message`.
+>>>>>>> 9e3fa1351f80cfd6353a778a55b2c86bca9e895f
 
 Todas estas funciones son *modales*, pausan la ejecución del código y evitan que el visitante interactúe con la página hasta que responda.
 
@@ -143,8 +154,13 @@ Aritméticos
 Asignaciones
 : Existen las asignaciones simples: `a = b` y las combinadas `a *= 2`.
 
+<<<<<<< HEAD
 Operador bit a bit
 : Los operadores bit a bit funcionan con enteros de 32 bits al más bajo nivel, el de bit: vea la [documentación](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators#operadores_binarios_bit_a_bit) cuando los necesite.
+=======
+Bitwise
+: Bitwise operators work with 32-bit integers at the lowest, bit-level: see the [docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#bitwise_operators) when they are needed.
+>>>>>>> 9e3fa1351f80cfd6353a778a55b2c86bca9e895f
 
 Condicional
 : El único operador con 3 parámetros: `cond ? resultA : resultB`. Sí `cond` es verdadera, devuelve `resultA`, de lo contrario `resultB`.

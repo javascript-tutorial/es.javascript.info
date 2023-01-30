@@ -1,6 +1,10 @@
 # Sondeo largo
 
+<<<<<<< HEAD
 Sondeo largo es la forma más sencilla de tener una conexión persistente con el servidor, que no utiliza ningún protocolo específico como WebSocket o Eventos enviados por el servidor.
+=======
+Long polling is the simplest way of having persistent connection with server, that doesn't use any specific protocol like WebSocket or Server Sent Events.
+>>>>>>> 9e3fa1351f80cfd6353a778a55b2c86bca9e895f
 
 Al ser muy fácil de implementar, también es suficientemente bueno en muchos casos.
 
@@ -29,7 +33,11 @@ El flujo:
 3. Cuando aparece un mensaje, el servidor responde a la solicitud con él.
 4. El navegador realiza una nueva solicitud de inmediato.
 
+<<<<<<< HEAD
 La situación en la que el navegador envió una solicitud y tiene una conexión pendiente con el servidor, es estándar para este método. Solo cuando se entrega un mensaje, se restablece la conexión.
+=======
+This situation, where the browser has sent a request and keeps a pending connection with the server, is standard for this method. Only when a message is delivered, the connection is closed and reestablished.
+>>>>>>> 9e3fa1351f80cfd6353a778a55b2c86bca9e895f
 
 ![](long-polling.svg)
 
