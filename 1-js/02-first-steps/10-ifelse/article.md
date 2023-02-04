@@ -1,12 +1,12 @@
 # Ejecución condicional: if, '?'
 
-Algunas veces, necesitamos ejecutar diferentes acciones basadas en diferentes condiciones.
+A veces necesitamos que, bajo condiciones diferentes, se ejecuten acciones diferentes.
 
-Para esto podemos usar la sentencia `if` y el operador condicional `?`, también llamado operador de “signo de interrogación”.
+Para esto podemos usar la sentencia `if` y el "operador condicional" `?`.
 
 ## La sentencia "if"
 
-La sentencia `if(...)` evalúa la condición en los paréntesis, y si el resultado es `true` ejecuta un bloque de código.
+La sentencia `if(...)` evalúa la condición en los paréntesis, y si el resultado es verdadero (`true`), ejecuta un bloque de código.
 
 Por ejemplo:
 
@@ -18,9 +18,9 @@ if (year == 2015) alert( '¡Estás en lo cierto!' );
 */!*
 ```
 
-Aquí la condición es una simple igualdad (`year == 2015`), pero podría ser mucho mas complejo.
+Aquí la condición es una simple igualdad (`year == 2015`), pero podría ser mucho más compleja.
 
-Si quisiéramos ejecutar más de una sentencia, debemos encerrar nuestro bloque de código entre llaves:
+Si queremos ejecutar más de una sentencia, debemos encerrar nuestro bloque de código entre llaves:
 
 ```js
 if (year == 2015) {
@@ -29,7 +29,7 @@ if (year == 2015) {
 }
 ```
 
-Recomendamos siempre encerrar nuestro bloque de código entre llaves `{}` siempre que se utilice la sentencia `if`, inclusive si solo se va a ejecutar una sola sentencia en este caso. Hacer eso mejora la legibilidad.
+Recomendamos encerrar nuestro bloque de código entre llaves `{}` siempre que se utilice la sentencia `if`, incluso si solo se va a ejecutar una sola sentencia. Al hacerlo mejoramos la legibilidad.
 
 ## Conversión Booleana
 
@@ -37,8 +37,8 @@ La sentencia `if (…)` evalúa la expresión dentro de sus paréntesis y convie
 
 Recordemos las reglas de conversión del capítulo <info:type-conversions>:
 
-- El número `0`, un string vacío `""`, `null`, `undefined`, y `NaN` se convierte en `false`. Por esto son llamados valores "falso".
-- El resto de los valores se convierten en  `true`, entonces los llamaremos valores "verdadero".
+- El número `0`, un string vacío `""`, `null`, `undefined`, y `NaN`, se convierten en `false`. Por esto son llamados valores "falsos".
+- El resto de los valores se convierten en `true`, entonces los llamaremos valores "verdaderos".
 
 Entonces, el código bajo esta condición nunca se ejecutaría:
 
@@ -68,7 +68,7 @@ if (cond) {
 
 ## La cláusula "else"
 
-La sentencia `if` quizás contenga un bloque "else" opcional. Este se ejecutará cuando la condición sea falsa.
+La sentencia `if` puede contener un bloque `else` ("si no", "en caso contrario") opcional. Este bloque se ejecutará cuando la condición sea falsa.
 
 Por ejemplo:
 ```js run
@@ -83,7 +83,7 @@ if (year == 2015) {
 
 ## Muchas condiciones: "else if"
 
-Algunas veces, queremos probar variantes de una condición. La clausula `else if` nos permite hacer esto.
+A veces queremos probar más de una condición. La clausula `else if` nos permite hacer esto.
 
 Por ejemplo:
 
@@ -101,11 +101,11 @@ if (year < 2015) {
 
 En el código de arriba, JavaScript primero revisa si `year < 2015`. Si esto es falso, continúa a la siguiente condición `year > 2015`. Si esta también es falsa, mostrará la última `alert`.
 
-Podría haber más bloques `else if`.  Y el último  `else` es opcional.
+Podría haber más bloques `else if`. Y el último `else` es opcional.
 
 ## Operador ternario '?'
 
-A veces necesitamos asignar una variable dependiendo de alguna condición.
+A veces necesitamos que el valor que asignemos a una variable dependa de alguna condición.
 
 Por ejemplo:
 
@@ -124,9 +124,9 @@ if (age > 18) {
 alert(accessAllowed);
 ```
 
-Entonces el operador "ternario" también llamado  "signo de interrogación" nos permite ejecutar esto en una forma más corta y simple.
+El "operador condicional" nos permite ejecutar esto en una forma más corta y simple.
 
-El operador está representado por un signo de interrogación de cierre `?`.  A veces es llamado "ternario" porque el operador tiene tres operandos. Es el único operador de JavaScript que tiene esta cantidad de ellos.
+El operador está representado por el signo de cierre de interrogación `?`. A veces es llamado "ternario" porque el operador tiene tres operandos, es el único operador de JavaScript que tiene esa cantidad.
 
 La Sintaxis es:
 ```js
@@ -181,9 +181,9 @@ alert( message );
 Puede ser difícil al principio comprender lo que está sucediendo. Pero después de una mirada más cercana, podemos ver que es solo una secuencia ordinaria de condiciones:
 
 1. El primer signo de pregunta revisa si `age < 3`.
-2. Si es cierto -- devuelve `'¡Hola, bebé!'`. De lo contrario, continua a la expresión que está después de los dos puntos '":"', revisando `age < 18`.
-3. Si es cierto -- devuelve `'¡Hola!'`. De lo contrario, continúa con la expresión que está después de los dos puntos siguientes '":"', revisando `age < 100`.
-4. Si es cierto -- devuelve `'¡Felicidades!'`. De lo contrario, continúa a la expresión que está después de los dos puntos '":"', devolviendo `'¡Qué edad tan inusual!'`.
+2. Si es cierto, devuelve `'¡Hola, bebé!'`. De lo contrario, continúa a la expresión que está después de los dos puntos ":", la cual revisa si `age < 18`.
+3. Si es cierto, devuelve `'¡Hola!'`. De lo contrario, continúa con la expresión que está después de los dos puntos siguientes ":", la cual revisa si `age < 100`.
+4. Si es cierto, devuelve `'¡Felicidades!'`. De lo contrario, continúa a la expresión que está después de los dos puntos ":", la cual devuelve `'¡Qué edad tan inusual!'`.
 
 Aquí lo podemos ver utilizando `if..else`:
 
@@ -201,7 +201,7 @@ if (age < 3) {
 
 ## Uso no tradicional de '?'
 
-A veces el signo de interrogación cerrado `?` se utiliza para reemplazar `if`:
+A veces, el signo de interrogación de cierre `?` se utiliza para reemplazar un `if`:
 
 ```js run no-beautify
 let company = prompt('¿Qué compañía creó JavaScript?', '');
@@ -214,9 +214,9 @@ let company = prompt('¿Qué compañía creó JavaScript?', '');
 
 Dependiendo de la condición `company == 'Netscape'`, se ejecutará la primera o la segunda expresión del operador `?` y se mostrará una alerta.
 
-Aquí no asignamos el resultado de una variable. En vez de esto, ejecutamos diferentes códigos dependiendo de la condición.
+Aquí no asignamos el resultado a una variable. En vez de esto, ejecutamos diferentes códigos dependiendo de la condición.
 
-**No se recomienda el uso del operador de signo de interrogación de esta forma.**
+**No recomendamos el uso del operador de signo de interrogación de esta forma.**
 
 La notación es más corta que la sentencia equivalente con `if`, lo cual seduce a algunos programadores. Pero es menos legible.
 

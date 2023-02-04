@@ -325,7 +325,7 @@ alert( result ); // 3
 
 La directiva `return` puede estar en cualquier lugar de la función. Cuando la ejecución lo alcanza, la función se detiene y el valor se devuelve al código de llamada (asignado al `result` anterior).
 
-Puede haber muchos casos de `return ` en una sola función. Por ejemplo:
+Puede haber muchos `return` en una sola función. Por ejemplo:
 
 ```js run
 function checkAge(age) {

@@ -67,7 +67,7 @@ alert(message);
 ```
 ````
 
-Para `if`,` for`, `while` y otros, las variables declaradas dentro de `{...} ` también son solo visibles en su interior:
+Para `if`, `for`, `while` y otros, las variables declaradas dentro de `{...}` también son solo visibles en su interior:
 
 
 ```js run
