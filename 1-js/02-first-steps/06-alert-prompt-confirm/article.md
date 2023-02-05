@@ -1,10 +1,10 @@
 # Interacción: alert, prompt, confirm
 
-Como usaremos el navegador como nuestro entorno de demostración, veamos un par de funciones para interactuar con el usuario: `alert`,` prompt` y `confirm`.
+Como usaremos el navegador como nuestro entorno de demostración, veamos un par de funciones para interactuar con el usuario: `alert`, `prompt`, y `confirm`.
 
 ## alert
 
-Este ya lo hemos visto. Muestra un mensaje y espera a que el usuario presione "Aceptar".
+Ya la hemos visto. Muestra un mensaje y espera a que el usuario presione "Aceptar".
 
 Por ejemplo:
 
@@ -28,13 +28,13 @@ Muestra una ventana modal con un mensaje de texto, un campo de entrada para el v
 : El texto a mostrar al usuario.
 
 `default`
-: Un segundo parámetro opcional, el valor inicial del campo de entrada.
+: Un segundo parámetro opcional, es el valor inicial del campo de entrada.
 
 ```smart header="Corchetes en la sintaxis `[...]`"
 Los corchetes alrededor de `default` en la sintaxis de arriba denotan que el parámetro es opcional, no requerido.
 ```
 
-El usuario puede escribir algo en el campo de entrada de solicitud y presionar OK. Así obtenemos ese texto en `result`. O puede cancelar la entrada presionando Cancelar o presionando la tecla `key:Esc` obteniendo `null` en `result`.
+El usuario puede escribir algo en el campo de entrada de solicitud y presionar OK, así obtenemos ese texto en `result`. O puede cancelar la entrada, con el botón "Cancelar" o presionando la tecla `key:Esc`, de este modo se obtiene `null` en `result`.
 
 La llamada a `prompt` retorna el texto del campo de entrada o `null` si la entrada fue cancelada.
 
@@ -90,7 +90,7 @@ Cubrimos 3 funciones específicas del navegador para interactuar con los usuario
 : muestra un mensaje.
 
 `prompt`
-: muestra un mensaje pidiendo al usuario que introduzca un texto. Retorna el texto o, si se hace clic en CANCELAR o `key:Esc`, retorna `null`.
+: muestra un mensaje pidiendo al usuario que introduzca un texto. Retorna el texto o, si se hace clic en CANCELAR o se presiona `key:Esc`, retorna `null`.
 
 `confirm`
 : muestra un mensaje y espera a que el usuario pulse "OK" o "CANCELAR". Retorna `true` si se presiona OK y `false` si se presiona CANCEL/`key:Esc`.
@@ -102,4 +102,4 @@ Hay dos limitaciones comunes a todos los métodos anteriores:
 1. La ubicación exacta de la ventana modal está determinada por el navegador. Normalmente, está en el centro.
 2. El aspecto exacto de la ventana también depende del navegador. No podemos modificarlo.
 
-Ese es el precio de la simplicidad. Existen otras formas de mostrar ventanas más atractivas e interactivas para el usuario, pero si la "apariencia" no importa mucho, estos métodos funcionan bien.
+Ese es el precio de la simplicidad. Existen otras formas de mostrar ventanas más atractivas e interactivas para el usuario, pero si la apariencia no importa mucho, estos métodos funcionan bien.

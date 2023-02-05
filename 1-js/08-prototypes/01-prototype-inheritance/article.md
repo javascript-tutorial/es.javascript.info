@@ -216,7 +216,7 @@ Aquí, en la línea `(*)`, la propiedad `admin.fullName` tiene un getter en el p
 
 ## El valor de "this"
 
-Puede surgir una pregunta interesante en el ejemplo anterior: ¿cuál es el valor de `this` dentro de `set fullName(value)`? ¿Dónde están escritas las propiedades `this.name` y ` this.surname`: en `user` o `admin`?
+Puede surgir una pregunta interesante en el ejemplo anterior: ¿cuál es el valor de `this` dentro de `set fullName(value)`? ¿Dónde están escritas las propiedades `this.name` y `this.surname`: en `user` o en `admin`?
 
 La respuesta es simple: "this" no se ve afectado por los prototipos en absoluto.
 

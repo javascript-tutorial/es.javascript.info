@@ -338,7 +338,6 @@ alert(users.findIndex(user => user.name == 'John')); // 0
 alert(users.findLastIndex(user => user.name == 'John')); // 3
 ```
 
-
 ### filter
 
 El método `find` busca un único elemento (el primero) que haga a la función devolver `true`.
