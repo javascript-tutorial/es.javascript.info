@@ -90,7 +90,7 @@ Cubrimos 3 funciones específicas del navegador para interactuar con los usuario
 : muestra un mensaje.
 
 `prompt`
-: muestra un mensaje pidiendo al usuario que introduzca un texto. Retorna el texto o, si se hace clic en CANCELAR o presiona `key:Esc`, retorna `null`.
+: muestra un mensaje pidiendo al usuario que introduzca un texto. Retorna el texto o, si se hace clic en CANCELAR o se presiona `key:Esc`, retorna `null`.
 
 `confirm`
 : muestra un mensaje y espera a que el usuario pulse "OK" o "CANCELAR". Retorna `true` si se presiona OK y `false` si se presiona CANCEL/`key:Esc`.
