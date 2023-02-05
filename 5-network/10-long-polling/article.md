@@ -2,7 +2,7 @@
 
 El "sondeo largo" es la forma más sencilla de tener una conexión persistente con el servidor. No utiliza ningún protocolo específico como "WebSocket" o "SSE".
 
-Es muy fácil de implementar, y suficientemente bueno en muchos casos.
+Es muy fácil de implementar, y es suficientemente bueno en muchos casos.
 
 ## Sondeo regular
 
