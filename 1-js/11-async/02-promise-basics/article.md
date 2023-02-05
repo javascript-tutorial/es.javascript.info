@@ -287,7 +287,7 @@ Si una promesa está pendiente, los manejadores `.then/catch/finally` esperan po
 
 Podría pasar a veces que, cuando agregamos un manejador, la promesa ya se encuentre establecida.
 
-Em tal caso, estos manejadores simplemente se ejecutarán de inmediato:
+En tal caso, estos manejadores simplemente se ejecutarán de inmediato:
 
 ```js run
 // la promesa se resuelve inmediatamente después de la creación
