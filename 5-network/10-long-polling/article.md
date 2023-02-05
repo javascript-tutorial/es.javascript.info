@@ -1,41 +1,41 @@
 # Sondeo largo
 
-Sondeo largo es la forma más sencilla de tener una conexión persistente con el servidor, que no utiliza ningún protocolo específico como WebSocket o Eventos enviados por el servidor.
+El "sondeo largo" es la forma más sencilla de tener una conexión persistente con el servidor, pues no utiliza ningún protocolo específico tales como "WebSocket" o "SSE" ("Server Sent Events", "Eventos enviados por el servidor").
 
-Al ser muy fácil de implementar, también es suficientemente bueno en muchos casos.
+Es muy fácil de implementar, también es suficientemente bueno en muchos casos.
 
 ## Sondeo regular
 
-La forma más sencilla de obtener nueva información del servidor es un sondeo periódico. Es decir, solicitudes regulares al servidor: "Hola, estoy aquí, ¿tienes información para mí?". Por ejemplo, una vez cada 10 segundos.
+La forma más sencilla de obtener información nueva desde el servidor es un sondeo periódico. Es decir, solicitudes regulares al servidor: "Hola, estoy aquí, ¿tienes información para mí?". Por ejemplo, una vez cada 10 segundos.
 
-En respuesta, el servidor primero se da cuenta de que el cliente está en línea, y segundo, envía un paquete de mensajes que recibió hasta ese momento.
+En respuesta, el servidor: primero, se da cuenta de que el cliente está en línea; segundo, envía un paquete con los mensajes que recibió hasta ese momento.
 
-Eso funciona, pero hay desventajas:
-1. Los mensajes se transmiten con un retraso de hasta 10 segundos (entre solicitudes).
-2. Incluso si no hay mensajes, el servidor se bombardea con solicitudes cada 10 segundos, aunque el usuario haya cambiado a otro lugar o esté dormido. Eso es bastante difícil de manejar, hablando en términos de rendimiento.
+Esto funciona, pero tiene sus desventajas:
+1. Los mensajes desde el servidor se transmiten con un retraso de hasta 10 segundos (el lapso entre solicitudes de nuestro ejemplo).
+2. Aún cuando no hay mensajes, el servidor es bombardeado con solicitudes cada 10 segundos; incluso si el usuario cambió a otro lugar, o está dormido. En términos de rendimiento, esto es bastante difícil de manejar.
 
-Entonces, si hablamos de un servicio muy pequeño, el enfoque puede ser viable, pero en general, necesita una mejora.
+Entonces: si hablamos de un servicio muy pequeño, este enfoque es viable. Pero en general, se necesita algo mejor.
 
 ## Sondeo largo
 
 El llamado "sondeo largo" es una forma mucho mejor de sondear el servidor.
 
-También es muy fácil de implementar y envía mensajes sin demoras.
+También es muy fácil de implementar, y envía los mensajes sin demoras.
 
-El flujo:
+El flujo es:
 
-1. Se envía una solicitud al servidor.
-2. El servidor no cierra la conexión hasta que tiene un mensaje para enviar.
-3. Cuando aparece un mensaje, el servidor responde a la solicitud con él.
-4. El navegador realiza una nueva solicitud de inmediato.
+1. El navegador envía una solicitud al servidor.
+2. El servidor mantiene la conexión abierta mientras no tenga mensajes para enviar.
+3. Cuando aparece un mensaje, el servidor responde a la solicitud con dicho mensaje y cierra la conexión.
+4. El navegador recibe el mensaje y de inmediato realiza una nueva solicitud.
 
-La situación en la que el navegador envió una solicitud y tiene una conexión pendiente con el servidor, es estándar para este método. Solo cuando se entrega un mensaje, se restablece la conexión.
+Esta situación, en la que el navegador envió una solicitud y tiene una conexión pendiente con el servidor, es estándar para este método. En cuanto se entrega un mensaje, la conexión se cierra y restablece.
 
 ![](long-polling.svg)
 
-Si se pierde la conexión, por ejemplo, debido a un error de red, el navegador envía inmediatamente una nueva solicitud.
+Si se pierde la conexión (por ejemplo, debido a un error de red), el navegador envía inmediatamente una nueva solicitud.
 
-Un esquema de la función de suscripción del lado del cliente que realiza solicitudes largas:
+Esquema de una función `subscribe` que realiza solicitudes largas desde el lado del cliente:
 
 ```js
 async function subscribe() {
@@ -46,19 +46,19 @@ async function subscribe() {
     // puede suceder cuando la conexión estuvo pendiente durante demasiado tiempo,
     // y el servidor remoto o un proxy la cerró
     // vamos a reconectarnos
-    await subscribe();
+    subscribe();
   } else if (response.status != 200) {
     // Un error : vamos a mostrarlo
     showMessage(response.statusText);
     // Vuelve a conectar en un segundo
     await new Promise(resolve => setTimeout(resolve, 1000));
-    await subscribe();
+    subscribe();
   } else {
     // Recibe y muestra el mensaje
     let message = await response.text();
     showMessage(message);
     // Llama a subscribe () nuevamente para obtener el siguiente mensaje
-    await subscribe();
+    subscribe();
   }
 }
 
@@ -67,21 +67,21 @@ subscribe();
 
 Como puedes ver, la función `subscribe` realiza una búsqueda, luego espera la respuesta, la maneja y se llama a sí misma nuevamente.
 
-```warn header="El servidor debería estar bien aún con muchas conexiones pendientes"
-La arquitectura del servidor debe poder funcionar con muchas conexiones pendientes.
+```warn header="El servidor debe ser capaz de mantener muchas conexiones pendientes"
+La arquitectura del servidor debe poder funcionar bien con muchas conexiones pendientes.
 
-Algunas arquitecturas de servidor ejecutan un proceso por conexión, resultando en que habrá tantos procesos como conexiones y cada proceso requiere bastante memoria. Demasiadas conexiones la consumirán toda.
+Algunas arquitecturas de servidor ejecutan un proceso por conexión, resultando en que habrá tantos procesos como conexiones, y cada proceso requiere bastante memoria. Demasiadas conexiones la consumirán toda.
 
 Este suele ser el caso de los backends escritos en lenguajes como PHP y Ruby.
 
-Los servidores escritos con Node.js generalmente no tienen estos problemas.
+Los servidores escritos con Node.js generalmente no tienen este problema.
 
-Dicho esto, no es un problema del lenguaje sino de implementación. La mayoría de los lenguajes modernos, incluyendo PHP y Ruby permiten la implementación de un backend adecuado. Por favor asegúrate de que la arquitectura del servidor funcione bien con múltiples conexiones simultáneas.
+Dicho esto, no es un problema del lenguaje sino de implementación. La mayoría de los lenguajes modernos, incluyendo PHP y Ruby, permiten la implementación de un backend adecuado. Por favor asegúrate de que la arquitectura del servidor funcione bien con múltiples conexiones simultáneas.
 ```
 
 ## Demostración: un chat
 
-Aquí hay un chat de demostración, también puedes descargarlo y ejecutarlo localmente (si estás familiarizado con Node.js y puedes instalar módulos):
+Aquí hay un chat de demostración, que también puedes descargar y ejecutar localmente (si estás familiarizado con Node.js y puedes instalar módulos):
 
 [codetabs src="longpoll" height=500]
 
@@ -89,10 +89,10 @@ El código del navegador está en `browser.js`.
 
 ## Área de uso
 
-El sondeo largo funciona muy bien en situaciones en las que es raro recibir mensajes.
+El sondeo largo funciona muy bien en situaciones en las que los mensajes son escasos.
 
-Si los mensajes llegan con mucha frecuencia, entonces el gráfico de mensajes solicitados vs recibidos, pintado arriba, se vuelve en forma de sierra.
+Pero si los mensajes llegan con mucha frecuencia; el gráfico de arriba, de mensajes solicitados/recibidos, se vuelve en forma de dientes de sierra.
 
-Cada mensaje es una solicitud separada, provista de encabezados, sobrecarga de autenticación, etc.
+Cada mensaje es una solicitud separada: provista de encabezados, sobrecarga de autenticación, etc.
 
-Entonces, en este caso, se prefiere otro método, como [Websocket](info:websocket) o [Eventos enviados por el servidor](info:server-sent-events).
+Si este es el caso se prefieren otros métodos, como [Websocket](info:websocket) o [SSE, Eventos enviados por el servidor](info:server-sent-events).
