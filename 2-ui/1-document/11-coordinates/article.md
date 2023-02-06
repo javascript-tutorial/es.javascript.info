@@ -36,7 +36,7 @@ Adicionalmente existen estas propiedades derivadas:
 ```online
 Por ejemplo, haz click en este botón para ver las coordenadas en relación a la ventana:
 
-<p><input id="brTest" type="button" value="Recibe las coordenadas para este botón con button.getBoundingClientRect()" onclick='showRect(this)'/></p>
+<p><input id="brTest" type="button" style="max-width: 90vw;" value="Recibe las coordenadas para este botón con button.getBoundingClientRect()" onclick='showRect(this)'/></p>
 
 <script>
 function showRect(elem) {
