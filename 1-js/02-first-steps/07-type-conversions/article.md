@@ -34,7 +34,11 @@ La conversión a string es bastante obvia. El boolean `false` se convierte en `"
 
 ## ToNumber
 
+<<<<<<< HEAD
 La conversión numérica ocurre automáticamente en funciones matemáticas y expresiones.
+=======
+Numeric conversion in mathematical functions and expressions happens automatically.
+>>>>>>> 9e3fa1351f80cfd6353a778a55b2c86bca9e895f
 
 Por ejemplo, cuando se dividen valores no numéricos usando `/`:
 

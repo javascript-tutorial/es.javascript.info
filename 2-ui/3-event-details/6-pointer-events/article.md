@@ -65,11 +65,19 @@ Los eventos de puntero tienen las mismas propiedades que los eventos del mouse, 
 
 Para punteros que miden un área de contacto y presión, p. Ej. un dedo en la pantalla táctil, las propiedades adicionales pueden ser útiles:
 
+<<<<<<< HEAD
 - `width` - el ancho del área donde el puntero (p.ej. el dedo) toca el dispositivo. Si el dispositivo no lo soporta (como el mouse), es siempre `1`. 
 - `height` - el alto del área donde el puntero toca el dispositivo. Donde no lo soporte es siempre `1`.
 - `pressure` - la presión de la punta del puntero, en el rango de 0 a 1. En dispositivos que no soportan presión, debe ser `0.5` (presionada) o `0`.
 - `tangentialPressure` - la presión tangencial normalizada.
 - `tiltX`, `tiltY`, `twist` - propiedades específicas del lápiz que describen cómo se lo coloca en relación con la superficie.
+=======
+- `width` - the width of the area where the pointer (e.g. a finger) touches the device. Where unsupported, e.g. for a mouse, it's always `1`.
+- `height` - the height of the area where the pointer touches the device. Where unsupported, it's always `1`.
+- `pressure` - the pressure of the pointer tip, in range from 0 to 1. For devices that don't support pressure must be either `0.5` (pressed) or `0`.
+- `tangentialPressure` - the normalized tangential pressure.
+- `tiltX`, `tiltY`, `twist` - pen-specific properties that describe how the pen is positioned relative to the surface.
+>>>>>>> 9e3fa1351f80cfd6353a778a55b2c86bca9e895f
 
 En la mayoría de los dispositivos estas propiedades no están soportadas, por lo que rara vez se utilizan. Si lo necesita puede encontrar los detalles en la [especificación](https://w3c.github.io/pointerevents/#pointerevent-interface).
 

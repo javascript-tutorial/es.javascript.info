@@ -29,7 +29,11 @@ El flujo es:
 3. Cuando aparece un mensaje, el servidor responde a la solicitud con dicho mensaje y cierra la conexión.
 4. El navegador recibe el mensaje y de inmediato realiza una nueva solicitud.
 
+<<<<<<< HEAD
 Esta situación, en la que el navegador envió una solicitud y se mantiene abierta una conexión con el servidor, es estándar para este método. En cuanto se entrega un mensaje, la conexión se cierra y restablece.
+=======
+This situation, where the browser has sent a request and keeps a pending connection with the server, is standard for this method. Only when a message is delivered, the connection is closed and reestablished.
+>>>>>>> 9e3fa1351f80cfd6353a778a55b2c86bca9e895f
 
 ![](long-polling.svg)
 

@@ -98,7 +98,11 @@ La "coma final" hace más simple insertar y remover items, porque todas la líne
 
 Digamos que queremos el último elemento de un array.
 
+<<<<<<< HEAD
 Algunos lenguajes de programación permiten el uso de índices negativos para este propósito, como `fruits[-1]`.
+=======
+Some programming languages allow the use of negative indexes for the same purpose, like `fruits[-1]`.
+>>>>>>> 9e3fa1351f80cfd6353a778a55b2c86bca9e895f
 
 Aunque en JavaScript esto no funcionará. El resultado será `undefined`, porque el índice de los corchetes es tratado literalmente.
 
