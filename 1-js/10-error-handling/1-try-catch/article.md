@@ -324,7 +324,7 @@ try {
   alert( user.name );
 
 } catch (err) {
-  alert( "Error en JSON: " + e.message ); // Error en JSON: dato incompleto: sin nombre
+  alert( "Error en JSON: " + err.message ); // Error en JSON: dato incompleto: sin nombre
 }
 ```
 
