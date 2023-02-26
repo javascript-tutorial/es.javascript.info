@@ -64,7 +64,7 @@ Cada nodo del árbol es un objeto.
 
 Las etiquetas son *nodos de elementos* (o solo elementos) y forman la estructura del árbol: `<html>` está ubicado en la raíz del documento, por lo tanto, `<head>` y `<body>` son sus hijos, etc.
 
-El texto dentro de los elementos forman *nodo de texto*, etiquetados como `#text`. Un nodo de texto contiene solo una cadena. No puede tener hijos, siempre es una hoja del árbol.
+El texto dentro de los elementos forma *nodo de texto*, etiquetados como `#text`. Un nodo de texto contiene solo una cadena. No puede tener hijos, siempre es una hoja del árbol.
 
 Por ejemplo, la etiqueta `<title>` tiene el texto `"About elk"`.
 
