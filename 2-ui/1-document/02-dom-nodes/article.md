@@ -99,9 +99,9 @@ drawHtmlTree(node2, 'div.domtree', 690, 210);
 ```smart header="Las herramientas, por lo general, ocultan los espacios al inicio/final de la cadena y los nodos de texto que solo contienen espacios en blanco"
 Las herramientas del navegador (las veremos más adelante) que trabajan con el DOM usualmente no muestran espacios al inicio/final del texto ni los nodos de texto vacíos (saltos de línea) entre etiquetas.
 
-De esta manera, las herramientas para desarrolladores ahorran espacio en la pantalla.
+De esta manera se ahorra espacio en la pantalla.
 
-En próximas representaciones de DOM, las omitiremos cuando sean irrelevantes. Tales espacios generalmente no afectan la forma en la cual el documento es mostrado.
+En las próximas representaciones del DOM, las omitiremos cuando sean irrelevantes. Tales espacios generalmente no afectan la forma en la cual el documento es mostrado.
 ```
 
 ## Autocorrección
