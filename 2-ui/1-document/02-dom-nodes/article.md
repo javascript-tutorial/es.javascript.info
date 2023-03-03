@@ -235,7 +235,7 @@ Otra forma de realizarlo sería hacer clic derecho en la página web y en el men
 En la parte derecha de las herramientas encontramos las siguientes sub-pestañas:
 - **Styles** -- podemos ver CSS aplicado al elemento actual regla por regla, incluidas las reglas integradas (gris). Casi todo puede ser editado en el lugar, incluyendo las dimensiones/márgenes/relleno de la siguiente caja.
 - **Computed** -- nos permite ver cada propiedad CSS aplicada al elemento: para cada propiedad podemos ver la regla que la provee (incluida la herencia CSS y demás).
-- **Event Listeners** -- nos ayuda a ver los escuchadores de eventos adjuntos a elementos del DOM (los cubriremos en la siguiente parte del tutorial). 
+- **Event Listeners** -- nos ayuda a ver los "listeners", escuchadores de eventos adosados a elementos del DOM (los cubriremos en la siguiente parte del tutorial). 
 - ...,etc.
 
 La mejor manera de estudiarlos es haciendo clic en ellos. Casi todos los valores son editables en el lugar.
