@@ -1,6 +1,6 @@
 # Introducción a los eventos en el navegador
 
-*Un evento* es una señal de que algo ocurrió. Todos los nodos del DOM generan dichas señales (pero los eventos no est{an limitados sólo al DOM).
+*Un evento* es una señal de que algo ocurrió. Todos los nodos del DOM generan dichas señales (pero los eventos no están limitados sólo al DOM).
 
 Aquí hay una lista con los eventos del DOM más utilizados, solo para echar un vistazo:
 
