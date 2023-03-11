@@ -64,7 +64,7 @@ Cada nodo del árbol es un objeto.
 
 Las etiquetas son *nodos de elementos* (o simplemente "elementos") y forman la estructura del árbol. `<html>` está ubicado en la raíz del documento, por lo tanto, `<head>` y `<body>` son sus hijos, etc.
 
-El texto dentro de los elementos forma *nodos de texto*, que son etiquetados como `#text`. Un nodo de texto puede contener únicamente una cadena, y no puede tener hijos, siempre es una hoja del árbol.
+El texto dentro de los elementos forma *nodos de texto*, y son etiquetados como `#text`. Un nodo de texto puede contener únicamente una cadena y no puede tener hijos, siempre es una hoja del árbol.
 
 Por ejemplo, la etiqueta `<title>` tiene el texto `"About elk"`.
 
@@ -77,7 +77,7 @@ Los espacios y líneas nuevas son caracteres totalmente válidos, al igual que l
 
 Hay solo dos excepciones de nivel superior:
 1. Los espacios y líneas nuevas ubicados antes de la etiqueta `<head>` son ignorados por razones históricas.
-2. Si colocamos algo después de la etiqueta `</body>`, automáticamente se situará dentro de `body`, en el final, ya que la especificación HTML necesita que todo el contenido esté dentro de la etiqueta `<body>`, no puede haber espacios después de esta.
+2. Si colocamos algo después de la etiqueta `</body>`, automáticamente se situará dentro de `body`; en el final, ya que la especificación HTML necesita que todo el contenido esté dentro de la etiqueta `<body>`. No puede haber espacios después de esta.
 
 En otros casos todo es sencillo: si hay espacios (como cualquier carácter) en el documento, se convierten en nodos de texto en el DOM; y si los eliminamos, entonces no habrá nodo.
 
@@ -99,7 +99,7 @@ drawHtmlTree(node2, 'div.domtree', 690, 210);
 ```smart header="Las herramientas, por lo general, ocultan los espacios al inicio/final de la cadena y los nodos de texto que solo contienen espacios en blanco"
 Las herramientas del navegador (las veremos más adelante) que trabajan con el DOM usualmente no muestran espacios al inicio/final del texto ni los nodos de texto vacíos (saltos de línea) entre etiquetas.
 
-De esta manera se ahorra espacio en la pantalla.
+De esta manera ahorran espacio en la pantalla.
 
 En las próximas representaciones del DOM, las omitiremos cuando sean irrelevantes. Tales espacios generalmente no afectan la forma en la cual el documento es mostrado.
 ```
@@ -235,14 +235,14 @@ Otra forma de realizarlo sería hacer clic derecho en la página web y en el men
 En la parte derecha de las herramientas encontramos las siguientes sub-pestañas:
 - **Styles** -- podemos ver CSS aplicado al elemento actual regla por regla, incluidas las reglas integradas (gris). Casi todo puede ser editado en el lugar, incluyendo las dimensiones/márgenes/relleno de la siguiente caja.
 - **Computed** -- nos permite ver cada propiedad CSS aplicada al elemento: para cada propiedad podemos ver la regla que la provee (incluida la herencia CSS y demás).
-- **Event Listeners** -- nos ayuda a ver los "listeners", escuchadores de eventos adosados a elementos del DOM (los cubriremos en la siguiente parte del tutorial). 
+- **Event Listeners** -- nos ayuda a ver los "escuchadores de eventos" adosados a elementos del DOM (los cubriremos en la siguiente parte del tutorial). 
 - ...,etc.
 
 La mejor manera de estudiarlos es haciendo clic en ellos. Casi todos los valores son editables en el lugar.
 
 ## Interacción con la consola
 
-A medida que trabajamos con el DOM, también podemos querer aplicarle JavaScript. Por ejemplo, obtener un nodo y ejecutar algún código para modificarlo para ver el resultado. Aquí hay algunos consejos para desplazarse entre la pestaña elementos y la consola.
+A medida que trabajamos con el DOM, también podemos querer aplicarle JavaScript. Por ejemplo, obtener un nodo y ejecutar algún código para modificarlo y ver el resultado. Aquí hay algunos consejos para desplazarse entre la pestaña elementos y la consola.
 
 Para empezar:
 
