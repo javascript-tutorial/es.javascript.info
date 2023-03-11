@@ -77,7 +77,7 @@ Los espacios y líneas nuevas son caracteres totalmente válidos, al igual que l
 
 Hay solo dos excepciones de nivel superior:
 1. Los espacios y líneas nuevas ubicados antes de la etiqueta `<head>` son ignorados por razones históricas.
-2. Si colocamos algo después de la etiqueta `</body>`, automáticamente se situará dentro de `body`; en el final, ya que la especificación HTML necesita que todo el contenido esté dentro de la etiqueta `<body>`. No puede haber espacios después de esta.
+2. Si colocamos algo después de la etiqueta `</body>`, automáticamente se situará dentro de `body`, en el final, ya que la especificación HTML necesita que todo el contenido esté dentro de la etiqueta `<body>`. No puede haber espacios después de esta.
 
 En otros casos todo es sencillo: si hay espacios (como cualquier carácter) en el documento, se convierten en nodos de texto en el DOM; y si los eliminamos, entonces no habrá nodo.
 
