@@ -146,7 +146,7 @@ Hay botones para esto en le panel superior derecho. Revisémoslos.
 <span class="devtools" style="background-position:-4px -194px"></span> -- siguiente paso, hotkey `key:F11`.
 : Similar a "siguiente", pero se comporta diferente en las llamadas asincrónicas. Si apenas comienzas en javaScript, puedes ignorar esto por ahora pues no tenemos llamados asincrónicos aún.
 
-    Para el futuro, simplemente recuerda que "Siguiente" ignora las acciones asincrónicas tales como `setTimeout` (llamada a función programada), que se ejecutan después. The "Siguiente dentro" va al interior de su código, esperando por él si es necesario. Puedes ver el [DevTools manual](https://developers.google.com/web/updates/2018/01/devtools#async) para más detalles.
+    Para el futuro, simplemente recuerda que "Siguiente" ignora las acciones asincrónicas tales como `setTimeout` (llamada a función programada), que se ejecutan después. "Siguiente dentro" va al interior de su código, esperando por ellas si es necesario. Puedes ver el [DevTools manual](https://developers.google.com/web/updates/2018/01/devtools#async) para más detalles.
 
 <span class="devtools" style="background-position:-32px -194px"></span> -- "Step out": continuar la ejecución hasta el final de la función actual, hotkey `key:Shift+F11`.
 : La ejecución se detendrá en la última línea de la función actual. Esto es útil cuando accidentalmente entramos en una llamada anidada usando <span class="devtools" style="background-position:-200px -190px"></span> que no nos interesa, y queremos continuar hasta el final tan rápido como se pueda.
