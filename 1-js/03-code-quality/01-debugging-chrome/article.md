@@ -120,7 +120,7 @@ Ahora es tiempo de *trazar* el script.
 
 Hay botones para esto en le panel superior derecho. Revisémoslos.
 <!-- https://github.com/ChromeDevTools/devtools-frontend/blob/master/front_end/Images/src/largeIcons.svg -->
-<span class="devtools" style="background-position:-146px -168px"></span> -- "Reanudar": continúa la ejecución, hotkey `key:F8`.
+<span class="devtools" style="background-position:-146px -168px"></span> -- "Resume": continúa la ejecución, hotkey `key:F8`.
 : Reanuda la ejecución. Si no hay breakpoints adicionales, entonces la ejecución continúa y el debugger pierde el control.
 
     Esto es lo que podemos ver al hacer click:
@@ -129,24 +129,24 @@ Hay botones para esto en le panel superior derecho. Revisémoslos.
 
     La ejecución continuó, alcanzando el siguiente breakpoint dentro de `say()` y pausándose allí. Revisa el "Call stack" a la derecha. Ha incrementado su valor en una llamada. Ahora estamos dentro de `say()`.
 
-<span class="devtools" style="background-position:-200px -190px"></span> -- "Siguiente paso": ejecuta el siguiente comando, hotkey `key:F9`.
+<span class="devtools" style="background-position:-200px -190px"></span> -- "Step": ejecuta el siguiente comando, hotkey `key:F9`.
 : Ejecuta la siguiente sentencia. Si la cliqueamos ahora, se mostrara `alert`.
 
     Otro clic volverá a ejecutar otro comando, y así uno por uno, a través de todo el script.
 
-<span class="devtools" style="background-position:-62px -192px"></span> -- "saltar paso": corre al comando siguiente, pero *no te metas en la función*, hotkey `key:F10`.
-: Similar a "siguiente paso", pero se comporta diferente si la siguiente sentencia es un llamado a función. Esto es: no una nativa como alert, sino una función nuestra.
+<span class="devtools" style="background-position:-62px -192px"></span> -- "Step over": corre al comando siguiente, pero *no te metas en la función*, hotkey `key:F10`.
+: Similar a "Step", pero se comporta diferente si la siguiente sentencia es un llamado a función. Esto es: no una nativa como alert, sino una función nuestra.
 
-    El comando "siguiente" entra y pausa en la primera línea, en cambio "saltar" ejecuta la función anidada de forma invisible, no mostrando el interior de la función.
+    El comando "Step over" entra y pausa en la primera línea, en cambio "Step over" ejecuta la función anidada de forma invisible, no mostrando el interior de la función.
 
     La ejecución entonces se pausa inmediatamente despues de esa función.
 
     Es útil si no estamos interesados en ver lo que pasa dentro de la función llamada.
 
-<span class="devtools" style="background-position:-4px -194px"></span> -- siguiente paso, hotkey `key:F11`.
-: Similar a "siguiente", pero se comporta diferente en las llamadas asincrónicas. Si apenas comienzas en javaScript, puedes ignorar esto por ahora pues no tenemos llamados asincrónicos aún.
+<span class="devtools" style="background-position:-4px -194px"></span> -- "Step into": siguiente paso, hotkey `key:F11`.
+: Similar a "Step", pero se comporta diferente en las llamadas asincrónicas. Si apenas comienzas en javaScript, puedes ignorar esto por ahora pues no tenemos llamados asincrónicos aún.
 
-    Para el futuro, simplemente recuerda que "Siguiente" ignora las acciones asincrónicas tales como `setTimeout` (llamada a función programada), que se ejecutan después. The "Siguiente dentro" va al interior de su código, esperando por él si es necesario. Puedes ver el [DevTools manual](https://developers.google.com/web/updates/2018/01/devtools#async) para más detalles.
+    Para el futuro, simplemente recuerda que "Step" ignora las acciones asincrónicas tales como `setTimeout` (llamada a función programada), que se ejecutan después. The "Siguiente dentro" va al interior de su código, esperando por él si es necesario. Puedes ver el [DevTools manual](https://developers.google.com/web/updates/2018/01/devtools#async) para más detalles.
 
 <span class="devtools" style="background-position:-32px -194px"></span> -- "Step out": continuar la ejecución hasta el final de la función actual, hotkey `key:Shift+F11`.
 : La ejecución se detendrá en la última línea de la función actual. Esto es útil cuando accidentalmente entramos en una llamada anidada usando <span class="devtools" style="background-position:-200px -190px"></span> que no nos interesa, y queremos continuar hasta el final tan rápido como se pueda.
