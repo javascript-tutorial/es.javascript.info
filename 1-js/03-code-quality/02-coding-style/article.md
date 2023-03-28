@@ -227,7 +227,7 @@ El segundo es más legible porque el "caso especial" de `n < 0` se maneja desde 
 
 Si está escribiendo varias funciones "auxiliares" y el código que las usa, hay tres formas de organizar las funciones.
 
-1. Declare las funciones *anteriores* al código que las usa:
+1. Declare las funciones *antes* que el código que las usa:
 
     ```js
     // *!*declaración de funciones*/!*
