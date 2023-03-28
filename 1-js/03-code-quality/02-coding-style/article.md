@@ -42,7 +42,7 @@ Nada está escrito en piedra aquí. Estos son preferencias de estilos, no dogmas
 
 ### Llaves
 
-En la mayoría de proyectos de Javascript las llaves están escritas en estilo "Egipcio" con la llave de apertura en la misma linea como la correspondiente palabra clave -- no en una nueva linea. Debe haber también un espacio después de la llave de apertura, como esto: 
+En la mayoría de proyectos de Javascript las llaves están escritas en estilo "Egipcio" con la llave de apertura en la misma linea como la correspondiente palabra clave -- no en una nueva linea. Debe haber también un espacio antes de la llave de apertura, como esto: 
 
 ```js
 if (condition) {
