@@ -341,7 +341,7 @@ También algunos IDE tienen linting incorporado, lo cual es conveniente pero no 
 
 ## Resumen
 
-Todas las reglas de sintaxis descritas en este capítulo (y en las guías de estilo mencionadas) tienen como objetivo aumentar la legibilidad de su código. Todos ellos son discutibles.
+Todas las reglas de sintaxis descritas en este capítulo (y en las guías de estilo mencionadas) tienen como objetivo aumentar la legibilidad de su código. Todas ellas son discutibles.
 
 Cuando pensamos en escribir un código "mejor", las preguntas que debemos hacernos son: "¿Qué hace que el código sea más legible y fácil de entender?" y "¿Qué puede ayudarnos a evitar errores?" Estas son las principales cosas a tener en cuenta al elegir y debatir estilos de código.
 
