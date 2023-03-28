@@ -42,7 +42,7 @@ Nada está escrito en piedra aquí. Estos son preferencias de estilos, no dogmas
 
 ### Llaves
 
-En la mayoría de proyectos de Javascript las llaves están escritas en estilo "Egipcio" con la llave de apertura en la misma linea como la correspondiente palabra clave -- no en una nueva linea. Debe haber también un espacio después de la llave de apertura, como esto: 
+En la mayoría de proyectos de Javascript las llaves están escritas en estilo "Egipcio" con la llave de apertura en la misma linea como la correspondiente palabra clave -- no en una nueva linea. Debe haber también un espacio antes de la llave de apertura, como esto: 
 
 ```js
 if (condition) {
@@ -227,7 +227,7 @@ El segundo es más legible porque el "caso especial" de `n < 0` se maneja desde 
 
 Si está escribiendo varias funciones "auxiliares" y el código que las usa, hay tres formas de organizar las funciones.
 
-1. Declare las funciones *anteriores* al código que las usa:
+1. Declare las funciones *antes* que el código que las usa:
 
     ```js
     // *!*declaración de funciones*/!*
@@ -277,7 +277,7 @@ Eso es porque al leer el código, primero queremos saber *qué hace*. Si el cód
 
 ## Guías de estilo
 
-Una guía de estilo contiene reglas generales sobre "cómo escribir" el código, cuáles comillas usar, cuántos espacios para indentar, la longitud máxima de la línea, etc. Muchas cosas menores.
+Una guía de estilo contiene reglas generales sobre "cómo escribir" el código, qué comillas usar, cuántos espacios para indentar, la longitud máxima de la línea, etc. Muchas cosas menores.
 
 Cuando todos los miembros de un equipo usan la misma guía de estilo, el código se ve uniforme, independientemente de qué miembro del equipo lo haya escrito.
 
@@ -341,7 +341,7 @@ También algunos IDE tienen linting incorporado, lo cual es conveniente pero no 
 
 ## Resumen
 
-Todas las reglas de sintaxis descritas en este capítulo (y en las guías de estilo mencionadas) tienen como objetivo aumentar la legibilidad de su código. Todos ellos son discutibles.
+Todas las reglas de sintaxis descritas en este capítulo (y en las guías de estilo mencionadas) tienen como objetivo aumentar la legibilidad de su código. Todas ellas son discutibles.
 
 Cuando pensamos en escribir un código "mejor", las preguntas que debemos hacernos son: "¿Qué hace que el código sea más legible y fácil de entender?" y "¿Qué puede ayudarnos a evitar errores?" Estas son las principales cosas a tener en cuenta al elegir y debatir estilos de código.
 
