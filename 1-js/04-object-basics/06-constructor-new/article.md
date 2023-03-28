@@ -4,7 +4,7 @@ El sintaxis habitual `{...}` nos permite crear un objeto. Pero a menudo necesita
 
 Esto se puede realizar utilizando el constructor de funciones y el operador `"new"`.
 
-## Función constructora
+## Función constructoraconstructor-new
 
 La función constructora es técnicamente una función normal. Aunque hay dos convenciones:
 
@@ -127,7 +127,7 @@ let john = User("John"); // redirige llamado a new User
 alert(john.name); // John
 ```
 
-Este enfoque es utilizado aveces en las librerías para hacer el sintaxis más flexible. Así la gente puede llamar a la función con o sin `new` y aún funciona.
+Este enfoque es utilizado a veces en las librerías para hacer el sintaxis más flexible. Así la gente puede llamar a la función con o sin `new` y aún funciona.
 
 Sin embargo, probablemente no sea algo bueno para usar en todas partes, porque omitir `new` hace que sea un poco menos obvio lo que está sucediendo. Con `new` todos sabemos que se está creando el nuevo objeto.
 
