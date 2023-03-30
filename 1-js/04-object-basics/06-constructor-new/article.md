@@ -4,7 +4,7 @@ El sintaxis habitual `{...}` nos permite crear un objeto. Pero a menudo necesita
 
 Esto se puede realizar utilizando el constructor de funciones y el operador `"new"`.
 
-## Función constructoraconstructor-new
+## Función constructora
 
 La función constructora es técnicamente una función normal. Aunque hay dos convenciones:
 
