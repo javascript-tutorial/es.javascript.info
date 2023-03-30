@@ -133,7 +133,7 @@ user.id = "Su valor de id"
 
 ### Symbols en objetos literales
 
-Si queremos usar un Symbol en un objeto literal, debemos usar llaves.
+Si queremos usar un Symbol en un objeto literal, debemos usar corchetes.
 
 Como se muestra a continuación:
 
