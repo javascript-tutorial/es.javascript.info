@@ -221,7 +221,7 @@ En Javascript, como podemos ver, eso es verdad para los global symbols.
 
 ### Symbol.keyFor
 
-Para los global symbols, no solo `Symbol.for(key)` devuelve un symbol por su nombre. Para hacer lo opuesto, -- devolver el nombre de  un global symbol -- podemos usar: `Symbol.keyFor(sym)`.
+Hemos visto que para los global symbols, `Symbol.for(key)` devuelve un symbol por su nombre. Para hacer lo opuesto, -- devolver el nombre de un global symbol -- podemos usar: `Symbol.keyFor(sym)`.
 
 Por ejemplo:
 
