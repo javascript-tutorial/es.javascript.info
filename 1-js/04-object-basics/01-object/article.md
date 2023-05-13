@@ -122,7 +122,7 @@ delete user["likes birds"];
 
 Ahora todo está bien. Nota que el string dentro de los corchetes está adecuadamente entre comillas (cualquier tipo de comillas servirían).
 
-Las llaves también nos proveen de una forma para obtener la clave de la propiedad como resultado de cualquier expresión como una variable -- en lugar de una cadena literal -- de la siguiente manera:
+Los corchetes también nos proveen de una forma para obtener el nombre de la propiedad como resultado de cualquier expresión -- en lugar de una cadena literal --, como por ejemplo a traves de una variable:
 
 ```js
 let key = "likes birds";
