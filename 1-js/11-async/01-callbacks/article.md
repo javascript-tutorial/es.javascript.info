@@ -2,12 +2,12 @@
 
 # Introducción: callbacks
 
-```warn header="Usamos métodos de navegador en estos ejemplos"
-Para demostrar el uso de callbacks, promesas y otros conceptos abstractos, utilizaremos algunos métodos de navegador: específicamente, carga de scripts y simples manipulaciones de documentos.
+```warn header="Usamos métodos de navegador en los ejemplos"
+Para mostrar el uso de callbacks, promesas, y otros conceptos abstractos, utilizaremos algunos métodos de navegador; más específicamente, los de carga de scripts y manipulaciones simples de documentos.
 
-Si no estás familiarizado con estos métodos, y los ejemplos son confusos, puedes leer algunos capítulos de esta [sección](/document) del tutorial.
+Si no estás familiarizado con estos métodos y los ejemplos son confusos, puedes leer algunos capítulos de esta [sección](/document) del tutorial.
 
-Sin embargo, intentaremos aclarar las cosas de todos modos. No habrá nada en cuanto al navegador realmente complejo.
+De todos modos, intentaremos aclarar las cosas. No habrá nada realmente complejo en cuanto al navegador.
 ```
 
 Muchas funciones son proporcionadas por el entorno de host de Javascript que permiten programar acciones *asíncronas*. En otras palabras, acciones que iniciamos ahora, pero que terminan más tarde.
@@ -30,7 +30,7 @@ function loadScript(src) {
 
 Esto inserta en el documento una etiqueta nueva, creada dinámicamente, `<script src =" ... ">` con el código `src` dado. El navegador comienza a cargarlo automáticamente y lo ejecuta cuando la carga se completa.
 
-Esta función la podemos usar así:
+Podemos usar esta función así:
 
 ```js
 // cargar y ejecutar el script en la ruta dada
@@ -48,21 +48,21 @@ loadScript('/my/script.js');
 // ...
 ```
 
-Digamos que necesitamos usar el nuevo script tan pronto como se cargue. Declara nuevas funciones, y queremos ejecutarlas.
+Digamos que necesitamos usar el nuevo script tan pronto como se cargue. El script declara nuevas funciones y las queremos ejecutar.
 
-Si hacemos eso inmediatamente después de llamar a `loadScript (...)`, no funcionará:
+Si lo hacemos inmediatamente después de llamar a `loadScript (...)`, no funcionará:
 
 ```js
 loadScript('/my/script.js'); // el script tiene a "function newFunction() {…}"
 
 *!*
-newFunction(); // no hay dicha función!
+newFunction(); // no existe dicha función!
 */!*
 ```
 
 Naturalmente, el navegador probablemente no tuvo tiempo de cargar el script. Hasta el momento, la función `loadScript` no proporciona una forma de rastrear la finalización de la carga. El script se carga y finalmente se ejecuta, eso es todo. Pero nos gustaría saber cuándo sucede, para usar las funciones y variables nuevas de dicho script.
 
-Agreguemos una función `callback` como segundo argumento para `loadScript` que debería ejecutarse cuando se carga el script:
+Agreguemos una función `callback` como segundo argumento para `loadScript`, función que deberá ejecutarse cuando se completa la carga el script:
 
 ```js
 function loadScript(src, *!*callback*/!*) {
@@ -77,9 +77,9 @@ function loadScript(src, *!*callback*/!*) {
 }
 ```
 
-El evento `onload`, que se describe en el artículo <info:onload-onerror#loading-a-script>, básicamente ejecuta una función después de que el script es cargado y ejecutado.
+El evento `onload`, que se describe en el artículo <info:onload-onerror#loading-a-script>, básicamente ejecuta una función después de que el script fue cargado y ejecutado.
 
-Ahora, si queremos llamar las nuevas funciones desde el script, deberíamos escribirlo en la callback:
+Ahora, si queremos llamar las nuevas funciones desde el script, debemos hacerlo en la callback:
 
 ```js
 loadScript('/my/script.js', function() {
@@ -115,7 +115,7 @@ Aquí lo hicimos en `loadScript`, pero por supuesto es un enfoque general.
 
 ## Callback en una callback
 
-¿Cómo podemos cargar dos scripts secuencialmente: el primero y después el segundo al cargarse el primero?
+¿Cómo podemos cargar dos scripts secuencialmente: uno primero, y el segundo al terminar de cargarse el primero?
 
 La solución natural sería poner la segunda llamada `loadScript` dentro de la callback, así:
 
@@ -153,7 +153,7 @@ loadScript('/my/script.js', function(script) {
 });
 ```
 
-Entonces, cada nueva acción está dentro de una callback. Eso está bien para algunas acciones, pero no es bueno para todas, así que pronto veremos otras variantes.
+Entonces, cada nueva acción está dentro de una callback. Esto es adecuado para algunas acciones pero no es bueno en todos los casos, así que pronto veremos otras variantes.
 
 ## Manejo de errores
 
@@ -188,11 +188,11 @@ loadScript('/my/script.js', function(error, script) {
 });
 ```
 
-Una vez más, la receta que usamos para `loadScript` es bastante común. Se llama el estilo de "callback error primero".
+Una vez más, la receta que usamos para `loadScript` es bastante común. Se llama el estilo de "primero callback de error".
 
 La convención es:
-1. El primer argumento de la 'callback' está reservado para un error, si ocurre. Entonces se llama a `callback(err)`.
-2. El segundo argumento (y los siguientes si es necesario) son para el resultado exitoso. Entonces se llama a `callback(null, result1, result2 ...)`.
+1. El primer argumento de la 'callback' está reservado para un error, si ocurre. En tal caso se llama a `callback(err)`.
+2. El segundo argumento (y los siguientes si es necesario) son para el resultado exitoso. En tal caso se llama a `callback(null, result1, result2 ...)`.
 
 Así usamos una única función de 'callback' tanto para informar errores como para transferir resultados.
 
@@ -305,7 +305,7 @@ function step3(error, script) {
 
 Funciona, pero el código parece una hoja de cálculo desgarrada. Es difícil de leer, y habrás notado que hay que saltar de un lado a otro mientras lees. Es un inconveniente, especialmente si el lector no está familiarizado con el código y no sabe dónde dirigir la mirada.
 
-Además, las funciones llamadas `step*` son de un solo uso, son para evitar la "Pirámide de callbacks". Nadie los reutilizará fuera de la cadena de acción. Así que hay muchos nombres abarrotados aquí.
+Además, las funciones llamadas `step*` son de un solo uso, existen únicamente para evitar la "Pirámide de callbacks". Nadie los reutilizará fuera de la cadena de acción. Así que hay muchos nombres abarrotados aquí.
 
 Nos gustaría tener algo mejor.
 
