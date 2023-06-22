@@ -153,7 +153,7 @@ loadScript('/my/script.js', function(script) {
 });
 ```
 
-Entonces, cada nueva acción está dentro de una callback. Esto es adecuado para algunas acciones pero no es bueno en todos los casos, así que pronto veremos otras variantes.
+Entonces, cada nueva acción está dentro de una callback. Esto es adecuado para algunas acciones pero no siempre, así que pronto veremos otras variantes.
 
 ## Manejo de errores
 
@@ -188,7 +188,7 @@ loadScript('/my/script.js', function(error, script) {
 });
 ```
 
-Una vez más, la receta que usamos para `loadScript` es bastante común. Se llama el estilo de "primero callback de error".
+Una vez más, la receta que usamos para `loadScript` es bastante común. Se lo conoce como el estilo "primero el error" (error first callback).
 
 La convención es:
 1. El primer argumento de la 'callback' está reservado para un error, si ocurre. En tal caso se llama a `callback(err)`.
