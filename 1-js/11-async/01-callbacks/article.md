@@ -48,9 +48,9 @@ loadScript('/my/script.js');
 // ...
 ```
 
-Digamos que necesitamos usar el nuevo script tan pronto como se cargue. El script declara nuevas funciones y las queremos ejecutar.
+Digamos que necesitamos usar el nuevo script tan pronto como se cargue. Este script declara nuevas funciones, y las queremos ejecutar.
 
-Si lo hacemos inmediatamente después de llamar a `loadScript (...)`, no funcionará:
+Si lo hacemos inmediatamente después de llamar a `loadScript (...)`, no funcionarán:
 
 ```js
 loadScript('/my/script.js'); // el script tiene a "function newFunction() {…}"
@@ -60,7 +60,7 @@ newFunction(); // no existe dicha función!
 */!*
 ```
 
-Naturalmente, el navegador probablemente no tuvo tiempo de cargar el script. Hasta el momento, la función `loadScript` no proporciona una forma de rastrear la finalización de la carga. El script se carga y finalmente se ejecuta, eso es todo. Pero nos gustaría saber cuándo sucede, para usar las funciones y variables nuevas de dicho script.
+Es natural, el navegador probablemente no tuvo tiempo de cargar el script. Hasta el momento, la función `loadScript` no proporciona una forma de rastrear la finalización de la carga. El script se carga y finalmente se ejecuta, eso es todo. Pero nos gustaría saber cuándo sucede, para poder usar las funciones y variables nuevas de dicho script.
 
 Agreguemos a `loadScript` un segundo argumento: una función `callback` que debería ejecutarse cuando se completa la carga el script:
 
@@ -115,7 +115,7 @@ Aquí lo hicimos en `loadScript`, pero por supuesto es un enfoque general.
 
 ## Callback en una callback
 
-¿Cómo podemos cargar dos scripts secuencialmente: uno primero, y el segundo al terminar de cargarse el primero?
+¿Cómo podemos cargar dos scripts secuencialmente: el segundo script al terminar de cargarse el primero?
 
 La solución natural sería poner la segunda llamada `loadScript` dentro de la callback, así:
 
