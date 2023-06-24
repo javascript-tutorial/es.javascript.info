@@ -115,7 +115,7 @@ Aquí lo hicimos en `loadScript`, pero por supuesto es un enfoque general.
 
 ## Callback en una callback
 
-¿Cómo podemos cargar dos scripts secuencialmente: el segundo script al terminar de cargarse el primero?
+¿Cómo podemos cargar dos scripts secuencialmente: el segundo en cuanto haya terminado de cargarse el primero?
 
 La solución natural sería poner la segunda llamada `loadScript` dentro de la callback, así:
 
@@ -153,13 +153,13 @@ loadScript('/my/script.js', function(script) {
 });
 ```
 
-Entonces, cada nueva acción está dentro de una callback. Esto es adecuado para algunas acciones pero no siempre, así que pronto veremos otras variantes.
+Entonces, cada nueva acción está dentro de una callback. Esto es adecuado para algunas acciones, pero no en todos los casos; así que pronto veremos otras variantes.
 
 ## Manejo de errores
 
 En los ejemplos anteriores no consideramos los errores. ¿Qué pasa si falla la carga del script? Nuestra callback debería poder reaccionar ante eso.
 
-Aquí una versión mejorada de `loadScript` que rastrea los errores de carga:
+Aquí una versión mejorada de `loadScript` que controla los errores de carga:
 
 ```js
 function loadScript(src, callback) {
