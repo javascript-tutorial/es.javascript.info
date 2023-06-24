@@ -3,9 +3,9 @@
 # Introducción: callbacks
 
 ```warn header="Usamos métodos de navegador en los ejemplos"
-Para mostrar el uso de callbacks, promesas, y otros conceptos abstractos, utilizaremos algunos métodos de navegador; más específicamente, los de carga de scripts y manipulaciones simples de documentos.
+Para mostrar el uso de callbacks, promesas, y otros conceptos abstractos, utilizaremos algunos métodos de navegador; específicamente, los de carga de scripts y manipulaciones simples de documentos.
 
-Si no estás familiarizado con estos métodos y los ejemplos son confusos, puedes leer algunos capítulos de esta [sección](/document) del tutorial.
+Si no estás familiarizado con estos métodos y los ejemplos te son confusos, puedes leer algunos capítulos de esta [sección](/document) del tutorial.
 
 De todos modos, intentaremos aclarar las cosas. No habrá nada realmente complejo en cuanto al navegador.
 ```
