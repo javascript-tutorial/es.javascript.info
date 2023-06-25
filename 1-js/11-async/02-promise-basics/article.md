@@ -101,7 +101,7 @@ let promise = new Promise(function(resolve, reject) {
 
 La idea es que una tarea realizada por el ejecutor puede tener solo un resultado o un error.
 
-Además, `resolve`/`reject` espera  un único argumento (o ninguno) e ignorará argumentos adicionales.
+Además, tanto `resolve` como`reject` esperan un único argumento (o ninguno) e ignorarán argumentos adicionales.
 ````
 
 ```smart header="Rechazar con objetos `Error`"
