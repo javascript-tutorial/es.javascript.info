@@ -84,7 +84,7 @@ Para resumir, el ejecutor debe realizar una tarea (generalmente algo que toma ti
 El estado inicial de una promesa es "pendiente". En cuanto se resuelve o rechaza, la consideramos "establecida"
 
 ````smart header="Solo puede haber un único resultado, o un error"
-El ejecutor hará un único llamado: a un 'resolve' o a un 'reject'. Una vez establecido el  estado, el cambio es definitivo.
+El ejecutor hará un único llamado: a un 'resolve' o a un 'reject'. Una vez establecido el estado, el cambio es definitivo.
 
 Se ignoran todas las llamadas adicionales de 'resolve' y 'reject':
 
