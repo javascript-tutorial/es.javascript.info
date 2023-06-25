@@ -81,10 +81,10 @@ La llamada a `reject(...)` mueve el objeto promise al estado  `"rechazado"`:
 
 Para resumir, el ejecutor debe realizar una tarea (generalmente algo que toma tiempo) y luego llamar a "resolve" o a "reject" para cambiar el estado del objeto promise correspondiente.
 
-Una promesa que se resuelve o se rechaza se denomina "establecida", en oposición a una promesa inicialmente "pendiente".
+El estado inicial de una promesa es "pendiente". En cuanto se resuelve o rechaza, la consideramos "establecida"
 
 ````smart header="Solo puede haber un único resultado, o un error"
-El ejecutor debe llamar solo a un 'resolve' o un 'reject'. Cualquier cambio de estado es definitivo.
+El ejecutor hará un único llamado: a un 'resolve' o a un 'reject'. Una vez establecido el  estado, el cambio es definitivo.
 
 Se ignoran todas las llamadas adicionales de 'resolve' y 'reject':
 
@@ -101,7 +101,7 @@ let promise = new Promise(function(resolve, reject) {
 
 La idea es que una tarea realizada por el ejecutor puede tener solo un resultado o un error.
 
-Además, `resolve`/`reject` espera solo un argumento (o ninguno) e ignorará argumentos adicionales.
+Además, `resolve`/`reject` espera  un único argumento (o ninguno) e ignorará argumentos adicionales.
 ````
 
 ```smart header="Rechazar con objetos `Error`"
@@ -210,7 +210,7 @@ promise.catch(alert); // muestra "Error: ¡Vaya!" después de 1 segundo
 */!*
 ```
 
-La llamada `.catch(f)` es un análogo completo de `.then(null, f)`, es solo una abreviatura.
+La llamada `.catch(f)` es un completamente equivalente a `.then(null, f)`, es solo una abreviatura.
 
 ## Limpieza: finally
 
@@ -247,7 +247,7 @@ Hay diferencias importantes:
     Por favor observe el ejemplo anterior: como puede ver, el manejador de `finally` no tiene argumentos, y lo que sale de la promesa es manejado en el siguiente manejador.
 2. Resultados y errores pasan "a través" del manejador de `finally`. Estos pasan al siguiente manejador que se adecúe.
 
-    Por ejemplo, aquí el resultado se pasa a través de `finally` a `then`:
+    Por ejemplo, aquí el resultado se pasa a través de `finally` al `then` que le sigue:
     ```js run
     new Promise((resolve, reject) => {
       setTimeout(() => resolve("valor"), 2000)
@@ -260,7 +260,7 @@ Hay diferencias importantes:
 
     Esto es muy conveniente, porque `finally` no está destinado a procesar el resultado de una promesa. Como dijimos antes, es el lugar para hacer la limpieza general sin importar cuál haya sido el resultado.
 
-    Y aquí, el ejemplo de un error para que veamos cómo se pasa, a través de `finally`, a `catch`:
+    Y aquí, el ejemplo de un error, para que veamos cómo se pasa, a través de `finally`, a `catch`:
 
     ```js run
     new Promise((resolve, reject) => {
@@ -270,7 +270,7 @@ Hay diferencias importantes:
       .catch(err => alert(err));  // <-- .catch muestra el error
     ```
 
-3. Un manejador de `finally` tampoco debería devolver nada. Y si lo hace, el valor devuelto es ignorado silenciosamente. 
+3. Un manejador de `finally` tampoco debe devolver nada. Y si lo hace, el valor devuelto es ignorado silenciosamente. 
 
     La única excepción a esta regla se da cuando el manejador mismo de `finally` dispara un error. En ese caso, este error pasa al siguiente manejador de error en lugar del resultado previo al finally.
 
@@ -305,7 +305,7 @@ Las promesas son más flexibles. Podemos agregar manejadores en cualquier moment
 
 A continuación, veamos ejemplos más prácticos de cómo las promesas pueden ayudarnos a escribir código asincrónico.
 
-Tenemos, del capítulo anterior, la función `loadScript` para cargar un script.
+Tomemos, del capítulo anterior, la función `loadScript` para cargar un script.
 
 Aquí está la variante basada callback, solo para recordarnos:
 
