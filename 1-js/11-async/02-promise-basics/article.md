@@ -24,7 +24,7 @@ let promise = new Promise(function(resolve, reject) {
 
 La función pasada a `new Promise` se llama *ejecutor*. Cuando se crea `new Promise`, el ejecutor corre automáticamente. Este contiene el código productor que a la larga debería producir el resultado. En términos de la analogía anterior: el ejecutor es el "cantante".
 
-Sus argumentos `resolve` y `reject` son callbacks proporcionadas por el propio JavaScript. Nuestro código solo está dentro del ejecutor.
+Sus argumentos `resolve` (resuelto, hecho) y `reject` (rechazo) son callbacks proporcionadas por el propio JavaScript. Nuestro código solo está dentro del ejecutor.
 
 Cuando el ejecutor, más tarde o más temprano, eso no importa, obtiene el resultado, debe llamar a una de estos callbacks:
 
@@ -42,7 +42,7 @@ Entonces el ejecutor, en algún momento, pasa la `promise` a uno de estos estado
 
 ![](promise-resolve-reject.svg)
 
-Después veremos cómo los "fanáticos" pueden suscribirse a estos cambios.
+Más adelante veremos cómo los "fanáticos" pueden suscribirse a estos cambios.
 
 Aquí hay un ejemplo de un constructor de promesas y una función ejecutora simple con "código productor" que toma tiempo (a través de `setTimeout`):
 
@@ -79,9 +79,9 @@ La llamada a `reject(...)` mueve el objeto promise al estado  `"rechazado"`:
 
 ![](promise-reject-1.svg)
 
-Para resumir, el ejecutor debe realizar una tarea (generalmente algo que toma tiempo) y luego llamar a "resolve" o "reject" para cambiar el estado del objeto promise correspondiente.
+Para resumir, el ejecutor debe realizar una tarea (generalmente algo que toma tiempo) y luego llamar a "resolve" o a "reject" para cambiar el estado del objeto promise correspondiente.
 
-Una promesa que se resuelve o se rechaza se denomina "resuelta", en oposición a una promesa inicialmente "pendiente".
+Una promesa que se resuelve o se rechaza se denomina "establecida", en oposición a una promesa inicialmente "pendiente".
 
 ````smart header="Solo puede haber un único resultado, o un error"
 El ejecutor debe llamar solo a un 'resolve' o un 'reject'. Cualquier cambio de estado es definitivo.
@@ -357,7 +357,7 @@ Podemos ver inmediatamente algunos beneficios sobre el patrón basado en callbac
 
 | Promesas | Callbacks |
 |----------|-----------|
-| Las promesas nos permiten hacer las cosas en el orden natural. Primero, ejecutamos `loadScript (script)`, y `.then` escribimos qué hacer con el resultado. | Debemos tener una función `callback` a nuestra disposición al llamar a 'loadScript(script, callback)'. En otras palabras, debemos saber qué hacer con el resultado *antes* de llamar a `loadScript`. |
+| Las promesas nos permiten hacer las cosas en el orden natural. Primero, ejecutamos `loadScript (script)`, y entonces, `.then` escribimos qué hacer con el resultado. | Debemos tener una función `callback` a nuestra disposición al llamar a 'loadScript(script, callback)'. En otras palabras, debemos saber qué hacer con el resultado *antes* de llamar a `loadScript`. |
 | Podemos llamar a ".then" en una promesa tantas veces como queramos. Cada vez, estamos agregando un nuevo "fan", una nueva función de suscripción, a la "lista de suscripción". Más sobre esto en el próximo capítulo: [](info:promise-chaining). | Solo puede haber un callback. |
 
 Entonces, las promesas nos dan un mejor flujo de código y flexibilidad. Pero hay más. Lo veremos en los próximos capítulos.
