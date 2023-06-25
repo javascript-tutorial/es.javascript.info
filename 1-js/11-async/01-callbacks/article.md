@@ -2,10 +2,10 @@
 
 # Introducción: callbacks
 
-```warn header="Usamos métodos de navegador en los ejemplos"
+```warn header="Usaremos métodos de navegador en los ejemplos"
 Para mostrar el uso de callbacks, promesas, y otros conceptos abstractos, utilizaremos algunos métodos de navegador; específicamente, los de carga de scripts y manipulaciones simples de documentos.
 
-Si no estás familiarizado con estos métodos y los ejemplos te son confusos, puedes leer algunos capítulos de esta [sección](/document) del tutorial.
+Si no estás familiarizado con estos métodos, y los ejemplos te son confusos, puedes leer algunos capítulos de esta [sección](/document) del tutorial.
 
 De todos modos, intentaremos aclarar las cosas. No habrá nada realmente complejo en cuanto al navegador.
 ```
@@ -60,9 +60,9 @@ newFunction(); // no existe dicha función!
 */!*
 ```
 
-Es natural, el navegador probablemente no tuvo tiempo de cargar el script. Hasta el momento, la función `loadScript` no proporciona una forma de rastrear la finalización de la carga. El script se carga y finalmente se ejecuta, eso es todo. Pero nos gustaría saber cuándo sucede, para poder usar las funciones y variables nuevas de dicho script.
+Es natural, porque el navegador no tuvo tiempo de cargar el script. Hasta el momento, la función `loadScript` no proporciona una forma de monitorear la finalización de la carga. El script se carga y finalmente se ejecuta, eso es todo. Pero necesitamos saber cuándo sucede, para poder usar las funciones y variables nuevas de dicho script.
 
-Agreguemos a `loadScript` un segundo argumento: una función `callback` que debería ejecutarse cuando se completa la carga el script:
+Agreguemos a `loadScript` un segundo argumento: una función `callback` que se ejecuta cuando se completa la carga el script:
 
 ```js
 function loadScript(src, *!*callback*/!*) {
@@ -79,7 +79,7 @@ function loadScript(src, *!*callback*/!*) {
 
 El evento `onload`, que se describe en el artículo <info:onload-onerror#loading-a-script>, básicamente ejecuta una función después de que el script fue cargado y ejecutado.
 
-Ahora, si queremos llamar las nuevas funciones desde el script, debemos hacerlo en la callback:
+Ahora, si queremos llamar las nuevas funciones desde el script, lo hacemos dentro de la callback:
 
 ```js
 loadScript('/my/script.js', function() {
@@ -115,7 +115,7 @@ Aquí lo hicimos en `loadScript`, pero por supuesto es un enfoque general.
 
 ## Callback en una callback
 
-¿Cómo podemos cargar dos scripts secuencialmente: el segundo en cuanto haya terminado de cargarse el primero?
+¿Cómo podemos cargar dos scripts secuencialmente, el segundo en cuanto haya terminado de cargarse el primero?
 
 La solución natural sería poner la segunda llamada `loadScript` dentro de la callback, así:
 
@@ -159,7 +159,7 @@ Entonces, cada nueva acción está dentro de una callback. Esto es adecuado para
 
 En los ejemplos anteriores no consideramos los errores. ¿Qué pasa si falla la carga del script? Nuestra callback debería poder reaccionar ante eso.
 
-Aquí una versión mejorada de `loadScript` que controla los errores de carga:
+Aquí una versión mejorada de `loadScript` que monitorea los errores de carga:
 
 ```js
 function loadScript(src, callback) {
@@ -188,11 +188,11 @@ loadScript('/my/script.js', function(error, script) {
 });
 ```
 
-Una vez más, la receta que usamos para `loadScript` es bastante común. Se lo conoce como el estilo "primero el error" (error first callback).
+Una vez más, la receta que usamos para `loadScript` es bastante común. Es un estilo que se conoce como "error first callback" (callback con el error primero).
 
 La convención es:
-1. El primer argumento de la 'callback' está reservado para un error, si ocurre. En tal caso se llama a `callback(err)`.
-2. El segundo argumento (y los siguientes si es necesario) son para el resultado exitoso. En tal caso se llama a `callback(null, result1, result2 ...)`.
+1. El primer argumento de la 'callback' está reservado para un error, si este ocurre. En tal caso se llama a `callback(err)`.
+2. El segundo argumento (y los siguientes si es necesario) son para el resultado exitoso. En este caso se llama a `callback(null, result1, result2 ...)`.
 
 Así usamos una única función de 'callback' tanto para informar errores como para transferir resultados.
 
