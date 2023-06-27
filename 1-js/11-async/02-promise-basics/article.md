@@ -84,7 +84,7 @@ Para resumir, el ejecutor debe realizar una tarea (generalmente algo que toma ti
 El estado inicial de una promesa es "pendiente". En cuanto se resuelve o rechaza, la consideramos "establecida"
 
 ````smart header="Solo puede haber un único resultado, o un error"
-El ejecutor hará un único llamado: a un 'resolve' o a un 'reject'. Una vez que el estado es establecido, el cambio es definitivo.
+El ejecutor hará un único llamado: a un 'resolve' o a un 'reject'. Una vez que el estado es establecido, este cambio es definitivo.
 
 Se ignoran todas las llamadas adicionales de 'resolve' y 'reject':
 
@@ -210,7 +210,7 @@ promise.catch(alert); // muestra "Error: ¡Vaya!" después de 1 segundo
 */!*
 ```
 
-La llamada `.catch(f)` es un completamente equivalente a `.then(null, f)`, es solo una forma abreviada.
+La llamada `.catch(f)` es completamente equivalente a `.then(null, f)`, es solo una forma abreviada.
 
 ## Limpieza: finally
 
@@ -260,7 +260,7 @@ Hay diferencias importantes:
 
     Esto es muy conveniente, porque `finally` no está destinado a procesar el resultado de una promesa. Como dijimos antes, es el lugar para hacer la limpieza general sin importar cuál haya sido el resultado.
 
-    Y aquí, el ejemplo de un error, para que veamos cómo se pasa, a través de `finally`, a `catch`:
+    Y aquí, el ejemplo de un error. Vemos cómo se pasa a través de `finally` a `catch`:
 
     ```js run
     new Promise((resolve, reject) => {
@@ -270,7 +270,7 @@ Hay diferencias importantes:
       .catch(err => alert(err));  // <-- .catch muestra el error
     ```
 
-3. Un manejador de `finally` tampoco debe devolver nada. Y si lo hace, el valor devuelto es ignorado silenciosamente. 
+3. Un manejador de `finally` no debe devolver nada. Y si lo hace, el valor devuelto es ignorado silenciosamente. 
 
     La única excepción a esta regla se da cuando el manejador mismo de `finally` dispara un error. En ese caso, este error pasa al siguiente manejador de error en lugar del resultado previo al finally.
 
@@ -358,6 +358,6 @@ Podemos ver inmediatamente algunos beneficios sobre el patrón basado en callbac
 | Promesas | Callbacks |
 |----------|-----------|
 | Las promesas nos permiten hacer las cosas en el orden natural. Primero, ejecutamos `loadScript (script)`, y entonces, `.then` escribimos qué hacer con el resultado. | Debemos tener una función `callback` a nuestra disposición al llamar a 'loadScript(script, callback)'. En otras palabras, debemos saber qué hacer con el resultado *antes* de llamar a `loadScript`. |
-| Podemos llamar a ".then" en una promesa tantas veces como queramos. Cada vez, estamos agregando un nuevo "fan", una nueva función de suscripción, a la "lista de suscripción". Más sobre esto en el próximo capítulo: [](info:promise-chaining). | Solo puede haber un callback. |
+| Podemos llamar a ".then" en una promesa tantas veces como queramos. Cada vez que lo hacemos estamos agregando un nuevo "fan", una nueva función de suscripción, a la "lista de suscripción". Más sobre esto en el próximo capítulo: [](info:promise-chaining). | Solo puede haber un callback. |
 
 Entonces, las promesas nos dan un mejor flujo de código y flexibilidad. Pero hay más. Lo veremos en los próximos capítulos.
