@@ -358,7 +358,7 @@ loadJson('/article/promise-chaining/user.json')
 
 ## Resumen
 
-Si un controlador `.then` (o `catch/finally`, no importa) devuelve una promesa, el resto de la cadena espera hasta que se asiente. Cuando lo hace, su resultado (o error) se pasa más allá.
+Si un controlador `.then` (o `catch/finally`, no importa) devuelve una promesa, el resto de la cadena espera hasta que ésta quede establecida (sea resuelta o rechazada). Cuando lo hace, su resultado (o error) pasa más allá.
 
 Aquí hay una imagen completa:
 
