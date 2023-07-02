@@ -16,7 +16,7 @@ Aquí hay una lista con los eventos del DOM más utilizados, solo para echar un 
 
 **Eventos del elemento form:**
 - `submit` -- cuando el visitante envía un `<form>`.
-- `focus` --  cuando el visitante se centra sobre un elemento, por ejemplo un `<input>`.
+- `focus` --  cuando el visitante se enfoca sobre un elemento, por ejemplo un `<input>`.
 
 **Eventos del documento:**
 - `DOMContentLoaded` --cuando el HTML es cargado y procesado, el DOM está completamente construido
@@ -28,7 +28,7 @@ Hay muchos más eventos. Entraremos en más detalles con eventos particulares en
 
 ## Controladores de eventos
 
-Para reaccionar con eventos podemos asignar un *handler (controlador)* el cual es una función que se ejecuta en caso de un evento.
+Para reaccionar a los eventos podemos asignar un *handler (controlador)* el cual es una función que se ejecuta en caso de un evento.
 
 Los handlers son una forma de ejecutar código JavaScript en caso de acciones por parte del usuario.
 
@@ -38,17 +38,17 @@ Hay muchas maneras de asignar un handler. Vamos a verlas empezando por las más 
 
 Un handler puede ser establecido en el HTML con un atributo llamado `on<event>`.
 
-Por ejemplo, para asignar un handler `click` para un `input` podemos usar `onclick`, como aquí:
+Por ejemplo, para asignar un handler `click` a un `input` podemos usar `onclick`, como aquí:
 
 ```html run
-<input value="Click me" *!*onclick="alert('Click!')"*/!* type="button">
+<input value="Haz click aquí" *!*onclick="alert('¡Click!')"*/!* type="button">
 ```
 
 Al hacer click, el código dentro de `onclick` se ejecuta.
 
 Toma en cuenta que dentro de `onclick` usamos comillas simples, porque el atributo en sí va entre comillas dobles. Si olvidamos que el código está dentro del atributo y usamos comillas dobles dentro, así:  `onclick="alert("Click!")"`, no funcionará correctamente.
 
-Un atributo HTML no es un lugar conveniente para escribir un motón de código, así que mejor creamos una función JavaScript y la llamamos allí.
+Un atributo HTML no es un lugar conveniente para escribir un montón de código, así que mejor creamos una función JavaScript y la llamamos allí.
 
 Aquí un click ejecuta la función  `countRabbits()`:
 
@@ -64,7 +64,7 @@ Aquí un click ejecuta la función  `countRabbits()`:
 <input type="button" *!*onclick="countRabbits()"*/!* value="¡Cuenta los conejos!">
 ```
 
-Como ya sabemos, los nombres de los atributos HTML no distinguen entre mayúsculas y minúsculas, entonces `ONCLICK` funciona bien al igual que `onClick` y `onCLICK`... Pero usualmente los atributos van con minúsculas: `onclick`.
+Como sabemos, los nombres de los atributos HTML no distinguen entre mayúsculas y minúsculas, entonces `ONCLICK` funciona bien al igual que `onClick` y `onCLICK`... Pero usualmente los atributos van con minúsculas: `onclick`.
 
 ### Propiedad del DOM
 
@@ -107,7 +107,7 @@ Estás dos piezas de código funcionan igual:
     </script>
     ```
 
-En el primer ejemplo el atributo HTML es usado para inicializar el `button.onclick`. Mientras que en el segundo ejemplo se usa el script, esa es toda la diferencia.
+En el primer ejemplo el atributo HTML es usado para inicializar el `button.onclick`, mientras que en el segundo ejemplo se usa el script. Esa es toda la diferencia.
 
 **Como solo hay una propiedad `onclick`, no podemos asignar más de un handler.**
 
@@ -128,7 +128,7 @@ Para eliminar un handler, asigna `elem.onclick = null`.
 
 ## Accediendo al elemento: this
 
-El valor de `this` dentro de un handler es el elemento. El cuál tiene el handler dentro.
+El valor de `this` dentro de un handler es el elemento, el cual tiene el handler dentro.
 
 En el siguiente código el `button` muestra su contenido usando `this.innerHTML`:
 
@@ -286,7 +286,7 @@ Múltiples llamadas a `addEventListener`permiten agregar múltiples handlers:
 Como podemos ver en el ejemplo anterior, podemos establecer handlers *tanto* usando un propiedad DOM como `addEventListener` juntos. Pero por lo general solo usamos una de esas maneras.
 
 ````warn header="Para algunos eventos, los handlers solo funcionan con `addEventListener`"
-Hay eventos que no pueden ser asignados por medio de una propiedad del DOM. Solamente con `addEventListener`.
+Hay eventos que no pueden ser asignados por medio de una propiedad del DOM, sino solamente con `addEventListener`.
 
 Por ejemplo, el evento `DOMContentLoaded`, que se activa cuando el documento está cargado y el DOM está construido.
 
@@ -308,9 +308,9 @@ Por lo que `addEventListener` es más universal. Aún así, tales eventos son un
 
 ## Objeto del evento
 
-Pero para manejar correctamente un evento nos gustaría saber todavía más acerca de lo que está pasando. No solo si fue un "click" o un "teclazo", sino ¿cuáles eran coordenadas del cursor o qué tecla fue oprimida? Y así.
+Pero para manejar correctamente un evento queremos saber todavía más acerca de lo que está pasando. No solo si fue un "click" o un "teclazo", sino ¿cuáles eran coordenadas del cursor, o qué tecla fue oprimida? Y así.
 
-Cuando un evento ocurre, el navegador crea un *objeto del evento* que coloca los detalles dentro y los pasa como un argumento al handler.
+Cuando un evento ocurre, el navegador crea un *objeto del evento*, coloca los detalles dentro y los pasa como un argumento al handler.
 
 Aquí hay un ejemplo para obtener las coordenadas del cursor a partir del objeto del evento:
 
@@ -446,7 +446,7 @@ Los atributos HTML se usan con moderación, porque JavaScript en medio de una et
 
 Las propiedades del DOM son buenas para usar, pero no podemos asignar más de un handler a un evento en particular. En la mayoría de casos esta limitación no es apremiante.
 
-La última forma es la más flexible, pero también es la más larga para escribir. Hay pocos eventos que solo funcionan con ésta, por ejemplo `transitionend` y `DOMContentLoaded` (que veremos después). Además `addEventListener` soporta objetos como handlers de eventos. En este caso `handleEvent` es llamado en caso del evento.
+La última forma es la más flexible, pero también es la más larga para escribir. Unos pocos eventos solo funcionan con ésta, por ejemplo `transitionend` y `DOMContentLoaded` (que veremos después). Además `addEventListener` soporta objetos como handlers de eventos. En este caso `handleEvent` es llamado en caso del evento.
 
 No importa como asignes el handler, este obtiene un objeto como primer argumento. Este objeto contiene los detalles sobre lo que pasó.
 
