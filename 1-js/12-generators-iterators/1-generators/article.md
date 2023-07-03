@@ -88,7 +88,7 @@ alert(JSON.stringify(three)); // {value: 3, *!*done: true*/!*}
 
 ![](generateSequence-4.svg)
 
-Ahora el generador está listo. Deberíamos verlo desde `done: true` y procesar `value: 3` como el resultado final.
+Ahora el generador finalizó. observamos `done: true` y procesamos `value: 3` como el resultado final.
 
 Las nuevas llamadas a `generator.next()` ya no tienen sentido. Si las hacemos, devuelven el mismo objeto: `{done: true}`.
 
@@ -215,7 +215,7 @@ Eso funciona, porque `range[Symbol.iterator]()` ahora devuelve un generador, y l
 - tiene un método `.next()`
 - que devuelve valores en la forma `{value: ..., done: true/false}`
 
-Eso no es una coincidencia, por supuesto. Los generadores se agregaron al lenguaje JavaScript con iteradores en mente, para implementarlos fácilmente.
+Eso no es una coincidencia, por supuesto. Los generadores se agregaron al lenguaje JavaScript con los iteradores en mente, para implementarlos fácilmente.
 
 La variante con un generador es mucho más concisa que el código iterable original de `range` y mantiene la misma funcionalidad.
 
