@@ -16,7 +16,7 @@ Aquí hay una lista con los eventos del DOM más utilizados, solo para echar un 
 
 **Eventos del elemento form:**
 - `submit` -- cuando el visitante envía un `<form>`.
-- `focus` --  cuando el visitante se enfoca sobre un elemento, por ejemplo un `<input>`.
+- `focus` --  cuando el visitante hace foco en un elemento, por ejemplo un `<input>`.
 
 **Eventos del documento:**
 - `DOMContentLoaded` --cuando el HTML es cargado y procesado, el DOM está completamente construido
@@ -308,7 +308,7 @@ Por lo que `addEventListener` es más universal. Aún así, tales eventos son un
 
 ## Objeto del evento
 
-Pero para manejar correctamente un evento queremos saber todavía más acerca de lo que está pasando. No solo si fue un "click" o un "teclazo", sino ¿cuáles eran coordenadas del cursor, o qué tecla fue oprimida? Y así.
+Pero para manejar correctamente un evento necesitamos saber todavía más acerca de lo que está pasando. No solo si fue un "click" o un "teclazo", sino ¿cuáles eran coordenadas del cursor, o qué tecla fue oprimida? Y así.
 
 Cuando un evento ocurre, el navegador crea un *objeto del evento*, coloca los detalles dentro y los pasa como un argumento al handler.
 
