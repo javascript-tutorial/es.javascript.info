@@ -131,18 +131,13 @@ Solo hay dos limitaciones:
 
 También puede ser obvio, pero aún así: solo puede haber un `[[Prototype]]`. Un objeto no puede heredar desde dos.
 
-```smart header="`__proto__` es un getter/setter histórico para `[[Prototype]]`"
+```smart header="`__proto__` es un getter/setter histórico para `[[Prototype]]`" 
 Es un error común de principiantes no saber la diferencia entre ambos.
 
-Tenga en cuenta que `__proto__` *no es lo mismo* que `[[Prototype]]`. `__proto__` es un getter/setter para `[[Prototype]]`. Más adelante veremos situaciones donde esto importa, por ahora solo tengámoslo en cuenta mientras vamos entendiendo el lenguaje JavaScript.
+Tenga en cuenta que `__proto__` *no es lo mismo* que la propiedad interna `[[Prototype]]`.
+En su lugar, `__proto__` es un getter/setter para `[[Prototype]]`. Más adelante veremos situaciones en las que esta diferencia es importante. Por ahora solo tengámoslo en cuenta mientras vamos entendiendo el lenguaje JavaScript.
 
-La propiedad `__proto__` es algo vetusta. Existe por razones históricas, el JavaScript moderno sugiere el uso de las funciones `Object.getPrototypeOf/Object.setPrototypeOf` en lugar de get/set del prototipo. Estudiaremos estas funciones más adelante.
-
-Según la especificación, solamente los navegadores debería
-
-
-
-n dar soporte a `__proto__`. Pero de hecho todos los entornos, incluyendo los del lado del servidor, soportan `__proto__`, así que es bastante seguro usarlo.
+La propiedad `__proto__` es algo antigua y existe por razones históricas, por lo que los navegadores continúan soportándola, incluyendo los entornos del lado del servidor, por lo que es bastante seguro usarla. Pero según la especificación, en las versiones más modernas de JavaScript se recomienda el uso de las funciones `Object.getPrototypeOf` y `Object.setPrototypeOf` para obtener y establecer el prototipo. Estudiaremos estas funciones más adelante.
 
 Como la notación `__proto__` es más intuitiva, la usaremos en los ejemplos.
 ```
