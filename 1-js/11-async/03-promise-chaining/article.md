@@ -72,11 +72,7 @@ promise.then(function(result) {
 });
 ```
 
-<<<<<<< HEAD
-Lo que hicimos aquí fue varios controladores para una sola promesa. No se pasan el resultado el uno al otro; en su lugar lo procesan de forma independiente.
-=======
-What we did here is just adding several handlers to one promise. They don't pass the result to each other; instead they process it independently.
->>>>>>> 733ff697c6c1101c130e2996f7eca860b2aa7ab9
+Lo que hicimos aquí fue añadir varios controladores a una sola promesa. No se pasan el resultado el uno al otro; en su lugar, lo procesan de forma independiente.
 
 Aquí está la imagen (compárala con el encadenamiento anterior):
 
