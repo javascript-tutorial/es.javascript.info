@@ -76,7 +76,7 @@ alert(firstName || lastName || nickName || "Anonymous"); // Supercoder
 */!*
 ```
 
-Históricamente, el operador OR `||` estuvo primero. Existe desde el origen de JavaScript, así que los desarrolladores lo estuvieron usando para tal propósito durante mucho tiempo. 
+Históricamente, el operador OR `||` estuvo primero. Existe desde el origen de JavaScript, así que los desarrolladores lo estuvieron usando para tal propósito durante mucho tiempo.
 
 Por otro lado, el operador "nullish coalescing" `??` fue una adición reciente, y la razón es que la gente no estaba del todo satisfecha con `||`.
 
