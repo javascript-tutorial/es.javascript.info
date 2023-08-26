@@ -2,7 +2,7 @@ importance: 5
 
 ---
 
-# ¿Qué es lo que mostrará este código?
+# ¿Cuál será la salida en consola de este código?
 
 ```js
 console.log(1);
