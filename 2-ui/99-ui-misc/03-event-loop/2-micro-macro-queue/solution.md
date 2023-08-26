@@ -1,41 +1,41 @@
-The console output is: 1 7 3 5 2 6 4.
+La salida en la consola es: 1 7 3 5 2 6 4.
 
-The task is quite simple, we just need to know how microtask and macrotask queues work.
+La tarea es bastante simple, solamente necesitamos saber cómo funcionan las colas de micro y macrotareas.
 
-Let's see what's going on, step by step.
+Veámoslo paso a paso.
 
 ```js
 console.log(1);
-// The first line executes immediately, it outputs `1`.
-// Macrotask and microtask queues are empty, as of now.
+// TLa primera línea se ejecuta inmediatamente, e imprime`1`.
+// Por ahora, las colas de micro y macrotareas están vacías.
 
 setTimeout(() => console.log(2));
-// `setTimeout` appends the callback to the macrotask queue.
-// - macrotask queue content:
+// `setTimeout` agrega la callback a la cola de macrotareas.
+// - contenido de la cola de macrotareas:
 //   `console.log(2)`
 
 Promise.resolve().then(() => console.log(3));
-// The callback is appended to the microtask queue.
-// - microtask queue content:
+// La callback es agregada a la cola de microtareas.
+// - contenido de la cola de microtareas:
 //   `console.log(3)`
 
 Promise.resolve().then(() => setTimeout(() => console.log(4)));
-// The callback with `setTimeout(...4)` is appended to microtasks
-// - microtask queue content:
+// La callback con `setTimeout(...4)` es agregada a las microtareas.
+// - contenido de la cola de microtareas:
 //   `console.log(3); setTimeout(...4)`
 
 Promise.resolve().then(() => console.log(5));
-// The callback is appended to the microtask queue
-// - microtask queue content:
+// La callback es agregada a la cola de microtareas
+// - contenido de la cola de microtareas:
 //   `console.log(3); setTimeout(...4); console.log(5)`
 
 setTimeout(() => console.log(6));
-// `setTimeout` appends the callback to macrotasks
-// - macrotask queue content:
+// `setTimeout` agrega la callback a las macrotareas
+// - contenido de la cola de macrotareas:
 //   `console.log(2); console.log(6)`
 
 console.log(7);
-// Outputs 7 immediately.
+// Imprime 7 inmediatamente.
 ```
 
 To summarize,
