@@ -38,13 +38,13 @@ console.log(7);
 // Imprime 7 inmediatamente.
 ```
 
-To summarize,
+Para resumir,
 
-1. Numbers `1` and `7` show up immediately, because simple `console.log` calls don't use any queues.
-2. Then, after the main code flow is finished, the microtask queue runs.
-    - It has commands: `console.log(3); setTimeout(...4); console.log(5)`.
-    - Numbers `3` and `5` show up, while `setTimeout(() => console.log(4))` adds the `console.log(4)` call to the end of the macrotask queue.
-    - The macrotask queue is now: `console.log(2); console.log(6); console.log(4)`.
-3. After the microtask queue becomes empty, the macrotask queue executes. It outputs `2`, `6`, `4`.
+1. Los números `1` y `7` se muestran inmediatamente, porque simples llamados a `console.log` no usan ninguna cola.
+2. Entonces, después de que el flujo del código principal finaliza, se ejecuta la cola de microtareas.
+    - esta tiene los comandos: `console.log(3); setTimeout(...4); console.log(5)`.
+    - se muestran los números `3` y `5`, mientras que`setTimeout(() => console.log(4))` agrega el llamado a `console.log(4)` al final de la cola de macrotareas.
+    - La cola de macrotareas ahora es: `console.log(2); console.log(6); console.log(4)`.
+3. Una vez que la cola de microta reas se vacía, se ejecuta la de macrotareas. Esta imprime `2`, `6`, `4`.
 
-Finally, we have the output: `1 7 3 5 2 6 4`.
+Finalmente, tenemos que la salida es: `1 7 3 5 2 6 4`.
