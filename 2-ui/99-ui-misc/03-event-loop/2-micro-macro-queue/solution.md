@@ -6,7 +6,7 @@ Veámoslo paso a paso.
 
 ```js
 console.log(1);
-// TLa primera línea se ejecuta inmediatamente, e imprime`1`.
+// La primera línea se ejecuta inmediatamente, e imprime`1`.
 // Por ahora, las colas de micro y macrotareas están vacías.
 
 setTimeout(() => console.log(2));
