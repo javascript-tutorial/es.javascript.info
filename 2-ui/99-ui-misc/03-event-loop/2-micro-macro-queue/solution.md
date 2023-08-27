@@ -38,7 +38,7 @@ console.log(7);
 // Imprime 7 inmediatamente.
 ```
 
-Para resumir,
+Concluyendo:
 
 1. Los números `1` y `7` se muestran inmediatamente, porque simples llamados a `console.log` no usan ninguna cola.
 2. Entonces, después de que el flujo del código principal finaliza, se ejecuta la cola de microtareas.
