@@ -41,7 +41,7 @@ console.log(7);
 Concluyendo:
 
 1. Los números `1` y `7` se muestran inmediatamente, porque simples llamados a `console.log` no usan ninguna cola.
-2. Entonces, después de que el flujo del código principal finaliza, se ejecuta la cola de microtareas.
+2. Solo entonces, después de que el flujo del código principal finaliza, se ejecuta la cola de microtareas.
     - esta tiene los comandos: `console.log(3); setTimeout(...4); console.log(5)`.
     - se muestran los números `3` y `5`, mientras que`setTimeout(() => console.log(4))` agrega el llamado a `console.log(4)` al final de la cola de macrotareas.
     - La cola de macrotareas ahora es: `console.log(2); console.log(6); console.log(4)`.
