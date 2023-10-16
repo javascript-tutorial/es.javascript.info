@@ -58,7 +58,7 @@ Asi:
 El navegador busca y evalúa automáticamente el módulo importado (y sus importaciones si es necesario), y luego ejecuta el script.
 
 ```warn header="Los módulos funcionan solo a través de HTTP(s), no localmente"
-Si intenta abrir una página web localmente a través del protocolo `file://`, encontrará que las directivas `import y export` no funcionan. Use un servidor web local, como [static-server](https://www.npmjs.com/package/static-server#getting-started), o use la capacidad de "servidor en vivo" de su editor, como VS Code [Live Server Extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) para probar los módulos.
+Si intenta abrir una página web localmente a través del protocolo `file://`, encontrará que las directivas `import y export` no funcionan. Use un servidor web local, como [static-server](https://www.npmjs.com/package/static-server#getting-started), o use la capacidad de "servidor vivo" de su editor, como VS Code [Live Server Extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) para probar los módulos.
 ```	
 
 ## Características principales de los módulos
@@ -163,7 +163,7 @@ export let admin = {
 
 Si este módulo se importa desde varios archivos, el módulo solo se evalúa la primera vez, se crea el objeto `admin` y luego se pasa a todos los importadores adicionales.
 
-Todos los importadores obtienen exactamente este único objeto `admin`:
+Todos los importadores obtienen exactamente este mismo y único objeto `admin`:
 
 ```js
 // 📁 1.js
@@ -359,7 +359,7 @@ Ciertos entornos, como Node.js o herramientas de empaquetado permiten módulos s
 
 ### Compatibilidad, "nomodule"
 
-Los navegadores antiguos no entienden `type = "module"`. Los scripts de un tipo desconocido simplemente se ignoran. Para ellos, es posible proporcionar una alternativa, utilizando el atributo `nomodule`:
+Los navegadores antiguos no entienden `type = "module"`. Los scripts de un tipo desconocido simplemente se ignoran. Para ellos es posible proporcionar una alternativa, utilizando el atributo `nomodule`:
 
 ```html run
 <script type="module">
@@ -382,13 +382,13 @@ Las herramientas de compilación hacen lo siguiente:
 
 1. Toman un módulo "principal", el que se pretende colocar en `<script type="module">` en HTML.
 2. Analiza sus dependencias: las importa, y luego importa de esas importaciones, etcétera.
-3. Compila un único archivo con todos los módulos (o múltiples archivos, eso es configurable), reemplazando los llamados nativos de `import` con funciones del empaquetador para que funcione. Los módulos de tipo "Especial" como módulos HTML/CSS también son soportados.
+3. Compila un único archivo con todos los módulos (o múltiples archivos, eso es configurable), reemplazando los llamados nativos de `import` con funciones del empaquetador. Los módulos de tipo "especial" como módulos HTML/CSS también son soportados.
 4. Durante el proceso, otras transformaciones y optimizaciones se pueden aplicar:
-    - Se elimina código inaccesible.
-    - Se elimina exportaciones sin utilizar ("tree-shaking", sacudir el árbol).
+    - Se elimina el código inaccesible.
+    - Se eliminan las exportaciones sin utilizar ("tree-shaking", sacudir el árbol).
     - Las sentencias específicas de desarrollo tales como `console` y `debugger` se eliminan.
-    - La sintaxis JavaScript demasiado moderna (con riesgo de no ser aún soportada) puede transformarse en una sintaxis más antigua y segura con una funcionalidad equivalente utilizando [Babel](https://babeljs.io/).
-    - El archivo resultante se minimiza. (se eliminan espacios, las variables se reemplazan con nombres cortos, etc).
+    - La sintaxis JavaScript demasiado moderna (con riesgo de no ser aún soportada) puede transformarse en una sintaxis más antigua con una funcionalidad equivalente utilizando [Babel](https://babeljs.io/).
+    - El archivo resultante se minimiza (se eliminan espacios, las variables se reemplazan con nombres más cortos, etc).
 
 Si utilizamos herramientas de ensamblaje, entonces, a medida que los scripts se agrupan en un solo archivo (o pocos archivos), las declaraciones `import/export` dentro de esos scripts se reemplazan por funciones especiales de ensamblaje. Por lo tanto, el script "empaquetado" resultante no contiene ninguna `import/export`, no requiere `type="module"`, y podemos ponerla en un script normal:
 
