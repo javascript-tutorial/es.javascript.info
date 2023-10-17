@@ -3,7 +3,7 @@
 
 A medida que nuestra aplicación crece, queremos dividirla en múltiples archivos, llamados "módulos". Un módulo puede contener una clase o una biblioteca de funciones para un propósito específico.
 
-Durante mucho tiempo, JavaScript existió sin una sintaxis de módulo a nivel de lenguaje. Eso no fue un problema, porque inicialmente los scripts eran pequeños y simples, por lo que no era necesario.
+Durante mucho tiempo, JavaScript existió sin una sintaxis de módulo a nivel de lenguaje. Esto no era un problema, porque inicialmente los scripts eran pequeños y simples.
 
 Pero con el tiempo los scripts se volvieron cada vez más complejos, por lo que la comunidad inventó una variedad de formas de organizar el código en módulos, bibliotecas especiales para cargar módulos a pedido.
 
@@ -13,17 +13,17 @@ Para nombrar algunos (por razones históricas):
 - [CommonJS](https://wiki.commonjs.org/wiki/Modules/1.1) -- el sistema de módulos creado para el servidor Node.js.
 - [UMD](https://github.com/umdjs/umd) -- un sistema de módulos más, sugerido como universal, compatible con AMD y CommonJS.
 
-Ahora, todo esto se convierte lentamente en una parte de la historia, pero aún podemos encontrarlos en viejos scripts.
+Todo esto se va convirtiendo lentamente en parte de la historia, pero aún podemos encontrarlos en viejos scripts.
 
-El sistema de módulos a nivel de idioma apareció en el estándar en 2015, evolucionó gradualmente desde entonces y ahora es compatible con todos los principales navegadores y en Node.js. Así que estudiaremos los módulos modernos de Javascript de ahora en adelante.
+El sistema de módulos a nivel de lenguaje apareció en el estándar en 2015, evolucionó gradualmente desde entonces, y ahora es soportado por todos los navegadores importantes y por Node.js. Así que de ahora en adelante estudiaremos los módulos de Javascript modernos.
 
 ## Qué es un módulo?
 
-Un módulo es solo un archivo. Un script es un módulo. Tan sencillo como eso.
+Un módulo es simplemente un archivo. Un script es un módulo. Tan sencillo como eso.
 
 Los módulos pueden cargarse entre sí y usar directivas especiales `export` e `import` para intercambiar funcionalidad, llamar a funciones de un módulo de otro:
 
-- La palabra clave `export` etiqueta las variables y funciones que deberían ser accesibles desde fuera del módulo actual.
+- La palabra clave `export` etiqueta las variables y funciones que necesitan ser accesibles desde fuera del módulo actual.
 - `import` permite importar funcionalidades desde otros módulos.
 
 Por ejemplo, si tenemos un archivo `sayHi.js` que exporta una función:
@@ -45,7 +45,7 @@ alert(sayHi); // function...
 sayHi('John'); // Hello, John!
 ```
 
-La directiva `import` carga el módulo por la ruta `./sayHi.js` relativo con el archivo actual, y asigna la función exportada `sayHi` a la variable correspondiente.
+La directiva `import` carga el módulo por la ruta `./sayHi.js` relativa a la del archivo actual, y asigna la función exportada `sayHi` a la variable correspondiente.
 
 Ejecutemos el ejemplo en el navegador.
 
@@ -58,14 +58,14 @@ Asi:
 El navegador busca y evalúa automáticamente el módulo importado (y sus importaciones si es necesario), y luego ejecuta el script.
 
 ```warn header="Los módulos funcionan solo a través de HTTP(s), no localmente"
-Si intenta abrir una página web localmente a través del protocolo `file://`, encontrará que las directivas `import y export` no funcionan. Use un servidor web local, como [static-server](https://www.npmjs.com/package/static-server#getting-started)  o use la capacidad de "servidor en vivo" de su editor, como VS Code [Live Server Extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) para probar los módulos.
+Si intenta abrir una página web localmente a través del protocolo `file://`, encontrará que las directivas `import y export` no funcionan. Use un servidor web local, como [static-server](https://www.npmjs.com/package/static-server#getting-started), o use la capacidad de "servidor vivo" de su editor, como VS Code [Live Server Extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) para probar los módulos.
 ```	
 
-## Características del módulo central
+## Características principales de los módulos
 
 ¿Qué hay de diferente en los módulos en comparación con los scripts "normales"?
 
-Hay características principales, válidas tanto para el navegador como para JavaScript del lado del servidor.
+Estas son las características principales, válidas tanto para el navegador como para JavaScript del lado del servidor.
 
 ### Siempre en modo estricto
 
@@ -85,7 +85,7 @@ En el siguiente ejemplo, se importan dos scripts y `hello.js` intenta usar la va
 
 [codetabs src="scopes" height="140" current="index.html"]
 
-Los módulos deben hacer `export` a lo que ellos quieren que esté accesible desde afuera y hacer `import` de lo que necesiten.
+Los módulos deben hacer `export` a lo que ellos quieren que esté accesible desde afuera, y hacer `import` de lo que necesiten.
 
 - `user.js` debe exportar la variable `user` .
 - `hello.js` debe importarla desde el módulo `user.js`.
@@ -129,7 +129,7 @@ Eso tiene consecuencias importantes para las que debemos estar prevenidos.
 
 Echemos un vistazo usando ejemplos:
 
-Primero, si ejecutar un código de módulo trae efectos secundarios, como mostrar un mensaje, importarlo varias veces lo activará solo una vez, la primera vez:
+Primero, si ejecutar un código de módulo trae efectos secundarios, como mostrar un mensaje, importarlo varias veces lo activará solamente una vez, la primera:
 
 ```js
 // 📁 alert.js
@@ -163,7 +163,7 @@ export let admin = {
 
 Si este módulo se importa desde varios archivos, el módulo solo se evalúa la primera vez, se crea el objeto `admin` y luego se pasa a todos los importadores adicionales.
 
-Todos los importadores obtienen exactamente el único objeto `admin`:
+Todos los importadores obtienen exactamente este mismo y único objeto `admin`:
 
 ```js
 // 📁 1.js
@@ -175,14 +175,14 @@ import {admin} from './admin.js';
 alert(admin.name); // Pete
 
 *!*
-// Ambos 1.js y 2.js hacen referencia al mismo objeto admin
+// Ambos, 1.js y 2.js, hacen referencia al mismo objeto admin
 // Los cambios realizados en 1.js son visibles en 2.js
 */!*
 ```
 
 Como puedes ver, cuando `1.js` cambia la propiedad `name` en el `admin` importado, entonces `2.js` puede ver el nuevo `admin.name`.
 
-Esto es porque el modulo se ejecuta solo una vez. Los exports son generados y luego compartidos entre importadores, entonces si algo cambia en el objeto `admin`, otros importadores lo verán.
+Esto es porque el módulo se ejecuta solo una vez. Los exports son generados y luego compartidos entre importadores, entonces si algo cambia en el objeto `admin`, otros importadores lo verán.
 
 **Tal comportamiento es en verdad muy conveniente, porque nos permite *configurar* módulos.**
 
@@ -230,7 +230,7 @@ sayHi(); // Ready to serve, *!*Pete*/!*!
 
 El objeto `import.meta` contiene la información sobre el módulo actual.
 
-Su contenido depende del entorno. En el navegador, contiene la URL del script, o la URL de una página web actual si está dentro de HTML:
+Su contenido depende del entorno. En el navegador, contiene la URL del script, o la URL de la página web actual si está dentro de HTML:
 
 ```html run height=0
 <script type="module">
@@ -241,7 +241,7 @@ Su contenido depende del entorno. En el navegador, contiene la URL del script, o
 
 ### En un módulo, "this" es indefinido (undefined).
 
-Esa es una característica menor, pero para completar, debemos mencionarla.
+Esa es una característica menor, pero para ser exhaustivos debemos mencionarla.
 
 En un módulo, el nivel superior `this` no está definido.
 
@@ -259,16 +259,16 @@ Compárelo con scripts que no sean módulos, donde `this` es un objeto global:
 
 ## Funciones específicas del navegador
 
-También hay varias diferencias de scripts específicas del navegador con `type =" module "` en comparación con las normales.
+También hay varias diferencias específicas de los scripts del navegador con `type =" module "` en comparación con los normales.
 
 Es posible que desee omitir esta sección por ahora si está leyendo por primera vez o si no usa JavaScript en un navegador.
 
 ### Los módulos son diferidos
 
-Los módulos están *siempre* diferidos, el mismo efecto que el atributo `defer` (descrito en el capítulo [](info:script-async-defer)), para ambos scripts externos y en línea.
+Los módulos están *siempre* diferidos, el mismo efecto que el atributo `defer` (descrito en el capítulo [](info:script-async-defer)), para ambos scripts, externos y en línea.
 
 En otras palabras:
-- descargar módulos externo `<script type="module" src="...">` no bloquea el procesamiento de HTML, se cargan en paralelo con otros recursos.
+- descargar módulos de script externos `<script type="module" src="...">` no bloquea el procesamiento de HTML, se cargan en paralelo junto con otros recursos.
 - los módulos esperan hasta que el documento HTML esté completamente listo (incluso si son pequeños y cargan más rápido que HTML), y luego lo ejecuta.
 - se mantiene el orden relativo de los scripts: los scripts que van primero en el documento, se ejecutan primero.
 
@@ -290,7 +290,7 @@ Abajo compare con un script normal:
 *!*
   alert(typeof button); // button es indefinido, el script no puede ver los elementos de abajo
 */!*
-  // los scripts normales corren inmediatamente, antes que el resto de la página sea procesada
+  // los scripts normales corren inmediatamente, antes de que el resto de la página sea procesada
 </script>
 
 <button id="button">Button</button>
@@ -306,7 +306,7 @@ Al usar módulos, debemos tener en cuenta que la página HTML se muestra a medid
 
 Para los scripts que no son módulos, el atributo `async` solo funciona en scripts externos. Los scripts asíncronos se ejecutan inmediatamente cuando están listos, independientemente de otros scripts o del documento HTML.
 
-Para los scripts de módulo, también funciona en scripts en línea.
+Para los scripts de módulo, esto también funciona en scripts en línea.
 
 Por ejemplo, el siguiente script en línea tiene `async`, por lo que no espera nada.
 
@@ -326,7 +326,7 @@ Eso es bueno para la funcionalidad que no depende de nada, como contadores, anun
 
 ### Scripts externos
 
-Los scripts externos que tengan `type="module"` son diferentes en dos aspectos:
+Los scripts externos que tienen `type="module"` son diferentes en dos aspectos:
 
 1. Los scripts externos con el mismo `src` sólo se ejecutan una vez:
     ```html
@@ -335,7 +335,7 @@ Los scripts externos que tengan `type="module"` son diferentes en dos aspectos:
     <script type="module" src="my.js"></script>
     ```
 
-2. Los scripts externos que se buscan desde otro origen (p.ej. otra sitio web) require encabezados [CORS](https://developer.mozilla.org/es/docs/Web/HTTP/Access_control_CORS), como se describe en el capítulo <info:fetch-crossorigin>. En otras palabras, si un script de módulo es extraído desde otro origen, el servidor remoto debe proporcionar un encabezado `Access-Control-Allow-Origin` permitiendo la búsqueda.
+2. Los scripts externos que se buscan desde otro origen (p.ej. otra sitio web) requieren encabezados [CORS](https://developer.mozilla.org/es/docs/Web/HTTP/Access_control_CORS), como se describe en el capítulo <info:fetch-crossorigin>. En otras palabras, si un script de módulo es extraído desde otro origen, el servidor remoto debe proporcionar un encabezado `Access-Control-Allow-Origin` permitiendo la búsqueda.
     ```html
     <!-- otro-sitio-web.com debe proporcionar Access-Control-Allow-Origin -->
     <!-- si no, el script no se ejecutará -->
@@ -346,7 +346,7 @@ Los scripts externos que tengan `type="module"` son diferentes en dos aspectos:
 
 ### No se permiten módulos sueltos
 
-En el navegador, `import` debe obtener una URL relativa o absoluta. Los módulos sin ninguna ruta se denominan módulos sueltos. Dichos módulos no están permitidos en `import`.
+En el navegador, `import` debe obtener una URL, sea relativa o absoluta. Los módulos sin ninguna ruta se denominan módulos sueltos. Dichos módulos no están permitidos en `import`.
 
 Por ejemplo, este `import` no es válido:
 
@@ -355,20 +355,20 @@ import {sayHi} from 'sayHi'; // Error, módulo suelto
 // el módulo debe tener una ruta, por ejemplo './sayHi.js' o dondequiera que el módulo esté
 ```
 
-Ciertos entornos, como Node.js o herramientas de paquete permiten módulos simples sin ninguna ruta, ya que tienen sus propias formas de encontrar módulos y hooks para ajustarlos. Pero los navegadores aún no admiten módulos sueltos.
+Ciertos entornos, como Node.js o herramientas de empaquetado permiten módulos simples sin ninguna ruta, ya que tienen sus propias formas de encontrar módulos y engancharlos. Pero los navegadores aún no admiten módulos sueltos.
 
 ### Compatibilidad, "nomodule"
 
-Los navegadores antiguos no entienden `type = "module"`. Los scripts de un tipo desconocido simplemente se ignoran. Para ellos, es posible proporcionar un respaldo utilizando el atributo `nomodule`:
+Los navegadores antiguos no entienden `type = "module"`. Los scripts de un tipo desconocido simplemente se ignoran. Para ellos es posible proporcionar una alternativa, utilizando el atributo `nomodule`:
 
 ```html run
 <script type="module">
-  alert("Ejecuta en navegadores modernos");
+  alert("Se ejecuta en navegadores modernos");
 </script>
 
 <script nomodule>
-  alert("Los navegadores modernos conocen tanto type=module como nomodule, así que omita esto")
-  alert("Los navegadores antiguos ignoran la secuencia de comandos con type=module desconocido, pero ejecutan esto.");
+  alert("Los navegadores modernos conocen tanto type=module como nomodule, así que omiten esto")
+  alert("Los navegadores antiguos ignoran la secuencia de comandos, desconocida para ellos, con type=module, pero ejecutan esto.")
 </script>
 ```
 
@@ -376,19 +376,19 @@ Los navegadores antiguos no entienden `type = "module"`. Los scripts de un tipo 
 
 En la vida real, los módulos de navegador rara vez se usan en su forma "pura". Por lo general, los agrupamos con una herramienta especial como [Webpack](https://webpack.js.org/) y los implementamos en el servidor de producción.
 
-Uno de los beneficios de usar empaquetadores -- dan más control sobre cómo se resuelven los módulos, permitiendo módulos simples y mucho más, como los módulos CSS/HTML.
+Uno de los beneficios de usar empaquetadores es que dan más control sobre cómo se resuelven los módulos, permitiendo módulos simples y mucho más, como los módulos CSS/HTML.
 
 Las herramientas de compilación hacen lo siguiente:
 
 1. Toman un módulo "principal", el que se pretende colocar en `<script type="module">` en HTML.
-2. Analiza sus dependencias: las importa y luego importaciones de importaciones etcétera.
-3. Compila un único archivo con todos los módulos (o múltiples archivos, eso es ajustable), reemplazando los llamados nativos de `import` con funciones del empaquetador para que funcione. Los módulos de tipo "Especial" como módulos HTML/CSS también son supported.
+2. Analiza sus dependencias: las importa, y luego importa de esas importaciones, etcétera.
+3. Compila un único archivo con todos los módulos (o múltiples archivos, eso es configurable), reemplazando los llamados nativos de `import` con funciones del empaquetador. Los módulos de tipo "especial" como módulos HTML/CSS también son soportados.
 4. Durante el proceso, otras transformaciones y optimizaciones se pueden aplicar:
-    - Se elimina código inaccesible.
-    - Se elimina exportaciones sin utilizar ("tree-shaking").
-    - Sentencias específicas de desarrollo tales como `console` y `debugger` se eliminan.
-    - La sintaxis JavaScript moderna puede transformarse en una sintaxis más antigua con una funcionalidad similar utilizando [Babel](https://babeljs.io/).
-    - El archivo resultante se minimiza. (se eliminan espacios, las variables se reemplazan con nombres cortos, etc).
+    - Se elimina el código inaccesible.
+    - Se eliminan las exportaciones sin utilizar ("tree-shaking", sacudir el árbol).
+    - Las sentencias específicas de desarrollo tales como `console` y `debugger` se eliminan.
+    - La sintaxis JavaScript demasiado moderna (con riesgo de no ser aún soportada) puede transformarse en una sintaxis más antigua con una funcionalidad equivalente utilizando [Babel](https://babeljs.io/).
+    - El archivo resultante se minimiza (se eliminan espacios, las variables se reemplazan con nombres más cortos, etc).
 
 Si utilizamos herramientas de ensamblaje, entonces, a medida que los scripts se agrupan en un solo archivo (o pocos archivos), las declaraciones `import/export` dentro de esos scripts se reemplazan por funciones especiales de ensamblaje. Por lo tanto, el script "empaquetado" resultante no contiene ninguna `import/export`, no requiere `type="module"`, y podemos ponerla en un script normal:
 
@@ -409,11 +409,11 @@ Para resumir, los conceptos centrales son:
     - Para cargar scripts externos de otro origen (dominio/protocolo/puerto), se necesitan encabezados CORS. 
     - Se ignoran los scripts externos duplicados.
 2. Los módulos tienen su propio alcance local de alto nivel y funcionalidad de intercambio a través de 'import/export'.
-3. Los módulos siempre usan `use strict`.
+3. Los módulos siempre funcionan en modo estricto.
 4. El código del módulo se ejecuta solo una vez. Las exportaciones se crean una vez y se comparten entre los importadores.
 
 Cuando usamos módulos, cada módulo implementa la funcionalidad y la exporta. Luego usamos `import` para importarlo directamente donde sea necesario. El navegador carga y evalúa los scripts automáticamente.
 
-En la producción, las personas a menudo usan paquetes como [Webpack](https://webpack.js.org) para agrupar módulos por rendimiento y otras razones.
+En la producción, se suelen usar paquetes como [Webpack](https://webpack.js.org) para agrupar módulos, para mejor rendimiento y otras razones.
 
 En el próximo capítulo veremos más ejemplos de módulos y cómo se pueden exportar/importar cosas.
