@@ -38,7 +38,7 @@ alert(obj.toString === obj.__proto__.toString); //true
 alert(obj.toString === Object.prototype.toString); //true
 ```
 
-Tenga en cuenta que no hay más `[[Prototype]]` en la cadena por encima de `Object.prototype`:
+Tenga en cuenta que no hay más `[[Prototype]]` en la cadena encima de `Object.prototype`:
 
 ```js run
 alert(Object.prototype.__proto__); // null
@@ -78,7 +78,7 @@ let arr = [1, 2, 3]
 alert(arr); // 1,2,3 <-- el resultado de Array.prototype.toString
 ```
 
-Como hemos visto antes, `Object.prototype` también tiene `toString`, pero `Array.prototype` está más cerca en la cadena, por lo que se utiliza la variante de array.
+Como hemos visto antes, `Object.prototype` también tiene `toString`, pero en la cadena, `Array.prototype` está más cerca, por lo que se utiliza la variante de array.
 
 
 ![](native-prototypes-array-tostring.svg)
