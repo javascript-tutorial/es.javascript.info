@@ -1,6 +1,6 @@
 # Prototipos nativos
 
-La propiedad `"prototype"` es ampliamente utilizada por el núcleo de JavaScript mismo. Todas las funciones de constructor integradas lo usan.
+La propiedad `"prototype"` es ampliamente utilizada por el núcleo mismo de JavaScript. Todas las funciones de constructor integradas lo usan.
 
 Primero veremos los detalles, y luego cómo usarlo para agregar nuevas capacidades a los objetos integrados.
 
@@ -13,9 +13,9 @@ let obj = {};
 alert( obj ); // "[object Object]" ?
 ```
 
-¿Dónde está el código que genera la cadena `"[objetc Objetc]"`? Ese es un método integrado `toString`, pero ¿dónde está? ¡El `obj` está vacío!
+¿Dónde está el código que genera la cadena `"[object Object]"`? Es un método nativo `toString`, pero ¿dónde está? ¡El `obj` está vacío!
 
-...Pero la notación corta `obj = {}` es la misma que `obj = new Object()`, donde `Object` es una función de constructor de objeto integrado, con su propio `prototype` que hace referencia a un objeto enorme con `toString` y otros métodos
+...Pero la notación corta `obj = {}` es la mismo que `obj = new Object()`, donde `Object` es una función de constructor de objeto integrado, con su propio `prototype` que hace referencia a un objeto enorme con `toString` y otros métodos
 
 Esto es lo que está pasando:
 
@@ -38,7 +38,7 @@ alert(obj.toString === obj.__proto__.toString); //true
 alert(obj.toString === Object.prototype.toString); //true
 ```
 
-Tenga en cuenta que no hay más `[[Prototype]]` en la cadena sobre `Object.prototype`:
+Tenga en cuenta que no hay más `[[Prototype]]` en la cadena encima de `Object.prototype`:
 
 ```js run
 alert(Object.prototype.__proto__); // null
@@ -46,11 +46,11 @@ alert(Object.prototype.__proto__); // null
 
 ## Otros prototipos integrados
 
-Otros objetos integrados como `Array`, `Date` , `Function` y otros también mantienen métodos en prototipos.
+Otros objetos integrados, como `Array`, `Date` , `Function`, también mantienen los métodos en sus prototipos.
 
 Por ejemplo, cuando creamos una matriz `[1, 2, 3]`, el constructor predeterminado `new Array()` se usa internamente. Entonces `Array.prototype` se convierte en su prototipo y proporciona sus métodos. Eso es muy eficiente en memoria.
 
-Por especificación, todos los prototipos integrados tienen `Object.prototype` en la parte superior. Es por eso que algunos dicen "todo hereda de los objetos".
+Por especificación, todos los prototipos integrados tienen `Object.prototype` en el tope. Es por eso que algunos dicen "todo hereda de los objetos".
 
 Aquí está la imagen general de 3 objetos integrados (3 para que quepan):
 
@@ -67,7 +67,7 @@ alert( arr.__proto__ === Array.prototype ); // verdadero
 // y despues desde Object.prototype?
 alert( arr.__proto__.__proto__ === Object.prototype ); // verdadero
 
-// Y null en la parte superior.
+// Y null en el tope.
 alert( arr.__proto__.__proto__.__proto__ ); // null
 ```
 
@@ -78,7 +78,7 @@ let arr = [1, 2, 3]
 alert(arr); // 1,2,3 <-- el resultado de Array.prototype.toString
 ```
 
-Como hemos visto antes, `Object.prototype` también tiene `toString`, pero `Array.prototype` está más cerca de la cadena, por lo que se utiliza la variante de array.
+Como hemos visto antes, `Object.prototype` también tiene `toString`, pero en la cadena, `Array.prototype` está más cerca, por lo que se utiliza la variante de array.
 
 
 ![](native-prototypes-array-tostring.svg)
@@ -132,7 +132,7 @@ Por lo tanto, en general, modificar un prototipo nativo se considera una mala id
 
 **En la programación moderna, solo hay un caso en el que se aprueba la modificación de prototipos nativos: haciendo un polyfill.**
 
-Cuando un método existe en la especificación de JavaScript, pero aún no está soportado por un motor de JavaScript en particular, podemos hacer "polyfill" (polirrelleno); esto es, crear un método sustituto. 
+Cuando un método existe en la especificación de JavaScript, pero aún no está soportado por un motor de JavaScript en particular, podemos hacer "polyfill"; esto es, crear un método sustituto. 
 
 Luego podemos implementarlo manualmente y completar el prototipo integrado con él.
 
