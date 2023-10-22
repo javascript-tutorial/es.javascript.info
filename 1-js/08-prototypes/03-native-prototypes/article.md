@@ -46,7 +46,7 @@ alert(Object.prototype.__proto__); // null
 
 ## Otros prototipos integrados
 
-Otros objetos integrados como `Array`, `Date` , `Function` y otros también mantienen los métodos en sus prototipos.
+Otros objetos integrados, como `Array`, `Date` , `Function`, también mantienen los métodos en sus prototipos.
 
 Por ejemplo, cuando creamos una matriz `[1, 2, 3]`, el constructor predeterminado `new Array()` se usa internamente. Entonces `Array.prototype` se convierte en su prototipo y proporciona sus métodos. Eso es muy eficiente en memoria.
 
