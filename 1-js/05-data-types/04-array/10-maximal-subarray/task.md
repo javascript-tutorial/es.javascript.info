@@ -6,7 +6,7 @@ importance: 2
 
 La entrada es un array de números, por ejemplo `arr = [1, -2, 3, 4, -9, 6]`.
 
-Encuentra el subarray de ítems contiguos en `arr` que tenga la suma máxima.
+Encuentra el subarray de elementos contiguos en `arr` que tenga la suma máxima.
 
 Escribe la función `getMaxSubSum(arr)` que devuelva el resultado de tal suma.
 
