@@ -6,7 +6,7 @@ importance: 2
 
 La entrada es un array de números, por ejemplo `arr = [1, -2, 3, 4, -9, 6]`.
 
-La tarea es: encuentra el subarray contiguo de items de `arr` con la suma máxima.
+La tarea es: encuentra el subarray de items contiguos de `arr` donde su suma sea máxima.
 
 Escribe la función `getMaxSubSum(arr)` que devuelva tal suma.
 
@@ -21,7 +21,7 @@ getMaxSubSum([*!*100*/!*, -9, 2, -3, 5]) == 100
 getMaxSubSum([*!*1, 2, 3*/!*]) == 6 (toma todo)
 ```
 
-Si todos los elementos son negativos, significa que no tomamos ninguno (el subarray está vacío), entonces la suma es cero:
+Si todos los elementos son negativos, no tomamos ninguno (y el subarray queda vacío), entonces la suma es cero:
 
 ```js
 getMaxSubSum([-1, -2, -3]) = 0
