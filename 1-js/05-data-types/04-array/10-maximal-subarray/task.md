@@ -6,7 +6,7 @@ importance: 2
 
 La entrada es un array de números, por ejemplo `arr = [1, -2, 3, 4, -9, 6]`.
 
-La tarea es encontrar el subarray de elementos contiguos que tenga la suma máxima.
+La tarea es encontrar, dentro de ’arr’, el subarray de elementos contiguos que tenga la suma máxima.
 
 Escribe la función `getMaxSubSum(arr)` que devuelva el resultado de tal suma.
 
@@ -27,4 +27,4 @@ Si todos los elementos son negativos, no toma ninguno (el subarray queda vacío)
 getMaxSubSum([-1, -2, -3]) = 0
 ```
 
-Trata de pensar en una solución rápida: [O(n<sup>2</sup>)](https://es.wikipedia.org/wiki/Notaci%C3%B3n_de_Landau) o incluso O(n) si puedes.
+Trata de pensar en una solución rápida: [O(n<sup>2</sup>)](https://es.wikipedia.org/wiki/Notaci%C3%B3n_de_Landau), o incluso O(n) si puedes.
