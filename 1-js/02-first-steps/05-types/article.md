@@ -59,7 +59,7 @@ Además de los números comunes, existen los llamados "valores numéricos especi
 ```smart header="Las operaciones matemáticas son seguras"
 Hacer matemáticas es "seguro" en JavaScript. Podemos hacer cualquier cosa: dividir por cero, tratar las cadenas no numéricas como números, etc.
 
-El script nunca se detendrá con un error fatal ("morir"). En el peor de los casos, obtendremos `NaN` como resultado.
+El script nunca se detendrá con un error fatal (y "morir"). En el peor de los casos, obtendremos `NaN` como resultado.
 ```
 
 Los valores numéricos especiales pertenecen formalmente al tipo "número". Por supuesto que no son números en el sentido estricto de la palabra.
@@ -216,7 +216,7 @@ alert(age); // "undefined"
 
 El tipo `object` (objeto) es especial.
 
-Todos los demás tipos se llaman "primitivos" porque sus valores pueden contener una sola cosa (ya sea una cadena,  un número o lo que sea). Por el contrario, los objetos se utilizan para almacenar colecciones de datos y entidades más complejas. 
+Todos los demás tipos se llaman "primitivos" porque sus valores pueden contener una sola cosa (ya sea una cadena, un número, o lo que sea). Por el contrario, los objetos se utilizan para almacenar colecciones de datos y entidades más complejas.
 
 Siendo así de importantes, los objetos merecen un trato especial. Nos ocuparemos de ellos más adelante en el capítulo <info:object> después de aprender más sobre los primitivos.
 
