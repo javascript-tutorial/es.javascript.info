@@ -2,9 +2,9 @@ importance: 5
 
 ---
 
-# ¿Qué esta mal en el test?
+# ¿Qué está mal en el test?
 
-¿Qué es incorrecto en el test de `pow` de abajo?
+¿Qué es incorrecto en la prueba de `pow` que aparece a continuación?
 
 ```js
 it("Eleva x a la potencia n", function() {
