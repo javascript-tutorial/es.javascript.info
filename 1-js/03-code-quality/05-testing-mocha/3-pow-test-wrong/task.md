@@ -21,4 +21,4 @@ it("Eleva x a la potencia n", function() {
 });
 ```
 
-P.S. El test es sintácticamente correcto y pasa.
+P.S. La prueba es sintácticamente correcta y la supera.
