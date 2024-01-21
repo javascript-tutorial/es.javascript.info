@@ -48,10 +48,10 @@ describe("pow", function() {
 });
 ```
 
-Una spec tiene tres bloques principales vemos arriba.
+Una spec tiene tres bloques principales:
 
 `describe("titulo", function() { ... })`
-: descripción ¿Qué funcionalidad estamos describiendo? En nuestro caso, la función `pow`. Es utilizado para agrupar bloques de trabajo o "workers": los bloques `it`.
+: descripción ¿Qué funcionalidad estamos describiendo? En nuestro caso, la función misma, `pow`. Es utilizado para agrupar bloques de trabajo: los bloques `it`.
 
 `it("titulo", function() { ... })`
 : bloque "it". En el título de `it` introducimos una descripción legible del caso de uso. El segundo argumento es la función que lo prueba.
