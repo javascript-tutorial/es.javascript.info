@@ -1,6 +1,6 @@
 # Automatizacion de pruebas con Mocha
 
-Usaremos tests automáticos en las tareas que siguen, que son ampliamente usados en proyectos reales.
+Usaremos tests automáticos en las tareas que siguen, son ampliamente usados en proyectos reales.
 
 ## ¿Por qué necesitamos tests?
 
