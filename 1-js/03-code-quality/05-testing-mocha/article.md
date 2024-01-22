@@ -1,6 +1,6 @@
 # Automatizacion de pruebas con Mocha
 
-Usaremos tests automáticos en las tareas que siguen, son ampliamente usados en proyectos reales.
+Vermos automatización de tests en las tareas que siguen. Es algo ampliamente usado en proyectos reales.
 
 ## ¿Por qué necesitamos tests?
 
@@ -16,9 +16,9 @@ Pero esas "re-ejecuciones" manuales son imperfectas.
 
 Por ejemplo, estamos creando una función `f`. Escribimos algo de código y probamos: `f(1)` funciona, pero `f(2)` no funciona. Corregimos el código y ahora funciona `f(2)`. ¿Terminamos? Hemos olvidado volver a probar `f(1)`. Esto puede llevar a saltarnos un error.
 
-Todo esto es muy típico. Cuando desarrollamos algo, mantenemos muchos casos de uso posibles en la cabeza. Pero es difícil esperar que un programador los compruebe a todos después de cada cambio. Se vuelve fácil arreglar una cosa y romper otra.
+Esto es muy típico. Cuando desarrollamos algo, mantenemos muchos casos de uso posibles en la cabeza. Pero es difícil esperar que un programador los compruebe a todos después de cada cambio. Se vuelve fácil arreglar una cosa y romper otra.
 
-**Los automatización implica escribir un código de prueba por separado, además del código principal. Estos tests ejecutan nuestras funciones de varias formas y comparan los resultados con los esperados.**
+**Los automatización implica escribir código de prueba por separado, además del código principal. Estos tests ejecutan nuestras funciones de varias formas y comparan los resultados con los esperados.**
 
 ## Desarrollo guiado por comportamiento (Behavior Driven Development, BDD) 
 
@@ -32,11 +32,11 @@ Para entender BDD, examinaremos un caso de desarrollo práctico:
 
 Digamos que queremos hacer una función `pow(x, n)` que eleve `x` a la potencia de un entero `n`. Asumimos que `n≥0`.
 
-Esta tarea es sólo un ejemplo: Hay un operador `**` en JavaScript que hace eso, pero queremos concentrarnos en el flujo de desarrollo que puede ser aplicado a tareas más complejas.
+Esta tarea es sólo un ejemplo: Ya hay un operador `**` en JavaScript que lo hace, pero queremos concentrarnos en el flujo de desarrollo que puede ser aplicado a tareas más complejas.
 
 Antes de crear el código de `pow`, podemos imaginar lo que debe hacer la función y describirlo.
 
-Esa descripción es llamada *especificación* o "spec" y contiene las descripciones de uso junto con los test para probarlas, como:
+Esa descripción es llamada *especificación*, o "spec", y contiene descripciones de uso junto a los tests para probarlas. Como:
 
 ```js
 describe("pow", function() {
@@ -61,7 +61,7 @@ Una spec tiene tres bloques principales:
 
     Las funciones `assert.*` son usadas para comprobar que `pow` funcione como esperamos. Aquí mismo utilizamos una de ellas: `assert.equal`, que compara argumentos y produce un error si los mismos no son iguales. Arriba se está comprobando que el resultado de `pow(2, 3)` sea igual a `8`. Hay otros tipos de comparaciones y comprobaciones que veremos más adelante.
 
-La especificación puede ser ejecutada, y hará las pruebas del bloque `it`.  Lo veremos luego.
+La especificación puede ser ejecutada y hará las pruebas del bloque `it`.  Lo veremos luego.
 
 ## Flujo de desarrollo
 
@@ -100,7 +100,7 @@ La página puede ser dividida en cinco partes:
 
 1. El `<head>` -- importa librerías de terceros y estilos para los tests.
 2. El `<script>` con la función a comprobar, en nuestro caso con el código de `pow`.
-3. Los tests -- en nuestro caso un fichero externo `test.js` que contiene una sentencia `describe("pow", ...)`al inicio.
+3. Los tests -- en nuestro caso un fichero externo `test.js` que contiene una sentencia `describe("pow", ...)` al inicio.
 4. El elemento HTML `<div id="mocha">` utilizado para la salida de los resultados.
 5. Los test se inician con el comando `mocha.run()`.
 
@@ -136,7 +136,7 @@ Vamos a incluir un test para ver si `pow(3,4) = 81`.
 
 Podemos escoger entre dos formas de organizar el test:
 
-1. La primera manera -- añadir un `assert` más en el mismo `it`:
+1. La primera forma -- añadir un `assert` en el mismo `it`:
 
     ```js
     describe("pow", function() {
@@ -166,9 +166,9 @@ Podemos escoger entre dos formas de organizar el test:
     });
     ```
 
-La diferencia principal se da cuando `assert` lanza un error, el bloque `it` termina inmediatamente. De forma que si en la primera manera el primer `assert` falla, no veremos nunca el resultado del segundo `assert`.
+Cuando `assert` lanza un error, el bloque `it` termina inmediatamente. Entonces, si en la primera forma el primer `assert` falla, no veremos nunca el resultado del segundo `assert`.
 
-Hacer los tests separados es útil para recoger información sobre qué está pasando, de forma que la segunda manera es mejor.
+Hacer los tests separados es útil para recoger información sobre qué está pasando, así que la segunda forma es mejor.
 
 A parte de eso, hay otra regla que es bueno seguir.
 
@@ -404,6 +404,6 @@ Al escribir tests, el código debe estar organizado de tal manera que cada funci
 
 En la vida real a veces no es tan fácil. Suele ser difícil escribir una especificación antes que el código, porque aun no está claro cómo debe comportarse dicho código. Pero en general, escribir los tests hace el desarrollo más rápido y estable.
 
-En el tutorial encontrarás más adelante muchas tareas respaldadas con pruebas. Veremos más ejemplos prácticos de tests.
+En el tutorial encontrarás más adelante muchas tareas respaldadas con tests. Veremos más ejemplos prácticos de ellos.
 
 Escribir tests requiere un buen conocimiento de JavaScript, pero acabamos de empezar a aprenderlo. No es necesario que escribas tests ahora, pero serás capaz de leerlos incluso si son más complejos que los de este capítulo.
