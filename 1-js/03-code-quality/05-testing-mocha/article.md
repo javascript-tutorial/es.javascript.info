@@ -1,6 +1,6 @@
-# Automatizacion de pruebas con Mocha
+# Automatización de pruebas con Mocha
 
-Vermos automatización de tests en las tareas que siguen. Es algo ampliamente usado en proyectos reales.
+Veremos la automatización de tests en las tareas que siguen. Es algo ampliamente usado en proyectos reales.
 
 ## ¿Por qué necesitamos tests?
 
@@ -166,7 +166,7 @@ Podemos escoger entre dos formas de organizar el test:
     });
     ```
 
-Cuando `assert` lanza un error, el bloque `it` termina inmediatamente. Entonces, si en la primera forma el primer `assert` falla, no veremos nunca el resultado del segundo `assert`.
+Cuando `assert` lanza un error, el bloque `it` termina inmediatamente. Aquí vemos la diferencia principal: si en la primera forma el primer `assert` falla, no veremos nunca el resultado del segundo `assert`.
 
 Hacer los tests separados es útil para recoger información sobre qué está pasando, así que la segunda forma es mejor.
 
