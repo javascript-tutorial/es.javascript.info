@@ -402,7 +402,7 @@ Naturalmente, porque el código será más fácil de cambiar y mejorar. Pero no 
 
 Al escribir tests, el código debe estar organizado de tal manera que cada función tenga un propósito claro y explícito, una entrada y una salida bien definida. Eso implica una buena arquitectura desde el principio.
 
-En la vida real a veces no es tan fácil. Suele ser difícil escribir una especificación antes que el código, porque aun no está claro cómo debe comportarse dicho código. Pero en general, escribir los tests hace el desarrollo más rápido y estable.
+En la vida real a veces no es tan fácil. Suele ser difícil escribir una especificación antes que el código, porque aún no está claro cómo debe comportarse dicho código. Pero en general, escribir los tests hace el desarrollo más rápido y estable.
 
 En el tutorial encontrarás más adelante muchas tareas respaldadas con tests. Veremos más ejemplos prácticos de ellos.
 
