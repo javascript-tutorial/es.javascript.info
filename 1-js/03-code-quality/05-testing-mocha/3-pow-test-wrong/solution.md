@@ -1,4 +1,4 @@
-Esto muestra una tentación habitual del desarrollador al escribir tests.
+Este test nos muestra una tentación habitual del desarrollador al escribirlos.
 
 Lo que tenemos aquí son en realidad 3 pruebas, pero presentadas como una sola función con 3 afirmaciones.
 
