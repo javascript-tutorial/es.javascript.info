@@ -18,7 +18,7 @@ Por ejemplo, estamos creando una función `f`. Escribimos algo de código y prob
 
 Esto es muy típico. Cuando desarrollamos algo, mantenemos muchos casos de uso posibles en la cabeza. Pero es difícil esperar que un programador los compruebe a todos después de cada cambio. Se vuelve fácil arreglar una cosa y romper otra.
 
-**Los automatización implica escribir código de prueba por separado, además del código principal. Estos tests ejecutan nuestras funciones de varias formas y comparan los resultados con los esperados.**
+**La automatización implica escribir un código de prueba por separado, además del código principal. Estos tests ejecutan nuestras funciones de varias formas y comparan los resultados con los esperados.**
 
 ## Desarrollo guiado por comportamiento (Behavior Driven Development, BDD) 
 
