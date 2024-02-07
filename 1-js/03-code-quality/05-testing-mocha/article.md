@@ -12,9 +12,9 @@ Si algo está incorrecto: corregimos el código, ejecutamos de nuevo, comprobamo
 
 Pero esas "re-ejecuciones" manuales son imperfectas.
 
-**Cuando probamos un código manualmente es fácil obviar algo.**
+**Cuando probamos un código manualmente, es fácil obviar algo.**
 
-Por ejemplo, estamos creando una función `f`. Escribimos algo de código y probamos: `f(1)` funciona, pero `f(2)` no funciona. Corregimos el código y ahora funciona `f(2)`. ¿Terminamos? Hemos olvidado volver a probar `f(1)`. Esto puede llevar a saltarnos un error.
+Por ejemplo, estamos creando una función `f`. Escribimos algo de código y probamos: `f(1)` funciona, pero `f(2)` no funciona. Corregimos el código y ahora funciona `f(2)`. Terminamos, ¿es cierto? Pero hemos olvidado volver a probar `f(1)`. Esto puede llevar a saltarnos un error.
 
 Esto es muy típico. Cuando desarrollamos algo, mantenemos muchos casos de uso posibles en la cabeza. Pero es difícil esperar que un programador los compruebe a todos después de cada cambio. Se vuelve fácil arreglar una cosa y romper otra.
 
