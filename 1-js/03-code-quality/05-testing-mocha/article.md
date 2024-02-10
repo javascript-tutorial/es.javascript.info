@@ -178,7 +178,7 @@ Si vemos que un test contiene dos comprobaciones independientes, es mejor separa
 
 Así que continuamos con la segunda forma.
 
-El esultado:
+El resultado:
 
 [iframe height=250 src="pow-2" edit border="1"]
 
@@ -390,19 +390,19 @@ Esto es especialmente importante en proyectos largos cuando una función es usad
 Sin tests, la gente tiene dos opciones:
 
 1. Realizar el cambio como sea. Luego nuestros usuarios encontrarán errores porque probablemente fallemos en encontrarlos.
-2. O, si el castigo por errores es duro, la gente tendrá miedo de hacer cambios en las funciones. Entonces el código envejecerá, nadie querrá meterse en él y eso no es bueno para el desarrollo.
+2. O, si el castigo debido a los errores es duro, la gente tendrá miedo de hacer cambios en las funciones. Entonces el código envejecerá, nadie querrá meterse en él y eso no es bueno para el desarrollo.
 
-**¡El test automatizado ayuda a evitar estos problemas!**
+**¡La automatización de pruebas ayuda a evitar estos problemas!**
 
 Si el proyecto tiene la cobertura  de pruebas automatizadas, no tendremos ese problema. Podemos correr los tests y hacer multitud de comprobaciones en cuestión de segundos.
 
 **Además, un código bien probado tendrá una mejor arquitectura.**
 
-Naturalmente, porque el código será más fácil de cambiar y mejorar. Pero no sólo eso.
+Es natural, porque el código será más fácil de cambiar y mejorar. Pero no sólo eso.
 
 Al escribir tests, el código debe estar organizado de tal manera que cada función tenga un propósito claro y explícito, una entrada y una salida bien definida. Eso implica una buena arquitectura desde el principio.
 
-En la vida real a veces no es tan fácil. Suele ser difícil escribir una especificación antes que el código, porque aún no está claro cómo debe comportarse dicho código. Pero en general, escribir los tests hace el desarrollo más rápido y estable.
+En la vida real, a veces no es tan fácil. Suele ser difícil escribir una especificación antes que el código, porque aún no está claro cómo debe comportarse dicho código. Pero en general, escribir los tests hace el desarrollo más rápido y estable.
 
 En el tutorial encontrarás más adelante muchas tareas respaldadas con tests. Veremos más ejemplos prácticos de ellos.
 
