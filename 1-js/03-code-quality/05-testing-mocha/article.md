@@ -22,7 +22,7 @@ Esto es muy típico. Cuando desarrollamos algo, mantenemos muchos casos de uso p
 
 ## Desarrollo guiado por comportamiento (Behavior Driven Development, BDD) 
 
-Vamos a usar una técnica llamada [Desarrollo guiado por comportamiento](https://es.wikipedia.org/wiki/Desarrollo_guiado_por_comportamiento) o por sus siglas en inglés, BDD. 
+Vamos a usar una técnica llamada [Desarrollo guiado por comportamiento](https://es.wikipedia.org/wiki/Desarrollo_guiado_por_comportamiento) o, por sus siglas en inglés, BDD. 
 
 **BDD son tres cosas en una: tests, documentación y ejemplos.**
 
@@ -32,11 +32,11 @@ Para entender BDD, examinaremos un caso de desarrollo práctico:
 
 Digamos que queremos hacer una función `pow(x, n)` que eleve `x` a la potencia de un entero `n`. Asumimos que `n≥0`.
 
-Esta tarea es sólo un ejemplo: Ya hay un operador `**` en JavaScript que lo hace, pero queremos concentrarnos en el flujo de desarrollo que puede ser aplicado a tareas más complejas.
+Esta tarea es sólo un ejemplo; ya hay un operador `**` en JavaScript que lo hace, pero queremos concentrarnos en el flujo de desarrollo que puede ser aplicado a tareas más complejas.
 
 Antes de crear el código de `pow`, podemos imaginar lo que debe hacer la función y describirlo.
 
-Esa descripción es llamada *especificación*, o "spec", y contiene descripciones de uso junto a los tests para probarlas. Como:
+Esa descripción es llamada *especificación*, o "spec", y contiene las descripciones de uso junto con los tests para probarlas. Como:
 
 ```js
 describe("pow", function() {
@@ -91,12 +91,12 @@ En este tutorial estamos usando las siguientes librerías JavaScript para los te
 
 Estas librerías son adecuadas tanto para tests en el navegador como en el lado del servidor. Aquí nos enfocaremos en el navegador.
 
-La página HTML con estos frameworks y la spec de `pow`:
+La que sigue es la página HTML con estos frameworks y nuestra spec de `pow`:
 
 ```html src="index.html"
 ```
 
-La página puede ser dividida en cinco partes:
+Esta página puede ser dividida en cinco partes:
 
 1. El `<head>` -- importa librerías de terceros y estilos para los tests.
 2. El `<script>` con la función a comprobar, en nuestro caso con el código de `pow`.
@@ -114,7 +114,7 @@ Para más adelante, ten en cuenta que hay avanzados test-runners (Herramientas p
 
 ## Implementación inicial
 
-Vamos a realizar una implementación simple de `pow`, suficiente para pasar el test:
+Vamos a realizar una implementación simple de `pow`, apenas suficiente para pasar el test:
 
 ```js
 function pow(x, n) {
@@ -128,9 +128,9 @@ function pow(x, n) {
 
 ## Mejoramos el spec
 
-Lo que hemos hecho es una trampa. La función no funciona bien: ejecutar un cálculo diferente, como `pow(3,4)`, nos devuelve un resultado incorrecto, pero el test pasa.
+Lo que hemos hecho es trampa. La función no trabaja bien: al ejecutar un cálculo diferente, como `pow(3,4)`, nos devuelve un resultado incorrecto, pero el test pasa.
 
-... pero la situación es habitual, ocurre en la práctica. Los tests pasan, pero la función no funciona bien. Nuestra especificación está incompleta. Necesitamos añadir más casos de uso a la especificación.
+Esta situación es habitual, ocurre en la práctica. Los tests pasan, pero la función no funciona bien. Nuestra especificación está incompleta. Necesitamos añadir más casos de uso a la especificación.
 
 Vamos a incluir un test para ver si `pow(3,4) = 81`.
 
@@ -166,7 +166,7 @@ Podemos escoger entre dos formas de organizar el test:
     });
     ```
 
-Cuando `assert` lanza un error, el bloque `it` termina inmediatamente. Aquí vemos la diferencia principal: si en la primera forma el primer `assert` falla, no veremos nunca el resultado del segundo `assert`.
+Notemos que cuando `assert` lanza un error, el bloque `it` termina inmediatamente. Aquí vemos la diferencia principal: si en la primera forma el primer `assert` falla, no veremos nunca el resultado del segundo `assert`.
 
 Hacer los tests separados es útil para recoger información sobre qué está pasando, así que la segunda forma es mejor.
 
@@ -176,13 +176,13 @@ A parte de eso, hay otra regla que es bueno seguir.
 
 Si vemos que un test contiene dos comprobaciones independientes, es mejor separar el test en dos tests más simples.
 
-Así que continuamos con la segunda manera.
+Así que continuamos con la segunda forma.
 
-El resultado:
+El esultado:
 
 [iframe height=250 src="pow-2" edit border="1"]
 
-Como podemos esperar, el segundo falla. Nuestra función siempre devuelve `8` mientras el `assert` espera `27`.
+Como podemos esperar, el segundo falla. Nuestra función siempre devuelve `8`, mientras que el `assert` espera `27`.
 
 ## Mejoramos la implementación
 
@@ -259,7 +259,7 @@ El `describe` anidado define un nuevo subgrupo de tests. En la salida podemos ve
 
 [iframe height=250 src="pow-4" edit border="1"]
 
-En el futuro podemos añadir más `it` y `describe` en el primer nivel con funciones de ayuda para ellos mismos, no se solaparán con `makeTest`.
+En el futuro podemos añadir más `it` y `describe` en el nivel superior con sus propias funciones de ayuda, no se solaparán con `makeTest`.
 
 ````smart header="`before/after` y `beforeEach/afterEach`"
 Podemos configurar funciones `before/after` que se ejecuten antes/después de la ejecución de los tests, y también funciones `beforeEach/afterEach` que ejecuten antes/después de cada `it`.
