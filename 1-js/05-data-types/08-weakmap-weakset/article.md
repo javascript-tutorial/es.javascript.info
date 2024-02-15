@@ -18,7 +18,7 @@ john = null;
 */!*
 ```
 
-Por lo general, las propiedades de un objeto, elementos de un array u otra estructura de datos se consideran accesibles y se mantienen en la memoria mientras esa estructura permanezca en la memoria.
+Normalmente, los elementos de una estructura, como las propiedades de un objeto o los elementos de un array, permanecen en memoria mientras dicha estructura esté en uso.
 
 Por ejemplo, si colocamos un objeto en un array, mientras el array esté vivo el objeto también lo estará, incluso si no hay otras referencias a él.
 
