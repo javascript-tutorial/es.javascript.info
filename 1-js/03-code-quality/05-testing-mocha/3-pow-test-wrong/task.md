@@ -2,9 +2,9 @@ importance: 5
 
 ---
 
-# ¿Qué esta mal en el test?
+# ¿Qué está mal en el test?
 
-¿Qué es incorrecto en el test de `pow` de abajo?
+¿Qué es incorrecto en esta prueba de `pow`?
 
 ```js
 it("Eleva x a la potencia n", function() {
@@ -21,4 +21,4 @@ it("Eleva x a la potencia n", function() {
 });
 ```
 
-P.S. El test es sintácticamente correcto y pasa.
+P.S. La prueba es sintácticamente correcta y la supera.
