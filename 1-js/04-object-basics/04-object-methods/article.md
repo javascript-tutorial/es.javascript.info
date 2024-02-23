@@ -1,4 +1,4 @@
-# Métodos del objeto, "this"
+# Métodos de objeto, "this"
 
 Los objetos son creados usualmente para representar entidades del mundo real, como usuarios, órdenes, etc.:
 
@@ -11,7 +11,7 @@ let user = {
 
 Y en el mundo real un usuario puede *actuar*: seleccionar algo del carrito de compras, hacer login, logout, etc.
 
-Las acciones son representadas en JavaScript por funciones en las propiedades.
+En JavaScript, las acciones se representan mediante funciones dentro de las propiedades del objeto.
 
 ## Ejemplos de métodos
 
