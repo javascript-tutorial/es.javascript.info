@@ -8,7 +8,7 @@ Esto fue así hasta 2009, cuando ECMAScript 5 (ES5) apareció. Esta versión añ
 
 ## "use strict"
 
-La directiva se asemeja a un string: `"use strict"`. Cuando se sitúa al principio de un script, el script entero funciona de la manera "moderna".
+La directiva se presenta como un string: `"use strict"` o `'use strict'`. Cuando se sitúa al principio de un script, el script entero funciona de la manera "moderna".
 
 Por ejemplo:
 
