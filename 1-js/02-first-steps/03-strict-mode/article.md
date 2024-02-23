@@ -82,7 +82,7 @@ El JavaScript moderno admite "clases" y "módulos", estructuras de lenguaje avan
 
 **Entonces, por ahora `"use strict";` es un invitado bienvenido al tope de tus scripts. Luego, cuando tu código sea todo clases y módulos, puedes omitirlo.**
 
-A partir de ahora tenemos que saber acerca de `use strict` en general.
+Hemos aprendido acerca de `use strict` en general.
 
 En los siguientes capítulos, a medida que aprendamos características del lenguaje, veremos las diferencias entre el modo estricto y el antiguo. Afortunadamente no hay muchas y realmente hacen nuestra vida mejor.
 
