@@ -11,7 +11,7 @@ let user = {
 
 Y en el mundo real un usuario puede *actuar*: seleccionar algo del carrito de compras, hacer login, logout, etc.
 
-En JavaScript, las acciones se implementan con funciones dentro de las propiedades del objeto.
+Estas acciones se implementan asignando funciones a las propiedades del objeto.
 
 ## Ejemplos de métodos
 
