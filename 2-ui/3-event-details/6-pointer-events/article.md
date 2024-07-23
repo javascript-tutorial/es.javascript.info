@@ -20,7 +20,7 @@ Hagamos una pequeña descripción general para que comprenda la imagen general y
 
 Al momento la especificación [Pointer Events Level 2](https://www.w3.org/TR/pointerevents2/) es soportada en todos los principales navegadores, mientras que [Pointer Events Level 3](https://w3c.github.io/pointerevents/) está en proceso y es mayormente compatible con Pointer Events level 2. 
 
-A menos que codifique para navegadores viejos tales como Internet Explorer 10 o Safari 12 y versiones anteriores, ya no tiene sentido usar el mouse o los eventos táctiles: podemos cambiar a eventos de puntero.
+A menos que escribas código para navegadores viejos tales como Internet Explorer o Safari 12 y versiones anteriores, ya no tiene sentido usar eventos de mouse o táctiles: podemos pasar a eventos de puntero.
 
 Así tu código funcionará tanto con mouse como con dispositivos táctiles.
 
