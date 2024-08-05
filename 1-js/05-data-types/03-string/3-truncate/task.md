@@ -11,7 +11,13 @@ El resultado de la función debe ser la cadena truncada (si es necesario).
 Por ejemplo:
 
 ```js
+<<<<<<< HEAD
 truncate("Lo que me gustaría contar sobre este tema es:", 20) = "Lo que me gustaría c…"
 
 truncate("Hola a todos!", 20) = "Hola a todos!"
+=======
+truncate("What I'd like to tell on this topic is:", 20) == "What I'd like to te…"
+
+truncate("Hi everyone!", 20) == "Hi everyone!"
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 ```

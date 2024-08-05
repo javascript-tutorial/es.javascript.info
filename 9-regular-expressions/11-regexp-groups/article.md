@@ -209,9 +209,15 @@ alert(results[0]); // <h1>,h1 (1er etiqueta)
 alert(results[1]); // <h2>,h2 (2da etiqueta)
 ```
 
+<<<<<<< HEAD
 Como podemos ver, la primera diferencia es muy importante, como se demuestra en la línea `(*)`. No podemos obtener la coincidencia como `results[0]`, porque ese objeto no es pseudo array. Lo podemos convertir en un `Array` real utilizando `Array.from`. Hay más detalles sobre pseudo arrays e iterables en el artículo. <info:iterable>.
 
 No se necesita `Array.from` si estamos iterando sobre los resultados:
+=======
+As we can see, the first difference is very important, as demonstrated in the line `(*)`. We can't get the match as `results[0]`, because that object is a pseudoarray. We can turn it into a real `Array` using `Array.from`. There are more details about pseudoarrays and iterables in the article <info:iterable>.
+
+There's no need for `Array.from` if we're looping over results:
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 ```js run
 let results = '<h1> <h2>'.matchAll(/<(.*?)>/gi);

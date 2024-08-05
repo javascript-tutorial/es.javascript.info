@@ -7,7 +7,11 @@ Los equipos de desarrollo detrás de los intérpretes (engines) de JavaScript ti
 
 Por lo tanto, es bastante común para un intérprete implementar solo parte del estándar.
 
+<<<<<<< HEAD
 Una buena página para ver el estado actual de soporte de características del lenguaje es <https://kangax.github.io/compat-table/es6/> (es grande, todavía tenemos mucho que aprender).
+=======
+A good page to see the current state of support for language features is <https://compat-table.github.io/compat-table/es6/> (it's big, we have a lot to study yet).
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 Como programadores, queremos las características más recientes. Cuanto más, ¡mejor!
 
@@ -71,9 +75,14 @@ if (!Math.trunc) { // no existe tal función
 
 JavaScript es un lenguaje muy dinámico, los scripts pueden agregar o modificar cualquier función, incluso las integradas. 
 
+<<<<<<< HEAD
 Dos librerías interesantes de polyfills son:
 - [core js](https://github.com/zloirock/core-js) - da muchísimo soporte, pero permite que se incluyan solamente las características necesitadas.
 - [polyfill.io](https://polyfill.io) - servicio que brinda un script con polyfills dependiendo de las características del navegador del usuario.
+=======
+Two interesting polyfill libraries are:
+- [core js](https://github.com/zloirock/core-js) that supports a lot, allows to include only needed features.
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 
 ## Resumen
@@ -84,9 +93,15 @@ Pero no olvides usar transpiladores (si usas sintaxis u operadores modernos) y p
 
 Por ejemplo, cuando estés más familiarizado con JavaScript puedes configurar la construcción de código basado en [webpack](https://webpack.js.org/) con el plugin [babel-loader](https://github.com/babel/babel-loader).
 
+<<<<<<< HEAD
 Buenos recursos que muestran el estado actual de soporte para varias característica:
 - <https://kangax.github.io/compat-table/es6/> - para JavaScript puro.
 - <https://caniuse.com/> - para funciones relacionadas al navegador.
+=======
+Good resources that show the current state of support for various features:
+- <https://compat-table.github.io/compat-table/es6/> - for pure JavaScript.
+- <https://caniuse.com/> - for browser-related functions.
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 P.S. Google Chrome usualmente es el más actualizado con las características del lenguaje, pruébalo si algún demo del tutorial falla. Aunque la mayoría de los demos funciona con cualquier navegador moderno.
 
