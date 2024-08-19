@@ -96,10 +96,17 @@ Pues hay algunas razones.
 1. Listar explícitamente qué importar da nombres más cortos: `sayHi()` en lugar de `say.sayHi()`.
 2. La lista explícita de importaciones ofrece una mejor visión general de la estructura del código: qué se usa y dónde. Facilita el soporte de código y la refactorización.
 
+<<<<<<< HEAD
 ```smart header="No temas importar demasiado"
 Las herramientas de empaquetado modernas, como [webpack](https://webpack.js.org/) y otras, construyen los módulos juntos y optimizan la velocidad de carga. También eliminan las importaciones no usadas.
 
 Por ejemplo, si importas `import * as library` desde una librería de código enorme, y usas solo unos pocos métodos, los que no se usen [no son incluidos](https://github.com/webpack/webpack/tree/main/examples/harmony-unused#examplejs) en el paquete optimizado.
+=======
+```smart header="Don't be afraid to import too much"
+Modern build tools, such as [webpack](https://webpack.js.org/) and others, bundle modules together and optimize them to speedup loading. They also remove unused imports.
+
+For instance, if you `import * as library` from a huge code library, and then use only few methods, then unused ones [will not be included](https://github.com/webpack/webpack/tree/main/examples/harmony-unused#examplejs) into the optimized bundle.
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 ```
 
 ## Importar "as"
