@@ -94,13 +94,6 @@ const bigInt = 1234567890123456789012345678901234567890n;
 
 Como los números `BigInt` rara vez se necesitan, no los cubrimos aquí sino que les dedicamos un capítulo separado <info: bigint>. Léelo cuando necesites números tan grandes.
 
-
-```smart header="Problemas de compatibilidad"
-En este momento, `BigInt` está soportado por Firefox/Chrome/Edge/Safari, pero no por IE.
-```
-
-Puedes revisar la [tabla de compatibilidad de BigInt en *MDN*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt#Browser_compatibility) para saber qué versiones de navegador tienen soporte.
-
 ## String
 
 Un *string* en JavaScript es una cadena de caracteres y debe colocarse entre comillas.
