@@ -73,7 +73,6 @@ JavaScript es un lenguaje muy dinámico, los scripts pueden agregar o modificar 
 
 Dos librerías interesantes de polyfills son:
 - [core js](https://github.com/zloirock/core-js) - da muchísimo soporte, pero permite que se incluyan solamente las características necesitadas.
-- [polyfill.io](https://polyfill.io) - servicio que brinda un script con polyfills dependiendo de las características del navegador del usuario.
 
 
 ## Resumen
