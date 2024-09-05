@@ -71,7 +71,7 @@ if (!Math.trunc) { // no existe tal función
 
 JavaScript es un lenguaje muy dinámico, los scripts pueden agregar o modificar cualquier función, incluso las integradas. 
 
-una librería interesante de polyfills es:
+Una librería interesante de polyfills es:
 - [core js](https://github.com/zloirock/core-js) - da muchísimo soporte, pero sin sobrecargar, ya que permite incluir solo las características necesarias.
 
 ## Resumen
