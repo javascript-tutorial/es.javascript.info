@@ -5,18 +5,30 @@ Las dos estructuras de datos más usadas en JavaScript son `Object` y `Array`.
 - Los objetos nos permiten crear una simple entidad que almacena items con una clave cada uno.
 - los arrays nos permiten reunir items en una lista ordenada.
 
+<<<<<<< HEAD
 Pero cuando los pasamos a una función, tal vez no necesitemos un objeto o array como un conjunto sino en piezas individuales.
+=======
+However, when we pass these to a function, we may not need all of it. The function might only require certain elements or properties.
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 La *asignación desestructurante* es una sintaxis especial que nos permite "desempaquetar" arrays u objetos en varias variables, porque a veces es más conveniente. 
 
+<<<<<<< HEAD
 La desestructuración también funciona bien con funciones complejas que tienen muchos argumentos, valores por defecto, etcétera. Pronto lo veremos.
+=======
+Destructuring also works well with complex functions that have a lot of parameters, default values, and so on. Soon we'll see that.
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 ## Desestructuración de Arrays
 
 Un ejemplo de cómo el array es desestructurado en variables:
 
 ```js
+<<<<<<< HEAD
 // tenemos un array con el nombre y apellido
+=======
+// we have an array with a name and surname
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 let arr = ["John", "Smith"]
 
 *!*
@@ -40,10 +52,17 @@ alert(firstName); // John
 alert(surname);  // Smith
 ```
 
+<<<<<<< HEAD
 Como puedes ver, la sintaxis es simple. Aunque hay varios detalles peculiares. Veamos más ejemplos para entenderlo mejor.
 
 ````smart header="\"Desestructuración\" no significa \"destructivo\"."
 Se llama "asignación desestructurante" porque "desestructura" al copiar elementos dentro de variables, pero el array en sí no es modificado.
+=======
+As you can see, the syntax is simple. There are several peculiar details though. Let's see more examples to understand it better.
+
+````smart header="\"Destructuring\" does not mean \"destructive\"."
+It's called "destructuring assignment," because it "destructurizes" by copying items into variables. However, the array itself is not modified.
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 Es sólo una manera más simple de escribir:
 ```js
@@ -65,7 +84,11 @@ let [firstName, , title] = ["Julius", "Caesar", "Consul", "of the Roman Republic
 alert( title ); // Consul
 ```
 
+<<<<<<< HEAD
 En el código de arriba, el segundo elemento del array es omitido, el tercero es asignado a `title`, y el resto de los elementos del array también se omiten (debido a que no hay variables para ellos).
+=======
+In the code above, the second element of the array is skipped, the third one is assigned to `title`, and the rest of the array items are also skipped (as there are no variables for them).
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 ````
 
 ````smart header="Funciona con cualquier iterable en el lado derecho"
@@ -94,10 +117,17 @@ alert(user.surname); // Smith
 
 ````
 
+<<<<<<< HEAD
 ````smart header="Bucle con .entries()"
 En el capítulo anterior vimos el método [Object.entries(obj)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/entries).
 
 Podemos usarlo con la desestructuración para recorrer claves-y-valores de un objeto:
+=======
+````smart header="Looping with .entries()"
+In the previous chapter, we saw the [Object.entries(obj)](mdn:js/Object/entries) method.
+
+We can use it with destructuring to loop over the keys-and-values of an object:
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 ```js run
 let user = {
@@ -105,7 +135,11 @@ let user = {
   age: 30
 };
 
+<<<<<<< HEAD
 // recorrer claves-y-valores
+=======
+// loop over the keys-and-values
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 *!*
 for (let [key, value] of Object.entries(user)) {
 */!*
@@ -169,7 +203,11 @@ si queremos también obtener todo lo que sigue, podemos agregarle un parámetro 
 let [name1, name2, *!*...rest*/!*] = ["Julius", "Caesar", *!*"Consul", "of the Roman Republic"*/!*];
 
 *!*
+<<<<<<< HEAD
 // `rest` es un array de ítems, comenzando en este caso por el tercero.
+=======
+// rest is an array of items, starting from the 3rd one
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 alert(rest[0]); // Consul
 alert(rest[1]); // of the Roman Republic
 alert(rest.length); // 2
@@ -187,7 +225,11 @@ let [name1, name2, *!*...titles*/!*] = ["Julius", "Caesar", "Consul", "of the Ro
 
 ### Valores predeterminados
 
+<<<<<<< HEAD
 Si el array es más corto que la lista de variables a la izquierda, no habrá errores. Los valores ausentes son considerados undefined:
+=======
+If the array is shorter than the list of variables on the left, there will be no errors. Absent values are considered undefined:
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 ```js run
 *!*
@@ -418,7 +460,11 @@ alert( title ); // Menu
 
 ## Desestructuración anidada
 
+<<<<<<< HEAD
 Si un objeto o array contiene objetos y arrays anidados, podemos utilizar patrones del lado izquierdo más complejos para extraer porciones más profundas.
+=======
+If an object or an array contains other nested objects and arrays, we can use more complex left-side patterns to extract deeper portions.
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 En el código de abajo `options` tiene otro objeto en la propiedad `size` y un array en la propiedad `items`. El patrón en el lado izquierdo de la asignación tiene la misma estructura para extraer valores de ellos:
 
@@ -449,7 +495,11 @@ alert(item1);  // Cake
 alert(item2);  // Donut
 ```
 
+<<<<<<< HEAD
 Todas las propiedades del objeto `options` con excepción de `extra` que no está en el lado izquierda, son asignadas a las variables correspondientes:
+=======
+All properties of `options` object except `extra` which is absent in the left part, are assigned to corresponding variables:
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 ![](destructuring-complex.svg)
 
@@ -459,9 +509,15 @@ Tenga en cuenta que no hay variables para `size` e `items`, ya que tomamos su co
 
 ## Argumentos de función inteligentes
 
+<<<<<<< HEAD
 Hay momentos en que una función tiene muchos argumentos, la mayoría de los cuales son opcionales. Eso es especialmente cierto para las interfaces de usuario. Imagine una función que crea un menú. Puede tener ancho, altura, título, elementos de lista, etcétera.
 
 Aquí hay una forma errónea de escribir tal función:
+=======
+There are times when a function has many parameters, most of which are optional. That's especially true for user interfaces. Imagine a function that creates a menu. It may have a width, a height, a title, an item list and so on.
+
+Here's a bad way to write such a function:
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 ```js
 function showMenu(title = "Untitled", width = 200, height = 100, items = []) {
@@ -469,7 +525,11 @@ function showMenu(title = "Untitled", width = 200, height = 100, items = []) {
 }
 ```
 
+<<<<<<< HEAD
 En la vida real, el problema es cómo recordar el orden de los argumentos. Normalmente los IDEs (Entorno de desarrollo integrado) intentan ayudarnos, especialmente si el código está bien documentado, pero aún así... Otro problema es cómo llamar a una función si queremos que use sus valores predeterminados en la mayoría de los argumentos.
+=======
+In real-life, the problem is how to remember the order of arguments. Usually, IDEs try to help us, especially if the code is well-documented, but still... Another problem is how to call a function when most parameters are ok by default.
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 ¿Así?
 
@@ -534,7 +594,11 @@ function({
 })
 ```
 
+<<<<<<< HEAD
 Entonces, para un objeto de parámetros, habrá una variable `varName` para la propiedad `incomingProperty`, con `defaultValue` por defecto.
+=======
+Then, for an object of parameters, there will be a variable `varName` for the property `incomingProperty`, with `defaultValue` by default.
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 Por favor observe que tal desestructuración supone que `showMenu()` tiene un argumento. Si queremos todos los valores predeterminados, debemos especificar un objeto vacío:
 
@@ -561,7 +625,7 @@ En el código de arriba, todo el objeto de argumentos es `{}` por defecto, por l
 - La asignación desestructurante permite mapear instantáneamente un objeto o array en varias variables.
 - La sintaxis completa para objeto:
     ```js
-    let {prop : varName = default, ...rest} = object
+    let {prop : varName = defaultValue, ...rest} = object
     ```
 
     Esto significa que la propiedad `prop` se asigna a la variable `varName`; pero si no existe tal propiedad, se usa el valor `default`.
@@ -571,9 +635,16 @@ En el código de arriba, todo el objeto de argumentos es `{}` por defecto, por l
 - La sintaxis completa para array:
 
     ```js
+<<<<<<< HEAD
     let [item1 = default, item2, ...resto] = array
     ```
 
     El primer item va a `item1`, el segundo a `item2`, todos los ítems restantes crean el array `resto`.
+=======
+    let [item1 = defaultValue, item2, ...rest] = array
+    ```
+
+    The first item goes to `item1`; the second goes into `item2`, and all the rest makes the array `rest`.
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 - Es posible extraer información desde arrays/objetos anidados, para esto el lado izquierdo debe tener la misma estructura que el lado derecho.
