@@ -405,7 +405,7 @@ Para decodificar un string JSON, necesitamos otro método llamado [JSON.parse](h
 
 La sintaxis:
 ```js
-let value = JSON.parse(str, [reviver]);
+let value = JSON.parse(str[, reviver]);
 ```
 
 str

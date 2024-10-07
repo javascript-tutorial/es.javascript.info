@@ -1,6 +1,10 @@
 # Métodos de arrays 
 
+<<<<<<< HEAD
 Los arrays (también llamados arreglos o matrices) cuentan con muchos métodos. Para hacer las cosas más sencillas, en este capítulo se encuentran divididos en dos partes.
+=======
+Arrays provide a lot of methods. To make things easier, in this chapter, they are split into groups.
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 ## Agregar/remover ítems
 
@@ -32,11 +36,19 @@ alert( arr.length ); // 3
 
 El elemento fue borrado, pero el array todavía tiene 3 elementos; podemos ver que `arr.length == 3`.
 
+<<<<<<< HEAD
 Es natural, porque `delete obj.key` borra el valor de `key`, pero es todo lo que hace. Esto está bien en los objetos, pero en general lo que buscamos en los arrays es que el resto de los elementos se desplace y se ocupe el lugar libre. Lo que esperamos es un array más corto.
+=======
+That's natural, because `delete obj.key` removes a value by the `key`. It's all it does. Fine for objects. But for arrays we usually want the rest of the elements to shift and occupy the freed place. We expect to have a shorter array now.
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 Por lo tanto, necesitamos utilizar métodos especiales.
 
+<<<<<<< HEAD
 El método [arr.splice](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/splice) funciona como una navaja suiza para arrays. Puede hacer todo: insertar, remover y remplazar elementos.
+=======
+The [arr.splice](mdn:js/Array/splice) method is a Swiss army knife for arrays. It can do everything: insert, remove and replace elements.
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 La sintaxis es:
 
@@ -62,7 +74,11 @@ alert( arr ); // ["Yo", "JavaScript"]
 
 ¿Fácil, no? Empezando desde el índice `1` removió `1` elemento.
 
+<<<<<<< HEAD
 En el próximo ejemplo removemos 3 elementos y los reemplazamos con otros 2:
+=======
+In the next example, we remove 3 elements and replace them with the other two:
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 ```js run
 let arr = [*!*"Yo", "estudio", "JavaScript",*/!* "ahora", "mismo"];
@@ -84,7 +100,11 @@ let removed = arr.splice(0, 2);
 alert( removed ); // "Yo", "estudio" <-- array de los elementos removidos
 ```
 
+<<<<<<< HEAD
 El método `splice` también es capaz de insertar elementos sin remover ningún otro. Para eso necesitamos establecer `deleteCount` en `0`:
+=======
+The `splice` method is also able to insert the elements without any removals. For that, we need to set `deleteCount` to `0`:
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 ```js run
 let arr = ["Yo", "estudio", "JavaScript"];
@@ -114,7 +134,11 @@ alert( arr ); // 1,2,3,4,5
 
 ### slice
 
+<<<<<<< HEAD
 El método [arr.slice](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/slice) es mucho más simple que `arr.splice`.
+=======
+The method [arr.slice](mdn:js/Array/slice) is much simpler than the similar-looking `arr.splice`.
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 La sintaxis es:
 
@@ -124,7 +148,11 @@ arr.slice([principio], [final])
 
 Devuelve un nuevo array copiando en el mismo todos los elementos desde `principio` hasta `final` (sin incluir `final`). `principio` y `final` pueden ser negativos, en cuyo caso se asume la posición desde el final del array.
 
+<<<<<<< HEAD
 Es similar al método para strings `str.slice`, pero en lugar de substrings genera subarrays.
+=======
+It's similar to a string method `str.slice`, but instead of substrings, it makes subarrays.
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 Por ejemplo:
 
@@ -206,7 +234,11 @@ El método [arr.forEach](https://developer.mozilla.org/es/docs/Web/JavaScript/Re
 La sintaxis:
 ```js
 arr.forEach(function(item, index, array) {
+<<<<<<< HEAD
   // ... hacer algo con el elemento
+=======
+  // ... do something with an item
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 });
 ```
 
@@ -239,7 +271,11 @@ Los métodos [arr.indexOf](https://developer.mozilla.org/es/docs/Web/JavaScript/
 - `arr.indexOf(item, from)` -- busca `item` comenzando desde el index `from`, y devuelve el index donde fue encontrado, de otro modo devuelve `-1`.
 - `arr.includes(item, from)` -- busca `item` comenzando desde el índice `from`, devuelve `true` en caso de ser encontrado.
 
+<<<<<<< HEAD
 Usualmente estos métodos se usan con un solo argumento: el `item` a buscar. De manera predeterminada, la búsqueda es desde el principio.
+=======
+Usually, these methods are used with only one argument: the `item` to search. By default, the search is from the beginning.
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 Por ejemplo:
 
@@ -255,7 +291,11 @@ alert( arr.includes(1) ); // true
 
 Tener en cuenta que el método usa la comparación estricta (`===`). Por lo tanto, si buscamos `false`, encontrará exactamente `false` y no cero.
 
+<<<<<<< HEAD
 Si queremos comprobar si un elemento existe en el array, pero no necesitamos saber su ubicación exacta, es preferible usar `arr.includes`
+=======
+If we want to check if `item` exists in the array and don't need the index, then `arr.includes` is preferred.
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 El método [arr.lastIndexOf](mdn:js/Array/lastIndexOf) es lo mismo que `indexOf`, pero busca de derecha a izquierda.
 
@@ -274,12 +314,20 @@ const arr = [NaN];
 alert( arr.indexOf(NaN) ); // -1 (debería ser 0, pero la igualdad === no funciona para NaN)
 alert( arr.includes(NaN) );// true (correcto)
 ```
+<<<<<<< HEAD
 Esto es porque `includes` fue agregado mucho después y usa un algoritmo interno de comparación actualizado.
+=======
+That's because `includes` was added to JavaScript much later and uses the more up-to-date comparison algorithm internally.
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 ````
 
 ### find y findIndex/findLastIndex
 
+<<<<<<< HEAD
 Imaginemos que tenemos un array de objetos. ¿Cómo podríamos encontrar un objeto con una condición específica?
+=======
+Imagine we have an array of objects. How do we find an object with a specific condition?
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 Para este tipo de casos es útil el método [arr.find(fn)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/find) 
 
@@ -297,7 +345,11 @@ La función es llamada para cada elemento del array, uno después del otro:
 - `index` es su índice.
 - `array` es el array mismo.
 
+<<<<<<< HEAD
 Si devuelve `true`, la búsqueda se detiene y el `item` es devuelto. Si no encuentra nada, entonces devuelve `undefined`.
+=======
+If it returns `true`, the search is stopped, the `item` is returned. If nothing is found, `undefined` is returned.
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 Por ejemplo, si tenemos un array de usuarios, cada uno con los campos `id` y `name`. Encontremos el elemento con `id == 1`:
 
@@ -313,11 +365,19 @@ let user = users.find(item => item.id == 1);
 alert(user.name); // Celina
 ```
 
+<<<<<<< HEAD
 En la vida real los arrays de objetos son bastante comunes por lo que el método `find` resulta muy útil.
+=======
+In real life, arrays of objects are a common thing, so the `find` method is very useful.
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 Ten en cuenta que en el ejemplo anterior le pasamos a `find` la función `item => item.id == 1` con un argumento. Esto es lo más común, otros argumentos son raramente usados en esta función.
 
+<<<<<<< HEAD
 El método [arr.findIndex](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/findIndex) tiene la misma sintaxis, pero devuelve el índice donde el elemento fue encontrado en lugar del elemento en sí. Devuelve `-1` cuando no lo encuentra.
+=======
+The [arr.findIndex](mdn:js/Array/findIndex) method has the same syntax but returns the index where the element was found instead of the element itself. The value of `-1` is returned if nothing is found.
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 El método [arr.findLastIndex](mdn:js/Array/findLastIndex) es como `findIndex`, pero busca de derecha a izquierda, similar a `lastIndexOf`.
 
@@ -450,11 +510,19 @@ alert(arr);  // *!*1, 2, 15*/!*
 
 Ahora sí funciona como esperábamos.
 
+<<<<<<< HEAD
 Detengámonos un momento y pensemos qué es lo que está pasando. El array `arr` puede ser un array de cualquier cosa, ¿no? Puede contener números, strings, objetos o lo que sea. Podemos decir que tenemos un conjunto de *ciertos items*. Para ordenarlos, necesitamos una *función de ordenamiento* que sepa cómo comparar los elementos. El orden por defecto es hacerlo como strings.
+=======
+Let's step aside and think about what's happening. The `arr` can be an array of anything, right? It may contain numbers or strings or objects or whatever. We have a set of *some items*. To sort it, we need an *ordering function* that knows how to compare its elements. The default is a string order.
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 El método `arr.sort(fn)` implementa un algoritmo genérico de orden. No necesitamos preocuparnos de cómo funciona internamente (la mayoría de las veces es una forma optimizada del algoritmo [quicksort](https://es.wikipedia.org/wiki/Quicksort) o [Timsort](https://en.wikipedia.org/wiki/Timsort)). Este método va a recorrer el array, comparar sus elementos usando la función dada y, finalmente, reordenarlos. Todo los que necesitamos hacer es proveer la `fn` que realiza la comparación.
 
+<<<<<<< HEAD
 Por cierto, si queremos saber qué elementos son comparados, nada nos impide ejecutar alert() en ellos:
+=======
+By the way, if we ever want to know which elements are compared -- nothing prevents us from alerting them:
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 ```js run
 [1, -2, 15, 2, 0, 8].sort(function(a, b) {
@@ -526,7 +594,11 @@ Analicemos una situación de la vida real. Estamos programando una app de mensaj
 
 El método [str.split(delim)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/split) hace precisamente eso. Separa la string en elementos según el delimitante `delim` dado y los devuelve como un array.
 
+<<<<<<< HEAD
 En el ejemplo de abajo, separamos por "coma seguida de espacio":
+=======
+In the example below, we split by a comma followed by a space:
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 ```js run
 let nombres = 'Bilbo, Gandalf, Nazgul';
@@ -593,9 +665,15 @@ Argumentos:
 - `index` -- es la posición.
 - `array` -- es el array.
 
+<<<<<<< HEAD
 Mientras la función sea llamada, el resultado del llamado anterior se pasa al siguiente como primer argumento.
 
 Entonces, el primer argumento es el acumulador que almacena el resultado combinado de todas las veces anteriores en que se ejecutó, y al final se convierte en el resultado de `reduce`.
+=======
+As the function is applied, the result of the previous function call is passed to the next one as the first argument.
+
+So, the first argument is essentially the accumulator that stores the combined result of all previous executions. And at the end, it becomes the result of `reduce`.
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 ¿Suena complicado?
 
@@ -664,7 +742,11 @@ arr.reduce((sum, current) => sum + current);
 
 Por lo tanto siempre se recomienda especificar un valor inicial.
 
+<<<<<<< HEAD
 El método [arr.reduceRight](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/reduceRight) realiza lo mismo, pero va de derecha a izquierda.
+=======
+The method [arr.reduceRight](mdn:js/Array/reduceRight) does the same but goes from right to left.
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 ## Array.isArray
 
@@ -689,7 +771,11 @@ alert(Array.isArray([])); // true
 
 Casi todos los métodos para arrays que realizan llamados a funciones -- como `find`, `filter`, `map`, con la notable excepción de `sort`-- aceptan un parámetro opcional adicional `thisArg`.
 
+<<<<<<< HEAD
 Ese parámetro no está explicado en la sección anterior porque es raramente usado. Pero para ser exhaustivos necesitamos verlo.
+=======
+That parameter is not explained in the sections above, because it's rarely used. But for completeness, we have to cover it.
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 Esta es la sintaxis completa de estos métodos:
 
@@ -748,11 +834,19 @@ Veamos el ayudamemoria de métodos para arrays:
   - `slice(start, end)` -- crea un nuevo array y copia elementos desde la posición `start` hasta `end` (no incluido) en el nuevo array.
   - `concat(...items)` -- devuelve un nuevo array: copia todos los elementos del array actual y le agrega `items`. Si alguno de los `items` es un array, se toman sus elementos.
 
+<<<<<<< HEAD
 - Para buscar entre elementos:
   - `indexOf/lastIndexOf(item, pos)` -- busca por `item` comenzando desde la posición `pos`, devolviendo el índice o `-1` si no se encuentra.
   - `includes(value)` -- devuelve `true` si el array tiene `value`, si no `false`.
   - `find/filter(func)` -- filtra elementos a través de la función, devuelve el primer/todos los valores que devuelven `true`.
   - `findIndex` es similar a  `find`, pero devuelve el índice en lugar del valor.
+=======
+- To search among elements:
+  - `indexOf/lastIndexOf(item, pos)` -- look for `item` starting from position `pos`, and return the index or `-1` if not found.
+  - `includes(value)` -- returns `true` if the array has `value`, otherwise `false`.
+  - `find/filter(func)` -- filter elements through the function, return first/all values that make it return `true`.
+  - `findIndex` is like `find`, but returns the index instead of a value.
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 - Para iterar sobre elementos:
   - `forEach(func)` -- llama la `func` para cada elemento, no devuelve nada.
@@ -796,7 +890,11 @@ Podemos usar `every` para comparar arrays:
 
 Para la lista completa, ver [manual](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array).
 
+<<<<<<< HEAD
 A primera vista puede parecer que hay demasiados métodos para aprender y un tanto difíciles de recordar. Pero con el tiempo se vuelve más fácil.
+=======
+At first sight, it may seem that there are so many methods, quite difficult to remember. But actually, that's much easier.
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 Revisa el ayudamemoria para conocerlos. Después realiza las prácticas de este capítulo para ganar experiencia con los métodos para arrays.
 
