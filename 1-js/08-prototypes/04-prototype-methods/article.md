@@ -14,7 +14,11 @@ El único uso de `__proto__` que no está mal visto, es como una propiedad cuand
 
 Aunque hay un método especial para esto también:
 
+<<<<<<< HEAD
 - [Object.create(proto, [descriptors])](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/create) -- crea un objeto vacío con el "proto" dado como `[[Prototype]]` y descriptores de propiedad opcionales.
+=======
+- [Object.create(proto[, descriptors])](mdn:js/Object/create) -- creates an empty object with given `proto` as `[[Prototype]]` and optional property descriptors.
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 Por ejemplo:
 
@@ -200,8 +204,13 @@ alert(Object.keys(chineseDictionary)); // hola, adiós
 
 - Para crear un objeto con un prototipo dado, use:
 
+<<<<<<< HEAD
     - sintaxis literal: `{ __proto__: ... }`, permite especificar multiples propiedades
     - o [Object.create(proto, [descriptors])](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/create), permite especificar descriptores de propiedad.
+=======
+    - literal syntax: `{ __proto__: ... }`, allows to specify multiple properties
+    - or [Object.create(proto[, descriptors])](mdn:js/Object/create), allows to specify property descriptors.
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
     El `Object.create` brinda una forma fácil de hacer la copia superficial de un objeto con todos sus descriptores:
 
