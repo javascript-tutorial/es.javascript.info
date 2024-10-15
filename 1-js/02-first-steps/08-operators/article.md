@@ -444,7 +444,7 @@ Estos operadores se usan muy raramente, cuando necesitamos manejar la representa
 
 El operador coma `,` es uno de los operadores más raros e inusuales. A veces se utiliza para escribir código más corto, por lo que debemos conocerlo para poder entender lo que está sucediendo.
 
-El operador coma nos permite evaluar varias expresiones dividiéndolas con una coma `,`. Cada una de ellas es evaluada, pero sólo el resultado de la última es devuelto.
+El operador coma nos permite evaluar varias expresiones, separándolas con una coma `,`. Cada expresión se evalúa, pero sólo se devuelve el resultado de la última.
 
 Por ejemplo:
 
