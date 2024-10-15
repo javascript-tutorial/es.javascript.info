@@ -442,9 +442,9 @@ Estos operadores se usan muy raramente, cuando necesitamos manejar la representa
 
 ## Coma
 
-El operador coma `,` es uno de los operadores más raros e inusuales. A veces, es utilizado para escribir código más corto, entonces tenemos que saberlo para poder entender qué está pasando.
+El operador coma `,` es uno de los operadores más raros e inusuales. A veces se utiliza para escribir código más corto, por lo que debemos conocerlo para poder entender lo que está sucediendo.
 
-El operador coma nos permite evaluar varias expresiones, dividiéndolas con una coma `,`. Cada una de ellas es evaluada, pero sólo el resultado de la última es devuelto.
+El operador coma nos permite evaluar varias expresiones, separándolas con una coma `,`. Cada expresión se evalúa, pero sólo se devuelve el resultado de la última.
 
 Por ejemplo:
 
@@ -466,7 +466,7 @@ Sin ellos: `a = 1 + 2, 3 + 4` se evalúa primero el `+`, sumando los números a 
 
 ¿Por qué necesitamos un operador que deseche todo excepto la última expresión?
 
-A veces, las personas lo usan en construcciones más complejas para poner varias acciones en una línea.
+A veces se utilizan en construcciones más complejas para ejecutar varias acciones en una línea.
 
 Por ejemplo:
 
@@ -477,4 +477,4 @@ for (*!*a = 1, b = 3, c = a * b*/!*; a < 10; a++) {
 }
 ```
 
-Tales trucos se usan en muchos frameworks de JavaScript. Por eso los estamos mencionando. Pero generalmente no mejoran la legibilidad del código, por lo que debemos pensar bien antes de usarlos.
+Tales trucos se usan en muchos frameworks de JavaScript, por eso los mencionamos. Sin embargo, generalmente no mejoran la legibilidad del código, por lo que debemos pensar bien antes de usarlos.
