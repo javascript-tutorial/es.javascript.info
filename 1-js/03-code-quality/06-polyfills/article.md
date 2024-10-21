@@ -7,7 +7,11 @@ Los equipos de desarrollo detrás de los intérpretes (engines) de JavaScript ti
 
 Por lo tanto, es bastante común para un intérprete implementar solo parte del estándar.
 
+<<<<<<< HEAD
 Una buena página para ver el estado actual de soporte de características del lenguaje es <https://kangax.github.io/compat-table/es6/> (es grande, todavía tenemos mucho que aprender).
+=======
+A good page to see the current state of support for language features is <https://compat-table.github.io/compat-table/es6/> (it's big, we have a lot to study yet).
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 Como programadores, queremos las características más recientes. Cuanto más, ¡mejor!
 
@@ -71,8 +75,13 @@ if (!Math.trunc) { // no existe tal función
 
 JavaScript es un lenguaje muy dinámico, los scripts pueden agregar o modificar cualquier función, incluso las integradas. 
 
+<<<<<<< HEAD
 Una librería interesante de polyfills es:
 - [core js](https://github.com/zloirock/core-js) - da muchísimo soporte, pero sin sobrecargar, ya que permite incluir solo las características necesarias.
+=======
+Two interesting polyfill libraries are:
+- [core js](https://github.com/zloirock/core-js) that supports a lot, allows to include only needed features.
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
 ## Resumen
 
@@ -86,5 +95,13 @@ Buenos recursos que muestran el estado actual de soporte para varias caracterís
 - <https://kangax.github.io/compat-table/es6/> - para JavaScript puro.
 - <https://caniuse.com/> - para funciones relacionadas al navegador.
 
+<<<<<<< HEAD
 P.S. Google Chrome usualmente es el más actualizado con las características del lenguaje, pruébalo si algún demo del tutorial falla. Aunque la mayoría de los demos funciona con cualquier navegador moderno.
+=======
+Good resources that show the current state of support for various features:
+- <https://compat-table.github.io/compat-table/es6/> - for pure JavaScript.
+- <https://caniuse.com/> - for browser-related functions.
+
+P.S. Google Chrome is usually the most up-to-date with language features, try it if a tutorial demo fails. Most tutorial demos work with any modern browser though.
+>>>>>>> b258d7d5b635c88228f7556e14fbe5e5ca7f736d
 
