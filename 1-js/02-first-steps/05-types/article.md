@@ -92,7 +92,11 @@ Un valor `BigInt` se crea agregando `n` al final de un entero:
 const bigInt = 1234567890123456789012345678901234567890n;
 ```
 
+<<<<<<< HEAD
 Como los números `BigInt` rara vez se necesitan, no los cubrimos aquí sino que les dedicamos un capítulo separado <info: bigint>. Léelo cuando necesites números tan grandes.
+=======
+As `BigInt` numbers are rarely needed, we don't cover them here, but devoted them a separate chapter <info:bigint>. Read it when you need such big numbers.
+>>>>>>> 34a80e70f8cce5794be259d25f815d7a7db7cbe3
 
 ## String
 

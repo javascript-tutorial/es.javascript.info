@@ -17,7 +17,11 @@ EL algoritmo general del motor:
     - ejecutarlas comenzando por la más antigua.
 2. Dormir hasta que aparezca una tarea, luego volver a 1.
 
+<<<<<<< HEAD
 Eso es una formalización de lo que vemos cuando navegamos por una página. El motor JavaScript no hace nada la mayoría del tiempo y solo corre cuando un script/controlador/evento se activa.
+=======
+That's a formalization of what we see when browsing a page. The JavaScript engine does nothing most of the time, it only runs if a script/handler/event activates.
+>>>>>>> 34a80e70f8cce5794be259d25f815d7a7db7cbe3
 
 Ejemplos de tareas:
 
@@ -30,6 +34,7 @@ Las tareas son programadas --&gt; el motor las ejecuta --&gt; <span class="x x-f
 
 Puede ocurrir que una tarea llegue mientras el motor está ocupado, entonces es puesta en cola.
 
+<<<<<<< HEAD
 Las tareas forman una cola, también llamada "Cola de macrotarea" (Término de v8):
 
 ![](eventLoop.svg)
@@ -37,12 +42,27 @@ Las tareas forman una cola, también llamada "Cola de macrotarea" (Término de v
 Por ejemplo, mientras el motor está ocupado ejecutando un `script`, un usuario podría mover su mouse causando `mousemove` o también podría ser `setTimeout`, etc. Todas estas tareas forman una cola como se observa en la imagen arriba.
 
 Las tareas de la cola son ejecutadas según la base "El que primero llega primero se atiende". Cuando el motor del navegador termina con el `script`, se encarga del evento `mousemove`, continúa con `setTimeout`, etc.
+=======
+The tasks form a queue, the so-called "macrotask queue" ([v8](https://v8.dev/) term):
+
+![](eventLoop.svg)
+
+For instance, while the engine is busy executing a `script`, a user may move their mouse causing `mousemove`, and `setTimeout` may be due and so on, these tasks form a queue, as illustrated in the picture above.
+
+Tasks from the queue are processed on a "first come – first served" basis. When the engine browser is done with the `script`, it handles `mousemove` event, then `setTimeout` handler, and so on.
+>>>>>>> 34a80e70f8cce5794be259d25f815d7a7db7cbe3
 
 Hasta ahora bastante simple, ¿no?
 
+<<<<<<< HEAD
 Dos detalles más:
 1. El renderizado nunca ocurre mientras el motor ejecuta una tarea. No importa si la tarea ocupa mucho tiempo. Solo se realizan cambios a DOM una vez que la tarea finaliza.
 2. Si una tarea consume demasiado tiempo, el navegador no puede hacer otras tareas, procesos o eventos por lo que después de un tiempo muestra una alerta "La página no responde" sugiriendo detener la tarea con la página completa. Esto ocurre cuando hay muchos cálculos complejos o un error en la programación que lleva a un bucle infinito.
+=======
+Two more details:
+1. Rendering never happens while the engine executes a task. It doesn't matter if the task takes a long time. Changes to the DOM are painted only after the task is complete.
+2. If a task takes too long, the browser can't do other tasks, such as processing user events. So after some time, it raises an alert like "Page Unresponsive", suggesting killing the task with the whole page. That happens when there are a lot of complex calculations or a programming error leading to an infinite loop.
+>>>>>>> 34a80e70f8cce5794be259d25f815d7a7db7cbe3
 
 Esa fue la teoría. Ahora veamos como podemos aplicar ese conocimiento.
 
@@ -54,7 +74,11 @@ Por ejemplo, el resaltado de sintaxis (usado para colorear ejemplos de código e
 
 Mientras el motor está ocupado con el resaltado de sintaxis, no puede hacer otras cosas relacionadas a DOM, procesar eventos de usuario, etc. Podría incluso provocar que el navegador se "congele" por un momento, lo que es inaceptable.
 
+<<<<<<< HEAD
 Podemos evitar problemas dividiendo la tarea en piezas más pequeñas. Resaltar primero 100 líneas, después programar `setTimeout` (con cero delay) para las próximas 100 líneas y así sucesivamente.
+=======
+We can avoid problems by splitting the big task into pieces. Highlight the first 100 lines, then schedule `setTimeout` (with zero-delay) for the next 100 lines, and so on.
+>>>>>>> 34a80e70f8cce5794be259d25f815d7a7db7cbe3
 
 Para demostrar este enfoque y en pos de una mayor simplicidad, en lugar de resaltado de texto tomemos una función que cuenta desde `1` hasta `1000000000`.
 

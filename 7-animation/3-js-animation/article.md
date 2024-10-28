@@ -452,4 +452,8 @@ Seguramente podríamos mejorarlo, agregar más campanas y silbidos, pero las ani
 
 Las animaciones JavaScript pueden utilizar cualquier función de sincronización. Cubrimos muchos ejemplos y transformaciones para hacerlos aún más versátiles. A diferencia de CSS, aquí no estamos limitados a las curvas de Bézier.
 
+<<<<<<< HEAD
 Lo mismo ocurre con `draw`: podemos animar cualquier cosa, no solo propiedades CSS.
+=======
+The same is true about `draw`: we can animate anything, not just CSS properties.
+>>>>>>> 34a80e70f8cce5794be259d25f815d7a7db7cbe3
