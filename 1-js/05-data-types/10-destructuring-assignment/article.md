@@ -5,9 +5,9 @@ Las dos estructuras de datos más usadas en JavaScript son `Object` y `Array`.
 - Los objetos nos permiten crear una simple entidad que almacena items con una clave cada uno.
 - los arrays nos permiten reunir items en una lista ordenada.
 
-Pero cuando los pasamos a una función, tal vez no necesitemos un objeto o array como un conjunto sino en piezas individuales.
+Pero cuando los pasamos a una función, tal vez no necesitemos el objeto o array completo. La función podría requerir solamente ciertos elementos o propiedades.
 
-La *asignación desestructurante* es una sintaxis especial que nos permite "desempaquetar" arrays u objetos en varias variables, porque a veces es más conveniente. 
+La *asignación desestructurante* es una sintaxis especial que nos permite "desempaquetar" arrays u objetos en un manojo de variables, porque a veces es lo más conveniente. 
 
 La desestructuración también funciona bien con funciones complejas que tienen muchos argumentos, valores por defecto, etcétera. Pronto lo veremos.
 
@@ -16,7 +16,7 @@ La desestructuración también funciona bien con funciones complejas que tienen 
 Un ejemplo de cómo el array es desestructurado en variables:
 
 ```js
-// tenemos un array con el nombre y apellido
+// tenemos un array con un nombre y apellido
 let arr = ["John", "Smith"]
 
 *!*
@@ -43,7 +43,7 @@ alert(surname);  // Smith
 Como puedes ver, la sintaxis es simple. Aunque hay varios detalles peculiares. Veamos más ejemplos para entenderlo mejor.
 
 ````smart header="\"Desestructuración\" no significa \"destructivo\"."
-Se llama "asignación desestructurante" porque "desestructura" al copiar elementos dentro de variables, pero el array en sí no es modificado.
+Se llama "asignación desestructurante" porque "desestructura" al copiar elementos dentro de variables. Sin embargo, el array en sí no es modificado.
 
 Es sólo una manera más simple de escribir:
 ```js
@@ -187,7 +187,7 @@ let [name1, name2, *!*...titles*/!*] = ["Julius", "Caesar", "Consul", "of the Ro
 
 ### Valores predeterminados
 
-Si el array es más corto que la lista de variables a la izquierda, no habrá errores. Los valores ausentes son considerados undefined:
+Si el array es más corto que la lista de variables de la izquierda, no habrá errores. Los valores ausentes quedan `undefined`:
 
 ```js run
 *!*
@@ -418,7 +418,7 @@ alert( title ); // Menu
 
 ## Desestructuración anidada
 
-Si un objeto o array contiene objetos y arrays anidados, podemos utilizar patrones del lado izquierdo más complejos para extraer porciones más profundas.
+Si un objeto o array contiene otros objetos y arrays anidados, podemos utilizar patrones más complejos en el lado izquierdo para extraer porciones más profundas.
 
 En el código de abajo `options` tiene otro objeto en la propiedad `size` y un array en la propiedad `items`. El patrón en el lado izquierdo de la asignación tiene la misma estructura para extraer valores de ellos:
 
@@ -449,19 +449,19 @@ alert(item1);  // Cake
 alert(item2);  // Donut
 ```
 
-Todas las propiedades del objeto `options` con excepción de `extra` que no está en el lado izquierda, son asignadas a las variables correspondientes:
+Todas las propiedades del objeto `options`, con excepción de `extra` que no está en el lado izquierdo, son asignadas a las variables correspondientes:
 
 ![](destructuring-complex.svg)
 
 Por último tenemos `width`, `height`, `item1`, `item2` y `title` desde el valor predeterminado.
 
-Tenga en cuenta que no hay variables para `size` e `items`, ya que tomamos su contenido en su lugar.
+Nota que no hay variables para `size` e `items`, ya que tomamos su contenido en su lugar.
 
 ## Argumentos de función inteligentes
 
-Hay momentos en que una función tiene muchos argumentos, la mayoría de los cuales son opcionales. Eso es especialmente cierto para las interfaces de usuario. Imagine una función que crea un menú. Puede tener ancho, altura, título, elementos de lista, etcétera.
+Hay momentos en que una función tiene muchos parámetros, la mayoría de los cuales son opcionales. Eso es especialmente cierto para las interfaces de usuario. Imagine una función que crea un menú. Puede tener ancho, altura, título, elementos de lista, etcétera.
 
-Aquí hay una forma errónea de escribir tal función:
+Esta es una forma incorrecta de escribir tal función:
 
 ```js
 function showMenu(title = "Untitled", width = 200, height = 100, items = []) {
@@ -469,7 +469,7 @@ function showMenu(title = "Untitled", width = 200, height = 100, items = []) {
 }
 ```
 
-En la vida real, el problema es cómo recordar el orden de los argumentos. Normalmente los IDEs (Entorno de desarrollo integrado) intentan ayudarnos, especialmente si el código está bien documentado, pero aún así... Otro problema es cómo llamar a una función si queremos que use sus valores predeterminados en la mayoría de los argumentos.
+En la vida real, el problema es cómo recordar el orden de los argumentos. Normalmente los IDEs ayudan, especialmente si el código está bien documentado, pero aún así... Otro problema es cómo llamar a una función si queremos que la mayoría de los argumentos usen sus valores predeterminados.
 
 ¿Así?
 
@@ -561,7 +561,7 @@ En el código de arriba, todo el objeto de argumentos es `{}` por defecto, por l
 - La asignación desestructurante permite mapear instantáneamente un objeto o array en varias variables.
 - La sintaxis completa para objeto:
     ```js
-    let {prop : varName = default, ...rest} = object
+    let {prop : varName = defaultValue, ...rest} = object
     ```
 
     Esto significa que la propiedad `prop` se asigna a la variable `varName`; pero si no existe tal propiedad, se usa el valor `default`.

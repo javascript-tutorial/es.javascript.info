@@ -7,7 +7,7 @@ Los equipos de desarrollo detrás de los intérpretes (engines) de JavaScript ti
 
 Por lo tanto, es bastante común para un intérprete implementar solo parte del estándar.
 
-Una buena página para ver el estado actual de soporte de características del lenguaje es <https://kangax.github.io/compat-table/es6/> (es grande, todavía tenemos mucho que aprender).
+Una buena página para ver el estado actual de soporte de características del lenguaje es <https://compat-table.github.io/compat-table/es6/> (es grande, todavía tenemos mucho que aprender).
 
 Como programadores, queremos las características más recientes. Cuanto más, ¡mejor!
 
@@ -72,7 +72,8 @@ if (!Math.trunc) { // no existe tal función
 JavaScript es un lenguaje muy dinámico, los scripts pueden agregar o modificar cualquier función, incluso las integradas. 
 
 Una librería interesante de polyfills es:
-- [core js](https://github.com/zloirock/core-js) - da muchísimo soporte, pero sin sobrecargar, ya que permite incluir solo las características necesarias.
+- [core js](https://github.com/zloirock/core-js) - brinda muchísimo soporte, pero permite incluir solo las características necesarias.
+
 
 ## Resumen
 
@@ -83,7 +84,7 @@ Pero no olvides usar transpiladores (si usas sintaxis u operadores modernos) y p
 Por ejemplo, cuando estés más familiarizado con JavaScript puedes configurar la construcción de código basado en [webpack](https://webpack.js.org/) con el plugin [babel-loader](https://github.com/babel/babel-loader).
 
 Buenos recursos que muestran el estado actual de soporte para varias característica:
-- <https://kangax.github.io/compat-table/es6/> - para JavaScript puro.
+- <https://compat-table.github.io/compat-table/es6/> - para JavaScript puro.
 - <https://caniuse.com/> - para funciones relacionadas al navegador.
 
 P.S. Google Chrome usualmente es el más actualizado con las características del lenguaje, pruébalo si algún demo del tutorial falla. Aunque la mayoría de los demos funciona con cualquier navegador moderno.

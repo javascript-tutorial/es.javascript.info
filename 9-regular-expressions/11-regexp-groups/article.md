@@ -209,9 +209,9 @@ alert(results[0]); // <h1>,h1 (1er etiqueta)
 alert(results[1]); // <h2>,h2 (2da etiqueta)
 ```
 
-Como podemos ver, la primera diferencia es muy importante, como se demuestra en la línea `(*)`. No podemos obtener la coincidencia como `results[0]`, porque ese objeto no es pseudo array. Lo podemos convertir en un `Array` real utilizando `Array.from`. Hay más detalles sobre pseudo arrays e iterables en el artículo. <info:iterable>.
+Como se demuestra en la línea `(*)`, la primera diferencia es muy importante. No podemos obtener la coincidencia como `results[0]`, porque ese objeto es un pseudo array. Lo podemos convertir en un `Array` real utilizando `Array.from`. Hay más detalles sobre pseudo arrays e iterables en el artículo. <info:iterable>.
 
-No se necesita `Array.from` si estamos iterando sobre los resultados:
+No necesitamos `Array.from` si estamos iterando sobre los resultados:
 
 ```js run
 let results = '<h1> <h2>'.matchAll(/<(.*?)>/gi);

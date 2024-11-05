@@ -17,7 +17,7 @@ EL algoritmo general del motor:
     - ejecutarlas comenzando por la más antigua.
 2. Dormir hasta que aparezca una tarea, luego volver a 1.
 
-Eso es una formalización de lo que vemos cuando navegamos por una página. El motor JavaScript no hace nada la mayoría del tiempo y solo corre cuando un script/controlador/evento se activa.
+Eso es una formalización de lo que vemos cuando navegamos por una página. El motor JavaScript no hace nada la mayor parte del tiempo y solo corre cuando un script/controlador/evento se activa.
 
 Ejemplos de tareas:
 
@@ -30,19 +30,19 @@ Las tareas son programadas --&gt; el motor las ejecuta --&gt; <span class="x x-f
 
 Puede ocurrir que una tarea llegue mientras el motor está ocupado, entonces es puesta en cola.
 
-Las tareas forman una cola, también llamada "Cola de macrotarea" (Término de v8):
+Las tareas forman una cola, la llamada "Cola de macrotareas" (terminología de [v8](https://v8.dev/)):
 
 ![](eventLoop.svg)
 
-Por ejemplo, mientras el motor está ocupado ejecutando un `script`, un usuario podría mover su mouse causando `mousemove` o también podría ser `setTimeout`, etc. Todas estas tareas forman una cola como se observa en la imagen arriba.
+Por ejemplo, mientras el motor está ocupado ejecutando un `script`, un usuario podría mover su mouse causando `mousemove`, o también podría ocurrir un `setTimeout`, etc. Todas estas tareas ingresan a la cola como se observa en la imagen arriba.
 
 Las tareas de la cola son ejecutadas según la base "El que primero llega primero se atiende". Cuando el motor del navegador termina con el `script`, se encarga del evento `mousemove`, continúa con `setTimeout`, etc.
 
 Hasta ahora bastante simple, ¿no?
 
 Dos detalles más:
-1. El renderizado nunca ocurre mientras el motor ejecuta una tarea. No importa si la tarea ocupa mucho tiempo. Solo se realizan cambios a DOM una vez que la tarea finaliza.
-2. Si una tarea consume demasiado tiempo, el navegador no puede hacer otras tareas, procesos o eventos por lo que después de un tiempo muestra una alerta "La página no responde" sugiriendo detener la tarea con la página completa. Esto ocurre cuando hay muchos cálculos complejos o un error en la programación que lleva a un bucle infinito.
+1. El renderizado nunca ocurre mientras el motor ejecuta una tarea. No importa si la tarea ocupa mucho tiempo. Solo se realizarán cambios al DOM una vez que la tarea finalice.
+2. Cuando una tarea consume demasiado tiempo, el navegador no puede ejecutar otras tareas, procesos o eventos. Si esto ocurre, después de un tiempo el navegador nos mostrará una alerta "La página no responde" sugiriendo detener la tarea con la página completa. Esto puede ocurrir cuando hay muchos cálculos complejos, o por un error en la programación que lleva a un bucle infinito.
 
 Esa fue la teoría. Ahora veamos como podemos aplicar ese conocimiento.
 
@@ -54,7 +54,7 @@ Por ejemplo, el resaltado de sintaxis (usado para colorear ejemplos de código e
 
 Mientras el motor está ocupado con el resaltado de sintaxis, no puede hacer otras cosas relacionadas a DOM, procesar eventos de usuario, etc. Podría incluso provocar que el navegador se "congele" por un momento, lo que es inaceptable.
 
-Podemos evitar problemas dividiendo la tarea en piezas más pequeñas. Resaltar primero 100 líneas, después programar `setTimeout` (con cero delay) para las próximas 100 líneas y así sucesivamente.
+Podemos evitar el problema dividiendo la tarea en piezas más pequeñas. Resaltar primero 100 líneas, después programar `setTimeout` (con cero delay) para las próximas 100 líneas, y así sucesivamente.
 
 Para demostrar este enfoque y en pos de una mayor simplicidad, en lugar de resaltado de texto tomemos una función que cuenta desde `1` hasta `1000000000`.
 

@@ -354,7 +354,7 @@ Las principales propiedades de selection son:
 
 ```smart header="Inicio/final, Selection vs. Range"
 
-Hay una diferencia importante entre anchor/focus (ancla/foco) de una selección comparado al inicio/fin de un rango.
+Hay una diferencia importante entre anchor/focus (ancla/foco) de una selección comparado al inicio/fin de un `Range` (rango).
 
 Sabemos que los objetos `Range` siempre tienen el inicio antes que el final.
 

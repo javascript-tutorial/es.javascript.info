@@ -1,5 +1,5 @@
 
-El error se produce porque `ask` obtiene las funciones `loginOk/loginFail` sin el objeto.
+El error se produce porque `askPassword` obtiene las funciones `loginOk/loginFail` sin el objeto.
 
 Cuando los llama, asumen naturalmente `this = undefined`.
 

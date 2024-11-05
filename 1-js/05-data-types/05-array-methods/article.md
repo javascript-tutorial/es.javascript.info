@@ -1,6 +1,6 @@
 # Métodos de arrays 
 
-Los arrays (también llamados arreglos o matrices) cuentan con muchos métodos. Para hacer las cosas más sencillas, en este capítulo se encuentran divididos en dos partes.
+Los arrays (también llamados arreglos o matrices) cuentan con muchos métodos. Para hacer las cosas más sencillas, en este capítulo los separamos en grupos.
 
 ## Agregar/remover ítems
 
@@ -62,7 +62,7 @@ alert( arr ); // ["Yo", "JavaScript"]
 
 ¿Fácil, no? Empezando desde el índice `1` removió `1` elemento.
 
-En el próximo ejemplo removemos 3 elementos y los reemplazamos con otros 2:
+En el próximo ejemplo, removemos 3 elementos y los reemplazamos con otros 2:
 
 ```js run
 let arr = [*!*"Yo", "estudio", "JavaScript",*/!* "ahora", "mismo"];
@@ -114,7 +114,7 @@ alert( arr ); // 1,2,3,4,5
 
 ### slice
 
-El método [arr.slice](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/slice) es mucho más simple que `arr.splice`.
+El método [arr.slice](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/slice) es mucho más simple que su similar `arr.splice`.
 
 La sintaxis es:
 
@@ -124,7 +124,7 @@ arr.slice([principio], [final])
 
 Devuelve un nuevo array copiando en el mismo todos los elementos desde `principio` hasta `final` (sin incluir `final`). `principio` y `final` pueden ser negativos, en cuyo caso se asume la posición desde el final del array.
 
-Es similar al método para strings `str.slice`, pero en lugar de substrings genera subarrays.
+Es similar al método para strings `str.slice`, pero en lugar de substrings, genera subarrays.
 
 Por ejemplo:
 
@@ -206,7 +206,7 @@ El método [arr.forEach](https://developer.mozilla.org/es/docs/Web/JavaScript/Re
 La sintaxis:
 ```js
 arr.forEach(function(item, index, array) {
-  // ... hacer algo con el elemento
+  // ... hacer algo con un elemento
 });
 ```
 
@@ -274,7 +274,7 @@ const arr = [NaN];
 alert( arr.indexOf(NaN) ); // -1 (debería ser 0, pero la igualdad === no funciona para NaN)
 alert( arr.includes(NaN) );// true (correcto)
 ```
-Esto es porque `includes` fue agregado mucho después y usa un algoritmo interno de comparación actualizado.
+Esto es porque `includes` fue agregado a JavaScript mucho después, su algoritmo interno de comparación está actualizado.
 ````
 
 ### find y findIndex/findLastIndex
@@ -313,7 +313,7 @@ let user = users.find(item => item.id == 1);
 alert(user.name); // Celina
 ```
 
-En la vida real los arrays de objetos son bastante comunes por lo que el método `find` resulta muy útil.
+En la vida real, los arrays de objetos son bastante comunes, por lo que el método `find` resulta muy útil.
 
 Ten en cuenta que en el ejemplo anterior le pasamos a `find` la función `item => item.id == 1` con un argumento. Esto es lo más común, otros argumentos son raramente usados en esta función.
 
@@ -450,11 +450,11 @@ alert(arr);  // *!*1, 2, 15*/!*
 
 Ahora sí funciona como esperábamos.
 
-Detengámonos un momento y pensemos qué es lo que está pasando. El array `arr` puede ser un array de cualquier cosa, ¿no? Puede contener números, strings, objetos o lo que sea. Podemos decir que tenemos un conjunto de *ciertos items*. Para ordenarlos, necesitamos una *función de ordenamiento* que sepa cómo comparar los elementos. El orden por defecto es hacerlo como strings.
+Detengámonos a pensar, qué está pasando. El array `arr` puede ser un array de cualquier cosa, ¿verdad? Puede contener números, strings, objetos o lo que sea. Podemos decir que tenemos un conjunto de *ciertos items*. Para ordenarlos, necesitamos una *función de ordenamiento* que sepa cómo comparar los elementos. El orden predeterminado es hacerlo como strings.
 
 El método `arr.sort(fn)` implementa un algoritmo genérico de orden. No necesitamos preocuparnos de cómo funciona internamente (la mayoría de las veces es una forma optimizada del algoritmo [quicksort](https://es.wikipedia.org/wiki/Quicksort) o [Timsort](https://en.wikipedia.org/wiki/Timsort)). Este método va a recorrer el array, comparar sus elementos usando la función dada y, finalmente, reordenarlos. Todo los que necesitamos hacer es proveer la `fn` que realiza la comparación.
 
-Por cierto, si queremos saber qué elementos son comparados, nada nos impide ejecutar alert() en ellos:
+Por cierto, si queremos ver qué elementos están siendo comparados, nada nos impide mostrarlos en un alert():
 
 ```js run
 [1, -2, 15, 2, 0, 8].sort(function(a, b) {
@@ -595,7 +595,7 @@ Argumentos:
 
 Mientras la función sea llamada, el resultado del llamado anterior se pasa al siguiente como primer argumento.
 
-Entonces, el primer argumento es el acumulador que almacena el resultado combinado de todas las veces anteriores en que se ejecutó, y al final se convierte en el resultado de `reduce`.
+Entonces, el primer argumento es un acumulador que almacena el resultado combinado de todas las ejecuciones previas, y al final se convierte en el resultado de `reduce`.
 
 ¿Suena complicado?
 
@@ -749,9 +749,9 @@ Veamos el ayudamemoria de métodos para arrays:
   - `concat(...items)` -- devuelve un nuevo array: copia todos los elementos del array actual y le agrega `items`. Si alguno de los `items` es un array, se toman sus elementos.
 
 - Para buscar entre elementos:
-  - `indexOf/lastIndexOf(item, pos)` -- busca por `item` comenzando desde la posición `pos`, devolviendo el índice o `-1` si no se encuentra.
-  - `includes(value)` -- devuelve `true` si el array tiene `value`, si no `false`.
-  - `find/filter(func)` -- filtra elementos a través de la función, devuelve el primer/todos los valores que devuelven `true`.
+  - `indexOf/lastIndexOf(item, pos)` -- busca por `item` comenzando desde la posición `pos` y devuelve su índice, o `-1` si no lo encuentra.
+  - `includes(value)` -- devuelve `true` si el array contiene `value`, o `false` en caso contrario.
+  - `find/filter(func)` -- filtra elementos a través de 'func', devuelve el primero/todos los valores que devolvieron `true`.
   - `findIndex` es similar a  `find`, pero devuelve el índice en lugar del valor.
 
 - Para iterar sobre elementos:
@@ -796,7 +796,7 @@ Podemos usar `every` para comparar arrays:
 
 Para la lista completa, ver [manual](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array).
 
-A primera vista puede parecer que hay demasiados métodos para aprender y un tanto difíciles de recordar. Pero con el tiempo se vuelve más fácil.
+A primera vista puede parecer que hay demasiados métodos y difíciles de recordar. En realidad es mucho más fácil de lo que se ve.
 
 Revisa el ayudamemoria para conocerlos. Después realiza las prácticas de este capítulo para ganar experiencia con los métodos para arrays.
 
