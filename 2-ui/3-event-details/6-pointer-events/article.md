@@ -126,7 +126,7 @@ A continuación, se muestra el flujo de acciones del usuario y los eventos corre
 Así que el problema es que el navegador "secuestra" la interacción: `pointercancel` se dispara y no se generan más eventos de `pointermove`.
 
 ```online
-Aquí, la demo "arrastrar y soltar" con el registro de eventos de puntero (solamente `arriba/abajo`, `mover` y `cancelar`) registrados en `textarea`:
+Esta es la demo "arrastrar y soltar" con el registro de eventos de puntero (solamente `arriba/abajo`, `mover` y `cancelar`) registrados en `textarea`:
 
 [iframe src="ball" height=240 edit]
 ```
