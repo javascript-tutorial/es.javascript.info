@@ -124,7 +124,7 @@ alert(document.cookie); // tiene la cookie user=John
 Históricamente, `domain=.site.com` (con un punto antes de `site.com`) se usaba para este propósito, permitiendo el acceso a la cookie desde los subdominios. Actualmente, los puntos al inicio de nombres de dominio se ignoran, pero algunos navegadores podrían rechazar la configuración de cookies que los contengan.
 ```
 
-Para sumarizar, el atributo `domain` permite que las cookies sean accesibles en los subdominios.
+Resumiendo, el atributo `domain` permite que las cookies sean accesibles en los subdominios.
 
 ## path 
 
