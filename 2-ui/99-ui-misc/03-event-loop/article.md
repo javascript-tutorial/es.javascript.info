@@ -17,7 +17,7 @@ EL algoritmo general del motor:
     - ejecutarlas comenzando por la más antigua.
 2. Dormir hasta que aparezca una tarea, luego volver a 1.
 
-Eso es una formalización de lo que vemos cuando navegamos por una página. El motor JavaScript no hace nada la mayor parte del tiempo y solo corre cuando un script/controlador/evento se activa.
+Eso es una formalización de lo que vemos cuando navegamos por una página. La mayor parte del tiempo, el motor de JavaScript no hace nada, solo se ejecuta cuando un script/controlador/evento lo activa.
 
 Ejemplos de tareas:
 
