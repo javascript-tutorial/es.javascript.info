@@ -205,7 +205,7 @@ let имя = '...';
 let 我 = '...';
 ```
 
-Técnicamente, no existe error aquí. Tales nombres están permitidos, pero internacionalmente existe la convención de utilizar el inglés para el nombre de las variables. Incluso si estamos escribiendo un script pequeño, este puede tener una larga vida por delante. Gente de otros países pueden necesitar leerlo en algún momento.
+Técnicamente, no existe error aquí. Tales nombres están permitidos, pero internacionalmente existe la convención de utilizar el inglés para el nombre de las variables. Incluso si estamos escribiendo un script pequeño, este puede tener una larga vida por delante. Gente de otros países puede necesitar leerlo en algún momento.
 ````
 
 ````warn header="Nombres reservados"
