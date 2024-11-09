@@ -42,7 +42,7 @@ Hasta ahora bastante simple, ¿no?
 
 Dos detalles más:
 1. El renderizado nunca ocurre mientras el motor ejecuta una tarea. No importa si la tarea ocupa mucho tiempo. Solo se realizarán cambios al DOM una vez que la tarea finalice.
-2. Cuando una tarea consume demasiado tiempo, el navegador no puede ejecutar otras tareas, procesos o eventos. Si esto ocurre, después de un tiempo el navegador nos mostrará una alerta "La página no responde" sugiriendo detener la tarea con la página completa. Esto puede ocurrir cuando hay muchos cálculos complejos, o por un error en la programación que lleva a un bucle infinito.
+2. Si una tarea consume demasiado tiempo, el navegador no puede ejecutar otras tareas, procesos ni eventos. Cuando esto ocurre, el navegador nos mostrará una alerta "La página no responde" sugiriendo detener la tarea junto con la página completa. Esto puede ocurrir cuando hay muchos cálculos complejos, o por un error en la programación que lleva a un bucle infinito.
 
 Esa fue la teoría. Ahora veamos como podemos aplicar ese conocimiento.
 
