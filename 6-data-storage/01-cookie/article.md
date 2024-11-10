@@ -12,7 +12,7 @@ Uno de los casos de uso más difundidos es la autenticación:
 
 También podemos acceder a las cookies desde el navegador usando la propiedad `document.cookie`.
 
-Hay muchas cosas intrincadas acerca de las cookies y sus atributos. En este artículo las vamos a ver en detalle.
+Hay muchas complejidades en las cookies y sus atributos. En este artículo las veremos en detalle.
 
 ## Leyendo a document.cookie
 
