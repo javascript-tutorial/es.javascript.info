@@ -75,7 +75,7 @@ Hay algunas limitaciones:
 
 Las cookies tienen varios atributos, muchos de ellos importantes y deberían ser configurados.
 
-Las atributos son listadas después de `key=value`, delimitadas por un `;`:
+Las atributos son listados después de `key=value`, delimitadas por un `;`:
 
 ```js run
 document.cookie = "user=John; path=/; expires=Tue, 19 Jan 2038 03:14:07 GMT"
