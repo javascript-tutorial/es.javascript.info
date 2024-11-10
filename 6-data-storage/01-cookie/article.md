@@ -70,7 +70,7 @@ alert(document.cookie); // ...; my%20name=John%20Smith
 Hay algunas limitaciones:
 - Solo puedes establecer/modificar una cookie a la vez usando `document.cookie`.
 - El par `name=value`, después del `encodeURIComponent`, no debe exceder 4KB. Así que no podemos almacenar algo enorme en una cookie.
-- La cantidad total de cookies por dominio está limitada a alrededor de 20+, el límite exacto depende del navegador.
+- La cantidad total de cookies por dominio está limitada a alrededor de más de 20, el límite exacto depende del navegador.
 ```
 
 Las cookies tienen varios atributos, muchos de ellos importantes y deberían ser configurados.
