@@ -424,7 +424,7 @@ El GDPR no trata solo de cookies, también es acerca de otros problemas relacion
 `document.cookie` brinda acceso a las cookies.
 - la operación de escritura modifica solo cookies mencionadas en ella.
 - nombre y valor deben estar codificados.
-- Una cookie no debe exceder los 4KB. El número de cookies está limitado a unas 20+ por sitio (depende del navegador).
+- Una cookie no debe exceder los 4 KB. El número de cookies está limitado a alrededor de más de 20 por sitio (depende del navegador).
 
 Atributos de Cookie:
 - `path=/`, por defecto la ruta actual, hace la cookie visible solo bajo esa ruta.
