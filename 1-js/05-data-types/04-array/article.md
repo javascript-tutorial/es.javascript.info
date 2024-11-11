@@ -426,7 +426,11 @@ let matrix = [
   [7, 8, 9]
 ];
 
+<<<<<<< HEAD
 alert( matrix[1][1] ); // 5, el elemento central
+=======
+alert( matrix[0][1] ); // 2, the second value of the first inner array
+>>>>>>> 34a80e70f8cce5794be259d25f815d7a7db7cbe3
 ```
 
 ## toString

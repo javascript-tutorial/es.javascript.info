@@ -462,7 +462,11 @@ La propiedad `opacity` tampoco dispara "Layout" (también se salta "Paint" en Ge
 
 Aparear `transform` con `opacity` puede usualmente resolver la mayoría de nuestras necesidades brindando animaciones vistosas y fluidas.
 
+<<<<<<< HEAD
 Aquí por ejemplo, clic en el elemento `#boat` le agrega la clase con `transform: translateX(300)` y `opacity: 0`, haciendo que se mueva `300px` a la derecha y desaparezca:
+=======
+For example, here clicking on the `#boat` element adds the class with `transform: translateX(300px)` and `opacity: 0`, thus making it move `300px` to the right and disappear:
+>>>>>>> 34a80e70f8cce5794be259d25f815d7a7db7cbe3
 
 ```html run height=260 autorun no-beautify
 <img src="https://js.cx/clipart/boat.png" id="boat">
