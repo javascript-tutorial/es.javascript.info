@@ -95,7 +95,7 @@ El portapapeles es algo a nivel "global" del SO. Un usuario puede alternar entre
 
 Por ello la mayoría de los navegadores dan acceso al portapapeles únicamente bajo determinadas acciones del usuario, como copiar y pegar.
 
-Está prohibido generar eventos "personalizados" del portapapeles con `dispatchEvent` en todos los navegadores excepto Firefox. Incluso si logramos enviar tal evento, la especificación establece que tal evento "sintético" no debe brindar acceso al portapapeles.
+Está prohibido generar eventos "personalizados" del portapapeles con `dispatchEvent` en todos los navegadores excepto Firefox. Incluso si logramos enviar tal evento, la especificación establece claramente que tal evento "sintético" no debe brindar acceso al portapapeles.
 
 Incluso si alguien decide guardar `event.clipboardData` en un manejador de evento para accederlo luego, esto no funcionará.
 

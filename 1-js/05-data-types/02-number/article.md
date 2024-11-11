@@ -4,7 +4,7 @@ En JavaScript moderno, hay dos tipos de números:
 
 1. Los números regulares en JavaScript son almacenados con el formato de 64-bit [IEEE-754](https://es.wikipedia.org/wiki/IEEE_754), conocido como "números de doble precisión de coma flotante". Estos números son los que estaremos usando la mayor parte del tiempo, y hablaremos de ellos en este capítulo.
 
-2. Los números BigInt representan enteros de longitud arbitraria. A veces son necesarios porque un número regular no puede exceder <code>2<sup>53</sup></code> ni ser menor a <code>-2<sup>53</sup></code> manteniendo la precisión, algo que mencionamos antes en el capítulo <info:types>. Como los bigints son usados en algunas áreas especiales, les dedicamos un capítulo especial <info:bigint>.
+2. Los números BigInt representan enteros de longitud arbitraria. A veces son necesarios porque un número entero regular no puede exceder <code>2<sup>53</sup></code> ni ser menor a <code>-2<sup>53</sup></code> manteniendo la precisión, algo que mencionamos antes en el capítulo <info:types>. Como los bigints son usados en áreas muy especiales, les dedicamos un capítulo especial <info:bigint>.
 
 Aquí hablaremos de números regulares. Ampliemos lo que ya sabemos de ellos.
 
@@ -107,9 +107,9 @@ La `base` puede variar entre `2` y `36`. La predeterminada es `10`.
 
 Casos de uso común son:
 
-- **base=16** usada para colores hex, codificación de caracteres, etc; los dígitos pueden ser `0..9` o `A..F`.
-- **base=2** mayormente usada para el debug de operaciones de bit, los dígitos pueden ser `0` o `1`.
-- **base=36** Es el máximo, los dígitos pueden ser `0..9` o `A..Z`.  Aquí el alfabeto inglés completo es usado para representar un número.  Un uso peculiar pero práctico para la base `36` es cuando necesitamos convertir un largo identificador numérico en algo más corto, por ejemplo para abreviar una url. Podemos simplemente representarlo en el sistema numeral de base `36`:
+- **base=16** usada para colores en hexa, codificación de caracteres, etc.; los dígitos pueden ser `0..9` o `A..F`.
+- **base=2** mayormente usada para la depuración de operaciones de bit, los dígitos pueden ser `0` o `1`.
+- **base=36** Es la base máxima, los dígitos pueden ser `0..9` o `A..Z`.  Aquí el alfabeto inglés completo es usado para representar un número. Un uso peculiar pero práctico para la base `36` es cuando necesitamos convertir un largo identificador numérico en algo más corto, por ejemplo para abreviar una url. Podemos simplemente representarlo en el sistema numeral de base `36`:
 
     ```js run
     alert( 123456..toString(36) ); // 2n9c
@@ -137,7 +137,7 @@ Hay varias funciones incorporadas para el redondeo:
 : Redondea hacia arriba: `3.1` torna en `4`, y `-1.1` torna en `-1`.
 
 `Math.round`
-: Redondea hacia el entero más cercano: `3.1` redondea a `3`, `3.6` redondea a `4`, el caso medio `3.5` redondea a `4` también.
+: Redondea hacia el entero más cercano: `3.1` redondea a `3`, `3.6` redondea a `4`; los casos medios `3.5` redondea a `4`, y `-3.5` redondea a `-3`.
 
 `Math.trunc` (no soportado en Internet Explorer)
 : Remueve lo que haya tras el punto decimal sin redondear: `3.1` torna en `3`, `-1.1` torna en `-1`.
@@ -147,8 +147,10 @@ Aquí, la tabla que resume las diferencias entre ellos:
 |   | `Math.floor` | `Math.ceil` | `Math.round` | `Math.trunc` |
 |---|---------|--------|---------|---------|
 |`3.1`|  `3`    |   `4`  |    `3`  |   `3`   |
+|`3.5`|  `3`    |   `4`  |    `4`  |   `3`   |
 |`3.6`|  `3`    |   `4`  |    `4`  |   `3`   |
 |`-1.1`|  `-2`    |   `-1`  |    `-1`  |   `-1`   |
+|`-1.5`|  `-2`    |   `-1`  |    `-1`  |   `-1`   |
 |`-1.6`|  `-2`    |   `-1`  |    `-2`  |   `-1`   |
 
 
@@ -188,7 +190,7 @@ Hay dos formas de hacerlo:
     alert( num.toFixed(5) ); // "12.34000", con ceros agregados para dar exactamente 5 dígitos
     ```
 
-    Podemos convertirlo a "number" usando el operador unario más o llamando a `Number()`; por ejemplo, escribir `+num.toFixed(5)`.
+    Podemos convertirlo a `number` usando el operador unario más `+` o llamando a `Number()`. Por ejemplo, `+num.toFixed(5)`.
 
 ## Cálculo impreciso
 
@@ -222,7 +224,13 @@ alert( 0.1 + 0.2 ); // 0.30000000000000004
 
 Un número es almacenado en memoria en su forma binaria, una secuencia de bits, unos y ceros. Pero decimales como `0.1`, `0.2` que se ven simples en el sistema decimal son realmente fracciones sin fin en su forma binaria.
 
-¿Qué es `0.1`? Es un uno dividido por 10 `1/10`, un décimo. En sistema decimal es fácilmente representable. Compáralo con un tercio: `1/3`, se vuelve una fracción sin fin `0.33333(3)`.
+```js run
+alert(0.1.toString(2)); // 0.0001100110011001100110011001100110011001100110011001101
+alert(0.2.toString(2)); // 0.001100110011001100110011001100110011001100110011001101
+alert((0.1 + 0.2).toString(2)); // 0.0100110011001100110011001100110011001100110011001101
+```
+
+¿Qué es `0.1`? Es un uno dividido por 10, `1/10`, un décimo. En sistema decimal es fácilmente representable. Compáralo con un tercio: `1/3`, que se vuelve una fracción sin fin `0.33333(3)`.
 
 Así, la división en potencias de diez garantizan un buen funcionamiento en el sistema decimal, pero divisiones por `3` no.  Por la misma razón, en el sistema binario la división en potencias de `2` garantizan su funcionamiento, pero `1/10` se vuelve una fracción binaria sin fin.
 
@@ -235,14 +243,14 @@ Podemos verlo en acción:
 alert( 0.1.toFixed(20) ); // 0.10000000000000000555
 ```
 
-Y cuando sumamos dos números, se apilan sus "pérdidas de precisión".
+Y cuando sumamos dos números, sus "pérdidas de precisión" se acumulan.
 
 Y es por ello que `0.1 + 0.2` no es exactamente `0.3`.
 
 ```smart header="No solo JavaScript"
 El mismo problema existe en muchos otros lenguajes de programación.
 
-PHP, Java, C, Perl, Ruby dan exactamente el mismo resultado, porque ellos están basados en el mismo formato numérico.
+PHP, Java, C, Perl, Ruby, dan exactamente el mismo resultado, porque ellos están basados en el mismo formato numérico.
 ```
 
 ¿Podemos resolver el problema? Seguro, la forma más confiable es redondear el resultado con la ayuda de un método. [toFixed(n)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed):
@@ -348,7 +356,7 @@ Los métodos [Number.isNaN](https://developer.mozilla.org/es/docs/Web/JavaScript
     alert( isNaN("str") ); // true, porque isNaN convierte el string "str" a number y obtiene NaN como resultado de su conversión
     ```
 
-- `Number.isFinite(value)` devuelve `true` si el argumento pertenece al tipo de dato `number` y no es  `NaN/Infinity/-Infinity`. En cualquier otro caso devuelve `false`.
+- `Number.isFinite(value)` devuelve `true` si el argumento pertenece al tipo de dato `number` y no es `NaN/Infinity/-Infinity`. En cualquier otro caso devuelve `false`.
 
     ```js run
     alert( Number.isFinite(123) ); // true

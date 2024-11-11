@@ -46,7 +46,7 @@ Más adelante veremos cómo los "fanáticos" pueden suscribirse a estos cambios.
 
 Aquí hay un ejemplo de un constructor de promesas y una función ejecutora simple con "código productor" que toma tiempo (a través de `setTimeout`):
 
-```js run
+```js 
 let promise = new Promise(function(resolve, reject) {
   // la función se ejecuta automáticamente cuando se construye la promesa
 

@@ -14,7 +14,7 @@ El único uso de `__proto__` que no está mal visto, es como una propiedad cuand
 
 Aunque hay un método especial para esto también:
 
-- [Object.create(proto, [descriptors])](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/create) -- crea un objeto vacío con el "proto" dado como `[[Prototype]]` y descriptores de propiedad opcionales.
+- [Object.create(proto[, descriptors])](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/create) -- crea un objeto vacío con el `proto` dado como `[[Prototype]]` y descriptores de propiedad opcionales.
 
 Por ejemplo:
 

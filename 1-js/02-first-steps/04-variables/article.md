@@ -1,6 +1,6 @@
 # Variables
 
-La mayoría del tiempo, una aplicación de JavaScript necesita trabajar con información. Aquí hay 2 ejemplos:
+La mayor parte del tiempo, una aplicación JavaScript necesita trabajar con información. Dos ejemplos:
 1. Una tienda en línea -- La información puede incluir los bienes a la venta y un "carrito de compras".
 2. Una aplicación de chat -- La información puede incluir los usuarios, mensajes, y mucho más.
 
@@ -18,7 +18,7 @@ La siguiente declaración genera (en otras palabras: *declara* o *define*) una v
 let message;
 ```
 
-Ahora podemos introducir datos en ella al utilizar el operador de asignación `=`:
+Ahora podemos introducir datos en ella, utilizando el operador de asignación `=`:
 
 ```js
 let message;
@@ -47,7 +47,7 @@ let message = 'Hola!'; // define la variable y asigna un valor
 alert(message); // Hola!
 ```
 
-También podemos declarar variables múltiples en una sola línea:
+También podemos declarar múltiples variables en una sola línea:
 
 ```js no-beautify
 let user = 'John', age = 25, message = 'Hola';
@@ -63,7 +63,7 @@ let age = 25;
 let message = 'Hola';
 ```
 
-Algunas personas también definen variables múltiples en estilo multilínea:
+Hay quienes prefieren definir múltiples variables en estilo multilínea:
 
 ```js no-beautify
 let user = 'John',
@@ -71,7 +71,7 @@ let user = 'John',
   message = 'Hola';
 ```
 
-...Incluso en este estilo "coma primero":
+... o con el estilo "coma primero":
 
 ```js no-beautify
 let user = 'John'
@@ -97,7 +97,7 @@ Existen sutiles diferencias entre `let` y `var`, pero no nos interesan en este m
 
 Podemos comprender fácilmente el concepto de una "variable" si nos la imaginamos como una "caja" con una etiqueta de nombre único pegada en ella.
 
-Por ejemplo, podemos imaginar la variable `message` como una caja etiquetada `"message"` con el valor `"Hola!"` adentro:
+Por ejemplo, la variable `message` puede ser imaginada como una caja etiquetada `"message"` con el valor `"Hola!"` dentro:
 
 ![](variable.svg)
 
@@ -205,7 +205,7 @@ let имя = '...';
 let 我 = '...';
 ```
 
-Técnicamente, no existe ningún error aquí. Tales nombres están permitidos, pero existe una tradición internacional de utilizar inglés en el nombramiento de variables. Incluso si estamos escribiendo un script pequeño, este puede tener una larga vida por delante. Puede ser necesario que gente de otros países deba leerlo en algún momento.
+Técnicamente, no existe error aquí. Tales nombres están permitidos, pero internacionalmente existe la convención de utilizar el inglés para el nombre de las variables. Incluso si estamos escribiendo un script pequeño, este puede tener una larga vida por delante. Gente de otros países puede necesitar leerlo en algún momento.
 ````
 
 ````warn header="Nombres reservados"
@@ -260,7 +260,7 @@ const myBirthday = '18.04.1982';
 myBirthday = '01.01.2001'; // ¡error, no se puede reasignar la constante!
 ```
 
-Cuando un programador está seguro de que una variable nunca cambiará, puede declarar la variable con `const` para garantizar y comunicar claramente este hecho a todos.
+Cuando un programador está seguro de que una variable nunca cambiará, puede declararla con `const` para garantizar esto y comunicarlo claramente a los demás.
 
 ### Constantes mayúsculas
 
@@ -297,9 +297,9 @@ Por ejemplo:
 const pageLoadTime = /* el tiempo que tardó la página web para cargar */;
 ```
 
-El valor de `pageLoadTime` no se conoce antes de cargar la página, así que la nombramos normalmente. No obstante, es una constante porque no cambia después de su asignación inicial.
+El valor de `pageLoadTime` no está preestablecido. Como no se conoce antes de cargar la página, la nombramos normalmente. Pero podemos declararla como constante, porque después de su asignación inicial, no cambiará.
 
-En otras palabras, las constantes con nombres en mayúscula son utilizadas solamente como alias para valores invariables y preestablecidos ("hard-coded").
+En otras palabras, las constantes en mayúsculas son utilizadas solamente como alias para valores invariables y preestablecidos.
 
 ## Nombrar cosas correctamente
 
@@ -309,16 +309,16 @@ Una variable debe tener un nombre claro, de significado evidente, que describa e
 
 Nombrar variables es una de las habilidades más importantes y complejas en la programación. Un vistazo rápido a el nombre de las variables nos revela cuál código fue escrito por un principiante o por un desarrollador experimentado.
 
-En un proyecto real, la mayor parte de el tiempo se pasa modificando y extendiendo una base de código en vez de empezar a escribir algo desde cero. Cuando regresamos a algún código después de hacer algo distinto por un rato, es mucho más fácil encontrar información que está bien etiquetada. O, en otras palabras, cuando las variables tienen nombres adecuados.
+En un proyecto real, se pasa mucho más tiempo modificando y extendiendo una base de código existente que escribiendo algo nuevo desde cero. Cuando regresamos a nuestro código luego de un tiempo, es mucho más fácil encontrar información que está bien etiquetada. O en otras palabras, cuando las variables tienen los nombres adecuados.
 
-Por favor pasa tiempo pensando en el nombre adecuado para una variable antes de declararla. Hacer esto te da un retorno muy sustancial.
+Por favor, dedica tiempo para pensar un nombre correcto para una variable antes de declararla. Hacer esto te rendirá muy bien.
 
 Algunas reglas buenas para seguir:
 
-- Use términos legibles para humanos como `userName` p `shoppingCart`.
-- Evite abreviaciones o nombres cortos `a`, `b`, `c`, al menos que en serio sepa lo que está haciendo.
-- Cree nombres que describen al máximo lo que son y sean concisos. Ejemplos que no son adecuados son `data` y `value`. Estos nombres no nos dicen nada. Estos solo está bien usarlos en el contexto de un código que deje excepcionalmente obvio cuál valor o cuales datos está referenciando la variable.
-- Acuerda en tu propia mente y con tu equipo cuáles términos se utilizarán. Si a un visitante se le llamara "user", debemos llamar las variables relacionadas `currentUser` o `newUser` en vez de `currentVisitor` o `newManInTown`.
+- Usa términos legibles para humanos como `userName` p `shoppingCart`.
+- Evita abreviaciones o nombres cortos `a`, `b`, `c`, a menos que realmente sepas lo que estás haciendo.
+- Crea nombres que describan al máximo lo que son y sean concisos. Ejemplos de nombres malos son `data` y `value`. Estos nombres no nos dicen nada, solo son adecuados en el contexto de un código que deje excepcionalmente obvio cuál dato o valor está referenciando la variable.
+- Ponte de acuerdo con tu equipo, y con tu propia mente, cuáles términos se utilizarán. Si a un visitante se lo llamara "user", debemos llamar las variables relacionadas `currentUser` o `newUser` en vez de `currentVisitor` o `newManInTown`.
 
 ¿Suena simple? De hecho lo es, pero no es tan fácil crear nombres de variables descriptivos y concisos a la hora de practicar. Inténtelo.
 
@@ -329,9 +329,9 @@ El resultado de esto es que sus variables son como cajas en las cuales la gente 
 
 Dichos programadores se ahorran un poco durante la declaración de la variable, pero pierden diez veces más a la hora de depuración.
 
-Una variable extra es algo bueno, no algo malvado.
+Una variable extra es algo bueno, no algo diabólico.
 
-Los minificadores de JavaScript moderno, y los navegadores optimizan el código suficientemente bien para no generar cuestiones de rendimiento. Utilizar diferentes variables para distintos valores incluso puede ayudar a optimizar su código
+Los navegadores modernos y los minificadores de JavaScript optimizan el código, así que esto no impacta en el rendimiento. Utilizar diferentes variables para distintos valores incluso puede ayudar a optimizar tu código.
 ```
 
 ## Resumen
@@ -340,6 +340,6 @@ Podemos declarar variables para almacenar datos al utilizar las palabra clave `v
 
 - `let` -- es la forma moderna de declaración de una variable.
 - `var` -- es la declaración de variable de vieja escuela. Normalmente no lo utilizamos en absoluto. Cubriremos sus sutiles diferencias con `let` en el capítulo <info:var>, por si lo necesitaras.
-- `const` -- es como `let`, pero el valor de la variable no puede ser alterado.
+- `const` -- es como `let`, pero una vez asignado, el valor de la variable no podrá alterarse.
 
 Las variables deben ser nombradas de tal manera que entendamos fácilmente lo que está en su interior.

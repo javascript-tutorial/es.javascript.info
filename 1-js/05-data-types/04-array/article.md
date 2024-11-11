@@ -426,7 +426,7 @@ let matrix = [
   [7, 8, 9]
 ];
 
-alert( matrix[1][1] ); // 5, el elemento central
+alert( matrix[0][1] ); // 2, el segundo valor del primer array interno
 ```
 
 ## toString
