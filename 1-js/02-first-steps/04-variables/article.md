@@ -299,7 +299,7 @@ const pageLoadTime = /* el tiempo que tardó la página web para cargar */;
 
 El valor de `pageLoadTime` no está preestablecido. Como no se conoce antes de cargar la página, la nombramos normalmente. Pero podemos declararla como constante, porque después de su asignación inicial, no cambiará.
 
-En otras palabras, las constantes en mayúsculas son utilizadas solamente como alias para valores invariables y preestablecidos (o "hard-coded").
+En otras palabras, las constantes en mayúsculas son utilizadas solamente como alias para valores invariables y preestablecidos.
 
 ## Nombrar cosas correctamente
 
