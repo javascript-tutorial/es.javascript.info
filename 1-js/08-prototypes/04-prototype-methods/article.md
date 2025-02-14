@@ -116,7 +116,7 @@ alert(obj[key]); // [object Object], no es "algún valor"!
 
 Aquí, si el usuario escribe en `__proto__`, ¡la asignación en la línea 4 es ignorada!
 
-Eso no debería sorprendernos. La propiedad `__proto__` es especial: debe ser un objeto o `null`. Una cadena no puede convertirse en un prototipo. Es por ello que la asignación de un string a `__proto__` es ignorada.
+Esto no debe sorprendernos. La propiedad `__proto__` es especial: debe ser o un objeto o `null`. Una cadena no puede convertirse en un prototipo. Es por ello que la asignación de un string a `__proto__` es ignorada.
 
 Pero no *intentamos* implementar tal comportamiento, ¿verdad? Queremos almacenar pares clave/valor, y la clave llamada `"__proto__"` no se guardó correctamente. Entonces, ¡eso es un error!
 
