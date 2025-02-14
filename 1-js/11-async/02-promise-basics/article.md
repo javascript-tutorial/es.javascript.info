@@ -214,15 +214,15 @@ La llamada `.catch(f)` es completamente equivalente a `.then(null, f)`, es solo 
 
 ## Limpieza: finally
 
-Al igual que hay una cláusula `finally` en un `try {...} catch {...}` normal, hay un `finally` en las promesas.
+Al igual que en un `try {...} catch {...}`, las promesas también tienen la cláusula `finally`.
 
-La llamada `.finally(f)` es similar a `.then(f, f)` en el sentido de que `f` siempre se ejecuta cuando se resuelve la promesa: ya sea que se resuelva o rechace.
+La llamada `.finally(f)` es similar a `.then(f, f)`, ya que garantiza que `f` se ejecute siempre, sin importar si la promesa se resuelve o rechaza.
 
-La idea de `finally` es establecer un manejador para realizar la limpieza y finalización después de que las operaciones se hubieran completado.
+La idea de `finally` es definir un manejador para realizar tareas de limpieza y finalización una vez que la operacióm haya concluido.
 
-Por ejemplo, detener indicadores de carga, cerrar conexiones que ya no son necesarias, etc.
+Por ejemplo, detener indicadores de carga, cerrar conexiones innecesarias, etc.
 
-Puedes pensarlo como el finalizador de la fiesta. No importa si la fiesta fue buena o mala ni cuántos invitados hubo, aún necesitamos (o al menos deberíamos) hacer la limpieza después.
+Puedes pensarlo como el momento de la limpieza después de la fiesta. No importa si fue un éxito o un fracaso ni cuántos invitados hubo, siempre hay que limpiar.
 
 El código puede verse como esto:
 
@@ -238,14 +238,14 @@ new Promise((resolve, reject) => {
   .then(result => show result, err => show error)
 ```
 
-Sin embargo, note que `finally(f) no es exactamente un alias de `then(f, f)`.
+Sin embargo, note que `finally(f) no equivale exactamente a `then(f, f)`.
 
 Hay diferencias importantes:
 `
-1. Un manejador `finally` no tiene argumentos. En `finally` no sabemos si la promesa es exitosa o no. Eso está bien, ya que usualmente nuestra tarea es realizar procedimientos de finalización "generales".
+1. Un manejador `finally` no tiene argumentos. En `finally` no sabemos si la promesa se resolvió o rechazó. Eso es intencional, ya que su propósito es realizar procedimientos de finalización generales.
 
-    Observa el ejemplo anterior: como puedes ver, el manejador de `finally` no tiene argumentos, y lo que sale de la promesa es manejado en el siguiente manejador.
-2. Resultados y errores pasan "a través" del manejador de `finally`. Estos pasan al siguiente manejador que se adecúe.
+    Observa el ejemplo anterior: como puedes ver, el manejador `finally` no recibe argumentos, y el resultado de la promesa es manejado en el siguiente `then`.
+2. Los resultados y errores pasan a través de `finally` sin modificación. Estos pasan al siguiente manejador adecuado.
 
     Por ejemplo, aquí el resultado se pasa a través de `finally` al `then` que le sigue:
     ```js run
