@@ -222,7 +222,11 @@ La idea de `finally` es establecer un manejador para realizar la limpieza y fina
 
 Por ejemplo, detener indicadores de carga, cerrar conexiones que ya no son necesarias, etc.
 
+<<<<<<< HEAD
 Puedes pensarlo como el finalizador de la fiesta. No importa si la fiesta fue buena o mala ni cuántos invitados hubo, aún necesitamos (o al menos deberíamos) hacer la limpieza después.
+=======
+Think of it as a party finisher. Irresepective of whether a party was good or bad, how many friends were in it, we still need (or at least should) do a cleanup after it.
+>>>>>>> 1dce5b72b16288dad31b7b3febed4f38b7a5cd8a
 
 El código puede verse como esto:
 

@@ -82,7 +82,7 @@ let sayHi = function() { // (1) crea
   alert( "Hola" );
 };
 
-let func = sayHi;
+let func = sayHi;  //(2)
 // ...
 ```
 
