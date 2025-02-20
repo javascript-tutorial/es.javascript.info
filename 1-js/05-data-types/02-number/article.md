@@ -118,7 +118,7 @@ Casos de uso común son:
 ```warn header="Dos puntos para llamar un método"
 Por favor observa que los dos puntos en `123456..toString(36)` no son un error tipográfico. Si queremos llamar un método directamente sobre el número, como `toString` del ejemplo anterior, necesitamos ubicar los dos puntos `..` tras él.
 
-Si pusiéramos un único punto: `123456.toString(36)`, habría un error, porque la sintaxis de JavaScript implica una parte decimal después del primer punto. Al poner un punto más, JavaScript reconoce que la parte decimal está vacía y luego va el método.
+Si pusiéramos un único punto: `123456.toString(36)`, habría un error, porque la sintaxis de JavaScript espera una parte decimal después del primer punto. Al ver el segundo punto, JavaScript reconoce que la parte decimal está vacía y le sigue un método.
 
 También podríamos escribir `(123456).toString(36)`.
 
