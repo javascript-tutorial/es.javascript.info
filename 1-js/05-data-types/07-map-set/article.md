@@ -3,8 +3,8 @@
 
 Hasta este momento, hemos aprendido sobre las siguientes estructuras de datos:
 
-- Objetos para almacenar colecciones de datos ordenadas mediante una clave.
-- Arrays para almacenar colecciones ordenadas de datos.
+- Objetos, para almacenar colecciones de datos accesibles a través de una clave.
+- Arrays, para almacenar colecciones ordenadas de datos.
 
 Pero eso no es suficiente para la vida real. Por eso también existen `Map` y `Set`.
 
@@ -19,8 +19,8 @@ Los métodos y propiedades son:
 - [`map.get(clave)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/get) -- devuelve el valor de la clave. Será `undefined` si la `clave` no existe en map.
 - [`map.has(clave)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/has) -- devuelve `true` si la `clave` existe en map, `false` si no existe.
 - [`map.delete(clave)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/delete) -- elimina el elemento con esa clave.
-- [`map.clear()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/clear) -- elimina todo de map.
-- [`map.size`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/size) -- tamaño, devuelve la cantidad actual de elementos.
+- [`map.clear()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/clear) -- elimina todo del map.
+- [`map.size`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/size) -- tamaño, devuelve la cantidad de elementos actual.
 
 Por ejemplo:
 
@@ -134,7 +134,7 @@ for (let entry of recipeMap) { // lo mismo que recipeMap.entries()
 ```
 
 ```smart header="Se utiliza el orden de inserción."
-La iteración va en el mismo orden en que se insertaron los valores. `Map` conserva este orden, a diferencia de un `Objeto` normal.
+La iteración va en el mismo orden en que se insertaron los valores. `Map` conserva este orden, a diferencia de un `Objet` normal.
 ```
 
 Además, `Map` tiene un método `forEach` incorporado, similar al de `Array`:
