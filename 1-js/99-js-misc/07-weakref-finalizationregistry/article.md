@@ -480,4 +480,4 @@ Puedes [abrir este ejemplo en el sandbox.](sandbox:weakref-finalizationregistry)
 Esto ayuda a optimizar el uso de memoria y recursos del sistema.
 
 `FinalizationRegistry` -- permite registrar callbacks que se ejecutan cuando un objeto sin referencias fuertes es eliminado.
-Esto permite liberar recursos o realizar tareas de limpieza antes de que el objeto desaparezca de la memoria.
+Esto permite liberar manualmente recursos asociados al objeto o realizar tareas de limpieza adicionales antes de que el objeto desaparezca de la memoria.
