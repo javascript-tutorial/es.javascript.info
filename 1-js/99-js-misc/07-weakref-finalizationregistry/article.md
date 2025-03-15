@@ -476,8 +476,8 @@ Puedes [abrir este ejemplo en el sandbox.](sandbox:weakref-finalizationregistry)
 
 ## Resumen
 
-`WeakRef` -- permite crear referencias débiles a objetos, permitiendo que el recolector de basura los elimine si no hay referencias fuertes a ellos.
-Esto ayuda a optimizar el uso de memoria y recursos del sistema.
+`WeakRef` -- está diseñado para crear referencias débiles a objetos, lo que permite que el recolector de basura los elimine si no hay referencias fuertes a ellos.
+Esto habilita al motor de JavaScript optimizar el uso de memoria y recursos del sistema.
 
 `FinalizationRegistry` -- permite registrar callbacks que se ejecutan cuando un objeto sin referencias fuertes es eliminado.
 Esto permite liberar manualmente recursos asociados al objeto o realizar tareas de limpieza adicionales antes de que el objeto desaparezca de la memoria.
