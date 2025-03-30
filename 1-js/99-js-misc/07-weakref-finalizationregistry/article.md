@@ -146,7 +146,7 @@ Esto permite reducir el uso de memoria en ciertas situaciones.
 
 A continuación, se muestra un fragmento de código que demuestra el uso de `WeakRef`.  
 
-En resumen, utilizamos un `Map` con claves de tipo string y objetos `WeakRef` vomo valores.
+En resumen, utilizamos un `Map` con claves de tipo string y objetos `WeakRef` como valores.
 Si el objeto referenciado por `WeakRef` no ha sido eliminado por el recolector de basura, lo recuperamos de la caché.
 Caso contrario, lo descargamos nuevamente y lo almacenamos en la caché para su posible reutilización:  
 
@@ -250,12 +250,12 @@ Es momento de hablar sobre los finalizadores. Aclaremos la terminología antes d
 
 Su propósito es permitir realizar operaciones adicionales relacionadas con el objeto después de que haya sido eliminado de la memoria.
 
-**Registro** (o `FinalizationRegistry`) -- es un objeto especial en JavaScript que gestiona el registro y la eliminación de objetos, junto con sus callbacks de limpieza. 
+**Registro** (o `FinalizationRegistry`) -- es un objeto especial en JavaScript que gestiona el alta y la eliminación de objetos referent junto con sus callbacks de limpieza. 
 
 Este mecanismo permite registrar un objeto para rastrearlo y asociarle un callback de limpieza.
-Básicamente, es una estructura que almacena información sobre los objetos registrados y sus callbacks de limpieza, y luego los invoca automáticamente cuando los objetos son eliminados de la memoria. 
+Básicamente, es una estructura que almacena información sobre los objetos registrados y sus callbacks de limpieza, y luego los invoca automáticamente cuando los objetos son eliminados de la memoria.
 
-Para crear una instancia de `FinalizationRegistry`, se debe llamar a su constructor, el que recibe un solo argumento: el callback de limpieza (finalizador).
+Para crear una instancia de `FinalizationRegistry`, se debe llamar a su constructor, el que recibe un solo argumento: el callback de limpieza (el finalizador).
 
 Sintaxis:
 
