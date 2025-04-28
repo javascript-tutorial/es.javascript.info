@@ -326,7 +326,11 @@ welcome(); // Hello, Guest (la llamada anidada funciona)
 
 Ahora funciona, porque el nombre `"func"` es una función local. No se toma desde el exterior (y no es visible allí). La especificación garantiza que siempre hará referencia a la función actual.
 
+<<<<<<< HEAD
 El código externo todavía tiene su variable `sayHi` o `welcome`. Y `func` es el "nombre de función interna" con el que la función puede llamarse a sí misma de manera confiable.
+=======
+The outer code still has its variable `sayHi` or `welcome`. And `func` is an "internal function name", the way for the function to call itself reliably.
+>>>>>>> 540d753e90789205fc6e75c502f68382c87dea9b
 
 ```smart header="No existe tal cosa para la Declaración de funciones"
 La característica "nombre interno" descrita aquí solo está disponible para Expresiones de funciones, no para Declaraciones de funciones. Para las declaraciones de funciones, no hay sintaxis para agregar un nombre "interno".

@@ -125,7 +125,11 @@ funcUser(); // John
 */!*
 ```
 
+<<<<<<< HEAD
 Aquí `func.bind(user)` es como una "variante vinculada" de `func`, con `this = user` fijo en ella.
+=======
+Here `func.bind(user)` is a "bound variant" of `func`, with fixed `this=user`.
+>>>>>>> 540d753e90789205fc6e75c502f68382c87dea9b
 
 Todos los argumentos se pasan al `func` original "tal cual", por ejemplo:
 
