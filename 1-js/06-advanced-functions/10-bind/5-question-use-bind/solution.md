@@ -1,7 +1,7 @@
 
 El error se produce porque `askPassword` obtiene las funciones `loginOk/loginFail` sin el objeto.
 
-Cuando los llama, asumen naturalmente `this = undefined`.
+Cuando los llama, es natural que asuman `this = undefined`.
 
 Vamos a usar `bind` para enlazar el contexto:
 
@@ -39,6 +39,6 @@ askPassword(() => user.loginOk(), () => user.loginFail());
 ```
 
 
-Por lo general, eso también funciona y se ve bien.
+En general, funciona y se ve bien.
 
-Aunque es un poco menos confiable en situaciones más complejas donde la variable `user` podría cambiar *después* de que se llama a `askPassword`, *antes* de que el visitante responde y llame a `() => user.loginOk ()`.
+Aunque esto es menos confiable. Puede darse el caso donde `user` cambia después de llamar a `askPassword`, pero antes de que el visitante responda y se invoque `() => user.loginOk()`.
