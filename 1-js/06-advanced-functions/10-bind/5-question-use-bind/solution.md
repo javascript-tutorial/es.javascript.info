@@ -1,7 +1,7 @@
 
 El error se produce porque `askPassword` obtiene las funciones `loginOk/loginFail` sin el objeto.
 
-Cuando los llama, es natural que asuman `this = undefined`.
+Cuando las llama, estas asumen `this = undefined`.
 
 Vamos a usar `bind` para enlazar el contexto:
 
