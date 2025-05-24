@@ -41,4 +41,4 @@ askPassword(() => user.loginOk(), () => user.loginFail());
 
 En general, funciona y se ve bien.
 
-Aunque esto es menos confiable. Puede darse el caso donde `user` cambia después de llamar a `askPassword`, pero antes de que el visitante responda y se invoque `() => user.loginOk()`.
+Aunque esto es menos confiable, si puede darse el caso en donde `user` cambia después de llamar a `askPassword`, pero antes de que el visitante responda y se invoque `() => user.loginOk()`.
