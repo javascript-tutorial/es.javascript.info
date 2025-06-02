@@ -181,7 +181,7 @@ user.name = ""; // El nombre es demasiado corto...
 
 Entonces, el nombre es almacenado en la propiedad `_name`, y el acceso se hace a través de getter y setter.
 
-Técnicamente, el código externo todavía puede acceder al nombre directamente usando "usuario._nombre". Pero hay un acuerdo ampliamente conocido de que las propiedades que comienzan con un guión bajo "_" son internas y no deben ser manipuladas desde el exterior del objeto.
+Técnicamente, el código externo todavía puede acceder al nombre directamente usando `user._name`. Pero hay un acuerdo ampliamente conocido de que las propiedades que comienzan con un guión bajo `"_"` son internas y no deben ser manipuladas desde el exterior del objeto.
 
 
 ## Uso para compatibilidad
