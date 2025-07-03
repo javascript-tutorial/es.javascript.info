@@ -1,6 +1,6 @@
 # Conversiones de Tipos
 
-La mayoría de las veces, operadores y funciones convierten automáticamente los valores que reciben al tipo que esperan.
+La mayoría de las veces, los operadores y las funciones convierten automáticamente los valores que reciben al tipo que necesitan.
 
 Por ejemplo, `alert` convierte automáticamente cualquier valor a string para mostrarlo. Las operaciones matemáticas convierten los valores a números.
 
@@ -30,7 +30,7 @@ alert(typeof value); // string
 */!*
 ```
 
-La conversión a string es bastante obvia. El boolean `false` se convierte en `"false"`, `null` en `"null"`, etc.
+La conversión a string es bastante evidente. El boolean `false` se convierte en `"false"`, `null` en `"null"`, etc.
 
 ## Conversión numérica
 
