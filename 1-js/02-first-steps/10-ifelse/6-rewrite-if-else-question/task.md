@@ -6,7 +6,7 @@ importance: 5
 
 Reescriba el `if..else` utilizando operadores ternarios múltiples`'?'`.
 
-Por legibilidad, se recomienda dividirlo en múltiples lineas de código.
+Para mejor legibilidad, se recomienda dividirlo en múltiples lineas de código.
 
 ```js
 let message;
