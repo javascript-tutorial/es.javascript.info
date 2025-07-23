@@ -4,7 +4,7 @@ La mayoría de las veces, los operadores y las funciones convierten automáticam
 
 Por ejemplo, `alert` convierte automáticamente cualquier valor a string para mostrarlo, y las operaciones matemáticas convierten los valores a números.
 
-También hay casos donde necesitamos convertir de manera explícita un valor al tipo requerido.
+También hay casos donde necesitamos convertir de manera explícita un valor al tipo esperado.
 
 ```smart header="Por ahora, no hablaremos de los objetos"
 En este capítulo no cubrimos objetos. Por ahora, solamente veremos valores primitivos.
