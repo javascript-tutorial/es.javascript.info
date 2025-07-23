@@ -1,12 +1,12 @@
 # Conversiones de Tipos
 
-La mayoría de las veces, los operadores y las funciones convierten automáticamente los valores que reciben al tipo que necesitan.
+La mayoría de las veces, los operadores y las funciones convierten automáticamente los valores que reciben al tipo de dato que necesitan.
 
-Por ejemplo, `alert` convierte automáticamente cualquier valor a string para mostrarlo. Las operaciones matemáticas convierten los valores a números.
+Por ejemplo, `alert` convierte automáticamente cualquier valor a string para mostrarlo, y las operaciones matemáticas convierten los valores a números.
 
-También hay casos donde necesitamos convertir de manera explícita un valor al tipo esperado.
+También hay casos donde necesitamos convertir de manera explícita un valor al tipo requerido.
 
-```smart header="Aún no hablamos de objetos"
+```smart header="Por ahora, no hablaremos de los objetos"
 En este capítulo no cubrimos objetos. Por ahora, solamente veremos valores primitivos.
 
 Más adelante, después de aprender objetos, veremos en el capítulo <info:object-toprimitive> cómo funciona la conversión.
@@ -53,7 +53,7 @@ let num = Number(str); // se convierte en 123
 alert(typeof num); // number
 ```
 
-Usualmente, se requiere la conversión explícita cuando leemos un valor desde una fuente basada en texto, como los formularios, si esperamos que contenga un número.
+Usualmente, se requiere conversión explícita cuando leemos un valor desde una fuente basada en texto, como un formulario, pero esperamos que sea un número.
 
 Si el string no es un número válido, el resultado de la conversión será `NaN`. Por ejemplo:
 
