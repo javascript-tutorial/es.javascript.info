@@ -4,6 +4,6 @@ La respuesta: `1` y después `undefined`.
 alert( alert(1) && alert(2) );
 ```
 
-La llamada a `alert` retorna `undefined` (solo muestra un mensaje, así que no hay un valor que retornar relevante)
+Una llamada a `alert` siempre retorna `undefined` (solo muestra un mensaje, no tiene un valor relevante que retornar)
 
-Debido a ello, `&&` evalúa el operando de la izquierda (imprime `1`) e inmediatamente se detiene porque `undefined` es un valor falso. Como `&&` busca un valor falso y lo retorna, terminamos.
+Debido a ello, `&&` evalúa el operando de la izquierda (el cual imprime `1`) e inmediatamente se detiene porque `undefined` es falsy. Como `&&` busca un valor falsy, lo retorna y termina.

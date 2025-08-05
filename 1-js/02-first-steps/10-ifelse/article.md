@@ -37,13 +37,13 @@ La sentencia `if (…)` evalúa la expresión dentro de sus paréntesis y convie
 
 Recordemos las reglas de conversión del capítulo <info:type-conversions>:
 
-- El número `0`, un string vacío `""`, `null`, `undefined`, y `NaN`, se convierten en `false`. Por esto son llamados valores "falsos".
-- El resto de los valores se convierten en `true`, entonces los llamaremos valores "verdaderos".
+- Los valores: número `0`, string vacío `""`, `null`, `undefined`, y `NaN`, en un contexto booleano se convierten en `false`. Por ello, sin ser booleanos, se los conoce como valores "falsy".
+- El resto de los valores se convierten en `true`, y son valores que llamamos "truthy".
 
 Entonces, el código bajo esta condición nunca se ejecutaría:
 
 ```js
-if (0) { // 0 es falso
+if (0) { // 0 es falsy
   ...
 }
 ```
@@ -51,7 +51,7 @@ if (0) { // 0 es falso
 ...y dentro de esta condición siempre se ejecutará:
 
 ```js
-if (1) { // 1 es verdadero
+if (1) { // 1 es truthy
   ...
 }
 ```
@@ -59,7 +59,7 @@ if (1) { // 1 es verdadero
 También podemos pasar un valor booleano pre-evaluado al `if`, así:
 
 ```js
-let cond = (year == 2015); // la igualdad evalúa y devuelve un true o false
+let cond = (year == 2015); // la igualdad se evalúa y devuelve un true o false
 
 if (cond) {
   ...
@@ -68,7 +68,7 @@ if (cond) {
 
 ## La cláusula "else"
 
-La sentencia `if` puede contener un bloque `else` ("si no", "en caso contrario") opcional. Este bloque se ejecutará cuando la condición sea falsa.
+La sentencia `if` puede contener un bloque `else` ("si no", "en caso contrario") opcional. Este bloque se ejecuta cuando la condición resulta falsa.
 
 Por ejemplo:
 ```js run
@@ -133,7 +133,7 @@ La Sintaxis es:
 let result = condition ? value1 : value2;
 ```
 
-Se evalúa `condition`: si es verdadera entonces devuelve `value1` , de lo contrario `value2`.
+Se evalúa `condition`: si resulta verdadera entonces devuelve `value1` , de lo contrario `value2`.
 
 Por ejemplo:
 

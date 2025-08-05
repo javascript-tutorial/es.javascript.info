@@ -35,7 +35,7 @@ Por ejemplo, el número `1` es tratado como `true`, el número `0` como `false`:
 
 ```js run
 if (1 || 0) { // Funciona como if( true || false )
-	alert("valor verdadero!");
+	alert("¡valor truthy!");
 }
 ```
 
@@ -94,14 +94,14 @@ alert(1 || 0); // 1 (1 es un valor verdadero)
 alert(null || 1); // 1 (1 es el primer valor verdadero)
 alert(null || 0 || 1); // 1 (el primer valor verdadero)
 
-alert(undefined || null || 0); // 0 (todos son valores falsos, retorna el último valor)
+alert(undefined || null || 0); // 0 (todos son valores falsy, retorna el último valor)
 ```
 
 Esto brinda varios usos interesantes comparados al "OR puro, clásico, de solo booleanos".
 
 1. **Obtener el primer valor verdadero de una lista de variables o expresiones.**
 
-   Por ejemplo, tenemos las variables `firstName`, `lastName` y `nickName`, todas opcionales (pueden ser undefined o tener valores falsos).
+   Por ejemplo, tenemos las variables `firstName`, `lastName` y `nickName`, todas opcionales (pueden ser undefined o tener valores falsy).
 
    Usemos OR `||` para elegir el que tiene los datos y mostrarlo (o anónimo si no hay nada configurado):
 
@@ -115,7 +115,7 @@ Esto brinda varios usos interesantes comparados al "OR puro, clásico, de solo b
    */!*
    ```
 
-    Si todas las variables fueran falsas, aparecería `"Anonymous"`. 
+    Si todas las variables fueran falsy, aparecería `"Anonymous"`. 
 
 2. **Evaluación del camino más corto.**
 
@@ -134,7 +134,7 @@ Esto brinda varios usos interesantes comparados al "OR puro, clásico, de solo b
 
     En la primera línea, el operador OR `||` detiene la evaluación inmediatamente después de ver que es verdadera, por lo que la alerta no se ejecuta.
 
-    A veces se usa esta función para ejecutar comandos solo si la condición en la parte izquierda es falsa.
+    A veces se usa esta función para ejecutar comandos solo si la condición en la parte izquierda es falsy.
 
 ## && (AND)
 
@@ -168,11 +168,11 @@ Al igual que con OR, cualquier valor es permitido como operando de AND:
 
 ```js run
 if (1 && 0) { // evaluado como true && false
-  alert( "no funcionará porque el resultado es un valor falso" );
+  alert( "no funcionará porque el resultado es un valor falsy" );
 }
 ```
 
-## AND "&&" encuentra el primer valor falso
+## AND "&&" encuentra el primer valor falsy
 
 Dado múltiples valores aplicados al operador AND:
 
@@ -184,27 +184,27 @@ El operador AND `&&` realiza lo siguiente:
 
 -  Evalúa los operandos de izquierda a derecha.
 -  Para cada operando, los convierte a un booleano. Si el resultado es `false`, se detiene y retorna el valor original de dicho operando.
--  Si todos los operandos han sido evaluados (todos fueron valores verdaderos), retorna el último operando.
+-  Si todos los operandos han sido evaluados (todos fueron valores truthy), retorna el último operando.
 
-En otras palabras, AND retorna el primer valor falso o el último valor si ninguno fue encontrado.
+En otras palabras, AND retorna el primer valor falsy o el último valor si ninguno fue encontrado.
 
-Las reglas anteriores son similares a las de OR. La diferencia es que AND retorna el primer valor *falso* mientras que OR retorna el primer valor *verdadero*.
+Las reglas anteriores son similares a las de OR. La diferencia es que AND retorna el primer valor *falsy* mientras que OR retorna el primer valor *truthy*.
 
 Ejemplo:
 
 ```js run
-// si el primer operando es un valor verdadero,
+// si el primer operando es un valor truthy,
 // AND retorna el segundo operando:
 alert(1 && 0); // 0
 alert(1 && 5); // 5
 
-// si el primer operando es un valor falso,
+// si el primer operando es un valor falsy,
 // AND lo retorna. El segundo operando es ignorado
 alert(null && 5); // null
 alert(0 && "cualquier valor"); // 0
 ```
 
-También podemos pasar varios valores de una vez. Observa como el primer valor falso es retornado: 
+También podemos pasar varios valores de una vez. Observa como el primer valor falsy es retornado: 
 
 ```js run
 alert(1 && 2 && null && 3); // null
