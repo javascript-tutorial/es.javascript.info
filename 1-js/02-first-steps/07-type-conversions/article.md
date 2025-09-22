@@ -2,14 +2,14 @@
 
 La mayoría de las veces, los operadores y las funciones convierten automáticamente los valores que reciben al tipo de dato que necesitan.
 
-Por ejemplo, `alert` convierte automáticamente cualquier valor a string para mostrarlo, y las operaciones matemáticas convierten los valores a números.
+Por ejemplo: `alert` convierte automáticamente cualquier valor a string para mostrarlo, y las operaciones matemáticas convierten los valores a números.
 
 También hay casos donde necesitamos convertir de manera explícita un valor al tipo esperado.
 
-```smart header="Por ahora, no hablaremos de los objetos"
+```smart header="No hablaremos de los objetos aún"
 En este capítulo no cubrimos objetos. Por ahora, solamente veremos valores primitivos.
 
-Más adelante, después de aprender objetos, veremos en el capítulo <info:object-toprimitive> cómo funciona la conversión.
+Más adelante, después de haberlos tratado, veremos en el capítulo <info:object-toprimitive> cómo funciona la conversión.
 ```
 
 ## Conversión a String
@@ -42,7 +42,7 @@ Por ejemplo, cuando se aplica la división `/` a valores no numéricos:
 alert( "6" / "2" ); // 3, los strings son convertidos a números
 ```
 
-Podemos usar la función `Number(value)` para convertir de forma explícita `value` a un número:
+Podemos usar la función `Number(value)` para convertir `value` a un número de forma explícita:
 
 ```js run
 let str = "123";
@@ -83,7 +83,7 @@ alert( Number(false) );       // 0
 
 Es importante notar que `null` y `undefined` se comportan de distinta manera aquí: `null` se convierte en `0` mientras que `undefined` se convierte en `NaN`.
 
-La mayoría de los operadores matemáticos también ejecutan dicha conversión, lo veremos en el siguiente capítulo.
+La mayoría de los operadores matemáticos también ejecutan dicha conversión, esto lo veremos en el siguiente capítulo.
 
 ## Conversión booleana
 
