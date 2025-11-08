@@ -22,4 +22,4 @@ undefined + 1 = NaN // (6)
 4. La resta siempre convierte a números, por lo tanto hace de `"  -9  "` un número `-9` (ignorando los espacios que lo rodean).
 5. `null` se convierte en `0` después de la conversión numérica.
 6. `undefined` se convierte en `NaN` después de la conversión numérica.
-7. Los caracteres de espacio se recortan al inicio y al final de la cadena cuando una cadena se convierte en un número. Aquí toda la cadena consiste en caracteres de espacio, tales como `\t`, `\n` y un espacio "común" entre ellos. Por lo tanto, pasa lo mismo que a una cadena vacía, se convierte en `0`.
+7. Al convertir una cadena en número, se ignoran los espacios en blanco al principio y al final (espacio común " ", tabulador \t, salto de línea \n, etc.). Si la cadena contiene solo ellos, queda vacía y se convierte en 0.
