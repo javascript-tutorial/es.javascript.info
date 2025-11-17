@@ -1,7 +1,7 @@
 
 # Mutation observer
 
-`MutationObserver` es un objeto incorporado que observa un elemento DOM y dispara un callback cuando hay cambios en él.
+`MutationObserver` es un objeto nativo que observa un elemento DOM y dispara un callback cuando hay cambios en él.
 
 Primero veremos su sintaxis, luego exploraremos un caso de la vida real para ver dónde puede ser útil.
 
