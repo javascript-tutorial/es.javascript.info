@@ -98,7 +98,7 @@ Si un elemento tiene múltiples manejadores para un solo evento, aunque uno de e
 
 En otras palabras, `event.stopPropagation()` detiene la propagación hacia arriba, pero todos los manejadores en el elemento actual se ejecutarán.
 
-Para detener la propagación y evitar que los manejadores del elemento actual se ejecuten, hay un método `event.stopImmediatePropagation()`. Después de él, ningún otro manejador será ejecutado.
+Para detener la propagación e impedir que los manejadores del elemento actual se ejecuten, hay un método `event.stopImmediatePropagation()`. Después de él, ningún otro manejador será ejecutado.
 ```
 
 ```warn header="¡No detengas la propagación si no es necesario!"
@@ -112,7 +112,7 @@ Por ejemplo:
 2.  Luego decidimos atrapar los clic en toda la ventana, para seguir el rastro del comportamiento del usuario (donde hacen clic). Algunos sistemas de análisis hacen eso. Usualmente el código usa `document.addEventListener('click'…)` para atrapar todos los clics.
 3. Nuestro análisis no funcionará sobre el área dónde los clics son detenidos por `stopPropagation`. Tristemente, tenemos una "zona muerta".
 
-Usualmente no hay una necesidad real de evitar la propagación. Cuando algo parece necesitarlo, existen otros medios para resolverlo. Uno es usar eventos personalizados, que cubriremos más adelante. Otro es escribir datos en event en un manejador y leerlos en otro, para pasar información a los manejadores padres.
+Usualmente no hay una necesidad real para impedir la propagación. Cuando algo parece necesitarlo, existen otros medios para resolverlo. Uno es usar eventos personalizados, que cubriremos más adelante. Otro es escribir datos en event en un manejador y leerlos en otro, para pasar información a los manejadores padres.
 ```
 
 ## Captura
@@ -200,7 +200,7 @@ elem.addEventListener("click", e => alert(2));
 ```
 ````
 
-```smart header="`event.stopPropagation()` durante la captura también evita la propagación"
+```smart header="`event.stopPropagation()` durante la captura también impide la propagación"
 El método `event.stopPropagation()` y su hermano `event.stopImmediatePropagation()` también pueden ser llamados en la fase de captura. En este caso no solo se detienen las capturas sino también la propagación.
 
 En otras palabras, normalmente el evento primero va hacia abajo ("captura") y luego hacia arriba ("propagación"). Pero si se llama a `event.stopPropagation()` durante la fase de captura, se detiene la travesía del evento, y la propagación no volverá a ocurrir.
