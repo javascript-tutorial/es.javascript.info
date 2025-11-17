@@ -50,7 +50,6 @@ Este proceso se conoce como "propagación" (bubbling, burbujeo) porque los event
 ```warn header="*Casi* todos los elementos se propagan."
 La palabra clave en esta frase es "casi".
 
-
 Por ejemplo, un evento `focus` no se propaga. Hay otros ejemplos que veremos también. Pero aún así, esta es la excepción a la regla, la mayoría de eventos sí se propagan.
 ```
 
