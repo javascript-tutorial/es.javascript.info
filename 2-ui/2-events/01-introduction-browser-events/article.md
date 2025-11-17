@@ -332,7 +332,7 @@ Algunas propiedades del objeto `event`:
 : Tipo de evento, en este caso fue `"click"`.
 
 `event.currentTarget`
-: Elemento que maneja el evento. Lo que es exactamente igual a `this`, a menos que `this` haya cambiado porque ser el handler sea una función de flecha, o su `this` esté vinculado a otra cosa. event.currentTarget`siempre apunta al elemento.
+: Elemento que maneja el evento. Lo que es exactamente igual a `this`, a menos que `this` haya cambiado por ser el handler una función de flecha, o su `this` esté vinculado a otra cosa. event.currentTarget`siempre apunta al elemento.
 
 `event.clientX` / `event.clientY`
 : Coordenadas del cursor relativas a la ventana, para eventos de cursor.
