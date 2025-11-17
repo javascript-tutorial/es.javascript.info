@@ -167,7 +167,7 @@ Si mantenemos una referencia a `elem.childNodes`, y añadimos o quitamos nodos d
 ```
 
 ````warn header="No uses `for..in` para recorrer colecciones"
-Las colecciones son iterables usando `for..of`. Algunas veces las personas tratan de utilizar `for..in` para eso.
+Las colecciones son iterables usando `for..of`. Hay quienes tratan de utilizar `for..in` para eso.
 
 Por favor, no lo hagas. El bucle `for..in` itera sobre todas las propiedades enumerables. Y las colecciones tienen unas propiedades "extra" raramente usadas que normalmente no queremos obtener: 
 
@@ -235,7 +235,7 @@ La propiedad `parentElement` devuelve el "elemento" padre, mientras `parentNode`
 Con la excepción de `document.documentElement`:
 
 ```js run
-alert( document.documentElement.parentNode ); // documento
+alert( document.documentElement.parentNode ); // document
 alert( document.documentElement.parentElement ); // null
 ```
 
