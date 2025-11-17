@@ -216,5 +216,5 @@ Obtenemos estos resultados porque:
 - Los operadores de comparación retornan un valor booleano.
 - Las cadenas se comparan letra por letra en orden de diccionario.
 - Cuando se comparan valores de diferentes tipos, se convierten en números (con la excepción de la igualdad estricta).
-- Los valores `null` y `undefined` son `==` iguales entre sí y también iguales a sí mismos, pero no son iguales a ningún otro valor.
+- Los valores `null` y `undefined` son iguales `==` entre sí y también iguales a sí mismos, pero no son iguales a ningún otro valor.
 - Ten cuidado al usar comparaciones como `>` o `<` con variables que ocasionalmente pueden ser `null/undefined`. Comprobar `null/undefined` por separado suele ser una buena idea.
