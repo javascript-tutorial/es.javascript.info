@@ -45,13 +45,12 @@ Un clic en el elemento del interior `<p>` primero ejecuta `onclick`:
 
 Así si hacemos clic en `<p>`, entonces veremos 3 alertas: `p` -> `div` -> `form`.
 
-Este proceso se conoce como "propagación" porque los eventos "se propagan" desde el elemento más al interior, a través de los padres, como una burbuja en el agua.
+Este proceso se conoce como "propagación" (bubbling, burbujeo) porque los eventos "se propagan" desde el elemento más al interior, a través de los padres, como una burbuja en el agua.
 
 ```warn header="*Casi* todos los elementos se propagan."
 La palabra clave en esta frase es "casi".
 
-
-Por ejemplo, un evento `focus` no se propaga. Hay otros ejemplos también, los veremos. Pero aún así, esta es la excepción a la regla, la mayoría de eventos sí se propagan.
+Por ejemplo, un evento `focus` no se propaga. Hay otros ejemplos que veremos también. Pero aún así, esta es la excepción a la regla, la mayoría de eventos sí se propagan.
 ```
 
 ## event.target
@@ -99,7 +98,7 @@ Si un elemento tiene múltiples manejadores para un solo evento, aunque uno de e
 
 En otras palabras, `event.stopPropagation()` detiene la propagación hacia arriba, pero todos los manejadores en el elemento actual se ejecutarán.
 
-Para detener la propagación y prevenir que los manejadores del elemento actual se ejecuten, hay un método `event.stopImmediatePropagation()`. Después de él, ningún otro manejador será ejecutado.
+Para detener la propagación e impedir que los manejadores del elemento actual se ejecuten, hay un método `event.stopImmediatePropagation()`. Después de él, ningún otro manejador será ejecutado.
 ```
 
 ```warn header="¡No detengas la propagación si no es necesario!"
@@ -113,7 +112,7 @@ Por ejemplo:
 2.  Luego decidimos atrapar los clic en toda la ventana, para seguir el rastro del comportamiento del usuario (donde hacen clic). Algunos sistemas de análisis hacen eso. Usualmente el código usa `document.addEventListener('click'…)` para atrapar todos los clics.
 3. Nuestro análisis no funcionará sobre el área dónde los clics son detenidos por `stopPropagation`. Tristemente, tenemos una "zona muerta".
 
-Usualmente no hay una necesidad real para prevenir la propagación, pero una tarea que aparentemente lo requiera puede ser resuelta por otros medios. Uno de ellos es usar eventos personalizados, cubriremos eso más tarde. También podemos escribir nuestros datos en el objeto `event` en un manejador y leerlo en otro, para así poder pasar información sobre el proceso de abajo a los manejadores en los padres.
+Usualmente no hay una necesidad real para impedir la propagación. Cuando algo parece necesitarlo, existen otros medios para resolverlo. Uno es usar eventos personalizados, que cubriremos más adelante. Otro es escribir datos en event en un manejador y leerlos en otro, para pasar información a los manejadores padres.
 ```
 
 ## Captura
@@ -201,7 +200,7 @@ elem.addEventListener("click", e => alert(2));
 ```
 ````
 
-```smart header="`event.stopPropagation()` durante la captura también evita la propagación"
+```smart header="`event.stopPropagation()` durante la captura también impide la propagación"
 El método `event.stopPropagation()` y su hermano `event.stopImmediatePropagation()` también pueden ser llamados en la fase de captura. En este caso no solo se detienen las capturas sino también la propagación.
 
 En otras palabras, normalmente el evento primero va hacia abajo ("captura") y luego hacia arriba ("propagación"). Pero si se llama a `event.stopPropagation()` durante la fase de captura, se detiene la travesía del evento, y la propagación no volverá a ocurrir.

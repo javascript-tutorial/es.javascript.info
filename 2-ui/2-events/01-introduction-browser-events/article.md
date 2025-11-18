@@ -332,7 +332,7 @@ Algunas propiedades del objeto `event`:
 : Tipo de evento, en este caso fue `"click"`.
 
 `event.currentTarget`
-: Elemento que maneja el evento. Lo que exactamente igual a `this`, a menos que el handler sea una función de flecha o su `this` esté vinculado a otra cosa, entonces podemos obtener el elemento desde `event.currentTarget`.
+: Elemento que maneja el evento. Lo que es exactamente igual a `this`, a menos que `this` haya cambiado por ser el handler una función de flecha, o su `this` esté vinculado a otra cosa. event.currentTarget`siempre apunta al elemento.
 
 `event.clientX` / `event.clientY`
 : Coordenadas del cursor relativas a la ventana, para eventos de cursor.
@@ -440,7 +440,7 @@ Hay tres formas de asignar handlers:
 
 1. Atributos HTML: `onclick="..."`.
 2. Propiedades del DOM: `elem.onclick = function`.
-3. Métodos: `elem.addEventListener(event, handler[, phase])` para agregar ó `removeEventListener` para remover.
+3. Métodos: `elem.addEventListener(event, handler[, phase])` para agregarlos ó `removeEventListener` para quitarlos.
 
 Los atributos HTML se usan con moderación, porque JavaScript en medio de una etiqueta HTML luce un poco extraño y ajeno. Además no podemos escribir montones de código ahí.
 
