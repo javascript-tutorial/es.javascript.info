@@ -100,7 +100,11 @@ Digamos que queremos el último elemento de un array.
 
 Algunos lenguajes de programación permiten el uso de índices negativos para este propósito, como `fruits[-1]`.
 
+<<<<<<< HEAD
 Aunque en JavaScript esto no funcionará. El resultado será `undefined`, porque el índice de los corchetes es tratado literalmente.
+=======
+However, in JavaScript it won't work. The result will be `undefined`, because the index in square brackets is treated literally.
+>>>>>>> d78b01e9833009fab534462e05c03cffc51bf0e3
 
 Podemos calcular explícitamente el último índice y luego acceder al elemento: `fruits[fruits.length - 1]`.
 
