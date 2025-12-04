@@ -1,12 +1,12 @@
 # Export e Import
 
-Las directivas export e import tienen varias variantes de sintaxis.
-
+Las directivas export e import tienen varias formas de sintaxis.
+ 
 En el artículo anterior vimos un uso simple, ahora exploremos más ejemplos.
 
 ## Export antes de las sentencias
 
-Podemos etiquetar cualquier sentencia como exportada colocando 'export' antes, ya sea una variable, función o clase.
+Podemos exportar cualquier declaración colocando antes 'export', ya sea una variable, función o clase.
 
 Por ejemplo, aquí todas las exportaciones son válidas:
 
@@ -18,7 +18,7 @@ Por ejemplo, aquí todas las exportaciones son válidas:
 *!*export*/!* const MODULES_BECAME_STANDARD_YEAR = 2015;
 
 // exportar una clase
-*!*export*/!* clase User {
+*!*export*/!* class User {
   constructor(name) {
     this.name = name;
   }
@@ -28,14 +28,14 @@ Por ejemplo, aquí todas las exportaciones son válidas:
 ````smart header="Sin punto y coma después de export clase/función"
 Tenga en cuenta que `export` antes de una clase o una función no la hace una [expresión de función](info:function-expressions). Sigue siendo una declaración de función, aunque exportada.
 
-La mayoría de las guías de estilos JavaScript no recomiendan los punto y comas después de declarar funciones y clases.
+La mayoría de las guías de estilos JavaScript no recomiendan punto y coma después de declarar funciones y clases.
 
 Es por esto que no hay necesidad de un punto y coma al final de `export class` y `export function`:
 
 ```js
 export function sayHi(user) {
   alert(`Hello, ${user}!`);
-} *!* // no ; at the end */!*
+} *!* // sin ; al final */!*
 ```
 
 ````
@@ -130,7 +130,7 @@ Exportemos funciones como `hi` y `bye`:
 export {sayHi as hi, sayBye as bye};
 ```
 
-Ahora `hi` y `bye` son los nombres oficiales para desconocidos, a ser utilizados en importaciones:
+Ahora `hi` y `bye` son los nombres oficiales exportados, los que usarán otros módulos al hacer sus importaciones.
 
 ```js
 // 📁 main.js
@@ -144,8 +144,8 @@ say.*!*bye*/!*('John'); // Bye, John!
 
 En la práctica, existen principalmente dos tipos de módulos.
 
-1. Módulos que contienen una librería, paquete de funciones, como `say.js` de arriba.
-2. Módulos que declaran una entidad simple, por ejemplo un módulo `user.js` exporta únicamente `class User`.
+1. Módulos que contienen una librería, un paquete de funciones como `say.js` de arriba.
+2. Módulos que declaran una entidad simple, por ejemplo un módulo `user.js` que exporta únicamente `class User`.
 
 Principalmente, se prefiere el segundo enfoque, de modo que cada "cosa" reside en su propio módulo.
 
@@ -338,7 +338,7 @@ import {login, logout} from 'auth/index.js'
 
 El "archivo principal", `auth/index.js`, exporta toda la funcionalidad que queremos brindar en nuestro paquete.
 
-La idea es que los extraños, los desarrolladores que usan nuestro paquete, no deben entrometerse con su estructura interna, buscar archivos dentro de nuestra carpeta de paquetes. Exportamos solo lo que es necesario en `auth/index.js` y mantenemos el resto oculto a miradas indiscretas.
+La idea es que los desarrolladores que usen nuestro paquete no deben lidiar con su estructura interna, buscar archivos dentro de nuestra carpeta de paquetes. Exportamos solo lo que es necesario en `auth/index.js` y mantenemos el resto oculto a miradas indiscretas.
 
 Como la funcionalidad real exportada se encuentra dispersa entre el paquete, podemos importarla en `auth/index.js` y exportar desde ella:
 
@@ -440,15 +440,15 @@ import {sayHi} from './say.js'; // import al final del archivo
 
 En la práctica, las importaciones generalmente se encuentran al comienzo del archivo, pero eso es solo para mayor comodidad.
 
-**Tenga en cuenta que las declaraciones de import/export no funcionan si están dentro `{...}`.**
+**Tenga en cuenta que import y export solo funcionan en el nivel superior del módulo, no dentro de ningún bloque `{...}`.**
 
-Una importación condicional, como esta, no funcionará:
+Una importación condicional como esta no funcionará:
 ```js
 if (something) {
   import {sayHi} from "./say.js"; // Error: import debe estar en nivel superior
 }
 ```
 
-...Pero, ¿qué pasa si realmente necesitamos importar algo condicionalmente? O en el momento adecuado? Por ejemplo, ¿cargar un módulo a pedido, cuando realmente se necesita?
+Pero ¿qué pasa si realmente necesitamos importar algo condicionalmente? ¿O en el momento adecuado? Por ejemplo, cargar un módulo a pedido, cuando realmente se necesita.
 
 Veremos importaciones dinámicas en el próximo artículo.
