@@ -6,7 +6,7 @@ En el artículo anterior vimos un uso simple, ahora exploremos más ejemplos.
 
 ## Export antes de las sentencias
 
-Podemos exportar cualquier declaración colocando antes 'export', ya sea una variable, función o clase.
+Podemos exportar cualquier declaración colocando antes 'export', ya sea a una variable, función o clase.
 
 Por ejemplo, aquí todas las exportaciones son válidas:
 
@@ -338,7 +338,7 @@ import {login, logout} from 'auth/index.js'
 
 El "archivo principal", `auth/index.js`, exporta toda la funcionalidad que queremos brindar en nuestro paquete.
 
-La idea es que los desarrolladores que usen nuestro paquete no deben lidiar con su estructura interna, buscar archivos dentro de nuestra carpeta de paquetes. Exportamos solo lo que es necesario en `auth/index.js` y mantenemos el resto oculto a miradas indiscretas.
+La idea es que los desarrolladores que usen nuestro paquete no deban lidiar con su estructura interna, buscar archivos dentro de nuestra carpeta de paquetes. Exportamos solo lo que es necesario en `auth/index.js` y mantenemos el resto oculto a miradas indiscretas.
 
 Como la funcionalidad real exportada se encuentra dispersa entre el paquete, podemos importarla en `auth/index.js` y exportar desde ella:
 
