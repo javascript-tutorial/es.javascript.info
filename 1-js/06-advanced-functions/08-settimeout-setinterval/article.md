@@ -218,7 +218,11 @@ Y aquí está la imagen para el `setTimeout` anidado:
 
 ![](settimeout-interval.svg)
 
+<<<<<<< HEAD
 **El `setTimeout` anidado garantiza el retraso fijo (aquí 100ms).**
+=======
+**The nested `setTimeout` ensures a minimum delay (100ms here) between the end of one call and the beginning of the subsequent one.**
+>>>>>>> ff804bc19351b72bc5df7766f4b9eb8249a3cb11
 
 Esto se debe a que se planea una nueva llamada al final de la anterior.
 

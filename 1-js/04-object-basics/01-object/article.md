@@ -5,7 +5,11 @@ Como aprendimos en el capítulo <info:types>, hay ocho tipos de datos en JavaScr
 
 En contraste, los objetos son usados para almacenar colecciones de varios datos y entidades más complejas asociados con un nombre clave. En JavaScript, los objetos penetran casi todos los aspectos del lenguaje. Por lo tanto, debemos comprenderlos primero antes de profundizar en cualquier otro lugar. 
 
+<<<<<<< HEAD
 Podemos crear un objeto usando las llaves `{…}` con una lista opcional de *propiedades*. Una propiedad es un par "key:value", donde `key` es un string (también llamado "nombre clave"), y `value` puede ser cualquier cosa. P.D. Para fines prácticos de la lección, nos referiremos a este par de conceptos como "clave:valor".
+=======
+An object can be created with curly braces `{…}` with an optional list of *properties*. A property is a "key: value" pair, where `key` is a string (also called a "property name"), and `value` can be anything.
+>>>>>>> ff804bc19351b72bc5df7766f4b9eb8249a3cb11
 
 Podemos imaginar un objeto como un gabinete con archivos firmados. Cada pieza de datos es almacenada en su archivo por la clave. Es fácil encontrar un archivo por su nombre o agregar/eliminar un archivo.
 
@@ -20,7 +24,11 @@ let user = {};  // sintaxis de "objeto literal"
 
 ![](object-user-empty.svg)
 
+<<<<<<< HEAD
 Normalmente se utilizan las llaves `{...}`. Esa declaración se llama *objeto literal*.
+=======
+Usually, the curly braces `{...}` are used. That declaration is called an *object literal*.
+>>>>>>> ff804bc19351b72bc5df7766f4b9eb8249a3cb11
 
 ## Literales y propiedades
 

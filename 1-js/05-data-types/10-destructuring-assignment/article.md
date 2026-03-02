@@ -80,8 +80,13 @@ Esto funciona, porque internamente una desestructuración trabaja iterando sobre
 ````
 
 
+<<<<<<< HEAD
 ````smart header="Asignar a cualquier cosa en el lado izquierdo"
 Podemos usar cualquier "asignable" en el lado izquierdo.
+=======
+````smart header="Assign to anything on the left-side"
+We can use any "assignables" on the left side.
+>>>>>>> ff804bc19351b72bc5df7766f4b9eb8249a3cb11
 
 Por ejemplo, una propiedad de objeto:
 ```js run

@@ -172,7 +172,11 @@ let userName;
 let test123;
 ```
 
+<<<<<<< HEAD
 Cuando el nombre contiene varias palabras, se suele usar el estilo [camelCase](https://es.wikipedia.org/wiki/Camel_case) (capitalización en camello), donde las palabras van pegadas una detrás de otra, con cada inicial en mayúscula: `miNombreMuyLargo`.
+=======
+When the name contains multiple words, [camelCase](https://en.wikipedia.org/wiki/CamelCase) is commonly used. That is: words go one after another, with each word except the first starting with a capital letter: `myVeryLongName`.
+>>>>>>> ff804bc19351b72bc5df7766f4b9eb8249a3cb11
 
 Es interesante notar que el símbolo del dólar `'$'` y el guion bajo `'_'` también se utilizan en nombres. Son símbolos comunes, tal como las letras, sin ningún significado especial.
 
