@@ -1,7 +1,7 @@
 
 # Módulos, introducción
 
-A medida que nuestra aplicación crece, queremos dividirla en múltiples archivos, llamados "módulos". Un módulo puede contener una clase o una biblioteca de funciones para un propósito específico.
+A medida que nuestra aplicación crece, queremos dividirla en múltiples archivos, los llamados "módulos". Un módulo puede contener una clase o una biblioteca de funciones para un propósito específico.
 
 Durante mucho tiempo, JavaScript existió sin una sintaxis de módulo a nivel de lenguaje. Esto no era un problema, porque inicialmente los scripts eran pequeños y simples.
 
