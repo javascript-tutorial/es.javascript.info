@@ -5,7 +5,7 @@ Como aprendimos en el capítulo <info:types>, hay ocho tipos de datos en JavaScr
 
 En contraste, los objetos son usados para almacenar colecciones de varios datos y entidades más complejas asociados con un nombre clave. En JavaScript, los objetos penetran casi todos los aspectos del lenguaje. Por lo tanto, debemos comprenderlos primero antes de profundizar en cualquier otro lugar. 
 
-Podemos crear un objeto usando las llaves `{…}` con una lista opcional de *propiedades*. Una propiedad es un par "key:value", donde `key` es un string (también llamado "nombre clave"), y `value` puede ser cualquier cosa. P.D. Para fines prácticos de la lección, nos referiremos a este par de conceptos como "clave:valor".
+Un objeto se puede crear con llaves `{ … }` y una lista opcional de *propiedades*. Cada propiedad es un par `"key: value"` ("clave: valor"), donde `key` es un string (también llamado "nombre de propiedad") y `value` puede ser cualquier cosa.
 
 Podemos imaginar un objeto como un gabinete con archivos firmados. Cada pieza de datos es almacenada en su archivo por la clave. Es fácil encontrar un archivo por su nombre o agregar/eliminar un archivo.
 
