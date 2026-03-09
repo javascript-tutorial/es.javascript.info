@@ -154,7 +154,7 @@ Mueve el mouse sobre el campo de entrada para ver `clientX/clientY` (el ejemplo 
 ```
 ````
 
-## Previniendo la selección en mousedown
+## Impedir la selección en mousedown
 
 El doble clic del mouse tiene un efecto secundario que puede ser molesto en algunas interfaces: selecciona texto.
 
@@ -166,9 +166,9 @@ Por ejemplo, un doble clic en el texto de abajo lo selecciona además de activar
 
 Si se pulsa el botón izquierdo del ratón y, sin soltarlo, mueve el ratón, también hace la selección, a menudo no deseado.
 
-Hay varias maneras de evitar la selección, que se pueden leer en el capítulo <info:selection-range>.
+Hay varias maneras de impedir la selección, que se pueden leer en el capítulo <info:selection-range>.
 
-En este caso particular, la forma más razonable es evitar la acción del navegador `mousedown`. Esto evita ambas selecciones:
+En este caso particular, la forma más razonable es impedir la acción del navegador `mousedown`. Esto impide ambas selecciones:
 
 ```html autorun height=50
 Antes...
@@ -182,17 +182,17 @@ Ahora el elemento en negrita no se selecciona con doble clic, y al mantener pres
 
 Tenga en cuenta: el texto dentro de él todavía es seleccionable. Sin embargo, la selección no debe comenzar en el texto en sí, sino antes o después. Por lo general, eso está bien para los usuarios.
 
-````smart header="Previniendo copias"
-Si queremos inhabilitar la selección para proteger nuestro contenido de la página del copy-paste, entonces podemos utilizar otro evento: `oncopy`.
+````smart header="Impedir copias"
+Si queremos impedir la selección para proteger nuestro contenido de la página del copy-paste, entonces podemos utilizar otro evento: `oncopy`.
 
 ```html autorun height=80 no-beautify
 <div *!*oncopy="alert('¡Copiado prohibido!');return false"*/!*>
   Querido usuario,
-  El copiado está prohibida para ti.
+  El copiado está prohibido para ti.
   Si sabes JS o HTML entonces puedes obtener todo de la fuente de la página.
 </div>
 ```
-Si intenta copiar un fragmento de texto en el `<div>` no va a funcionar porque la acción default de `oncopy` fue evitada.
+Si intenta copiar un fragmento de texto en el `<div>` no va a funcionar porque la acción predeterminada de `oncopy` fue deshabilitada.
 
 Seguramente el usuario tiene acceso a la fuente HTML de la página, y puede tomar el contenido desde allí, pero no todos saben cómo hacerlo.
 ````
@@ -208,6 +208,6 @@ Los eventos del mouse tienen las siguientes propiedades:
 - Coordenadas relativas a la ventana: `clientX/clientY`.
 - Coordenadas relativas al documento: `pageX/pageY`.
 
-La acción predeterminada del navegador `mousedown` es la selección del texto, si no es bueno para la interfaz, entonces debe evitarse.
+La acción predeterminada del navegador `mousedown` es la selección del texto, si no es bueno para la interfaz, entonces debe impedirse.
 
 En el próximo capítulo veremos más detalles sobre los eventos que siguen al movimiento del puntero y cómo rastrear los cambios de elementos debajo de él.

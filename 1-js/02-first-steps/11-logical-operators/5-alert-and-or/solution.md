@@ -12,5 +12,5 @@ El resultado de `2 && 3 = 3`, por lo que la expresión se convierte en:
 null || 3 || 4
 ```
 
-Ahora el resultado será el primer valor verdadero: `3`.
+Ahora el resultado será el primer valor truthy: `3`.
 

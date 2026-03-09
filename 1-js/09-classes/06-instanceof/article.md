@@ -10,7 +10,7 @@ La sintaxis es:
 ```js
 obj instanceof Class
 ```
-Devuelve `true` si `obj` pertenece a la `Class` o una clase que hereda de ella.
+Devuelve `true` si `obj` pertenece a `Class` o una clase que hereda de ella.
 
 Por ejemplo:
 
@@ -20,7 +20,7 @@ let rabbit = new Rabbit();
 
 // ¿Es un objeto de la clase Rabbit?
 *!*
-alert( rabbit instanceof Rabbit ); // verdadero
+alert( rabbit instanceof Rabbit ); // true
 */!*
 ```
 
@@ -32,15 +32,15 @@ También funciona con funciones de constructor:
 function Rabbit() {}
 */!*
 
-alert( new Rabbit() instanceof Rabbit ); // verdadero
+alert( new Rabbit() instanceof Rabbit ); // true
 ```
 
-...Y con clases integradas como `Array`:
+...Y con clases nativas como `Array`:
 
 ```js run
 let arr = [1, 2, 3];
-alert( arr instanceof Array ); // verdadero
-alert( arr instanceof Object ); // verdadero
+alert( arr instanceof Array ); // true
+alert( arr instanceof Object ); // true
 ```
 
 Tenga en cuenta que `arr` también pertenece a la clase `Object`. Esto se debe a que `Array` hereda prototípicamente de `Object`.
@@ -55,7 +55,8 @@ El algoritmo de `obj instanceof Class` funciona más o menos de la siguiente man
 
     ```js run
     // Configurar la verificación con `instanceof`, que asume que
-    // cualquier objeto con la propiedad `canEat` es un Animal
+    // cualquier objeto que tenga la propiedad `canEat` es un `Animal`
+
     class Animal {
       static [Symbol.hasInstance](obj) {
         if (obj.canEat) return true;
@@ -64,7 +65,7 @@ El algoritmo de `obj instanceof Class` funciona más o menos de la siguiente man
 
     let obj = { canEat: true };
 
-    alert(obj instanceof Animal); // verdadero: Animal[Symbol.hasInstance](obj) es llamada
+    alert(obj instanceof Animal); // true: Animal[Symbol.hasInstance](obj) es llamada
     ```
 
 2. La mayoría de las clases no tienen `Symbol.hasInstance`. En ese caso, se utiliza la lógica estándar: `obj instanceof Class` comprueba si `Class.prototype` es igual a alguno de los prototipos en la cadena de prototipos de `obj`.
@@ -90,7 +91,7 @@ El algoritmo de `obj instanceof Class` funciona más o menos de la siguiente man
 
     let rabbit = new Rabbit();
     *!*
-    alert(rabbit instanceof Animal); // verdadero
+    alert(rabbit instanceof Animal); // true
     */!*
 
     // rabbit.__proto__ === Animal.prototype (no match)
@@ -105,7 +106,7 @@ Aquí está la ilustración de lo que `rabbit instanceof Animal` compara con `An
 
 Por cierto, también hay un método [objA.isPrototypeOf(objB)](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/object/isPrototypeOf), que devuelve `true` si `objA` está en algún lugar de la cadena de prototipos para `objB`. Por lo tanto, la prueba de `obj instanceof Class` se puede reformular como `Class.prototype.isPrototypeOf(obj)`.
 
-Es divertido, ¡pero el constructor `Class` en sí mismo no participa en el chequeo! Solo importa la cadena de prototipos y `Class.prototype`.
+Es extraño, ¡pero el constructor `Class` en sí mismo no participa en el chequeo! Solo importa la cadena de prototipos y `Class.prototype`.
 
 Eso puede llevar a consecuencias interesantes cuando se cambia una propiedad `prototype` después de crear el objeto.
 
@@ -120,7 +121,7 @@ Rabbit.prototype = {};
 
 // ...ya no es un conejo!
 *!*
-alert( rabbit instanceof Rabbit ); // falso
+alert( rabbit instanceof Rabbit ); // false
 */!*
 ```
 
@@ -200,7 +201,7 @@ Como puedes ver, el resultado es exactamente `Symbol.toStringTag` (si existe), e
 
 Al final tenemos "typeof con esteroides" que no solo funciona para tipos de datos primitivos, sino también para objetos incorporados e incluso puede personalizarse.
 
-Podemos usar `{}.toString.call` en lugar de `instanceof` para los objetos incorporados cuando deseamos obtener el tipo como una cadena en lugar de solo verificar.
+Podemos usar `{}.toString.call` en lugar de `instanceof` para los objetos nativos cuando deseamos obtener el tipo como una cadena en lugar de solo verificar.
 
 ## Resumen
 

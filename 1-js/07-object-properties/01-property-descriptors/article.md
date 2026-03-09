@@ -259,7 +259,7 @@ Object.defineProperty(user, "name", {
   configurable: false
 });
 
-// No seremos capaces de cambiar usuario.nombre o sus identificadores
+// No seremos capaces de cambiar user.name o sus identificadores
 // Nada de esto funcionará:
 user.name = "Pedro";
 delete user.name;

@@ -1,7 +1,7 @@
 
-# Ampliación de clases integradas
+# Ampliación de clases nativas
 
-Las clases integradas como Array, Map y otras también son extensibles.
+Las clases nativas como Array, Map y otras también son extensibles.
 
 Por ejemplo, aquí `PowerArray` hereda del `Array` nativo:
 
@@ -34,7 +34,7 @@ Aún más, podemos personalizar ese comportamiento.
 
 Podemos agregar un `getter` estático especial `Symbol.species` a la clase. Si existe, debería devolver el constructor que JavaScript usará internamente para crear nuevas entidades en `map`, `filter` y así sucesivamente.
 
-Si queremos que los métodos incorporados como `map` o `filter` devuelvan matrices regulares, podemos devolver `Array` en `Symbol.species`, como aquí:
+Si queremos que los métodos nativos como `map` o `filter` devuelvan matrices regulares, podemos devolver `Array` en `Symbol.species`, como aquí:
 
 ```js run
 class PowerArray extends Array {
@@ -43,7 +43,7 @@ class PowerArray extends Array {
   }
 
 *!*
-  // los métodos incorporados usarán esto como el constructor
+  // los métodos nativos usarán esto como el constructor
   static get [Symbol.species]() {
     return Array;
   }
@@ -68,7 +68,7 @@ Como puede ver, ahora `.filter` devuelve un `Array`. Por lo tanto, la funcionali
 Otras colecciones, como `Map` y `Set`, funcionan igual. También usan `Symbol.species`.
 ```
 
-## Sin herencia estática en incorporados
+## Sin herencia estática en nativos
 
 Los objetos nativos tienen sus propios métodos estáticos, por ejemplo, `Object.keys`, `Array.isArray`, etc.
 
@@ -86,4 +86,4 @@ Imagen de la estructura para `Date` y `Object`:
 
 Como puede ver, no hay un vínculo entre `Date` y `Object`. Son independientes, solo `Date.prototype` hereda de `Object.prototype`.
 
-Esa es una diferencia importante de herencia entre los objetos integrados en comparación con lo que obtenemos con 'extends`.
+Esa es una diferencia importante de herencia entre los objetos nativos en comparación con lo que obtenemos con 'extends`.

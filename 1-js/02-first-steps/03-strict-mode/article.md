@@ -4,7 +4,7 @@ Durante mucho tiempo, JavaScript evolucionó sin problemas de compatibilidad. Se
 
 Esto tenía el beneficio de nunca romper código existente, pero lo malo era que cualquier error o decisión incorrecta tomada por los creadores de JavaScript se quedaba para siempre en el lenguaje.
 
-Esto fue así hasta 2009, cuando ECMAScript 5 (ES5) apareció. Esta versión añadió nuevas características al lenguaje y modificó algunas de las ya existentes. Para mantener el código antiguo funcionando, la mayor parte de las modificaciones están desactivadas por defecto. Tienes que activarlas explícitamente usando una directiva especial: `"use strict"`.
+Esto fue así hasta 2009, cuando ECMAScript 5 (ES5) apareció. Esta versión añadió nuevas características al lenguaje y modificó algunas de las ya existentes. Para mantener el código antiguo funcionando, la mayoría de estas nuevas características están desactivadas por defecto. Tienes que activarlas explícitamente usando una directiva especial: `"use strict"`.
 
 ## "use strict"
 
