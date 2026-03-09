@@ -266,7 +266,11 @@ alert( c ); // 4
 
 Las asignaciones encadenadas evalúan de derecha a izquierda. Primero, se evalúa la expresión más a la derecha `2 + 2` y luego se asigna a las variables de la izquierda: `c`, `b` y `a`. Al final, todas las variables comparten un solo valor.
 
+<<<<<<< HEAD
 Una vez más, con el propósito de la legibilidad es mejor separa tal código en unas pocas líneas:
+=======
+Once again, for the purposes of readability it's better to split such code into a few lines:
+>>>>>>> 52c1e61915bc8970a950a3f59bd845827e49b4bf
 
 ```js
 c = 2 + 2;
