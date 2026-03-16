@@ -211,10 +211,11 @@ Obtenemos estos resultados porque:
 
 - No uses comparaciones `>= > < <=` con una variable que puede ser `null/undefined`, a menos que estés realmente seguro de lo que estás haciendo. Si una variable puede tener estos valores, verifícalos por separado.
 
+
 ## Resumen
 
-- Los operadores de comparación retornan un valor booleano.
-- Las cadenas se comparan letra por letra en orden de diccionario.
-- Cuando se comparan valores de diferentes tipos, se convierten en números (con la excepción de la igualdad estricta).
-- Los valores `null` y `undefined` son iguales `==` entre sí y también iguales a sí mismos, pero no son iguales a ningún otro valor.
-- Ten cuidado al usar comparaciones como `>` o `<` con variables que ocasionalmente pueden ser `null/undefined`. Comprobar `null/undefined` por separado suele ser una buena idea.
+- Los operadores de comparación devuelven un valor booleano.  
+- Las cadenas se comparan letra por letra, siguiendo el orden del diccionario.  
+- Cuando se comparan valores de distintos tipos, se convierten a números (excepto en la comprobación de igualdad estricta `===`).  
+- Los valores `null` y `undefined` son iguales `==` a sí mismos y entre sí, pero no equivalen a ningún otro valor.  
+- Ten cuidado al usar comparaciones como `>` o `<` con variables que ocasionalmente pueden ser `null` o `undefined`. Es recomendable revisar esos casos por separado.
