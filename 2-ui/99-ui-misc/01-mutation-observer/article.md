@@ -101,23 +101,23 @@ Así, `MutationObserver` permite reaccionar a cualquier cambio dentro del subár
 
 ¿Cuándo puede ser práctico esto?
 
-Imagina la situación cuando necesitas añadir un script de terceros que contiene funcionalidad útil, pero también hace algo no deseado, por ejemplo añadir publicidad `<div class="ads">Unwanted ads</div>`.
+Imagina la situación en la que necesitas añadir un script de terceros que contiene funcionalidad útil, pero también hace algo no deseado, por ejemplo añadir publicidad `<div class="ads">Unwanted ads</div>`.
 
-Naturalmente el script de terceras partes no proporciona mecanismos para removerlo.
+Naturalmente, el script de terceros no proporciona mecanismos para eliminarla.
 
-Usando `MutationObserver` podemos detectar cuándo aparece el elemento no deseado en nuestro DOM y removerlo.
+Usando `MutationObserver` podemos detectar cuándo aparece el elemento no deseado en el DOM y eliminarlo.
 
-Hay otras situaciones, como cuando un script de terceras partes agrega algo en nuestro documento y quisiéramos detectarlo para adaptar nuestra página y cambiar el tamaño de algo dinámicamente, etc.
+Hay otras situaciones, como cuando un script de terceros agrega algo a nuestro documento y queremos detectarlo para adaptar la página, ajustar el tamaño de algún elemento dinámicamente, etc.
 
 `MutationObserver` permite implementarlo.
 
 ## Uso para arquitectura
 
-Hay también situaciones donde `MutationObserver` es bueno desde el punto de vista de la arquitectura.
+Hay también situaciones donde `MutationObserver` es útil desde el punto de vista de la arquitectura.
 
 Digamos que estamos haciendo un sitio web acerca de programación. Naturalmente, los artículos y otros materiales pueden contener fragmentos de código.
 
-Tal fragmento en un markup HTML se ve como esto:
+Un fragmento de código en HTML se ve así:
 
 ```html
 ...
@@ -128,13 +128,13 @@ Tal fragmento en un markup HTML se ve como esto:
 ...
 ```
 
-Para mejorar la legibilidad y al mismo tiempo embellecerlo, usaremos una librería JavaScript de "highlighting" para resaltar elementos de nuestro sitio, por ejemplo [Prism.js](https://prismjs.com/). Para obtener sintaxis resaltada para el fragmento de arriba en Prism, llamamos a `Prism.highlightElem(pre)`, que examina el contenido de tales elementos y les agrega tags y styles especiales para obtener sintaxis resaltada con color, similares a los que ves en esta página.
+Para mejorar la legibilidad y, al mismo tiempo, embellecer el sitio, usaremos una librería de resaltado de sintaxis de JavaScript, como [Prism.js](https://prismjs.com/). Para obtener resaltado de sintaxis para el fragmento anterior en Prism, se llama a `Prism.highlightElement(pre)`, que examina el contenido de esos elementos `pre` y les agrega etiquetas y estilos especiales para aplicar el resaltado de sintaxis con colores, similar al que ves en los ejemplos de esta página.
 
-¿Exactamente cuándo ejecutar tal método de highlighting? Bien, podemos hacerlo en el evento `DOMContentLoaded`, o poner el script al final de la página. En el momento en que tenemos nuestro DOM listo buscamos los elementos `pre[class*="language"]` y llamamos `Prism.highlightElem` en ellos:
+¿Cuándo debemos ejecutar exactamente ese método de resaltado? Podemos hacerlo en el evento `DOMContentLoaded` o colocar el script al final de la página. En cuanto el DOM esté listo, buscamos los elementos `pre[class*="language"]` y llamamos a `Prism.highlightElement` para cada uno:
 
 ```js
 // resaltar todos los fragmentos de código en la página
-document.querySelectorAll('pre[class*="language"]').forEach(Prism.highlightElem);
+document.querySelectorAll('pre[class*="language"]').forEach(elem => Prism.highlightElement(elem));
 ```
 
 Todo es simple hasta ahora, ¿verdad? Buscamos fragmentos de código en HTML y los resaltamos.
@@ -146,11 +146,11 @@ let article = /* busca contenido nuevo desde un servidor */
 articleElem.innerHTML = article;
 ```
 
-El nuevo elemento HTML `article` puede contener fragmentos de código. Necesitamos llamar `Prism.highlightElem` en ellos, de otro modo no se resaltarían.
+El nuevo elemento HTML `article` puede contener fragmentos de código. Necesitamos llamar a `Prism.highlightElement` para ellos; de lo contrario, no se resaltarán.
 
-**¿Dónde y cuándo llamar `Prism.highlightElem` en un artículo cargado dinámicamente?**
+**¿Dónde y cuándo debemos llamar a `Prism.highlightElement` para un artículo cargado dinámicamente?**
 
-Podríamos agregar el llamado al código que carga un "article", como esto:
+Podríamos agregar la llamada al código que carga un "article", por ejemplo:
 
 ```js
 let article = /* busca contenido nuevo desde un servidor */
@@ -158,21 +158,21 @@ articleElem.innerHTML = article;
 
 *!*
 let snippets = articleElem.querySelectorAll('pre[class*="language-"]');
-snippets.forEach(Prism.highlightElem);
+snippets.forEach(elem => Prism.highlightElement(elem));
 */!*
 ```
 
-...Pero imagina que tenemos muchos lugares en el código donde cargamos contenido: artículos, cuestionarios, entradas de foros. ¿Necesitamos poner el llamado al "highlighting" en todos lugares? Eso no es muy conveniente.
+... pero imagina que tenemos muchos lugares en el código donde cargamos contenido: artículos, cuestionarios, entradas de foros. ¿Necesitamos agregar la llamada al resaltado de sintaxis en todos ellos? No sería muy conveniente.
 
-¿Y si el contenido es cargado por un módulo de terceras partes? Por ejemplo tenemos un foro, escrito por algún otro, que carga contenido dinámicamente y quisiéramos añadirle sintaxis resaltada. A nadie le gusta emparchar scripts de terceras partes.
+¿Y si el contenido lo carga un módulo de terceros? Por ejemplo, tenemos un foro escrito por otra persona que carga contenido dinámicamente, y queremos añadirle resaltado de sintaxis. A nadie le gusta modificar scripts de terceros.
 
-Afortunadamente hay otra opción.
+Afortunadamente, hay otra opción.
 
-Podemos usar `MutationObserver` para detectar automáticamente cuándo los fragmentos de código son insertados en la página y resaltarlos.
+Podemos usar `MutationObserver` para detectar automáticamente cuándo se insertan fragmentos de código en la página y resaltarlos.
 
-Entonces manejaremos la funcionalidad de "highlighting" en un único lugar, liberándonos de la necesidad de integrarlo.
+Así, podemos manejar el resaltado de sintaxis desde un único lugar, sin necesidad de integrarlo en cada punto donde se carga contenido.
 
-### Demo de highlight dinámico
+### Demo de resaltado dinámico
 
 Aquí el ejemplo funcionando.
 
@@ -228,7 +228,7 @@ demoElem.innerHTML = `A code snippet is below:
 `;
 ```
 
-Ahora tenemos un `MutationObserver` que puede rastrear todo el "highlighting" en los elementos observados del `document` entero. Podemos agregar o quitar fragmentos de código en el HTML sin siquiera pensar en ello.
+Ahora tenemos un `MutationObserver` que puede rastrear todo el resaltado en los elementos observados del `document` entero. Podemos agregar o quitar fragmentos de código en el HTML sin siquiera pensar en ello.
 
 ## Métodos adicionales
 
@@ -254,7 +254,7 @@ observer.disconnect();
 ```
 
 
-```smart header="Lo registros devueltos por `observer.takeRecords()` son quitados de la cola de procesamiento"
+```smart header="Los registros devueltos por `observer.takeRecords()` son eliminados de la cola de procesamiento"
 El callback no será llamado en registros devueltos por `observer.takeRecords()`.
 ```
 
@@ -264,10 +264,10 @@ Los observadores usan internamente referencias débiles a nodos. Esto es: si un 
 El mero hecho de que un nodo DOM sea observado no evita la recolección de basura.
 ```
 
-## Resumen  
+## Resumen
 
-`MutationObserver` puede reaccionar a cambios en el DOM: atributos, contenido de texto y añadir o quitar elementos.
+`MutationObserver` puede reaccionar a cambios en el DOM: atributos, contenido de texto y la adición o eliminación de elementos.
 
-Podemos usarlo para rastrear cambios introducidos por otras partes de nuestro código o bien para integrarlo con scripts de terceras partes.
+Podemos usarlo para rastrear cambios introducidos por otras partes de nuestro código o para integrarlo con scripts de terceros.
 
-`MutationObserver` puede rastrear cualquier cambio. Las opciones de `config` permiten establecer qué se va a observar, se usa para optimización y no desperdiciar recursos en llamados al callback innecesarios.
+`MutationObserver` puede rastrear cualquier cambio. Las opciones de `config` permiten especificar qué se va a observar. Esto sirve para optimizar el rendimiento y evitar llamadas innecesarias al callback.
